@@ -131,6 +131,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.Model.GlueTable[] InputRecordTable { get; set; }
         #endregion
         
+        #region Parameter MlUserDataEncryption_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The ID for the customer-provided KMS key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TransformEncryption_MlUserDataEncryption_KmsKeyId")]
+        public System.String MlUserDataEncryption_KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter MaxCapacity
         /// <summary>
         /// <para>
@@ -160,6 +171,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaxRetries")]
         public System.Int32? MaxRetry { get; set; }
+        #endregion
+        
+        #region Parameter MlUserDataEncryption_MlUserDataEncryptionMode
+        /// <summary>
+        /// <para>
+        /// <para>The encryption mode applied to user data. Valid values are:</para><ul><li><para>DISABLED: encryption is disabled</para></li><li><para>SSEKMS: use of server-side encryption with AWS Key Management Service (SSE-KMS) for
+        /// user data stored in Amazon S3.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode")]
+        [AWSConstantClassSource("Amazon.Glue.MLUserDataEncryptionModeString")]
+        public Amazon.Glue.MLUserDataEncryptionModeString MlUserDataEncryption_MlUserDataEncryptionMode { get; set; }
         #endregion
         
         #region Parameter Name
@@ -258,6 +282,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter TransformEncryption_TaskRunSecurityConfigurationName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the security configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TransformEncryption_TaskRunSecurityConfigurationName { get; set; }
+        #endregion
+        
         #region Parameter Timeout
         /// <summary>
         /// <para>
@@ -273,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Parameters_TransformType
         /// <summary>
         /// <para>
-        /// <para>The type of machine learning transform.</para><para>For information about the types of machine learning transforms, see <a href="http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating
+        /// <para>The type of machine learning transform.</para><para>For information about the types of machine learning transforms, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating
         /// Machine Learning Transforms</a>.</para>
         /// </para>
         /// </summary>
@@ -417,6 +451,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 }
             }
             context.Timeout = this.Timeout;
+            context.MlUserDataEncryption_KmsKeyId = this.MlUserDataEncryption_KmsKeyId;
+            context.MlUserDataEncryption_MlUserDataEncryptionMode = this.MlUserDataEncryption_MlUserDataEncryptionMode;
+            context.TransformEncryption_TaskRunSecurityConfigurationName = this.TransformEncryption_TaskRunSecurityConfigurationName;
             context.WorkerType = this.WorkerType;
             
             // allow further manipulation of loaded context prior to processing
@@ -548,6 +585,60 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.Timeout = cmdletContext.Timeout.Value;
             }
+            
+             // populate TransformEncryption
+            var requestTransformEncryptionIsNull = true;
+            request.TransformEncryption = new Amazon.Glue.Model.TransformEncryption();
+            System.String requestTransformEncryption_transformEncryption_TaskRunSecurityConfigurationName = null;
+            if (cmdletContext.TransformEncryption_TaskRunSecurityConfigurationName != null)
+            {
+                requestTransformEncryption_transformEncryption_TaskRunSecurityConfigurationName = cmdletContext.TransformEncryption_TaskRunSecurityConfigurationName;
+            }
+            if (requestTransformEncryption_transformEncryption_TaskRunSecurityConfigurationName != null)
+            {
+                request.TransformEncryption.TaskRunSecurityConfigurationName = requestTransformEncryption_transformEncryption_TaskRunSecurityConfigurationName;
+                requestTransformEncryptionIsNull = false;
+            }
+            Amazon.Glue.Model.MLUserDataEncryption requestTransformEncryption_transformEncryption_MlUserDataEncryption = null;
+            
+             // populate MlUserDataEncryption
+            var requestTransformEncryption_transformEncryption_MlUserDataEncryptionIsNull = true;
+            requestTransformEncryption_transformEncryption_MlUserDataEncryption = new Amazon.Glue.Model.MLUserDataEncryption();
+            System.String requestTransformEncryption_transformEncryption_MlUserDataEncryption_mlUserDataEncryption_KmsKeyId = null;
+            if (cmdletContext.MlUserDataEncryption_KmsKeyId != null)
+            {
+                requestTransformEncryption_transformEncryption_MlUserDataEncryption_mlUserDataEncryption_KmsKeyId = cmdletContext.MlUserDataEncryption_KmsKeyId;
+            }
+            if (requestTransformEncryption_transformEncryption_MlUserDataEncryption_mlUserDataEncryption_KmsKeyId != null)
+            {
+                requestTransformEncryption_transformEncryption_MlUserDataEncryption.KmsKeyId = requestTransformEncryption_transformEncryption_MlUserDataEncryption_mlUserDataEncryption_KmsKeyId;
+                requestTransformEncryption_transformEncryption_MlUserDataEncryptionIsNull = false;
+            }
+            Amazon.Glue.MLUserDataEncryptionModeString requestTransformEncryption_transformEncryption_MlUserDataEncryption_mlUserDataEncryption_MlUserDataEncryptionMode = null;
+            if (cmdletContext.MlUserDataEncryption_MlUserDataEncryptionMode != null)
+            {
+                requestTransformEncryption_transformEncryption_MlUserDataEncryption_mlUserDataEncryption_MlUserDataEncryptionMode = cmdletContext.MlUserDataEncryption_MlUserDataEncryptionMode;
+            }
+            if (requestTransformEncryption_transformEncryption_MlUserDataEncryption_mlUserDataEncryption_MlUserDataEncryptionMode != null)
+            {
+                requestTransformEncryption_transformEncryption_MlUserDataEncryption.MlUserDataEncryptionMode = requestTransformEncryption_transformEncryption_MlUserDataEncryption_mlUserDataEncryption_MlUserDataEncryptionMode;
+                requestTransformEncryption_transformEncryption_MlUserDataEncryptionIsNull = false;
+            }
+             // determine if requestTransformEncryption_transformEncryption_MlUserDataEncryption should be set to null
+            if (requestTransformEncryption_transformEncryption_MlUserDataEncryptionIsNull)
+            {
+                requestTransformEncryption_transformEncryption_MlUserDataEncryption = null;
+            }
+            if (requestTransformEncryption_transformEncryption_MlUserDataEncryption != null)
+            {
+                request.TransformEncryption.MlUserDataEncryption = requestTransformEncryption_transformEncryption_MlUserDataEncryption;
+                requestTransformEncryptionIsNull = false;
+            }
+             // determine if request.TransformEncryption should be set to null
+            if (requestTransformEncryptionIsNull)
+            {
+                request.TransformEncryption = null;
+            }
             if (cmdletContext.WorkerType != null)
             {
                 request.WorkerType = cmdletContext.WorkerType;
@@ -628,6 +719,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String Role { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Int32? Timeout { get; set; }
+            public System.String MlUserDataEncryption_KmsKeyId { get; set; }
+            public Amazon.Glue.MLUserDataEncryptionModeString MlUserDataEncryption_MlUserDataEncryptionMode { get; set; }
+            public System.String TransformEncryption_TaskRunSecurityConfigurationName { get; set; }
             public Amazon.Glue.WorkerType WorkerType { get; set; }
             public System.Func<Amazon.Glue.Model.CreateMLTransformResponse, NewGLUEMLTransformCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TransformId;

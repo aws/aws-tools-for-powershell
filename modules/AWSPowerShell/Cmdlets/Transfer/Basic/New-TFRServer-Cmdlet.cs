@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>A list of address allocation IDs that are required to attach an Elastic IP address
-        /// to your file transfer protocol-enabled server's endpoint. This is only valid in the
-        /// <code>UpdateServer</code> API.</para><note><para>This property can only be use when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
+        /// to your server's endpoint.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>
+        /// and it is only valid in the <code>UpdateServer</code> API.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,10 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointType
         /// <summary>
         /// <para>
-        /// <para>The type of VPC endpoint that you want your file transfer protocol-enabled server
-        /// to connect to. You can choose to connect to the public internet or a VPC endpoint.
-        /// With a VPC endpoint, you can restrict access to your server and resources only within
-        /// your VPC.</para><note><para>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>.
+        /// <para>The type of VPC endpoint that you want your server to connect to. You can choose to
+        /// connect to the public internet or a VPC endpoint. With a VPC endpoint, you can restrict
+        /// access to your server and resources only within your VPC.</para><note><para>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>.
         /// With this endpoint type, you have the option to directly associate up to three Elastic
         /// IPv4 addresses (BYO IP included) with your server's endpoint and use VPC security
         /// groups to restrict traffic by the client's public IP address. This is not possible
@@ -106,12 +105,12 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderType
         /// <summary>
         /// <para>
-        /// <para>Specifies the mode of authentication for a file transfer protocol-enabled server.
-        /// The default value is <code>SERVICE_MANAGED</code>, which allows you to store and access
-        /// user credentials within the AWS Transfer Family service. Use the <code>API_GATEWAY</code>
-        /// value to integrate with an identity provider of your choosing. The <code>API_GATEWAY</code>
-        /// setting requires you to provide an API Gateway endpoint URL to call for authentication
-        /// using the <code>IdentityProviderDetails</code> parameter.</para>
+        /// <para>Specifies the mode of authentication for a server. The default value is <code>SERVICE_MANAGED</code>,
+        /// which allows you to store and access user credentials within the AWS Transfer Family
+        /// service. Use the <code>API_GATEWAY</code> value to integrate with an identity provider
+        /// of your choosing. The <code>API_GATEWAY</code> setting requires you to provide an
+        /// API Gateway endpoint URL to call for authentication using the <code>IdentityProviderDetails</code>
+        /// parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>Specifies the file transfer protocol or protocols over which your file transfer protocol
         /// client can connect to your server's endpoint. The available protocols are:</para><ul><li><para><code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over
         /// SSH</para></li><li><para><code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS encryption</para></li><li><para><code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</para></li></ul><note><para>If you select <code>FTPS</code>, you must choose a certificate stored in AWS Certificate
-        /// Manager (ACM) which will be used to identify your file transfer protocol-enabled server
-        /// when clients connect to it over FTPS.</para><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
+        /// Manager (ACM) which will be used to identify your server when clients connect to it
+        /// over FTPS.</para><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
         /// the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code>
         /// must be <code>API_GATEWAY</code>.</para><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
         /// cannot be associated.</para><para>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
@@ -158,6 +157,19 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Protocols")]
         public System.String[] Protocol { get; set; }
+        #endregion
+        
+        #region Parameter EndpointDetails_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>A list of security groups IDs that are available to attach to your server's endpoint.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>.</para><para>You can only edit the <code>SecurityGroupIds</code> property in the <code>UpdateServer</code>
+        /// API and only if you are changing the <code>EndpointType</code> from <code>PUBLIC</code>
+        /// or <code>VPC_ENDPOINT</code> to <code>VPC</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EndpointDetails_SecurityGroupIds")]
+        public System.String[] EndpointDetails_SecurityGroupId { get; set; }
         #endregion
         
         #region Parameter SecurityPolicyName
@@ -173,8 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_SubnetId
         /// <summary>
         /// <para>
-        /// <para>A list of subnet IDs that are required to host your file transfer protocol-enabled
-        /// server endpoint in your VPC.</para><note><para>This property can only be used when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
+        /// <para>A list of subnet IDs that are required to host your server endpoint in your VPC.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,8 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Key-value pairs that can be used to group and search for file transfer protocol-enabled
-        /// servers.</para>
+        /// <para>Key-value pairs that can be used to group and search for servers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_VpcEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC endpoint.</para><note><para>This property can only be used when <code>EndpointType</code> is set to <code>VPC_ENDPOINT</code>.</para></note>
+        /// <para>The ID of the VPC endpoint.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC_ENDPOINT</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,8 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_VpcId
         /// <summary>
         /// <para>
-        /// <para>The VPC ID of the VPC in which a file transfer protocol-enabled server's endpoint
-        /// will be hosted.</para><note><para>This property can only be used when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
+        /// <para>The VPC ID of the VPC in which a server's endpoint will be hosted.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -270,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (this.EndpointDetails_AddressAllocationId != null)
             {
                 context.EndpointDetails_AddressAllocationId = new List<System.String>(this.EndpointDetails_AddressAllocationId);
+            }
+            if (this.EndpointDetails_SecurityGroupId != null)
+            {
+                context.EndpointDetails_SecurityGroupId = new List<System.String>(this.EndpointDetails_SecurityGroupId);
             }
             if (this.EndpointDetails_SubnetId != null)
             {
@@ -324,6 +337,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (requestEndpointDetails_endpointDetails_AddressAllocationId != null)
             {
                 request.EndpointDetails.AddressAllocationIds = requestEndpointDetails_endpointDetails_AddressAllocationId;
+                requestEndpointDetailsIsNull = false;
+            }
+            List<System.String> requestEndpointDetails_endpointDetails_SecurityGroupId = null;
+            if (cmdletContext.EndpointDetails_SecurityGroupId != null)
+            {
+                requestEndpointDetails_endpointDetails_SecurityGroupId = cmdletContext.EndpointDetails_SecurityGroupId;
+            }
+            if (requestEndpointDetails_endpointDetails_SecurityGroupId != null)
+            {
+                request.EndpointDetails.SecurityGroupIds = requestEndpointDetails_endpointDetails_SecurityGroupId;
                 requestEndpointDetailsIsNull = false;
             }
             List<System.String> requestEndpointDetails_endpointDetails_SubnetId = null;
@@ -481,6 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         {
             public System.String Certificate { get; set; }
             public List<System.String> EndpointDetails_AddressAllocationId { get; set; }
+            public List<System.String> EndpointDetails_SecurityGroupId { get; set; }
             public List<System.String> EndpointDetails_SubnetId { get; set; }
             public System.String EndpointDetails_VpcEndpointId { get; set; }
             public System.String EndpointDetails_VpcId { get; set; }

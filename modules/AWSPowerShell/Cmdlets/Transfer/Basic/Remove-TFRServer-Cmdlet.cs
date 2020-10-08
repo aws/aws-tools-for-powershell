@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A unique system-assigned identifier for a file transfer protocol-enabled server instance.</para>
+        /// <para>A unique system-assigned identifier for a server instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

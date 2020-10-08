@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Get the Access Status for AWS Organization portfolio share feature. This API can only
-    /// be called by the master account in the organization or by a delegated admin.
+    /// be called by the management account in the organization or by a delegated admin.
     /// </summary>
     [Cmdlet("Get", "SCAWSOrganizationsAccessStatus")]
     [OutputType("Amazon.ServiceCatalog.AccessStatus")]

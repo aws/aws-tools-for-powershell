@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>
         /// <para>Specifies the parent handshake. Only used for handshake types that are a child of
         /// another type.</para><para>If you specify <code>ParentHandshakeId</code>, you cannot also specify <code>ActionType</code>.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
-        /// requires "h-" followed by from 8 to 32 lower-case letters or digits.</para>
+        /// requires "h-" followed by from 8 to 32 lowercase letters or digits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

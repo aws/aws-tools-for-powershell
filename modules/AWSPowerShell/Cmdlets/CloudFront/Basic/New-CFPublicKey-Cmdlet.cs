@@ -28,8 +28,9 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Add a new public key to CloudFront to use, for example, for field-level encryption.
-    /// You can add a maximum of 10 public keys with one AWS account.
+    /// Uploads a public key to CloudFront that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed
+    /// URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level
+    /// encryption</a>.
     /// </summary>
     [Cmdlet("New", "CFPublicKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.CreatePublicKeyResponse")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter PublicKeyConfig_CallerReference
         /// <summary>
         /// <para>
-        /// <para>A unique number that ensures that the request can't be replayed.</para>
+        /// <para>A string included in the request to help make sure that the request can’t be replayed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter PublicKeyConfig_Comment
         /// <summary>
         /// <para>
-        /// <para>An optional comment about a public key.</para>
+        /// <para>A comment to describe the public key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter PublicKeyConfig_EncodedKey
         /// <summary>
         /// <para>
-        /// <para>The encoded public key that you want to add to CloudFront to use with features like
-        /// field-level encryption.</para>
+        /// <para>The public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed
+        /// URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level
+        /// encryption</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,8 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter PublicKeyConfig_Name
         /// <summary>
         /// <para>
-        /// <para>The name for a public key you add to CloudFront to use with features like field-level
-        /// encryption.</para>
+        /// <para>A name to help identify the public key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

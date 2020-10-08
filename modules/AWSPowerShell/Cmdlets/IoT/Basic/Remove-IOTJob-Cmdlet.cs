@@ -85,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String JobId { get; set; }
         #endregion
         
+        #region Parameter NamespaceId
+        /// <summary>
+        /// <para>
+        /// <para>The namespace used to indicate that a job is a customer-managed job.</para><para>When you specify a value for this parameter, AWS IoT Core sends jobs notifications
+        /// to MQTT topics that contain the value in the following format.</para><para><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></para><note><para>The <code>namespaceId</code> feature is in public preview.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NamespaceId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -153,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NamespaceId = this.NamespaceId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,6 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.JobId != null)
             {
                 request.JobId = cmdletContext.JobId;
+            }
+            if (cmdletContext.NamespaceId != null)
+            {
+                request.NamespaceId = cmdletContext.NamespaceId;
             }
             
             CmdletOutput output;
@@ -240,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.Boolean? Enforce { get; set; }
             public System.String JobId { get; set; }
+            public System.String NamespaceId { get; set; }
             public System.Func<Amazon.IoT.Model.DeleteJobResponse, RemoveIOTJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

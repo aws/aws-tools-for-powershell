@@ -131,7 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</para><para>The duration period starts as soon as your Spot Instance receives its instance ID.
         /// At the end of the duration period, Amazon EC2 marks the Spot Instance for termination
         /// and provides a Spot Instance termination notice, which gives the instance a two-minute
-        /// warning before it terminates.</para><para>You can't specify an Availability Zone group or a launch group if you specify a duration.</para>
+        /// warning before it terminates.</para><para>You can't specify an Availability Zone group or a launch group if you specify a duration.</para><para>New accounts or accounts with no previous billing history with AWS are not eligible
+        /// for Spot Instances with a defined duration (also known as Spot blocks).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -378,10 +379,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter UtcValidUntil
         /// <summary>
         /// <para>
-        /// <para>The end date of the request. If this is a one-time request, the request remains active
-        /// until all instances launch, the request is canceled, or this date is reached. If the
-        /// request is persistent, it remains active until it is canceled or this date is reached.
-        /// The default end date is 7 days from the current date.</para>
+        /// <para>The end date of the request, in UTC format (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para><ul><li><para>For a persistent request, the request remains active until the <code>ValidUntil</code>
+        /// date and time is reached. Otherwise, the request remains active until you cancel it.
+        /// </para></li><li><para>For a one-time request, the request remains active until all instances launch, the
+        /// request is canceled, or the <code>ValidUntil</code> date and time is reached. By default,
+        /// the request is valid for 7 days from the date the request was created.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -429,10 +431,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// ValidUntilUtc results in both ValidUntil and ValidUntilUtc being assigned, the latest
         /// assignment to either one of the two property is reflected in the value of both. ValidUntil
         /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
-        /// results in the wrong timestamp being passed to the service.</para><para>The end date of the request. If this is a one-time request, the request remains active
-        /// until all instances launch, the request is canceled, or this date is reached. If the
-        /// request is persistent, it remains active until it is canceled or this date is reached.
-        /// The default end date is 7 days from the current date.</para>
+        /// results in the wrong timestamp being passed to the service.</para><para>The end date of the request, in UTC format (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para><ul><li><para>For a persistent request, the request remains active until the <code>ValidUntil</code>
+        /// date and time is reached. Otherwise, the request remains active until you cancel it.
+        /// </para></li><li><para>For a one-time request, the request remains active until all instances launch, the
+        /// request is canceled, or the <code>ValidUntil</code> date and time is reached. By default,
+        /// the request is valid for 7 days from the date the request was created.</para></li></ul>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

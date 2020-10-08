@@ -28,14 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Recovers the saved resource identified by an Amazon Resource Name (ARN). 
-    /// 
-    ///  
-    /// <para>
-    /// If the resource ARN is included in the request, then the last complete backup of that
-    /// resource is recovered. If the ARN of a recovery point is supplied, then that recovery
-    /// point is restored.
-    /// </para>
+    /// Recovers the saved resource identified by an Amazon Resource Name (ARN).
     /// </summary>
     [Cmdlet("Start", "BAKRestoreJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -88,9 +81,12 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// up by AWS Backup. Returned in <code>GetRecoveryPointRestoreMetadata</code>.</para></li><li><para><code>Encrypted</code>: A Boolean value that, if true, specifies that the file system
         /// is encrypted. If <code>KmsKeyId</code> is specified, <code>Encrypted</code> must be
         /// set to <code>true</code>.</para></li><li><para><code>KmsKeyId</code>: Specifies the AWS KMS key that is used to encrypt the restored
-        /// file system.</para></li><li><para><code>PerformanceMode</code>: Specifies the throughput mode of the file system.</para></li><li><para><code>CreationToken</code>: A user-supplied value that ensures the uniqueness (idempotency)
+        /// file system. You can specify a key from another AWS account provided that key it is
+        /// properly shared with your account via AWS KMS.</para></li><li><para><code>PerformanceMode</code>: Specifies the throughput mode of the file system.</para></li><li><para><code>CreationToken</code>: A user-supplied value that ensures the uniqueness (idempotency)
         /// of the request.</para></li><li><para><code>newFileSystem</code>: A Boolean value that, if true, specifies that the recovery
-        /// point is restored to a new Amazon EFS file system.</para></li></ul>
+        /// point is restored to a new Amazon EFS file system.</para></li><li><para><code>ItemsToRestore </code>: A serialized list of up to five strings where each
+        /// string is a file path. Use <code>ItemsToRestore</code> to restore specific files or
+        /// directories rather than the entire file system. This parameter is optional.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

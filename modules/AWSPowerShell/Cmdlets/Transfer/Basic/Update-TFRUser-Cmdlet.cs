@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter HomeDirectory
         /// <summary>
         /// <para>
-        /// <para>Specifies the landing directory (folder) for a user when they log in to the file transfer
-        /// protocol-enabled server using their file transfer protocol client.</para><para>An example is <code>your-Amazon-S3-bucket-name&gt;/home/username</code>.</para>
+        /// <para>Specifies the landing directory (folder) for a user when they log in to the server
+        /// using their file transfer protocol client.</para><para>An example is <code>your-Amazon-S3-bucket-name&gt;/home/username</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,11 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>The type of landing directory (folder) you want your users' home directory to be when
-        /// they log into the file transfer protocol-enabled server. If you set it to <code>PATH</code>,
-        /// the user will see the absolute Amazon S3 bucket paths as is in their file transfer
-        /// protocol clients. If you set it <code>LOGICAL</code>, you will need to provide mappings
-        /// in the <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths
-        /// visible to your users.</para>
+        /// they log into the server. If you set it to <code>PATH</code>, the user will see the
+        /// absolute Amazon S3 bucket paths as is in their file transfer protocol clients. If
+        /// you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code>
+        /// for how you want to make Amazon S3 paths visible to your users.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>The IAM role that controls your users' access to your Amazon S3 bucket. The policies
         /// attached to this role will determine the level of access you want to provide your
         /// users when transferring files into and out of your Amazon S3 bucket or buckets. The
-        /// IAM role should also contain a trust relationship that allows the file transfer protocol-enabled
-        /// server to access your resources when servicing your users' transfer requests.</para>
+        /// IAM role should also contain a trust relationship that allows the server to access
+        /// your resources when servicing your users' transfer requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A system-assigned unique identifier for a file transfer protocol-enabled server instance
-        /// that the user account is assigned to.</para>
+        /// <para>A system-assigned unique identifier for a server instance that the user account is
+        /// assigned to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -150,11 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>A unique string that identifies a user and is associated with a file transfer protocol-enabled
-        /// server as specified by the <code>ServerId</code>. This user name must be a minimum
-        /// of 3 and a maximum of 100 characters long. The following are valid characters: a-z,
-        /// A-Z, 0-9, underscore '_', hyphen '-', period '.', and at sign '@'. The user name can't
-        /// start with a hyphen, period, and at sign.</para>
+        /// <para>A unique string that identifies a user and is associated with a server as specified
+        /// by the <code>ServerId</code>. This user name must be a minimum of 3 and a maximum
+        /// of 100 characters long. The following are valid characters: a-z, A-Z, 0-9, underscore
+        /// '_', hyphen '-', period '.', and at sign '@'. The user name can't start with a hyphen,
+        /// period, or at sign.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

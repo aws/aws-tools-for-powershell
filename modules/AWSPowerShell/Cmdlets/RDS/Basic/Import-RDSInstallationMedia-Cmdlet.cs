@@ -98,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The version number of the database engine to use.</para><para>For a list of valid engine versions, call <a>DescribeDBEngineVersions</a>.</para><para>The following are the database engines and links to information about the major and
         /// minor versions. The list only includes DB engines that require an on-premises customer
-        /// provided license.</para><para><b>Microsoft SQL Server</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport">Version
-        /// and Feature Support on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
+        /// provided license.</para><para><b>Microsoft SQL Server</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport">
+        /// Microsoft SQL Server Versions on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -78,6 +78,17 @@ namespace Amazon.PowerShell.Cmdlets.XR
         public System.Boolean? InsightsConfiguration_InsightsEnabled { get; set; }
         #endregion
         
+        #region Parameter InsightsConfiguration_NotificationsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set the NotificationsEnabled value to true to enable insights notifications. Notifications
+        /// can only be enabled on a group with InsightsEnabled set to true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InsightsConfiguration_NotificationsEnabled { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -162,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             }
             #endif
             context.InsightsConfiguration_InsightsEnabled = this.InsightsConfiguration_InsightsEnabled;
+            context.InsightsConfiguration_NotificationsEnabled = this.InsightsConfiguration_NotificationsEnabled;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.XRay.Model.Tag>(this.Tag);
@@ -202,6 +214,16 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestInsightsConfiguration_insightsConfiguration_InsightsEnabled != null)
             {
                 request.InsightsConfiguration.InsightsEnabled = requestInsightsConfiguration_insightsConfiguration_InsightsEnabled.Value;
+                requestInsightsConfigurationIsNull = false;
+            }
+            System.Boolean? requestInsightsConfiguration_insightsConfiguration_NotificationsEnabled = null;
+            if (cmdletContext.InsightsConfiguration_NotificationsEnabled != null)
+            {
+                requestInsightsConfiguration_insightsConfiguration_NotificationsEnabled = cmdletContext.InsightsConfiguration_NotificationsEnabled.Value;
+            }
+            if (requestInsightsConfiguration_insightsConfiguration_NotificationsEnabled != null)
+            {
+                request.InsightsConfiguration.NotificationsEnabled = requestInsightsConfiguration_insightsConfiguration_NotificationsEnabled.Value;
                 requestInsightsConfigurationIsNull = false;
             }
              // determine if request.InsightsConfiguration should be set to null
@@ -277,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             public System.String FilterExpression { get; set; }
             public System.String GroupName { get; set; }
             public System.Boolean? InsightsConfiguration_InsightsEnabled { get; set; }
+            public System.Boolean? InsightsConfiguration_NotificationsEnabled { get; set; }
             public List<Amazon.XRay.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.XRay.Model.CreateGroupResponse, NewXRGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Group;

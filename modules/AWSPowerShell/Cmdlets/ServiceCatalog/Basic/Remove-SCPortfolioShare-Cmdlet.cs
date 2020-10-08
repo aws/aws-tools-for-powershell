@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Stops sharing the specified portfolio with the specified account or organization node.
-    /// Shares to an organization node can only be deleted by the master account of an organization
-    /// or by a delegated administrator.
+    /// Shares to an organization node can only be deleted by the management account of an
+    /// organization or by a delegated administrator.
     /// 
     ///  
     /// <para>

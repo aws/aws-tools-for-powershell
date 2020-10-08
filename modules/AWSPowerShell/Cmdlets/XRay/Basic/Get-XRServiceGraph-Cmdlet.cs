@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter GroupARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of a group to generate a graph based on.</para>
+        /// <para>The Amazon Resource Name (ARN) of a group based on which you want to generate a graph.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of a group to generate a graph based on.</para>
+        /// <para>The name of a group based on which you want to generate a graph.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

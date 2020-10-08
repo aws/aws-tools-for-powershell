@@ -105,9 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch
-        /// logs and metrics. This is also the role used when you use the <code>BatchPutDocument</code>
-        /// operation to index documents from an Amazon S3 bucket.</para>
+        /// <para>An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions
+        /// to access your Amazon CloudWatch logs and metrics. This is also the role used when
+        /// you use the <code>BatchPutDocument</code> operation to index documents from an Amazon
+        /// S3 bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -138,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>
         /// <para>A token that you provide to identify the request to create an index. Multiple calls
         /// to the <code>CreateIndex</code> operation with the same client token will create only
-        /// one index.”</para>
+        /// one index.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

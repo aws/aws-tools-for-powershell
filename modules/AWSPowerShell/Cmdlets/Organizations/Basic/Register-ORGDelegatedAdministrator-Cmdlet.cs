@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html">AWS
     /// Services that you can use with AWS Organizations</a> in the <i>AWS Organizations User
     /// Guide.</i></para><para>
-    /// This operation can be called only from the organization's master account.
+    /// This operation can be called only from the organization's management account.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "ORGDelegatedAdministrator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

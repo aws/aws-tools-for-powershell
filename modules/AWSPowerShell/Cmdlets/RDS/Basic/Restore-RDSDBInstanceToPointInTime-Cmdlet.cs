@@ -229,6 +229,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String LicenseModel { get; set; }
         #endregion
         
+        #region Parameter MaxAllocatedStorage
+        /// <summary>
+        /// <para>
+        /// <para>The upper limit to which Amazon RDS can automatically scale the storage of the DB
+        /// instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxAllocatedStorage { get; set; }
+        #endregion
+        
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
@@ -509,6 +520,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.Engine = this.Engine;
             context.Iops = this.Iops;
             context.LicenseModel = this.LicenseModel;
+            context.MaxAllocatedStorage = this.MaxAllocatedStorage;
             context.MultiAZ = this.MultiAZ;
             context.OptionGroupName = this.OptionGroupName;
             context.Port = this.Port;
@@ -618,6 +630,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.LicenseModel != null)
             {
                 request.LicenseModel = cmdletContext.LicenseModel;
+            }
+            if (cmdletContext.MaxAllocatedStorage != null)
+            {
+                request.MaxAllocatedStorage = cmdletContext.MaxAllocatedStorage.Value;
             }
             if (cmdletContext.MultiAZ != null)
             {
@@ -769,6 +785,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String Engine { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String LicenseModel { get; set; }
+            public System.Int32? MaxAllocatedStorage { get; set; }
             public System.Boolean? MultiAZ { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }

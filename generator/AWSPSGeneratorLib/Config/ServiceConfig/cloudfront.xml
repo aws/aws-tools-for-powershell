@@ -51,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateKeyGroup" OutputProperty="*" Verb="New" Noun="KeyGroup" ShouldProcessTarget="KeyGroupConfig_Name" PipelineParameter="KeyGroupConfig_Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMonitoringSubscription" OutputProperty="MonitoringSubscription" Verb="New" Noun="MonitoringSubscription" ShouldProcessTarget="DistributionId" PipelineParameter="DistributionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +96,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFieldLevelEncryptionProfile" Verb="Remove" Noun="FieldLevelEncryptionProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKeyGroup" Verb="Remove" Noun="KeyGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -159,6 +167,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetKeyGroup" OutputProperty="KeyGroup" Verb="Get" Noun="KeyGroup" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetKeyGroupConfig" OutputProperty="KeyGroupConfig" Verb="Get" Noun="KeyGroupConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMonitoringSubscription" OutputProperty="MonitoringSubscription" Verb="Get" Noun="MonitoringSubscription" PipelineParameter="DistributionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -207,6 +223,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributionsByKeyGroup" OutputProperty="DistributionIdList" Verb="Get" Noun="DistributionsByKeyGroup" PipelineParameter="KeyGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDistributionsByOriginRequestPolicyId" OutputProperty="DistributionIdList" Verb="Get" Noun="DistributionsByOriginRequestPolicyId" PipelineParameter="OriginRequestPolicyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -228,6 +248,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListInvalidations" OutputProperty="InvalidationList.Items" OutputWrapper="InvalidationList" Verb="Get" Noun="InvalidationList" PipelineParameter="DistributionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CFInvalidations">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListKeyGroups" OutputProperty="KeyGroupList" Verb="Get" Noun="KeyGroupList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -280,6 +304,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFieldLevelEncryptionProfile" OutputProperty="FieldLevelEncryptionProfile" Verb="Update" Noun="FieldLevelEncryptionProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateKeyGroup" OutputProperty="KeyGroup" Verb="Update" Noun="KeyGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     ///  <ul><li><para>
     /// You're authorized to create accounts in the AWS GovCloud (US) Region. For more information
     /// on the AWS GovCloud (US) Region, see the <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/welcome.html"><i>AWS GovCloud User Guide</i>.</a></para></li><li><para>
-    /// You already have an account in the AWS GovCloud (US) Region that is associated with
-    /// your master account in the commercial Region.
+    /// You already have an account in the AWS GovCloud (US) Region that is paired with a
+    /// management account of an organization in the commercial Region.
     /// </para></li><li><para>
-    /// You call this action from the master account of your organization in the commercial
+    /// You call this action from the management account of your organization in the commercial
     /// Region.
     /// </para></li><li><para>
     /// You have the <code>organizations:CreateGovCloudAccount</code> permission. 
@@ -60,10 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// call the <a>TagResource</a> operation in the GovCloud Region after the new GovCloud
     /// account exists.
     /// </para><para>
-    /// You call this action from the master account of your organization in the commercial
+    /// You call this action from the management account of your organization in the commercial
     /// Region to create a standalone AWS account in the AWS GovCloud (US) Region. After the
-    /// account is created, the master account of an organization in the AWS GovCloud (US)
-    /// Region can invite it to that organization. For more information on inviting standalone
+    /// account is created, the management account of an organization in the AWS GovCloud
+    /// (US) Region can invite it to that organization. For more information on inviting standalone
     /// accounts in the AWS GovCloud (US) to join an organization, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
     /// Organizations</a> in the <i>AWS GovCloud User Guide.</i></para><para>
     /// Calling <code>CreateGovCloudAccount</code> is an asynchronous request that AWS performs
@@ -84,12 +84,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// Region is automatically a member of the organization whose credentials made the request.
     /// Both accounts are associated with the same email address.
     /// </para><para>
-    /// A role is created in the new account in the commercial Region that allows the master
+    /// A role is created in the new account in the commercial Region that allows the management
     /// account in the organization in the commercial Region to assume it. An AWS GovCloud
     /// (US) account is then created and associated with the commercial account that you just
     /// created. A role is also created in the new AWS GovCloud (US) account that can be assumed
-    /// by the AWS GovCloud (US) account that is associated with the master account of the
-    /// commercial organization. For more information and to view a diagram that explains
+    /// by the AWS GovCloud (US) account that is associated with the management account of
+    /// the commercial organization. For more information and to view a diagram that explains
     /// how account access works, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
     /// Organizations</a> in the <i>AWS GovCloud User Guide.</i></para><para>
     /// For more information about creating accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
@@ -198,9 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>
         /// <para>(Optional)</para><para>The name of an IAM role that AWS Organizations automatically preconfigures in the
         /// new member accounts in both the AWS GovCloud (US) Region and in the commercial Region.
-        /// This role trusts the master account, allowing users in the master account to assume
-        /// the role, as permitted by the master account administrator. The role has administrator
-        /// permissions in the new member account.</para><para>If you don't specify this parameter, the role name defaults to <code>OrganizationAccountAccessRole</code>.</para><para>For more information about how to use this role to access the member account, see
+        /// This role trusts the management account, allowing users in the management account
+        /// to assume the role, as permitted by the management account administrator. The role
+        /// has administrator permissions in the new member account.</para><para>If you don't specify this parameter, the role name defaults to <code>OrganizationAccountAccessRole</code>.</para><para>For more information about how to use this role to access the member account, see
         /// <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role">Accessing
         /// and Administering the Member Accounts in Your Organization</a> in the <i>AWS Organizations
         /// User Guide</i> and steps 2 and 3 in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">Tutorial:

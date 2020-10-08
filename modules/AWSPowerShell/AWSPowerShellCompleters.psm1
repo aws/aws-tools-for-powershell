@@ -176,7 +176,8 @@ $IAMAA_SelectCompleters = {
 }
 
 $IAMAA_SelectMap = @{
-    "Select"=@("New-IAMAAAnalyzer",
+    "Select"=@("Start-IAMAAArchiveRule",
+               "New-IAMAAAnalyzer",
                "New-IAMAAArchiveRule",
                "Remove-IAMAAAnalyzer",
                "Remove-IAMAAArchiveRule",
@@ -3495,6 +3496,33 @@ $BGT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Budgets.ActionSubType
+        {
+            ($_ -eq "New-BGTBudgetAction/Definition_SsmActionDefinition_ActionSubType") -Or
+            ($_ -eq "Update-BGTBudgetAction/Definition_SsmActionDefinition_ActionSubType")
+        }
+        {
+            $v = "STOP_EC2_INSTANCES","STOP_RDS_INSTANCES"
+            break
+        }
+
+        # Amazon.Budgets.ActionType
+        "New-BGTBudgetAction/ActionType"
+        {
+            $v = "APPLY_IAM_POLICY","APPLY_SCP_POLICY","RUN_SSM_DOCUMENTS"
+            break
+        }
+
+        # Amazon.Budgets.ApprovalModel
+        {
+            ($_ -eq "New-BGTBudgetAction/ApprovalModel") -Or
+            ($_ -eq "Update-BGTBudgetAction/ApprovalModel")
+        }
+        {
+            $v = "AUTOMATIC","MANUAL"
+            break
+        }
+
         # Amazon.Budgets.BudgetType
         {
             ($_ -eq "New-BGTBudget/Budget_BudgetType") -Or
@@ -3518,6 +3546,13 @@ $BGT_Completers = {
         }
         {
             $v = "EQUAL_TO","GREATER_THAN","LESS_THAN"
+            break
+        }
+
+        # Amazon.Budgets.ExecutionType
+        "Invoke-BGTBudgetAction/ExecutionType"
+        {
+            $v = "APPROVE_BUDGET_ACTION","RESET_BUDGET_ACTION","RETRY_BUDGET_ACTION","REVERSE_BUDGET_ACTION"
             break
         }
 
@@ -3546,6 +3581,8 @@ $BGT_Completers = {
             ($_ -eq "Remove-BGTNotification/Notification_NotificationType") -Or
             ($_ -eq "Remove-BGTSubscriber/Notification_NotificationType") -Or
             ($_ -eq "Update-BGTSubscriber/Notification_NotificationType") -Or
+            ($_ -eq "New-BGTBudgetAction/NotificationType") -Or
+            ($_ -eq "Update-BGTBudgetAction/NotificationType") -Or
             ($_ -eq "Update-BGTNotification/OldNotification_NotificationType")
         }
         {
@@ -3567,6 +3604,8 @@ $BGT_Completers = {
 
         # Amazon.Budgets.ThresholdType
         {
+            ($_ -eq "New-BGTBudgetAction/ActionThreshold_ActionThresholdType") -Or
+            ($_ -eq "Update-BGTBudgetAction/ActionThreshold_ActionThresholdType") -Or
             ($_ -eq "Update-BGTNotification/NewNotification_ThresholdType") -Or
             ($_ -eq "Get-BGTSubscribersForNotification/Notification_ThresholdType") -Or
             ($_ -eq "New-BGTNotification/Notification_ThresholdType") -Or
@@ -3600,8 +3639,13 @@ $BGT_Completers = {
 }
 
 $BGT_map = @{
+    "ActionThreshold_ActionThresholdType"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
+    "ActionType"=@("New-BGTBudgetAction")
+    "ApprovalModel"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
     "Budget_BudgetType"=@("New-BGTBudget")
     "Budget_TimeUnit"=@("New-BGTBudget")
+    "Definition_SsmActionDefinition_ActionSubType"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
+    "ExecutionType"=@("Invoke-BGTBudgetAction")
     "NewBudget_BudgetType"=@("Update-BGTBudget")
     "NewBudget_TimeUnit"=@("Update-BGTBudget")
     "NewNotification_ComparisonOperator"=@("Update-BGTNotification")
@@ -3613,6 +3657,7 @@ $BGT_map = @{
     "Notification_NotificationState"=@("Get-BGTSubscribersForNotification","New-BGTNotification","New-BGTSubscriber","Remove-BGTNotification","Remove-BGTSubscriber","Update-BGTSubscriber")
     "Notification_NotificationType"=@("Get-BGTSubscribersForNotification","New-BGTNotification","New-BGTSubscriber","Remove-BGTNotification","Remove-BGTSubscriber","Update-BGTSubscriber")
     "Notification_ThresholdType"=@("Get-BGTSubscribersForNotification","New-BGTNotification","New-BGTSubscriber","Remove-BGTNotification","Remove-BGTSubscriber","Update-BGTSubscriber")
+    "NotificationType"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
     "OldNotification_ComparisonOperator"=@("Update-BGTNotification")
     "OldNotification_NotificationState"=@("Update-BGTNotification")
     "OldNotification_NotificationType"=@("Update-BGTNotification")
@@ -3672,17 +3717,25 @@ $BGT_SelectCompleters = {
 
 $BGT_SelectMap = @{
     "Select"=@("New-BGTBudget",
+               "New-BGTBudgetAction",
                "New-BGTNotification",
                "New-BGTSubscriber",
                "Remove-BGTBudget",
+               "Remove-BGTBudgetAction",
                "Remove-BGTNotification",
                "Remove-BGTSubscriber",
                "Get-BGTBudget",
+               "Get-BGTBudgetAction",
+               "Get-BGTBudgetActionHistory",
+               "Get-BGTBudgetActionsForAccount",
+               "Get-BGTBudgetActionsForBudget",
                "Get-BGTBudgetPerformanceHistory",
                "Get-BGTBudgetList",
                "Get-BGTNotificationsForBudget",
                "Get-BGTSubscribersForNotification",
+               "Invoke-BGTBudgetAction",
                "Update-BGTBudget",
+               "Update-BGTBudgetAction",
                "Update-BGTNotification",
                "Update-BGTSubscriber")
 }
@@ -5065,6 +5118,7 @@ $CF_SelectMap = @{
                "New-CFFieldLevelEncryptionConfig",
                "New-CFFieldLevelEncryptionProfile",
                "New-CFInvalidation",
+               "New-CFKeyGroup",
                "New-CFMonitoringSubscription",
                "New-CFOriginRequestPolicy",
                "New-CFPublicKey",
@@ -5076,6 +5130,7 @@ $CF_SelectMap = @{
                "Remove-CFDistribution",
                "Remove-CFFieldLevelEncryptionConfig",
                "Remove-CFFieldLevelEncryptionProfile",
+               "Remove-CFKeyGroup",
                "Remove-CFMonitoringSubscription",
                "Remove-CFOriginRequestPolicy",
                "Remove-CFPublicKey",
@@ -5092,6 +5147,8 @@ $CF_SelectMap = @{
                "Get-CFFieldLevelEncryptionProfile",
                "Get-CFFieldLevelEncryptionProfileConfig",
                "Get-CFInvalidation",
+               "Get-CFKeyGroup",
+               "Get-CFKeyGroupConfig",
                "Get-CFMonitoringSubscription",
                "Get-CFOriginRequestPolicy",
                "Get-CFOriginRequestPolicyConfig",
@@ -5104,12 +5161,14 @@ $CF_SelectMap = @{
                "Get-CFCloudFrontOriginAccessIdentityList",
                "Get-CFDistributionList",
                "Get-CFDistributionsByCachePolicyId",
+               "Get-CFDistributionsByKeyGroup",
                "Get-CFDistributionsByOriginRequestPolicyId",
                "Get-CFDistributionsByRealtimeLogConfig",
                "Get-CFDistributionListByWebACLId",
                "Get-CFFieldLevelEncryptionConfigList",
                "Get-CFFieldLevelEncryptionProfileList",
                "Get-CFInvalidationList",
+               "Get-CFKeyGroupList",
                "Get-CFOriginRequestPolicyList",
                "Get-CFPublicKeyList",
                "Get-CFRealtimeLogConfigList",
@@ -5122,6 +5181,7 @@ $CF_SelectMap = @{
                "Update-CFDistribution",
                "Update-CFFieldLevelEncryptionConfig",
                "Update-CFFieldLevelEncryptionProfile",
+               "Update-CFKeyGroup",
                "Update-CFOriginRequestPolicy",
                "Update-CFPublicKey",
                "Update-CFRealtimeLogConfig",
@@ -5782,8 +5842,11 @@ $CA_SelectMap = @{
                "Get-CAPackageVersionList",
                "Get-CARepositoryList",
                "Get-CARepositoriesInDomainList",
+               "Get-CAResourceTag",
                "Write-CADomainPermissionsPolicy",
                "Write-CARepositoryPermissionsPolicy",
+               "Add-CAResourceTag",
+               "Remove-CAResourceTag",
                "Update-CAPackageVersionsStatus",
                "Update-CARepository")
 }
@@ -11247,6 +11310,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.ApplianceModeSupportValue
+        {
+            ($_ -eq "Edit-EC2TransitGatewayVpcAttachment/Options_ApplianceModeSupport") -Or
+            ($_ -eq "New-EC2TransitGatewayVpcAttachment/Options_ApplianceModeSupport")
+        }
+        {
+            $v = "disable","enable"
+            break
+        }
+
         # Amazon.EC2.ArchitectureValues
         "Register-EC2Image/Architecture"
         {
@@ -11524,7 +11597,7 @@ $EC2_Completers = {
             ($_ -eq "Reset-EC2InstanceAttribute/Attribute")
         }
         {
-            $v = "blockDeviceMapping","disableApiTermination","ebsOptimized","enaSupport","groupSet","instanceInitiatedShutdownBehavior","instanceType","kernel","productCodes","ramdisk","rootDeviceName","sourceDestCheck","sriovNetSupport","userData"
+            $v = "blockDeviceMapping","disableApiTermination","ebsOptimized","enaSupport","enclaveOptions","groupSet","instanceInitiatedShutdownBehavior","instanceType","kernel","productCodes","ramdisk","rootDeviceName","sourceDestCheck","sriovNetSupport","userData"
             break
         }
 
@@ -11705,6 +11778,16 @@ $EC2_Completers = {
         }
         {
             $v = "allow","deny"
+            break
+        }
+
+        # Amazon.EC2.SelfServicePortal
+        {
+            ($_ -eq "Edit-EC2ClientVpnEndpoint/SelfServicePortal") -Or
+            ($_ -eq "New-EC2ClientVpnEndpoint/SelfServicePortal")
+        }
+        {
+            $v = "disabled","enabled"
             break
         }
 
@@ -11905,6 +11988,7 @@ $EC2_map = @{
     "OnDemandOptions_CapacityReservationOptions_UsageStrategy"=@("New-EC2Fleet")
     "OperationType"=@("Edit-EC2FpgaImageAttribute","Edit-EC2ImageAttribute","Edit-EC2SnapshotAttribute")
     "OptInStatus"=@("Edit-EC2AvailabilityZoneGroup")
+    "Options_ApplianceModeSupport"=@("Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGatewayVpcAttachment")
     "Options_AutoAcceptSharedAttachments"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "Options_DefaultRouteTableAssociation"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "Options_DefaultRouteTablePropagation"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
@@ -11918,6 +12002,7 @@ $EC2_map = @{
     "ProductDescription"=@("Get-EC2ReservedInstancesOffering")
     "ResourceType"=@("New-EC2FlowLog")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
+    "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
     "SpotFleetRequestConfig_AllocationStrategy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_ExcessCapacityTerminationPolicy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_InstanceInterruptionBehavior"=@("Request-EC2SpotFleet")
@@ -12002,6 +12087,7 @@ $EC2_SelectMap = @{
                "Register-EC2Address",
                "Register-EC2ClientVpnTargetNetwork",
                "Register-EC2DhcpOption",
+               "Register-EC2EnclaveCertificateIamRole",
                "Register-EC2IamInstanceProfile",
                "Register-EC2RouteTable",
                "Register-EC2SubnetCidrBlock",
@@ -12266,6 +12352,7 @@ $EC2_SelectMap = @{
                "Disable-EC2VpcClassicLinkDnsSupport",
                "Unregister-EC2Address",
                "Unregister-EC2ClientVpnTargetNetwork",
+               "Unregister-EC2EnclaveCertificateIamRole",
                "Unregister-EC2IamInstanceProfile",
                "Unregister-EC2RouteTable",
                "Unregister-EC2SubnetCidrBlock",
@@ -12283,6 +12370,7 @@ $EC2_SelectMap = @{
                "Export-EC2ClientVpnClientConfiguration",
                "Export-EC2Image",
                "Export-EC2TransitGatewayRoute",
+               "Get-EC2AssociatedEnclaveCertificateIamRole",
                "Get-EC2AssociatedIpv6PoolCidr",
                "Get-EC2CapacityReservationUsage",
                "Get-EC2CoipPoolUsage",
@@ -12954,7 +13042,7 @@ $EC_Completers = {
             ($_ -eq "Edit-ECReplicationGroup/AuthTokenUpdateStrategy")
         }
         {
-            $v = "ROTATE","SET"
+            $v = "DELETE","ROTATE","SET"
             break
         }
 
@@ -12968,10 +13056,17 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.OutpostMode
+        "New-ECCacheCluster/OutpostMode"
+        {
+            $v = "cross-outpost","single-outpost"
+            break
+        }
+
         # Amazon.ElastiCache.SourceType
         "Get-ECEvent/SourceType"
         {
-            $v = "cache-cluster","cache-parameter-group","cache-security-group","cache-subnet-group","replication-group"
+            $v = "cache-cluster","cache-parameter-group","cache-security-group","cache-subnet-group","replication-group","user","user-group"
             break
         }
 
@@ -12986,6 +13081,7 @@ $EC_Completers = {
 $EC_map = @{
     "AuthTokenUpdateStrategy"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup")
     "AZMode"=@("Edit-ECCacheCluster","New-ECCacheCluster")
+    "OutpostMode"=@("New-ECCacheCluster")
     "SourceType"=@("Get-ECEvent")
 }
 
@@ -13052,6 +13148,8 @@ $EC_SelectMap = @{
                "New-ECGlobalReplicationGroup",
                "New-ECReplicationGroup",
                "New-ECSnapshot",
+               "New-ECUser",
+               "New-ECUserGroup",
                "Request-ECNodeGroupDecreaseInGlobalReplicationGroup",
                "Request-ECReplicaCountDecrease",
                "Remove-ECCacheCluster",
@@ -13061,6 +13159,8 @@ $EC_SelectMap = @{
                "Remove-ECGlobalReplicationGroup",
                "Remove-ECReplicationGroup",
                "Remove-ECSnapshot",
+               "Remove-ECUser",
+               "Remove-ECUserGroup",
                "Get-ECCacheCluster",
                "Get-ECCacheEngineVersion",
                "Get-ECCacheParameterGroup",
@@ -13076,6 +13176,8 @@ $EC_SelectMap = @{
                "Get-ECServiceUpdate",
                "Get-ECSnapshot",
                "Get-ECUpdateAction",
+               "Get-ECUserGroup",
+               "Get-ECUser",
                "Remove-ECReplicationGroupFromGlobalReplicationGroup",
                "Request-ECGlobalReplicationGroupFailover",
                "Request-ECNodeGroupIncreaseInGlobalReplicationGroup",
@@ -13088,6 +13190,8 @@ $EC_SelectMap = @{
                "Edit-ECGlobalReplicationGroup",
                "Edit-ECReplicationGroup",
                "Edit-ECReplicationGroupShardConfiguration",
+               "Edit-ECUser",
+               "Edit-ECUserGroup",
                "Request-ECReservedCacheNodesOffering",
                "Request-ECSlotRebalanceInGlobalReplicationGroup",
                "Restart-ECCacheCluster",
@@ -16018,6 +16122,23 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.MLUserDataEncryptionModeString
+        "New-GLUEMLTransform/TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"
+        {
+            $v = "DISABLED","SSE-KMS"
+            break
+        }
+
+        # Amazon.Glue.RecrawlBehavior
+        {
+            ($_ -eq "New-GLUECrawler/RecrawlPolicy_RecrawlBehavior") -Or
+            ($_ -eq "Update-GLUECrawler/RecrawlPolicy_RecrawlBehavior")
+        }
+        {
+            $v = "CRAWL_EVERYTHING","CRAWL_NEW_FOLDERS_ONLY"
+            break
+        }
+
         # Amazon.Glue.ResourceShareType
         {
             ($_ -eq "Find-GLUETable/ResourceShareType") -Or
@@ -16132,9 +16253,11 @@ $GLUE_map = @{
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
     "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
+    "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
     "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
     "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
+    "TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
     "Type"=@("New-GLUETrigger")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","Start-GLUEJobRun","Update-GLUEMLTransform")
 }
@@ -19170,7 +19293,7 @@ $KNDR_Completers = {
         # Amazon.Kendra.DataSourceType
         "New-KNDRDataSource/Type"
         {
-            $v = "DATABASE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT"
+            $v = "CONFLUENCE","CUSTOM","DATABASE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT"
             break
         }
 
@@ -21506,7 +21629,7 @@ $MAC2_Completers = {
         # Amazon.Macie2.JobStatus
         "Update-MAC2ClassificationJob/JobStatus"
         {
-            $v = "CANCELLED","COMPLETE","IDLE","PAUSED","RUNNING"
+            $v = "CANCELLED","COMPLETE","IDLE","PAUSED","RUNNING","USER_PAUSED"
             break
         }
 
@@ -22389,6 +22512,16 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.CdiInputResolution
+        {
+            ($_ -eq "New-EMLChannel/CdiInputSpecification_Resolution") -Or
+            ($_ -eq "Update-EMLChannel/CdiInputSpecification_Resolution")
+        }
+        {
+            $v = "FHD","HD","SD","UHD"
+            break
+        }
+
         # Amazon.MediaLive.ChannelClass
         {
             ($_ -eq "New-EMLChannel/ChannelClass") -Or
@@ -22473,6 +22606,7 @@ $EML_Completers = {
 
 $EML_map = @{
     "Accept"=@("Get-EMLInputDeviceThumbnail")
+    "CdiInputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
     "ChannelClass"=@("New-EMLChannel","Update-EMLChannelClass")
     "HdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
     "InputSpecification_Codec"=@("New-EMLChannel","Update-EMLChannel")
@@ -22533,10 +22667,12 @@ $EML_SelectCompleters = {
 }
 
 $EML_SelectMap = @{
-    "Select"=@("Remove-EMLResourceBatch",
+    "Select"=@("Receive-EMLInputDeviceTransfer",
+               "Remove-EMLResourceBatch",
                "Start-EMLResourceBatch",
                "Stop-EMLResourceBatch",
                "Update-EMLScheduleBatch",
+               "Stop-EMLInputDeviceTransfer",
                "New-EMLChannel",
                "New-EMLInput",
                "New-EMLInputSecurityGroup",
@@ -22563,6 +22699,7 @@ $EML_SelectMap = @{
                "Get-EMLSchedule",
                "Get-EMLChannelList",
                "Get-EMLInputDeviceList",
+               "Get-EMLInputDeviceTransferList",
                "Get-EMLInputList",
                "Get-EMLInputSecurityGroupList",
                "Get-EMLMultiplexList",
@@ -22571,10 +22708,12 @@ $EML_SelectMap = @{
                "Get-EMLReservationList",
                "Get-EMLResourceTag",
                "New-EMLOfferingPurchase",
+               "Deny-EMLInputDeviceTransfer",
                "Start-EMLChannel",
                "Start-EMLMultiplex",
                "Stop-EMLChannel",
                "Stop-EMLMultiplex",
+               "Move-EMLInputDevice",
                "Update-EMLChannel",
                "Update-EMLChannelClass",
                "Update-EMLInput",
@@ -22677,7 +22816,8 @@ $EMP_SelectCompleters = {
 }
 
 $EMP_SelectMap = @{
-    "Select"=@("New-EMPChannel",
+    "Select"=@("Update-EMPLogConfiguration",
+               "New-EMPChannel",
                "New-EMPHarvestJob",
                "New-EMPOriginEndpoint",
                "Remove-EMPChannel",
@@ -23827,6 +23967,7 @@ $NPT_SelectMap = @{
                "Copy-NPTDBClusterSnapshot",
                "Copy-NPTDBParameterGroup",
                "New-NPTDBCluster",
+               "New-NPTDBClusterEndpoint",
                "New-NPTDBClusterParameterGroup",
                "New-NPTDBClusterSnapshot",
                "New-NPTDBInstance",
@@ -23834,12 +23975,14 @@ $NPT_SelectMap = @{
                "New-NPTDBSubnetGroup",
                "New-NPTEventSubscription",
                "Remove-NPTDBCluster",
+               "Remove-NPTDBClusterEndpoint",
                "Remove-NPTDBClusterParameterGroup",
                "Remove-NPTDBClusterSnapshot",
                "Remove-NPTDBInstance",
                "Remove-NPTDBParameterGroup",
                "Remove-NPTDBSubnetGroup",
                "Remove-NPTEventSubscription",
+               "Get-NPTDBClusterEndpoint",
                "Get-NPTDBClusterParameterGroup",
                "Get-NPTDBClusterParameter",
                "Get-NPTDBCluster",
@@ -23861,6 +24004,7 @@ $NPT_SelectMap = @{
                "Start-NPTDBClusterFailover",
                "Get-NPTResourceTagList",
                "Edit-NPTDBCluster",
+               "Edit-NPTDBClusterEndpoint",
                "Edit-NPTDBClusterParameterGroup",
                "Edit-NPTDBClusterSnapshotAttribute",
                "Edit-NPTDBInstance",
@@ -26929,6 +27073,7 @@ $REK_SelectMap = @{
                "Find-REKFace",
                "Find-REKLabel",
                "Find-REKModerationLabel",
+               "Find-REKProtectiveEquipment",
                "Find-REKText",
                "Get-REKCelebrityInfo",
                "Get-REKCelebrityRecognition",
@@ -28536,6 +28681,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.AppImageConfigSortKey
+        "Get-SMAppImageConfigList/SortBy"
+        {
+            $v = "CreationTime","LastModifiedTime","Name"
+            break
+        }
+
         # Amazon.SageMaker.AppInstanceType
         "New-SMApp/ResourceSpec_InstanceType"
         {
@@ -28714,7 +28866,7 @@ $SM_Completers = {
         # Amazon.SageMaker.Framework
         "New-SMCompilationJob/InputConfig_Framework"
         {
-            $v = "KERAS","MXNET","ONNX","PYTORCH","TENSORFLOW","TFLITE","XGBOOST"
+            $v = "DARKNET","KERAS","MXNET","ONNX","PYTORCH","TENSORFLOW","TFLITE","XGBOOST"
             break
         }
 
@@ -28753,6 +28905,34 @@ $SM_Completers = {
         "New-SMHyperParameterTuningJob/WarmStartConfig_WarmStartType"
         {
             $v = "IdenticalDataAndAlgorithm","TransferLearning"
+            break
+        }
+
+        # Amazon.SageMaker.ImageSortBy
+        "Get-SMImageList/SortBy"
+        {
+            $v = "CREATION_TIME","IMAGE_NAME","LAST_MODIFIED_TIME"
+            break
+        }
+
+        # Amazon.SageMaker.ImageSortOrder
+        "Get-SMImageList/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
+        # Amazon.SageMaker.ImageVersionSortBy
+        "Get-SMImageVersionList/SortBy"
+        {
+            $v = "CREATION_TIME","LAST_MODIFIED_TIME","VERSION"
+            break
+        }
+
+        # Amazon.SageMaker.ImageVersionSortOrder
+        "Get-SMImageVersionList/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
             break
         }
 
@@ -28973,6 +29153,7 @@ $SM_Completers = {
         # Amazon.SageMaker.SortOrder
         {
             ($_ -eq "Get-SMAlgorithmList/SortOrder") -Or
+            ($_ -eq "Get-SMAppImageConfigList/SortOrder") -Or
             ($_ -eq "Get-SMAppList/SortOrder") -Or
             ($_ -eq "Get-SMCompilationJobList/SortOrder") -Or
             ($_ -eq "Get-SMExperimentList/SortOrder") -Or
@@ -29023,7 +29204,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TargetDevice
         "New-SMCompilationJob/OutputConfig_TargetDevice"
         {
-            $v = "aisage","amba_cv22","deeplens","imx8qm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_g4dn","ml_inf1","ml_m4","ml_m5","ml_p2","ml_p3","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c","sitara_am57x","x86_win32","x86_win64"
+            $v = "aisage","amba_cv22","coreml","deeplens","imx8qm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_g4dn","ml_inf1","ml_m4","ml_m5","ml_p2","ml_p3","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c","sitara_am57x","x86_win32","x86_win64"
             break
         }
 
@@ -29143,8 +29324,8 @@ $SM_map = @{
     "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
     "RootAccess"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "SearchExpression_Operator"=@("Search-SMResource")
-    "SortBy"=@("Get-SMAlgorithmList","Get-SMAppList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMEndpointList","Get-SMExperimentList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelList","Get-SMModelPackageList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
-    "SortOrder"=@("Get-SMAlgorithmList","Get-SMAppList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFlowDefinitionList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelList","Get-SMModelPackageList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
+    "SortBy"=@("Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMEndpointList","Get-SMExperimentList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelList","Get-SMModelPackageList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
+    "SortOrder"=@("Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFlowDefinitionList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelList","Get-SMModelPackageList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
     "StatusEquals"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
     "TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
@@ -29211,6 +29392,7 @@ $SM_SelectMap = @{
                "Register-SMTrialComponent",
                "New-SMAlgorithm",
                "New-SMApp",
+               "New-SMAppImageConfig",
                "New-SMAutoMLJob",
                "New-SMCodeRepository",
                "New-SMCompilationJob",
@@ -29221,6 +29403,8 @@ $SM_SelectMap = @{
                "New-SMFlowDefinition",
                "New-SMHumanTaskUi",
                "New-SMHyperParameterTuningJob",
+               "New-SMImage",
+               "New-SMImageVersion",
                "New-SMLabelingJob",
                "New-SMModel",
                "New-SMModelPackage",
@@ -29239,6 +29423,7 @@ $SM_SelectMap = @{
                "New-SMWorkteam",
                "Remove-SMAlgorithm",
                "Remove-SMApp",
+               "Remove-SMAppImageConfig",
                "Remove-SMCodeRepository",
                "Remove-SMDomain",
                "Remove-SMEndpoint",
@@ -29246,6 +29431,8 @@ $SM_SelectMap = @{
                "Remove-SMExperiment",
                "Remove-SMFlowDefinition",
                "Remove-SMHumanTaskUi",
+               "Remove-SMImage",
+               "Remove-SMImageVersion",
                "Remove-SMModel",
                "Remove-SMModelPackage",
                "Remove-SMMonitoringSchedule",
@@ -29259,6 +29446,7 @@ $SM_SelectMap = @{
                "Remove-SMWorkteam",
                "Get-SMAlgorithm",
                "Get-SMApp",
+               "Get-SMAppImageConfig",
                "Get-SMAutoMLJob",
                "Get-SMCodeRepository",
                "Get-SMCompilationJob",
@@ -29269,6 +29457,8 @@ $SM_SelectMap = @{
                "Get-SMFlowDefinition",
                "Get-SMHumanTaskUi",
                "Get-SMHyperParameterTuningJob",
+               "Get-SMImage",
+               "Get-SMImageVersion",
                "Get-SMLabelingJob",
                "Get-SMModel",
                "Get-SMModelPackage",
@@ -29287,6 +29477,7 @@ $SM_SelectMap = @{
                "Unregister-SMTrialComponent",
                "Get-SMSearchSuggestion",
                "Get-SMAlgorithmList",
+               "Get-SMAppImageConfigList",
                "Get-SMAppList",
                "Get-SMAutoMLJobList",
                "Get-SMCandidatesForAutoMLJobList",
@@ -29299,6 +29490,8 @@ $SM_SelectMap = @{
                "Get-SMFlowDefinitionList",
                "Get-SMHumanTaskUiList",
                "Get-SMHyperParameterTuningJobList",
+               "Get-SMImageList",
+               "Get-SMImageVersionList",
                "Get-SMLabelingJobList",
                "Get-SMLabelingJobListForWorkteam",
                "Get-SMModelPackageList",
@@ -29331,11 +29524,13 @@ $SM_SelectMap = @{
                "Stop-SMProcessingJob",
                "Stop-SMTrainingJob",
                "Stop-SMTransformJob",
+               "Update-SMAppImageConfig",
                "Update-SMCodeRepository",
                "Update-SMDomain",
                "Update-SMEndpoint",
                "Update-SMEndpointWeightAndCapacity",
                "Update-SMExperiment",
+               "Update-SMImage",
                "Update-SMMonitoringSchedule",
                "Update-SMNotebookInstance",
                "Update-SMNotebookInstanceLifecycleConfig",
@@ -30091,6 +30286,7 @@ $SC_SelectMap = @{
                "Start-SCProvisionedProductPlanExecution",
                "Start-SCProvisionedProductServiceActionExecution",
                "Get-SCAWSOrganizationsAccessStatus",
+               "Get-SCProvisionedProductOutput",
                "Get-SCAcceptedPortfolioShareList",
                "Get-SCBudgetsForResource",
                "Get-SCConstrainsForPortfolioList",
@@ -30367,6 +30563,13 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.ContactListImportAction
+        "New-SES2ImportJob/ImportDestination_ContactListDestination_ContactListImportAction"
+        {
+            $v = "DELETE","PUT"
+            break
+        }
+
         # Amazon.SimpleEmailV2.DataFormat
         "New-SES2ImportJob/ImportDataSource_DataFormat"
         {
@@ -30384,7 +30587,7 @@ $SES2_Completers = {
         # Amazon.SimpleEmailV2.ImportDestinationType
         "Get-SES2ImportJobList/ImportDestinationType"
         {
-            $v = "SUPPRESSION_LIST"
+            $v = "CONTACT_LIST","SUPPRESSION_LIST"
             break
         }
 
@@ -30392,6 +30595,13 @@ $SES2_Completers = {
         "Write-SES2AccountDetail/MailType"
         {
             $v = "MARKETING","TRANSACTIONAL"
+            break
+        }
+
+        # Amazon.SimpleEmailV2.SubscriptionStatus
+        "Get-SES2ContactCollection/Filter_FilteredStatus"
+        {
+            $v = "OPT_IN","OPT_OUT"
             break
         }
 
@@ -30431,7 +30641,9 @@ $SES2_map = @{
     "BehaviorOnMxFailure"=@("Write-SES2EmailIdentityMailFromAttribute")
     "ContactLanguage"=@("Write-SES2AccountDetail")
     "DeliveryOptions_TlsPolicy"=@("New-SES2ConfigurationSet")
+    "Filter_FilteredStatus"=@("Get-SES2ContactCollection")
     "ImportDataSource_DataFormat"=@("New-SES2ImportJob")
+    "ImportDestination_ContactListDestination_ContactListImportAction"=@("New-SES2ImportJob")
     "ImportDestination_SuppressionListDestination_SuppressionListImportAction"=@("New-SES2ImportJob")
     "ImportDestinationType"=@("Get-SES2ImportJobList")
     "MailType"=@("Write-SES2AccountDetail")
@@ -30492,6 +30704,8 @@ $SES2_SelectCompleters = {
 $SES2_SelectMap = @{
     "Select"=@("New-SES2ConfigurationSet",
                "New-SES2ConfigurationSetEventDestination",
+               "New-SES2Contact",
+               "New-SES2ContactList",
                "New-SES2CustomVerificationEmailTemplate",
                "New-SES2DedicatedIpPool",
                "New-SES2DeliverabilityTestReport",
@@ -30501,6 +30715,8 @@ $SES2_SelectMap = @{
                "New-SES2ImportJob",
                "Remove-SES2ConfigurationSet",
                "Remove-SES2ConfigurationSetEventDestination",
+               "Remove-SES2Contact",
+               "Remove-SES2ContactList",
                "Remove-SES2CustomVerificationEmailTemplate",
                "Remove-SES2DedicatedIpPool",
                "Remove-SES2EmailIdentity",
@@ -30511,6 +30727,8 @@ $SES2_SelectMap = @{
                "Get-SES2BlacklistReport",
                "Get-SES2ConfigurationSet",
                "Get-SES2ConfigurationSetEventDestination",
+               "Get-SES2Contact",
+               "Get-SES2ContactList",
                "Get-SES2CustomVerificationEmailTemplate",
                "Get-SES2DedicatedIp",
                "Get-SES2DedicatedIpList",
@@ -30524,6 +30742,8 @@ $SES2_SelectMap = @{
                "Get-SES2ImportJob",
                "Get-SES2SuppressedDestination",
                "Get-SES2ConfigurationSetList",
+               "Get-SES2ContactListCollection",
+               "Get-SES2ContactCollection",
                "Get-SES2CustomVerificationEmailTemplateList",
                "Get-SES2DedicatedIpPoolList",
                "Get-SES2DeliverabilityTestReportList",
@@ -30557,6 +30777,8 @@ $SES2_SelectMap = @{
                "Test-SES2RenderEmailTemplate",
                "Remove-SES2ResourceTag",
                "Update-SES2ConfigurationSetEventDestination",
+               "Update-SES2Contact",
+               "Update-SES2ContactList",
                "Update-SES2CustomVerificationEmailTemplate",
                "Update-SES2EmailIdentityPolicy",
                "Update-SES2EmailTemplate")
@@ -30822,10 +31044,18 @@ $SNOW_Completers = {
             break
         }
 
+        # Amazon.Snowball.ShipmentState
+        "Update-SNOWJobShipmentState/ShipmentState"
+        {
+            $v = "RECEIVED","RETURNED"
+            break
+        }
+
         # Amazon.Snowball.ShippingOption
         {
             ($_ -eq "New-SNOWCluster/ShippingOption") -Or
             ($_ -eq "New-SNOWJob/ShippingOption") -Or
+            ($_ -eq "New-SNOWReturnShippingLabel/ShippingOption") -Or
             ($_ -eq "Update-SNOWCluster/ShippingOption") -Or
             ($_ -eq "Update-SNOWJob/ShippingOption")
         }
@@ -30864,7 +31094,8 @@ $SNOW_Completers = {
 
 $SNOW_map = @{
     "JobType"=@("New-SNOWCluster","New-SNOWJob")
-    "ShippingOption"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
+    "ShipmentState"=@("Update-SNOWJobShipmentState")
+    "ShippingOption"=@("New-SNOWCluster","New-SNOWJob","New-SNOWReturnShippingLabel","Update-SNOWCluster","Update-SNOWJob")
     "SnowballCapacityPreference"=@("New-SNOWJob","Update-SNOWJob")
     "SnowballType"=@("New-SNOWCluster","New-SNOWJob")
 }
@@ -30924,10 +31155,12 @@ $SNOW_SelectMap = @{
                "New-SNOWAddress",
                "New-SNOWCluster",
                "New-SNOWJob",
+               "New-SNOWReturnShippingLabel",
                "Get-SNOWAddress",
                "Get-SNOWAddressList",
                "Get-SNOWCluster",
                "Get-SNOWJob",
+               "Get-SNOWReturnShippingLabel",
                "Get-SNOWJobManifest",
                "Get-SNOWJobUnlockCode",
                "Get-SNOWSnowballUsage",
@@ -30937,7 +31170,8 @@ $SNOW_SelectMap = @{
                "Get-SNOWCompatibleImageList",
                "Get-SNOWJobList",
                "Update-SNOWCluster",
-               "Update-SNOWJob")
+               "Update-SNOWJob",
+               "Update-SNOWJobShipmentState")
 }
 
 _awsArgumentCompleterRegistration $SNOW_SelectCompleters $SNOW_SelectMap
@@ -32127,6 +32361,7 @@ $SG_SelectMap = @{
                "Update-SGMaintenanceStartTime",
                "Update-SGNFSFileShare",
                "Update-SGSMBFileShare",
+               "Update-SGSMBFileShareVisibility",
                "Update-SGSMBSecurityStrategy",
                "Update-SGSnapshotSchedule",
                "Update-SGVTLDeviceType")
@@ -33954,12 +34189,14 @@ $WM_SelectMap = @{
                "Stop-WMMailboxExportJob",
                "New-WMAlias",
                "New-WMGroup",
+               "New-WMOrganization",
                "New-WMResource",
                "New-WMUser",
                "Remove-WMAccessControlRule",
                "Remove-WMAlias",
                "Remove-WMGroup",
                "Remove-WMMailboxPermission",
+               "Remove-WMOrganization",
                "Remove-WMResource",
                "Remove-WMRetentionPolicy",
                "Remove-WMUser",

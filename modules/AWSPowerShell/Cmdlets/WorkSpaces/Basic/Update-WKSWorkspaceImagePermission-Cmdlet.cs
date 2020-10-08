@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// Shares or unshares an image with one account by specifying whether that account has
     /// permission to copy the image. If the copy image permission is granted, the image is
     /// shared with that account. If the copy image permission is revoked, the image is unshared
-    /// with the account.
+    /// with the account. For more information about sharing images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html">
+    /// Share or Unshare a Custom WorkSpaces Image</a>.
     /// 
     ///  <note><ul><li><para>
     /// To delete an image that has been shared, you must unshare the image before you delete
@@ -89,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter SharedAccountId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AWS account to share or unshare the image with.</para>
+        /// <para>The identifier of the AWS account to share or unshare the image with.</para><important><para>Before sharing the image, confirm that you are sharing to the correct AWS account
+        /// ID.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

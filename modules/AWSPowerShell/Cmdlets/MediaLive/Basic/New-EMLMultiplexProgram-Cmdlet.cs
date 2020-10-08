@@ -104,6 +104,21 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.PreferredChannelPipeline MultiplexProgramSettings_PreferredChannelPipeline { get; set; }
         #endregion
         
+        #region Parameter StatmuxSettings_Priority
+        /// <summary>
+        /// <para>
+        /// The purpose of the priority is to use a combination
+        /// of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to
+        /// prioritize the video quality of some channels in a\nmultiplex over others.  Channels
+        /// that have a higher priority will\nget higher video quality at the expense of the video
+        /// quality of\nother channels in the multiplex with lower priority.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MultiplexProgramSettings_VideoSettings_StatmuxSettings_Priority")]
+        public System.Int32? StatmuxSettings_Priority { get; set; }
+        #endregion
+        
         #region Parameter ProgramName
         /// <summary>
         /// <para>
@@ -251,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.VideoSettings_ConstantBitrate = this.VideoSettings_ConstantBitrate;
             context.StatmuxSettings_MaximumBitrate = this.StatmuxSettings_MaximumBitrate;
             context.StatmuxSettings_MinimumBitrate = this.StatmuxSettings_MinimumBitrate;
+            context.StatmuxSettings_Priority = this.StatmuxSettings_Priority;
             context.ProgramName = this.ProgramName;
             #if MODULAR
             if (this.ProgramName == null && ParameterWasBound(nameof(this.ProgramName)))
@@ -378,6 +394,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 requestMultiplexProgramSettings_multiplexProgramSettings_VideoSettings_multiplexProgramSettings_VideoSettings_StatmuxSettings.MinimumBitrate = requestMultiplexProgramSettings_multiplexProgramSettings_VideoSettings_multiplexProgramSettings_VideoSettings_StatmuxSettings_statmuxSettings_MinimumBitrate.Value;
                 requestMultiplexProgramSettings_multiplexProgramSettings_VideoSettings_multiplexProgramSettings_VideoSettings_StatmuxSettingsIsNull = false;
             }
+            System.Int32? requestMultiplexProgramSettings_multiplexProgramSettings_VideoSettings_multiplexProgramSettings_VideoSettings_StatmuxSettings_statmuxSettings_Priority = null;
+            if (cmdletContext.StatmuxSettings_Priority != null)
+            {
+                requestMultiplexProgramSettings_multiplexProgramSettings_VideoSettings_multiplexProgramSettings_VideoSettings_StatmuxSettings_statmuxSettings_Priority = cmdletContext.StatmuxSettings_Priority.Value;
+            }
+            if (requestMultiplexProgramSettings_multiplexProgramSettings_VideoSettings_multiplexProgramSettings_VideoSettings_StatmuxSettings_statmuxSettings_Priority != null)
+            {
+                requestMultiplexProgramSettings_multiplexProgramSettings_VideoSettings_multiplexProgramSettings_VideoSettings_StatmuxSettings.Priority = requestMultiplexProgramSettings_multiplexProgramSettings_VideoSettings_multiplexProgramSettings_VideoSettings_StatmuxSettings_statmuxSettings_Priority.Value;
+                requestMultiplexProgramSettings_multiplexProgramSettings_VideoSettings_multiplexProgramSettings_VideoSettings_StatmuxSettingsIsNull = false;
+            }
              // determine if requestMultiplexProgramSettings_multiplexProgramSettings_VideoSettings_multiplexProgramSettings_VideoSettings_StatmuxSettings should be set to null
             if (requestMultiplexProgramSettings_multiplexProgramSettings_VideoSettings_multiplexProgramSettings_VideoSettings_StatmuxSettingsIsNull)
             {
@@ -480,6 +506,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.Int32? VideoSettings_ConstantBitrate { get; set; }
             public System.Int32? StatmuxSettings_MaximumBitrate { get; set; }
             public System.Int32? StatmuxSettings_MinimumBitrate { get; set; }
+            public System.Int32? StatmuxSettings_Priority { get; set; }
             public System.String ProgramName { get; set; }
             public System.String RequestId { get; set; }
             public System.Func<Amazon.MediaLive.Model.CreateMultiplexProgramResponse, NewEMLMultiplexProgramCmdlet, object> Select { get; set; } =

@@ -76,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter FieldsToExport
         /// <summary>
         /// <para>
-        /// <para>The recommendations data to include in the export file.</para>
+        /// <para>The recommendations data to include in the export file. For more information about
+        /// the fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported
+        /// files</a> in the <i>Compute Optimizer User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

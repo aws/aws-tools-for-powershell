@@ -199,15 +199,14 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <para>The shipping speed for each node in this cluster. This speed doesn't dictate how soon
         /// you'll get each Snowball Edge device, rather it represents how quickly each device
         /// moves to its destination while in transit. Regional shipping speeds are as follows:
-        /// </para><ul><li><para>In Australia, you have access to express shipping. Typically, Snowballs shipped express
-        /// are delivered in about a day.</para></li><li><para>In the European Union (EU), you have access to express shipping. Typically, Snowballs
+        /// </para><ul><li><para>In Australia, you have access to express shipping. Typically, Snow devices shipped
+        /// express are delivered in about a day.</para></li><li><para>In the European Union (EU), you have access to express shipping. Typically, Snow devices
         /// shipped express are delivered in about a day. In addition, most countries in the EU
-        /// have access to standard shipping, which typically takes less than a week, one way.</para></li><li><para>In India, Snowballs are delivered in one to seven days.</para></li><li><para>In the United States of America (US), you have access to one-day shipping and two-day
+        /// have access to standard shipping, which typically takes less than a week, one way.</para></li><li><para>In India, Snow device are delivered in one to seven days.</para></li><li><para>In the United States of America (US), you have access to one-day shipping and two-day
         /// shipping.</para></li></ul><ul><li><para>In Australia, you have access to express shipping. Typically, devices shipped express
-        /// are delivered in about a day.</para></li><li><para>In the European Union (EU), you have access to express shipping. Typically, Snowball
-        /// Edges shipped express are delivered in about a day. In addition, most countries in
-        /// the EU have access to standard shipping, which typically takes less than a week, one
-        /// way.</para></li><li><para>In India, Snowball Edges are delivered in one to seven days.</para></li><li><para>In the US, you have access to one-day shipping and two-day shipping.</para></li></ul>
+        /// are delivered in about a day.</para></li><li><para>In the European Union (EU), you have access to express shipping. Typically, Snow devices
+        /// shipped express are delivered in about a day. In addition, most countries in the EU
+        /// have access to standard shipping, which typically takes less than a week, one way.</para></li><li><para>In India, Snow device are delivered in one to seven days.</para></li><li><para>In the US, you have access to one-day shipping and two-day shipping.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -224,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter SnowballType
         /// <summary>
         /// <para>
-        /// <para>The type of AWS Snowball device to use for this cluster. </para><note><para>For cluster jobs, AWS Snowball currently supports only the <code>EDGE</code> device
+        /// <para>The type of AWS Snow Family device to use for this cluster. </para><note><para>For cluster jobs, AWS Snow Family currently supports only the <code>EDGE</code> device
         /// type.</para></note>
         /// </para>
         /// </summary>

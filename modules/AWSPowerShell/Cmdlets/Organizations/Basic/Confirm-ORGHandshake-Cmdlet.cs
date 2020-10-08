@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integration_service-linked-roles">AWS
     /// Organizations and Service-Linked Roles</a> in the <i>AWS Organizations User Guide</i>.
     /// </para></li><li><para><b>Enable all features final confirmation</b> handshake: only a principal from the
-    /// master account.
+    /// management account.
     /// </para><para>
     /// For more information about invitations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html">Inviting
     /// an AWS Account to Join Your Organization</a> in the <i>AWS Organizations User Guide.</i>

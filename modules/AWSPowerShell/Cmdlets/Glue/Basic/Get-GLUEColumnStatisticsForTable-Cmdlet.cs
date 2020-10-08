@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Retrieves table statistics of columns.
+    /// 
+    ///  
+    /// <para>
+    /// The Identity and Access Management (IAM) permission required for this operation is
+    /// <code>GetTable</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GLUEColumnStatisticsForTable")]
     [OutputType("Amazon.Glue.Model.GetColumnStatisticsForTableResponse")]

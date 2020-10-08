@@ -216,6 +216,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String PrimaryClusterId { get; set; }
         #endregion
         
+        #region Parameter RemoveUserGroup
+        /// <summary>
+        /// <para>
+        /// <para>Removes the user groups that can access this replication group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RemoveUserGroups")]
+        public System.Boolean? RemoveUserGroup { get; set; }
+        #endregion
+        
         #region Parameter ReplicationGroupDescription
         /// <summary>
         /// <para>
@@ -290,6 +301,27 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SnapshotWindow { get; set; }
+        #endregion
+        
+        #region Parameter UserGroupIdsToAdd
+        /// <summary>
+        /// <para>
+        /// <para>A list of user group IDs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] UserGroupIdsToAdd { get; set; }
+        #endregion
+        
+        #region Parameter UserGroupIdsToRemove
+        /// <summary>
+        /// <para>
+        /// <para>A list of users groups to remove, meaning the users in the group no longer can access
+        /// thereplication group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] UserGroupIdsToRemove { get; set; }
         #endregion
         
         #region Parameter NodeGroupId
@@ -385,6 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.NotificationTopicStatus = this.NotificationTopicStatus;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.PrimaryClusterId = this.PrimaryClusterId;
+            context.RemoveUserGroup = this.RemoveUserGroup;
             context.ReplicationGroupDescription = this.ReplicationGroupDescription;
             context.ReplicationGroupId = this.ReplicationGroupId;
             #if MODULAR
@@ -400,6 +433,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.SnapshotRetentionLimit = this.SnapshotRetentionLimit;
             context.SnapshottingClusterId = this.SnapshottingClusterId;
             context.SnapshotWindow = this.SnapshotWindow;
+            if (this.UserGroupIdsToAdd != null)
+            {
+                context.UserGroupIdsToAdd = new List<System.String>(this.UserGroupIdsToAdd);
+            }
+            if (this.UserGroupIdsToRemove != null)
+            {
+                context.UserGroupIdsToRemove = new List<System.String>(this.UserGroupIdsToRemove);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -478,6 +519,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.PrimaryClusterId = cmdletContext.PrimaryClusterId;
             }
+            if (cmdletContext.RemoveUserGroup != null)
+            {
+                request.RemoveUserGroups = cmdletContext.RemoveUserGroup.Value;
+            }
             if (cmdletContext.ReplicationGroupDescription != null)
             {
                 request.ReplicationGroupDescription = cmdletContext.ReplicationGroupDescription;
@@ -501,6 +546,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.SnapshotWindow != null)
             {
                 request.SnapshotWindow = cmdletContext.SnapshotWindow;
+            }
+            if (cmdletContext.UserGroupIdsToAdd != null)
+            {
+                request.UserGroupIdsToAdd = cmdletContext.UserGroupIdsToAdd;
+            }
+            if (cmdletContext.UserGroupIdsToRemove != null)
+            {
+                request.UserGroupIdsToRemove = cmdletContext.UserGroupIdsToRemove;
             }
             
             CmdletOutput output;
@@ -579,12 +632,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String NotificationTopicStatus { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.String PrimaryClusterId { get; set; }
+            public System.Boolean? RemoveUserGroup { get; set; }
             public System.String ReplicationGroupDescription { get; set; }
             public System.String ReplicationGroupId { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.Int32? SnapshotRetentionLimit { get; set; }
             public System.String SnapshottingClusterId { get; set; }
             public System.String SnapshotWindow { get; set; }
+            public List<System.String> UserGroupIdsToAdd { get; set; }
+            public List<System.String> UserGroupIdsToRemove { get; set; }
             public System.Func<Amazon.ElastiCache.Model.ModifyReplicationGroupResponse, EditECReplicationGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReplicationGroup;
         }

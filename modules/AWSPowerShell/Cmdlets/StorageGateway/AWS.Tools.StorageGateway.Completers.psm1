@@ -267,6 +267,7 @@ $SG_SelectMap = @{
                "Update-SGMaintenanceStartTime",
                "Update-SGNFSFileShare",
                "Update-SGSMBFileShare",
+               "Update-SGSMBFileShareVisibility",
                "Update-SGSMBSecurityStrategy",
                "Update-SGSnapshotSchedule",
                "Update-SGVTLDeviceType")

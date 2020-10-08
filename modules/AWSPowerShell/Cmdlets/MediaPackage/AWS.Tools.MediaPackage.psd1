@@ -103,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EMPOriginEndpoint', 
         'Remove-EMPResourceTag', 
         'Update-EMPChannel', 
+        'Update-EMPLogConfiguration', 
         'Update-EMPOriginEndpoint')
 
     # Variables to export from this module

@@ -128,6 +128,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String ConfigurationSetName { get; set; }
         #endregion
         
+        #region Parameter ListManagementOptions_ContactListName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the contact list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ListManagementOptions_ContactListName { get; set; }
+        #endregion
+        
         #region Parameter Raw_Data
         /// <summary>
         /// <para>
@@ -304,6 +314,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String[] Destination_ToAddress { get; set; }
         #endregion
         
+        #region Parameter ListManagementOptions_TopicName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the topic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ListManagementOptions_TopicName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'MessageId'.
@@ -376,6 +396,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             context.FeedbackForwardingEmailAddressIdentityArn = this.FeedbackForwardingEmailAddressIdentityArn;
             context.FromEmailAddress = this.FromEmailAddress;
             context.FromEmailAddressIdentityArn = this.FromEmailAddressIdentityArn;
+            context.ListManagementOptions_ContactListName = this.ListManagementOptions_ContactListName;
+            context.ListManagementOptions_TopicName = this.ListManagementOptions_TopicName;
             if (this.ReplyToAddress != null)
             {
                 context.ReplyToAddress = new List<System.String>(this.ReplyToAddress);
@@ -678,6 +700,35 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 {
                     request.FromEmailAddressIdentityArn = cmdletContext.FromEmailAddressIdentityArn;
                 }
+                
+                 // populate ListManagementOptions
+                var requestListManagementOptionsIsNull = true;
+                request.ListManagementOptions = new Amazon.SimpleEmailV2.Model.ListManagementOptions();
+                System.String requestListManagementOptions_listManagementOptions_ContactListName = null;
+                if (cmdletContext.ListManagementOptions_ContactListName != null)
+                {
+                    requestListManagementOptions_listManagementOptions_ContactListName = cmdletContext.ListManagementOptions_ContactListName;
+                }
+                if (requestListManagementOptions_listManagementOptions_ContactListName != null)
+                {
+                    request.ListManagementOptions.ContactListName = requestListManagementOptions_listManagementOptions_ContactListName;
+                    requestListManagementOptionsIsNull = false;
+                }
+                System.String requestListManagementOptions_listManagementOptions_TopicName = null;
+                if (cmdletContext.ListManagementOptions_TopicName != null)
+                {
+                    requestListManagementOptions_listManagementOptions_TopicName = cmdletContext.ListManagementOptions_TopicName;
+                }
+                if (requestListManagementOptions_listManagementOptions_TopicName != null)
+                {
+                    request.ListManagementOptions.TopicName = requestListManagementOptions_listManagementOptions_TopicName;
+                    requestListManagementOptionsIsNull = false;
+                }
+                 // determine if request.ListManagementOptions should be set to null
+                if (requestListManagementOptionsIsNull)
+                {
+                    request.ListManagementOptions = null;
+                }
                 if (cmdletContext.ReplyToAddress != null)
                 {
                     request.ReplyToAddresses = cmdletContext.ReplyToAddress;
@@ -770,6 +821,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.String FeedbackForwardingEmailAddressIdentityArn { get; set; }
             public System.String FromEmailAddress { get; set; }
             public System.String FromEmailAddressIdentityArn { get; set; }
+            public System.String ListManagementOptions_ContactListName { get; set; }
+            public System.String ListManagementOptions_TopicName { get; set; }
             public List<System.String> ReplyToAddress { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.SendEmailResponse, SendSES2EmailCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MessageId;

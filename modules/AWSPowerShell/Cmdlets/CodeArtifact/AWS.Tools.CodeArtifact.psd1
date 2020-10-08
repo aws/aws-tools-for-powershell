@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-CAResourceTag', 
         'Connect-CAExternalConnection', 
         'Copy-CAPackageVersion', 
         'Disconnect-CAExternalConnection', 
@@ -105,6 +106,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CARepositoryEndpoint', 
         'Get-CARepositoryList', 
         'Get-CARepositoryPermissionsPolicy', 
+        'Get-CAResourceTag', 
         'New-CADomain', 
         'New-CARepository', 
         'Remove-CADomain', 
@@ -112,6 +114,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CAPackageVersion', 
         'Remove-CARepository', 
         'Remove-CARepositoryPermissionsPolicy', 
+        'Remove-CAResourceTag', 
         'Unpublish-CAPackageVersion', 
         'Update-CAPackageVersionsStatus', 
         'Update-CARepository', 

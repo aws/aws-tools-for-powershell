@@ -124,7 +124,7 @@ $MAC2_Completers = {
         # Amazon.Macie2.JobStatus
         "Update-MAC2ClassificationJob/JobStatus"
         {
-            $v = "CANCELLED","COMPLETE","IDLE","PAUSED","RUNNING"
+            $v = "CANCELLED","COMPLETE","IDLE","PAUSED","RUNNING","USER_PAUSED"
             break
         }
 

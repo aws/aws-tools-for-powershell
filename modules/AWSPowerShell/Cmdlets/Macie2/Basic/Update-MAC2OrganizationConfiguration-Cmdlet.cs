@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Updates Amazon Macie configuration settings for an AWS organization.
+    /// Updates the Amazon Macie configuration settings for an AWS organization.
     /// </summary>
     [Cmdlet("Update", "MAC2OrganizationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

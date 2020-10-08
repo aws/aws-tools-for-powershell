@@ -85,6 +85,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DisableExecuteApiEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether clients can invoke your API by using the default <code>execute-api</code>
+        /// endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com
+        /// endpoint. To require that clients use a custom domain name to invoke your API, disable
+        /// the default endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DisableExecuteApiEndpoint { get; set; }
+        #endregion
+        
         #region Parameter MinimumCompressionSize
         /// <summary>
         /// <para>
@@ -244,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             }
             context.CloneFrom = this.CloneFrom;
             context.Description = this.Description;
+            context.DisableExecuteApiEndpoint = this.DisableExecuteApiEndpoint;
             if (this.EndpointConfiguration_Type != null)
             {
                 context.EndpointConfiguration_Type = new List<System.String>(this.EndpointConfiguration_Type);
@@ -301,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DisableExecuteApiEndpoint != null)
+            {
+                request.DisableExecuteApiEndpoint = cmdletContext.DisableExecuteApiEndpoint.Value;
             }
             
              // populate EndpointConfiguration
@@ -416,6 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public List<System.String> BinaryMediaType { get; set; }
             public System.String CloneFrom { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DisableExecuteApiEndpoint { get; set; }
             public List<System.String> EndpointConfiguration_Type { get; set; }
             public List<System.String> EndpointConfiguration_VpcEndpointId { get; set; }
             public System.Int32? MinimumCompressionSize { get; set; }

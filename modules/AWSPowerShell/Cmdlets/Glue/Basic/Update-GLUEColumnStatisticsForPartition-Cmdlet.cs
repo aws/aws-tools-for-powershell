@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Creates or updates partition statistics of columns.
+    /// 
+    ///  
+    /// <para>
+    /// The Identity and Access Management (IAM) permission required for this operation is
+    /// <code>UpdatePartition</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "GLUEColumnStatisticsForPartition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Glue.Model.ColumnStatisticsError")]

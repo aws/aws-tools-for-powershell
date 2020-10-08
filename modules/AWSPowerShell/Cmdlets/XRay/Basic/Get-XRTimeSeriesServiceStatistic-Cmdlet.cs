@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter GroupARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the group for which to pull statistics from.</para>
+        /// <para>The Amazon Resource Name (ARN) of the group for which to pull statistics from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

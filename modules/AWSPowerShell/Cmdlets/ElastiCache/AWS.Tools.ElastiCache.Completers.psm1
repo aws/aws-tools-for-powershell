@@ -86,7 +86,7 @@ $EC_Completers = {
             ($_ -eq "Edit-ECReplicationGroup/AuthTokenUpdateStrategy")
         }
         {
-            $v = "ROTATE","SET"
+            $v = "DELETE","ROTATE","SET"
             break
         }
 
@@ -100,10 +100,17 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.OutpostMode
+        "New-ECCacheCluster/OutpostMode"
+        {
+            $v = "cross-outpost","single-outpost"
+            break
+        }
+
         # Amazon.ElastiCache.SourceType
         "Get-ECEvent/SourceType"
         {
-            $v = "cache-cluster","cache-parameter-group","cache-security-group","cache-subnet-group","replication-group"
+            $v = "cache-cluster","cache-parameter-group","cache-security-group","cache-subnet-group","replication-group","user","user-group"
             break
         }
 
@@ -118,6 +125,7 @@ $EC_Completers = {
 $EC_map = @{
     "AuthTokenUpdateStrategy"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup")
     "AZMode"=@("Edit-ECCacheCluster","New-ECCacheCluster")
+    "OutpostMode"=@("New-ECCacheCluster")
     "SourceType"=@("Get-ECEvent")
 }
 
@@ -184,6 +192,8 @@ $EC_SelectMap = @{
                "New-ECGlobalReplicationGroup",
                "New-ECReplicationGroup",
                "New-ECSnapshot",
+               "New-ECUser",
+               "New-ECUserGroup",
                "Request-ECNodeGroupDecreaseInGlobalReplicationGroup",
                "Request-ECReplicaCountDecrease",
                "Remove-ECCacheCluster",
@@ -193,6 +203,8 @@ $EC_SelectMap = @{
                "Remove-ECGlobalReplicationGroup",
                "Remove-ECReplicationGroup",
                "Remove-ECSnapshot",
+               "Remove-ECUser",
+               "Remove-ECUserGroup",
                "Get-ECCacheCluster",
                "Get-ECCacheEngineVersion",
                "Get-ECCacheParameterGroup",
@@ -208,6 +220,8 @@ $EC_SelectMap = @{
                "Get-ECServiceUpdate",
                "Get-ECSnapshot",
                "Get-ECUpdateAction",
+               "Get-ECUserGroup",
+               "Get-ECUser",
                "Remove-ECReplicationGroupFromGlobalReplicationGroup",
                "Request-ECGlobalReplicationGroupFailover",
                "Request-ECNodeGroupIncreaseInGlobalReplicationGroup",
@@ -220,6 +234,8 @@ $EC_SelectMap = @{
                "Edit-ECGlobalReplicationGroup",
                "Edit-ECReplicationGroup",
                "Edit-ECReplicationGroupShardConfiguration",
+               "Edit-ECUser",
+               "Edit-ECUserGroup",
                "Request-ECReservedCacheNodesOffering",
                "Request-ECSlotRebalanceInGlobalReplicationGroup",
                "Restart-ECCacheCluster",

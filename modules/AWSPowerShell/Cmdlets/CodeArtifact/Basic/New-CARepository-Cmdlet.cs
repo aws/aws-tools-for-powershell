@@ -95,6 +95,17 @@ namespace Amazon.PowerShell.Cmdlets.CA
         public System.String Repository { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>One or more tag key-value pairs for the repository.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.CodeArtifact.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Upstream
         /// <summary>
         /// <para>
@@ -166,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
                 WriteWarning("You are passing $null as a value for parameter Repository which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.CodeArtifact.Model.Tag>(this.Tag);
+            }
             if (this.Upstream != null)
             {
                 context.Upstream = new List<Amazon.CodeArtifact.Model.UpstreamRepository>(this.Upstream);
@@ -201,6 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
             if (cmdletContext.Repository != null)
             {
                 request.Repository = cmdletContext.Repository;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.Upstream != null)
             {
@@ -271,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
             public System.String Domain { get; set; }
             public System.String DomainOwner { get; set; }
             public System.String Repository { get; set; }
+            public List<Amazon.CodeArtifact.Model.Tag> Tag { get; set; }
             public List<Amazon.CodeArtifact.Model.UpstreamRepository> Upstream { get; set; }
             public System.Func<Amazon.CodeArtifact.Model.CreateRepositoryResponse, NewCARepositoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Repository;

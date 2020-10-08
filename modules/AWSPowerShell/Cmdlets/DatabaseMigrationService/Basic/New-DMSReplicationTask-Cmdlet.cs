@@ -143,6 +143,23 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String ReplicationTaskSetting { get; set; }
         #endregion
         
+        #region Parameter ResourceIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>A friendly name for the resource identifier at the end of the <code>EndpointArn</code>
+        /// response parameter that is returned in the created <code>Endpoint</code> object. The
+        /// value for this parameter can have up to 31 characters. It can contain only ASCII letters,
+        /// digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive
+        /// hyphens, and can only begin with a letter, such as <code>Example-App-ARN1</code>.
+        /// For example, this value might result in the <code>EndpointArn</code> value <code>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</code>.
+        /// If you don't specify a <code>ResourceIdentifier</code> value, AWS DMS generates a
+        /// default identifier value for the end of <code>EndpointArn</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceIdentifier { get; set; }
+        #endregion
+        
         #region Parameter SourceEndpointArn
         /// <summary>
         /// <para>
@@ -307,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             }
             #endif
             context.ReplicationTaskSetting = this.ReplicationTaskSetting;
+            context.ResourceIdentifier = this.ResourceIdentifier;
             context.SourceEndpointArn = this.SourceEndpointArn;
             #if MODULAR
             if (this.SourceEndpointArn == null && ParameterWasBound(nameof(this.SourceEndpointArn)))
@@ -376,6 +394,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.ReplicationTaskSetting != null)
             {
                 request.ReplicationTaskSettings = cmdletContext.ReplicationTaskSetting;
+            }
+            if (cmdletContext.ResourceIdentifier != null)
+            {
+                request.ResourceIdentifier = cmdletContext.ResourceIdentifier;
             }
             if (cmdletContext.SourceEndpointArn != null)
             {
@@ -465,6 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String ReplicationInstanceArn { get; set; }
             public System.String ReplicationTaskIdentifier { get; set; }
             public System.String ReplicationTaskSetting { get; set; }
+            public System.String ResourceIdentifier { get; set; }
             public System.String SourceEndpointArn { get; set; }
             public System.String TableMapping { get; set; }
             public List<Amazon.DatabaseMigrationService.Model.Tag> Tag { get; set; }

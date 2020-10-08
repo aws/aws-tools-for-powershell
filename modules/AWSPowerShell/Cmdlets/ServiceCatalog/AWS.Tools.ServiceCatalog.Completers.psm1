@@ -320,6 +320,7 @@ $SC_SelectMap = @{
                "Start-SCProvisionedProductPlanExecution",
                "Start-SCProvisionedProductServiceActionExecution",
                "Get-SCAWSOrganizationsAccessStatus",
+               "Get-SCProvisionedProductOutput",
                "Get-SCAcceptedPortfolioShareList",
                "Get-SCBudgetsForResource",
                "Get-SCConstrainsForPortfolioList",

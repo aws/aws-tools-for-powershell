@@ -94,6 +94,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.ApplianceModeSupportValue
+        {
+            ($_ -eq "Edit-EC2TransitGatewayVpcAttachment/Options_ApplianceModeSupport") -Or
+            ($_ -eq "New-EC2TransitGatewayVpcAttachment/Options_ApplianceModeSupport")
+        }
+        {
+            $v = "disable","enable"
+            break
+        }
+
         # Amazon.EC2.ArchitectureValues
         "Register-EC2Image/Architecture"
         {
@@ -371,7 +381,7 @@ $EC2_Completers = {
             ($_ -eq "Reset-EC2InstanceAttribute/Attribute")
         }
         {
-            $v = "blockDeviceMapping","disableApiTermination","ebsOptimized","enaSupport","groupSet","instanceInitiatedShutdownBehavior","instanceType","kernel","productCodes","ramdisk","rootDeviceName","sourceDestCheck","sriovNetSupport","userData"
+            $v = "blockDeviceMapping","disableApiTermination","ebsOptimized","enaSupport","enclaveOptions","groupSet","instanceInitiatedShutdownBehavior","instanceType","kernel","productCodes","ramdisk","rootDeviceName","sourceDestCheck","sriovNetSupport","userData"
             break
         }
 
@@ -552,6 +562,16 @@ $EC2_Completers = {
         }
         {
             $v = "allow","deny"
+            break
+        }
+
+        # Amazon.EC2.SelfServicePortal
+        {
+            ($_ -eq "Edit-EC2ClientVpnEndpoint/SelfServicePortal") -Or
+            ($_ -eq "New-EC2ClientVpnEndpoint/SelfServicePortal")
+        }
+        {
+            $v = "disabled","enabled"
             break
         }
 
@@ -752,6 +772,7 @@ $EC2_map = @{
     "OnDemandOptions_CapacityReservationOptions_UsageStrategy"=@("New-EC2Fleet")
     "OperationType"=@("Edit-EC2FpgaImageAttribute","Edit-EC2ImageAttribute","Edit-EC2SnapshotAttribute")
     "OptInStatus"=@("Edit-EC2AvailabilityZoneGroup")
+    "Options_ApplianceModeSupport"=@("Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGatewayVpcAttachment")
     "Options_AutoAcceptSharedAttachments"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "Options_DefaultRouteTableAssociation"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "Options_DefaultRouteTablePropagation"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
@@ -765,6 +786,7 @@ $EC2_map = @{
     "ProductDescription"=@("Get-EC2ReservedInstancesOffering")
     "ResourceType"=@("New-EC2FlowLog")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
+    "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
     "SpotFleetRequestConfig_AllocationStrategy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_ExcessCapacityTerminationPolicy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_InstanceInterruptionBehavior"=@("Request-EC2SpotFleet")
@@ -849,6 +871,7 @@ $EC2_SelectMap = @{
                "Register-EC2Address",
                "Register-EC2ClientVpnTargetNetwork",
                "Register-EC2DhcpOption",
+               "Register-EC2EnclaveCertificateIamRole",
                "Register-EC2IamInstanceProfile",
                "Register-EC2RouteTable",
                "Register-EC2SubnetCidrBlock",
@@ -1113,6 +1136,7 @@ $EC2_SelectMap = @{
                "Disable-EC2VpcClassicLinkDnsSupport",
                "Unregister-EC2Address",
                "Unregister-EC2ClientVpnTargetNetwork",
+               "Unregister-EC2EnclaveCertificateIamRole",
                "Unregister-EC2IamInstanceProfile",
                "Unregister-EC2RouteTable",
                "Unregister-EC2SubnetCidrBlock",
@@ -1130,6 +1154,7 @@ $EC2_SelectMap = @{
                "Export-EC2ClientVpnClientConfiguration",
                "Export-EC2Image",
                "Export-EC2TransitGatewayRoute",
+               "Get-EC2AssociatedEnclaveCertificateIamRole",
                "Get-EC2AssociatedIpv6PoolCidr",
                "Get-EC2CapacityReservationUsage",
                "Get-EC2CoipPoolUsage",

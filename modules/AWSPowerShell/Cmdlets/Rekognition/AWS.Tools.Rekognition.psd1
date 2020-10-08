@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Find-REKFace', 
         'Find-REKLabel', 
         'Find-REKModerationLabel', 
+        'Find-REKProtectiveEquipment', 
         'Find-REKText', 
         'Get-REKCelebrityInfo', 
         'Get-REKCelebrityRecognition', 

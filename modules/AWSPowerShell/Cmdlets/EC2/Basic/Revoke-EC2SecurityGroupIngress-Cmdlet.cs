@@ -32,9 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// that you specify (for example, ports) must match the existing rule's values exactly.
     /// 
     ///  <note><para>
-    /// [EC2-Classic only] If the values you specify do not match the existing rule's values,
-    /// no error is returned. Use <a>DescribeSecurityGroups</a> to verify that the rule has
-    /// been removed.
+    /// [EC2-Classic , default VPC] If the values you specify do not match the existing rule's
+    /// values, no error is returned, and the output describes the security group rules that
+    /// were not revoked. 
+    /// </para><para>
+    /// AWS recommends that you use <a>DescribeSecurityGroups</a> to verify that the rule
+    /// has been removed.
     /// </para></note><para>
     /// Each rule consists of the protocol and the CIDR range or source security group. For
     /// the TCP and UDP protocols, you must also specify the destination port or range of
@@ -47,11 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para>
     /// </summary>
     [Cmdlet("Revoke", "EC2SecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.EC2.Model.RevokeSecurityGroupIngressResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RevokeSecurityGroupIngress API operation.", Operation = new[] {"RevokeSecurityGroupIngress"}, SelectReturnType = typeof(Amazon.EC2.Model.RevokeSecurityGroupIngressResponse))]
-    [AWSCmdletOutput("None or Amazon.EC2.Model.RevokeSecurityGroupIngressResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.RevokeSecurityGroupIngressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.RevokeSecurityGroupIngressResponse",
+        "This cmdlet returns an Amazon.EC2.Model.RevokeSecurityGroupIngressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RevokeEC2SecurityGroupIngressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -93,8 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.RevokeSecurityGroupIngressResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.RevokeSecurityGroupIngressResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String GroupName { get; set; }
             public List<Amazon.EC2.Model.IpPermission> IpPermission { get; set; }
             public System.Func<Amazon.EC2.Model.RevokeSecurityGroupIngressResponse, RevokeEC2SecurityGroupIngressCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>
         /// <para>The finding property to use to group the query results. Valid values are:</para><ul><li><para>classificationDetails.jobId - The unique identifier for the classification job that
         /// produced the finding.</para></li><li><para>resourcesAffected.s3Bucket.name - The name of the S3 bucket that the finding applies
-        /// to.</para></li><li><para>severity.description - The severity of the finding, such as High or Medium.</para></li><li><para>type - The type of finding, such as Policy:IAMUser/S3BucketPublic and SensitiveData:S3Object/Personal.</para></li></ul>
+        /// to.</para></li><li><para>severity.description - The severity level of the finding, such as High or Medium.</para></li><li><para>type - The type of finding, such as Policy:IAMUser/S3BucketPublic and SensitiveData:S3Object/Personal.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

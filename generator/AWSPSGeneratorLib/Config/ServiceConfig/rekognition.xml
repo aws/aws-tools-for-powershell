@@ -112,6 +112,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DetectProtectiveEquipment" OutputProperty="*" Verb="Find" Noun="ProtectiveEquipment" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DetectText" OutputProperty="TextDetections" Verb="Find" Noun="Text" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />

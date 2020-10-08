@@ -90,10 +90,18 @@ $SNOW_Completers = {
             break
         }
 
+        # Amazon.Snowball.ShipmentState
+        "Update-SNOWJobShipmentState/ShipmentState"
+        {
+            $v = "RECEIVED","RETURNED"
+            break
+        }
+
         # Amazon.Snowball.ShippingOption
         {
             ($_ -eq "New-SNOWCluster/ShippingOption") -Or
             ($_ -eq "New-SNOWJob/ShippingOption") -Or
+            ($_ -eq "New-SNOWReturnShippingLabel/ShippingOption") -Or
             ($_ -eq "Update-SNOWCluster/ShippingOption") -Or
             ($_ -eq "Update-SNOWJob/ShippingOption")
         }
@@ -132,7 +140,8 @@ $SNOW_Completers = {
 
 $SNOW_map = @{
     "JobType"=@("New-SNOWCluster","New-SNOWJob")
-    "ShippingOption"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
+    "ShipmentState"=@("Update-SNOWJobShipmentState")
+    "ShippingOption"=@("New-SNOWCluster","New-SNOWJob","New-SNOWReturnShippingLabel","Update-SNOWCluster","Update-SNOWJob")
     "SnowballCapacityPreference"=@("New-SNOWJob","Update-SNOWJob")
     "SnowballType"=@("New-SNOWCluster","New-SNOWJob")
 }
@@ -192,10 +201,12 @@ $SNOW_SelectMap = @{
                "New-SNOWAddress",
                "New-SNOWCluster",
                "New-SNOWJob",
+               "New-SNOWReturnShippingLabel",
                "Get-SNOWAddress",
                "Get-SNOWAddressList",
                "Get-SNOWCluster",
                "Get-SNOWJob",
+               "Get-SNOWReturnShippingLabel",
                "Get-SNOWJobManifest",
                "Get-SNOWJobUnlockCode",
                "Get-SNOWSnowballUsage",
@@ -205,7 +216,8 @@ $SNOW_SelectMap = @{
                "Get-SNOWCompatibleImageList",
                "Get-SNOWJobList",
                "Update-SNOWCluster",
-               "Update-SNOWJob")
+               "Update-SNOWJob",
+               "Update-SNOWJobShipmentState")
 }
 
 _awsArgumentCompleterRegistration $SNOW_SelectCompleters $SNOW_SelectMap

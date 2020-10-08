@@ -152,10 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AdditionalMetricsToRetain
         /// <summary>
         /// <para>
-        /// <para>A list of metrics whose data is retained (stored). By default, data is retained for
+        /// <para><i>Please use <a>UpdateSecurityProfileRequest$additionalMetricsToRetainV2</a> instead.</i></para><para>A list of metrics whose data is retained (stored). By default, data is retained for
         /// any metric used in the profile's <code>behaviors</code>, but it is also retained for
-        /// any metric specified here.</para><para><b>Note:</b> This API field is deprecated. Please use <a>UpdateSecurityProfileRequest$additionalMetricsToRetainV2</a>
-        /// instead.</para>
+        /// any metric specified here.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

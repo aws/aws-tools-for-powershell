@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// Disable portfolio sharing through AWS Organizations feature. This feature will not
     /// delete your current shares but it will prevent you from creating new shares throughout
     /// your organization. Current shares will not be in sync with your organization structure
-    /// if it changes after calling this API. This API can only be called by the master account
-    /// in the organization.
+    /// if it changes after calling this API. This API can only be called by the management
+    /// account in the organization.
     /// 
     ///  
     /// <para>

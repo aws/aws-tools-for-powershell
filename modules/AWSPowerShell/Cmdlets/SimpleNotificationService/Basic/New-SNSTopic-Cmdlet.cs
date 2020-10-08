@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Creates a topic to which notifications can be published. Users can create at most
-    /// 100,000 topics. For more information, see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>.
-    /// This action is idempotent, so if the requester already owns a topic with the specified
-    /// name, that topic's ARN is returned without creating a new topic.
+    /// 100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. This action is idempotent,
+    /// so if the requester already owns a topic with the specified name, that topic's ARN
+    /// is returned without creating a new topic.
     /// </summary>
     [Cmdlet("New", "SNSTopic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,11 +48,16 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <para>
         /// <para>A map of attributes with their corresponding values.</para><para>The following lists the names, descriptions, and values of the special request parameters
         /// that the <code>CreateTopic</code> action uses:</para><ul><li><para><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed
-        /// deliveries to HTTP/S endpoints.</para></li><li><para><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</para></li><li><para><code>Policy</code> – The policy that defines who can access your topic. By default,
-        /// only the topic owner can publish or subscribe to the topic.</para></li></ul><para>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</para><ul><li><para><code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key (CMK)
+        /// deliveries to HTTP/S endpoints.</para></li><li><para><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</para></li><li><para><code>FifoTopic</code> – Set to true to create a FIFO topic.</para></li><li><para><code>Policy</code> – The policy that defines who can access your topic. By default,
+        /// only the topic owner can publish or subscribe to the topic.</para></li></ul><para>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</para><ul><li><para><code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master key (CMK)
         /// for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
         /// Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
-        /// in the <i>AWS Key Management Service API Reference</i>. </para></li></ul>
+        /// in the <i>AWS Key Management Service API Reference</i>. </para></li></ul><para>The following attribute applies only to FIFO topics:</para><ul><li><para><code>ContentBasedDeduplication</code> – Enables content-based deduplication. Amazon
+        /// SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using
+        /// the body of the message (but not the attributes of the message). </para></li><li><para> When <code>ContentBasedDeduplication</code> is in effect, messages with identical
+        /// content sent within the deduplication interval are treated as duplicates and only
+        /// one copy of the message is delivered. </para></li><li><para> If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code>
+        /// overrides the generated one. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>The name of the topic you want to create.</para><para>Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters,
-        /// numbers, underscores, and hyphens, and must be between 1 and 256 characters long.</para>
+        /// numbers, underscores, and hyphens, and must be between 1 and 256 characters long.</para><para>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code>
+        /// suffix. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

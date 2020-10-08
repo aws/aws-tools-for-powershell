@@ -139,6 +139,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String RequestId { get; set; }
         #endregion
         
+        #region Parameter CdiInputSpecification_Resolution
+        /// <summary>
+        /// <para>
+        /// Maximum CDI input resolution
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.CdiInputResolution")]
+        public Amazon.MediaLive.CdiInputResolution CdiInputSpecification_Resolution { get; set; }
+        #endregion
+        
         #region Parameter InputSpecification_Resolution
         /// <summary>
         /// <para>
@@ -246,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CdiInputSpecification_Resolution = this.CdiInputSpecification_Resolution;
             context.ChannelClass = this.ChannelClass;
             if (this.Destination != null)
             {
@@ -290,6 +302,25 @@ namespace Amazon.PowerShell.Cmdlets.EML
             // create request
             var request = new Amazon.MediaLive.Model.CreateChannelRequest();
             
+            
+             // populate CdiInputSpecification
+            var requestCdiInputSpecificationIsNull = true;
+            request.CdiInputSpecification = new Amazon.MediaLive.Model.CdiInputSpecification();
+            Amazon.MediaLive.CdiInputResolution requestCdiInputSpecification_cdiInputSpecification_Resolution = null;
+            if (cmdletContext.CdiInputSpecification_Resolution != null)
+            {
+                requestCdiInputSpecification_cdiInputSpecification_Resolution = cmdletContext.CdiInputSpecification_Resolution;
+            }
+            if (requestCdiInputSpecification_cdiInputSpecification_Resolution != null)
+            {
+                request.CdiInputSpecification.Resolution = requestCdiInputSpecification_cdiInputSpecification_Resolution;
+                requestCdiInputSpecificationIsNull = false;
+            }
+             // determine if request.CdiInputSpecification should be set to null
+            if (requestCdiInputSpecificationIsNull)
+            {
+                request.CdiInputSpecification = null;
+            }
             if (cmdletContext.ChannelClass != null)
             {
                 request.ChannelClass = cmdletContext.ChannelClass;
@@ -432,6 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.MediaLive.CdiInputResolution CdiInputSpecification_Resolution { get; set; }
             public Amazon.MediaLive.ChannelClass ChannelClass { get; set; }
             public List<Amazon.MediaLive.Model.OutputDestination> Destination { get; set; }
             public Amazon.MediaLive.Model.EncoderSettings EncoderSetting { get; set; }

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A system-assigned unique identifier for a file transfer protocol-enabled server.</para>
+        /// <para>A system-assigned unique identifier for a server.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,8 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user account that is assigned to one or more file transfer protocol-enabled
-        /// servers.</para>
+        /// <para>The name of the user account that is assigned to one or more servers.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

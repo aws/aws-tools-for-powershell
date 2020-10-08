@@ -88,14 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// are a-z, A-Z, 0-9, and - (hyphen).</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ModelPackageName { get; set; }
         #endregion
         
@@ -261,12 +254,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.ModelPackageDescription = this.ModelPackageDescription;
             context.ModelPackageName = this.ModelPackageName;
-            #if MODULAR
-            if (this.ModelPackageName == null && ParameterWasBound(nameof(this.ModelPackageName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ModelPackageName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.SourceAlgorithmSpecification_SourceAlgorithm != null)
             {
                 context.SourceAlgorithmSpecification_SourceAlgorithm = new List<Amazon.SageMaker.Model.SourceAlgorithm>(this.SourceAlgorithmSpecification_SourceAlgorithm);

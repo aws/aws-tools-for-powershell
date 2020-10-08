@@ -28,7 +28,8 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Disables an account as a delegated administrator of Amazon Macie for an AWS organization.
+    /// Disables an account as the delegated Amazon Macie administrator account for an AWS
+    /// organization.
     /// </summary>
     [Cmdlet("Disable", "MAC2OrganizationAdminAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

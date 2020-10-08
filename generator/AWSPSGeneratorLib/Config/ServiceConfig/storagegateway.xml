@@ -351,6 +351,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSMBFileShareVisibility" OutputProperty="GatewayARN" Verb="Update" Noun="SMBFileShareVisibility" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateSMBSecurityStrategy" OutputProperty="GatewayARN" Verb="Update" Noun="SMBSecurityStrategy" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Creates or updates table statistics of columns.
+    /// 
+    ///  
+    /// <para>
+    /// The Identity and Access Management (IAM) permission required for this operation is
+    /// <code>UpdateTable</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "GLUEColumnStatisticsForTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Glue.Model.ColumnStatisticsError")]

@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter StartReplicationTaskType
         /// <summary>
         /// <para>
-        /// <para>The type of replication task.</para>
+        /// <para>A type of replication task.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -52,6 +52,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] AddSubnetId { get; set; }
         #endregion
         
+        #region Parameter Options_ApplianceModeSupport
+        /// <summary>
+        /// <para>
+        /// <para>Enable or disable support for appliance mode. If enabled, a traffic flow between a
+        /// source and destination uses the same Availability Zone for the VPC attachment for
+        /// the lifetime of that flow. The default is <code>disable</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.ApplianceModeSupportValue")]
+        public Amazon.EC2.ApplianceModeSupportValue Options_ApplianceModeSupport { get; set; }
+        #endregion
+        
         #region Parameter Options_DnsSupport
         /// <summary>
         /// <para>
@@ -167,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.AddSubnetId = new List<System.String>(this.AddSubnetId);
             }
+            context.Options_ApplianceModeSupport = this.Options_ApplianceModeSupport;
             context.Options_DnsSupport = this.Options_DnsSupport;
             context.Options_Ipv6Support = this.Options_Ipv6Support;
             if (this.RemoveSubnetId != null)
@@ -204,6 +218,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate Options
             var requestOptionsIsNull = true;
             request.Options = new Amazon.EC2.Model.ModifyTransitGatewayVpcAttachmentRequestOptions();
+            Amazon.EC2.ApplianceModeSupportValue requestOptions_options_ApplianceModeSupport = null;
+            if (cmdletContext.Options_ApplianceModeSupport != null)
+            {
+                requestOptions_options_ApplianceModeSupport = cmdletContext.Options_ApplianceModeSupport;
+            }
+            if (requestOptions_options_ApplianceModeSupport != null)
+            {
+                request.Options.ApplianceModeSupport = requestOptions_options_ApplianceModeSupport;
+                requestOptionsIsNull = false;
+            }
             Amazon.EC2.DnsSupportValue requestOptions_options_DnsSupport = null;
             if (cmdletContext.Options_DnsSupport != null)
             {
@@ -299,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AddSubnetId { get; set; }
+            public Amazon.EC2.ApplianceModeSupportValue Options_ApplianceModeSupport { get; set; }
             public Amazon.EC2.DnsSupportValue Options_DnsSupport { get; set; }
             public Amazon.EC2.Ipv6SupportValue Options_Ipv6Support { get; set; }
             public List<System.String> RemoveSubnetId { get; set; }

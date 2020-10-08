@@ -34,11 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// whose details are in the response.
     /// 
     ///  <important><ul><li><para>
-    /// You can invite AWS accounts only from the same seller as the master account. For example,
-    /// if your organization's master account was created by Amazon Internet Services Pvt.
-    /// Ltd (AISPL), an AWS seller in India, you can invite only other AISPL accounts to your
-    /// organization. You can't combine accounts from AISPL and AWS or from any other AWS
-    /// seller. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
+    /// You can invite AWS accounts only from the same seller as the management account. For
+    /// example, if your organization's management account was created by Amazon Internet
+    /// Services Pvt. Ltd (AISPL), an AWS seller in India, you can invite only other AISPL
+    /// accounts to your organization. You can't combine accounts from AISPL and AWS or from
+    /// any other AWS seller. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
     /// Billing in India</a>.
     /// </para></li><li><para>
     /// If you receive an exception that indicates that you exceeded your account limits for
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// If the request includes tags, then the requester must have the <code>organizations:TagResource</code>
     /// permission.
     /// </para><para>
-    /// This operation can be called only from the organization's master account.
+    /// This operation can be called only from the organization's management account.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ORGAccountInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <summary>
         /// <para>
         /// <para>The unique identifier (ID) for the party.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
-        /// requires "h-" followed by from 8 to 32 lower-case letters or digits.</para>
+        /// requires "h-" followed by from 8 to 32 lowercase letters or digits.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

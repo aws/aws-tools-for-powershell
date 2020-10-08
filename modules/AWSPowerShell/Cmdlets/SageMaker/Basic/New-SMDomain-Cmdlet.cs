@@ -41,34 +41,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// notebooks, Git repositories, and data files.
     /// </para><para><b>VPC configuration</b></para><para>
     /// All SageMaker Studio traffic between the domain and the EFS volume is through the
-    /// specified VPC and subnets. For other Studio traffic, you specify the <code>AppNetworkAccessType</code>
-    /// parameter. <code>AppNetworkAccessType</code> corresponds to the VPC mode that's chosen
-    /// when you onboard to Studio. The following options are available:
+    /// specified VPC and subnets. For other Studio traffic, you can specify the <code>AppNetworkAccessType</code>
+    /// parameter. <code>AppNetworkAccessType</code> corresponds to the network access type
+    /// that you choose when you onboard to Studio. The following options are available:
     /// </para><ul><li><para><code>PublicInternetOnly</code> - Non-EFS traffic goes through a VPC managed by Amazon
     /// SageMaker, which allows internet access. This is the default value.
     /// </para></li><li><para><code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets.
     /// Internet access is disabled by default. To allow internet access, you must specify
     /// a NAT gateway.
     /// </para><para>
-    /// When internet access is disabled, you won't be able to train or host models unless
-    /// your VPC has an interface endpoint (PrivateLink) or a NAT gateway and your security
-    /// groups allow outbound connections.
-    /// </para></li></ul><para><b><code>VpcOnly</code> mode</b></para><para>
-    /// When you specify <code>VpcOnly</code>, you must specify the following:
-    /// </para><ul><li><para>
-    /// Security group inbound and outbound rules to allow NFS traffic over TCP on port 2049
-    /// between the domain and the EFS volume
-    /// </para></li><li><para>
-    /// Security group inbound and outbound rules to allow traffic between the JupyterServer
-    /// app and the KernelGateway apps
-    /// </para></li><li><para>
-    /// Interface endpoints to access the SageMaker API and SageMaker runtime
+    /// When internet access is disabled, you won't be able to run a Studio notebook or to
+    /// train or host models unless your VPC has an interface endpoint to the SageMaker API
+    /// and runtime or a NAT gateway and your security groups allow outbound connections.
     /// </para></li></ul><para>
-    /// For more information, see:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
-    /// groups for your VPC</a></para></li><li><para><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html">VPC
-    /// with public and private subnets (NAT)</a></para></li><li><para><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/interface-vpc-endpoint.html">Connect
-    /// to SageMaker through a VPC interface endpoint</a></para></li></ul>
+    /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html">Connect
+    /// SageMaker Studio Notebooks to Resources in a VPC</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "SMDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SageMaker.Model.CreateDomainResponse")]

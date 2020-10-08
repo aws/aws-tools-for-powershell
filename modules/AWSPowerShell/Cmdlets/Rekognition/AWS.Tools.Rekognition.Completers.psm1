@@ -215,6 +215,7 @@ $REK_SelectMap = @{
                "Find-REKFace",
                "Find-REKLabel",
                "Find-REKModerationLabel",
+               "Find-REKProtectiveEquipment",
                "Find-REKText",
                "Get-REKCelebrityInfo",
                "Get-REKCelebrityRecognition",

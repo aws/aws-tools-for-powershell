@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// For more information about policy inheritance, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies-inheritance.html">How
     /// Policy Inheritance Works</a> in the <i>AWS Organizations User Guide</i>.
     /// </para><para>
-    /// This operation can be called only from the organization's master account or by a member
-    /// account that is a delegated administrator for an AWS service.
+    /// This operation can be called only from the organization's management account or by
+    /// a member account that is a delegated administrator for an AWS service.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "ORGEffectivePolicy")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <summary>
         /// <para>
         /// <para>The type of policy that you want information about. You can specify one of the following
-        /// values:</para><ul><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a></para></li><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a></para></li><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a></para></li></ul>
+        /// values:</para><ul><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter TargetId
         /// <summary>
         /// <para>
-        /// <para>When you're signed in as the master account, specify the ID of the account that you
-        /// want details about. Specifying an organization root or organizational unit (OU) as
-        /// the target is not supported.</para>
+        /// <para>When you're signed in as the management account, specify the ID of the account that
+        /// you want details about. Specifying an organization root or organizational unit (OU)
+        /// as the target is not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

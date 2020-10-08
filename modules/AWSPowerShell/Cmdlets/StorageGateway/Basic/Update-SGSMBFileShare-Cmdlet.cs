@@ -28,11 +28,11 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Updates a Server Message Block (SMB) file share.
+    /// Updates a Server Message Block (SMB) file share. This operation is only supported
+    /// for file gateways.
     /// 
     ///  <note><para>
     /// To leave a file share field unchanged, set the corresponding input field to null.
-    /// This operation is only supported for file gateways.
     /// </para></note><important><para>
     /// File gateways require AWS Security Token Service (AWS STS) to be activated to enable
     /// you to create a file share. Make sure that AWS STS is activated in the AWS Region
@@ -53,6 +53,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public partial class UpdateSGSMBFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter AccessBasedEnumeration
+        /// <summary>
+        /// <para>
+        /// <para>The files and folders on this share will only be visible to users with read access.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AccessBasedEnumeration { get; set; }
+        #endregion
         
         #region Parameter AdminUserList
         /// <summary>
@@ -191,6 +201,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String KMSKey { get; set; }
         #endregion
         
+        #region Parameter NotificationPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The notification policy of the file share.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NotificationPolicy { get; set; }
+        #endregion
+        
         #region Parameter ObjectACL
         /// <summary>
         /// <para>
@@ -318,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.Select = (response, cmdlet) => this.FileShareARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessBasedEnumeration = this.AccessBasedEnumeration;
             if (this.AdminUserList != null)
             {
                 context.AdminUserList = new List<System.String>(this.AdminUserList);
@@ -341,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             }
             context.KMSEncrypted = this.KMSEncrypted;
             context.KMSKey = this.KMSKey;
+            context.NotificationPolicy = this.NotificationPolicy;
             context.ObjectACL = this.ObjectACL;
             context.ReadOnly = this.ReadOnly;
             context.RequesterPay = this.RequesterPay;
@@ -365,6 +387,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // create request
             var request = new Amazon.StorageGateway.Model.UpdateSMBFileShareRequest();
             
+            if (cmdletContext.AccessBasedEnumeration != null)
+            {
+                request.AccessBasedEnumeration = cmdletContext.AccessBasedEnumeration.Value;
+            }
             if (cmdletContext.AdminUserList != null)
             {
                 request.AdminUserList = cmdletContext.AdminUserList;
@@ -423,6 +449,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.KMSKey != null)
             {
                 request.KMSKey = cmdletContext.KMSKey;
+            }
+            if (cmdletContext.NotificationPolicy != null)
+            {
+                request.NotificationPolicy = cmdletContext.NotificationPolicy;
             }
             if (cmdletContext.ObjectACL != null)
             {
@@ -505,6 +535,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AccessBasedEnumeration { get; set; }
             public List<System.String> AdminUserList { get; set; }
             public System.String AuditDestinationARN { get; set; }
             public System.Int32? CacheAttributes_CacheStaleTimeoutInSecond { get; set; }
@@ -516,6 +547,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public List<System.String> InvalidUserList { get; set; }
             public System.Boolean? KMSEncrypted { get; set; }
             public System.String KMSKey { get; set; }
+            public System.String NotificationPolicy { get; set; }
             public Amazon.StorageGateway.ObjectACL ObjectACL { get; set; }
             public System.Boolean? ReadOnly { get; set; }
             public System.Boolean? RequesterPay { get; set; }

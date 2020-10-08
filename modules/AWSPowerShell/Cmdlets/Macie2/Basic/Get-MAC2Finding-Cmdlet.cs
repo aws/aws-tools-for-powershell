@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves information about one or more findings.
+    /// Retrieves the details of one or more findings.
     /// </summary>
     [Cmdlet("Get", "MAC2Finding")]
     [OutputType("Amazon.Macie2.Model.Finding")]
@@ -54,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter FindingId
         /// <summary>
         /// <para>
-        /// <para>An array of strings that lists the unique identifiers for the findings to retrieve
-        /// information about.</para>
+        /// <para>An array of strings that lists the unique identifiers for the findings to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

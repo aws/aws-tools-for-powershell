@@ -87,17 +87,25 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Get-BGTBudget', 
+        'Get-BGTBudgetAction', 
+        'Get-BGTBudgetActionHistory', 
+        'Get-BGTBudgetActionsForAccount', 
+        'Get-BGTBudgetActionsForBudget', 
         'Get-BGTBudgetList', 
         'Get-BGTBudgetPerformanceHistory', 
         'Get-BGTNotificationsForBudget', 
         'Get-BGTSubscribersForNotification', 
+        'Invoke-BGTBudgetAction', 
         'New-BGTBudget', 
+        'New-BGTBudgetAction', 
         'New-BGTNotification', 
         'New-BGTSubscriber', 
         'Remove-BGTBudget', 
+        'Remove-BGTBudgetAction', 
         'Remove-BGTNotification', 
         'Remove-BGTSubscriber', 
         'Update-BGTBudget', 
+        'Update-BGTBudgetAction', 
         'Update-BGTNotification', 
         'Update-BGTSubscriber')
 

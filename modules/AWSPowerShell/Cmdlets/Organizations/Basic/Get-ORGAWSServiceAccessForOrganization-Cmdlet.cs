@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// For more information about integrating other services with AWS Organizations, including
     /// the list of services that currently work with Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating
     /// AWS Organizations with Other AWS Services</a> in the <i>AWS Organizations User Guide.</i></para><para>
-    /// This operation can be called only from the organization's master account or by a member
-    /// account that is a delegated administrator for an AWS service.
+    /// This operation can be called only from the organization's management account or by
+    /// a member account that is a delegated administrator for an AWS service.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ORGAWSServiceAccessForOrganization")]

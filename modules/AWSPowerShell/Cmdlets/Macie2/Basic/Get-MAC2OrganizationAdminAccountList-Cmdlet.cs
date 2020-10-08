@@ -28,8 +28,8 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves information about the account that's designated as the delegated administrator
-    /// of Amazon Macie for an AWS organization.
+    /// Retrieves information about the delegated Amazon Macie administrator account for an
+    /// AWS organization.
     /// </summary>
     [Cmdlet("Get", "MAC2OrganizationAdminAccountList")]
     [OutputType("Amazon.Macie2.Model.AdminAccount")]

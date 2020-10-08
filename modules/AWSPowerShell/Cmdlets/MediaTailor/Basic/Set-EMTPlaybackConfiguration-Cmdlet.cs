@@ -87,6 +87,21 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public Amazon.MediaTailor.Model.DashConfigurationForPut DashConfiguration { get; set; }
         #endregion
         
+        #region Parameter AdMarkerPassthrough_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT,
+        /// and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor
+        /// personalized manifest.</para><para>No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value
+        /// of 60, but no ads are filled for that ad break, MediaTailor will not set the value
+        /// to 0.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestProcessingRules_AdMarkerPassthrough_Enabled")]
+        public System.Boolean? AdMarkerPassthrough_Enabled { get; set; }
+        #endregion
+        
         #region Parameter Bumper_EndUrl
         /// <summary>
         /// <para>
@@ -285,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             context.DashConfiguration = this.DashConfiguration;
             context.LivePreRollConfiguration_AdDecisionServerUrl = this.LivePreRollConfiguration_AdDecisionServerUrl;
             context.LivePreRollConfiguration_MaxDurationSecond = this.LivePreRollConfiguration_MaxDurationSecond;
+            context.AdMarkerPassthrough_Enabled = this.AdMarkerPassthrough_Enabled;
             context.Name = this.Name;
             context.PersonalizationThresholdSecond = this.PersonalizationThresholdSecond;
             context.SlateAdUrl = this.SlateAdUrl;
@@ -413,6 +429,40 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             {
                 request.LivePreRollConfiguration = null;
             }
+            
+             // populate ManifestProcessingRules
+            var requestManifestProcessingRulesIsNull = true;
+            request.ManifestProcessingRules = new Amazon.MediaTailor.Model.ManifestProcessingRules();
+            Amazon.MediaTailor.Model.AdMarkerPassthrough requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthrough = null;
+            
+             // populate AdMarkerPassthrough
+            var requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthroughIsNull = true;
+            requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthrough = new Amazon.MediaTailor.Model.AdMarkerPassthrough();
+            System.Boolean? requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthrough_adMarkerPassthrough_Enabled = null;
+            if (cmdletContext.AdMarkerPassthrough_Enabled != null)
+            {
+                requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthrough_adMarkerPassthrough_Enabled = cmdletContext.AdMarkerPassthrough_Enabled.Value;
+            }
+            if (requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthrough_adMarkerPassthrough_Enabled != null)
+            {
+                requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthrough.Enabled = requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthrough_adMarkerPassthrough_Enabled.Value;
+                requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthroughIsNull = false;
+            }
+             // determine if requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthrough should be set to null
+            if (requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthroughIsNull)
+            {
+                requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthrough = null;
+            }
+            if (requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthrough != null)
+            {
+                request.ManifestProcessingRules.AdMarkerPassthrough = requestManifestProcessingRules_manifestProcessingRules_AdMarkerPassthrough;
+                requestManifestProcessingRulesIsNull = false;
+            }
+             // determine if request.ManifestProcessingRules should be set to null
+            if (requestManifestProcessingRulesIsNull)
+            {
+                request.ManifestProcessingRules = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -507,6 +557,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public Amazon.MediaTailor.Model.DashConfigurationForPut DashConfiguration { get; set; }
             public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }
             public System.Int32? LivePreRollConfiguration_MaxDurationSecond { get; set; }
+            public System.Boolean? AdMarkerPassthrough_Enabled { get; set; }
             public System.String Name { get; set; }
             public System.Int32? PersonalizationThresholdSecond { get; set; }
             public System.String SlateAdUrl { get; set; }

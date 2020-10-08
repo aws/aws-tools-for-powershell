@@ -80,6 +80,33 @@ $BGT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Budgets.ActionSubType
+        {
+            ($_ -eq "New-BGTBudgetAction/Definition_SsmActionDefinition_ActionSubType") -Or
+            ($_ -eq "Update-BGTBudgetAction/Definition_SsmActionDefinition_ActionSubType")
+        }
+        {
+            $v = "STOP_EC2_INSTANCES","STOP_RDS_INSTANCES"
+            break
+        }
+
+        # Amazon.Budgets.ActionType
+        "New-BGTBudgetAction/ActionType"
+        {
+            $v = "APPLY_IAM_POLICY","APPLY_SCP_POLICY","RUN_SSM_DOCUMENTS"
+            break
+        }
+
+        # Amazon.Budgets.ApprovalModel
+        {
+            ($_ -eq "New-BGTBudgetAction/ApprovalModel") -Or
+            ($_ -eq "Update-BGTBudgetAction/ApprovalModel")
+        }
+        {
+            $v = "AUTOMATIC","MANUAL"
+            break
+        }
+
         # Amazon.Budgets.BudgetType
         {
             ($_ -eq "New-BGTBudget/Budget_BudgetType") -Or
@@ -103,6 +130,13 @@ $BGT_Completers = {
         }
         {
             $v = "EQUAL_TO","GREATER_THAN","LESS_THAN"
+            break
+        }
+
+        # Amazon.Budgets.ExecutionType
+        "Invoke-BGTBudgetAction/ExecutionType"
+        {
+            $v = "APPROVE_BUDGET_ACTION","RESET_BUDGET_ACTION","RETRY_BUDGET_ACTION","REVERSE_BUDGET_ACTION"
             break
         }
 
@@ -131,6 +165,8 @@ $BGT_Completers = {
             ($_ -eq "Remove-BGTNotification/Notification_NotificationType") -Or
             ($_ -eq "Remove-BGTSubscriber/Notification_NotificationType") -Or
             ($_ -eq "Update-BGTSubscriber/Notification_NotificationType") -Or
+            ($_ -eq "New-BGTBudgetAction/NotificationType") -Or
+            ($_ -eq "Update-BGTBudgetAction/NotificationType") -Or
             ($_ -eq "Update-BGTNotification/OldNotification_NotificationType")
         }
         {
@@ -152,6 +188,8 @@ $BGT_Completers = {
 
         # Amazon.Budgets.ThresholdType
         {
+            ($_ -eq "New-BGTBudgetAction/ActionThreshold_ActionThresholdType") -Or
+            ($_ -eq "Update-BGTBudgetAction/ActionThreshold_ActionThresholdType") -Or
             ($_ -eq "Update-BGTNotification/NewNotification_ThresholdType") -Or
             ($_ -eq "Get-BGTSubscribersForNotification/Notification_ThresholdType") -Or
             ($_ -eq "New-BGTNotification/Notification_ThresholdType") -Or
@@ -185,8 +223,13 @@ $BGT_Completers = {
 }
 
 $BGT_map = @{
+    "ActionThreshold_ActionThresholdType"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
+    "ActionType"=@("New-BGTBudgetAction")
+    "ApprovalModel"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
     "Budget_BudgetType"=@("New-BGTBudget")
     "Budget_TimeUnit"=@("New-BGTBudget")
+    "Definition_SsmActionDefinition_ActionSubType"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
+    "ExecutionType"=@("Invoke-BGTBudgetAction")
     "NewBudget_BudgetType"=@("Update-BGTBudget")
     "NewBudget_TimeUnit"=@("Update-BGTBudget")
     "NewNotification_ComparisonOperator"=@("Update-BGTNotification")
@@ -198,6 +241,7 @@ $BGT_map = @{
     "Notification_NotificationState"=@("Get-BGTSubscribersForNotification","New-BGTNotification","New-BGTSubscriber","Remove-BGTNotification","Remove-BGTSubscriber","Update-BGTSubscriber")
     "Notification_NotificationType"=@("Get-BGTSubscribersForNotification","New-BGTNotification","New-BGTSubscriber","Remove-BGTNotification","Remove-BGTSubscriber","Update-BGTSubscriber")
     "Notification_ThresholdType"=@("Get-BGTSubscribersForNotification","New-BGTNotification","New-BGTSubscriber","Remove-BGTNotification","Remove-BGTSubscriber","Update-BGTSubscriber")
+    "NotificationType"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
     "OldNotification_ComparisonOperator"=@("Update-BGTNotification")
     "OldNotification_NotificationState"=@("Update-BGTNotification")
     "OldNotification_NotificationType"=@("Update-BGTNotification")
@@ -257,17 +301,25 @@ $BGT_SelectCompleters = {
 
 $BGT_SelectMap = @{
     "Select"=@("New-BGTBudget",
+               "New-BGTBudgetAction",
                "New-BGTNotification",
                "New-BGTSubscriber",
                "Remove-BGTBudget",
+               "Remove-BGTBudgetAction",
                "Remove-BGTNotification",
                "Remove-BGTSubscriber",
                "Get-BGTBudget",
+               "Get-BGTBudgetAction",
+               "Get-BGTBudgetActionHistory",
+               "Get-BGTBudgetActionsForAccount",
+               "Get-BGTBudgetActionsForBudget",
                "Get-BGTBudgetPerformanceHistory",
                "Get-BGTBudgetList",
                "Get-BGTNotificationsForBudget",
                "Get-BGTSubscribersForNotification",
+               "Invoke-BGTBudgetAction",
                "Update-BGTBudget",
+               "Update-BGTBudgetAction",
                "Update-BGTNotification",
                "Update-BGTSubscriber")
 }

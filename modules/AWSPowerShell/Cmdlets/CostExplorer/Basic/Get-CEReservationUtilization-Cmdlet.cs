@@ -28,7 +28,7 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Retrieves the reservation utilization for your account. Master accounts in an organization
+    /// Retrieves the reservation utilization for your account. Master account in an organization
     /// have access to member accounts. You can filter data by dimensions in a time period.
     /// You can use <code>GetDimensionValues</code> to determine the possible dimension values.
     /// Currently, you can group only by <code>SUBSCRIPTION_ID</code>.<br/><br/>In the AWS.Tools.CostExplorer module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

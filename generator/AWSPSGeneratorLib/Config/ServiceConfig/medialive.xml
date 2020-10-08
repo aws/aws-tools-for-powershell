@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptInputDeviceTransfer" Verb="Receive" Noun="InputDeviceTransfer" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDelete" OutputProperty="*" Verb="Remove" Noun="ResourceBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -32,6 +36,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchUpdateSchedule" OutputProperty="*" Verb="Update" Noun="ScheduleBatch" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelInputDeviceTransfer" Verb="Stop" Noun="InputDeviceTransfer" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -139,6 +147,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListInputDeviceTransfers" OutputProperty="InputDeviceTransfers" Verb="Get" Noun="InputDeviceTransferList" PipelineParameter="TransferType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListInputs" OutputProperty="Inputs" Verb="Get" Noun="InputList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -171,6 +183,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RejectInputDeviceTransfer" Verb="Deny" Noun="InputDeviceTransfer" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartChannel" OutputProperty="*" Verb="Start" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -184,6 +200,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopMultiplex" OutputProperty="*" Verb="Stop" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TransferInputDevice" Verb="Move" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

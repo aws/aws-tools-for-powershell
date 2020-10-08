@@ -60,11 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// use cases. Use <code>QualityFilter</code> to set the quality bar by specifying <code>LOW</code>,
     /// <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want to filter detected faces,
     /// specify <code>NONE</code>. The default value is <code>NONE</code>. 
-    /// </para><note><para>
-    /// To use quality filtering, you need a collection associated with version 3 of the face
-    /// model or higher. To get the version of the face model associated with a collection,
-    /// call <a>DescribeCollection</a>. 
-    /// </para></note><para>
+    /// </para><para>
     /// If the image doesn't contain Exif metadata, <code>CompareFaces</code> returns orientation
     /// information for the source and target images. Use these values to display the images
     /// with the correct image orientation.

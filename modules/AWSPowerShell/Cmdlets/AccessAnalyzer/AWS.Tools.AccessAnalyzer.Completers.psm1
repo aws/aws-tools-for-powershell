@@ -176,7 +176,8 @@ $IAMAA_SelectCompleters = {
 }
 
 $IAMAA_SelectMap = @{
-    "Select"=@("New-IAMAAAnalyzer",
+    "Select"=@("Start-IAMAAArchiveRule",
+               "New-IAMAAAnalyzer",
                "New-IAMAAArchiveRule",
                "Remove-IAMAAAnalyzer",
                "Remove-IAMAAArchiveRule",

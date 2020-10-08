@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>budgets</C2jFilename>
     <AssemblyName>Budgets</AssemblyName>
@@ -13,13 +14,16 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateBudget" Verb="New" Noun="Budget" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBudgetAction" OutputProperty="*" Verb="New" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -35,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBudgetAction" OutputProperty="*" Verb="Remove" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteNotification" Verb="Remove" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -44,6 +52,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeBudget" OutputProperty="Budget" Verb="Get" Noun="Budget" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBudgetAction" OutputProperty="*" Verb="Get" Noun="BudgetAction" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBudgetActionHistories" OutputProperty="*" Verb="Get" Noun="BudgetActionHistory" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBudgetActionsForAccount" OutputProperty="*" Verb="Get" Noun="BudgetActionsForAccount" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBudgetActionsForBudget" OutputProperty="*" Verb="Get" Noun="BudgetActionsForBudget" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,7 +87,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExecuteBudgetAction" OutputProperty="*" Verb="Invoke" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateBudget" Verb="Update" Noun="Budget" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBudgetAction" OutputProperty="*" Verb="Update" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -76,7 +108,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

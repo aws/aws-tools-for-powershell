@@ -149,6 +149,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Int32? JobExecutionsRolloutConfig_MaximumPerMinute { get; set; }
         #endregion
         
+        #region Parameter NamespaceId
+        /// <summary>
+        /// <para>
+        /// <para>The namespace used to indicate that a job is a customer-managed job.</para><para>When you specify a value for this parameter, AWS IoT Core sends jobs notifications
+        /// to MQTT topics that contain the value in the following format.</para><para><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></para><note><para>The <code>namespaceId</code> feature is in public preview.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NamespaceId { get; set; }
+        #endregion
+        
         #region Parameter PresignedUrlConfig_RoleArn
         /// <summary>
         /// <para>
@@ -282,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NamespaceId = this.NamespaceId;
             context.PresignedUrlConfig_ExpiresInSec = this.PresignedUrlConfig_ExpiresInSec;
             context.PresignedUrlConfig_RoleArn = this.PresignedUrlConfig_RoleArn;
             if (this.Tag != null)
@@ -379,6 +391,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.JobId != null)
             {
                 request.JobId = cmdletContext.JobId;
+            }
+            if (cmdletContext.NamespaceId != null)
+            {
+                request.NamespaceId = cmdletContext.NamespaceId;
             }
             
              // populate PresignedUrlConfig
@@ -508,6 +524,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public Amazon.IoT.Model.ExponentialRolloutRate JobExecutionsRolloutConfig_ExponentialRate { get; set; }
             public System.Int32? JobExecutionsRolloutConfig_MaximumPerMinute { get; set; }
             public System.String JobId { get; set; }
+            public System.String NamespaceId { get; set; }
             public System.Int64? PresignedUrlConfig_ExpiresInSec { get; set; }
             public System.String PresignedUrlConfig_RoleArn { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }

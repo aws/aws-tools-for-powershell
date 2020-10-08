@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// see Recognizing Celebrities in the Amazon Rekognition Developer Guide. 
     /// 
     ///  
-    /// <para><code>RecognizeCelebrities</code> returns the 100 largest faces in the image. It
-    /// lists recognized celebrities in the <code>CelebrityFaces</code> array and unrecognized
-    /// faces in the <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code>
-    /// doesn't return celebrities whose faces aren't among the largest 100 faces in the image.
+    /// <para><code>RecognizeCelebrities</code> returns the 64 largest faces in the image. It lists
+    /// recognized celebrities in the <code>CelebrityFaces</code> array and unrecognized faces
+    /// in the <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code> doesn't
+    /// return celebrities whose faces aren't among the largest 64 faces in the image.
     /// </para><para>
     /// For each celebrity recognized, <code>RecognizeCelebrities</code> returns a <code>Celebrity</code>
     /// object. The <code>Celebrity</code> object contains the celebrity name, ID, URL links

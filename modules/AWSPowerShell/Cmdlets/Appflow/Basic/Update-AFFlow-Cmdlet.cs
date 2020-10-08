@@ -97,6 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public Amazon.Appflow.DataPullMode Scheduled_DataPullMode { get; set; }
         #endregion
         
+        #region Parameter IncrementalPullConfig_DatetimeTypeFieldName
+        /// <summary>
+        /// <para>
+        /// <para> A field that specifies the date time or timestamp field as the criteria to use when
+        /// importing incremental records from the source. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_IncrementalPullConfig_DatetimeTypeFieldName")]
+        public System.String IncrementalPullConfig_DatetimeTypeFieldName { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -472,6 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
             #endif
             context.SourceFlowConfig_ConnectorProfileName = this.SourceFlowConfig_ConnectorProfileName;
             context.SourceFlowConfig_ConnectorType = this.SourceFlowConfig_ConnectorType;
+            context.IncrementalPullConfig_DatetimeTypeFieldName = this.IncrementalPullConfig_DatetimeTypeFieldName;
             context.Amplitude_Object = this.Amplitude_Object;
             context.Datadog_Object = this.Datadog_Object;
             context.Dynatrace_Object = this.Dynatrace_Object;
@@ -561,6 +574,31 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_ConnectorType != null)
             {
                 request.SourceFlowConfig.ConnectorType = requestSourceFlowConfig_sourceFlowConfig_ConnectorType;
+                requestSourceFlowConfigIsNull = false;
+            }
+            Amazon.Appflow.Model.IncrementalPullConfig requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfig = null;
+            
+             // populate IncrementalPullConfig
+            var requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfigIsNull = true;
+            requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfig = new Amazon.Appflow.Model.IncrementalPullConfig();
+            System.String requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfig_incrementalPullConfig_DatetimeTypeFieldName = null;
+            if (cmdletContext.IncrementalPullConfig_DatetimeTypeFieldName != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfig_incrementalPullConfig_DatetimeTypeFieldName = cmdletContext.IncrementalPullConfig_DatetimeTypeFieldName;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfig_incrementalPullConfig_DatetimeTypeFieldName != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfig.DatetimeTypeFieldName = requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfig_incrementalPullConfig_DatetimeTypeFieldName;
+                requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfigIsNull = false;
+            }
+             // determine if requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfig should be set to null
+            if (requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfigIsNull)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfig = null;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfig != null)
+            {
+                request.SourceFlowConfig.IncrementalPullConfig = requestSourceFlowConfig_sourceFlowConfig_IncrementalPullConfig;
                 requestSourceFlowConfigIsNull = false;
             }
             Amazon.Appflow.Model.SourceConnectorProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties = null;
@@ -1132,6 +1170,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
             public System.String FlowName { get; set; }
             public System.String SourceFlowConfig_ConnectorProfileName { get; set; }
             public Amazon.Appflow.ConnectorType SourceFlowConfig_ConnectorType { get; set; }
+            public System.String IncrementalPullConfig_DatetimeTypeFieldName { get; set; }
             public System.String Amplitude_Object { get; set; }
             public System.String Datadog_Object { get; set; }
             public System.String Dynatrace_Object { get; set; }

@@ -46,6 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     public partial class EditELB2TargetGroupCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter Matcher_GrpcCode
+        /// <summary>
+        /// <para>
+        /// <para>You can specify values between 0 and 99. You can specify multiple values (for example,
+        /// "0,1") or a range of values (for example, "0-5"). The default value is 12.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Matcher_GrpcCode { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckEnabled
         /// <summary>
         /// <para>
@@ -60,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The approximate amount of time, in seconds, between health checks of an individual
-        /// target. For Application Load Balancers, the range is 5 to 300 seconds. For Network
-        /// Load Balancers, the supported values are 10 or 30 seconds.</para><para>With Network Load Balancers, you can't modify this setting.</para>
+        /// target. For HTTP and HTTPS health checks, the range is 5 to 300 seconds. For TPC health
+        /// checks, the supported values are 10 or 30 seconds.</para><para>With Network Load Balancers, you can't modify this setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter HealthCheckPath
         /// <summary>
         /// <para>
-        /// <para>[HTTP/HTTPS health checks] The ping path that is the destination for the health check
-        /// request.</para>
+        /// <para>[HTTP/HTTPS health checks] The destination for health checks on the targets.</para><para>[HTTP1 or HTTP2 protocol version] The ping path. The default is /.</para><para>[GRPC protocol version] The path of a custom health check method with the format /package.service/method.
+        /// The default is /AWS.ALB/healthcheck.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,9 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Matcher_HttpCode
         /// <summary>
         /// <para>
-        /// <para>The HTTP codes.</para><para>For Application Load Balancers, you can specify values between 200 and 499, and the
+        /// <para>For Application Load Balancers, you can specify values between 200 and 499, and the
         /// default value is 200. You can specify multiple values (for example, "200,202") or
-        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers, this is 200–399.</para>
+        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers, this is "200–399".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health check failures required before considering the target
-        /// unhealthy. For Network Load Balancers, this value must be the same as the healthy
-        /// threshold count.</para>
+        /// unhealthy. For target groups with a protocol of TCP or TLS, this value must be the
+        /// same as the healthy threshold count.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             context.HealthCheckProtocol = this.HealthCheckProtocol;
             context.HealthCheckTimeoutSecond = this.HealthCheckTimeoutSecond;
             context.HealthyThresholdCount = this.HealthyThresholdCount;
+            context.Matcher_GrpcCode = this.Matcher_GrpcCode;
             context.Matcher_HttpCode = this.Matcher_HttpCode;
             context.TargetGroupArn = this.TargetGroupArn;
             #if MODULAR
@@ -293,6 +305,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
              // populate Matcher
             var requestMatcherIsNull = true;
             request.Matcher = new Amazon.ElasticLoadBalancingV2.Model.Matcher();
+            System.String requestMatcher_matcher_GrpcCode = null;
+            if (cmdletContext.Matcher_GrpcCode != null)
+            {
+                requestMatcher_matcher_GrpcCode = cmdletContext.Matcher_GrpcCode;
+            }
+            if (requestMatcher_matcher_GrpcCode != null)
+            {
+                request.Matcher.GrpcCode = requestMatcher_matcher_GrpcCode;
+                requestMatcherIsNull = false;
+            }
             System.String requestMatcher_matcher_HttpCode = null;
             if (cmdletContext.Matcher_HttpCode != null)
             {
@@ -384,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public Amazon.ElasticLoadBalancingV2.ProtocolEnum HealthCheckProtocol { get; set; }
             public System.Int32? HealthCheckTimeoutSecond { get; set; }
             public System.Int32? HealthyThresholdCount { get; set; }
+            public System.String Matcher_GrpcCode { get; set; }
             public System.String Matcher_HttpCode { get; set; }
             public System.String TargetGroupArn { get; set; }
             public System.Int32? UnhealthyThresholdCount { get; set; }

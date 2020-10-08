@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves information about the status and settings for a classification job.
+    /// Retrieves the status and settings for a classification job.
     /// </summary>
     [Cmdlet("Get", "MAC2ClassificationJob")]
     [OutputType("Amazon.Macie2.Model.DescribeClassificationJobResponse")]

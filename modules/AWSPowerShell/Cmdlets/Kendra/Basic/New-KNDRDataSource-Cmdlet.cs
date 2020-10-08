@@ -52,17 +52,12 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>The data source connector configuration information that is required to access the
-        /// repository.</para>
+        /// <para>The connector configuration information that is required to access the repository.</para><para>You can't specify the <code>Configuration</code> parameter when the <code>Type</code>
+        /// parameter is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code>
+        /// exception.</para><para>The <code>Configuration</code> parameter is required for all other data sources.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.Kendra.Model.DataSourceConfiguration Configuration { get; set; }
         #endregion
         
@@ -116,17 +111,12 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a role with permission to access the data source.
         /// For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
-        /// Roles for Amazon Kendra</a>.</para>
+        /// Roles for Amazon Kendra</a>.</para><para>You can't specify the <code>RoleArn</code> parameter when the <code>Type</code> parameter
+        /// is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code>
+        /// exception.</para><para>The <code>RoleArn</code> parameter is required for all other data sources.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RoleArn { get; set; }
         #endregion
         
@@ -136,7 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>Sets the frequency that Amazon Kendra will check the documents in your repository
         /// and update the index. If you don't set a schedule Amazon Kendra will not periodically
         /// update the index. You can call the <code>StartDataSourceSyncJob</code> operation to
-        /// update the index.</para>
+        /// update the index.</para><para>You can't specify the <code>Schedule</code> parameter when the <code>Type</code> parameter
+        /// is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code>
+        /// exception.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,6 +162,18 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Kendra.DataSourceType")]
         public Amazon.Kendra.DataSourceType Type { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A token that you provide to identify the request to create a data source. Multiple
+        /// calls to the <code>CreateDataSource</code> operation with the same client token will
+        /// create only one data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -233,13 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             context.Configuration = this.Configuration;
-            #if MODULAR
-            if (this.Configuration == null && ParameterWasBound(nameof(this.Configuration)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Configuration which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Description = this.Description;
             context.IndexId = this.IndexId;
             #if MODULAR
@@ -256,12 +255,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             #endif
             context.RoleArn = this.RoleArn;
-            #if MODULAR
-            if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Schedule = this.Schedule;
             if (this.Tag != null)
             {
@@ -290,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             // create request
             var request = new Amazon.Kendra.Model.CreateDataSourceRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.Configuration != null)
             {
                 request.Configuration = cmdletContext.Configuration;
@@ -383,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public Amazon.Kendra.Model.DataSourceConfiguration Configuration { get; set; }
             public System.String Description { get; set; }
             public System.String IndexId { get; set; }

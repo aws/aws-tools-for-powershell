@@ -46,10 +46,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <para>A map of attributes with their corresponding values.</para><para>The following lists the names, descriptions, and values of the special request parameters
         /// that the <code>SetTopicAttributes</code> action uses:</para><ul><li><para><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed
         /// deliveries to HTTP/S endpoints.</para></li><li><para><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</para></li><li><para><code>Policy</code> – The policy that defines who can access your topic. By default,
-        /// only the topic owner can publish or subscribe to the topic.</para></li></ul><para>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</para><ul><li><para><code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key (CMK)
+        /// only the topic owner can publish or subscribe to the topic.</para></li></ul><para>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</para><ul><li><para><code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master key (CMK)
         /// for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
         /// Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
-        /// in the <i>AWS Key Management Service API Reference</i>. </para></li></ul>
+        /// in the <i>AWS Key Management Service API Reference</i>. </para></li></ul><para>The following attribute applies only to FIFO topics:</para><ul><li><para><code>ContentBasedDeduplication</code> – Enables content-based deduplication. Amazon
+        /// SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using
+        /// the body of the message (but not the attributes of the message). </para></li><li><para> When <code>ContentBasedDeduplication</code> is in effect, messages with identical
+        /// content sent within the deduplication interval are treated as duplicates and only
+        /// one copy of the message is delivered. </para></li><li><para> If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code>
+        /// overrides the generated one. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

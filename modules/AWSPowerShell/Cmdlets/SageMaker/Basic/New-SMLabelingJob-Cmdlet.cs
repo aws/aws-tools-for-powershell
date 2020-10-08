@@ -249,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter LabelCategoryConfigS3Uri
         /// <summary>
         /// <para>
-        /// <para>The S3 URL of the file that defines the categories used to label the data objects.</para><para>For 3D point cloud task types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-label-category-config.html">Create
+        /// <para>The S3 URI of the file that defines the categories used to label the data objects.</para><para>For 3D point cloud task types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-label-category-config.html">Create
         /// a Labeling Category Configuration File for 3D Point Cloud Labeling Jobs</a>. </para><para>For all other <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in
         /// task types</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates.html">custom
         /// tasks</a>, your label category configuration file must be a JSON file in the following

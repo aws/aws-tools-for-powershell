@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A system-assigned identifier for a specific file transfer protocol-enabled server.
-        /// That server's user authentication method is tested with a user name and password.</para>
+        /// <para>A system-assigned identifier for a specific server. That server's user authentication
+        /// method is tested with a user name and password.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

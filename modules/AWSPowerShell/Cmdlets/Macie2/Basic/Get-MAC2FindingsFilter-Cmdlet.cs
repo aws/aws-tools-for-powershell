@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves information about the criteria and other settings for a findings filter.
+    /// Retrieves the criteria and other settings for a findings filter.
     /// </summary>
     [Cmdlet("Get", "MAC2FindingsFilter")]
     [OutputType("Amazon.Macie2.Model.GetFindingsFilterResponse")]

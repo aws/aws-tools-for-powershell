@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// <summary>
     /// Enable portfolio sharing feature through AWS Organizations. This API will allow Service
     /// Catalog to receive updates on your organization in order to sync your shares with
-    /// the current structure. This API can only be called by the master account in the organization.
+    /// the current structure. This API can only be called by the management account in the
+    /// organization.
     /// 
     ///  
     /// <para>

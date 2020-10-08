@@ -104,8 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EndpointName
         /// <summary>
         /// <para>
-        /// <para>The name of the endpoint. The name must be unique within an AWS Region in your AWS
-        /// account.</para>
+        /// <para>The name of the endpoint.The name must be unique within an AWS Region in your AWS
+        /// account. The name is case-insensitive in <code>CreateEndpoint</code>, but the case
+        /// is preserved and must be matched in .</para>
         /// </para>
         /// </summary>
         #if !MODULAR

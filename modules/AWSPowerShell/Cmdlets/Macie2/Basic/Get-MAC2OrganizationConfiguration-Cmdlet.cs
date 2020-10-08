@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves information about the Amazon Macie configuration settings for an AWS organization.
+    /// Retrieves the Amazon Macie configuration settings for an AWS organization.
     /// </summary>
     [Cmdlet("Get", "MAC2OrganizationConfiguration")]
     [OutputType("Amazon.Macie2.Model.DescribeOrganizationConfigurationResponse")]

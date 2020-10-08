@@ -273,6 +273,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.ElasticInferenceAccelerator[] ElasticInferenceAccelerator { get; set; }
         #endregion
         
+        #region Parameter EnclaveOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>To enable the instance for AWS Nitro Enclaves, set this parameter to <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnclaveOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter Placement_GroupName
         /// <summary>
         /// <para>
@@ -755,6 +765,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.ElasticInferenceAccelerator = new List<Amazon.EC2.Model.ElasticInferenceAccelerator>(this.ElasticInferenceAccelerator);
             }
+            context.EnclaveOptions_Enabled = this.EnclaveOptions_Enabled;
             context.HibernationOptions_Configured = this.HibernationOptions_Configured;
             context.IamInstanceProfile_Arn = this.IamInstanceProfile_Arn;
             context.IamInstanceProfile_Name = this.IamInstanceProfile_Name;
@@ -950,6 +961,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ElasticInferenceAccelerator != null)
             {
                 request.ElasticInferenceAccelerators = cmdletContext.ElasticInferenceAccelerator;
+            }
+            
+             // populate EnclaveOptions
+            var requestEnclaveOptionsIsNull = true;
+            request.EnclaveOptions = new Amazon.EC2.Model.EnclaveOptionsRequest();
+            System.Boolean? requestEnclaveOptions_enclaveOptions_Enabled = null;
+            if (cmdletContext.EnclaveOptions_Enabled != null)
+            {
+                requestEnclaveOptions_enclaveOptions_Enabled = cmdletContext.EnclaveOptions_Enabled.Value;
+            }
+            if (requestEnclaveOptions_enclaveOptions_Enabled != null)
+            {
+                request.EnclaveOptions.Enabled = requestEnclaveOptions_enclaveOptions_Enabled.Value;
+                requestEnclaveOptionsIsNull = false;
+            }
+             // determine if request.EnclaveOptions should be set to null
+            if (requestEnclaveOptionsIsNull)
+            {
+                request.EnclaveOptions = null;
             }
             
              // populate HibernationOptions
@@ -1284,6 +1314,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? EbsOptimized { get; set; }
             public List<Amazon.EC2.Model.ElasticGpuSpecification> ElasticGpuSpecification { get; set; }
             public List<Amazon.EC2.Model.ElasticInferenceAccelerator> ElasticInferenceAccelerator { get; set; }
+            public System.Boolean? EnclaveOptions_Enabled { get; set; }
             public System.Boolean? HibernationOptions_Configured { get; set; }
             public System.String IamInstanceProfile_Arn { get; set; }
             public System.String IamInstanceProfile_Name { get; set; }

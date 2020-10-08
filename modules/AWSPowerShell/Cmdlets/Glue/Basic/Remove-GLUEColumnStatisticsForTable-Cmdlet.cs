@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Retrieves table statistics of columns.
+    /// 
+    ///  
+    /// <para>
+    /// The Identity and Access Management (IAM) permission required for this operation is
+    /// <code>DeleteTable</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "GLUEColumnStatisticsForTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

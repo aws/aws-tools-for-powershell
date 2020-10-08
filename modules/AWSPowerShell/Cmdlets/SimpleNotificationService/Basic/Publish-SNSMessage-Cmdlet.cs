@@ -102,6 +102,36 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         public System.Collections.Hashtable MessageAttribute { get; set; }
         #endregion
         
+        #region Parameter MessageDeduplicationId
+        /// <summary>
+        /// <para>
+        /// <para>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code>
+        /// can contain up to 128 alphanumeric characters (a-z, A-Z, 0-9) and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</code>.</para><para>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token
+        /// used for deduplication of sent messages. If a message with a particular <code>MessageDeduplicationId</code>
+        /// is sent successfully, any message sent with the same <code>MessageDeduplicationId</code>
+        /// during the 5-minute deduplication interval is treated as a duplicate. </para><para>If the topic has <code>ContentBasedDeduplication</code> set, the system generates
+        /// a <code>MessageDeduplicationId</code> based on the contents of the message. Your <code>MessageDeduplicationId</code>
+        /// overrides the generated one.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MessageDeduplicationId { get; set; }
+        #endregion
+        
+        #region Parameter MessageGroupId
+        /// <summary>
+        /// <para>
+        /// <para>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageGroupId</code>
+        /// can contain up to 128 alphanumeric characters (a-z, A-Z, 0-9) and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</code>.</para><para>The <code>MessageGroupId</code> is a tag that specifies that a message belongs to
+        /// a specific message group. Messages that belong to the same message group are processed
+        /// in a FIFO manner (however, messages in different message groups might be processed
+        /// out of order). Every message must include a <code>MessageGroupId</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MessageGroupId { get; set; }
+        #endregion
+        
         #region Parameter MessageStructure
         /// <summary>
         /// <para>
@@ -240,6 +270,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                     context.MessageAttribute.Add((String)hashKey, (MessageAttributeValue)(this.MessageAttribute[hashKey]));
                 }
             }
+            context.MessageDeduplicationId = this.MessageDeduplicationId;
+            context.MessageGroupId = this.MessageGroupId;
             context.MessageStructure = this.MessageStructure;
             context.PhoneNumber = this.PhoneNumber;
             context.Subject = this.Subject;
@@ -268,6 +300,14 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             if (cmdletContext.MessageAttribute != null)
             {
                 request.MessageAttributes = cmdletContext.MessageAttribute;
+            }
+            if (cmdletContext.MessageDeduplicationId != null)
+            {
+                request.MessageDeduplicationId = cmdletContext.MessageDeduplicationId;
+            }
+            if (cmdletContext.MessageGroupId != null)
+            {
+                request.MessageGroupId = cmdletContext.MessageGroupId;
             }
             if (cmdletContext.MessageStructure != null)
             {
@@ -352,6 +392,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             public System.String Message { get; set; }
             public Dictionary<System.String, Amazon.SimpleNotificationService.Model.MessageAttributeValue> MessageAttribute { get; set; }
+            public System.String MessageDeduplicationId { get; set; }
+            public System.String MessageGroupId { get; set; }
             public System.String MessageStructure { get; set; }
             public System.String PhoneNumber { get; set; }
             public System.String Subject { get; set; }

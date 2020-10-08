@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Parameters_TransformType
         /// <summary>
         /// <para>
-        /// <para>The type of machine learning transform.</para><para>For information about the types of machine learning transforms, see <a href="http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating
+        /// <para>The type of machine learning transform.</para><para>For information about the types of machine learning transforms, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating
         /// Machine Learning Transforms</a>.</para>
         /// </para>
         /// </summary>

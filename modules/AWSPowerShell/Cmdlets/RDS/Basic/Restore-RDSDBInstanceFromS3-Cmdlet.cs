@@ -329,6 +329,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String MasterUserPassword { get; set; }
         #endregion
         
+        #region Parameter MaxAllocatedStorage
+        /// <summary>
+        /// <para>
+        /// <para>The upper limit to which Amazon RDS can automatically scale the storage of the DB
+        /// instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxAllocatedStorage { get; set; }
+        #endregion
+        
         #region Parameter MonitoringInterval
         /// <summary>
         /// <para>
@@ -709,6 +720,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.LicenseModel = this.LicenseModel;
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
+            context.MaxAllocatedStorage = this.MaxAllocatedStorage;
             context.MonitoringInterval = this.MonitoringInterval;
             context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.MultiAZ = this.MultiAZ;
@@ -866,6 +878,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.MaxAllocatedStorage != null)
+            {
+                request.MaxAllocatedStorage = cmdletContext.MaxAllocatedStorage.Value;
             }
             if (cmdletContext.MonitoringInterval != null)
             {
@@ -1034,6 +1050,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String LicenseModel { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.Int32? MaxAllocatedStorage { get; set; }
             public System.Int32? MonitoringInterval { get; set; }
             public System.String MonitoringRoleArn { get; set; }
             public System.Boolean? MultiAZ { get; set; }

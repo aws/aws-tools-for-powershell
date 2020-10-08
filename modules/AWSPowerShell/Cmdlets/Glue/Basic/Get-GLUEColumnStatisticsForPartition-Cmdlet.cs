@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Retrieves partition statistics of columns.
+    /// 
+    ///  
+    /// <para>
+    /// The Identity and Access Management (IAM) permission required for this operation is
+    /// <code>GetPartition</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GLUEColumnStatisticsForPartition")]
     [OutputType("Amazon.Glue.Model.GetColumnStatisticsForPartitionResponse")]

@@ -87,6 +87,16 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.CdiInputResolution
+        {
+            ($_ -eq "New-EMLChannel/CdiInputSpecification_Resolution") -Or
+            ($_ -eq "Update-EMLChannel/CdiInputSpecification_Resolution")
+        }
+        {
+            $v = "FHD","HD","SD","UHD"
+            break
+        }
+
         # Amazon.MediaLive.ChannelClass
         {
             ($_ -eq "New-EMLChannel/ChannelClass") -Or
@@ -171,6 +181,7 @@ $EML_Completers = {
 
 $EML_map = @{
     "Accept"=@("Get-EMLInputDeviceThumbnail")
+    "CdiInputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
     "ChannelClass"=@("New-EMLChannel","Update-EMLChannelClass")
     "HdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
     "InputSpecification_Codec"=@("New-EMLChannel","Update-EMLChannel")
@@ -231,10 +242,12 @@ $EML_SelectCompleters = {
 }
 
 $EML_SelectMap = @{
-    "Select"=@("Remove-EMLResourceBatch",
+    "Select"=@("Receive-EMLInputDeviceTransfer",
+               "Remove-EMLResourceBatch",
                "Start-EMLResourceBatch",
                "Stop-EMLResourceBatch",
                "Update-EMLScheduleBatch",
+               "Stop-EMLInputDeviceTransfer",
                "New-EMLChannel",
                "New-EMLInput",
                "New-EMLInputSecurityGroup",
@@ -261,6 +274,7 @@ $EML_SelectMap = @{
                "Get-EMLSchedule",
                "Get-EMLChannelList",
                "Get-EMLInputDeviceList",
+               "Get-EMLInputDeviceTransferList",
                "Get-EMLInputList",
                "Get-EMLInputSecurityGroupList",
                "Get-EMLMultiplexList",
@@ -269,10 +283,12 @@ $EML_SelectMap = @{
                "Get-EMLReservationList",
                "Get-EMLResourceTag",
                "New-EMLOfferingPurchase",
+               "Deny-EMLInputDeviceTransfer",
                "Start-EMLChannel",
                "Start-EMLMultiplex",
                "Stop-EMLChannel",
                "Stop-EMLMultiplex",
+               "Move-EMLInputDevice",
                "Update-EMLChannel",
                "Update-EMLChannelClass",
                "Update-EMLInput",

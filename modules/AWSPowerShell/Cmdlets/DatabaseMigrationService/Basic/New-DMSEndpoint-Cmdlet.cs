@@ -337,6 +337,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? PostgreSQLSettings_CaptureDdl { get; set; }
         #endregion
         
+        #region Parameter RedshiftSettings_CaseSensitiveName
+        /// <summary>
+        /// <para>
+        /// <para>If Amazon Redshift is configured to support case sensitive schema names, set <code>CaseSensitiveNames</code>
+        /// to <code>true</code>. The default is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RedshiftSettings_CaseSensitiveNames")]
+        public System.Boolean? RedshiftSettings_CaseSensitiveName { get; set; }
+        #endregion
+        
         #region Parameter S3Settings_CdcInsertsAndUpdate
         /// <summary>
         /// <para>
@@ -427,6 +439,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DatabaseMigrationService.CompressionTypeValue")]
         public Amazon.DatabaseMigrationService.CompressionTypeValue S3Settings_CompressionType { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_CompUpdate
+        /// <summary>
+        /// <para>
+        /// <para>If you set <code>CompUpdate</code> to <code>true</code> Amazon Redshift applies automatic
+        /// compression if the table is empty. This applies even if the table columns already
+        /// have encodings other than <code>RAW</code>. If you set <code>CompUpdate</code> to
+        /// <code>false</code>, automatic compression is disabled and existing column encodings
+        /// aren't changed. The default is <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RedshiftSettings_CompUpdate { get; set; }
         #endregion
         
         #region Parameter RedshiftSettings_ConnectionTimeout
@@ -618,7 +644,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies a date separating delimiter to use during folder partitioning. The default
-        /// value is <code>SLASH</code> (/). Use this parameter when <code>DatePartitionedEnabled</code>
+        /// value is <code>SLASH</code>. Use this parameter when <code>DatePartitionedEnabled</code>
         /// is set to <code>true</code>.</para>
         /// </para>
         /// </summary>
@@ -909,6 +935,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? PostgreSQLSettings_ExecuteTimeout { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_ExplicitId
+        /// <summary>
+        /// <para>
+        /// <para>This setting is only valid for a full-load migration task. Set <code>ExplicitIds</code>
+        /// to <code>true</code> to have tables with <code>IDENTITY</code> columns override their
+        /// auto-generated values with explicit values loaded from the source data files used
+        /// to populate the tables. The default is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RedshiftSettings_ExplicitIds")]
+        public System.Boolean? RedshiftSettings_ExplicitId { get; set; }
         #endregion
         
         #region Parameter ExternalTableDefinition
@@ -1694,6 +1734,23 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? OracleSettings_ReplacePathPrefix { get; set; }
+        #endregion
+        
+        #region Parameter ResourceIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>A friendly name for the resource identifier at the end of the <code>EndpointArn</code>
+        /// response parameter that is returned in the created <code>Endpoint</code> object. The
+        /// value for this parameter can have up to 31 characters. It can contain only ASCII letters,
+        /// digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive
+        /// hyphens, and can only begin with a letter, such as <code>Example-App-ARN1</code>.
+        /// For example, this value might result in the <code>EndpointArn</code> value <code>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</code>.
+        /// If you don't specify a <code>ResourceIdentifier</code> value, AWS DMS generates a
+        /// default identifier value for the end of <code>EndpointArn</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceIdentifier { get; set; }
         #endregion
         
         #region Parameter OracleSettings_RetryInterval
@@ -2496,11 +2553,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.RedshiftSettings_AfterConnectScript = this.RedshiftSettings_AfterConnectScript;
             context.RedshiftSettings_BucketFolder = this.RedshiftSettings_BucketFolder;
             context.RedshiftSettings_BucketName = this.RedshiftSettings_BucketName;
+            context.RedshiftSettings_CaseSensitiveName = this.RedshiftSettings_CaseSensitiveName;
+            context.RedshiftSettings_CompUpdate = this.RedshiftSettings_CompUpdate;
             context.RedshiftSettings_ConnectionTimeout = this.RedshiftSettings_ConnectionTimeout;
             context.RedshiftSettings_DatabaseName = this.RedshiftSettings_DatabaseName;
             context.RedshiftSettings_DateFormat = this.RedshiftSettings_DateFormat;
             context.RedshiftSettings_EmptyAsNull = this.RedshiftSettings_EmptyAsNull;
             context.RedshiftSettings_EncryptionMode = this.RedshiftSettings_EncryptionMode;
+            context.RedshiftSettings_ExplicitId = this.RedshiftSettings_ExplicitId;
             context.RedshiftSettings_FileTransferUploadStream = this.RedshiftSettings_FileTransferUploadStream;
             context.RedshiftSettings_LoadTimeout = this.RedshiftSettings_LoadTimeout;
             context.RedshiftSettings_MaxFileSize = this.RedshiftSettings_MaxFileSize;
@@ -2517,6 +2577,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.RedshiftSettings_TruncateColumn = this.RedshiftSettings_TruncateColumn;
             context.RedshiftSettings_Username = this.RedshiftSettings_Username;
             context.RedshiftSettings_WriteBufferSize = this.RedshiftSettings_WriteBufferSize;
+            context.ResourceIdentifier = this.ResourceIdentifier;
             context.S3Settings_BucketFolder = this.S3Settings_BucketFolder;
             context.S3Settings_BucketName = this.S3Settings_BucketName;
             context.S3Settings_CdcInsertsAndUpdate = this.S3Settings_CdcInsertsAndUpdate;
@@ -3922,6 +3983,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.RedshiftSettings.BucketName = requestRedshiftSettings_redshiftSettings_BucketName;
                 requestRedshiftSettingsIsNull = false;
             }
+            System.Boolean? requestRedshiftSettings_redshiftSettings_CaseSensitiveName = null;
+            if (cmdletContext.RedshiftSettings_CaseSensitiveName != null)
+            {
+                requestRedshiftSettings_redshiftSettings_CaseSensitiveName = cmdletContext.RedshiftSettings_CaseSensitiveName.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_CaseSensitiveName != null)
+            {
+                request.RedshiftSettings.CaseSensitiveNames = requestRedshiftSettings_redshiftSettings_CaseSensitiveName.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.Boolean? requestRedshiftSettings_redshiftSettings_CompUpdate = null;
+            if (cmdletContext.RedshiftSettings_CompUpdate != null)
+            {
+                requestRedshiftSettings_redshiftSettings_CompUpdate = cmdletContext.RedshiftSettings_CompUpdate.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_CompUpdate != null)
+            {
+                request.RedshiftSettings.CompUpdate = requestRedshiftSettings_redshiftSettings_CompUpdate.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
             System.Int32? requestRedshiftSettings_redshiftSettings_ConnectionTimeout = null;
             if (cmdletContext.RedshiftSettings_ConnectionTimeout != null)
             {
@@ -3970,6 +4051,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestRedshiftSettings_redshiftSettings_EncryptionMode != null)
             {
                 request.RedshiftSettings.EncryptionMode = requestRedshiftSettings_redshiftSettings_EncryptionMode;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.Boolean? requestRedshiftSettings_redshiftSettings_ExplicitId = null;
+            if (cmdletContext.RedshiftSettings_ExplicitId != null)
+            {
+                requestRedshiftSettings_redshiftSettings_ExplicitId = cmdletContext.RedshiftSettings_ExplicitId.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_ExplicitId != null)
+            {
+                request.RedshiftSettings.ExplicitIds = requestRedshiftSettings_redshiftSettings_ExplicitId.Value;
                 requestRedshiftSettingsIsNull = false;
             }
             System.Int32? requestRedshiftSettings_redshiftSettings_FileTransferUploadStream = null;
@@ -4136,6 +4227,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestRedshiftSettingsIsNull)
             {
                 request.RedshiftSettings = null;
+            }
+            if (cmdletContext.ResourceIdentifier != null)
+            {
+                request.ResourceIdentifier = cmdletContext.ResourceIdentifier;
             }
             
              // populate S3Settings
@@ -4656,11 +4751,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String RedshiftSettings_AfterConnectScript { get; set; }
             public System.String RedshiftSettings_BucketFolder { get; set; }
             public System.String RedshiftSettings_BucketName { get; set; }
+            public System.Boolean? RedshiftSettings_CaseSensitiveName { get; set; }
+            public System.Boolean? RedshiftSettings_CompUpdate { get; set; }
             public System.Int32? RedshiftSettings_ConnectionTimeout { get; set; }
             public System.String RedshiftSettings_DatabaseName { get; set; }
             public System.String RedshiftSettings_DateFormat { get; set; }
             public System.Boolean? RedshiftSettings_EmptyAsNull { get; set; }
             public Amazon.DatabaseMigrationService.EncryptionModeValue RedshiftSettings_EncryptionMode { get; set; }
+            public System.Boolean? RedshiftSettings_ExplicitId { get; set; }
             public System.Int32? RedshiftSettings_FileTransferUploadStream { get; set; }
             public System.Int32? RedshiftSettings_LoadTimeout { get; set; }
             public System.Int32? RedshiftSettings_MaxFileSize { get; set; }
@@ -4677,6 +4775,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Boolean? RedshiftSettings_TruncateColumn { get; set; }
             public System.String RedshiftSettings_Username { get; set; }
             public System.Int32? RedshiftSettings_WriteBufferSize { get; set; }
+            public System.String ResourceIdentifier { get; set; }
             public System.String S3Settings_BucketFolder { get; set; }
             public System.String S3Settings_BucketName { get; set; }
             public System.Boolean? S3Settings_CdcInsertsAndUpdate { get; set; }

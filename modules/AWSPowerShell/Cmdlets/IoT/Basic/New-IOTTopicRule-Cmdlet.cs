@@ -778,7 +778,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TopicRulePayload_Sql
         /// <summary>
         /// <para>
-        /// <para>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference">AWS
+        /// <para>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html">AWS
         /// IoT SQL Reference</a> in the <i>AWS IoT Developer Guide</i>.</para>
         /// </para>
         /// </summary>

@@ -164,6 +164,18 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public Amazon.Kendra.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A token that you provide to identify the request to create a FAQ. Multiple calls to
+        /// the <code>CreateFaqRequest</code> operation with the same client token will create
+        /// only one FAQ. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Id'.
@@ -225,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.FileFormat = this.FileFormat;
             context.IndexId = this.IndexId;
@@ -282,6 +295,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             // create request
             var request = new Amazon.Kendra.Model.CreateFaqRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -396,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public Amazon.Kendra.FaqFileFormat FileFormat { get; set; }
             public System.String IndexId { get; set; }

@@ -188,6 +188,18 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public System.Boolean? EnableBranchAutoDeletion { get; set; }
         #endregion
         
+        #region Parameter AutoBranchCreationConfig_EnablePerformanceMode
+        /// <summary>
+        /// <para>
+        /// <para> Performance mode optimizes for faster hosting performance by keeping content cached
+        /// at the edge for a longer interval. Enabling performance mode will mean that hosting
+        /// configuration or code changes can take up to 10 minutes to roll out. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoBranchCreationConfig_EnablePerformanceMode { get; set; }
+        #endregion
+        
         #region Parameter AutoBranchCreationConfig_EnablePullRequestPreview
         /// <summary>
         /// <para>
@@ -388,6 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             context.AutoBranchCreationConfig_BuildSpec = this.AutoBranchCreationConfig_BuildSpec;
             context.AutoBranchCreationConfig_EnableAutoBuild = this.AutoBranchCreationConfig_EnableAutoBuild;
             context.AutoBranchCreationConfig_EnableBasicAuth = this.AutoBranchCreationConfig_EnableBasicAuth;
+            context.AutoBranchCreationConfig_EnablePerformanceMode = this.AutoBranchCreationConfig_EnablePerformanceMode;
             context.AutoBranchCreationConfig_EnablePullRequestPreview = this.AutoBranchCreationConfig_EnablePullRequestPreview;
             if (this.AutoBranchCreationConfig_EnvironmentVariable != null)
             {
@@ -504,6 +517,16 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             if (requestAutoBranchCreationConfig_autoBranchCreationConfig_EnableBasicAuth != null)
             {
                 request.AutoBranchCreationConfig.EnableBasicAuth = requestAutoBranchCreationConfig_autoBranchCreationConfig_EnableBasicAuth.Value;
+                requestAutoBranchCreationConfigIsNull = false;
+            }
+            System.Boolean? requestAutoBranchCreationConfig_autoBranchCreationConfig_EnablePerformanceMode = null;
+            if (cmdletContext.AutoBranchCreationConfig_EnablePerformanceMode != null)
+            {
+                requestAutoBranchCreationConfig_autoBranchCreationConfig_EnablePerformanceMode = cmdletContext.AutoBranchCreationConfig_EnablePerformanceMode.Value;
+            }
+            if (requestAutoBranchCreationConfig_autoBranchCreationConfig_EnablePerformanceMode != null)
+            {
+                request.AutoBranchCreationConfig.EnablePerformanceMode = requestAutoBranchCreationConfig_autoBranchCreationConfig_EnablePerformanceMode.Value;
                 requestAutoBranchCreationConfigIsNull = false;
             }
             System.Boolean? requestAutoBranchCreationConfig_autoBranchCreationConfig_EnablePullRequestPreview = null;
@@ -691,6 +714,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             public System.String AutoBranchCreationConfig_BuildSpec { get; set; }
             public System.Boolean? AutoBranchCreationConfig_EnableAutoBuild { get; set; }
             public System.Boolean? AutoBranchCreationConfig_EnableBasicAuth { get; set; }
+            public System.Boolean? AutoBranchCreationConfig_EnablePerformanceMode { get; set; }
             public System.Boolean? AutoBranchCreationConfig_EnablePullRequestPreview { get; set; }
             public Dictionary<System.String, System.String> AutoBranchCreationConfig_EnvironmentVariable { get; set; }
             public System.String AutoBranchCreationConfig_Framework { get; set; }

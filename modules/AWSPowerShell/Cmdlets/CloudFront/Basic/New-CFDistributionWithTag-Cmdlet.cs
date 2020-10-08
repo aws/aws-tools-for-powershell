@@ -168,20 +168,28 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String DistributionConfig_DefaultRootObject { get; set; }
         #endregion
         
+        #region Parameter TrustedKeyGroups_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>This field is <code>true</code> if any of the key groups in the list have public keys
+        /// that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+        /// If not, this field is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_Enabled")]
+        public System.Boolean? TrustedKeyGroups_Enabled { get; set; }
+        #endregion
+        
         #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether you want to require viewers to use signed URLs to access the files
-        /// specified by <code>PathPattern</code> and <code>TargetOriginId</code>.</para>
+        /// <para>This field is <code>true</code> if any of the AWS accounts have public keys that CloudFront
+        /// can use to verify the signatures of signed URLs and signed cookies. If not, this field
+        /// is <code>false</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled")]
         public System.Boolean? TrustedSigners_Enabled { get; set; }
         #endregion
@@ -436,11 +444,21 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public Amazon.CloudFront.Model.LambdaFunctionAssociation[] LambdaFunctionAssociations_Item { get; set; }
         #endregion
         
+        #region Parameter TrustedKeyGroups_Item
+        /// <summary>
+        /// <para>
+        /// <para>A list of key groups identifiers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_Items")]
+        public System.String[] TrustedKeyGroups_Item { get; set; }
+        #endregion
+        
         #region Parameter TrustedSigners_Item
         /// <summary>
         /// <para>
-        /// <para><b>Optional</b>: A complex type that contains trusted signers for this cache behavior.
-        /// If <code>Quantity</code> is <code>0</code>, you can omit <code>Items</code>.</para>
+        /// <para>A list of AWS account identifiers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -462,7 +480,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Origins_Item
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains origins or origin groups for this distribution.</para>
+        /// <para>A list of origins.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -684,19 +702,24 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.Int32? LambdaFunctionAssociations_Quantity { get; set; }
         #endregion
         
+        #region Parameter TrustedKeyGroups_Quantity
+        /// <summary>
+        /// <para>
+        /// <para>The number of key groups in the list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_Quantity")]
+        public System.Int32? TrustedKeyGroups_Quantity { get; set; }
+        #endregion
+        
         #region Parameter TrustedSigners_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of trusted signers for this cache behavior.</para>
+        /// <para>The number of AWS accounts in the list.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity")]
         public System.Int32? TrustedSigners_Quantity { get; set; }
         #endregion
@@ -715,7 +738,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Origins_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of origins or origin groups for this distribution.</para>
+        /// <para>The number of origins for this distribution.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -1122,24 +1145,18 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 WriteWarning("You are passing $null as a value for parameter DefaultCacheBehavior_TargetOriginId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TrustedSigners_Enabled = this.TrustedSigners_Enabled;
-            #if MODULAR
-            if (this.TrustedSigners_Enabled == null && ParameterWasBound(nameof(this.TrustedSigners_Enabled)))
+            context.TrustedKeyGroups_Enabled = this.TrustedKeyGroups_Enabled;
+            if (this.TrustedKeyGroups_Item != null)
             {
-                WriteWarning("You are passing $null as a value for parameter TrustedSigners_Enabled which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.TrustedKeyGroups_Item = new List<System.String>(this.TrustedKeyGroups_Item);
             }
-            #endif
+            context.TrustedKeyGroups_Quantity = this.TrustedKeyGroups_Quantity;
+            context.TrustedSigners_Enabled = this.TrustedSigners_Enabled;
             if (this.TrustedSigners_Item != null)
             {
                 context.TrustedSigners_Item = new List<System.String>(this.TrustedSigners_Item);
             }
             context.TrustedSigners_Quantity = this.TrustedSigners_Quantity;
-            #if MODULAR
-            if (this.TrustedSigners_Quantity == null && ParameterWasBound(nameof(this.TrustedSigners_Quantity)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TrustedSigners_Quantity which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DefaultCacheBehavior_ViewerProtocolPolicy = this.DefaultCacheBehavior_ViewerProtocolPolicy;
             #if MODULAR
             if (this.DefaultCacheBehavior_ViewerProtocolPolicy == null && ParameterWasBound(nameof(this.DefaultCacheBehavior_ViewerProtocolPolicy)))
@@ -1941,6 +1958,51 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.AllowedMethods = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_AllowedMethods;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            Amazon.CloudFront.Model.TrustedKeyGroups requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups = null;
+            
+             // populate TrustedKeyGroups
+            var requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroupsIsNull = true;
+            requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups = new Amazon.CloudFront.Model.TrustedKeyGroups();
+            System.Boolean? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_trustedKeyGroups_Enabled = null;
+            if (cmdletContext.TrustedKeyGroups_Enabled != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_trustedKeyGroups_Enabled = cmdletContext.TrustedKeyGroups_Enabled.Value;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_trustedKeyGroups_Enabled != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups.Enabled = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_trustedKeyGroups_Enabled.Value;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroupsIsNull = false;
+            }
+            List<System.String> requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_trustedKeyGroups_Item = null;
+            if (cmdletContext.TrustedKeyGroups_Item != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_trustedKeyGroups_Item = cmdletContext.TrustedKeyGroups_Item;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_trustedKeyGroups_Item != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups.Items = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_trustedKeyGroups_Item;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroupsIsNull = false;
+            }
+            System.Int32? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_trustedKeyGroups_Quantity = null;
+            if (cmdletContext.TrustedKeyGroups_Quantity != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_trustedKeyGroups_Quantity = cmdletContext.TrustedKeyGroups_Quantity.Value;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_trustedKeyGroups_Quantity != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups.Quantity = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups_trustedKeyGroups_Quantity.Value;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroupsIsNull = false;
+            }
+             // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups should be set to null
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroupsIsNull)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups = null;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.TrustedKeyGroups = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedKeyGroups;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
             Amazon.CloudFront.Model.TrustedSigners requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners = null;
             
              // populate TrustedSigners
@@ -2264,6 +2326,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.String DefaultCacheBehavior_RealtimeLogConfigArn { get; set; }
             public System.Boolean? DefaultCacheBehavior_SmoothStreaming { get; set; }
             public System.String DefaultCacheBehavior_TargetOriginId { get; set; }
+            public System.Boolean? TrustedKeyGroups_Enabled { get; set; }
+            public List<System.String> TrustedKeyGroups_Item { get; set; }
+            public System.Int32? TrustedKeyGroups_Quantity { get; set; }
             public System.Boolean? TrustedSigners_Enabled { get; set; }
             public List<System.String> TrustedSigners_Item { get; set; }
             public System.Int32? TrustedSigners_Quantity { get; set; }

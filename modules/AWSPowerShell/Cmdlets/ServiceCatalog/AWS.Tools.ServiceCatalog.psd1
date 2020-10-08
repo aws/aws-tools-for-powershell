@@ -115,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SCProductView', 
         'Get-SCProvisionedProduct', 
         'Get-SCProvisionedProductDetail', 
+        'Get-SCProvisionedProductOutput', 
         'Get-SCProvisionedProductPlan', 
         'Get-SCProvisionedProductPlanList', 
         'Get-SCProvisioningArtifact', 

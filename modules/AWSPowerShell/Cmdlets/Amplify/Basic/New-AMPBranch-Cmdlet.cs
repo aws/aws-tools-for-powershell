@@ -156,6 +156,18 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public System.Boolean? EnableNotification { get; set; }
         #endregion
         
+        #region Parameter EnablePerformanceMode
+        /// <summary>
+        /// <para>
+        /// <para> Performance mode optimizes for faster hosting performance by keeping content cached
+        /// at the edge for a longer interval. Enabling performance mode will mean that hosting
+        /// configuration or code changes can take up to 10 minutes to roll out. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnablePerformanceMode { get; set; }
+        #endregion
+        
         #region Parameter EnablePullRequestPreview
         /// <summary>
         /// <para>
@@ -312,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             context.EnableAutoBuild = this.EnableAutoBuild;
             context.EnableBasicAuth = this.EnableBasicAuth;
             context.EnableNotification = this.EnableNotification;
+            context.EnablePerformanceMode = this.EnablePerformanceMode;
             context.EnablePullRequestPreview = this.EnablePullRequestPreview;
             if (this.EnvironmentVariable != null)
             {
@@ -388,6 +401,10 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             if (cmdletContext.EnableNotification != null)
             {
                 request.EnableNotification = cmdletContext.EnableNotification.Value;
+            }
+            if (cmdletContext.EnablePerformanceMode != null)
+            {
+                request.EnablePerformanceMode = cmdletContext.EnablePerformanceMode.Value;
             }
             if (cmdletContext.EnablePullRequestPreview != null)
             {
@@ -488,6 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             public System.Boolean? EnableAutoBuild { get; set; }
             public System.Boolean? EnableBasicAuth { get; set; }
             public System.Boolean? EnableNotification { get; set; }
+            public System.Boolean? EnablePerformanceMode { get; set; }
             public System.Boolean? EnablePullRequestPreview { get; set; }
             public Dictionary<System.String, System.String> EnvironmentVariable { get; set; }
             public System.String Framework { get; set; }

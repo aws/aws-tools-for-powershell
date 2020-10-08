@@ -33,14 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// includes endpoints, such as Network Load Balancers. To see an AWS CLI example of creating
     /// an accelerator, scroll down to <b>Example</b>.
     /// 
-    ///  
-    /// <para>
-    /// If you bring your own IP address ranges to AWS Global Accelerator (BYOIP), you can
-    /// assign IP addresses from your own pool to your accelerator as the static IP address
-    /// entry points. Only one IP address from each of your IP address ranges can be used
-    /// for each accelerator.
-    /// </para><important><para>
-    /// You must specify the US West (Oregon) Region to create or update accelerators.
+    ///  <important><para>
+    /// Global Accelerator is a global service that supports endpoints in multiple AWS Regions
+    /// but you must specify the US West (Oregon) Region to create or update accelerators.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "GACLAccelerator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -79,11 +74,13 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter IpAddress
         /// <summary>
         /// <para>
-        /// <para>Optionally, if you've added your own IP address pool to Global Accelerator, you can
-        /// choose IP addresses from your own pool to use for the accelerator's static IP addresses.
-        /// You can specify one or two addresses, separated by a comma. Do not include the /32
-        /// suffix.</para><para>If you specify only one IP address from your IP address range, Global Accelerator
-        /// assigns a second static IP address for the accelerator from the AWS IP address pool.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
+        /// <para>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP),
+        /// you can choose IP addresses from your own pool to use for the accelerator's static
+        /// IP addresses when you create an accelerator. You can specify one or two addresses,
+        /// separated by a comma. Do not include the /32 suffix.</para><para>Only one IP address from each of your IP address ranges can be used for each accelerator.
+        /// If you specify only one IP address from your IP address range, Global Accelerator
+        /// assigns a second static IP address for the accelerator from the AWS IP address pool.</para><para> Note that you can't update IP addresses for an existing accelerator. To change them,
+        /// you must create a new accelerator with the new addresses.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
         /// Your Own IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</para>
         /// </para>
         /// </summary>

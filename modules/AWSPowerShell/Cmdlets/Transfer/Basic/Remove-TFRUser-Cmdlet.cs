@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A system-assigned unique identifier for a file transfer protocol-enabled server instance
-        /// that has the user assigned to it.</para>
+        /// <para>A system-assigned unique identifier for a server instance that has the user assigned
+        /// to it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>A unique string that identifies a user that is being deleted from a file transfer
-        /// protocol-enabled server.</para>
+        /// <para>A unique string that identifies a user that is being deleted from a server.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

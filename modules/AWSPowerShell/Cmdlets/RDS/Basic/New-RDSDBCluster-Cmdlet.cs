@@ -282,14 +282,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineMode
         /// <summary>
         /// <para>
-        /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-        /// <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</para><note><para><code>global</code> engine mode only applies for global database clusters created
-        /// with Aurora MySQL version 5.6.10a. For higher Aurora MySQL versions, the clusters
-        /// in a global database use <code>provisioned</code> engine mode. </para></note><para>Limitations and requirements apply to some DB engine modes. For more information,
+        /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code><code>serverless</code>,
+        /// <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</para><para>The <code>parallelquery</code> engine mode isn't required for Aurora MySQL version
+        /// 1.23 and higher 1.x versions, and version 2.09 and higher 2.x versions.</para><para>The <code>global</code> engine mode isn't required for Aurora MySQL version 1.22 and
+        /// higher 1.x versions, and <code>global</code> engine mode isn't required for any 2.x
+        /// versions.</para><para>The <code>multimaster</code> engine mode only applies for DB clusters created with
+        /// Aurora MySQL version 5.6.10a.</para><para>For Aurora PostgreSQL, the <code>global</code> engine mode isn't required, and both
+        /// the <code>parallelquery</code> and the <code>multimaster</code> engine modes currently
+        /// aren't supported.</para><para>Limitations and requirements apply to some DB engine modes. For more information,
         /// see the following sections in the <i>Amazon Aurora User Guide</i>:</para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
         /// Limitations of Aurora Serverless</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
         /// Limitations of Parallel Query</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
-        /// Requirements for Aurora Global Databases</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
+        /// Limitations of Aurora Global Databases</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
         /// Limitations of Multi-Master Clusters</a></para></li></ul>
         /// </para>
         /// </summary>

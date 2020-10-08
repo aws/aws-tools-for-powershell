@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>neptune</C2jFilename>
     <AssemblyName>Neptune</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -51,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDBClusterEndpoint" OutputProperty="*" Verb="New" Noun="DBClusterEndpoint" ShouldProcessTarget="DBClusterEndpointIdentifier" PipelineParameter="DBClusterEndpointIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDBClusterParameterGroup" OutputProperty="DBClusterParameterGroup" Verb="New" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -79,6 +83,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDBClusterEndpoint" OutputProperty="*" Verb="Remove" Noun="DBClusterEndpoint" ShouldProcessTarget="DBClusterEndpointIdentifier" PipelineParameter="DBClusterEndpointIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDBClusterParameterGroup" Verb="Remove" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -100,6 +108,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteEventSubscription" OutputProperty="EventSubscription" Verb="Remove" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBClusterEndpoints" OutputProperty="DBClusterEndpoints" Verb="Get" Noun="DBClusterEndpoint" PipelineParameter="DBClusterEndpointIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -187,6 +199,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBClusterEndpoint" OutputProperty="*" Verb="Edit" Noun="DBClusterEndpoint" ShouldProcessTarget="DBClusterEndpointIdentifier" PipelineParameter="DBClusterEndpointIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyDBClusterParameterGroup" OutputProperty="DBClusterParameterGroupName" Verb="Edit" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -256,7 +272,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

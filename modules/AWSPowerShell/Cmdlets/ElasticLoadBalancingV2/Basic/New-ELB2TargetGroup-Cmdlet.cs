@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     public partial class NewELB2TargetGroupCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter Matcher_GrpcCode
+        /// <summary>
+        /// <para>
+        /// <para>You can specify values between 0 and 99. You can specify multiple values (for example,
+        /// "0,1") or a range of values (for example, "0-5"). The default value is 12.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Matcher_GrpcCode { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckEnabled
         /// <summary>
         /// <para>
@@ -90,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter HealthCheckPath
         /// <summary>
         /// <para>
-        /// <para>[HTTP/HTTPS health checks] The ping path that is the destination on the targets for
-        /// health checks. The default is /.</para>
+        /// <para>[HTTP/HTTPS health checks] The destination for health checks on the targets.</para><para>[HTTP1 or HTTP2 protocol version] The ping path. The default is /.</para><para>[GRPC protocol version] The path of a custom health check method with the format /package.service/method.
+        /// The default is /AWS.ALB/healthcheck.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,9 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Matcher_HttpCode
         /// <summary>
         /// <para>
-        /// <para>The HTTP codes.</para><para>For Application Load Balancers, you can specify values between 200 and 499, and the
+        /// <para>For Application Load Balancers, you can specify values between 200 and 499, and the
         /// default value is 200. You can specify multiple values (for example, "200,202") or
-        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers, this is 200–399.</para>
+        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers, this is "200–399".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,6 +220,18 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ElasticLoadBalancingV2.ProtocolEnum")]
         public Amazon.ElasticLoadBalancingV2.ProtocolEnum Protocol { get; set; }
+        #endregion
+        
+        #region Parameter ProtocolVersion
+        /// <summary>
+        /// <para>
+        /// <para>[HTTP/HTTPS protocol] The protocol version. Specify <code>GRPC</code> to send requests
+        /// to targets using gRPC. Specify <code>HTTP2</code> to send requests to targets using
+        /// HTTP/2. The default is <code>HTTP1</code>, which sends requests to targets using HTTP/1.1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProtocolVersion { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -310,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             context.HealthCheckProtocol = this.HealthCheckProtocol;
             context.HealthCheckTimeoutSecond = this.HealthCheckTimeoutSecond;
             context.HealthyThresholdCount = this.HealthyThresholdCount;
+            context.Matcher_GrpcCode = this.Matcher_GrpcCode;
             context.Matcher_HttpCode = this.Matcher_HttpCode;
             context.Name = this.Name;
             #if MODULAR
@@ -320,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             #endif
             context.Port = this.Port;
             context.Protocol = this.Protocol;
+            context.ProtocolVersion = this.ProtocolVersion;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ElasticLoadBalancingV2.Model.Tag>(this.Tag);
@@ -375,6 +400,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
              // populate Matcher
             var requestMatcherIsNull = true;
             request.Matcher = new Amazon.ElasticLoadBalancingV2.Model.Matcher();
+            System.String requestMatcher_matcher_GrpcCode = null;
+            if (cmdletContext.Matcher_GrpcCode != null)
+            {
+                requestMatcher_matcher_GrpcCode = cmdletContext.Matcher_GrpcCode;
+            }
+            if (requestMatcher_matcher_GrpcCode != null)
+            {
+                request.Matcher.GrpcCode = requestMatcher_matcher_GrpcCode;
+                requestMatcherIsNull = false;
+            }
             System.String requestMatcher_matcher_HttpCode = null;
             if (cmdletContext.Matcher_HttpCode != null)
             {
@@ -401,6 +436,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (cmdletContext.Protocol != null)
             {
                 request.Protocol = cmdletContext.Protocol;
+            }
+            if (cmdletContext.ProtocolVersion != null)
+            {
+                request.ProtocolVersion = cmdletContext.ProtocolVersion;
             }
             if (cmdletContext.Tag != null)
             {
@@ -486,10 +525,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public Amazon.ElasticLoadBalancingV2.ProtocolEnum HealthCheckProtocol { get; set; }
             public System.Int32? HealthCheckTimeoutSecond { get; set; }
             public System.Int32? HealthyThresholdCount { get; set; }
+            public System.String Matcher_GrpcCode { get; set; }
             public System.String Matcher_HttpCode { get; set; }
             public System.String Name { get; set; }
             public System.Int32? Port { get; set; }
             public Amazon.ElasticLoadBalancingV2.ProtocolEnum Protocol { get; set; }
+            public System.String ProtocolVersion { get; set; }
             public List<Amazon.ElasticLoadBalancingV2.Model.Tag> Tag { get; set; }
             public Amazon.ElasticLoadBalancingV2.TargetTypeEnum TargetType { get; set; }
             public System.Int32? UnhealthyThresholdCount { get; set; }

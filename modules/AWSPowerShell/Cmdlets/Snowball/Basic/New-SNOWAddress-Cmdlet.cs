@@ -28,8 +28,8 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Creates an address for a Snowball to be shipped to. In most regions, addresses are
-    /// validated at the time of creation. The address you provide must be located within
+    /// Creates an address for a Snow device to be shipped to. In most regions, addresses
+    /// are validated at the time of creation. The address you provide must be located within
     /// the serviceable area of your region. If the address is invalid or unsupported, then
     /// an exception is thrown.
     /// </summary>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Address_City
         /// <summary>
         /// <para>
-        /// <para>The city in an address that a Snowball is to be delivered to.</para>
+        /// <para>The city in an address that a Snow device is to be delivered to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Address_Company
         /// <summary>
         /// <para>
-        /// <para>The name of the company to receive a Snowball at an address.</para>
+        /// <para>The name of the company to receive a Snow device at an address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Address_Country
         /// <summary>
         /// <para>
-        /// <para>The country in an address that a Snowball is to be delivered to.</para>
+        /// <para>The country in an address that a Snow device is to be delivered to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Address_Name
         /// <summary>
         /// <para>
-        /// <para>The name of a person to receive a Snowball at an address.</para>
+        /// <para>The name of a person to receive a Snow device at an address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Address_PhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The phone number associated with an address that a Snowball is to be delivered to.</para>
+        /// <para>The phone number associated with an address that a Snow device is to be delivered
+        /// to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Address_PostalCode
         /// <summary>
         /// <para>
-        /// <para>The postal code in an address that a Snowball is to be delivered to.</para>
+        /// <para>The postal code in an address that a Snow device is to be delivered to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Address_StateOrProvince
         /// <summary>
         /// <para>
-        /// <para>The state or province in an address that a Snowball is to be delivered to.</para>
+        /// <para>The state or province in an address that a Snow device is to be delivered to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Address_Street1
         /// <summary>
         /// <para>
-        /// <para>The first line in a street address that a Snowball is to be delivered to.</para>
+        /// <para>The first line in a street address that a Snow device is to be delivered to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Address_Street2
         /// <summary>
         /// <para>
-        /// <para>The second line in a street address that a Snowball is to be delivered to.</para>
+        /// <para>The second line in a street address that a Snow device is to be delivered to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Address_Street3
         /// <summary>
         /// <para>
-        /// <para>The third line in a street address that a Snowball is to be delivered to.</para>
+        /// <para>The third line in a street address that a Snow device is to be delivered to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

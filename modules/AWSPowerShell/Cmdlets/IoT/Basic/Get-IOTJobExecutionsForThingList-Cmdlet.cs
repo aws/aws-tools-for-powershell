@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTJobExecutionsForThingListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter NamespaceId
+        /// <summary>
+        /// <para>
+        /// <para>The namespace used to indicate that a job is a customer-managed job.</para><para>When you specify a value for this parameter, AWS IoT Core sends jobs notifications
+        /// to MQTT topics that contain the value in the following format.</para><para><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></para><note><para>The <code>namespaceId</code> feature is in public preview.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NamespaceId { get; set; }
+        #endregion
+        
         #region Parameter Status
         /// <summary>
         /// <para>
@@ -163,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.NamespaceId = this.NamespaceId;
             context.NextToken = this.NextToken;
             context.Status = this.Status;
             context.ThingName = this.ThingName;
@@ -196,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.NamespaceId != null)
+            {
+                request.NamespaceId = cmdletContext.NamespaceId;
             }
             if (cmdletContext.Status != null)
             {
@@ -260,6 +276,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             // create request and set iteration invariants
             var request = new Amazon.IoT.Model.ListJobExecutionsForThingRequest();
+            if (cmdletContext.NamespaceId != null)
+            {
+                request.NamespaceId = cmdletContext.NamespaceId;
+            }
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
@@ -388,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal partial class CmdletContext : ExecutorContext
         {
             public int? MaxResult { get; set; }
+            public System.String NamespaceId { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.IoT.JobExecutionStatus Status { get; set; }
             public System.String ThingName { get; set; }

@@ -1,4 +1,174 @@
-﻿### 4.1.2.0 (2020-10-06)
+﻿### 4.1.3.0 (2020-10-29)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.45.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Amplify
+    * Modified cmdlet New-AMPApp: added parameter AutoBranchCreationConfig_EnablePerformanceMode.
+    * Modified cmdlet New-AMPBranch: added parameter EnablePerformanceMode.
+    * Modified cmdlet Update-AMPApp: added parameter AutoBranchCreationConfig_EnablePerformanceMode.
+    * Modified cmdlet Update-AMPBranch: added parameter EnablePerformanceMode.
+  * Amazon API Gateway
+    * Modified cmdlet New-AGRestApi: added parameter DisableExecuteApiEndpoint.
+  * Amazon Appflow
+    * Modified cmdlet New-AFFlow: added parameter IncrementalPullConfig_DatetimeTypeFieldName.
+    * Modified cmdlet Update-AFFlow: added parameter IncrementalPullConfig_DatetimeTypeFieldName.
+  * Amazon Batch
+    * Modified cmdlet Register-BATJobDefinition: added parameter RetryStrategy_EvaluateOnExit.
+    * Modified cmdlet Submit-BATJob: added parameter RetryStrategy_EvaluateOnExit.
+  * Amazon Budgets
+    * Added cmdlet Get-BGTBudgetAction leveraging the DescribeBudgetAction service API.
+    * Added cmdlet Get-BGTBudgetActionHistory leveraging the DescribeBudgetActionHistories service API.
+    * Added cmdlet Get-BGTBudgetActionsForAccount leveraging the DescribeBudgetActionsForAccount service API.
+    * Added cmdlet Get-BGTBudgetActionsForBudget leveraging the DescribeBudgetActionsForBudget service API.
+    * Added cmdlet Invoke-BGTBudgetAction leveraging the ExecuteBudgetAction service API.
+    * Added cmdlet New-BGTBudgetAction leveraging the CreateBudgetAction service API.
+    * Added cmdlet Remove-BGTBudgetAction leveraging the DeleteBudgetAction service API.
+    * Added cmdlet Update-BGTBudgetAction leveraging the UpdateBudgetAction service API.
+  * Amazon CloudFront
+    * Added cmdlet Get-CFDistributionsByKeyGroup leveraging the ListDistributionsByKeyGroup service API.
+    * Added cmdlet Get-CFKeyGroup leveraging the GetKeyGroup service API.
+    * Added cmdlet Get-CFKeyGroupConfig leveraging the GetKeyGroupConfig service API.
+    * Added cmdlet Get-CFKeyGroupList leveraging the ListKeyGroups service API.
+    * Added cmdlet New-CFKeyGroup leveraging the CreateKeyGroup service API.
+    * Added cmdlet Remove-CFKeyGroup leveraging the DeleteKeyGroup service API.
+    * Added cmdlet Update-CFKeyGroup leveraging the UpdateKeyGroup service API.
+    * Modified cmdlet New-CFDistribution: added parameters TrustedKeyGroups_Enabled, TrustedKeyGroups_Item and TrustedKeyGroups_Quantity.
+    * Modified cmdlet New-CFDistributionWithTag: added parameters TrustedKeyGroups_Enabled, TrustedKeyGroups_Item and TrustedKeyGroups_Quantity.
+    * Modified cmdlet Update-CFDistribution: added parameters TrustedKeyGroups_Enabled, TrustedKeyGroups_Item and TrustedKeyGroups_Quantity.
+  * Amazon CodeArtifact
+    * Added cmdlet Add-CAResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CAResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-CAResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-CADomain: added parameter Tag.
+    * Modified cmdlet New-CARepository: added parameter Tag.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSEndpoint: added parameters RedshiftSettings_CaseSensitiveName, RedshiftSettings_CompUpdate and RedshiftSettings_ExplicitId.
+    * Modified cmdlet New-DMSEndpoint: added parameters RedshiftSettings_CaseSensitiveName, RedshiftSettings_CompUpdate, RedshiftSettings_ExplicitId and ResourceIdentifier.
+    * Modified cmdlet New-DMSReplicationInstance: added parameter ResourceIdentifier.
+    * Modified cmdlet New-DMSReplicationTask: added parameter ResourceIdentifier.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2AssociatedEnclaveCertificateIamRole leveraging the GetAssociatedEnclaveCertificateIamRoles service API.
+    * Added cmdlet Register-EC2EnclaveCertificateIamRole leveraging the AssociateEnclaveCertificateIamRole service API.
+    * Added cmdlet Unregister-EC2EnclaveCertificateIamRole leveraging the DisassociateEnclaveCertificateIamRole service API.
+    * Modified cmdlet New-EC2Instance: added parameter EnclaveOptions_Enabled.
+    * Modified cmdlet Edit-EC2ClientVpnEndpoint: added parameter SelfServicePortal.
+    * Modified cmdlet Edit-EC2TransitGatewayVpcAttachment: added parameter Options_ApplianceModeSupport.
+    * Modified cmdlet New-EC2ClientVpnEndpoint: added parameter SelfServicePortal.
+    * Modified cmdlet New-EC2TransitGatewayVpcAttachment: added parameter Options_ApplianceModeSupport.
+  * Amazon Elastic Load Balancing V2
+    * Modified cmdlet Edit-ELB2TargetGroup: added parameter Matcher_GrpcCode.
+    * Modified cmdlet New-ELB2TargetGroup: added parameters Matcher_GrpcCode and ProtocolVersion.
+  * Amazon ElastiCache
+    * Added cmdlet Edit-ECUser leveraging the ModifyUser service API.
+    * Added cmdlet Edit-ECUserGroup leveraging the ModifyUserGroup service API.
+    * Added cmdlet Get-ECUser leveraging the DescribeUsers service API.
+    * Added cmdlet Get-ECUserGroup leveraging the DescribeUserGroups service API.
+    * Added cmdlet New-ECUser leveraging the CreateUser service API.
+    * Added cmdlet New-ECUserGroup leveraging the CreateUserGroup service API.
+    * Added cmdlet Remove-ECUser leveraging the DeleteUser service API.
+    * Added cmdlet Remove-ECUserGroup leveraging the DeleteUserGroup service API.
+    * Modified cmdlet Edit-ECReplicationGroup: added parameters RemoveUserGroup, UserGroupIdsToAdd and UserGroupIdsToRemove.
+    * Modified cmdlet New-ECCacheCluster: added parameters OutpostMode, PreferredOutpostArn and PreferredOutpostArnSet.
+    * Modified cmdlet New-ECReplicationGroup: added parameter UserGroupId.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Deny-EMLInputDeviceTransfer leveraging the RejectInputDeviceTransfer service API.
+    * Added cmdlet Get-EMLInputDeviceTransferList leveraging the ListInputDeviceTransfers service API.
+    * Added cmdlet Move-EMLInputDevice leveraging the TransferInputDevice service API.
+    * Added cmdlet Receive-EMLInputDeviceTransfer leveraging the AcceptInputDeviceTransfer service API.
+    * Added cmdlet Stop-EMLInputDeviceTransfer leveraging the CancelInputDeviceTransfer service API.
+    * Modified cmdlet New-EMLChannel: added parameter CdiInputSpecification_Resolution.
+    * Modified cmdlet New-EMLMultiplexProgram: added parameter StatmuxSettings_Priority.
+    * Modified cmdlet Update-EMLChannel: added parameter CdiInputSpecification_Resolution.
+    * Modified cmdlet Update-EMLMultiplexProgram: added parameter StatmuxSettings_Priority.
+  * Amazon Elemental MediaPackage
+    * Added cmdlet Update-EMPLogConfiguration leveraging the ConfigureLogs service API.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Set-EMTPlaybackConfiguration: added parameter AdMarkerPassthrough_Enabled.
+  * Amazon Global Accelerator
+    * Modified cmdlet New-GACLEndpointGroup: added parameter PortOverride.
+    * Modified cmdlet Update-GACLEndpointGroup: added parameter PortOverride.
+  * Amazon Glue
+    * Modified cmdlet New-GLUECrawler: added parameter RecrawlPolicy_RecrawlBehavior.
+    * Modified cmdlet New-GLUEMLTransform: added parameters MlUserDataEncryption_KmsKeyId, MlUserDataEncryption_MlUserDataEncryptionMode and TransformEncryption_TaskRunSecurityConfigurationName.
+    * Modified cmdlet Update-GLUECrawler: added parameter RecrawlPolicy_RecrawlBehavior.
+  * Amazon IAM Access Analyzer
+    * Added cmdlet Start-IAMAAArchiveRule leveraging the ApplyArchiveRule service API.
+  * Amazon Import/Export Snowball
+    * Added cmdlet Get-SNOWReturnShippingLabel leveraging the DescribeReturnShippingLabel service API.
+    * Added cmdlet New-SNOWReturnShippingLabel leveraging the CreateReturnShippingLabel service API.
+    * Added cmdlet Update-SNOWJobShipmentState leveraging the UpdateJobShipmentState service API.
+  * Amazon IoT
+    * Modified cmdlet Add-IOTTargetsWithJob: added parameter NamespaceId.
+    * Modified cmdlet Get-IOTJobExecutionsForThingList: added parameter NamespaceId.
+    * Modified cmdlet Get-IOTJobList: added parameter NamespaceId.
+    * Modified cmdlet New-IOTJob: added parameter NamespaceId.
+    * Modified cmdlet Remove-IOTJob: added parameter NamespaceId.
+    * Modified cmdlet Remove-IOTJobExecution: added parameter NamespaceId.
+    * Modified cmdlet Update-IOTJob: added parameter NamespaceId.
+  * Amazon Kendra
+    * Modified cmdlet New-KNDRDataSource: added parameter ClientToken.
+    * Modified cmdlet New-KNDRFaq: added parameter ClientToken.
+  * Amazon Neptune
+    * Added cmdlet Edit-NPTDBClusterEndpoint leveraging the ModifyDBClusterEndpoint service API.
+    * Added cmdlet Get-NPTDBClusterEndpoint leveraging the DescribeDBClusterEndpoints service API.
+    * Added cmdlet New-NPTDBClusterEndpoint leveraging the CreateDBClusterEndpoint service API.
+    * Added cmdlet Remove-NPTDBClusterEndpoint leveraging the DeleteDBClusterEndpoint service API.
+    * Modified cmdlet Add-NPTRoleToDBCluster: added parameter FeatureName.
+    * Modified cmdlet Remove-NPTRoleFromDBCluster: added parameter FeatureName.
+  * Amazon Rekognition
+    * Added cmdlet Find-REKProtectiveEquipment leveraging the DetectProtectiveEquipment service API.
+  * Amazon Relational Database Service
+    * Modified cmdlet Restore-RDSDBInstanceFromS3: added parameter MaxAllocatedStorage.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameter MaxAllocatedStorage.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMAppImageConfig leveraging the DescribeAppImageConfig service API.
+    * Added cmdlet Get-SMAppImageConfigList leveraging the ListAppImageConfigs service API.
+    * Added cmdlet Get-SMImage leveraging the DescribeImage service API.
+    * Added cmdlet Get-SMImageList leveraging the ListImages service API.
+    * Added cmdlet Get-SMImageVersion leveraging the DescribeImageVersion service API.
+    * Added cmdlet Get-SMImageVersionList leveraging the ListImageVersions service API.
+    * Added cmdlet New-SMAppImageConfig leveraging the CreateAppImageConfig service API.
+    * Added cmdlet New-SMImage leveraging the CreateImage service API.
+    * Added cmdlet New-SMImageVersion leveraging the CreateImageVersion service API.
+    * Added cmdlet Remove-SMAppImageConfig leveraging the DeleteAppImageConfig service API.
+    * Added cmdlet Remove-SMImage leveraging the DeleteImage service API.
+    * Added cmdlet Remove-SMImageVersion leveraging the DeleteImageVersion service API.
+    * Added cmdlet Update-SMAppImageConfig leveraging the UpdateAppImageConfig service API.
+    * Added cmdlet Update-SMImage leveraging the UpdateImage service API.
+    * Modified cmdlet New-SMApp: added parameter ResourceSpec_SageMakerImageVersionArn.
+    * Modified cmdlet New-SMCompilationJob: added parameter Tag.
+  * Amazon Service Catalog
+    * Added cmdlet Get-SCProvisionedProductOutput leveraging the GetProvisionedProductOutputs service API.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Get-SES2Contact leveraging the GetContact service API.
+    * Added cmdlet Get-SES2ContactCollection leveraging the ListContacts service API.
+    * Added cmdlet Get-SES2ContactList leveraging the GetContactList service API.
+    * Added cmdlet Get-SES2ContactListCollection leveraging the ListContactLists service API.
+    * Added cmdlet New-SES2Contact leveraging the CreateContact service API.
+    * Added cmdlet New-SES2ContactList leveraging the CreateContactList service API.
+    * Added cmdlet Remove-SES2Contact leveraging the DeleteContact service API.
+    * Added cmdlet Remove-SES2ContactList leveraging the DeleteContactList service API.
+    * Added cmdlet Update-SES2Contact leveraging the UpdateContact service API.
+    * Added cmdlet Update-SES2ContactList leveraging the UpdateContactList service API.
+    * Modified cmdlet New-SES2ImportJob: added parameters ContactListDestination_ContactListImportAction and ContactListDestination_ContactListName.
+    * Modified cmdlet Send-SES2Email: added parameters ListManagementOptions_ContactListName and ListManagementOptions_TopicName.
+  * Amazon Simple Notification Service (SNS)
+    * Modified cmdlet Publish-SNSMessage: added parameters MessageDeduplicationId and MessageGroupId.
+  * Amazon Storage Gateway
+    * Added cmdlet Update-SGSMBFileShareVisibility leveraging the UpdateSMBFileShareVisibility service API.
+    * Modified cmdlet New-SGNFSFileShare: added parameter NotificationPolicy.
+    * Modified cmdlet New-SGSMBFileShare: added parameters AccessBasedEnumeration and NotificationPolicy.
+    * Modified cmdlet Update-SGNFSFileShare: added parameter NotificationPolicy.
+    * Modified cmdlet Update-SGSMBFileShare: added parameters AccessBasedEnumeration and NotificationPolicy.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRServer: added parameter EndpointDetails_SecurityGroupId.
+    * Modified cmdlet Update-TFRServer: added parameter EndpointDetails_SecurityGroupId.
+  * Amazon WorkMail
+    * Added cmdlet New-WMOrganization leveraging the CreateOrganization service API.
+    * Added cmdlet Remove-WMOrganization leveraging the DeleteOrganization service API.
+  * Amazon X-Ray
+    * Modified cmdlet New-XRGroup: added parameter InsightsConfiguration_NotificationsEnabled.
+    * Modified cmdlet Update-XRGroup: added parameter InsightsConfiguration_NotificationsEnabled.
+
+### 4.1.2.0 (2020-10-06)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.5.31.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Single Sign-On Admin. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SSOADMN and can be listed using the command 'Get-AWSCmdletName -Service SSOADMN'.
   * Amazon Batch

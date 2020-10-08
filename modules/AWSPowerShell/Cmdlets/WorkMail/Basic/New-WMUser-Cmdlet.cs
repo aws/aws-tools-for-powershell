@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name for the new user. Simple AD or AD Connector user names have a maximum length
-        /// of 20. All others have a maximum length of 64.</para>
+        /// <para>The name for the new user. WorkMail directory user names have a maximum length of
+        /// 64. All others have a maximum length of 20.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

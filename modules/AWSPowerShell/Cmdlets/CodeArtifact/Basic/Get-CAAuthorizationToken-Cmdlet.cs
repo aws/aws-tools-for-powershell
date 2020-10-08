@@ -28,9 +28,10 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Generates a temporary authentication token for accessing repositories in the domain.
+    /// Generates a temporary authorization token for accessing repositories in the domain.
     /// This API requires the <code>codeartifact:GetAuthorizationToken</code> and <code>sts:GetServiceBearerToken</code>
-    /// permissions. 
+    /// permissions. For more information about authorization tokens, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html">AWS
+    /// CodeArtifact authentication and tokens</a>. 
     /// 
     ///  <note><para>
     /// CodeArtifact authorization tokens are valid for a period of 12 hours when created
@@ -91,7 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter DurationSecond
         /// <summary>
         /// <para>
-        /// <para>The time, in seconds, that the generated authorization token is valid.</para>
+        /// <para>The time, in seconds, that the generated authorization token is valid. Valid values
+        /// are <code>0</code> and any number between <code>900</code> (15 minutes) and <code>43200</code>
+        /// (12 hours). A value of <code>0</code> will set the expiration of the authorization
+        /// token to the same expiration of the user's role's temporary credentials.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

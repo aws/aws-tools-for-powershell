@@ -28,7 +28,6 @@
         <Map From="Tags" To="Tag" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases>
         <AliasSet Cmdlet="Approve-ECCacheSecurityGroupIngress">Authorize-ECCacheSecurityGroupIngress</AliasSet>
         <AliasSet Cmdlet="Request-ECReservedCacheNodesOffering">Purchase-ECReservedCacheNodesOffering</AliasSet>
@@ -68,6 +67,7 @@
             <Params>
                 <Param Name="PreferredAvailabilityZones" NewName="PreferredAvailabilityZoneSet" />
                 <Param Name="Groups" Alias="GroupId" />
+                <Param Name="PreferredOutpostArns" NewName="PreferredOutpostArnSet" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -92,6 +92,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="CacheClusterId" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUser" OutputProperty="*" Verb="New" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserGroup" OutputProperty="*" Verb="New" Noun="UserGroup" ShouldProcessTarget="UserGroupId" PipelineParameter="UserGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -128,6 +136,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteSnapshot" OutputProperty="Snapshot" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUser" OutputProperty="*" Verb="Remove" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserGroup" OutputProperty="*" Verb="Remove" Noun="UserGroup" ShouldProcessTarget="UserGroupId" PipelineParameter="UserGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -196,6 +212,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUserGroups" OutputProperty="UserGroups" Verb="Get" Noun="UserGroup" PipelineParameter="UserGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUsers" OutputProperty="Users" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Remove" Noun="ReplicationGroupFromGlobalReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -244,6 +268,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyUser" OutputProperty="*" Verb="Edit" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyUserGroup" OutputProperty="*" Verb="Edit" Noun="UserGroup" ShouldProcessTarget="UserGroupId" PipelineParameter="UserGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PurchaseReservedCacheNodesOffering" OutputProperty="ReservedCacheNode" Verb="Request" Noun="ReservedCacheNodesOffering" ShouldProcessTarget="ReservedCacheNodesOfferingId" PositionalParameters="ReservedCacheNodeId;CacheNodeCount" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -277,7 +309,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

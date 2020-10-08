@@ -135,6 +135,23 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.MLUserDataEncryptionModeString
+        "New-GLUEMLTransform/TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"
+        {
+            $v = "DISABLED","SSE-KMS"
+            break
+        }
+
+        # Amazon.Glue.RecrawlBehavior
+        {
+            ($_ -eq "New-GLUECrawler/RecrawlPolicy_RecrawlBehavior") -Or
+            ($_ -eq "Update-GLUECrawler/RecrawlPolicy_RecrawlBehavior")
+        }
+        {
+            $v = "CRAWL_EVERYTHING","CRAWL_NEW_FOLDERS_ONLY"
+            break
+        }
+
         # Amazon.Glue.ResourceShareType
         {
             ($_ -eq "Find-GLUETable/ResourceShareType") -Or
@@ -249,9 +266,11 @@ $GLUE_map = @{
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
     "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
+    "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
     "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
     "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
+    "TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
     "Type"=@("New-GLUETrigger")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","Start-GLUEJobRun","Update-GLUEMLTransform")
 }

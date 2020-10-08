@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>The account scope that you want your recommendations for. Amazon Web Services calculates
-        /// recommendations including the payer account and linked accounts if the value is set
+        /// recommendations including the master account and member accounts if the value is set
         /// to <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations are calculated
-        /// for individual linked accounts only.</para>
+        /// for individual member accounts only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

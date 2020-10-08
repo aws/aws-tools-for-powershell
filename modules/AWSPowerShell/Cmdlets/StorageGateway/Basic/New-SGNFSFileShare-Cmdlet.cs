@@ -206,6 +206,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String LocationARN { get; set; }
         #endregion
         
+        #region Parameter NotificationPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The notification policy of the file share.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NotificationPolicy { get; set; }
+        #endregion
+        
         #region Parameter ObjectACL
         /// <summary>
         /// <para>
@@ -413,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.NFSFileShareDefaults_FileMode = this.NFSFileShareDefaults_FileMode;
             context.NFSFileShareDefaults_GroupId = this.NFSFileShareDefaults_GroupId;
             context.NFSFileShareDefaults_OwnerId = this.NFSFileShareDefaults_OwnerId;
+            context.NotificationPolicy = this.NotificationPolicy;
             context.ObjectACL = this.ObjectACL;
             context.ReadOnly = this.ReadOnly;
             context.RequesterPay = this.RequesterPay;
@@ -548,6 +559,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.NFSFileShareDefaults = null;
             }
+            if (cmdletContext.NotificationPolicy != null)
+            {
+                request.NotificationPolicy = cmdletContext.NotificationPolicy;
+            }
             if (cmdletContext.ObjectACL != null)
             {
                 request.ObjectACL = cmdletContext.ObjectACL;
@@ -647,6 +662,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String NFSFileShareDefaults_FileMode { get; set; }
             public System.Int64? NFSFileShareDefaults_GroupId { get; set; }
             public System.Int64? NFSFileShareDefaults_OwnerId { get; set; }
+            public System.String NotificationPolicy { get; set; }
             public Amazon.StorageGateway.ObjectACL ObjectACL { get; set; }
             public System.Boolean? ReadOnly { get; set; }
             public System.Boolean? RequesterPay { get; set; }

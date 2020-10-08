@@ -208,6 +208,18 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.Int32? NumCacheNode { get; set; }
         #endregion
         
+        #region Parameter OutpostMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the nodes in the cluster are created in a single outpost or across
+        /// multiple outposts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.OutpostMode")]
+        public Amazon.ElastiCache.OutpostMode OutpostMode { get; set; }
+        #endregion
+        
         #region Parameter Port
         /// <summary>
         /// <para>
@@ -257,6 +269,27 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
+        
+        #region Parameter PreferredOutpostArn
+        /// <summary>
+        /// <para>
+        /// <para>The outpost ARN in which the cache cluster is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PreferredOutpostArn { get; set; }
+        #endregion
+        
+        #region Parameter PreferredOutpostArnSet
+        /// <summary>
+        /// <para>
+        /// <para>The outpost ARNs in which the cache cluster is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PreferredOutpostArns")]
+        public System.String[] PreferredOutpostArnSet { get; set; }
         #endregion
         
         #region Parameter ReplicationGroupId
@@ -429,6 +462,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.EngineVersion = this.EngineVersion;
             context.NotificationTopicArn = this.NotificationTopicArn;
             context.NumCacheNode = this.NumCacheNode;
+            context.OutpostMode = this.OutpostMode;
             context.Port = this.Port;
             context.PreferredAvailabilityZone = this.PreferredAvailabilityZone;
             if (this.PreferredAvailabilityZoneSet != null)
@@ -436,6 +470,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.PreferredAvailabilityZoneSet = new List<System.String>(this.PreferredAvailabilityZoneSet);
             }
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            context.PreferredOutpostArn = this.PreferredOutpostArn;
+            if (this.PreferredOutpostArnSet != null)
+            {
+                context.PreferredOutpostArnSet = new List<System.String>(this.PreferredOutpostArnSet);
+            }
             context.ReplicationGroupId = this.ReplicationGroupId;
             if (this.SecurityGroupId != null)
             {
@@ -516,6 +555,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.NumCacheNodes = cmdletContext.NumCacheNode.Value;
             }
+            if (cmdletContext.OutpostMode != null)
+            {
+                request.OutpostMode = cmdletContext.OutpostMode;
+            }
             if (cmdletContext.Port != null)
             {
                 request.Port = cmdletContext.Port.Value;
@@ -531,6 +574,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
+            }
+            if (cmdletContext.PreferredOutpostArn != null)
+            {
+                request.PreferredOutpostArn = cmdletContext.PreferredOutpostArn;
+            }
+            if (cmdletContext.PreferredOutpostArnSet != null)
+            {
+                request.PreferredOutpostArns = cmdletContext.PreferredOutpostArnSet;
             }
             if (cmdletContext.ReplicationGroupId != null)
             {
@@ -633,10 +684,13 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String EngineVersion { get; set; }
             public System.String NotificationTopicArn { get; set; }
             public System.Int32? NumCacheNode { get; set; }
+            public Amazon.ElastiCache.OutpostMode OutpostMode { get; set; }
             public System.Int32? Port { get; set; }
             public System.String PreferredAvailabilityZone { get; set; }
             public List<System.String> PreferredAvailabilityZoneSet { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public System.String PreferredOutpostArn { get; set; }
+            public List<System.String> PreferredOutpostArnSet { get; set; }
             public System.String ReplicationGroupId { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public List<System.String> SnapshotArn { get; set; }

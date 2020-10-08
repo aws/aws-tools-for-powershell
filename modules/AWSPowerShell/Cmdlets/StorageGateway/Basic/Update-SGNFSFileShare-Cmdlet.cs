@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     ///  <note><para>
     /// To leave a file share field unchanged, set the corresponding input field to null.
     /// </para></note><para>
-    /// Updates the following file share setting:
+    /// Updates the following file share settings:
     /// </para><ul><li><para>
     /// Default storage class for your S3 bucket
     /// </para></li><li><para>
@@ -45,10 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// Squash settings
     /// </para></li><li><para>
     /// Write status of your file share
-    /// </para></li></ul><note><para>
-    /// To leave a file share field unchanged, set the corresponding input field to null.
-    /// This operation is only supported in file gateways.
-    /// </para></note>
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Update", "SGNFSFileShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -193,6 +190,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String KMSKey { get; set; }
         #endregion
         
+        #region Parameter NotificationPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The notification policy of the file share.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NotificationPolicy { get; set; }
+        #endregion
+        
         #region Parameter ObjectACL
         /// <summary>
         /// <para>
@@ -335,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.NFSFileShareDefaults_FileMode = this.NFSFileShareDefaults_FileMode;
             context.NFSFileShareDefaults_GroupId = this.NFSFileShareDefaults_GroupId;
             context.NFSFileShareDefaults_OwnerId = this.NFSFileShareDefaults_OwnerId;
+            context.NotificationPolicy = this.NotificationPolicy;
             context.ObjectACL = this.ObjectACL;
             context.ReadOnly = this.ReadOnly;
             context.RequesterPay = this.RequesterPay;
@@ -451,6 +459,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.NFSFileShareDefaults = null;
             }
+            if (cmdletContext.NotificationPolicy != null)
+            {
+                request.NotificationPolicy = cmdletContext.NotificationPolicy;
+            }
             if (cmdletContext.ObjectACL != null)
             {
                 request.ObjectACL = cmdletContext.ObjectACL;
@@ -540,6 +552,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String NFSFileShareDefaults_FileMode { get; set; }
             public System.Int64? NFSFileShareDefaults_GroupId { get; set; }
             public System.Int64? NFSFileShareDefaults_OwnerId { get; set; }
+            public System.String NotificationPolicy { get; set; }
             public Amazon.StorageGateway.ObjectACL ObjectACL { get; set; }
             public System.Boolean? ReadOnly { get; set; }
             public System.Boolean? RequesterPay { get; set; }

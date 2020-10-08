@@ -206,6 +206,23 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String ReplicationSubnetGroupIdentifier { get; set; }
         #endregion
         
+        #region Parameter ResourceIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>A friendly name for the resource identifier at the end of the <code>EndpointArn</code>
+        /// response parameter that is returned in the created <code>Endpoint</code> object. The
+        /// value for this parameter can have up to 31 characters. It can contain only ASCII letters,
+        /// digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive
+        /// hyphens, and can only begin with a letter, such as <code>Example-App-ARN1</code>.
+        /// For example, this value might result in the <code>EndpointArn</code> value <code>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</code>.
+        /// If you don't specify a <code>ResourceIdentifier</code> value, AWS DMS generates a
+        /// default identifier value for the end of <code>EndpointArn</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -314,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             }
             #endif
             context.ReplicationSubnetGroupIdentifier = this.ReplicationSubnetGroupIdentifier;
+            context.ResourceIdentifier = this.ResourceIdentifier;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.DatabaseMigrationService.Model.Tag>(this.Tag);
@@ -385,6 +403,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.ReplicationSubnetGroupIdentifier != null)
             {
                 request.ReplicationSubnetGroupIdentifier = cmdletContext.ReplicationSubnetGroupIdentifier;
+            }
+            if (cmdletContext.ResourceIdentifier != null)
+            {
+                request.ResourceIdentifier = cmdletContext.ResourceIdentifier;
             }
             if (cmdletContext.Tag != null)
             {
@@ -467,6 +489,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String ReplicationInstanceClass { get; set; }
             public System.String ReplicationInstanceIdentifier { get; set; }
             public System.String ReplicationSubnetGroupIdentifier { get; set; }
+            public System.String ResourceIdentifier { get; set; }
             public List<Amazon.DatabaseMigrationService.Model.Tag> Tag { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.CreateReplicationInstanceResponse, NewDMSReplicationInstanceCmdlet, object> Select { get; set; } =

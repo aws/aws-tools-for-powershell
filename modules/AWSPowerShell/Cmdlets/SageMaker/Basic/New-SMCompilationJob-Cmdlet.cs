@@ -117,13 +117,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Specifies additional parameters for compiler options in JSON format. The compiler
         /// options are <code>TargetPlatform</code> specific. It is required for NVIDIA accelerators
-        /// and highly recommended for CPU compliations. For any other cases, it is optional to
+        /// and highly recommended for CPU compilations. For any other cases, it is optional to
         /// specify <code>CompilerOptions.</code></para><ul><li><para><code>CPU</code>: Compilation for CPU supports the following compiler options.</para><ul><li><para><code>mcpu</code>: CPU micro-architecture. For example, <code>{'mcpu': 'skylake-avx512'}</code></para></li><li><para><code>mattr</code>: CPU flags. For example, <code>{'mattr': ['+neon', '+vfpv4']}</code></para></li></ul></li><li><para><code>ARM</code>: Details of ARM CPU compilations.</para><ul><li><para><code>NEON</code>: NEON is an implementation of the Advanced SIMD extension used
         /// in ARMv7 processors.</para><para>For example, add <code>{'mattr': ['+neon']}</code> to the compiler options if compiling
         /// for ARM 32-bit platform with the NEON support.</para></li></ul></li><li><para><code>NVIDIA</code>: Compilation for NVIDIA GPU supports the following compiler options.</para><ul><li><para><code>gpu_code</code>: Specifies the targeted architecture.</para></li><li><para><code>trt-ver</code>: Specifies the TensorRT versions in x.y.z. format.</para></li><li><para><code>cuda-ver</code>: Specifies the CUDA version in x.y format.</para></li></ul><para>For example, <code>{'gpu-code': 'sm_72', 'trt-ver': '6.0.1', 'cuda-ver': '10.1'}</code></para></li><li><para><code>ANDROID</code>: Compilation for the Android OS supports the following compiler
         /// options:</para><ul><li><para><code>ANDROID_PLATFORM</code>: Specifies the Android API levels. Available levels
         /// range from 21 to 29. For example, <code>{'ANDROID_PLATFORM': 28}</code>.</para></li><li><para><code>mattr</code>: Add <code>{'mattr': ['+neon']}</code> to compiler options if
-        /// compiling for ARM 32-bit platform with NEON support.</para></li></ul></li></ul>
+        /// compiling for ARM 32-bit platform with NEON support.</para></li></ul></li><li><para><code>INFERENTIA</code>: Compilation for target ml_inf1 uses compiler options passed
+        /// in as a JSON string. For example, <code>"CompilerOptions": "\"--verbose 1 --num-neuroncores
+        /// 2 -O2\""</code>. </para><para>For information about supported compiler options, see <a href="https://github.com/aws/aws-neuron-sdk/blob/master/docs/neuron-cc/command-line-reference.md">
+        /// Neuron Compiler CLI</a>. </para></li><li><para><code>CoreML</code>: Compilation for the CoreML <a>OutputConfig$TargetDevice</a>
+        /// supports the following compiler options:</para><ul><li><para><code>class_labels</code>: Specifies the classification labels file name inside input
+        /// tar.gz file. For example, <code>{"class_labels": "imagenet_labels_1000.txt"}</code>.
+        /// Labels inside the txt file should be separated by newlines.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +154,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// expected data inputs in order using a dictionary format for your trained model or
         /// you can specify the shape only using a list format. The dictionary formats required
         /// for the console and CLI are different. The list formats for the console and CLI are
-        /// the same.</para><ul><li><para>Examples for one input in dictionary format:</para><ul><li><para>If using the console, <code>{"input0":[1,3,224,224]}</code></para></li><li><para>If using the CLI, <code>{\"input0\":[1,3,224,224]}</code></para></li></ul></li><li><para>Example for one input in list format: <code>[[1,3,224,224]]</code></para></li><li><para>Examples for two inputs in dictionary format:</para><ul><li><para>If using the console, <code>{"input0":[1,3,224,224], "input1":[1,3,224,224]}</code></para></li><li><para>If using the CLI, <code>{\"input0\":[1,3,224,224], \"input1\":[1,3,224,224]} </code></para></li></ul></li><li><para>Example for two inputs in list format: <code>[[1,3,224,224], [1,3,224,224]]</code></para></li></ul></li><li><para><code>XGBOOST</code>: input data name and shape are not needed.</para></li></ul>
+        /// the same.</para><ul><li><para>Examples for one input in dictionary format:</para><ul><li><para>If using the console, <code>{"input0":[1,3,224,224]}</code></para></li><li><para>If using the CLI, <code>{\"input0\":[1,3,224,224]}</code></para></li></ul></li><li><para>Example for one input in list format: <code>[[1,3,224,224]]</code></para></li><li><para>Examples for two inputs in dictionary format:</para><ul><li><para>If using the console, <code>{"input0":[1,3,224,224], "input1":[1,3,224,224]}</code></para></li><li><para>If using the CLI, <code>{\"input0\":[1,3,224,224], \"input1\":[1,3,224,224]} </code></para></li></ul></li><li><para>Example for two inputs in list format: <code>[[1,3,224,224], [1,3,224,224]]</code></para></li></ul></li><li><para><code>XGBOOST</code>: input data name and shape are not needed.</para></li></ul><para><code>DataInputConfig</code> supports the following parameters for <code>CoreML</code><a>OutputConfig$TargetDevice</a> (ML Model format):</para><ul><li><para><code>shape</code>: Input shape, for example <code>{"input_1": {"shape": [1,224,224,3]}}</code>.
+        /// In addition to static input shapes, CoreML converter supports Flexible input shapes:</para><ul><li><para>Range Dimension. You can use the Range Dimension feature if you know the input shape
+        /// will be within some specific interval in that dimension, for example: <code>{"input_1":
+        /// {"shape": ["1..10", 224, 224, 3]}}</code></para></li><li><para>Enumerated shapes. Sometimes, the models are trained to work only on a select set
+        /// of inputs. You can enumerate all supported input shapes, for example: <code>{"input_1":
+        /// {"shape": [[1, 224, 224, 3], [1, 160, 160, 3]]}}</code></para></li></ul></li><li><para><code>default_shape</code>: Default input shape. You can set a default shape during
+        /// conversion for both Range Dimension and Enumerated Shapes. For example <code>{"input_1":
+        /// {"shape": ["1..10", 224, 224, 3], "default_shape": [1, 224, 224, 3]}}</code></para></li><li><para><code>type</code>: Input type. Allowed values: <code>Image</code> and <code>Tensor</code>.
+        /// By default, the converter generates an ML Model with inputs of type Tensor (MultiArray).
+        /// User can set input type to be Image. Image input type requires additional input parameters
+        /// such as <code>bias</code> and <code>scale</code>.</para></li><li><para><code>bias</code>: If the input type is an Image, you need to provide the bias vector.</para></li><li><para><code>scale</code>: If the input type is an Image, you need to provide a scale factor.</para></li></ul><para>CoreML <code>ClassifierConfig</code> parameters can be specified using <a>OutputConfig$CompilerOptions</a>.
+        /// CoreML converter supports Tensorflow and PyTorch models. CoreML conversion examples:</para><ul><li><para>Tensor type input:</para><ul><li><para><code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
+        /// [1,224,224,3]}}</code></para></li></ul></li><li><para>Tensor type input without input name (PyTorch):</para><ul><li><para><code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
+        /// [1,3,224,224]}]</code></para></li></ul></li><li><para>Image type input:</para><ul><li><para><code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
+        /// [1,224,224,3], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}}</code></para></li><li><para><code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code></para></li></ul></li><li><para>Image type input without input name (PyTorch):</para><ul><li><para><code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
+        /// [1,3,224,224], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}]</code></para></li><li><para><code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -277,6 +298,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String InputConfig_S3Uri { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An array of key-value pairs that you want to use to organize and track your AWS resource
+        /// costs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
+        /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter OutputConfig_TargetDevice
         /// <summary>
         /// <para>
@@ -401,6 +436,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #endif
             context.StoppingCondition_MaxRuntimeInSecond = this.StoppingCondition_MaxRuntimeInSecond;
             context.StoppingCondition_MaxWaitTimeInSecond = this.StoppingCondition_MaxWaitTimeInSecond;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -577,6 +616,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.StoppingCondition = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -651,6 +694,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String RoleArn { get; set; }
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }
+            public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateCompilationJobResponse, NewSMCompilationJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CompilationJobArn;
         }

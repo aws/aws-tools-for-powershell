@@ -45,7 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Bucket
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket in which to store the Spot Instance data feed.</para>
+        /// <para>The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For
+        /// more information about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules">Rules
+        /// for bucket naming</a> in the <i>Amazon S3 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Prefix
         /// <summary>
         /// <para>
-        /// <para>A prefix for the data feed file names.</para>
+        /// <para>The prefix for the data feed file names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

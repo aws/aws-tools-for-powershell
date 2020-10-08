@@ -28,7 +28,15 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Sets a resource policy on a domain that specifies permissions to access it.
+    /// Sets a resource policy on a domain that specifies permissions to access it. 
+    /// 
+    ///  
+    /// <para>
+    ///  When you call <code>PutDomainPermissionsPolicy</code>, the resource policy on the
+    /// domain is ignored when evaluting permissions. This ensures that the owner of a domain
+    /// cannot lock themselves out of the domain, which would prevent them from being able
+    /// to update the resource policy. 
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "CADomainPermissionsPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeArtifact.Model.ResourcePolicy")]

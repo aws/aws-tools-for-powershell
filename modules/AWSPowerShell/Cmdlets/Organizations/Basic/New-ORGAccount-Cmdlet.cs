@@ -36,8 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// To check the status of the request, do one of the following:
     /// 
     ///  <ul><li><para>
-    /// Use the <code>OperationId</code> response element from this operation to provide as
-    /// a parameter to the <a>DescribeCreateAccountStatus</a> operation.
+    /// Use the <code>Id</code> member of the <code>CreateAccountStatus</code> response element
+    /// from this operation to provide as a parameter to the <a>DescribeCreateAccountStatus</a>
+    /// operation.
     /// </para></li><li><para>
     /// Check the AWS CloudTrail log for the <code>CreateAccountResult</code> event. For information
     /// on using AWS CloudTrail with AWS Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html">Monitoring
@@ -52,12 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// permission.
     /// </para><para>
     /// AWS Organizations preconfigures the new member account with a role (named <code>OrganizationAccountAccessRole</code>
-    /// by default) that grants users in the master account administrator permissions in the
-    /// new member account. Principals in the master account can assume the role. AWS Organizations
-    /// clones the company name and address information for the new account from the organization's
-    /// master account.
+    /// by default) that grants users in the management account administrator permissions
+    /// in the new member account. Principals in the management account can assume the role.
+    /// AWS Organizations clones the company name and address information for the new account
+    /// from the organization's management account.
     /// </para><para>
-    /// This operation can be called only from the organization's master account.
+    /// This operation can be called only from the organization's management account.
     /// </para><para>
     /// For more information about creating accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
     /// an AWS Account in Your Organization</a> in the <i>AWS Organizations User Guide.</i></para><important><ul><li><para>
@@ -162,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <summary>
         /// <para>
         /// <para>(Optional)</para><para>The name of an IAM role that AWS Organizations automatically preconfigures in the
-        /// new member account. This role trusts the master account, allowing users in the master
-        /// account to assume the role, as permitted by the master account administrator. The
-        /// role has administrator permissions in the new member account.</para><para>If you don't specify this parameter, the role name defaults to <code>OrganizationAccountAccessRole</code>.</para><para>For more information about how to use this role to access the member account, see
+        /// new member account. This role trusts the management account, allowing users in the
+        /// management account to assume the role, as permitted by the management account administrator.
+        /// The role has administrator permissions in the new member account.</para><para>If you don't specify this parameter, the role name defaults to <code>OrganizationAccountAccessRole</code>.</para><para>For more information about how to use this role to access the member account, see
         /// the following links:</para><ul><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role">Accessing
         /// and Administering the Member Accounts in Your Organization</a> in the <i>AWS Organizations
         /// User Guide</i></para></li><li><para>Steps 2 and 3 in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">Tutorial:

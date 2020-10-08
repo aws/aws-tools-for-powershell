@@ -97,6 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.Model.KeyValuePair[] ContainerProperties_Environment { get; set; }
         #endregion
         
+        #region Parameter RetryStrategy_EvaluateOnExit
+        /// <summary>
+        /// <para>
+        /// <para>Array of up to 5 objects that specify conditions under which the job should be retried
+        /// or failed. If this parameter is specified, then the <code>attempts</code> parameter
+        /// must also be specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Batch.Model.EvaluateOnExit[] RetryStrategy_EvaluateOnExit { get; set; }
+        #endregion
+        
         #region Parameter ContainerProperties_ExecutionRoleArn
         /// <summary>
         /// <para>
@@ -242,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The total amount of swap memory (in MiB) a container can use. This parameter will
         /// be translated to the <code>--memory-swap</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a> where the value would be the sum of the container memory plus the <code>maxSwap</code>
-        /// value.</para><para>If a <code>maxSwap</code> value of <code>0</code> is specified, the container will
+        /// value. For more information, see <a href="https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details"><code>--memory-swap</code> details</a> in the Docker documentation.</para><para>If a <code>maxSwap</code> value of <code>0</code> is specified, the container will
         /// not use swap. Accepted values are <code>0</code> or any positive integer. If the <code>maxSwap</code>
         /// parameter is omitted, the container will use the swap configuration for the container
         /// instance it is running on. A <code>maxSwap</code> value must be set for the <code>swappiness</code>
@@ -692,6 +704,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 }
             }
             context.RetryStrategy_Attempt = this.RetryStrategy_Attempt;
+            if (this.RetryStrategy_EvaluateOnExit != null)
+            {
+                context.RetryStrategy_EvaluateOnExit = new List<Amazon.Batch.Model.EvaluateOnExit>(this.RetryStrategy_EvaluateOnExit);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -1074,6 +1090,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.RetryStrategy.Attempts = requestRetryStrategy_retryStrategy_Attempt.Value;
                 requestRetryStrategyIsNull = false;
             }
+            List<Amazon.Batch.Model.EvaluateOnExit> requestRetryStrategy_retryStrategy_EvaluateOnExit = null;
+            if (cmdletContext.RetryStrategy_EvaluateOnExit != null)
+            {
+                requestRetryStrategy_retryStrategy_EvaluateOnExit = cmdletContext.RetryStrategy_EvaluateOnExit;
+            }
+            if (requestRetryStrategy_retryStrategy_EvaluateOnExit != null)
+            {
+                request.RetryStrategy.EvaluateOnExit = requestRetryStrategy_retryStrategy_EvaluateOnExit;
+                requestRetryStrategyIsNull = false;
+            }
              // determine if request.RetryStrategy should be set to null
             if (requestRetryStrategyIsNull)
             {
@@ -1183,6 +1209,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Int32? NodeProperties_NumNode { get; set; }
             public Dictionary<System.String, System.String> Parameter { get; set; }
             public System.Int32? RetryStrategy_Attempt { get; set; }
+            public List<Amazon.Batch.Model.EvaluateOnExit> RetryStrategy_EvaluateOnExit { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Batch.Model.JobTimeout Timeout { get; set; }
             public Amazon.Batch.JobDefinitionType Type { get; set; }

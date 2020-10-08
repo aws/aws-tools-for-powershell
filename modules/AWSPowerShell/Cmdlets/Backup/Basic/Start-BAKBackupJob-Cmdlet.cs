@@ -43,8 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Specifies the backup option for a selected resource. This option is only available
-        /// for Windows VSS backup jobs.</para><para>Valid value: <code>"WindowsVSS”:“enabled"</code>. If enabled, creates a VSS Windows
-        /// backup; otherwise, creates a regular backup.</para>
+        /// for Windows VSS backup jobs.</para><para>Valid values: Set to <code>"WindowsVSS”:“enabled"</code> to enable WindowsVSS backup
+        /// option and create a VSS Windows backup. Set to “WindowsVSS”:”disabled” to create a
+        /// regular backup. The WindowsVSS option is not enabled by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

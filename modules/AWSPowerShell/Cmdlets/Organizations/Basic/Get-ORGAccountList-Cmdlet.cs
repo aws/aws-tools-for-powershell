@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// response parameter value is <code>null</code><i>only</i> when there are no more results
     /// to display.
     /// </para></note><para>
-    /// This operation can be called only from the organization's master account or by a member
-    /// account that is a delegated administrator for an AWS service.
+    /// This operation can be called only from the organization's management account or by
+    /// a member account that is a delegated administrator for an AWS service.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ORGAccountList")]

@@ -30,15 +30,15 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// <summary>
     /// Removes a member account from its parent organization. This version of the operation
     /// is performed by the account that wants to leave. To remove a member account as a user
-    /// in the master account, use <a>RemoveAccountFromOrganization</a> instead.
+    /// in the management account, use <a>RemoveAccountFromOrganization</a> instead.
     /// 
     ///  
     /// <para>
     /// This operation can be called only from a member account in the organization.
     /// </para><important><ul><li><para>
-    /// The master account in an organization with all features enabled can set service control
-    /// policies (SCPs) that can restrict what administrators of member accounts can do. This
-    /// includes preventing them from successfully calling <code>LeaveOrganization</code>
+    /// The management account in an organization with all features enabled can set service
+    /// control policies (SCPs) that can restrict what administrators of member accounts can
+    /// do. This includes preventing them from successfully calling <code>LeaveOrganization</code>
     /// and leaving the organization.
     /// </para></li><li><para>
     /// You can leave an organization as a member account only if the account is configured

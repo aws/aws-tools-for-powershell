@@ -163,7 +163,8 @@ $EMP_SelectCompleters = {
 }
 
 $EMP_SelectMap = @{
-    "Select"=@("New-EMPChannel",
+    "Select"=@("Update-EMPLogConfiguration",
+               "New-EMPChannel",
                "New-EMPHarvestJob",
                "New-EMPOriginEndpoint",
                "Remove-EMPChannel",

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Shares the specified portfolio with the specified account or organization node. Shares
-    /// to an organization node can only be created by the master account of an organization
+    /// to an organization node can only be created by the management account of an organization
     /// or by a delegated administrator. You can share portfolios to an organization, an organizational
     /// unit, or a specific account.
     /// 

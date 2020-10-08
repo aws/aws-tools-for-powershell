@@ -213,8 +213,11 @@ $CA_SelectMap = @{
                "Get-CAPackageVersionList",
                "Get-CARepositoryList",
                "Get-CARepositoriesInDomainList",
+               "Get-CAResourceTag",
                "Write-CADomainPermissionsPolicy",
                "Write-CARepositoryPermissionsPolicy",
+               "Add-CAResourceTag",
+               "Remove-CAResourceTag",
                "Update-CAPackageVersionsStatus",
                "Update-CARepository")
 }

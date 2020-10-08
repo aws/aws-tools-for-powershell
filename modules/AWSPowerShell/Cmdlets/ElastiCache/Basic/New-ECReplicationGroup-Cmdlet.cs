@@ -483,6 +483,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.Boolean? TransitEncryptionEnabled { get; set; }
         #endregion
         
+        #region Parameter UserGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The list of user groups to associate with the replication group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UserGroupIds")]
+        public System.String[] UserGroupId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ReplicationGroup'.
@@ -605,6 +616,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.Tag = new List<Amazon.ElastiCache.Model.Tag>(this.Tag);
             }
             context.TransitEncryptionEnabled = this.TransitEncryptionEnabled;
+            if (this.UserGroupId != null)
+            {
+                context.UserGroupId = new List<System.String>(this.UserGroupId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -745,6 +760,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.TransitEncryptionEnabled = cmdletContext.TransitEncryptionEnabled.Value;
             }
+            if (cmdletContext.UserGroupId != null)
+            {
+                request.UserGroupIds = cmdletContext.UserGroupId;
+            }
             
             CmdletOutput output;
             
@@ -837,6 +856,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String SnapshotWindow { get; set; }
             public List<Amazon.ElastiCache.Model.Tag> Tag { get; set; }
             public System.Boolean? TransitEncryptionEnabled { get; set; }
+            public List<System.String> UserGroupId { get; set; }
             public System.Func<Amazon.ElastiCache.Model.CreateReplicationGroupResponse, NewECReplicationGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReplicationGroup;
         }

@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Return public key configuration informaation
+    /// Gets a public key configuration.
     /// </summary>
     [Cmdlet("Get", "CFPublicKeyConfig")]
     [OutputType("Amazon.CloudFront.Model.PublicKeyConfig")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>Request the ID for the public key configuration.</para>
+        /// <para>The identifier of the public key whose configuration you are getting.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

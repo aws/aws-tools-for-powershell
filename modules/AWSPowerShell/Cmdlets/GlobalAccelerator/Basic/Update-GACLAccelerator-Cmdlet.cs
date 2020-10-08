@@ -32,7 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// down to <b>Example</b>.
     /// 
     ///  <important><para>
-    /// You must specify the US West (Oregon) Region to create or update accelerators.
+    /// Global Accelerator is a global service that supports endpoints in multiple AWS Regions
+    /// but you must specify the US West (Oregon) Region to create or update accelerators.
     /// </para></important>
     /// </summary>
     [Cmdlet("Update", "GACLAccelerator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

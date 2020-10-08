@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// 
     ///  
     /// <para>
-    ///  To view all disposed package versions in a repository, use <code><a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListackageVersions</a></code> and set the <code><a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">status</a></code> parameter to <code>Disposed</code>. 
+    ///  To view all disposed package versions in a repository, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html"><code>ListPackageVersions</code></a> and set the <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax"><code>status</code></a> parameter to <code>Disposed</code>. 
     /// </para><para>
-    ///  To view information about a disposed package version, use <code><a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a></code> and set the <code><a href="https://docs.aws.amazon.com/API_ListPackageVersions.html#codeartifact-ListPackageVersions-response-status">status</a></code> parameter to <code>Disposed</code>. 
+    ///  To view information about a disposed package version, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html"><code>DescribePackageVersion</code></a>.. 
     /// </para>
     /// </summary>
     [Cmdlet("Unpublish", "CAPackageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
     /// Retrieves information about an archive rule.
+    /// 
+    ///  
+    /// <para>
+    /// To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">Access
+    /// Analyzer filter keys</a> in the <b>IAM User Guide</b>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMAAArchiveRule")]
     [OutputType("Amazon.AccessAnalyzer.Model.ArchiveRuleSummary")]

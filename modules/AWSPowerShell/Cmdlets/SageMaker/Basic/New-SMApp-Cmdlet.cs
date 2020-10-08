@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ResourceSpec_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type.</para>
+        /// <para>The instance type that the image version runs on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,11 +108,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the SageMaker image created on the instance.</para>
+        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ResourceSpec_SageMakerImageArn { get; set; }
+        #endregion
+        
+        #region Parameter ResourceSpec_SageMakerImageVersionArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the image version created on the instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceSpec_SageMakerImageVersionArn { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -227,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #endif
             context.ResourceSpec_InstanceType = this.ResourceSpec_InstanceType;
             context.ResourceSpec_SageMakerImageArn = this.ResourceSpec_SageMakerImageArn;
+            context.ResourceSpec_SageMakerImageVersionArn = this.ResourceSpec_SageMakerImageVersionArn;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
@@ -288,6 +299,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestResourceSpec_resourceSpec_SageMakerImageArn != null)
             {
                 request.ResourceSpec.SageMakerImageArn = requestResourceSpec_resourceSpec_SageMakerImageArn;
+                requestResourceSpecIsNull = false;
+            }
+            System.String requestResourceSpec_resourceSpec_SageMakerImageVersionArn = null;
+            if (cmdletContext.ResourceSpec_SageMakerImageVersionArn != null)
+            {
+                requestResourceSpec_resourceSpec_SageMakerImageVersionArn = cmdletContext.ResourceSpec_SageMakerImageVersionArn;
+            }
+            if (requestResourceSpec_resourceSpec_SageMakerImageVersionArn != null)
+            {
+                request.ResourceSpec.SageMakerImageVersionArn = requestResourceSpec_resourceSpec_SageMakerImageVersionArn;
                 requestResourceSpecIsNull = false;
             }
              // determine if request.ResourceSpec should be set to null
@@ -369,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String DomainId { get; set; }
             public Amazon.SageMaker.AppInstanceType ResourceSpec_InstanceType { get; set; }
             public System.String ResourceSpec_SageMakerImageArn { get; set; }
+            public System.String ResourceSpec_SageMakerImageVersionArn { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String UserProfileName { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateAppResponse, NewSMAppCmdlet, object> Select { get; set; } =

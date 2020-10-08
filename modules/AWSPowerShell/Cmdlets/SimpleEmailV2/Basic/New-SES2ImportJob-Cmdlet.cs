@@ -40,6 +40,30 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class NewSES2ImportJobCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter ContactListDestination_ContactListImportAction
+        /// <summary>
+        /// <para>
+        /// <para>&gt;The type of action that you want to perform on the addresses. Acceptable values:</para><ul><li><para>PUT: add the addresses to the contact list. If the record already exists, it will
+        /// override it with the new value.</para></li><li><para>DELETE: remove the addresses from the contact list.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ImportDestination_ContactListDestination_ContactListImportAction")]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.ContactListImportAction")]
+        public Amazon.SimpleEmailV2.ContactListImportAction ContactListDestination_ContactListImportAction { get; set; }
+        #endregion
+        
+        #region Parameter ContactListDestination_ContactListName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the contact list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ImportDestination_ContactListDestination_ContactListName")]
+        public System.String ContactListDestination_ContactListName { get; set; }
+        #endregion
+        
         #region Parameter ImportDataSource_DataFormat
         /// <summary>
         /// <para>
@@ -81,13 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// override it with the new value.</para></li><li><para>DELETE: remove the addresses from the suppression list.</para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ImportDestination_SuppressionListDestination_SuppressionListImportAction")]
         [AWSConstantClassSource("Amazon.SimpleEmailV2.SuppressionListImportAction")]
         public Amazon.SimpleEmailV2.SuppressionListImportAction SuppressionListDestination_SuppressionListImportAction { get; set; }
@@ -148,13 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 WriteWarning("You are passing $null as a value for parameter ImportDataSource_S3Url which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ContactListDestination_ContactListImportAction = this.ContactListDestination_ContactListImportAction;
+            context.ContactListDestination_ContactListName = this.ContactListDestination_ContactListName;
             context.SuppressionListDestination_SuppressionListImportAction = this.SuppressionListDestination_SuppressionListImportAction;
-            #if MODULAR
-            if (this.SuppressionListDestination_SuppressionListImportAction == null && ParameterWasBound(nameof(this.SuppressionListDestination_SuppressionListImportAction)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SuppressionListDestination_SuppressionListImportAction which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -229,6 +243,41 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 request.ImportDestination.SuppressionListDestination = requestImportDestination_importDestination_SuppressionListDestination;
                 requestImportDestinationIsNull = false;
             }
+            Amazon.SimpleEmailV2.Model.ContactListDestination requestImportDestination_importDestination_ContactListDestination = null;
+            
+             // populate ContactListDestination
+            var requestImportDestination_importDestination_ContactListDestinationIsNull = true;
+            requestImportDestination_importDestination_ContactListDestination = new Amazon.SimpleEmailV2.Model.ContactListDestination();
+            Amazon.SimpleEmailV2.ContactListImportAction requestImportDestination_importDestination_ContactListDestination_contactListDestination_ContactListImportAction = null;
+            if (cmdletContext.ContactListDestination_ContactListImportAction != null)
+            {
+                requestImportDestination_importDestination_ContactListDestination_contactListDestination_ContactListImportAction = cmdletContext.ContactListDestination_ContactListImportAction;
+            }
+            if (requestImportDestination_importDestination_ContactListDestination_contactListDestination_ContactListImportAction != null)
+            {
+                requestImportDestination_importDestination_ContactListDestination.ContactListImportAction = requestImportDestination_importDestination_ContactListDestination_contactListDestination_ContactListImportAction;
+                requestImportDestination_importDestination_ContactListDestinationIsNull = false;
+            }
+            System.String requestImportDestination_importDestination_ContactListDestination_contactListDestination_ContactListName = null;
+            if (cmdletContext.ContactListDestination_ContactListName != null)
+            {
+                requestImportDestination_importDestination_ContactListDestination_contactListDestination_ContactListName = cmdletContext.ContactListDestination_ContactListName;
+            }
+            if (requestImportDestination_importDestination_ContactListDestination_contactListDestination_ContactListName != null)
+            {
+                requestImportDestination_importDestination_ContactListDestination.ContactListName = requestImportDestination_importDestination_ContactListDestination_contactListDestination_ContactListName;
+                requestImportDestination_importDestination_ContactListDestinationIsNull = false;
+            }
+             // determine if requestImportDestination_importDestination_ContactListDestination should be set to null
+            if (requestImportDestination_importDestination_ContactListDestinationIsNull)
+            {
+                requestImportDestination_importDestination_ContactListDestination = null;
+            }
+            if (requestImportDestination_importDestination_ContactListDestination != null)
+            {
+                request.ImportDestination.ContactListDestination = requestImportDestination_importDestination_ContactListDestination;
+                requestImportDestinationIsNull = false;
+            }
              // determine if request.ImportDestination should be set to null
             if (requestImportDestinationIsNull)
             {
@@ -297,6 +346,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             public Amazon.SimpleEmailV2.DataFormat ImportDataSource_DataFormat { get; set; }
             public System.String ImportDataSource_S3Url { get; set; }
+            public Amazon.SimpleEmailV2.ContactListImportAction ContactListDestination_ContactListImportAction { get; set; }
+            public System.String ContactListDestination_ContactListName { get; set; }
             public Amazon.SimpleEmailV2.SuppressionListImportAction SuppressionListDestination_SuppressionListImportAction { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.CreateImportJobResponse, NewSES2ImportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.JobId;

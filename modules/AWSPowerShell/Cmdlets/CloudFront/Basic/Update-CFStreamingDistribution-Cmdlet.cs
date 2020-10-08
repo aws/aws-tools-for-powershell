@@ -143,8 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether you want to require viewers to use signed URLs to access the files
-        /// specified by <code>PathPattern</code> and <code>TargetOriginId</code>.</para>
+        /// <para>This field is <code>true</code> if any of the AWS accounts have public keys that CloudFront
+        /// can use to verify the signatures of signed URLs and signed cookies. If not, this field
+        /// is <code>false</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -201,8 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Item
         /// <summary>
         /// <para>
-        /// <para><b>Optional</b>: A complex type that contains trusted signers for this cache behavior.
-        /// If <code>Quantity</code> is <code>0</code>, you can omit <code>Items</code>.</para>
+        /// <para>A list of AWS account identifiers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of trusted signers for this cache behavior.</para>
+        /// <para>The number of AWS accounts in the list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -32,13 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CO
     /// 
     ///  
     /// <para>
-    /// AWS Compute Optimizer currently generates recommendations for Auto Scaling groups
-    /// that are configured to run instances of the M, C, R, T, and X instance families. The
-    /// service does not generate recommendations for Auto Scaling groups that have a scaling
-    /// policy attached to them, or that do not have the same values for desired, minimum,
-    /// and maximum capacity. In order for Compute Optimizer to analyze your Auto Scaling
-    /// groups, they must be of a fixed size. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is.html">AWS
-    /// Compute Optimizer User Guide</a>.
+    /// AWS Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups
+    /// that meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
+    /// resources and requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "COAutoScalingGroupRecommendation")]

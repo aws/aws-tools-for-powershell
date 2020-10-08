@@ -28,7 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a DBSnapshot. The source DBInstance must be in "available" state.
+    /// Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code>
+    /// or <code>storage-optimization</code>state.
     /// </summary>
     [Cmdlet("New", "RDSDBSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBSnapshot")]

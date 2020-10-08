@@ -91,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.CA
         public System.String EncryptionKey { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>One or more tag key-value pairs for the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.CodeArtifact.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Domain'.
@@ -140,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
             }
             #endif
             context.EncryptionKey = this.EncryptionKey;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.CodeArtifact.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
             if (cmdletContext.EncryptionKey != null)
             {
                 request.EncryptionKey = cmdletContext.EncryptionKey;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -227,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         {
             public System.String Domain { get; set; }
             public System.String EncryptionKey { get; set; }
+            public List<Amazon.CodeArtifact.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.CodeArtifact.Model.CreateDomainResponse, NewCADomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Domain;
         }

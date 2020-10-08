@@ -101,6 +101,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-IAMAAAnalyzer', 
         'Remove-IAMAAArchiveRule', 
         'Remove-IAMAAResourceTag', 
+        'Start-IAMAAArchiveRule', 
         'Start-IAMAAResourceScan', 
         'Update-IAMAAArchiveRule', 
         'Update-IAMAAFinding')

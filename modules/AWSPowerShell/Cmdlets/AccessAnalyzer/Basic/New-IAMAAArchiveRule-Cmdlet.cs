@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
     /// Creates an archive rule for the specified analyzer. Archive rules automatically archive
-    /// findings that meet the criteria you define when you create the rule.
+    /// new findings that meet the criteria you define when you create the rule.
     /// </summary>
     [Cmdlet("New", "IAMAAArchiveRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

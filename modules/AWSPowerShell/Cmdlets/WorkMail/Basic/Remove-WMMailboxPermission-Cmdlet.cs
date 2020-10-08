@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the member (user or group)that owns the mailbox.</para>
+        /// <para>The identifier of the member (user or group) that owns the mailbox.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

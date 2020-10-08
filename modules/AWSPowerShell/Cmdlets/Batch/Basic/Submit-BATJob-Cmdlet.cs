@@ -92,6 +92,18 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.Model.KeyValuePair[] ContainerOverrides_Environment { get; set; }
         #endregion
         
+        #region Parameter RetryStrategy_EvaluateOnExit
+        /// <summary>
+        /// <para>
+        /// <para>Array of up to 5 objects that specify conditions under which the job should be retried
+        /// or failed. If this parameter is specified, then the <code>attempts</code> parameter
+        /// must also be specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Batch.Model.EvaluateOnExit[] RetryStrategy_EvaluateOnExit { get; set; }
+        #endregion
+        
         #region Parameter ContainerOverrides_InstanceType
         /// <summary>
         /// <para>
@@ -388,6 +400,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 }
             }
             context.RetryStrategy_Attempt = this.RetryStrategy_Attempt;
+            if (this.RetryStrategy_EvaluateOnExit != null)
+            {
+                context.RetryStrategy_EvaluateOnExit = new List<Amazon.Batch.Model.EvaluateOnExit>(this.RetryStrategy_EvaluateOnExit);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -564,6 +580,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.RetryStrategy.Attempts = requestRetryStrategy_retryStrategy_Attempt.Value;
                 requestRetryStrategyIsNull = false;
             }
+            List<Amazon.Batch.Model.EvaluateOnExit> requestRetryStrategy_retryStrategy_EvaluateOnExit = null;
+            if (cmdletContext.RetryStrategy_EvaluateOnExit != null)
+            {
+                requestRetryStrategy_retryStrategy_EvaluateOnExit = cmdletContext.RetryStrategy_EvaluateOnExit;
+            }
+            if (requestRetryStrategy_retryStrategy_EvaluateOnExit != null)
+            {
+                request.RetryStrategy.EvaluateOnExit = requestRetryStrategy_retryStrategy_EvaluateOnExit;
+                requestRetryStrategyIsNull = false;
+            }
              // determine if request.RetryStrategy should be set to null
             if (requestRetryStrategyIsNull)
             {
@@ -653,6 +679,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Int32? NodeOverrides_NumNode { get; set; }
             public Dictionary<System.String, System.String> Parameter { get; set; }
             public System.Int32? RetryStrategy_Attempt { get; set; }
+            public List<Amazon.Batch.Model.EvaluateOnExit> RetryStrategy_EvaluateOnExit { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Batch.Model.JobTimeout Timeout { get; set; }
             public System.Func<Amazon.Batch.Model.SubmitJobResponse, SubmitBATJobCmdlet, object> Select { get; set; } =

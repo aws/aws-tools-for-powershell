@@ -28,8 +28,14 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Update an endpoint group. To see an AWS CLI example of updating an endpoint group,
-    /// scroll down to <b>Example</b>.
+    /// Update an endpoint group. A resource must be valid and active when you add it as an
+    /// endpoint.
+    /// 
+    ///  
+    /// <para>
+    /// To see an AWS CLI example of updating an endpoint group, scroll down to <b>Example</b>.
+    /// 
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "GACLEndpointGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GlobalAccelerator.Model.EndpointGroup")]
@@ -44,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter EndpointConfiguration
         /// <summary>
         /// <para>
-        /// <para>The list of endpoint objects.</para>
+        /// <para>The list of endpoint objects. A resource must be valid and active when you add it
+        /// as an endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,6 +122,21 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.GlobalAccelerator.HealthCheckProtocol")]
         public Amazon.GlobalAccelerator.HealthCheckProtocol HealthCheckProtocol { get; set; }
+        #endregion
+        
+        #region Parameter PortOverride
+        /// <summary>
+        /// <para>
+        /// <para>Override specific listener ports used to route traffic to endpoints that are part
+        /// of this endpoint group. For example, you can create a port override in which the listener
+        /// receives user traffic on ports 80 and 443, but your accelerator routes that traffic
+        /// to ports 1080 and 1443, respectively, on the endpoints.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html">
+        /// Port overrides</a> in the <i>AWS Global Accelerator Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PortOverrides")]
+        public Amazon.GlobalAccelerator.Model.PortOverride[] PortOverride { get; set; }
         #endregion
         
         #region Parameter ThresholdCount
@@ -217,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             context.HealthCheckPath = this.HealthCheckPath;
             context.HealthCheckPort = this.HealthCheckPort;
             context.HealthCheckProtocol = this.HealthCheckProtocol;
+            if (this.PortOverride != null)
+            {
+                context.PortOverride = new List<Amazon.GlobalAccelerator.Model.PortOverride>(this.PortOverride);
+            }
             context.ThresholdCount = this.ThresholdCount;
             context.TrafficDialPercentage = this.TrafficDialPercentage;
             
@@ -258,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             if (cmdletContext.HealthCheckProtocol != null)
             {
                 request.HealthCheckProtocol = cmdletContext.HealthCheckProtocol;
+            }
+            if (cmdletContext.PortOverride != null)
+            {
+                request.PortOverrides = cmdletContext.PortOverride;
             }
             if (cmdletContext.ThresholdCount != null)
             {
@@ -334,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             public System.String HealthCheckPath { get; set; }
             public System.Int32? HealthCheckPort { get; set; }
             public Amazon.GlobalAccelerator.HealthCheckProtocol HealthCheckProtocol { get; set; }
+            public List<Amazon.GlobalAccelerator.Model.PortOverride> PortOverride { get; set; }
             public System.Int32? ThresholdCount { get; set; }
             public System.Single? TrafficDialPercentage { get; set; }
             public System.Func<Amazon.GlobalAccelerator.Model.UpdateEndpointGroupResponse, UpdateGACLEndpointGroupCmdlet, object> Select { get; set; } =

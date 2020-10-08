@@ -133,6 +133,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter SelfServicePortal
+        /// <summary>
+        /// <para>
+        /// <para>Specify whether to enable the self-service portal for the Client VPN endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.SelfServicePortal")]
+        public Amazon.EC2.SelfServicePortal SelfServicePortal { get; set; }
+        #endregion
+        
         #region Parameter ServerCertificateArn
         /// <summary>
         /// <para>
@@ -256,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
             }
+            context.SelfServicePortal = this.SelfServicePortal;
             context.ServerCertificateArn = this.ServerCertificateArn;
             context.SplitTunnel = this.SplitTunnel;
             context.VpcId = this.VpcId;
@@ -356,6 +368,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupId;
             }
+            if (cmdletContext.SelfServicePortal != null)
+            {
+                request.SelfServicePortal = cmdletContext.SelfServicePortal;
+            }
             if (cmdletContext.ServerCertificateArn != null)
             {
                 request.ServerCertificateArn = cmdletContext.ServerCertificateArn;
@@ -441,6 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> DnsServers_CustomDnsServer { get; set; }
             public System.Boolean? DnsServers_Enabled { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
+            public Amazon.EC2.SelfServicePortal SelfServicePortal { get; set; }
             public System.String ServerCertificateArn { get; set; }
             public System.Boolean? SplitTunnel { get; set; }
             public System.String VpcId { get; set; }

@@ -54,6 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class NewSGSMBFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter AccessBasedEnumeration
+        /// <summary>
+        /// <para>
+        /// <para>The files and folders on this share will only be visible to users with read access.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AccessBasedEnumeration { get; set; }
+        #endregion
+        
         #region Parameter AdminUserList
         /// <summary>
         /// <para>
@@ -219,6 +229,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String LocationARN { get; set; }
+        #endregion
+        
+        #region Parameter NotificationPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The notification policy of the file share.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NotificationPolicy { get; set; }
         #endregion
         
         #region Parameter ObjectACL
@@ -399,6 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.Select = (response, cmdlet) => this.GatewayARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessBasedEnumeration = this.AccessBasedEnumeration;
             if (this.AdminUserList != null)
             {
                 context.AdminUserList = new List<System.String>(this.AdminUserList);
@@ -437,6 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 WriteWarning("You are passing $null as a value for parameter LocationARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NotificationPolicy = this.NotificationPolicy;
             context.ObjectACL = this.ObjectACL;
             context.ReadOnly = this.ReadOnly;
             context.RequesterPay = this.RequesterPay;
@@ -472,6 +494,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // create request
             var request = new Amazon.StorageGateway.Model.CreateSMBFileShareRequest();
             
+            if (cmdletContext.AccessBasedEnumeration != null)
+            {
+                request.AccessBasedEnumeration = cmdletContext.AccessBasedEnumeration.Value;
+            }
             if (cmdletContext.AdminUserList != null)
             {
                 request.AdminUserList = cmdletContext.AdminUserList;
@@ -542,6 +568,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.LocationARN != null)
             {
                 request.LocationARN = cmdletContext.LocationARN;
+            }
+            if (cmdletContext.NotificationPolicy != null)
+            {
+                request.NotificationPolicy = cmdletContext.NotificationPolicy;
             }
             if (cmdletContext.ObjectACL != null)
             {
@@ -632,6 +662,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AccessBasedEnumeration { get; set; }
             public List<System.String> AdminUserList { get; set; }
             public System.String AuditDestinationARN { get; set; }
             public System.String Authentication { get; set; }
@@ -646,6 +677,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.Boolean? KMSEncrypted { get; set; }
             public System.String KMSKey { get; set; }
             public System.String LocationARN { get; set; }
+            public System.String NotificationPolicy { get; set; }
             public Amazon.StorageGateway.ObjectACL ObjectACL { get; set; }
             public System.Boolean? ReadOnly { get; set; }
             public System.Boolean? RequesterPay { get; set; }

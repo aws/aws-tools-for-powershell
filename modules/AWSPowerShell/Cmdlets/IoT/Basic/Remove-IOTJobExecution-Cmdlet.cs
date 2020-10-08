@@ -89,6 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String JobId { get; set; }
         #endregion
         
+        #region Parameter NamespaceId
+        /// <summary>
+        /// <para>
+        /// <para>The namespace used to indicate that a job is a customer-managed job.</para><para>When you specify a value for this parameter, AWS IoT Core sends jobs notifications
+        /// to MQTT topics that contain the value in the following format.</para><para><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></para><note><para>The <code>namespaceId</code> feature is in public preview.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NamespaceId { get; set; }
+        #endregion
+        
         #region Parameter ThingName
         /// <summary>
         /// <para>
@@ -181,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NamespaceId = this.NamespaceId;
             context.ThingName = this.ThingName;
             #if MODULAR
             if (this.ThingName == null && ParameterWasBound(nameof(this.ThingName)))
@@ -215,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.JobId != null)
             {
                 request.JobId = cmdletContext.JobId;
+            }
+            if (cmdletContext.NamespaceId != null)
+            {
+                request.NamespaceId = cmdletContext.NamespaceId;
             }
             if (cmdletContext.ThingName != null)
             {
@@ -284,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.Int64? ExecutionNumber { get; set; }
             public System.Boolean? Enforce { get; set; }
             public System.String JobId { get; set; }
+            public System.String NamespaceId { get; set; }
             public System.String ThingName { get; set; }
             public System.Func<Amazon.IoT.Model.DeleteJobExecutionResponse, RemoveIOTJobExecutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

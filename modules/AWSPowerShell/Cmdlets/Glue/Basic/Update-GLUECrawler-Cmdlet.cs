@@ -113,6 +113,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter RecrawlPolicy_RecrawlBehavior
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to crawl the entire dataset again or to crawl only folders that
+        /// were added since the last crawler run.</para><para>A value of <code>CRAWL_EVERYTHING</code> specifies crawling the entire dataset again.</para><para>A value of <code>CRAWL_NEW_FOLDERS_ONLY</code> specifies crawling only folders that
+        /// were added since the last crawler run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.RecrawlBehavior")]
+        public Amazon.Glue.RecrawlBehavior RecrawlPolicy_RecrawlBehavior { get; set; }
+        #endregion
+        
         #region Parameter Role
         /// <summary>
         /// <para>
@@ -242,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RecrawlPolicy_RecrawlBehavior = this.RecrawlPolicy_RecrawlBehavior;
             context.Role = this.Role;
             context.Schedule = this.Schedule;
             context.SchemaChangePolicy = this.SchemaChangePolicy;
@@ -286,6 +300,25 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate RecrawlPolicy
+            var requestRecrawlPolicyIsNull = true;
+            request.RecrawlPolicy = new Amazon.Glue.Model.RecrawlPolicy();
+            Amazon.Glue.RecrawlBehavior requestRecrawlPolicy_recrawlPolicy_RecrawlBehavior = null;
+            if (cmdletContext.RecrawlPolicy_RecrawlBehavior != null)
+            {
+                requestRecrawlPolicy_recrawlPolicy_RecrawlBehavior = cmdletContext.RecrawlPolicy_RecrawlBehavior;
+            }
+            if (requestRecrawlPolicy_recrawlPolicy_RecrawlBehavior != null)
+            {
+                request.RecrawlPolicy.RecrawlBehavior = requestRecrawlPolicy_recrawlPolicy_RecrawlBehavior;
+                requestRecrawlPolicyIsNull = false;
+            }
+             // determine if request.RecrawlPolicy should be set to null
+            if (requestRecrawlPolicyIsNull)
+            {
+                request.RecrawlPolicy = null;
             }
             if (cmdletContext.Role != null)
             {
@@ -374,6 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String DatabaseName { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public Amazon.Glue.RecrawlBehavior RecrawlPolicy_RecrawlBehavior { get; set; }
             public System.String Role { get; set; }
             public System.String Schedule { get; set; }
             public Amazon.Glue.Model.SchemaChangePolicy SchemaChangePolicy { get; set; }

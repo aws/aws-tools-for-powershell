@@ -79,9 +79,14 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisionedProductProperty
         /// <summary>
         /// <para>
-        /// <para>A map that contains the provisioned product properties to be updated.</para><para>The <code>OWNER</code> key accepts user ARNs and role ARNs. The owner is the user
-        /// that is allowed to see, update, terminate, and execute service actions in the provisioned
-        /// product.</para><para>The administrator can change the owner of a provisioned product to another IAM user
+        /// <para>A map that contains the provisioned product properties to be updated.</para><para>The <code>LAUNCH_ROLE</code> key accepts user ARNs and role ARNs. This key allows
+        /// an administrator to call <code>UpdateProvisionedProductProperties</code> to update
+        /// the launch role that is associated with a provisioned product. This role is used when
+        /// an end-user calls a provisioning operation such as <code>UpdateProvisionedProduct</code>,
+        /// <code>TerminateProvisionedProduct</code>, or <code>ExecuteProvisionedProductServiceAction</code>.
+        /// Only an ARN role is valid. A user ARN is invalid. </para><para>The <code>OWNER</code> key accepts user ARNs and role ARNs. The owner is the user
+        /// that has permission to see, update, terminate, and execute service actions in the
+        /// provisioned product.</para><para>The administrator can change the owner of a provisioned product to another IAM user
         /// within the same account. Both end user owners and administrators can see ownership
         /// history of the provisioned product using the <code>ListRecordHistory</code> API. The
         /// new owner can describe all past records for the provisioned product using the <code>DescribeRecord</code>
