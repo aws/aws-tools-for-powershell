@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
 {
     /// <summary>
     /// Deletes an existing virtual gateway. You cannot delete a virtual gateway if any gateway
-    ///         routes are associated to it.
+    /// routes are associated to it.
     /// </summary>
     [Cmdlet("Remove", "AMSHVirtualGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.AppMesh.Model.VirtualGatewayData")]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
-        /// then it's               the ID of the account that shared the mesh with your account.
-        /// For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
+        /// then it's the ID of the account that shared the mesh with your account. For more information
+        /// about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
         /// with shared meshes</a>.</para>
         /// </para>
         /// </summary>

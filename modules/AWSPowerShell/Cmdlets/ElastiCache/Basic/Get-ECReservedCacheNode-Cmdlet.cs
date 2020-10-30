@@ -47,12 +47,20 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>The cache node type filter value. Use this parameter to show only those reservations
         /// matching the specified cache node type.</para><para>The following node types are supported by ElastiCache. Generally speaking, the current
         /// generation types provide more memory and computational power at lower cost when compared
-        /// to their equivalent previous generation counterparts.</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: </para><para><b>M5 node types:</b><code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
+        /// to their equivalent previous generation counterparts.</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: </para><para><b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for
+        /// Memcached engine version 1.5.16 onward).</para><para><code>cache.m6g.large</code>, <code>cache.m6g.xlarge</code>, <code>cache.m6g.2xlarge</code>,
+        /// <code>cache.m6g.4xlarge</code>, <code>cache.m6g.8xlarge</code>, <code>cache.m6g.12xlarge</code>,
+        /// <code>cache.m6g.16xlarge</code></para><note><para>At this time, M6g node types are available in the following regions: us-east-1, us-west-2,
+        /// us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</para></note><para><b>M5 node types:</b><code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
         /// <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>, <code>cache.m5.12xlarge</code>,
         /// <code>cache.m5.24xlarge</code></para><para><b>M4 node types:</b><code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
         /// <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>, <code>cache.m4.10xlarge</code></para><para><b>T3 node types:</b><code>cache.t3.micro</code>, <code>cache.t3.small</code>, <code>cache.t3.medium</code></para><para><b>T2 node types:</b><code>cache.t2.micro</code>, <code>cache.t2.small</code>, <code>cache.t2.medium</code></para></li><li><para>Previous generation: (not recommended)</para><para><b>T1 node types:</b><code>cache.t1.micro</code></para><para><b>M1 node types:</b><code>cache.m1.small</code>, <code>cache.m1.medium</code>,
         /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></para><para><b>M3 node types:</b><code>cache.m3.medium</code>, <code>cache.m3.large</code>,
-        /// <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R5 node types:</b><code>cache.r5.large</code>, <code>cache.r5.xlarge</code>,
+        /// <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for
+        /// Memcached engine version 1.5.16 onward).</para><para><code>cache.r6g.large</code>, <code>cache.r6g.xlarge</code>, <code>cache.r6g.2xlarge</code>,
+        /// <code>cache.r6g.4xlarge</code>, <code>cache.r6g.8xlarge</code>, <code>cache.r6g.12xlarge</code>,
+        /// <code>cache.r6g.16xlarge</code></para><note><para>At this time, R6g node types are available in the following regions: us-east-1, us-west-2,
+        /// us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</para></note><para><b>R5 node types:</b><code>cache.r5.large</code>, <code>cache.r5.xlarge</code>,
         /// <code>cache.r5.2xlarge</code>, <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
         /// <code>cache.r5.24xlarge</code></para><para><b>R4 node types:</b><code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
         /// <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>, <code>cache.r4.8xlarge</code>,
@@ -81,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The offering type filter value. Use this parameter to show only the available offerings
-        /// matching the specified offering type.</para><para>Valid values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization"</code></para>
+        /// matching the specified offering type.</para><para>Valid values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization"|"All
+        /// Upfront"|"Partial Upfront"| "No Upfront"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

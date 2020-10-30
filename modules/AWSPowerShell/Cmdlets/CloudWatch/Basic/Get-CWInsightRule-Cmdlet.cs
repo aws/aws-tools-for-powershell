@@ -28,8 +28,7 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Returns a list of all the Contributor Insights rules in your account. All rules in
-    /// your account are returned with a single operation.
+    /// Returns a list of all the Contributor Insights rules in your account.
     /// 
     ///  
     /// <para>
@@ -50,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>This parameter is not currently used. Reserved for future use. If it is used in the
-        /// future, the maximum value might be different.</para>
+        /// <para>The maximum number of results to return in one operation. If you omit this parameter,
+        /// the default of 500 is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -62,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>Include this value, if it was returned by the previous operation, to get the next
+        /// set of rules.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

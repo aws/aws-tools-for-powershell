@@ -521,6 +521,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String DatabaseName { get; set; }
         #endregion
         
+        #region Parameter DocDbSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para> The database name on the DocumentDB source endpoint. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DocDbSettings_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter IBMDb2Settings_DatabaseName
         /// <summary>
         /// <para>
@@ -658,8 +668,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>When set to <code>true</code>, this parameter partitions S3 bucket folders based on
         /// transaction commit dates. The default value is <code>false</code>. For more information
-        /// about date-based folder partitoning, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Using
-        /// date-based folder partitioning</a></para>
+        /// about date-based folder partitoning, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning">Using
+        /// date-based folder partitioning</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -725,6 +735,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? OracleSettings_DirectPathParallelLoad { get; set; }
+        #endregion
+        
+        #region Parameter DocDbSettings_DocsToInvestigate
+        /// <summary>
+        /// <para>
+        /// <para> Indicates the number of documents to preview to determine the document organization.
+        /// Use this setting when <code>NestingLevel</code> is set to <code>"one"</code>. </para><para>Must be a positive value greater than <code>0</code>. Default value is <code>1000</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? DocDbSettings_DocsToInvestigate { get; set; }
         #endregion
         
         #region Parameter MongoDbSettings_DocsToInvestigate
@@ -986,6 +1007,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String ExtraConnectionAttribute { get; set; }
         #endregion
         
+        #region Parameter DocDbSettings_ExtractDocId
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the document ID. Use this setting when <code>NestingLevel</code> is set
+        /// to <code>"none"</code>. </para><para>Default value is <code>"false"</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DocDbSettings_ExtractDocId { get; set; }
+        #endregion
+        
         #region Parameter MongoDbSettings_ExtractDocId
         /// <summary>
         /// <para>
@@ -1206,6 +1238,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? KinesisSettings_IncludeTransactionDetail { get; set; }
         #endregion
         
+        #region Parameter DocDbSettings_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS KMS key identifier that is used to encrypt the content on the replication
+        /// instance. If you don't specify a value for the <code>KmsKeyId</code> parameter, then
+        /// AWS DMS uses your default encryption key. AWS KMS creates the default encryption key
+        /// for your AWS account. Your AWS account has a different default encryption key for
+        /// each AWS Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DocDbSettings_KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -1345,6 +1391,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? KafkaSettings_MessageMaxByte { get; set; }
         #endregion
         
+        #region Parameter DocDbSettings_NestingLevel
+        /// <summary>
+        /// <para>
+        /// <para> Specifies either document or table mode. </para><para>Default value is <code>"none"</code>. Specify <code>"none"</code> to use document
+        /// mode. Specify <code>"one"</code> to use table mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.NestingLevelValue")]
+        public Amazon.DatabaseMigrationService.NestingLevelValue DocDbSettings_NestingLevel { get; set; }
+        #endregion
+        
         #region Parameter MongoDbSettings_NestingLevel
         /// <summary>
         /// <para>
@@ -1468,6 +1526,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? KinesisSettings_PartitionIncludeSchemaTable { get; set; }
         #endregion
         
+        #region Parameter DocDbSettings_Password
+        /// <summary>
+        /// <para>
+        /// <para> The password for the user account you use to access the DocumentDB source endpoint.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DocDbSettings_Password { get; set; }
+        #endregion
+        
         #region Parameter IBMDb2Settings_Password
         /// <summary>
         /// <para>
@@ -1557,6 +1626,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SybaseSettings_Password { get; set; }
+        #endregion
+        
+        #region Parameter DocDbSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para> The port value for the DocumentDB source endpoint. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? DocDbSettings_Port { get; set; }
         #endregion
         
         #region Parameter IBMDb2Settings_Port
@@ -1853,6 +1932,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OracleSettings_SecurityDbEncryptionName { get; set; }
+        #endregion
+        
+        #region Parameter DocDbSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para> The name of the server on the DocumentDB source endpoint. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DocDbSettings_ServerName { get; set; }
         #endregion
         
         #region Parameter IBMDb2Settings_ServerName
@@ -2242,6 +2331,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String OracleSettings_UsePathPrefix { get; set; }
         #endregion
         
+        #region Parameter DocDbSettings_Username
+        /// <summary>
+        /// <para>
+        /// <para>The user name you use to access the DocumentDB source endpoint. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DocDbSettings_Username { get; set; }
+        #endregion
+        
         #region Parameter IBMDb2Settings_Username
         /// <summary>
         /// <para>
@@ -2409,6 +2508,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.DatabaseName = this.DatabaseName;
             context.DmsTransferSettings_BucketName = this.DmsTransferSettings_BucketName;
             context.DmsTransferSettings_ServiceAccessRoleArn = this.DmsTransferSettings_ServiceAccessRoleArn;
+            context.DocDbSettings_DatabaseName = this.DocDbSettings_DatabaseName;
+            context.DocDbSettings_DocsToInvestigate = this.DocDbSettings_DocsToInvestigate;
+            context.DocDbSettings_ExtractDocId = this.DocDbSettings_ExtractDocId;
+            context.DocDbSettings_KmsKeyId = this.DocDbSettings_KmsKeyId;
+            context.DocDbSettings_NestingLevel = this.DocDbSettings_NestingLevel;
+            context.DocDbSettings_Password = this.DocDbSettings_Password;
+            context.DocDbSettings_Port = this.DocDbSettings_Port;
+            context.DocDbSettings_ServerName = this.DocDbSettings_ServerName;
+            context.DocDbSettings_Username = this.DocDbSettings_Username;
             context.DynamoDbSettings_ServiceAccessRoleArn = this.DynamoDbSettings_ServiceAccessRoleArn;
             context.ElasticsearchSettings_EndpointUri = this.ElasticsearchSettings_EndpointUri;
             context.ElasticsearchSettings_ErrorRetryDuration = this.ElasticsearchSettings_ErrorRetryDuration;
@@ -2667,6 +2775,105 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestDmsTransferSettingsIsNull)
             {
                 request.DmsTransferSettings = null;
+            }
+            
+             // populate DocDbSettings
+            var requestDocDbSettingsIsNull = true;
+            request.DocDbSettings = new Amazon.DatabaseMigrationService.Model.DocDbSettings();
+            System.String requestDocDbSettings_docDbSettings_DatabaseName = null;
+            if (cmdletContext.DocDbSettings_DatabaseName != null)
+            {
+                requestDocDbSettings_docDbSettings_DatabaseName = cmdletContext.DocDbSettings_DatabaseName;
+            }
+            if (requestDocDbSettings_docDbSettings_DatabaseName != null)
+            {
+                request.DocDbSettings.DatabaseName = requestDocDbSettings_docDbSettings_DatabaseName;
+                requestDocDbSettingsIsNull = false;
+            }
+            System.Int32? requestDocDbSettings_docDbSettings_DocsToInvestigate = null;
+            if (cmdletContext.DocDbSettings_DocsToInvestigate != null)
+            {
+                requestDocDbSettings_docDbSettings_DocsToInvestigate = cmdletContext.DocDbSettings_DocsToInvestigate.Value;
+            }
+            if (requestDocDbSettings_docDbSettings_DocsToInvestigate != null)
+            {
+                request.DocDbSettings.DocsToInvestigate = requestDocDbSettings_docDbSettings_DocsToInvestigate.Value;
+                requestDocDbSettingsIsNull = false;
+            }
+            System.Boolean? requestDocDbSettings_docDbSettings_ExtractDocId = null;
+            if (cmdletContext.DocDbSettings_ExtractDocId != null)
+            {
+                requestDocDbSettings_docDbSettings_ExtractDocId = cmdletContext.DocDbSettings_ExtractDocId.Value;
+            }
+            if (requestDocDbSettings_docDbSettings_ExtractDocId != null)
+            {
+                request.DocDbSettings.ExtractDocId = requestDocDbSettings_docDbSettings_ExtractDocId.Value;
+                requestDocDbSettingsIsNull = false;
+            }
+            System.String requestDocDbSettings_docDbSettings_KmsKeyId = null;
+            if (cmdletContext.DocDbSettings_KmsKeyId != null)
+            {
+                requestDocDbSettings_docDbSettings_KmsKeyId = cmdletContext.DocDbSettings_KmsKeyId;
+            }
+            if (requestDocDbSettings_docDbSettings_KmsKeyId != null)
+            {
+                request.DocDbSettings.KmsKeyId = requestDocDbSettings_docDbSettings_KmsKeyId;
+                requestDocDbSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.NestingLevelValue requestDocDbSettings_docDbSettings_NestingLevel = null;
+            if (cmdletContext.DocDbSettings_NestingLevel != null)
+            {
+                requestDocDbSettings_docDbSettings_NestingLevel = cmdletContext.DocDbSettings_NestingLevel;
+            }
+            if (requestDocDbSettings_docDbSettings_NestingLevel != null)
+            {
+                request.DocDbSettings.NestingLevel = requestDocDbSettings_docDbSettings_NestingLevel;
+                requestDocDbSettingsIsNull = false;
+            }
+            System.String requestDocDbSettings_docDbSettings_Password = null;
+            if (cmdletContext.DocDbSettings_Password != null)
+            {
+                requestDocDbSettings_docDbSettings_Password = cmdletContext.DocDbSettings_Password;
+            }
+            if (requestDocDbSettings_docDbSettings_Password != null)
+            {
+                request.DocDbSettings.Password = requestDocDbSettings_docDbSettings_Password;
+                requestDocDbSettingsIsNull = false;
+            }
+            System.Int32? requestDocDbSettings_docDbSettings_Port = null;
+            if (cmdletContext.DocDbSettings_Port != null)
+            {
+                requestDocDbSettings_docDbSettings_Port = cmdletContext.DocDbSettings_Port.Value;
+            }
+            if (requestDocDbSettings_docDbSettings_Port != null)
+            {
+                request.DocDbSettings.Port = requestDocDbSettings_docDbSettings_Port.Value;
+                requestDocDbSettingsIsNull = false;
+            }
+            System.String requestDocDbSettings_docDbSettings_ServerName = null;
+            if (cmdletContext.DocDbSettings_ServerName != null)
+            {
+                requestDocDbSettings_docDbSettings_ServerName = cmdletContext.DocDbSettings_ServerName;
+            }
+            if (requestDocDbSettings_docDbSettings_ServerName != null)
+            {
+                request.DocDbSettings.ServerName = requestDocDbSettings_docDbSettings_ServerName;
+                requestDocDbSettingsIsNull = false;
+            }
+            System.String requestDocDbSettings_docDbSettings_Username = null;
+            if (cmdletContext.DocDbSettings_Username != null)
+            {
+                requestDocDbSettings_docDbSettings_Username = cmdletContext.DocDbSettings_Username;
+            }
+            if (requestDocDbSettings_docDbSettings_Username != null)
+            {
+                request.DocDbSettings.Username = requestDocDbSettings_docDbSettings_Username;
+                requestDocDbSettingsIsNull = false;
+            }
+             // determine if request.DocDbSettings should be set to null
+            if (requestDocDbSettingsIsNull)
+            {
+                request.DocDbSettings = null;
             }
             
              // populate DynamoDbSettings
@@ -4625,6 +4832,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String DatabaseName { get; set; }
             public System.String DmsTransferSettings_BucketName { get; set; }
             public System.String DmsTransferSettings_ServiceAccessRoleArn { get; set; }
+            public System.String DocDbSettings_DatabaseName { get; set; }
+            public System.Int32? DocDbSettings_DocsToInvestigate { get; set; }
+            public System.Boolean? DocDbSettings_ExtractDocId { get; set; }
+            public System.String DocDbSettings_KmsKeyId { get; set; }
+            public Amazon.DatabaseMigrationService.NestingLevelValue DocDbSettings_NestingLevel { get; set; }
+            public System.String DocDbSettings_Password { get; set; }
+            public System.Int32? DocDbSettings_Port { get; set; }
+            public System.String DocDbSettings_ServerName { get; set; }
+            public System.String DocDbSettings_Username { get; set; }
             public System.String DynamoDbSettings_ServiceAccessRoleArn { get; set; }
             public System.String ElasticsearchSettings_EndpointUri { get; set; }
             public System.Int32? ElasticsearchSettings_ErrorRetryDuration { get; set; }

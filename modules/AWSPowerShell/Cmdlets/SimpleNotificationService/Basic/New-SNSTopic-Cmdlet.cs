@@ -52,12 +52,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// only the topic owner can publish or subscribe to the topic.</para></li></ul><para>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</para><ul><li><para><code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master key (CMK)
         /// for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
         /// Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
-        /// in the <i>AWS Key Management Service API Reference</i>. </para></li></ul><para>The following attribute applies only to FIFO topics:</para><ul><li><para><code>ContentBasedDeduplication</code> – Enables content-based deduplication. Amazon
-        /// SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using
-        /// the body of the message (but not the attributes of the message). </para></li><li><para> When <code>ContentBasedDeduplication</code> is in effect, messages with identical
-        /// content sent within the deduplication interval are treated as duplicates and only
-        /// one copy of the message is delivered. </para></li><li><para> If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code>
-        /// overrides the generated one. </para></li></ul>
+        /// in the <i>AWS Key Management Service API Reference</i>. </para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO
+        /// topics</a>:</para><ul><li><para><code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO topic is created.</para></li><li><para><code>ContentBasedDeduplication</code> – Enables content-based deduplication for
+        /// FIFO topics. </para><ul><li><para>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If
+        /// you create a FIFO topic and this attribute is <code>false</code>, you must specify
+        /// a value for the <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>
+        /// action. </para></li><li><para>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS
+        /// uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the
+        /// body of the message (but not the attributes of the message).</para><para>(Optional) To override the generated value, you can specify a value for the the <code>MessageDeduplicationId</code>
+        /// parameter for the <code>Publish</code> action.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// an IAM role from an ACM certificate removes the Amazon S3 object that contains the
     /// certificate, certificate chain, and encrypted private key from the Amazon S3 bucket.
     /// It also revokes the IAM role's permission to use the AWS Key Management Service (KMS)
-    /// key used to encrypt the private key. This effectively revokes the role's permission
-    /// to use the certificate.
+    /// customer master key (CMK) used to encrypt the private key. This effectively revokes
+    /// the role's permission to use the certificate.
     /// </summary>
     [Cmdlet("Unregister", "EC2EnclaveCertificateIamRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]

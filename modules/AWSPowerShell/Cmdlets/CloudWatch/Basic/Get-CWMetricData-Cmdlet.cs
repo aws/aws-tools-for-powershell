@@ -203,8 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Include this value, if it was returned by the previous call, to get the next set of
-        /// data points.</para>
+        /// <para>Include this value, if it was returned by the previous <code>GetMetricData</code>
+        /// operation, to get the next set of data points.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.CloudWatch module, this parameter is only used if you are manually controlling output pagination of the service API call.

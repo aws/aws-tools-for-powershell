@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_Ipv6Support
         /// <summary>
         /// <para>
-        /// <para>Enable or disable IPv6 support. The default is <code>enable</code>.</para>
+        /// <para>Enable or disable IPv6 support.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

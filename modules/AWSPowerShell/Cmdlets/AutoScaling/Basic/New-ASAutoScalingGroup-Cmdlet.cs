@@ -90,6 +90,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String[] AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter CapacityRebalance
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is
+        /// disabled.</para><para>You can enable capacity rebalancing for your Auto Scaling groups when using Spot Instances.
+        /// When you turn on capacity rebalancing, Amazon EC2 Auto Scaling attempts to launch
+        /// a Spot Instance whenever Amazon EC2 predicts that a Spot Instance is at an elevated
+        /// risk of interruption. After launching a new instance, it then terminates an old instance.
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html">Amazon
+        /// EC2 Auto Scaling capacity rebalancing</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CapacityRebalance { get; set; }
+        #endregion
+        
         #region Parameter DefaultCooldown
         /// <summary>
         /// <para>
@@ -479,6 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
             }
+            context.CapacityRebalance = this.CapacityRebalance;
             context.DefaultCooldown = this.DefaultCooldown;
             context.DesiredCapacity = this.DesiredCapacity;
             context.HealthCheckGracePeriod = this.HealthCheckGracePeriod;
@@ -551,6 +568,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZones = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.CapacityRebalance != null)
+            {
+                request.CapacityRebalance = cmdletContext.CapacityRebalance.Value;
             }
             if (cmdletContext.DefaultCooldown != null)
             {
@@ -730,6 +751,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             public System.String AutoScalingGroupName { get; set; }
             public List<System.String> AvailabilityZone { get; set; }
+            public System.Boolean? CapacityRebalance { get; set; }
             public System.Int32? DefaultCooldown { get; set; }
             public System.Int32? DesiredCapacity { get; set; }
             public System.Int32? HealthCheckGracePeriod { get; set; }

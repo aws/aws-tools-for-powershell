@@ -80,14 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master
-        /// key (CMK) to use when creating the encrypted volume. This parameter is only required
-        /// if you want to use a non-default CMK; if this parameter is not specified, the default
-        /// CMK for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code>
-        /// flag must also be set. </para><para>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias
-        /// ARN. When using an alias name, prefix it with "alias/". For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call
-        /// may appear to complete even though you provided an invalid identifier. This action
-        /// will eventually report failure. </para><para>The specified CMK must exist in the Region that the snapshot is being copied to. </para><para>Amazon EBS does not support asymmetric CMKs.</para>
+        /// <para>The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master
+        /// key (CMK) to use when creating encrypted volumes. If this parameter is not specified,
+        /// your AWS managed CMK for EBS is used. If you specify a CMK, you must also set the
+        /// encrypted state to <code>true</code>.</para><para>You can specify a CMK using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>AWS authenticates the CMK asynchronously. Therefore, if you specify an identifier
+        /// that is not valid, the action can appear to complete, but eventually fails.</para><para>The specified CMK must exist in the destination Region.</para><para>Amazon EBS does not support asymmetric CMKs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

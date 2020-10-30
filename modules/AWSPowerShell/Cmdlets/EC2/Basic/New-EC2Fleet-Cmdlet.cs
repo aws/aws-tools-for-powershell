@@ -198,6 +198,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? TargetCapacitySpecification_OnDemandTargetCapacity { get; set; }
         #endregion
         
+        #region Parameter CapacityRebalance_ReplacementStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The replacement strategy to use. Only available for fleets of type <code>maintain</code>.</para><para>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance
+        /// notification is emitted for an existing Spot Instance in the fleet, specify <code>launch</code>.
+        /// You must specify a value, otherwise you get an error.</para><note><para>When a replacement instance is launched, the instance marked for rebalance is not
+        /// automatically terminated. You can terminate it, or you can wait until Amazon EC2 interrupts
+        /// it. You are charged for all instances while they are running.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SpotOptions_MaintenanceStrategies_CapacityRebalance_ReplacementStrategy")]
+        [AWSConstantClassSource("Amazon.EC2.FleetReplacementStrategy")]
+        public Amazon.EC2.FleetReplacementStrategy CapacityRebalance_ReplacementStrategy { get; set; }
+        #endregion
+        
         #region Parameter ReplaceUnhealthyInstance
         /// <summary>
         /// <para>
@@ -270,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// must be <code>fleet</code>, otherwise the fleet request fails. To tag instances at
         /// launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
         /// template</a>. For information about tagging after launch, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
-        /// Your Resources</a>. </para>
+        /// your resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,14 +323,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the request. By default, the EC2 Fleet places an asynchronous request
-        /// for your desired capacity, and maintains it by replenishing interrupted Spot Instances
-        /// (<code>maintain</code>). A value of <code>instant</code> places a synchronous one-time
-        /// request, and returns errors for any instances that could not be launched. A value
-        /// of <code>request</code> places an asynchronous one-time request without maintaining
-        /// capacity or submitting requests in alternative capacity pools if capacity is unavailable.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type">EC2
-        /// Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// <para>The type of request. The default value is <code>maintain</code>.</para><ul><li><para><code>maintain</code> - The EC2 Fleet plaees an asynchronous request for your desired
+        /// capacity, and continues to maintain your desired Spot capacity by replenishing interrupted
+        /// Spot Instances.</para></li><li><para><code>request</code> - The EC2 Fleet places an asynchronous one-time request for
+        /// your desired capacity, but does submit Spot requests in alternative capacity pools
+        /// if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances
+        /// are interrupted.</para></li><li><para><code>instant</code> - The EC2 Fleet places a synchronous one-time request for your
+        /// desired capacity, and returns errors for any instances that could not be launched.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type">EC2
+        /// Fleet request types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -496,6 +512,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.SpotOptions_AllocationStrategy = this.SpotOptions_AllocationStrategy;
             context.SpotOptions_InstanceInterruptionBehavior = this.SpotOptions_InstanceInterruptionBehavior;
             context.SpotOptions_InstancePoolsToUseCount = this.SpotOptions_InstancePoolsToUseCount;
+            context.CapacityRebalance_ReplacementStrategy = this.CapacityRebalance_ReplacementStrategy;
             context.SpotOptions_MaxTotalPrice = this.SpotOptions_MaxTotalPrice;
             context.SpotOptions_MinTargetCapacity = this.SpotOptions_MinTargetCapacity;
             context.SpotOptions_SingleAvailabilityZone = this.SpotOptions_SingleAvailabilityZone;
@@ -714,6 +731,46 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.SpotOptions.SingleInstanceType = requestSpotOptions_spotOptions_SingleInstanceType.Value;
                 requestSpotOptionsIsNull = false;
             }
+            Amazon.EC2.Model.FleetSpotMaintenanceStrategiesRequest requestSpotOptions_spotOptions_MaintenanceStrategies = null;
+            
+             // populate MaintenanceStrategies
+            var requestSpotOptions_spotOptions_MaintenanceStrategiesIsNull = true;
+            requestSpotOptions_spotOptions_MaintenanceStrategies = new Amazon.EC2.Model.FleetSpotMaintenanceStrategiesRequest();
+            Amazon.EC2.Model.FleetSpotCapacityRebalanceRequest requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance = null;
+            
+             // populate CapacityRebalance
+            var requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalanceIsNull = true;
+            requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance = new Amazon.EC2.Model.FleetSpotCapacityRebalanceRequest();
+            Amazon.EC2.FleetReplacementStrategy requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance_capacityRebalance_ReplacementStrategy = null;
+            if (cmdletContext.CapacityRebalance_ReplacementStrategy != null)
+            {
+                requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance_capacityRebalance_ReplacementStrategy = cmdletContext.CapacityRebalance_ReplacementStrategy;
+            }
+            if (requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance_capacityRebalance_ReplacementStrategy != null)
+            {
+                requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance.ReplacementStrategy = requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance_capacityRebalance_ReplacementStrategy;
+                requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalanceIsNull = false;
+            }
+             // determine if requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance should be set to null
+            if (requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalanceIsNull)
+            {
+                requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance = null;
+            }
+            if (requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance != null)
+            {
+                requestSpotOptions_spotOptions_MaintenanceStrategies.CapacityRebalance = requestSpotOptions_spotOptions_MaintenanceStrategies_spotOptions_MaintenanceStrategies_CapacityRebalance;
+                requestSpotOptions_spotOptions_MaintenanceStrategiesIsNull = false;
+            }
+             // determine if requestSpotOptions_spotOptions_MaintenanceStrategies should be set to null
+            if (requestSpotOptions_spotOptions_MaintenanceStrategiesIsNull)
+            {
+                requestSpotOptions_spotOptions_MaintenanceStrategies = null;
+            }
+            if (requestSpotOptions_spotOptions_MaintenanceStrategies != null)
+            {
+                request.SpotOptions.MaintenanceStrategies = requestSpotOptions_spotOptions_MaintenanceStrategies;
+                requestSpotOptionsIsNull = false;
+            }
              // determine if request.SpotOptions should be set to null
             if (requestSpotOptionsIsNull)
             {
@@ -882,6 +939,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.SpotAllocationStrategy SpotOptions_AllocationStrategy { get; set; }
             public Amazon.EC2.SpotInstanceInterruptionBehavior SpotOptions_InstanceInterruptionBehavior { get; set; }
             public System.Int32? SpotOptions_InstancePoolsToUseCount { get; set; }
+            public Amazon.EC2.FleetReplacementStrategy CapacityRebalance_ReplacementStrategy { get; set; }
             public System.String SpotOptions_MaxTotalPrice { get; set; }
             public System.Int32? SpotOptions_MinTargetCapacity { get; set; }
             public System.Boolean? SpotOptions_SingleAvailabilityZone { get; set; }

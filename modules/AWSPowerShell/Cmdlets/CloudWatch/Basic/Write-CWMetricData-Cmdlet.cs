@@ -56,6 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// specifying dimensions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing
     /// Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.
     /// </para><para>
+    /// You specify the time stamp to be associated with each data point. You can specify
+    /// time stamps that are as much as two weeks before the current date, and as much as
+    /// 2 hours after the current day and time.
+    /// </para><para>
     /// Data points with time stamps from 24 hours ago or longer can take at least 48 hours
     /// to become available for <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
     /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>

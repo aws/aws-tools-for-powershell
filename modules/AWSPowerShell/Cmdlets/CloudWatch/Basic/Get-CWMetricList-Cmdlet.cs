@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Dimension
         /// <summary>
         /// <para>
-        /// <para>The dimensions to filter against.</para>
+        /// <para>The dimensions to filter against. Only the dimensions that match exactly will be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para>The name of the metric to filter against.</para>
+        /// <para>The name of the metric to filter against. Only the metrics with names that match exactly
+        /// will be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -79,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace to filter against.</para>
+        /// <para>The metric namespace to filter against. Only the namespace that matches exactly will
+        /// be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// Enables audit logging. Every user management action
-        /// made using JMX or the ActiveMQ Web Console is logged.
+        /// made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

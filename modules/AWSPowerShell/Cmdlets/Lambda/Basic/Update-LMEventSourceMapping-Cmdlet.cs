@@ -40,10 +40,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </para></li><li><para><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or
     /// Amazon SNS topic.
     /// </para></li><li><para><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified
-    /// age. Default -1 (infinite). Minimum 60. Maximum 604800.
+    /// age. The default value is infinite (-1). When set to infinite (-1), failed records
+    /// are retried until the record expires
     /// </para></li><li><para><code>MaximumRetryAttempts</code> - Discard records after the specified number of
-    /// retries. Default -1 (infinite). Minimum 0. Maximum 10000. When infinite, failed records
-    /// will be retried until the record expires.
+    /// retries. The default value is infinite (-1). When set to infinite (-1), failed records
+    /// are retried until the record expires.
     /// </para></li><li><para><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.
     /// </para></li></ul>
     /// </summary>
@@ -165,6 +166,22 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Int32? ParallelizationFactor { get; set; }
         #endregion
         
+        #region Parameter SourceAccessConfiguration
+        /// <summary>
+        /// <para>
+        /// <para> (MQ) The Secrets Manager secret that stores your broker credentials. To store your
+        /// secret, use the following format: <code> { "username": "your username", "password":
+        /// "your password" }</code></para><para>To reference the secret, use the following format: <code>[ { "Type": "BASIC_AUTH",
+        /// "URI": "secretARN" } ]</code></para><para>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret,
+        /// you can use customer or service managed keys. When using a customer managed KMS key,
+        /// the Lambda execution role requires <code>kms:Decrypt</code> permissions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceAccessConfigurations")]
+        public Amazon.Lambda.Model.SourceAccessConfiguration[] SourceAccessConfiguration { get; set; }
+        #endregion
+        
         #region Parameter UUID
         /// <summary>
         /// <para>
@@ -253,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.MaximumRecordAgeInSecond = this.MaximumRecordAgeInSecond;
             context.MaximumRetryAttempt = this.MaximumRetryAttempt;
             context.ParallelizationFactor = this.ParallelizationFactor;
+            if (this.SourceAccessConfiguration != null)
+            {
+                context.SourceAccessConfiguration = new List<Amazon.Lambda.Model.SourceAccessConfiguration>(this.SourceAccessConfiguration);
+            }
             context.UUID = this.UUID;
             #if MODULAR
             if (this.UUID == null && ParameterWasBound(nameof(this.UUID)))
@@ -367,6 +388,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.ParallelizationFactor = cmdletContext.ParallelizationFactor.Value;
             }
+            if (cmdletContext.SourceAccessConfiguration != null)
+            {
+                request.SourceAccessConfigurations = cmdletContext.SourceAccessConfiguration;
+            }
             if (cmdletContext.UUID != null)
             {
                 request.UUID = cmdletContext.UUID;
@@ -442,6 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Int32? MaximumRecordAgeInSecond { get; set; }
             public System.Int32? MaximumRetryAttempt { get; set; }
             public System.Int32? ParallelizationFactor { get; set; }
+            public List<Amazon.Lambda.Model.SourceAccessConfiguration> SourceAccessConfiguration { get; set; }
             public System.String UUID { get; set; }
             public System.Func<Amazon.Lambda.Model.UpdateEventSourceMappingResponse, UpdateLMEventSourceMappingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

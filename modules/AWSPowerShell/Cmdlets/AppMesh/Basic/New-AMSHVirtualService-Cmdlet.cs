@@ -30,13 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// <summary>
     /// Creates a virtual service within a service mesh.
     /// 
-    ///          
+    ///  
     /// <para>
     /// A virtual service is an abstraction of a real service that is provided by a virtual
-    /// node         directly or indirectly by means of a virtual router. Dependent services
-    /// call your virtual         service by its <code>virtualServiceName</code>, and those
-    /// requests are routed to the         virtual node or virtual router that is specified
-    /// as the provider for the virtual         service.
+    /// node directly or indirectly by means of a virtual router. Dependent services call
+    /// your virtual service by its <code>virtualServiceName</code>, and those requests are
+    /// routed to the virtual node or virtual router that is specified as the provider for
+    /// the virtual service.
     /// </para><para>
     /// For more information about virtual services, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_services.html">Virtual
     /// services</a>.
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
-        /// then               the account that you specify must share the mesh with your account
-        /// before you can create              the resource in the service mesh. For more information
-        /// about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
+        /// then the account that you specify must share the mesh with your account before you
+        /// can create the resource in the service mesh. For more information about mesh sharing,
+        /// see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
         /// with shared meshes</a>.</para>
         /// </para>
         /// </summary>
@@ -86,10 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Optional metadata that you can apply to the virtual service to assist with       
-        ///  categorization and organization. Each tag consists of a key and an optional value,
-        /// both of         which you define. Tag keys can have a maximum character length of
-        /// 128 characters, and tag values can have            a maximum length of 256 characters.</para>
+        /// <para>Optional metadata that you can apply to the virtual service to assist with categorization
+        /// and organization. Each tag consists of a key and an optional value, both of which
+        /// you define. Tag keys can have a maximum character length of 128 characters, and tag
+        /// values can have a maximum length of 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of therequest.
-        /// Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

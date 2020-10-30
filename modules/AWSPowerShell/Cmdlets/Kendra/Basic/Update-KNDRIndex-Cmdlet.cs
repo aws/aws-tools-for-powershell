@@ -123,6 +123,28 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.Int32? CapacityUnits_StorageCapacityUnit { get; set; }
         #endregion
         
+        #region Parameter UserContextPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The user user token context policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kendra.UserContextPolicy")]
+        public Amazon.Kendra.UserContextPolicy UserContextPolicy { get; set; }
+        #endregion
+        
+        #region Parameter UserTokenConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The user token configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UserTokenConfigurations")]
+        public Amazon.Kendra.Model.UserTokenConfiguration[] UserTokenConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -199,6 +221,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             #endif
             context.Name = this.Name;
             context.RoleArn = this.RoleArn;
+            context.UserContextPolicy = this.UserContextPolicy;
+            if (this.UserTokenConfiguration != null)
+            {
+                context.UserTokenConfiguration = new List<Amazon.Kendra.Model.UserTokenConfiguration>(this.UserTokenConfiguration);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -263,6 +290,14 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.UserContextPolicy != null)
+            {
+                request.UserContextPolicy = cmdletContext.UserContextPolicy;
+            }
+            if (cmdletContext.UserTokenConfiguration != null)
+            {
+                request.UserTokenConfigurations = cmdletContext.UserTokenConfiguration;
             }
             
             CmdletOutput output;
@@ -332,6 +367,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public System.String Id { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
+            public Amazon.Kendra.UserContextPolicy UserContextPolicy { get; set; }
+            public List<Amazon.Kendra.Model.UserTokenConfiguration> UserTokenConfiguration { get; set; }
             public System.Func<Amazon.Kendra.Model.UpdateIndexResponse, UpdateKNDRIndexCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

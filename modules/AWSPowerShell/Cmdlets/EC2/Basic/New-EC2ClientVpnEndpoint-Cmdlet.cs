@@ -123,6 +123,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] DnsServer { get; set; }
         #endregion
         
+        #region Parameter ClientConnectOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether client connect options are enabled. The default is <code>false</code>
+        /// (not enabled).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ClientConnectOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ConnectionLogOptions_Enabled
         /// <summary>
         /// <para>
@@ -131,6 +142,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ConnectionLogOptions_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter ClientConnectOptions_LambdaFunctionArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientConnectOptions_LambdaFunctionArn { get; set; }
         #endregion
         
         #region Parameter SecurityGroupId
@@ -318,6 +339,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter ClientCidrBlock which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClientConnectOptions_Enabled = this.ClientConnectOptions_Enabled;
+            context.ClientConnectOptions_LambdaFunctionArn = this.ClientConnectOptions_LambdaFunctionArn;
             context.ClientToken = this.ClientToken;
             context.ConnectionLogOptions_CloudwatchLogGroup = this.ConnectionLogOptions_CloudwatchLogGroup;
             context.ConnectionLogOptions_CloudwatchLogStream = this.ConnectionLogOptions_CloudwatchLogStream;
@@ -370,6 +393,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ClientCidrBlock != null)
             {
                 request.ClientCidrBlock = cmdletContext.ClientCidrBlock;
+            }
+            
+             // populate ClientConnectOptions
+            var requestClientConnectOptionsIsNull = true;
+            request.ClientConnectOptions = new Amazon.EC2.Model.ClientConnectOptions();
+            System.Boolean? requestClientConnectOptions_clientConnectOptions_Enabled = null;
+            if (cmdletContext.ClientConnectOptions_Enabled != null)
+            {
+                requestClientConnectOptions_clientConnectOptions_Enabled = cmdletContext.ClientConnectOptions_Enabled.Value;
+            }
+            if (requestClientConnectOptions_clientConnectOptions_Enabled != null)
+            {
+                request.ClientConnectOptions.Enabled = requestClientConnectOptions_clientConnectOptions_Enabled.Value;
+                requestClientConnectOptionsIsNull = false;
+            }
+            System.String requestClientConnectOptions_clientConnectOptions_LambdaFunctionArn = null;
+            if (cmdletContext.ClientConnectOptions_LambdaFunctionArn != null)
+            {
+                requestClientConnectOptions_clientConnectOptions_LambdaFunctionArn = cmdletContext.ClientConnectOptions_LambdaFunctionArn;
+            }
+            if (requestClientConnectOptions_clientConnectOptions_LambdaFunctionArn != null)
+            {
+                request.ClientConnectOptions.LambdaFunctionArn = requestClientConnectOptions_clientConnectOptions_LambdaFunctionArn;
+                requestClientConnectOptionsIsNull = false;
+            }
+             // determine if request.ClientConnectOptions should be set to null
+            if (requestClientConnectOptionsIsNull)
+            {
+                request.ClientConnectOptions = null;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -517,6 +569,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public List<Amazon.EC2.Model.ClientVpnAuthenticationRequest> AuthenticationOption { get; set; }
             public System.String ClientCidrBlock { get; set; }
+            public System.Boolean? ClientConnectOptions_Enabled { get; set; }
+            public System.String ClientConnectOptions_LambdaFunctionArn { get; set; }
             public System.String ClientToken { get; set; }
             public System.String ConnectionLogOptions_CloudwatchLogGroup { get; set; }
             public System.String ConnectionLogOptions_CloudwatchLogStream { get; set; }

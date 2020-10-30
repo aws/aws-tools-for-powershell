@@ -204,8 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to enable mapping of AWS Identity and Access Management
-        /// (IAM) accounts to database accounts. By default, mapping is disabled. For information
-        /// about the supported DB engines, see <a>CreateDBInstance</a>.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
         /// Guide.</i></para>
         /// </para>
@@ -252,6 +251,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter MaxAllocatedStorage
+        /// <summary>
+        /// <para>
+        /// <para>The upper limit to which Amazon RDS can automatically scale the storage of the DB
+        /// instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxAllocatedStorage { get; set; }
         #endregion
         
         #region Parameter MonitoringInterval
@@ -595,6 +605,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EnablePerformanceInsight = this.EnablePerformanceInsight;
             context.Iops = this.Iops;
             context.KmsKeyId = this.KmsKeyId;
+            context.MaxAllocatedStorage = this.MaxAllocatedStorage;
             context.MonitoringInterval = this.MonitoringInterval;
             context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.MultiAZ = this.MultiAZ;
@@ -705,6 +716,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.MaxAllocatedStorage != null)
+            {
+                request.MaxAllocatedStorage = cmdletContext.MaxAllocatedStorage.Value;
             }
             if (cmdletContext.MonitoringInterval != null)
             {
@@ -847,6 +862,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? EnablePerformanceInsight { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.Int32? MaxAllocatedStorage { get; set; }
             public System.Int32? MonitoringInterval { get; set; }
             public System.String MonitoringRoleArn { get; set; }
             public System.Boolean? MultiAZ { get; set; }

@@ -22,31 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoTSiteWise;
-using Amazon.IoTSiteWise.Model;
+using Amazon.FraudDetector;
+using Amazon.FraudDetector.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOTSW
+namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Creates a pre-signed URL to a portal. Use this operation to create URLs to portals
-    /// that use AWS Identity and Access Management (IAM) to authenticate users. An IAM user
-    /// with access to a portal can call this API to get a URL to that portal. The URL contains
-    /// a session token that lets the IAM user access the portal.
+    /// Deletes a model.
+    /// 
+    ///  
+    /// <para>
+    /// You can delete models and model versions in Amazon Fraud Detector, provided that they
+    /// are not associated with a detector version.
+    /// </para><para>
+    ///  When you delete a model, Amazon Fraud Detector permanently deletes that model from
+    /// the evaluation history, and the data is no longer stored in Amazon Fraud Detector.
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "IOTSWPresignedPortalUrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS IoT SiteWise CreatePresignedPortalUrl API operation.", Operation = new[] {"CreatePresignedPortalUrl"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse))]
-    [AWSCmdletOutput("System.String or Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "FDModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Fraud Detector DeleteModel API operation.", Operation = new[] {"DeleteModel"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.DeleteModelResponse))]
+    [AWSCmdletOutput("None or Amazon.FraudDetector.Model.DeleteModelResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.FraudDetector.Model.DeleteModelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewIOTSWPresignedPortalUrlCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
+    public partial class RemoveFDModelCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
-        #region Parameter PortalId
+        #region Parameter ModelId
         /// <summary>
         /// <para>
-        /// <para>The ID of the portal to access.</para>
+        /// <para>The model ID of the model to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,37 +63,42 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PortalId { get; set; }
+        public System.String ModelId { get; set; }
         #endregion
         
-        #region Parameter SessionDurationSecond
+        #region Parameter ModelType
         /// <summary>
         /// <para>
-        /// <para>The duration (in seconds) for which the session at the URL is valid.</para><para>Default: 900 seconds (15 minutes)</para>
+        /// <para>The model type of the model to delete.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("SessionDurationSeconds")]
-        public System.Int32? SessionDurationSecond { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.FraudDetector.ModelTypeEnum")]
+        public Amazon.FraudDetector.ModelTypeEnum ModelType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'PresignedPortalUrl'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse).
-        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FraudDetector.Model.DeleteModelResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "PresignedPortalUrl";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PortalId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PortalId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ModelId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ModelId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PortalId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ModelId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -106,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PortalId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IOTSWPresignedPortalUrl (CreatePresignedPortalUrl)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ModelId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FDModel (DeleteModel)"))
             {
                 return;
             }
@@ -120,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse, NewIOTSWPresignedPortalUrlCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FraudDetector.Model.DeleteModelResponse, RemoveFDModelCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -129,17 +140,23 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PortalId;
+                context.Select = (response, cmdlet) => this.ModelId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.PortalId = this.PortalId;
+            context.ModelId = this.ModelId;
             #if MODULAR
-            if (this.PortalId == null && ParameterWasBound(nameof(this.PortalId)))
+            if (this.ModelId == null && ParameterWasBound(nameof(this.ModelId)))
             {
-                WriteWarning("You are passing $null as a value for parameter PortalId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.SessionDurationSecond = this.SessionDurationSecond;
+            context.ModelType = this.ModelType;
+            #if MODULAR
+            if (this.ModelType == null && ParameterWasBound(nameof(this.ModelType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ModelType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,15 +171,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlRequest();
+            var request = new Amazon.FraudDetector.Model.DeleteModelRequest();
             
-            if (cmdletContext.PortalId != null)
+            if (cmdletContext.ModelId != null)
             {
-                request.PortalId = cmdletContext.PortalId;
+                request.ModelId = cmdletContext.ModelId;
             }
-            if (cmdletContext.SessionDurationSecond != null)
+            if (cmdletContext.ModelType != null)
             {
-                request.SessionDurationSeconds = cmdletContext.SessionDurationSecond.Value;
+                request.ModelType = cmdletContext.ModelType;
             }
             
             CmdletOutput output;
@@ -197,15 +214,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlRequest request)
+        private Amazon.FraudDetector.Model.DeleteModelResponse CallAWSServiceOperation(IAmazonFraudDetector client, Amazon.FraudDetector.Model.DeleteModelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "CreatePresignedPortalUrl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Fraud Detector", "DeleteModel");
             try
             {
                 #if DESKTOP
-                return client.CreatePresignedPortalUrl(request);
+                return client.DeleteModel(request);
                 #elif CORECLR
-                return client.CreatePresignedPortalUrlAsync(request).GetAwaiter().GetResult();
+                return client.DeleteModelAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -225,10 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String PortalId { get; set; }
-            public System.Int32? SessionDurationSecond { get; set; }
-            public System.Func<Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse, NewIOTSWPresignedPortalUrlCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.PresignedPortalUrl;
+            public System.String ModelId { get; set; }
+            public Amazon.FraudDetector.ModelTypeEnum ModelType { get; set; }
+            public System.Func<Amazon.FraudDetector.Model.DeleteModelResponse, RemoveFDModelCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

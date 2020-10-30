@@ -86,9 +86,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-BRKTResourceTag', 
         'Get-BRKTDevice', 
         'Get-BRKTQuantumTask', 
+        'Get-BRKTResourceTag', 
         'New-BRKTQuantumTask', 
+        'Remove-BRKTResourceTag', 
         'Search-BRKTDevice', 
         'Search-BRKTQuantumTask', 
         'Stop-BRKTQuantumTask')

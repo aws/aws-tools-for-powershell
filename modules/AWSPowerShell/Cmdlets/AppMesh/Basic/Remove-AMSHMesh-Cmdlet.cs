@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// <summary>
     /// Deletes an existing service mesh.
     /// 
-    ///          
+    ///  
     /// <para>
     /// You must delete all resources (virtual services, routes, virtual routers, and virtual
-    ///         nodes) in the service mesh before you can delete the mesh itself.
+    /// nodes) in the service mesh before you can delete the mesh itself.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "AMSHMesh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

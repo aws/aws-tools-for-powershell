@@ -137,7 +137,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The target virtualization environment.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.EC2.ExportEnvironment")]
         public Amazon.EC2.ExportEnvironment TargetEnvironment { get; set; }
         #endregion
@@ -220,6 +226,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
             context.TargetEnvironment = this.TargetEnvironment;
+            #if MODULAR
+            if (this.TargetEnvironment == null && ParameterWasBound(nameof(this.TargetEnvironment)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TargetEnvironment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

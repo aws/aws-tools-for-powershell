@@ -207,6 +207,8 @@ $DMS_Completers = {
 
         # Amazon.DatabaseMigrationService.NestingLevelValue
         {
+            ($_ -eq "Edit-DMSEndpoint/DocDbSettings_NestingLevel") -Or
+            ($_ -eq "New-DMSEndpoint/DocDbSettings_NestingLevel") -Or
             ($_ -eq "Edit-DMSEndpoint/MongoDbSettings_NestingLevel") -Or
             ($_ -eq "New-DMSEndpoint/MongoDbSettings_NestingLevel")
         }
@@ -285,6 +287,7 @@ $DMS_Completers = {
 }
 
 $DMS_map = @{
+    "DocDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KinesisSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")

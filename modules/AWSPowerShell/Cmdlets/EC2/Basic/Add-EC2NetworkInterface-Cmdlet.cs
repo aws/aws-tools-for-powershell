@@ -73,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter NetworkCardIndex
+        /// <summary>
+        /// <para>
+        /// <para>The index of the network card. Some instance types support multiple network cards.
+        /// The primary network interface must be assigned to network card index 0. The default
+        /// is network card index 0.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NetworkCardIndex { get; set; }
+        #endregion
+        
         #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
@@ -165,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NetworkCardIndex = this.NetworkCardIndex;
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             #if MODULAR
             if (this.NetworkInterfaceId == null && ParameterWasBound(nameof(this.NetworkInterfaceId)))
@@ -195,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.NetworkCardIndex != null)
+            {
+                request.NetworkCardIndex = cmdletContext.NetworkCardIndex.Value;
             }
             if (cmdletContext.NetworkInterfaceId != null)
             {
@@ -263,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Int32? DeviceIndex { get; set; }
             public System.String InstanceId { get; set; }
+            public System.Int32? NetworkCardIndex { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public System.Func<Amazon.EC2.Model.AttachNetworkInterfaceResponse, AddEC2NetworkInterfaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AttachmentId;

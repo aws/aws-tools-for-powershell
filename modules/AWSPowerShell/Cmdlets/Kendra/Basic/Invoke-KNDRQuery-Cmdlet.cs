@@ -179,6 +179,16 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public Amazon.Kendra.SortOrder SortingConfiguration_SortOrder { get; set; }
         #endregion
         
+        #region Parameter UserContext_Token
+        /// <summary>
+        /// <para>
+        /// <para>The user context token. It must be a JWT or a JSON token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UserContext_Token { get; set; }
+        #endregion
+        
         #region Parameter PageSize
         /// <summary>
         /// <para>
@@ -280,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             context.SortingConfiguration_DocumentAttributeKey = this.SortingConfiguration_DocumentAttributeKey;
             context.SortingConfiguration_SortOrder = this.SortingConfiguration_SortOrder;
+            context.UserContext_Token = this.UserContext_Token;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -358,6 +369,25 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 request.SortingConfiguration = null;
             }
             
+             // populate UserContext
+            var requestUserContextIsNull = true;
+            request.UserContext = new Amazon.Kendra.Model.UserContext();
+            System.String requestUserContext_userContext_Token = null;
+            if (cmdletContext.UserContext_Token != null)
+            {
+                requestUserContext_userContext_Token = cmdletContext.UserContext_Token;
+            }
+            if (requestUserContext_userContext_Token != null)
+            {
+                request.UserContext.Token = requestUserContext_userContext_Token;
+                requestUserContextIsNull = false;
+            }
+             // determine if request.UserContext should be set to null
+            if (requestUserContextIsNull)
+            {
+                request.UserContext = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -428,6 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public List<System.String> RequestedDocumentAttribute { get; set; }
             public System.String SortingConfiguration_DocumentAttributeKey { get; set; }
             public Amazon.Kendra.SortOrder SortingConfiguration_SortOrder { get; set; }
+            public System.String UserContext_Token { get; set; }
             public System.Func<Amazon.Kendra.Model.QueryResponse, InvokeKNDRQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

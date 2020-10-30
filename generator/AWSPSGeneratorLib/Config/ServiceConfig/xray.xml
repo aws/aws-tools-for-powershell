@@ -51,6 +51,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetInsight" OutputProperty="Insight" Verb="Get" Noun="Insight" PipelineParameter="InsightId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInsightEvents" OutputProperty="InsightEvents" Verb="Get" Noun="InsightEvent" PipelineParameter="InsightId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInsightImpactGraph" OutputProperty="*" Verb="Get" Noun="InsightImpactGraph" PipelineParameter="InsightId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInsightSummaries" OutputProperty="InsightSummaries" Verb="Get" Noun="InsightSummary" PipelineParameter="StartTime" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSamplingRules" OutputProperty="SamplingRuleRecords" Verb="Get" Noun="SamplingRule" PipelineParameter="NextToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

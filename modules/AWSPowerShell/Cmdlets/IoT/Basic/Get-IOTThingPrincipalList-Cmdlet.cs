@@ -59,6 +59,28 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String ThingName { get; set; }
         #endregion
         
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results to return in this operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+        /// response; otherwise <b>null</b> to receive the first set of results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Principals'.
@@ -104,6 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Select = (response, cmdlet) => this.ThingName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             context.ThingName = this.ThingName;
             #if MODULAR
             if (this.ThingName == null && ParameterWasBound(nameof(this.ThingName)))
@@ -127,6 +151,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.ListThingPrincipalsRequest();
             
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
             if (cmdletContext.ThingName != null)
             {
                 request.ThingName = cmdletContext.ThingName;
@@ -192,6 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
             public System.String ThingName { get; set; }
             public System.Func<Amazon.IoT.Model.ListThingPrincipalsResponse, GetIOTThingPrincipalListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Principals;

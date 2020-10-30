@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
 {
     /// <summary>
     /// Updates an existing gateway route that is associated to a specified virtual gateway
-    /// in a         service mesh.
+    /// in a service mesh.
     /// </summary>
     [Cmdlet("Update", "AMSHGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppMesh.Model.GatewayRouteData")]
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
-        /// then it's               the ID of the account that shared the mesh with your account.
-        /// For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
+        /// then it's the ID of the account that shared the mesh with your account. For more information
+        /// about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
         /// with shared meshes</a>.</para>
         /// </para>
         /// </summary>
@@ -91,12 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_Http2Route_Match_Prefix
         /// <summary>
         /// <para>
-        /// <para>Specifies the path to match requests with. This parameter must always start with 
-        ///           <code>/</code>, which by itself matches all requests to the virtual service
-        /// name. You         can also match for path-based routing of requests. For example,
-        /// if your virtual service         name is <code>my-service.local</code> and you want
-        /// the route to match requests to            <code>my-service.local/metrics</code>, your
-        /// prefix should be         <code>/metrics</code>.</para>
+        /// <para>Specifies the path to match requests with. This parameter must always start with <code>/</code>,
+        /// which by itself matches all requests to the virtual service name. You can also match
+        /// for path-based routing of requests. For example, if your virtual service name is <code>my-service.local</code>
+        /// and you want the route to match requests to <code>my-service.local/metrics</code>,
+        /// your prefix should be <code>/metrics</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,12 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_HttpRoute_Match_Prefix
         /// <summary>
         /// <para>
-        /// <para>Specifies the path to match requests with. This parameter must always start with 
-        ///           <code>/</code>, which by itself matches all requests to the virtual service
-        /// name. You         can also match for path-based routing of requests. For example,
-        /// if your virtual service         name is <code>my-service.local</code> and you want
-        /// the route to match requests to            <code>my-service.local/metrics</code>, your
-        /// prefix should be         <code>/metrics</code>.</para>
+        /// <para>Specifies the path to match requests with. This parameter must always start with <code>/</code>,
+        /// which by itself matches all requests to the virtual service name. You can also match
+        /// for path-based routing of requests. For example, if your virtual service name is <code>my-service.local</code>
+        /// and you want the route to match requests to <code>my-service.local/metrics</code>,
+        /// your prefix should be <code>/metrics</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of therequest.
-        /// Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more filters.</para><ul><li><para><code>deliver-log-status</code> - The status of the logs delivery (<code>SUCCESS</code>
         /// | <code>FAILED</code>).</para></li><li><para><code>log-destination-type</code> - The type of destination to which the flow log
         /// publishes data. Possible destination types include <code>cloud-watch-logs</code> and
-        /// <code>S3</code>.</para></li><li><para><code>flow-log-id</code> - The ID of the flow log.</para></li><li><para><code>log-group-name</code> - The name of the log group.</para></li><li><para><code>resource-id</code> - The ID of the VPC, subnet, or network interface.</para></li><li><para><code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> | <code>REJECT</code>
+        /// <code>s3</code>.</para></li><li><para><code>flow-log-id</code> - The ID of the flow log.</para></li><li><para><code>log-group-name</code> - The name of the log group.</para></li><li><para><code>resource-id</code> - The ID of the VPC, subnet, or network interface.</para></li><li><para><code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> | <code>REJECT</code>
         /// | <code>ALL</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>

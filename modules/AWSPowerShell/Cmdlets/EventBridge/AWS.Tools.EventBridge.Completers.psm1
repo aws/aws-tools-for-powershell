@@ -80,6 +80,20 @@ $EVB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.EventBridge.ArchiveState
+        "Get-EVBArchiveList/State"
+        {
+            $v = "CREATE_FAILED","CREATING","DISABLED","ENABLED","UPDATE_FAILED","UPDATING"
+            break
+        }
+
+        # Amazon.EventBridge.ReplayState
+        "Get-EVBReplayList/State"
+        {
+            $v = "CANCELLED","CANCELLING","COMPLETED","FAILED","RUNNING","STARTING"
+            break
+        }
+
         # Amazon.EventBridge.RuleState
         "Write-EVBRule/State"
         {
@@ -96,7 +110,7 @@ $EVB_Completers = {
 }
 
 $EVB_map = @{
-    "State"=@("Write-EVBRule")
+    "State"=@("Get-EVBArchiveList","Get-EVBReplayList","Write-EVBRule")
 }
 
 _awsArgumentCompleterRegistration $EVB_Completers $EVB_map
@@ -150,22 +164,29 @@ $EVB_SelectCompleters = {
 
 $EVB_SelectMap = @{
     "Select"=@("Enable-EVBEventSource",
+               "Stop-EVBReplay",
+               "New-EVBArchive",
                "New-EVBEventBus",
                "New-EVBPartnerEventSource",
                "Disable-EVBEventSource",
+               "Remove-EVBArchive",
                "Remove-EVBEventBus",
                "Remove-EVBPartnerEventSource",
                "Remove-EVBRule",
+               "Get-EVBArchive",
                "Get-EVBEventBus",
                "Get-EVBEventSource",
                "Get-EVBPartnerEventSource",
+               "Get-EVBReplay",
                "Get-EVBRuleDetail",
                "Disable-EVBRule",
                "Enable-EVBRule",
+               "Get-EVBArchiveList",
                "Get-EVBEventBusList",
                "Get-EVBEventSourceList",
                "Get-EVBPartnerEventSourceAccountList",
                "Get-EVBPartnerEventSourceList",
+               "Get-EVBReplayList",
                "Get-EVBRuleNamesByTarget",
                "Get-EVBRule",
                "Get-EVBResourceTag",
@@ -177,9 +198,11 @@ $EVB_SelectMap = @{
                "Write-EVBTarget",
                "Remove-EVBPermission",
                "Remove-EVBTarget",
+               "Start-EVBReplay",
                "Add-EVBResourceTag",
                "Test-EVBEventPattern",
-               "Remove-EVBResourceTag")
+               "Remove-EVBResourceTag",
+               "Update-EVBArchive")
 }
 
 _awsArgumentCompleterRegistration $EVB_SelectCompleters $EVB_SelectMap

@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// operation, you must specify either <code>MetricName</code> or a <code>Metrics</code>
         /// array.</para><para>Each item in the <code>Metrics</code> array either retrieves a metric or performs
         /// a math expression.</para><para>One item in the <code>Metrics</code> array is the expression that the alarm watches.
-        /// You designate this expression by setting <code>ReturnValue</code> to true for this
+        /// You designate this expression by setting <code>ReturnData</code> to true for this
         /// object in the array. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html">MetricDataQuery</a>.</para><para>If you use the <code>Metrics</code> parameter, you cannot include the <code>MetricName</code>,
         /// <code>Dimensions</code>, <code>Period</code>, <code>Namespace</code>, <code>Statistic</code>,
         /// or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the

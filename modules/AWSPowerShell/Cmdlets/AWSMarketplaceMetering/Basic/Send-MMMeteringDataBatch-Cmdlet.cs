@@ -40,6 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// multiple products, you must make multiple calls to BatchMeterUsage.
     /// </para><para>
     /// BatchMeterUsage can process up to 25 UsageRecords at a time.
+    /// </para><para>
+    /// A UsageRecord can optionally include multiple usage allocations, to provide customers
+    /// with usagedata split into buckets by tags that you define (or allow the customer to
+    /// define).
+    /// </para><para>
+    /// BatchMeterUsage requests must be less than 1MB in size.
     /// </para>
     /// </summary>
     [Cmdlet("Send", "MMMeteringDataBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

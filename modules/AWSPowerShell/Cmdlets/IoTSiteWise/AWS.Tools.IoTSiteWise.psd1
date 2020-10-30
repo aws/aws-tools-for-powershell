@@ -121,7 +121,6 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-IOTSWDashboard', 
         'New-IOTSWGateway', 
         'New-IOTSWPortal', 
-        'New-IOTSWPresignedPortalUrl', 
         'New-IOTSWProject', 
         'Remove-IOTSWAccessPolicy', 
         'Remove-IOTSWAsset', 

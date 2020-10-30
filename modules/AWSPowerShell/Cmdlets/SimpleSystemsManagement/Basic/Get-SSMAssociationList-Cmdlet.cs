@@ -45,7 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AssociationFilterList
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
+        /// <para>One or more filters. Use a filter to return a more specific list of results.</para><note><para>Filtering associations using the <code>InstanceID</code> attribute only returns legacy
+        /// associations created using the <code>InstanceID</code> attribute. Associations targeting
+        /// the instance that are part of the Target Attributes <code>ResourceGroup</code> or
+        /// <code>Tags</code> are not returned.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

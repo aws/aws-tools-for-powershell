@@ -30,12 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// <summary>
     /// Creates a service mesh.
     /// 
-    ///          
+    ///  
     /// <para>
     ///  A service mesh is a logical boundary for network traffic between services that are
-    ///         represented by resources within the mesh. After you create your service mesh,
-    /// you can         create virtual services, virtual nodes, virtual routers, and routes
-    /// to distribute traffic         between the applications in your mesh.
+    /// represented by resources within the mesh. After you create your service mesh, you
+    /// can create virtual services, virtual nodes, virtual routers, and routes to distribute
+    /// traffic between the applications in your mesh.
     /// </para><para>
     /// For more information about service meshes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/meshes.html">Service
     /// meshes</a>.
@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>Optional metadata that you can apply to the service mesh to assist with categorization
-        ///         and organization. Each tag consists of a key and an optional value, both of
-        /// which you         define. Tag keys can have a maximum character length of 128 characters,
-        /// and tag values can have            a maximum length of 256 characters.</para>
+        /// and organization. Each tag consists of a key and an optional value, both of which
+        /// you define. Tag keys can have a maximum character length of 128 characters, and tag
+        /// values can have a maximum length of 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,10 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The egress filter type. By default, the type is <code>DROP_ALL</code>, which allows
-        ///         egress only from virtual nodes to other defined resources in the service mesh
-        /// (and any         traffic to <code>*.amazonaws.com</code> for AWS API calls). You can
-        /// set the egress filter         type to <code>ALLOW_ALL</code> to allow egress to any
-        /// endpoint inside or outside of the         service mesh.</para>
+        /// egress only from virtual nodes to other defined resources in the service mesh (and
+        /// any traffic to <code>*.amazonaws.com</code> for AWS API calls). You can set the egress
+        /// filter type to <code>ALLOW_ALL</code> to allow egress to any endpoint inside or outside
+        /// of the service mesh.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of therequest.
-        /// Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

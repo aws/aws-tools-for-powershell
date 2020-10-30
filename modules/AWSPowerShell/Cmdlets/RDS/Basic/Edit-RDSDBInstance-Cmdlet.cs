@@ -301,8 +301,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to enable mapping of AWS Identity and Access Management
-        /// (IAM) accounts to database accounts. By default, mapping is disabled. For information
-        /// about the supported DB engines, see <a>CreateDBInstance</a>.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>This setting doesn't apply to Amazon Aurora. Mapping AWS IAM accounts to database
+        /// accounts is managed by the DB cluster.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
         /// Guide.</i></para>
         /// </para>
@@ -340,7 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The version number of the database engine to upgrade to. Changing this parameter
         /// results in an outage and the change is applied during the next maintenance window
-        /// unless the <code>ApplyImmediately</code> parameter is eanbled for this request. </para><para>For major version upgrades, if a nondefault DB parameter group is currently in use,
+        /// unless the <code>ApplyImmediately</code> parameter is enabled for this request. </para><para>For major version upgrades, if a nondefault DB parameter group is currently in use,
         /// a new DB parameter group in the DB parameter group family for the new engine version
         /// must be specified. The new DB parameter group can be the default for that DB parameter
         /// group family.</para><para>For information about valid engine versions, see <code>CreateDBInstance</code>, or

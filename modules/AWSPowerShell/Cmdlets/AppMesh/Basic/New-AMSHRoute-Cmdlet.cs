@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// <summary>
     /// Creates a route that is associated with a virtual router.
     /// 
-    ///          
+    ///  
     /// <para>
     ///  You can route several different protocols and define a retry policy for a route.
-    ///         Traffic can be routed to one or more virtual nodes.
+    /// Traffic can be routed to one or more virtual nodes.
     /// </para><para>
     /// For more information about routes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html">Routes</a>.
     /// </para>
@@ -84,9 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_GrpcRoute_RetryPolicy_HttpRetryEvent
         /// <summary>
         /// <para>
-        /// <para>Specify at least one of the following values.</para><ul><li><para><b>server-error</b> – HTTP status codes 500, 501,              
-        ///    502, 503, 504, 505, 506, 507, 508, 510, and 511</para></li><li><para><b>gateway-error</b> – HTTP status codes 502,                  503,
-        /// and 504</para></li><li><para><b>client-error</b> – HTTP status code 409</para></li><li><para><b>stream-error</b> – Retry on refused                  stream</para></li></ul>
+        /// <para>Specify at least one of the following values.</para><ul><li><para><b>server-error</b> – HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508,
+        /// 510, and 511</para></li><li><para><b>gateway-error</b> – HTTP status codes 502, 503, and 504</para></li><li><para><b>client-error</b> – HTTP status code 409</para></li><li><para><b>stream-error</b> – Retry on refused stream</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,9 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_Http2Route_RetryPolicy_HttpRetryEvent
         /// <summary>
         /// <para>
-        /// <para>Specify at least one of the following values.</para><ul><li><para><b>server-error</b> – HTTP status codes 500, 501,              
-        ///    502, 503, 504, 505, 506, 507, 508, 510, and 511</para></li><li><para><b>gateway-error</b> – HTTP status codes 502,                  503,
-        /// and 504</para></li><li><para><b>client-error</b> – HTTP status code 409</para></li><li><para><b>stream-error</b> – Retry on refused                  stream</para></li></ul>
+        /// <para>Specify at least one of the following values.</para><ul><li><para><b>server-error</b> – HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508,
+        /// 510, and 511</para></li><li><para><b>gateway-error</b> – HTTP status codes 502, 503, and 504</para></li><li><para><b>client-error</b> – HTTP status code 409</para></li><li><para><b>stream-error</b> – Retry on refused stream</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,9 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_HttpRoute_RetryPolicy_HttpRetryEvent
         /// <summary>
         /// <para>
-        /// <para>Specify at least one of the following values.</para><ul><li><para><b>server-error</b> – HTTP status codes 500, 501,              
-        ///    502, 503, 504, 505, 506, 507, 508, 510, and 511</para></li><li><para><b>gateway-error</b> – HTTP status codes 502,                  503,
-        /// and 504</para></li><li><para><b>client-error</b> – HTTP status code 409</para></li><li><para><b>stream-error</b> – Retry on refused                  stream</para></li></ul>
+        /// <para>Specify at least one of the following values.</para><ul><li><para><b>server-error</b> – HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508,
+        /// 510, and 511</para></li><li><para><b>gateway-error</b> – HTTP status codes 502, 503, and 504</para></li><li><para><b>client-error</b> – HTTP status code 409</para></li><li><para><b>stream-error</b> – Retry on refused stream</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,9 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
-        /// then               the account that you specify must share the mesh with your account
-        /// before you can create              the resource in the service mesh. For more information
-        /// about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
+        /// then the account that you specify must share the mesh with your account before you
+        /// can create the resource in the service mesh. For more information about mesh sharing,
+        /// see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
         /// with shared meshes</a>.</para>
         /// </para>
         /// </summary>
@@ -222,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The method name to match from the request. If you specify a name, you must also specify
-        ///         a <code>serviceName</code>.</para>
+        /// a <code>serviceName</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,12 +229,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_Http2Route_Match_Prefix
         /// <summary>
         /// <para>
-        /// <para>Specifies the path to match requests with. This parameter must always start with 
-        ///           <code>/</code>, which by itself matches all requests to the virtual service
-        /// name. You         can also match for path-based routing of requests. For example,
-        /// if your virtual service         name is <code>my-service.local</code> and you want
-        /// the route to match requests to            <code>my-service.local/metrics</code>, your
-        /// prefix should be         <code>/metrics</code>.</para>
+        /// <para>Specifies the path to match requests with. This parameter must always start with <code>/</code>,
+        /// which by itself matches all requests to the virtual service name. You can also match
+        /// for path-based routing of requests. For example, if your virtual service name is <code>my-service.local</code>
+        /// and you want the route to match requests to <code>my-service.local/metrics</code>,
+        /// your prefix should be <code>/metrics</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,12 +243,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_HttpRoute_Match_Prefix
         /// <summary>
         /// <para>
-        /// <para>Specifies the path to match requests with. This parameter must always start with 
-        ///           <code>/</code>, which by itself matches all requests to the virtual service
-        /// name. You         can also match for path-based routing of requests. For example,
-        /// if your virtual service         name is <code>my-service.local</code> and you want
-        /// the route to match requests to            <code>my-service.local/metrics</code>, your
-        /// prefix should be         <code>/metrics</code>.</para>
+        /// <para>Specifies the path to match requests with. This parameter must always start with <code>/</code>,
+        /// which by itself matches all requests to the virtual service name. You can also match
+        /// for path-based routing of requests. For example, if your virtual service name is <code>my-service.local</code>
+        /// and you want the route to match requests to <code>my-service.local/metrics</code>,
+        /// your prefix should be <code>/metrics</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -264,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The priority for the route. Routes are matched based on the specified value, where
-        /// 0 is         the highest priority.</para>
+        /// 0 is the highest priority.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -326,9 +321,9 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>Optional metadata that you can apply to the route to assist with categorization and
-        ///         organization. Each tag consists of a key and an optional value, both of which
-        /// you define.         Tag keys can have a maximum character length of 128 characters,
-        /// and tag values can have            a maximum length of 256 characters.</para>
+        /// organization. Each tag consists of a key and an optional value, both of which you
+        /// define. Tag keys can have a maximum character length of 128 characters, and tag values
+        /// can have a maximum length of 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -339,7 +334,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_GrpcRoute_RetryPolicy_TcpRetryEvent
         /// <summary>
         /// <para>
-        /// <para>Specify a valid value.</para>
+        /// <para>Specify a valid value. The event occurs before any processing of a request has started
+        /// and is encountered when the upstream is temporarily or permanently unavailable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,7 +346,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_Http2Route_RetryPolicy_TcpRetryEvent
         /// <summary>
         /// <para>
-        /// <para>Specify a valid value.</para>
+        /// <para>Specify a valid value. The event occurs before any processing of a request has started
+        /// and is encountered when the upstream is temporarily or permanently unavailable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -361,7 +358,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_HttpRoute_RetryPolicy_TcpRetryEvent
         /// <summary>
         /// <para>
-        /// <para>Specify a valid value.</para>
+        /// <para>Specify a valid value. The event occurs before any processing of a request has started
+        /// and is encountered when the upstream is temporarily or permanently unavailable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -589,7 +587,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The name of the virtual router in which to create the route. If the virtual router
-        /// is in         a shared mesh, then you must be the owner of the virtual router resource.</para>
+        /// is in a shared mesh, then you must be the owner of the virtual router resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -654,8 +652,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of therequest.
-        /// Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

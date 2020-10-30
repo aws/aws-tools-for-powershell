@@ -257,6 +257,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? SpotFleetRequestConfig_OnDemandTargetCapacity { get; set; }
         #endregion
         
+        #region Parameter CapacityRebalance_ReplacementStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The replacement strategy to use. Only available for fleets of type <code>maintain</code>.
+        /// You must specify a value, otherwise you get an error.</para><para>To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance
+        /// notification is emitted for a Spot Instance in the fleet, specify <code>launch</code>.</para><note><para>When a replacement instance is launched, the instance marked for rebalance is not
+        /// automatically terminated. You can terminate it, or you can wait until Amazon EC2 interrupts
+        /// it. You are charged for all instances while they are running.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SpotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_ReplacementStrategy")]
+        [AWSConstantClassSource("Amazon.EC2.ReplacementStrategy")]
+        public Amazon.EC2.ReplacementStrategy CapacityRebalance_ReplacementStrategy { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestConfig_ReplaceUnhealthyInstance
         /// <summary>
         /// <para>
@@ -528,6 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.SpotFleetRequestConfig_OnDemandMaxTotalPrice = this.SpotFleetRequestConfig_OnDemandMaxTotalPrice;
             context.SpotFleetRequestConfig_OnDemandTargetCapacity = this.SpotFleetRequestConfig_OnDemandTargetCapacity;
             context.SpotFleetRequestConfig_ReplaceUnhealthyInstance = this.SpotFleetRequestConfig_ReplaceUnhealthyInstance;
+            context.CapacityRebalance_ReplacementStrategy = this.CapacityRebalance_ReplacementStrategy;
             context.SpotFleetRequestConfig_SpotMaxTotalPrice = this.SpotFleetRequestConfig_SpotMaxTotalPrice;
             context.SpotFleetRequestConfig_SpotPrice = this.SpotFleetRequestConfig_SpotPrice;
             if (this.SpotFleetRequestConfig_TagSpecification != null)
@@ -823,6 +840,46 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 requestSpotFleetRequestConfigIsNull = false;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            Amazon.EC2.Model.SpotMaintenanceStrategies requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies = null;
+            
+             // populate SpotMaintenanceStrategies
+            var requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategiesIsNull = true;
+            requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies = new Amazon.EC2.Model.SpotMaintenanceStrategies();
+            Amazon.EC2.Model.SpotCapacityRebalance requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance = null;
+            
+             // populate CapacityRebalance
+            var requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalanceIsNull = true;
+            requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance = new Amazon.EC2.Model.SpotCapacityRebalance();
+            Amazon.EC2.ReplacementStrategy requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_capacityRebalance_ReplacementStrategy = null;
+            if (cmdletContext.CapacityRebalance_ReplacementStrategy != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_capacityRebalance_ReplacementStrategy = cmdletContext.CapacityRebalance_ReplacementStrategy;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_capacityRebalance_ReplacementStrategy != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance.ReplacementStrategy = requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_capacityRebalance_ReplacementStrategy;
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalanceIsNull = false;
+            }
+             // determine if requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance should be set to null
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalanceIsNull)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance = null;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies.CapacityRebalance = requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies_spotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance;
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategiesIsNull = false;
+            }
+             // determine if requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies should be set to null
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategiesIsNull)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies = null;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies != null)
+            {
+                request.SpotFleetRequestConfig.SpotMaintenanceStrategies = requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
             Amazon.EC2.Model.LoadBalancersConfig requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig = null;
             
              // populate LoadBalancersConfig
@@ -970,6 +1027,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String SpotFleetRequestConfig_OnDemandMaxTotalPrice { get; set; }
             public System.Int32? SpotFleetRequestConfig_OnDemandTargetCapacity { get; set; }
             public System.Boolean? SpotFleetRequestConfig_ReplaceUnhealthyInstance { get; set; }
+            public Amazon.EC2.ReplacementStrategy CapacityRebalance_ReplacementStrategy { get; set; }
             public System.String SpotFleetRequestConfig_SpotMaxTotalPrice { get; set; }
             public System.String SpotFleetRequestConfig_SpotPrice { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> SpotFleetRequestConfig_TagSpecification { get; set; }

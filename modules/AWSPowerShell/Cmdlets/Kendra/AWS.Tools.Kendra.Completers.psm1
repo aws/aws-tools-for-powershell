@@ -122,6 +122,16 @@ $KNDR_Completers = {
             break
         }
 
+        # Amazon.Kendra.UserContextPolicy
+        {
+            ($_ -eq "New-KNDRIndex/UserContextPolicy") -Or
+            ($_ -eq "Update-KNDRIndex/UserContextPolicy")
+        }
+        {
+            $v = "ATTRIBUTE_FILTER","USER_TOKEN"
+            break
+        }
+
 
     }
 
@@ -137,6 +147,7 @@ $KNDR_map = @{
     "SortingConfiguration_SortOrder"=@("Invoke-KNDRQuery")
     "StatusFilter"=@("Get-KNDRDataSourceSyncJobList")
     "Type"=@("New-KNDRDataSource")
+    "UserContextPolicy"=@("New-KNDRIndex","Update-KNDRIndex")
 }
 
 _awsArgumentCompleterRegistration $KNDR_Completers $KNDR_map

@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.FD
     /// <summary>
     /// Deletes the detector. Before deleting a detector, you must first delete all detector
     /// versions and rule versions associated with the detector.
+    /// 
+    ///  
+    /// <para>
+    /// When you delete a detector, Amazon Fraud Detector permanently deletes the detector
+    /// and the data is no longer stored in Amazon Fraud Detector.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "FDDetector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

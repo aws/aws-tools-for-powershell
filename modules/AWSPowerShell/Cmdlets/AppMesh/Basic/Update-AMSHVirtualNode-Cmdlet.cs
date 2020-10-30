@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>A string map that contains attributes with values that you can use to filter instances
-        ///         by any custom attribute that you specified when you registered the instance.
-        /// Only instances         that match all of the specified key/value pairs will be returned.</para>
+        /// by any custom attribute that you specified when you registered the instance. Only
+        /// instances that match all of the specified key/value pairs will be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The certificate trust chain for a certificate stored on the file system of the virtual
-        ///         node that the proxy is running on.</para>
+        /// node that the proxy is running on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>Whether the policy is enforced. The default is <code>True</code>, if a value isn't
-        ///         specified.</para>
+        /// specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The listener that the virtual node is expected to receive inbound traffic from. You
-        /// can         specify one listener.</para>
+        /// can specify one listener.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
-        /// then it's               the ID of the account that shared the mesh with your account.
-        /// For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
+        /// then it's the ID of the account that shared the mesh with your account. For more information
+        /// about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
         /// with shared meshes</a>.</para>
         /// </para>
         /// </summary>
@@ -167,11 +167,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The file path to write access logs to. You can use <code>/dev/stdout</code> to send
-        ///         access logs to standard out and configure your Envoy container to use a log
-        /// driver, such as            <code>awslogs</code>, to export the access logs to a log
-        /// storage service such as Amazon         CloudWatch Logs. You can also specify a path
-        /// in the Envoy container's file system to write         the files to disk.</para><note><para>The Envoy process must have write permissions to the path that you specify here. 
-        ///           Otherwise, Envoy fails to bootstrap properly.</para></note>
+        /// access logs to standard out and configure your Envoy container to use a log driver,
+        /// such as <code>awslogs</code>, to export the access logs to a log storage service such
+        /// as Amazon CloudWatch Logs. You can also specify a path in the Envoy container's file
+        /// system to write the files to disk.</para><note><para>The Envoy process must have write permissions to the path that you specify here. Otherwise,
+        /// Envoy fails to bootstrap properly.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,8 +221,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of therequest.
-        /// Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

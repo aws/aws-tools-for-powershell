@@ -216,8 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to enable mapping of AWS Identity and Access Management
-        /// (IAM) accounts to database accounts. By default, mapping is disabled. For information
-        /// about the supported DB engines, see <a>CreateDBInstance</a>.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
         /// Guide.</i></para>
         /// </para>

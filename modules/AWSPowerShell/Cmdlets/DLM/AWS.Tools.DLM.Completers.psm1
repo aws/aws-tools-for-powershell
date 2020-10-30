@@ -93,7 +93,7 @@ $DLM_Completers = {
             ($_ -eq "Update-DLMLifecyclePolicy/PolicyDetails_PolicyType")
         }
         {
-            $v = "EBS_SNAPSHOT_MANAGEMENT"
+            $v = "EBS_SNAPSHOT_MANAGEMENT","IMAGE_MANAGEMENT"
             break
         }
 

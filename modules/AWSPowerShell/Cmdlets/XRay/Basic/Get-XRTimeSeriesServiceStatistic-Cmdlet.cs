@@ -68,6 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.XR
         public System.String EntitySelectorExpression { get; set; }
         #endregion
         
+        #region Parameter ForecastStatistic
+        /// <summary>
+        /// <para>
+        /// <para>The forecasted high and low fault count values. Forecast enabled requests require
+        /// the EntitySelectorExpression ID be provided.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ForecastStatistics")]
+        public System.Boolean? ForecastStatistic { get; set; }
+        #endregion
+        
         #region Parameter GroupARN
         /// <summary>
         /// <para>
@@ -171,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             }
             #endif
             context.EntitySelectorExpression = this.EntitySelectorExpression;
+            context.ForecastStatistic = this.ForecastStatistic;
             context.GroupARN = this.GroupARN;
             context.GroupName = this.GroupName;
             context.NextToken = this.NextToken;
@@ -207,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (cmdletContext.EntitySelectorExpression != null)
             {
                 request.EntitySelectorExpression = cmdletContext.EntitySelectorExpression;
+            }
+            if (cmdletContext.ForecastStatistic != null)
+            {
+                request.ForecastStatistics = cmdletContext.ForecastStatistic.Value;
             }
             if (cmdletContext.GroupARN != null)
             {
@@ -311,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         {
             public System.DateTime? EndTime { get; set; }
             public System.String EntitySelectorExpression { get; set; }
+            public System.Boolean? ForecastStatistic { get; set; }
             public System.String GroupARN { get; set; }
             public System.String GroupName { get; set; }
             public System.String NextToken { get; set; }

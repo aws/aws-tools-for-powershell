@@ -89,10 +89,28 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         public System.String ExecutionRoleArn { get; set; }
         #endregion
         
+        #region Parameter Parameters_NoReboot
+        /// <summary>
+        /// <para>
+        /// <para>Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted
+        /// when the lifecycle policy runs. <code>true</code> indicates that targeted instances
+        /// are not rebooted when the policy runs. <code>false</code> indicates that target instances
+        /// are rebooted when the policy runs. The default is <code>true</code> (instance are
+        /// not rebooted).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PolicyDetails_Parameters_NoReboot")]
+        public System.Boolean? Parameters_NoReboot { get; set; }
+        #endregion
+        
         #region Parameter PolicyDetails_PolicyType
         /// <summary>
         /// <para>
-        /// <para>The valid target resource types and actions a policy can manage. The default is EBS_SNAPSHOT_MANAGEMENT.</para>
+        /// <para>The valid target resource types and actions a policy can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code>
+        /// to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify
+        /// <code>IMAGE_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle
+        /// of EBS-backed AMIs. The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             }
             #endif
             context.Parameters_ExcludeBootVolume = this.Parameters_ExcludeBootVolume;
+            context.Parameters_NoReboot = this.Parameters_NoReboot;
             context.PolicyDetails_PolicyType = this.PolicyDetails_PolicyType;
             if (this.PolicyDetails_ResourceType != null)
             {
@@ -350,6 +369,16 @@ namespace Amazon.PowerShell.Cmdlets.DLM
                 requestPolicyDetails_policyDetails_Parameters.ExcludeBootVolume = requestPolicyDetails_policyDetails_Parameters_parameters_ExcludeBootVolume.Value;
                 requestPolicyDetails_policyDetails_ParametersIsNull = false;
             }
+            System.Boolean? requestPolicyDetails_policyDetails_Parameters_parameters_NoReboot = null;
+            if (cmdletContext.Parameters_NoReboot != null)
+            {
+                requestPolicyDetails_policyDetails_Parameters_parameters_NoReboot = cmdletContext.Parameters_NoReboot.Value;
+            }
+            if (requestPolicyDetails_policyDetails_Parameters_parameters_NoReboot != null)
+            {
+                requestPolicyDetails_policyDetails_Parameters.NoReboot = requestPolicyDetails_policyDetails_Parameters_parameters_NoReboot.Value;
+                requestPolicyDetails_policyDetails_ParametersIsNull = false;
+            }
              // determine if requestPolicyDetails_policyDetails_Parameters should be set to null
             if (requestPolicyDetails_policyDetails_ParametersIsNull)
             {
@@ -437,6 +466,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             public System.String Description { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.Boolean? Parameters_ExcludeBootVolume { get; set; }
+            public System.Boolean? Parameters_NoReboot { get; set; }
             public Amazon.DLM.PolicyTypeValues PolicyDetails_PolicyType { get; set; }
             public List<System.String> PolicyDetails_ResourceType { get; set; }
             public List<Amazon.DLM.Model.Schedule> PolicyDetails_Schedule { get; set; }

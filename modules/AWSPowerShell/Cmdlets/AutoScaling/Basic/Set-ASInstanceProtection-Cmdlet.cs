@@ -35,6 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// For more information about preventing instances that are part of an Auto Scaling group
     /// from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance
     /// Protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// </para><para>
+    /// If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group,
+    /// the call fails.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ASInstanceProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

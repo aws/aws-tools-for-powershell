@@ -35,6 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// <para>
     /// MeterUsage is authenticated on the buyer's AWS account using credentials from the
     /// EC2 instance, ECS task, or EKS pod.
+    /// </para><para>
+    /// MeterUsage can optionally include multiple usage allocations, to provide customers
+    /// with usage data split into buckets by tags that you define (or allow the customer
+    /// to define).
     /// </para>
     /// </summary>
     [Cmdlet("Send", "MMMeteringData", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -93,6 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.MM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.DateTime? Timestamp { get; set; }
+        #endregion
+        
+        #region Parameter UsageAllocation
+        /// <summary>
+        /// <para>
+        /// <para>The set of UsageAllocations to submit.</para><para>The sum of all UsageAllocation quantities must equal the UsageQuantity of the MeterUsage
+        /// request, and each UsageAllocation must have a unique set of tags (include no tags).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UsageAllocations")]
+        public Amazon.AWSMarketplaceMetering.Model.UsageAllocation[] UsageAllocation { get; set; }
         #endregion
         
         #region Parameter UsageDimension
@@ -198,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.MM
                 WriteWarning("You are passing $null as a value for parameter Timestamp which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.UsageAllocation != null)
+            {
+                context.UsageAllocation = new List<Amazon.AWSMarketplaceMetering.Model.UsageAllocation>(this.UsageAllocation);
+            }
             context.UsageDimension = this.UsageDimension;
             #if MODULAR
             if (this.UsageDimension == null && ParameterWasBound(nameof(this.UsageDimension)))
@@ -233,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.MM
             if (cmdletContext.Timestamp != null)
             {
                 request.Timestamp = cmdletContext.Timestamp.Value;
+            }
+            if (cmdletContext.UsageAllocation != null)
+            {
+                request.UsageAllocations = cmdletContext.UsageAllocation;
             }
             if (cmdletContext.UsageDimension != null)
             {
@@ -306,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
             public System.Boolean? DryRun { get; set; }
             public System.String ProductCode { get; set; }
             public System.DateTime? Timestamp { get; set; }
+            public List<Amazon.AWSMarketplaceMetering.Model.UsageAllocation> UsageAllocation { get; set; }
             public System.String UsageDimension { get; set; }
             public System.Int32? UsageQuantity { get; set; }
             public System.Func<Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse, SendMMMeteringDataCmdlet, object> Select { get; set; } =

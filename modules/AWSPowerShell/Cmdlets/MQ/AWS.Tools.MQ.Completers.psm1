@@ -101,7 +101,7 @@ $MQ_Completers = {
         # Amazon.MQ.DeploymentMode
         "New-MQBroker/DeploymentMode"
         {
-            $v = "ACTIVE_STANDBY_MULTI_AZ","SINGLE_INSTANCE"
+            $v = "ACTIVE_STANDBY_MULTI_AZ","CLUSTER_MULTI_AZ","SINGLE_INSTANCE"
             break
         }
 
@@ -111,7 +111,7 @@ $MQ_Completers = {
             ($_ -eq "New-MQConfiguration/EngineType")
         }
         {
-            $v = "ACTIVEMQ"
+            $v = "ACTIVEMQ","RABBITMQ"
             break
         }
 

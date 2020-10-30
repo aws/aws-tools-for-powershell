@@ -28,8 +28,7 @@ using Amazon.AppMesh.Model;
 namespace Amazon.PowerShell.Cmdlets.AMSH
 {
     /// <summary>
-    /// Returns a list of existing gateway routes that are associated to a virtual       
-    ///  gateway.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of existing gateway routes that are associated to a virtual gateway.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AMSHGatewayRouteList")]
     [OutputType("Amazon.AppMesh.Model.GatewayRouteRef")]
@@ -62,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
-        /// then it's               the ID of the account that shared the mesh with your account.
-        /// For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
+        /// then it's the ID of the account that shared the mesh with your account. For more information
+        /// about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
         /// with shared meshes</a>.</para>
         /// </para>
         /// </summary>
@@ -92,13 +91,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The maximum number of results returned by <code>ListGatewayRoutes</code> in paginated
-        ///         output. When you use this parameter, <code>ListGatewayRoutes</code> returns
-        /// only            <code>limit</code> results in a single page along with a <code>nextToken</code>
-        /// response         element. You can see the remaining results of the initial request
-        /// by sending another            <code>ListGatewayRoutes</code> request with the returned
-        /// <code>nextToken</code> value.         This value can be between 1 and 100. If you
-        /// don't use this         parameter, <code>ListGatewayRoutes</code> returns up to 100
-        /// results and a            <code>nextToken</code> value if applicable.</para>
+        /// output. When you use this parameter, <code>ListGatewayRoutes</code> returns only <code>limit</code>
+        /// results in a single page along with a <code>nextToken</code> response element. You
+        /// can see the remaining results of the initial request by sending another <code>ListGatewayRoutes</code>
+        /// request with the returned <code>nextToken</code> value. This value can be between
+        /// 1 and 100. If you don't use this parameter, <code>ListGatewayRoutes</code> returns
+        /// up to 100 results and a <code>nextToken</code> value if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,10 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated            <code>ListGatewayRoutes</code>
-        /// request where <code>limit</code> was used and the results         exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous         results
-        /// that returned the <code>nextToken</code> value.</para>
+        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListGatewayRoutes</code>
+        /// request where <code>limit</code> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <code>nextToken</code> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

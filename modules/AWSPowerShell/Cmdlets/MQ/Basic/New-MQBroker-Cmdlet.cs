@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// Enables audit logging. Every user management action
-        /// made using JMX or the ActiveMQ Web Console is logged.
+        /// made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// Required. The type of broker engine. Note:
-        /// Currently, Amazon MQ supports only ACTIVEMQ.
+        /// Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -300,10 +300,12 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// The list of groups (2 maximum) that define which
-        /// subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE
+        /// The list of groups that define which subnets
+        /// and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE
         /// deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ
-        /// deployment requires two subnets.
+        /// deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ)
+        /// has no subnet requirements when deployed with public accessibility, deployment without
+        /// public accessibility requires at least one subnet.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -358,10 +360,12 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter User
         /// <summary>
         /// <para>
-        /// Required. The list of ActiveMQ users (persons or
-        /// applications) who can access queues and topics. This value can contain only alphanumeric
-        /// characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be
-        /// 2-100 characters long.
+        /// Required. The list of broker users (persons or applications)
+        /// who can access queues and topics. For RabbitMQ brokers, one and only one administrative
+        /// user is accepted and created when a broker is first provisioned. All subsequent broker
+        /// users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ
+        /// Web Console. This value can contain only alphanumeric characters, dashes, periods,
+        /// underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

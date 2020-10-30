@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.FD
     /// <summary>
     /// Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code>
     /// status.
+    /// 
+    ///  
+    /// <para>
+    /// When you delete a detector version, Amazon Fraud Detector permanently deletes the
+    /// detector and the data is no longer stored in Amazon Fraud Detector.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "FDDetectorVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

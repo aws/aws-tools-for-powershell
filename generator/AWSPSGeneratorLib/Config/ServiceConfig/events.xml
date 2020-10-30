@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>events</C2jFilename>
     <AssemblyName>CloudWatchEvents</AssemblyName>
@@ -13,13 +14,20 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="ActivateEventSource" Verb="Enable" Noun="EventSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelReplay" OutputProperty="*" Verb="Stop" Noun="Replay" ShouldProcessTarget="ReplayName" PipelineParameter="ReplayName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateArchive" OutputProperty="*" Verb="New" Noun="Archive" ShouldProcessTarget="ArchiveName" PipelineParameter="ArchiveName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -32,6 +40,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeactivateEventSource" Verb="Disable" Noun="EventSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteArchive" Verb="Remove" Noun="Archive" ShouldProcessTarget="ArchiveName" PipelineParameter="ArchiveName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -49,6 +61,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeArchive" OutputProperty="*" Verb="Get" Noun="Archive" PipelineParameter="ArchiveName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeEventBus" OutputProperty="*" Verb="Get" Noun="EventBus" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -61,6 +77,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplay" OutputProperty="*" Verb="Get" Noun="Replay" PipelineParameter="ReplayName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeRule" OutputProperty="*" Verb="Get" Noun="RuleDetail" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -70,6 +90,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableRule" Verb="Enable" Noun="Rule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListArchives" OutputProperty="Archives" Verb="Get" Noun="ArchiveList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -86,6 +110,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPartnerEventSources" OutputProperty="PartnerEventSources" Verb="Get" Noun="PartnerEventSourceList" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReplays" OutputProperty="Replays" Verb="Get" Noun="ReplayList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -135,6 +163,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartReplay" OutputProperty="*" Verb="Start" Noun="Replay" ShouldProcessTarget="ReplayName" PipelineParameter="ReplayName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -147,8 +179,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateArchive" OutputProperty="*" Verb="Update" Noun="Archive" ShouldProcessTarget="ArchiveName" PipelineParameter="ArchiveName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

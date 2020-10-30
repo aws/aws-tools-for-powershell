@@ -146,6 +146,8 @@ $FD_Completers = {
             ($_ -eq "Get-FDModelVersionList/ModelType") -Or
             ($_ -eq "New-FDModel/ModelType") -Or
             ($_ -eq "New-FDModelVersion/ModelType") -Or
+            ($_ -eq "Remove-FDModel/ModelType") -Or
+            ($_ -eq "Remove-FDModelVersion/ModelType") -Or
             ($_ -eq "Update-FDModel/ModelType") -Or
             ($_ -eq "Update-FDModelVersion/ModelType") -Or
             ($_ -eq "Update-FDModelVersionStatus/ModelType")
@@ -194,7 +196,7 @@ $FD_map = @{
     "Language"=@("New-FDRule","Update-FDRuleVersion")
     "ModelEndpointStatus"=@("Write-FDExternalModel")
     "ModelSource"=@("Write-FDExternalModel")
-    "ModelType"=@("Get-FDModel","Get-FDModelVersion","Get-FDModelVersionList","New-FDModel","New-FDModelVersion","Update-FDModel","Update-FDModelVersion","Update-FDModelVersionStatus")
+    "ModelType"=@("Get-FDModel","Get-FDModelVersion","Get-FDModelVersionList","New-FDModel","New-FDModelVersion","Remove-FDModel","Remove-FDModelVersion","Update-FDModel","Update-FDModelVersion","Update-FDModelVersionStatus")
     "OutputConfiguration_Format"=@("Write-FDExternalModel")
     "RuleExecutionMode"=@("New-FDDetectorVersion","Update-FDDetectorVersion")
     "Status"=@("Update-FDDetectorVersionStatus","Update-FDModelVersionStatus")
@@ -260,8 +262,16 @@ $FD_SelectMap = @{
                "New-FDVariable",
                "Remove-FDDetector",
                "Remove-FDDetectorVersion",
+               "Remove-FDEntityType",
                "Remove-FDEvent",
+               "Remove-FDEventType",
+               "Remove-FDExternalModel",
+               "Remove-FDLabel",
+               "Remove-FDModel",
+               "Remove-FDModelVersion",
+               "Remove-FDOutcome",
                "Remove-FDRule",
+               "Remove-FDVariable",
                "Get-FDDetectorVersionList",
                "Get-FDModelVersionList",
                "Get-FDDetector",

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><code>location</code> - This depends on the location type. For example, if the location
         /// type is <code>region</code> (default), the location is the Region code (for example,
-        /// <code>us-east-2</code>.)</para></li><li><para><code>instance-type</code> - The instance type.</para></li></ul>
+        /// <code>us-east-2</code>.)</para></li><li><para><code>instance-type</code> - The instance type. For example, <code>c5.2xlarge</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

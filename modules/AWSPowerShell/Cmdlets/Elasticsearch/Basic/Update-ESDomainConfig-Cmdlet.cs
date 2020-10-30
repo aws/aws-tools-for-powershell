@@ -89,6 +89,36 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Int32? ZoneAwarenessConfig_AvailabilityZoneCount { get; set; }
         #endregion
         
+        #region Parameter DomainEndpointOptions_CustomEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>Specify the fully qualified domain for your custom endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainEndpointOptions_CustomEndpoint { get; set; }
+        #endregion
+        
+        #region Parameter DomainEndpointOptions_CustomEndpointCertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>Specify ACM certificate ARN for your custom endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainEndpointOptions_CustomEndpointCertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter DomainEndpointOptions_CustomEndpointEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specify if custom endpoint should be enabled for the Elasticsearch domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DomainEndpointOptions_CustomEndpointEnabled { get; set; }
+        #endregion
+        
         #region Parameter ElasticsearchClusterConfig_DedicatedMasterCount
         /// <summary>
         /// <para>
@@ -157,6 +187,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Boolean? AdvancedSecurityOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter SAMLOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>True if SAML is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_SAMLOptions_Enabled")]
+        public System.Boolean? SAMLOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter CognitoOptions_Enabled
         /// <summary>
         /// <para>
@@ -175,6 +216,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DomainEndpointOptions_EnforceHTTPS { get; set; }
+        #endregion
+        
+        #region Parameter Idp_EntityId
+        /// <summary>
+        /// <para>
+        /// <para>The unique Entity ID of the application in SAML Identity Provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_SAMLOptions_Idp_EntityId")]
+        public System.String Idp_EntityId { get; set; }
         #endregion
         
         #region Parameter CognitoOptions_IdentityPoolId
@@ -241,6 +293,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Collections.Hashtable LogPublishingOption { get; set; }
         #endregion
         
+        #region Parameter SAMLOptions_MasterBackendRole
+        /// <summary>
+        /// <para>
+        /// <para>The backend role to which the SAML master user is mapped to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_SAMLOptions_MasterBackendRole")]
+        public System.String SAMLOptions_MasterBackendRole { get; set; }
+        #endregion
+        
         #region Parameter MasterUserOptions_MasterUserARN
         /// <summary>
         /// <para>
@@ -264,6 +327,18 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.String MasterUserOptions_MasterUserName { get; set; }
         #endregion
         
+        #region Parameter SAMLOptions_MasterUserName
+        /// <summary>
+        /// <para>
+        /// <para>The SAML master username, which is stored in the Amazon Elasticsearch Service domain's
+        /// internal database.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_SAMLOptions_MasterUserName")]
+        public System.String SAMLOptions_MasterUserName { get; set; }
+        #endregion
+        
         #region Parameter MasterUserOptions_MasterUserPassword
         /// <summary>
         /// <para>
@@ -274,6 +349,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AdvancedSecurityOptions_MasterUserOptions_MasterUserPassword")]
         public System.String MasterUserOptions_MasterUserPassword { get; set; }
+        #endregion
+        
+        #region Parameter Idp_MetadataContent
+        /// <summary>
+        /// <para>
+        /// <para>The Metadata of the SAML application in xml format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_SAMLOptions_Idp_MetadataContent")]
+        public System.String Idp_MetadataContent { get; set; }
         #endregion
         
         #region Parameter CognitoOptions_RoleArn
@@ -287,6 +373,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.String CognitoOptions_RoleArn { get; set; }
         #endregion
         
+        #region Parameter SAMLOptions_RolesKey
+        /// <summary>
+        /// <para>
+        /// <para>The key to use for matching the SAML Roles attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_SAMLOptions_RolesKey")]
+        public System.String SAMLOptions_RolesKey { get; set; }
+        #endregion
+        
         #region Parameter VPCOptions_SecurityGroupId
         /// <summary>
         /// <para>
@@ -296,6 +393,29 @@ namespace Amazon.PowerShell.Cmdlets.ES
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VPCOptions_SecurityGroupIds")]
         public System.String[] VPCOptions_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter SAMLOptions_SessionTimeoutMinute
+        /// <summary>
+        /// <para>
+        /// <para>The duration, in minutes, after which a user session becomes inactive. Acceptable
+        /// values are between 1 and 1440, and the default value is 60.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_SAMLOptions_SessionTimeoutMinutes")]
+        public System.Int32? SAMLOptions_SessionTimeoutMinute { get; set; }
+        #endregion
+        
+        #region Parameter SAMLOptions_SubjectKey
+        /// <summary>
+        /// <para>
+        /// <para>The key to use for matching the SAML Subject attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_SAMLOptions_SubjectKey")]
+        public System.String SAMLOptions_SubjectKey { get; set; }
         #endregion
         
         #region Parameter VPCOptions_SubnetId
@@ -450,10 +570,21 @@ namespace Amazon.PowerShell.Cmdlets.ES
             context.MasterUserOptions_MasterUserARN = this.MasterUserOptions_MasterUserARN;
             context.MasterUserOptions_MasterUserName = this.MasterUserOptions_MasterUserName;
             context.MasterUserOptions_MasterUserPassword = this.MasterUserOptions_MasterUserPassword;
+            context.SAMLOptions_Enabled = this.SAMLOptions_Enabled;
+            context.Idp_EntityId = this.Idp_EntityId;
+            context.Idp_MetadataContent = this.Idp_MetadataContent;
+            context.SAMLOptions_MasterBackendRole = this.SAMLOptions_MasterBackendRole;
+            context.SAMLOptions_MasterUserName = this.SAMLOptions_MasterUserName;
+            context.SAMLOptions_RolesKey = this.SAMLOptions_RolesKey;
+            context.SAMLOptions_SessionTimeoutMinute = this.SAMLOptions_SessionTimeoutMinute;
+            context.SAMLOptions_SubjectKey = this.SAMLOptions_SubjectKey;
             context.CognitoOptions_Enabled = this.CognitoOptions_Enabled;
             context.CognitoOptions_IdentityPoolId = this.CognitoOptions_IdentityPoolId;
             context.CognitoOptions_RoleArn = this.CognitoOptions_RoleArn;
             context.CognitoOptions_UserPoolId = this.CognitoOptions_UserPoolId;
+            context.DomainEndpointOptions_CustomEndpoint = this.DomainEndpointOptions_CustomEndpoint;
+            context.DomainEndpointOptions_CustomEndpointCertificateArn = this.DomainEndpointOptions_CustomEndpointCertificateArn;
+            context.DomainEndpointOptions_CustomEndpointEnabled = this.DomainEndpointOptions_CustomEndpointEnabled;
             context.DomainEndpointOptions_EnforceHTTPS = this.DomainEndpointOptions_EnforceHTTPS;
             context.DomainEndpointOptions_TLSSecurityPolicy = this.DomainEndpointOptions_TLSSecurityPolicy;
             context.DomainName = this.DomainName;
@@ -587,6 +718,116 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.AdvancedSecurityOptions.MasterUserOptions = requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions;
                 requestAdvancedSecurityOptionsIsNull = false;
             }
+            Amazon.Elasticsearch.Model.SAMLOptionsInput requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions = null;
+            
+             // populate SAMLOptions
+            var requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptionsIsNull = true;
+            requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions = new Amazon.Elasticsearch.Model.SAMLOptionsInput();
+            System.Boolean? requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_Enabled = null;
+            if (cmdletContext.SAMLOptions_Enabled != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_Enabled = cmdletContext.SAMLOptions_Enabled.Value;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_Enabled != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions.Enabled = requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_Enabled.Value;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptionsIsNull = false;
+            }
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_MasterBackendRole = null;
+            if (cmdletContext.SAMLOptions_MasterBackendRole != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_MasterBackendRole = cmdletContext.SAMLOptions_MasterBackendRole;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_MasterBackendRole != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions.MasterBackendRole = requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_MasterBackendRole;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptionsIsNull = false;
+            }
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_MasterUserName = null;
+            if (cmdletContext.SAMLOptions_MasterUserName != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_MasterUserName = cmdletContext.SAMLOptions_MasterUserName;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_MasterUserName != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions.MasterUserName = requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_MasterUserName;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptionsIsNull = false;
+            }
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_RolesKey = null;
+            if (cmdletContext.SAMLOptions_RolesKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_RolesKey = cmdletContext.SAMLOptions_RolesKey;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_RolesKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions.RolesKey = requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_RolesKey;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptionsIsNull = false;
+            }
+            System.Int32? requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_SessionTimeoutMinute = null;
+            if (cmdletContext.SAMLOptions_SessionTimeoutMinute != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_SessionTimeoutMinute = cmdletContext.SAMLOptions_SessionTimeoutMinute.Value;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_SessionTimeoutMinute != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions.SessionTimeoutMinutes = requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_SessionTimeoutMinute.Value;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptionsIsNull = false;
+            }
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_SubjectKey = null;
+            if (cmdletContext.SAMLOptions_SubjectKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_SubjectKey = cmdletContext.SAMLOptions_SubjectKey;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_SubjectKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions.SubjectKey = requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_sAMLOptions_SubjectKey;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptionsIsNull = false;
+            }
+            Amazon.Elasticsearch.Model.SAMLIdp requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp = null;
+            
+             // populate Idp
+            var requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_IdpIsNull = true;
+            requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp = new Amazon.Elasticsearch.Model.SAMLIdp();
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp_idp_EntityId = null;
+            if (cmdletContext.Idp_EntityId != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp_idp_EntityId = cmdletContext.Idp_EntityId;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp_idp_EntityId != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp.EntityId = requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp_idp_EntityId;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_IdpIsNull = false;
+            }
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp_idp_MetadataContent = null;
+            if (cmdletContext.Idp_MetadataContent != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp_idp_MetadataContent = cmdletContext.Idp_MetadataContent;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp_idp_MetadataContent != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp.MetadataContent = requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp_idp_MetadataContent;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_IdpIsNull = false;
+            }
+             // determine if requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp should be set to null
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_IdpIsNull)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp = null;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions.Idp = requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions_advancedSecurityOptions_SAMLOptions_Idp;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptionsIsNull = false;
+            }
+             // determine if requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions should be set to null
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptionsIsNull)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions = null;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions != null)
+            {
+                request.AdvancedSecurityOptions.SAMLOptions = requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions;
+                requestAdvancedSecurityOptionsIsNull = false;
+            }
              // determine if request.AdvancedSecurityOptions should be set to null
             if (requestAdvancedSecurityOptionsIsNull)
             {
@@ -645,6 +886,36 @@ namespace Amazon.PowerShell.Cmdlets.ES
              // populate DomainEndpointOptions
             var requestDomainEndpointOptionsIsNull = true;
             request.DomainEndpointOptions = new Amazon.Elasticsearch.Model.DomainEndpointOptions();
+            System.String requestDomainEndpointOptions_domainEndpointOptions_CustomEndpoint = null;
+            if (cmdletContext.DomainEndpointOptions_CustomEndpoint != null)
+            {
+                requestDomainEndpointOptions_domainEndpointOptions_CustomEndpoint = cmdletContext.DomainEndpointOptions_CustomEndpoint;
+            }
+            if (requestDomainEndpointOptions_domainEndpointOptions_CustomEndpoint != null)
+            {
+                request.DomainEndpointOptions.CustomEndpoint = requestDomainEndpointOptions_domainEndpointOptions_CustomEndpoint;
+                requestDomainEndpointOptionsIsNull = false;
+            }
+            System.String requestDomainEndpointOptions_domainEndpointOptions_CustomEndpointCertificateArn = null;
+            if (cmdletContext.DomainEndpointOptions_CustomEndpointCertificateArn != null)
+            {
+                requestDomainEndpointOptions_domainEndpointOptions_CustomEndpointCertificateArn = cmdletContext.DomainEndpointOptions_CustomEndpointCertificateArn;
+            }
+            if (requestDomainEndpointOptions_domainEndpointOptions_CustomEndpointCertificateArn != null)
+            {
+                request.DomainEndpointOptions.CustomEndpointCertificateArn = requestDomainEndpointOptions_domainEndpointOptions_CustomEndpointCertificateArn;
+                requestDomainEndpointOptionsIsNull = false;
+            }
+            System.Boolean? requestDomainEndpointOptions_domainEndpointOptions_CustomEndpointEnabled = null;
+            if (cmdletContext.DomainEndpointOptions_CustomEndpointEnabled != null)
+            {
+                requestDomainEndpointOptions_domainEndpointOptions_CustomEndpointEnabled = cmdletContext.DomainEndpointOptions_CustomEndpointEnabled.Value;
+            }
+            if (requestDomainEndpointOptions_domainEndpointOptions_CustomEndpointEnabled != null)
+            {
+                request.DomainEndpointOptions.CustomEndpointEnabled = requestDomainEndpointOptions_domainEndpointOptions_CustomEndpointEnabled.Value;
+                requestDomainEndpointOptionsIsNull = false;
+            }
             System.Boolean? requestDomainEndpointOptions_domainEndpointOptions_EnforceHTTPS = null;
             if (cmdletContext.DomainEndpointOptions_EnforceHTTPS != null)
             {
@@ -967,10 +1238,21 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public System.String MasterUserOptions_MasterUserARN { get; set; }
             public System.String MasterUserOptions_MasterUserName { get; set; }
             public System.String MasterUserOptions_MasterUserPassword { get; set; }
+            public System.Boolean? SAMLOptions_Enabled { get; set; }
+            public System.String Idp_EntityId { get; set; }
+            public System.String Idp_MetadataContent { get; set; }
+            public System.String SAMLOptions_MasterBackendRole { get; set; }
+            public System.String SAMLOptions_MasterUserName { get; set; }
+            public System.String SAMLOptions_RolesKey { get; set; }
+            public System.Int32? SAMLOptions_SessionTimeoutMinute { get; set; }
+            public System.String SAMLOptions_SubjectKey { get; set; }
             public System.Boolean? CognitoOptions_Enabled { get; set; }
             public System.String CognitoOptions_IdentityPoolId { get; set; }
             public System.String CognitoOptions_RoleArn { get; set; }
             public System.String CognitoOptions_UserPoolId { get; set; }
+            public System.String DomainEndpointOptions_CustomEndpoint { get; set; }
+            public System.String DomainEndpointOptions_CustomEndpointCertificateArn { get; set; }
+            public System.Boolean? DomainEndpointOptions_CustomEndpointEnabled { get; set; }
             public System.Boolean? DomainEndpointOptions_EnforceHTTPS { get; set; }
             public Amazon.Elasticsearch.TLSSecurityPolicy DomainEndpointOptions_TLSSecurityPolicy { get; set; }
             public System.String DomainName { get; set; }

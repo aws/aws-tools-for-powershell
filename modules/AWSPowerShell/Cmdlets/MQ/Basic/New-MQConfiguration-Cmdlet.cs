@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// Required. The type of broker engine. Note:
-        /// Currently, Amazon MQ supports only ACTIVEMQ.
+        /// Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -127,8 +127,11 @@ $BRKT_SelectMap = @{
                "New-BRKTQuantumTask",
                "Get-BRKTDevice",
                "Get-BRKTQuantumTask",
+               "Get-BRKTResourceTag",
                "Search-BRKTDevice",
-               "Search-BRKTQuantumTask")
+               "Search-BRKTQuantumTask",
+               "Add-BRKTResourceTag",
+               "Remove-BRKTResourceTag")
 }
 
 _awsArgumentCompleterRegistration $BRKT_SelectCompleters $BRKT_SelectMap

@@ -30,6 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// <summary>
     /// Retrieves the alarms for the specified metric. To filter the results, specify a statistic,
     /// period, or unit.
+    /// 
+    ///  
+    /// <para>
+    /// This operation retrieves only standard alarms that are based on the specified metric.
+    /// It does not return alarms based on math expressions that use the specified metric,
+    /// or composite alarms that use the specified metric.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CWAlarmForMetric")]
     [OutputType("Amazon.CloudWatch.Model.MetricAlarm")]

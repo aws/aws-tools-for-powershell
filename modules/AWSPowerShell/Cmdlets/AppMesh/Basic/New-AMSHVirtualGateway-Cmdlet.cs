@@ -30,16 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// <summary>
     /// Creates a virtual gateway.
     /// 
-    ///          
+    ///  
     /// <para>
     /// A virtual gateway allows resources outside your mesh to communicate to resources that
-    ///         are inside your mesh. The virtual gateway represents an Envoy proxy running
-    /// in an Amazon ECS         task, in a Kubernetes service, or on an Amazon EC2 instance.
-    /// Unlike a virtual node, which         represents an Envoy running with an application,
-    /// a virtual gateway represents Envoy deployed by itself.
+    /// are inside your mesh. The virtual gateway represents an Envoy proxy running in an
+    /// Amazon ECS task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a virtual
+    /// node, which represents an Envoy running with an application, a virtual gateway represents
+    /// Envoy deployed by itself.
     /// </para><para>
     /// For more information about virtual gateways, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html">Virtual
-    /// gateways</a>.
+    /// gateways</a>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "AMSHVirtualGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The certificate trust chain for a certificate stored on the file system of the virtual
-        ///         node that the proxy is running on.</para>
+        /// node that the proxy is running on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>Whether the policy is enforced. The default is <code>True</code>, if a value isn't
-        ///         specified.</para>
+        /// specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The listeners that the mesh endpoint is expected to receive inbound traffic from.
-        /// You         can specify one listener.</para>
+        /// You can specify one listener.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -127,9 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
-        /// then               the account that you specify must share the mesh with your account
-        /// before you can create              the resource in the service mesh. For more information
-        /// about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
+        /// then the account that you specify must share the mesh with your account before you
+        /// can create the resource in the service mesh. For more information about mesh sharing,
+        /// see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
         /// with shared meshes</a>.</para>
         /// </para>
         /// </summary>
@@ -141,10 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The file path to write access logs to. You can use <code>/dev/stdout</code> to send
-        ///         access logs to standard out and configure your Envoy container to use a log
-        /// driver, such as            <code>awslogs</code>, to export the access logs to a log
-        /// storage service such as Amazon         CloudWatch Logs. You can also specify a path
-        /// in the Envoy container's file system to write         the files to disk.</para>
+        /// access logs to standard out and configure your Envoy container to use a log driver,
+        /// such as <code>awslogs</code>, to export the access logs to a log storage service such
+        /// as Amazon CloudWatch Logs. You can also specify a path in the Envoy container's file
+        /// system to write the files to disk.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,10 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Optional metadata that you can apply to the virtual gateway to assist with       
-        ///  categorization and organization. Each tag consists of a key and an optional value,
-        /// both of         which you define. Tag keys can have a maximum character length of
-        /// 128 characters, and tag values can have            a maximum length of 256 characters.</para>
+        /// <para>Optional metadata that you can apply to the virtual gateway to assist with categorization
+        /// and organization. Each tag consists of a key and an optional value, both of which
+        /// you define. Tag keys can have a maximum character length of 128 characters, and tag
+        /// values can have a maximum length of 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of therequest.
-        /// Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

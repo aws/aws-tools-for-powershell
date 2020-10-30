@@ -134,6 +134,30 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public Amazon.Kendra.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter UserContextPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The user context policy.</para><dl><dt>ATTRIBUTE_FILTER</dt><dd><para>All indexed content is searchable and displayable for all users. If there is an access
+        /// control list, it is ignored. You can filter on user and group attributes. </para></dd><dt>USER_TOKEN</dt><dd><para>Enables SSO and token-based user access control. All documents with no access control
+        /// and all documents accessible to the user will be searchable and displayable. </para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kendra.UserContextPolicy")]
+        public Amazon.Kendra.UserContextPolicy UserContextPolicy { get; set; }
+        #endregion
+        
+        #region Parameter UserTokenConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The user token configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UserTokenConfigurations")]
+        public Amazon.Kendra.Model.UserTokenConfiguration[] UserTokenConfiguration { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -229,6 +253,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             {
                 context.Tag = new List<Amazon.Kendra.Model.Tag>(this.Tag);
             }
+            context.UserContextPolicy = this.UserContextPolicy;
+            if (this.UserTokenConfiguration != null)
+            {
+                context.UserTokenConfiguration = new List<Amazon.Kendra.Model.UserTokenConfiguration>(this.UserTokenConfiguration);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -287,6 +316,14 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.UserContextPolicy != null)
+            {
+                request.UserContextPolicy = cmdletContext.UserContextPolicy;
+            }
+            if (cmdletContext.UserTokenConfiguration != null)
+            {
+                request.UserTokenConfigurations = cmdletContext.UserTokenConfiguration;
             }
             
             CmdletOutput output;
@@ -356,6 +393,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public System.String RoleArn { get; set; }
             public System.String ServerSideEncryptionConfiguration_KmsKeyId { get; set; }
             public List<Amazon.Kendra.Model.Tag> Tag { get; set; }
+            public Amazon.Kendra.UserContextPolicy UserContextPolicy { get; set; }
+            public List<Amazon.Kendra.Model.UserTokenConfiguration> UserTokenConfiguration { get; set; }
             public System.Func<Amazon.Kendra.Model.CreateIndexResponse, NewKNDRIndexCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Id;
         }

@@ -59,10 +59,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePresignedPortalUrl" OutputProperty="PresignedPortalUrl" Verb="New" Noun="PresignedPortalUrl" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="CreateProject" OutputProperty="*" Verb="New" Noun="Project" AnonymousShouldProcessTarget="true" PipelineParameter="PortalId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
