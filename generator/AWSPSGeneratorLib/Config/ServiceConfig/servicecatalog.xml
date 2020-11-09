@@ -236,6 +236,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ImportAsProvisionedProduct" OutputProperty="RecordDetail" Verb="Import" Noun="AsProvisionedProduct" ShouldProcessTarget="PhysicalId" PipelineParameter="PhysicalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAcceptedPortfolioShares" OutputProperty="PortfolioDetails" Verb="Get" Noun="AcceptedPortfolioShareList" PipelineParameter="AcceptLanguage" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

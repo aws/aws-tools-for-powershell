@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// Auto Scaling group launches new instances to replace the instances on standby.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily
-    /// Removing Instances from Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling
+    /// removing instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling
     /// User Guide</i>.
     /// </para>
     /// </summary>

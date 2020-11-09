@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Updates an existing IAM policy assignment. This operation updates only the optional
-    /// parameter or parameters that are specified in the request.
+    /// parameter or parameters that are specified in the request. This overwrites all of
+    /// the users included in <code>Identities</code>.
     /// </summary>
     [Cmdlet("Update", "QSIAMPolicyAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateIAMPolicyAssignmentResponse")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AssignmentName
         /// <summary>
         /// <para>
-        /// <para>The name of the assignment. This name must be unique within an AWS account.</para>
+        /// <para>The name of the assignment, also called a rule. This name must be unique within an
+        /// AWS account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that contains the IAM policy assignment.</para>
+        /// <para>The ID of the AWS account that contains the IAM policy assignment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

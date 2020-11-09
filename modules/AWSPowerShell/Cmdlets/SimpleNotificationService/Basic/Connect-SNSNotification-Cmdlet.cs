@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// <summary>
     /// Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email,
     /// or if the endpoint and the topic are not in the same AWS account, the endpoint owner
-    /// must the <code>ConfirmSubscription</code> action to confirm the subscription.
+    /// must run the <code>ConfirmSubscription</code> action to confirm the subscription.
     /// 
     ///  
     /// <para>

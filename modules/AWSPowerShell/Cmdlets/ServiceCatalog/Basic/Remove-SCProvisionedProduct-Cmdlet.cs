@@ -91,6 +91,20 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String ProvisionedProductName { get; set; }
         #endregion
         
+        #region Parameter RetainPhysicalResource
+        /// <summary>
+        /// <para>
+        /// <para>When this boolean parameter is set to true, the TerminateProvisionedProduct API deletes
+        /// the Service Catalog provisioned product. However, it does not remove the CloudFormation
+        /// stack, stack set, or the underlying resources of the deleted provisioned product.
+        /// The default value is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetainPhysicalResources")]
+        public System.Boolean? RetainPhysicalResource { get; set; }
+        #endregion
+        
         #region Parameter TerminateToken
         /// <summary>
         /// <para>
@@ -168,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             context.IgnoreError = this.IgnoreError;
             context.ProvisionedProductId = this.ProvisionedProductId;
             context.ProvisionedProductName = this.ProvisionedProductName;
+            context.RetainPhysicalResource = this.RetainPhysicalResource;
             context.TerminateToken = this.TerminateToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -200,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.ProvisionedProductName != null)
             {
                 request.ProvisionedProductName = cmdletContext.ProvisionedProductName;
+            }
+            if (cmdletContext.RetainPhysicalResource != null)
+            {
+                request.RetainPhysicalResources = cmdletContext.RetainPhysicalResource.Value;
             }
             if (cmdletContext.TerminateToken != null)
             {
@@ -270,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public System.Boolean? IgnoreError { get; set; }
             public System.String ProvisionedProductId { get; set; }
             public System.String ProvisionedProductName { get; set; }
+            public System.Boolean? RetainPhysicalResource { get; set; }
             public System.String TerminateToken { get; set; }
             public System.Func<Amazon.ServiceCatalog.Model.TerminateProvisionedProductResponse, RemoveSCProvisionedProductCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RecordDetail;

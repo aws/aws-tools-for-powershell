@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// previous tag definition, and you do not get an error message.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging
-    /// Auto Scaling Groups and Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ASTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

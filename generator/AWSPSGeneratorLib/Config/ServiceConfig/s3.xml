@@ -70,6 +70,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBucketIntelligentTieringConfiguration" Verb="Remove" Noun="BucketIntelligentTieringConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteBucketInventoryConfiguration" Verb="Remove" Noun="BucketInventoryConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -135,6 +139,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBucketEncryption" OutputProperty="ServerSideEncryptionConfiguration" Verb="Get" Noun="BucketEncryption" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBucketIntelligentTieringConfiguration" OutputProperty="IntelligentTieringConfiguration" Verb="Get" Noun="BucketIntelligentTieringConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -243,6 +251,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListBucketIntelligentTieringConfigurations" OutputProperty="*" Verb="Get" Noun="BucketIntelligentTieringConfigurationList" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListBucketInventoryConfigurations" OutputProperty="*" Verb="Get" Noun="BucketInventoryConfigurationList" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -307,6 +319,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketEncryption" Verb="Set" Noun="BucketEncryption" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutBucketIntelligentTieringConfiguration" Verb="Write" Noun="BucketIntelligentTieringConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

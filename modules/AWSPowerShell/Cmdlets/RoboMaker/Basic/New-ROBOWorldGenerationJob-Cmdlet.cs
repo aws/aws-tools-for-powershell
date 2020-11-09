@@ -100,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         public System.String Template { get; set; }
         #endregion
         
+        #region Parameter WorldTag
+        /// <summary>
+        /// <para>
+        /// <para>A map that contains tag keys and tag values that are attached to the generated worlds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WorldTags")]
+        public System.Collections.Hashtable WorldTag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -179,6 +190,14 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             #endif
             context.WorldCount_FloorplanCount = this.WorldCount_FloorplanCount;
             context.WorldCount_InteriorCountPerFloorplan = this.WorldCount_InteriorCountPerFloorplan;
+            if (this.WorldTag != null)
+            {
+                context.WorldTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.WorldTag.Keys)
+                {
+                    context.WorldTag.Add((String)hashKey, (String)(this.WorldTag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -235,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             if (requestWorldCountIsNull)
             {
                 request.WorldCount = null;
+            }
+            if (cmdletContext.WorldTag != null)
+            {
+                request.WorldTags = cmdletContext.WorldTag;
             }
             
             CmdletOutput output;
@@ -302,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             public System.String Template { get; set; }
             public System.Int32? WorldCount_FloorplanCount { get; set; }
             public System.Int32? WorldCount_InteriorCountPerFloorplan { get; set; }
+            public Dictionary<System.String, System.String> WorldTag { get; set; }
             public System.Func<Amazon.RoboMaker.Model.CreateWorldGenerationJobResponse, NewROBOWorldGenerationJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

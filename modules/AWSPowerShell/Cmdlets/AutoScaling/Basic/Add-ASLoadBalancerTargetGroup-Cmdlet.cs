@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// With Application Load Balancers and Network Load Balancers, instances are registered
     /// as targets with a target group. With Classic Load Balancers, instances are registered
     /// with the load balancer. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html">Attaching
-    /// a Load Balancer to Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
+    /// a load balancer to your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User
     /// Guide</i>.
     /// </para>
     /// </summary>

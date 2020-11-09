@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationPattern
         /// <summary>
         /// <para>
-        /// <para> Describes the automated branch creation glob patterns for the Amplify app. </para>
+        /// <para> Describes the automated branch creation glob patterns for an Amplify app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,6 +122,17 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public System.String BuildSpec { get; set; }
         #endregion
         
+        #region Parameter CustomHeader
+        /// <summary>
+        /// <para>
+        /// <para>The custom HTTP headers for an Amplify app.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomHeaders")]
+        public System.String CustomHeader { get; set; }
+        #endregion
+        
         #region Parameter CustomRule
         /// <summary>
         /// <para>
@@ -146,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnableAutoBranchCreation
         /// <summary>
         /// <para>
-        /// <para> Enables automated branch creation for the Amplify app. </para>
+        /// <para> Enables automated branch creation for an Amplify app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,9 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationConfig_EnablePerformanceMode
         /// <summary>
         /// <para>
-        /// <para> Performance mode optimizes for faster hosting performance by keeping content cached
-        /// at the edge for a longer interval. Enabling performance mode will mean that hosting
-        /// configuration or code changes can take up to 10 minutes to roll out. </para>
+        /// <para>Enables performance mode for the branch.</para><para>Performance mode optimizes for faster hosting performance by keeping content cached
+        /// at the edge for a longer interval. When performance mode is enabled, hosting configuration
+        /// or code changes can take up to 10 minutes to roll out. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AutoBranchCreationConfig_EnablePullRequestPreview
         /// <summary>
         /// <para>
-        /// <para> Enables pull request preview for the autocreated branch. </para>
+        /// <para> Enables pull request previews for the autocreated branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -424,6 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             }
             context.BasicAuthCredential = this.BasicAuthCredential;
             context.BuildSpec = this.BuildSpec;
+            context.CustomHeader = this.CustomHeader;
             if (this.CustomRule != null)
             {
                 context.CustomRule = new List<Amazon.Amplify.Model.CustomRule>(this.CustomRule);
@@ -591,6 +603,10 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             {
                 request.BuildSpec = cmdletContext.BuildSpec;
             }
+            if (cmdletContext.CustomHeader != null)
+            {
+                request.CustomHeaders = cmdletContext.CustomHeader;
+            }
             if (cmdletContext.CustomRule != null)
             {
                 request.CustomRules = cmdletContext.CustomRule;
@@ -715,6 +731,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             public List<System.String> AutoBranchCreationPattern { get; set; }
             public System.String BasicAuthCredential { get; set; }
             public System.String BuildSpec { get; set; }
+            public System.String CustomHeader { get; set; }
             public List<Amazon.Amplify.Model.CustomRule> CustomRule { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? EnableAutoBranchCreation { get; set; }

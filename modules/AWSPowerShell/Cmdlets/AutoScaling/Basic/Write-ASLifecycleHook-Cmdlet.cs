@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// the <a>CompleteLifecycleAction</a> API call.
     /// </para></li></ol><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon
-    /// EC2 Auto Scaling Lifecycle Hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// EC2 Auto Scaling lifecycle hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><para>
     /// If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto
     /// Scaling group, the call fails.

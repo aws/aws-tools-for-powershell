@@ -130,15 +130,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter HomeEfsFileSystemKmsKeyId
+        #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (KMS) encryption key ID. Encryption with a customer
-        /// master key (CMK) is not supported.</para>
+        /// <para>SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS
+        /// managed customer master key (CMK) by default. For more control, specify a customer
+        /// managed CMK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String HomeEfsFileSystemKmsKeyId { get; set; }
+        public System.String KmsKeyId { get; set; }
         #endregion
         
         #region Parameter SubnetId
@@ -187,6 +188,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VpcId { get; set; }
+        #endregion
+        
+        #region Parameter HomeEfsFileSystemKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>This member is deprecated and replaced with <code>KmsKeyId</code>.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This property is deprecated, use KmsKeyId instead.")]
+        public System.String HomeEfsFileSystemKmsKeyId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -272,7 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.HomeEfsFileSystemKmsKeyId = this.HomeEfsFileSystemKmsKeyId;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.KmsKeyId = this.KmsKeyId;
             if (this.SubnetId != null)
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
@@ -326,9 +342,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.DomainName = cmdletContext.DomainName;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.HomeEfsFileSystemKmsKeyId != null)
             {
                 request.HomeEfsFileSystemKmsKeyId = cmdletContext.HomeEfsFileSystemKmsKeyId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.SubnetId != null)
             {
@@ -407,7 +429,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.AuthMode AuthMode { get; set; }
             public Amazon.SageMaker.Model.UserSettings DefaultUserSetting { get; set; }
             public System.String DomainName { get; set; }
+            [System.ObsoleteAttribute]
             public System.String HomeEfsFileSystemKmsKeyId { get; set; }
+            public System.String KmsKeyId { get; set; }
             public List<System.String> SubnetId { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String VpcId { get; set; }

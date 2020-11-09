@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// your Auto Scaling group, the instances are also registered with the target groups.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html">Attach
-    /// EC2 Instances to Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
+    /// EC2 instances to your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User
     /// Guide</i>.
     /// </para>
     /// </summary>

@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>If you are using DataSync on an AWS Outpost, specify the Amazon Resource Names (ARNs)
-        /// of the DataSync agents deployed on your AWS Outpost. For more information about launching
-        /// a DataSync agent on an Amazon Outpost, see <a>outposts-agent</a>.</para>
+        /// of the DataSync agents deployed on your Outpost. For more information about launching
+        /// a DataSync agent on an AWS Outpost, see <a>outposts-agent</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter S3BucketArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon S3 bucket. If the bucket is on an AWS
-        /// Outpost, this must be an access point ARN.</para>
+        /// <para>The ARN of the Amazon S3 bucket. If the bucket is on an AWS Outpost, this must be
+        /// an access point ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,10 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>The Amazon S3 storage class that you want to store your files in when this location
         /// is used as a task destination. For buckets in AWS Regions, the storage class defaults
-        /// to Standard. For buckets on AWS Outposts, the storage class defaults to AWS S3 Outposts.</para><para>For more information about S3 storage classes, see <a href="https://aws.amazon.com/s3/storage-classes/">Amazon
-        /// S3 Storage Classes</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
-        /// Some storage classes have behaviors that can affect your S3 storage cost. For detailed
-        /// information, see <a>using-storage-classes</a>.</para>
+        /// to Standard. For buckets on AWS Outposts, the storage class defaults to AWS S3 Outposts.</para><para>For more information about S3 storage classes, see <a href="http://aws.amazon.com/s3/storage-classes/">Amazon
+        /// S3 Storage Classes</a>. Some storage classes have behaviors that can affect your S3
+        /// storage cost. For detailed information, see <a>using-storage-classes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

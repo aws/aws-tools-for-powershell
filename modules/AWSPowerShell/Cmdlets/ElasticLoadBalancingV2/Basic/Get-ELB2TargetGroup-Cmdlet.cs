@@ -31,13 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// Describes the specified target groups or all of your target groups. By default, all
     /// target groups are described. Alternatively, you can specify one of the following to
     /// filter the results: the ARN of the load balancer, the names of one or more target
-    /// groups, or the ARNs of one or more target groups.
-    /// 
-    ///  
-    /// <para>
-    /// To describe the targets for a target group, use <a>DescribeTargetHealth</a>. To describe
-    /// the attributes of a target group, use <a>DescribeTargetGroupAttributes</a>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// groups, or the ARNs of one or more target groups.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ELB2TargetGroup")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.TargetGroup")]

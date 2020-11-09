@@ -90,15 +90,18 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-FSXBackup', 
         'Get-FSXDataRepositoryTask', 
         'Get-FSXFileSystem', 
+        'Get-FSXFileSystemAlias', 
         'Get-FSXResourceTagList', 
         'New-FSXBackup', 
         'New-FSXDataRepositoryTask', 
         'New-FSXFileSystem', 
         'New-FSXFileSystemFromBackup', 
+        'Register-FSXFileSystemAlias', 
         'Remove-FSXBackup', 
         'Remove-FSXFileSystem', 
         'Remove-FSXResourceTag', 
         'Stop-FSXDataRepositoryTask', 
+        'Unregister-FSXFileSystemAlias', 
         'Update-FSXFileSystem')
 
     # Variables to export from this module

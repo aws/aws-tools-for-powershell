@@ -718,7 +718,7 @@ $EC2_Completers = {
         # Amazon.EC2.VpcEndpointType
         "New-EC2VpcEndpoint/VpcEndpointType"
         {
-            $v = "Gateway","Interface"
+            $v = "Gateway","GatewayLoadBalancer","Interface"
             break
         }
 

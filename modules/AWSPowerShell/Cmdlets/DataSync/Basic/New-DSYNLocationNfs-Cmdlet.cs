@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>The subdirectory in the NFS file system that is used to read data from the NFS source
         /// location or write data to the NFS destination. The NFS path should be a path that's
         /// exported by the NFS server, or a subdirectory of that path. The path should be such
-        /// that it can be mounted by other NFS clients in your network. </para><para>To see all the paths exported by your NFS server. run "<code>showmount -e nfs-server-name</code>"
+        /// that it can be mounted by other NFS clients in your network. </para><para>To see all the paths exported by your NFS server, run "<code>showmount -e nfs-server-name</code>"
         /// from an NFS client that has access to your server. You can specify any directory that
         /// appears in the results, and any subdirectory of that directory. Ensure that the NFS
         /// export is accessible without Kerberos authentication. </para><para>To transfer all the data in the folder you specified, DataSync needs to have permissions

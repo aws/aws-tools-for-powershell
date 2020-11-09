@@ -30,7 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Deletes one or more specified VPC endpoints. Deleting a gateway endpoint also deletes
     /// the endpoint routes in the route tables that were associated with the endpoint. Deleting
-    /// an interface endpoint deletes the endpoint network interfaces.
+    /// an interface endpoint or a Gateway Load Balancer endpoint deletes the endpoint network
+    /// interfaces. Gateway Load Balancer endpoints can only be deleted if the routes that
+    /// are associated with the endpoint are deleted.
     /// </summary>
     [Cmdlet("Remove", "EC2VpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.UnsuccessfulItem")]

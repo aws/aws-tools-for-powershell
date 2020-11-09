@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter FileSystemConfig_DefaultGid
         /// <summary>
         /// <para>
-        /// <para>The default POSIX group ID. If not specified, defaults to <code>100</code>.</para>
+        /// <para>The default POSIX group ID (GID). If not specified, defaults to <code>100</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter FileSystemConfig_DefaultUid
         /// <summary>
         /// <para>
-        /// <para>The default POSIX user ID. If not specified, defaults to <code>1000</code>.</para>
+        /// <para>The default POSIX user ID (UID). If not specified, defaults to <code>1000</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,8 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter KernelGatewayImageConfig_KernelSpec
         /// <summary>
         /// <para>
-        /// <para>Defines how a kernel is started and the arguments, environment variables, and metadata
-        /// that are available to the kernel.</para>
+        /// <para>The specification of the Jupyter kernels in the image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

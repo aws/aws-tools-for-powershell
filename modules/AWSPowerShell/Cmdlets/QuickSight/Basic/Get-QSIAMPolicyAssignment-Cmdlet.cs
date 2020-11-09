@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AssignmentName
         /// <summary>
         /// <para>
-        /// <para>The name of the assignment. </para>
+        /// <para>The name of the assignment, also called a rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

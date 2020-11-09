@@ -304,7 +304,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter RequiresCompatibility
         /// <summary>
         /// <para>
-        /// <para>The launch type required by the task. If no value is specified, it defaults to <code>EC2</code>.</para>
+        /// <para>The task launch type that Amazon ECS should validate the task definition against.
+        /// This ensures that the task definition parameters are compatible with the specified
+        /// launch type. If no value is specified, it defaults to <code>EC2</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

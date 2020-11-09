@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
 {
     /// <summary>
     /// Creates a new tunnel, and returns two client access tokens for clients to use to connect
-    /// to the AWS IoT Secure Tunneling proxy server. .
+    /// to the AWS IoT Secure Tunneling proxy server.
     /// </summary>
     [Cmdlet("Open", "IOTSTTunnel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSecureTunneling.Model.OpenTunnelResponse")]
@@ -66,11 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
         #region Parameter DestinationConfig_Service
         /// <summary>
         /// <para>
-        /// <para>A list of service names that identity the target application. Currently, you can only
-        /// specify a single name. The AWS IoT client running on the destination device reads
-        /// this value and uses it to look up a port or an IP address and a port. The AWS IoT
-        /// client instantiates the local proxy which uses this information to connect to the
-        /// destination application.</para>
+        /// <para>A list of service names that identity the target application. The AWS IoT client running
+        /// on the destination device reads this value and uses it to look up a port or an IP
+        /// address and a port. The AWS IoT client instantiates the local proxy which uses this
+        /// information to connect to the destination application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

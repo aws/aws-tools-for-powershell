@@ -33,7 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     ///  
     /// <para>
     /// You can delete a target group if it is not referenced by any actions. Deleting a target
-    /// group also deletes any associated health checks.
+    /// group also deletes any associated health checks. Deleting a target group does not
+    /// affect its registered targets. For example, any EC2 instances continue to run until
+    /// you stop or terminate them.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ELB2TargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

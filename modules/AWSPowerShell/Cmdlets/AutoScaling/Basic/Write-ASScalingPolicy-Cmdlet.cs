@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <para>
     /// For more information about using scaling policies to scale your Auto Scaling group,
     /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html">Target
-    /// Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html">Step
-    /// and Simple Scaling Policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html">Step
+    /// and simple scaling policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// or a percentage). The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>,
         /// and <code>PercentChangeInCapacity</code>.</para><para>Required if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>.
         /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling
-        /// Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// adjustment types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// specified here, it overrides the default cooldown period defined for the Auto Scaling
         /// group.</para><para>Valid only if the policy type is <code>SimpleScaling</code>. For more information,
         /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
-        /// Cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>Indicates whether the scaling policy is enabled or disabled. The default is enabled.
         /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html">Disabling
-        /// a Scaling Policy for an Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
+        /// a scaling policy for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User
         /// Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// 1. However, because you specified a <code>MinAdjustmentMagnitude</code> of 2, Amazon
         /// EC2 Auto Scaling scales out the group by 2 instances.</para><para>Valid only if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>.
         /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling
-        /// Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><note><para>Some Auto Scaling groups use instance weights. In this case, set the <code>MinAdjustmentMagnitude</code>
+        /// adjustment types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><note><para>Some Auto Scaling groups use instance weights. In this case, set the <code>MinAdjustmentMagnitude</code>
         /// to a value that is at least as large as your largest instance weight.</para></note>
         /// </para>
         /// </summary>

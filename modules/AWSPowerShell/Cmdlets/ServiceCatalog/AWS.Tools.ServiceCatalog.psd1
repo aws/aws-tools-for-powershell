@@ -132,6 +132,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SCStackInstancesForProvisionedProduct', 
         'Get-SCTagOption', 
         'Get-SCTagOptionList', 
+        'Import-SCAsProvisionedProduct', 
         'New-SCConstraint', 
         'New-SCPortfolio', 
         'New-SCPortfolioShare', 

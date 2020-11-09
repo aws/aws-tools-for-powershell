@@ -101,6 +101,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ESOutboundCrossClusterSearchConnection', 
         'Get-ESPackage', 
         'Get-ESPackagesForDomainList', 
+        'Get-ESPackageVersionHistory', 
         'Get-ESReservedElasticsearchInstanceList', 
         'Get-ESReservedElasticsearchInstanceOfferingList', 
         'Get-ESResourceTag', 
@@ -122,7 +123,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-ESElasticsearchServiceSoftwareUpdate', 
         'Stop-ESElasticsearchServiceSoftwareUpdate', 
         'Update-ESDomainConfig', 
-        'Update-ESElasticsearchDomain')
+        'Update-ESElasticsearchDomain', 
+        'Update-ESPackage')
 
     # Variables to export from this module
     VariablesToExport = '*'

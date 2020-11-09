@@ -87,6 +87,36 @@ $SHLD_Completers = {
             break
         }
 
+        # Amazon.Shield.ProtectedResourceType
+        {
+            ($_ -eq "New-SHLDProtectionGroup/ResourceType") -Or
+            ($_ -eq "Update-SHLDProtectionGroup/ResourceType")
+        }
+        {
+            $v = "APPLICATION_LOAD_BALANCER","CLASSIC_LOAD_BALANCER","CLOUDFRONT_DISTRIBUTION","ELASTIC_IP_ALLOCATION","GLOBAL_ACCELERATOR","ROUTE_53_HOSTED_ZONE"
+            break
+        }
+
+        # Amazon.Shield.ProtectionGroupAggregation
+        {
+            ($_ -eq "New-SHLDProtectionGroup/Aggregation") -Or
+            ($_ -eq "Update-SHLDProtectionGroup/Aggregation")
+        }
+        {
+            $v = "MAX","MEAN","SUM"
+            break
+        }
+
+        # Amazon.Shield.ProtectionGroupPattern
+        {
+            ($_ -eq "New-SHLDProtectionGroup/Pattern") -Or
+            ($_ -eq "Update-SHLDProtectionGroup/Pattern")
+        }
+        {
+            $v = "ALL","ARBITRARY","BY_RESOURCE_TYPE"
+            break
+        }
+
 
     }
 
@@ -96,7 +126,10 @@ $SHLD_Completers = {
 }
 
 $SHLD_map = @{
+    "Aggregation"=@("New-SHLDProtectionGroup","Update-SHLDProtectionGroup")
     "AutoRenew"=@("Update-SHLDSubscription")
+    "Pattern"=@("New-SHLDProtectionGroup","Update-SHLDProtectionGroup")
+    "ResourceType"=@("New-SHLDProtectionGroup","Update-SHLDProtectionGroup")
 }
 
 _awsArgumentCompleterRegistration $SHLD_Completers $SHLD_map
@@ -154,13 +187,17 @@ $SHLD_SelectMap = @{
                "Add-SHLDHealthCheck",
                "Add-SHLDProactiveEngagementDetail",
                "New-SHLDProtection",
+               "New-SHLDProtectionGroup",
                "New-SHLDSubscription",
                "Remove-SHLDProtection",
+               "Remove-SHLDProtectionGroup",
                "Remove-SHLDSubscription",
                "Get-SHLDAttack",
+               "Get-SHLDAttackStatistic",
                "Get-SHLDDRTAccess",
                "Get-SHLDEmergencyContactSetting",
                "Get-SHLDProtection",
+               "Get-SHLDProtectionGroup",
                "Get-SHLDSubscription",
                "Disable-SHLDProactiveEngagement",
                "Revoke-SHLDDRTLogBucketAssociation",
@@ -169,8 +206,11 @@ $SHLD_SelectMap = @{
                "Enable-SHLDProactiveEngagement",
                "Get-SHLDSubscriptionState",
                "Get-SHLDAttackList",
+               "Get-SHLDProtectionGroupList",
                "Get-SHLDProtectionList",
+               "Get-SHLDResourcesInProtectionGroupList",
                "Update-SHLDEmergencyContactSetting",
+               "Update-SHLDProtectionGroup",
                "Update-SHLDSubscription")
 }
 

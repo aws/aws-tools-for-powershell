@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// action.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html">Deleting
-    /// a Scaling Policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// a scaling policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ASPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

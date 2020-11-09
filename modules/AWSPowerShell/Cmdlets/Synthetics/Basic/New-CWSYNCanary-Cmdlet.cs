@@ -106,6 +106,22 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         public System.Int64? Schedule_DurationInSecond { get; set; }
         #endregion
         
+        #region Parameter RunConfig_EnvironmentVariable
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the keys and values to use for any environment variables used in the canary
+        /// script. Use the following format:</para><para>{ "key1" : "value1", "key2" : "value2", ...}</para><para>Keys must start with a letter and be at least two characters. The total size of your
+        /// environment variables cannot exceed 4 KB. You can't specify any Lambda reserved environment
+        /// variables as the keys for your environment variables. For more information about reserved
+        /// keys, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime">
+        /// Runtime environment variables</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RunConfig_EnvironmentVariables")]
+        public System.Collections.Hashtable RunConfig_EnvironmentVariable { get; set; }
+        #endregion
+        
         #region Parameter ExecutionRoleArn
         /// <summary>
         /// <para>
@@ -213,9 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter RuntimeVersion
         /// <summary>
         /// <para>
-        /// <para>Specifies the runtime version to use for the canary. Currently, the only valid values
-        /// are <code>syn-nodejs-2.0</code>, <code>syn-nodejs-2.0-beta</code>, and <code>syn-1.0</code>.
-        /// For more information about runtime versions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
+        /// <para>Specifies the runtime version to use for the canary. For a list of valid runtime versions
+        /// and more information about runtime versions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
         /// Canary Runtime Versions</a>.</para>
         /// </para>
         /// </summary>
@@ -433,6 +448,14 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             }
             #endif
             context.RunConfig_ActiveTracing = this.RunConfig_ActiveTracing;
+            if (this.RunConfig_EnvironmentVariable != null)
+            {
+                context.RunConfig_EnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RunConfig_EnvironmentVariable.Keys)
+                {
+                    context.RunConfig_EnvironmentVariable.Add((String)hashKey, (String)(this.RunConfig_EnvironmentVariable[hashKey]));
+                }
+            }
             context.RunConfig_MemoryInMB = this.RunConfig_MemoryInMB;
             context.RunConfig_TimeoutInSecond = this.RunConfig_TimeoutInSecond;
             context.RuntimeVersion = this.RuntimeVersion;
@@ -575,6 +598,16 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 if (requestRunConfig_runConfig_ActiveTracing != null)
                 {
                     request.RunConfig.ActiveTracing = requestRunConfig_runConfig_ActiveTracing.Value;
+                    requestRunConfigIsNull = false;
+                }
+                Dictionary<System.String, System.String> requestRunConfig_runConfig_EnvironmentVariable = null;
+                if (cmdletContext.RunConfig_EnvironmentVariable != null)
+                {
+                    requestRunConfig_runConfig_EnvironmentVariable = cmdletContext.RunConfig_EnvironmentVariable;
+                }
+                if (requestRunConfig_runConfig_EnvironmentVariable != null)
+                {
+                    request.RunConfig.EnvironmentVariables = requestRunConfig_runConfig_EnvironmentVariable;
                     requestRunConfigIsNull = false;
                 }
                 System.Int32? requestRunConfig_runConfig_MemoryInMB = null;
@@ -751,6 +784,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.Int32? FailureRetentionPeriodInDay { get; set; }
             public System.String Name { get; set; }
             public System.Boolean? RunConfig_ActiveTracing { get; set; }
+            public Dictionary<System.String, System.String> RunConfig_EnvironmentVariable { get; set; }
             public System.Int32? RunConfig_MemoryInMB { get; set; }
             public System.Int32? RunConfig_TimeoutInSecond { get; set; }
             public System.String RuntimeVersion { get; set; }

@@ -38,7 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// set to false).
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#https-listener-certificates">SSL
-    /// Certificates</a> in the <i>Application Load Balancers Guide</i>.
+    /// certificates</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#tls-listener-certificate">Server
+    /// certificates</a> in the <i>Network Load Balancers Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ELB2ListenerCertificate")]

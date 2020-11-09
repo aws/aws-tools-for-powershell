@@ -106,6 +106,13 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.ExportFormat
+        "Export-DDBTableToPointInTime/ExportFormat"
+        {
+            $v = "DYNAMODB_JSON","ION"
+            break
+        }
+
         # Amazon.DynamoDBv2.KeyType
         "Add-DDBKeySchema/KeyType"
         {
@@ -134,6 +141,13 @@ $DDB_Completers = {
         "Write-DDBItemTransactionally/ReturnItemCollectionMetrics"
         {
             $v = "NONE","SIZE"
+            break
+        }
+
+        # Amazon.DynamoDBv2.S3SseAlgorithm
+        "Export-DDBTableToPointInTime/S3SseAlgorithm"
+        {
+            $v = "AES256","KMS"
             break
         }
 
@@ -179,6 +193,7 @@ $DDB_map = @{
     "BillingMode"=@("Update-DDBTable")
     "BillingModeOverride"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "ContributorInsightsAction"=@("Update-DDBContributorInsight")
+    "ExportFormat"=@("Export-DDBTableToPointInTime")
     "GlobalTableBillingMode"=@("Update-DDBGlobalTableSetting")
     "HashKeyDataType"=@("Add-DDBIndexSchema")
     "KeyDataType"=@("Add-DDBKeySchema")
@@ -187,6 +202,7 @@ $DDB_map = @{
     "RangeKeyDataType"=@("Add-DDBIndexSchema")
     "ReturnConsumedCapacity"=@("Get-DDBItemTransactionally","Write-DDBItemTransactionally")
     "ReturnItemCollectionMetrics"=@("Write-DDBItemTransactionally")
+    "S3SseAlgorithm"=@("Export-DDBTableToPointInTime")
     "SSESpecification_SSEType"=@("Update-DDBTable")
     "SSESpecificationOverride_SSEType"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "StreamSpecification_StreamViewType"=@("Update-DDBTable")
@@ -250,14 +266,17 @@ $DDB_SelectMap = @{
                "Get-DDBContinuousBackup",
                "Get-DDBContributorInsight",
                "Get-DDBEndpoint",
+               "Get-DDBExport",
                "Get-DDBGlobalTable",
                "Get-DDBGlobalTableSetting",
                "Get-DDBProvisionLimit",
                "Get-DDBTable",
                "Get-DDBTableReplicaAutoScaling",
                "Get-DDBTimeToLive",
+               "Export-DDBTableToPointInTime",
                "Get-DDBBackupList",
                "Get-DDBContributorInsightList",
+               "Get-DDBExportList",
                "Get-DDBGlobalTableList",
                "Get-DDBTableList",
                "Get-DDBResourceTag",

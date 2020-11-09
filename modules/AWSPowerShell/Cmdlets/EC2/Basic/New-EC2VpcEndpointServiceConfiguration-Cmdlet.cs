@@ -29,13 +29,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Creates a VPC endpoint service configuration to which service consumers (AWS accounts,
-    /// IAM users, and IAM roles) can connect. Service consumers can create an interface VPC
-    /// endpoint to connect to your service.
+    /// IAM users, and IAM roles) can connect.
     /// 
     ///  
     /// <para>
-    /// To create an endpoint service configuration, you must first create a Network Load
-    /// Balancer for your service. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC
+    /// To create an endpoint service configuration, you must first create one of the following
+    /// for your service:
+    /// </para><ul><li><para>
+    /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">Network
+    /// Load Balancer</a>. Service consumers connect to your service using an interface endpoint.
+    /// </para></li><li><para>
+    /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html">Gateway
+    /// Load Balancer</a>. Service consumers connect to your service using a Gateway Load
+    /// Balancer endpoint.
+    /// </para></li></ul><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC
     /// Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. 
     /// </para><para>
     /// If you set the private DNS name, you must prove that you own the private DNS domain
@@ -64,20 +72,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? AcceptanceRequired { get; set; }
         #endregion
         
+        #region Parameter GatewayLoadBalancerArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GatewayLoadBalancerArns")]
+        public System.String[] GatewayLoadBalancerArn { get; set; }
+        #endregion
+        
         #region Parameter NetworkLoadBalancerArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("NetworkLoadBalancerArns")]
         public System.String[] NetworkLoadBalancerArn { get; set; }
         #endregion
@@ -85,7 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PrivateDnsName
         /// <summary>
         /// <para>
-        /// <para>The private DNS name to assign to the VPC endpoint service.</para>
+        /// <para>(Interface endpoint configuration) The private DNS name to assign to the VPC endpoint
+        /// service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,16 +191,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AcceptanceRequired = this.AcceptanceRequired;
             context.ClientToken = this.ClientToken;
+            if (this.GatewayLoadBalancerArn != null)
+            {
+                context.GatewayLoadBalancerArn = new List<System.String>(this.GatewayLoadBalancerArn);
+            }
             if (this.NetworkLoadBalancerArn != null)
             {
                 context.NetworkLoadBalancerArn = new List<System.String>(this.NetworkLoadBalancerArn);
             }
-            #if MODULAR
-            if (this.NetworkLoadBalancerArn == null && ParameterWasBound(nameof(this.NetworkLoadBalancerArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter NetworkLoadBalancerArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.PrivateDnsName = this.PrivateDnsName;
             if (this.TagSpecification != null)
             {
@@ -216,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.GatewayLoadBalancerArn != null)
+            {
+                request.GatewayLoadBalancerArns = cmdletContext.GatewayLoadBalancerArn;
             }
             if (cmdletContext.NetworkLoadBalancerArn != null)
             {
@@ -292,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? AcceptanceRequired { get; set; }
             public System.String ClientToken { get; set; }
+            public List<System.String> GatewayLoadBalancerArn { get; set; }
             public List<System.String> NetworkLoadBalancerArn { get; set; }
             public System.String PrivateDnsName { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// Auto Scaling group, the instances are deregistered from the target groups.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html">Detach
-    /// EC2 Instances from Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
+    /// EC2 instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User
     /// Guide</i>.
     /// </para>
     /// </summary>

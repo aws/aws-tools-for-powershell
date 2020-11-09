@@ -30,14 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// <summary>
     /// Removes the specified certificate from the certificate list for the specified HTTPS
     /// or TLS listener.
-    /// 
-    ///  
-    /// <para>
-    /// You can't remove the default certificate for a listener. To replace the default certificate,
-    /// call <a>ModifyListener</a>.
-    /// </para><para>
-    /// To list the certificates for your listener, use <a>DescribeListenerCertificates</a>.
-    /// </para>
     /// </summary>
     [Cmdlet("Remove", "ELB2ListenerCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

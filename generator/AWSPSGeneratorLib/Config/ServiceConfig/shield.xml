@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateProtectionGroup" Verb="New" Noun="ProtectionGroup" ShouldProcessTarget="ProtectionGroupId" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSubscription" Verb="New" Noun="Subscription" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -47,11 +51,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProtectionGroup" Verb="Remove" Noun="ProtectionGroup" ShouldProcessTarget="ProtectionGroupId" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteSubscription" Verb="Remove" Noun="Subscription" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAttack" OutputProperty="Attack" Verb="Get" Noun="Attack" PipelineParameter="AttackId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAttackStatistics" OutputProperty="*" Verb="Get" Noun="AttackStatistic" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -64,6 +76,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeProtection" OutputProperty="Protection" Verb="Get" Noun="Protection" PipelineParameter="ProtectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProtectionGroup" OutputProperty="ProtectionGroup" Verb="Get" Noun="ProtectionGroup" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -99,11 +115,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListProtectionGroups" OutputProperty="ProtectionGroups" Verb="Get" Noun="ProtectionGroupList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProtections" OutputProperty="Protections" Verb="Get" Noun="ProtectionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListResourcesInProtectionGroup" OutputProperty="ResourceArns" Verb="Get" Noun="ResourcesInProtectionGroupList" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateEmergencyContactSettings" Verb="Update" Noun="EmergencyContactSetting" ShouldProcessTarget="EmergencyContactList" PipelineParameter="EmergencyContactList" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProtectionGroup" Verb="Update" Noun="ProtectionGroup" ShouldProcessTarget="ProtectionGroupId" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

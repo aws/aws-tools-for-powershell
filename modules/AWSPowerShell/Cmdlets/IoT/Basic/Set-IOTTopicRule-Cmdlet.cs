@@ -81,6 +81,47 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String TopicRulePayload_AwsIotSqlVersion { get; set; }
         #endregion
         
+        #region Parameter Firehose_BatchMode
+        /// <summary>
+        /// <para>
+        /// <para>Whether to deliver the Kinesis Data Firehose stream as a batch by using <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html"><code>PutRecordBatch</code></a>. The default value is <code>false</code>.</para><para>When <code>batchMode</code> is <code>true</code> and the rule's SQL statement evaluates
+        /// to an Array, each Array element forms one record in the <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html"><code>PutRecordBatch</code></a> request. The resulting array can't have more than
+        /// 500 records.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Firehose_BatchMode")]
+        public System.Boolean? Firehose_BatchMode { get; set; }
+        #endregion
+        
+        #region Parameter IotAnalytics_BatchMode
+        /// <summary>
+        /// <para>
+        /// <para>Whether to process the action as a batch. The default value is <code>false</code>.</para><para>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates
+        /// to an Array, each Array element is delivered as a separate message when passed by
+        /// <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html"><code>BatchPutMessage</code></a> to the AWS IoT Analytics channel. The resulting
+        /// array can't have more than 100 messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_IotAnalytics_BatchMode")]
+        public System.Boolean? IotAnalytics_BatchMode { get; set; }
+        #endregion
+        
+        #region Parameter IotEvents_BatchMode
+        /// <summary>
+        /// <para>
+        /// <para>Whether to process the event actions as a batch. The default value is <code>false</code>.</para><para>When <code>batchMode</code> is <code>true</code>, you can't specify a <code>messageId</code>.
+        /// </para><para>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates
+        /// to an Array, each Array element is treated as a separate message when it's sent to
+        /// AWS IoT Events by calling <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html"><code>BatchPutMessage</code></a>. The resulting array can't have more than 10 messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_IotEvents_BatchMode")]
+        public System.Boolean? IotEvents_BatchMode { get; set; }
+        #endregion
+        
         #region Parameter S3_BucketName
         /// <summary>
         /// <para>
@@ -303,7 +344,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter S3_Key
         /// <summary>
         /// <para>
-        /// <para>The object key.</para>
+        /// <para>The object key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions,
+        /// resources, and condition keys for Amazon S3</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -341,8 +383,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter IotEvents_MessageId
         /// <summary>
         /// <para>
-        /// <para>[Optional] Use this to ensure that only one input (message) with a given messageId
-        /// will be processed by an AWS IoT Events detector.</para>
+        /// <para>The ID of the message. The default <code>messageId</code> is a new UUID value.</para><para>When <code>batchMode</code> is <code>true</code>, you can't specify a <code>messageId</code>--a
+        /// new UUID value will be assigned.</para><para>Assign a value to this property to ensure that only one input (message) with a given
+        /// <code>messageId</code> will be processed by an AWS IoT Events detector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1085,6 +1128,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.Elasticsearch_Index = this.Elasticsearch_Index;
             context.Elasticsearch_RoleArn = this.Elasticsearch_RoleArn;
             context.Elasticsearch_Type = this.Elasticsearch_Type;
+            context.Firehose_BatchMode = this.Firehose_BatchMode;
             context.Firehose_DeliveryStreamName = this.Firehose_DeliveryStreamName;
             context.Firehose_RoleArn = this.Firehose_RoleArn;
             context.Firehose_Separator = this.Firehose_Separator;
@@ -1097,9 +1141,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Http_Header = new List<Amazon.IoT.Model.HttpActionHeader>(this.Http_Header);
             }
             context.Http_Url = this.Http_Url;
+            context.IotAnalytics_BatchMode = this.IotAnalytics_BatchMode;
             context.IotAnalytics_ChannelArn = this.IotAnalytics_ChannelArn;
             context.IotAnalytics_ChannelName = this.IotAnalytics_ChannelName;
             context.IotAnalytics_RoleArn = this.IotAnalytics_RoleArn;
+            context.IotEvents_BatchMode = this.IotEvents_BatchMode;
             context.IotEvents_InputName = this.IotEvents_InputName;
             context.IotEvents_MessageId = this.IotEvents_MessageId;
             context.IotEvents_RoleArn = this.IotEvents_RoleArn;
@@ -1406,141 +1452,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 requestTopicRulePayload_topicRulePayload_ErrorAction.Salesforce = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Salesforce;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
-            Amazon.IoT.Model.FirehoseAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose = null;
-            
-             // populate Firehose
-            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_FirehoseIsNull = true;
-            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose = new Amazon.IoT.Model.FirehoseAction();
-            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_DeliveryStreamName = null;
-            if (cmdletContext.Firehose_DeliveryStreamName != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_DeliveryStreamName = cmdletContext.Firehose_DeliveryStreamName;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_DeliveryStreamName != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose.DeliveryStreamName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_DeliveryStreamName;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_FirehoseIsNull = false;
-            }
-            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_RoleArn = null;
-            if (cmdletContext.Firehose_RoleArn != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_RoleArn = cmdletContext.Firehose_RoleArn;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_RoleArn != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_RoleArn;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_FirehoseIsNull = false;
-            }
-            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_Separator = null;
-            if (cmdletContext.Firehose_Separator != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_Separator = cmdletContext.Firehose_Separator;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_Separator != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose.Separator = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_Separator;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_FirehoseIsNull = false;
-            }
-             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose should be set to null
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_FirehoseIsNull)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose = null;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction.Firehose = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose;
-                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
-            }
-            Amazon.IoT.Model.IotAnalyticsAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics = null;
-            
-             // populate IotAnalytics
-            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull = true;
-            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics = new Amazon.IoT.Model.IotAnalyticsAction();
-            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelArn = null;
-            if (cmdletContext.IotAnalytics_ChannelArn != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelArn = cmdletContext.IotAnalytics_ChannelArn;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelArn != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics.ChannelArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelArn;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull = false;
-            }
-            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelName = null;
-            if (cmdletContext.IotAnalytics_ChannelName != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelName = cmdletContext.IotAnalytics_ChannelName;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelName != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics.ChannelName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelName;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull = false;
-            }
-            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_RoleArn = null;
-            if (cmdletContext.IotAnalytics_RoleArn != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_RoleArn = cmdletContext.IotAnalytics_RoleArn;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_RoleArn != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_RoleArn;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull = false;
-            }
-             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics should be set to null
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics = null;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction.IotAnalytics = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics;
-                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
-            }
-            Amazon.IoT.Model.IotEventsAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents = null;
-            
-             // populate IotEvents
-            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull = true;
-            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents = new Amazon.IoT.Model.IotEventsAction();
-            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_InputName = null;
-            if (cmdletContext.IotEvents_InputName != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_InputName = cmdletContext.IotEvents_InputName;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_InputName != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents.InputName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_InputName;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull = false;
-            }
-            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_MessageId = null;
-            if (cmdletContext.IotEvents_MessageId != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_MessageId = cmdletContext.IotEvents_MessageId;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_MessageId != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents.MessageId = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_MessageId;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull = false;
-            }
-            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_RoleArn = null;
-            if (cmdletContext.IotEvents_RoleArn != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_RoleArn = cmdletContext.IotEvents_RoleArn;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_RoleArn != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_RoleArn;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull = false;
-            }
-             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents should be set to null
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents = null;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction.IotEvents = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents;
-                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
-            }
             Amazon.IoT.Model.KinesisAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kinesis = null;
             
              // populate Kinesis
@@ -1821,6 +1732,61 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 requestTopicRulePayload_topicRulePayload_ErrorAction.CloudwatchAlarm = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchAlarm;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
+            Amazon.IoT.Model.FirehoseAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose = null;
+            
+             // populate Firehose
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_FirehoseIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose = new Amazon.IoT.Model.FirehoseAction();
+            System.Boolean? requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_BatchMode = null;
+            if (cmdletContext.Firehose_BatchMode != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_BatchMode = cmdletContext.Firehose_BatchMode.Value;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_BatchMode != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose.BatchMode = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_BatchMode.Value;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_FirehoseIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_DeliveryStreamName = null;
+            if (cmdletContext.Firehose_DeliveryStreamName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_DeliveryStreamName = cmdletContext.Firehose_DeliveryStreamName;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_DeliveryStreamName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose.DeliveryStreamName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_DeliveryStreamName;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_FirehoseIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_RoleArn = null;
+            if (cmdletContext.Firehose_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_RoleArn = cmdletContext.Firehose_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_FirehoseIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_Separator = null;
+            if (cmdletContext.Firehose_Separator != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_Separator = cmdletContext.Firehose_Separator;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_Separator != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose.Separator = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose_firehose_Separator;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_FirehoseIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_FirehoseIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.Firehose = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
             Amazon.IoT.Model.HttpAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http = null;
             
              // populate Http
@@ -1924,6 +1890,116 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http != null)
             {
                 requestTopicRulePayload_topicRulePayload_ErrorAction.Http = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
+            Amazon.IoT.Model.IotAnalyticsAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics = null;
+            
+             // populate IotAnalytics
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics = new Amazon.IoT.Model.IotAnalyticsAction();
+            System.Boolean? requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_BatchMode = null;
+            if (cmdletContext.IotAnalytics_BatchMode != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_BatchMode = cmdletContext.IotAnalytics_BatchMode.Value;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_BatchMode != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics.BatchMode = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_BatchMode.Value;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelArn = null;
+            if (cmdletContext.IotAnalytics_ChannelArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelArn = cmdletContext.IotAnalytics_ChannelArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics.ChannelArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelName = null;
+            if (cmdletContext.IotAnalytics_ChannelName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelName = cmdletContext.IotAnalytics_ChannelName;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics.ChannelName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelName;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_RoleArn = null;
+            if (cmdletContext.IotAnalytics_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_RoleArn = cmdletContext.IotAnalytics_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.IotAnalytics = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
+            Amazon.IoT.Model.IotEventsAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents = null;
+            
+             // populate IotEvents
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents = new Amazon.IoT.Model.IotEventsAction();
+            System.Boolean? requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_BatchMode = null;
+            if (cmdletContext.IotEvents_BatchMode != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_BatchMode = cmdletContext.IotEvents_BatchMode.Value;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_BatchMode != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents.BatchMode = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_BatchMode.Value;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_InputName = null;
+            if (cmdletContext.IotEvents_InputName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_InputName = cmdletContext.IotEvents_InputName;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_InputName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents.InputName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_InputName;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_MessageId = null;
+            if (cmdletContext.IotEvents_MessageId != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_MessageId = cmdletContext.IotEvents_MessageId;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_MessageId != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents.MessageId = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_MessageId;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_RoleArn = null;
+            if (cmdletContext.IotEvents_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_RoleArn = cmdletContext.IotEvents_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.IotEvents = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
             Amazon.IoT.Model.S3Action requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_S3 = null;
@@ -2435,6 +2511,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String Elasticsearch_Index { get; set; }
             public System.String Elasticsearch_RoleArn { get; set; }
             public System.String Elasticsearch_Type { get; set; }
+            public System.Boolean? Firehose_BatchMode { get; set; }
             public System.String Firehose_DeliveryStreamName { get; set; }
             public System.String Firehose_RoleArn { get; set; }
             public System.String Firehose_Separator { get; set; }
@@ -2444,9 +2521,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String Http_ConfirmationUrl { get; set; }
             public List<Amazon.IoT.Model.HttpActionHeader> Http_Header { get; set; }
             public System.String Http_Url { get; set; }
+            public System.Boolean? IotAnalytics_BatchMode { get; set; }
             public System.String IotAnalytics_ChannelArn { get; set; }
             public System.String IotAnalytics_ChannelName { get; set; }
             public System.String IotAnalytics_RoleArn { get; set; }
+            public System.Boolean? IotEvents_BatchMode { get; set; }
             public System.String IotEvents_InputName { get; set; }
             public System.String IotEvents_MessageId { get; set; }
             public System.String IotEvents_RoleArn { get; set; }

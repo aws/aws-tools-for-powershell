@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete
         /// before executing the policy.</para><para>Valid only if the policy type is <code>SimpleScaling</code>. For more information,
         /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
-        /// Cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

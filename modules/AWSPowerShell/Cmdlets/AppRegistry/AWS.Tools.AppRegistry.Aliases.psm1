@@ -1,0 +1,3 @@
+﻿# AppRegistry
+
+Export-ModuleMember -Alias *

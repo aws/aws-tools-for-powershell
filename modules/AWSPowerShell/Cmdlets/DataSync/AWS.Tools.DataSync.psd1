@@ -116,7 +116,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-DSYNTaskExecution', 
         'Stop-DSYNTaskExecution', 
         'Update-DSYNAgent', 
-        'Update-DSYNTask')
+        'Update-DSYNTask', 
+        'Update-DSYNTaskExecution')
 
     # Variables to export from this module
     VariablesToExport = '*'

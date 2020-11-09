@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Creates an assignment with one specified IAM policy, identified by its Amazon Resource
-    /// Name (ARN). This policy will be assigned to specified groups or users of Amazon QuickSight.
-    /// The users and groups need to be in the same namespace.
+    /// Name (ARN). This policy assignment is attached to the specified groups or users of
+    /// Amazon QuickSight. Assignment names are unique per AWS account. To avoid overwriting
+    /// rules in other namespaces, use assignment names that are unique.
     /// </summary>
     [Cmdlet("New", "QSIAMPolicyAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.CreateIAMPolicyAssignmentResponse")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AssignmentName
         /// <summary>
         /// <para>
-        /// <para>The name of the assignment. It must be unique within an AWS account.</para>
+        /// <para>The name of the assignment, also called a rule. It must be unique within an AWS account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

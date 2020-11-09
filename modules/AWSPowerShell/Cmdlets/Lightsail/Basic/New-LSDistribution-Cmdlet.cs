@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <para>
     /// A distribution is a globally distributed network of caching servers that improve the
     /// performance of your website or web application hosted on a Lightsail instance. For
-    /// more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-networks">Content
+    /// more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-network-distributions">Content
     /// delivery networks in Amazon Lightsail</a>.
     /// </para>
     /// </summary>

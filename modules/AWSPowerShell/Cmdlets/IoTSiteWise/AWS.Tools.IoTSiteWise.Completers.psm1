@@ -241,6 +241,7 @@ $IOTSW_SelectMap = @{
                "New-IOTSWDashboard",
                "New-IOTSWGateway",
                "New-IOTSWPortal",
+               "New-IOTSWPresignedPortalUrl",
                "New-IOTSWProject",
                "Remove-IOTSWAccessPolicy",
                "Remove-IOTSWAsset",

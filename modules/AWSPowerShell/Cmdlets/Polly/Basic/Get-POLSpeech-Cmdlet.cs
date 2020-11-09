@@ -47,8 +47,14 @@ namespace Amazon.PowerShell.Cmdlets.POL
         /// <summary>
         /// <para>
         /// <para>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly
-        /// to use when processing input text for speech synthesis. Using a voice that is not
-        /// supported for the engine selected will result in an error.</para>
+        /// to use when processing input text for speech synthesis. For information on Amazon
+        /// Polly voices and which voices are available in standard-only, NTTS-only, and both
+        /// standard and NTTS formats, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available
+        /// Voices</a>.</para><para><b>NTTS-only voices</b></para><para>When using NTTS-only voices such as Kevin (en-US), this parameter is required and
+        /// must be set to <code>neural</code>. If the engine is not specified, or is set to <code>standard</code>,
+        /// this will result in an error. </para><para>Type: String</para><para>Valid Values: <code>standard</code> | <code>neural</code></para><para>Required: Yes</para><para><b>Standard voices</b></para><para>For standard voices, this is not required; the engine parameter defaults to <code>standard</code>.
+        /// If the engine is not specified, or is set to <code>standard</code> and an NTTS-only
+        /// voice is selected, this will result in an error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

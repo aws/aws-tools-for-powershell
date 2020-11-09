@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>service-name</code> - The name of the service.</para></li><li><para><code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</para></li><li><para><code>vpc-endpoint-id</code> - The ID of the endpoint.</para></li><li><para><code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code>
         /// | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>
-        /// | <code>rejected</code> | <code>failed</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// | <code>rejected</code> | <code>failed</code>).</para></li><li><para><code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code>
+        /// | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name

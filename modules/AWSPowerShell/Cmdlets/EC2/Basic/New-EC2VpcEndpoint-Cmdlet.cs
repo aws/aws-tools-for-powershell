@@ -46,6 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// in which to create an endpoint, and the security groups to associate with the endpoint
     /// network interface.
     /// </para><para>
+    /// A <code>GatewayLoadBalancer</code> endpoint is a network interface in your subnet
+    /// that serves an endpoint for communicating with a Gateway Load Balancer that you've
+    /// configured as a VPC endpoint service.
+    /// </para><para>
     /// Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.
     /// </para>
     /// </summary>
@@ -61,9 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>A policy to attach to the endpoint that controls access to the service. The policy
-        /// must be in valid JSON format. If this parameter is not specified, we attach a default
-        /// policy that allows full access to the service.</para>
+        /// <para>(Interface and gateway endpoints) A policy to attach to the endpoint that controls
+        /// access to the service. The policy must be in valid JSON format. If this parameter
+        /// is not specified, we attach a default policy that allows full access to the service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>(Interface endpoint) The ID of one or more subnets in which to create an endpoint
-        /// network interface.</para>
+        /// <para>(Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which
+        /// to create an endpoint network interface. For a Gateway Load Balancer endpoint, you
+        /// can specify one subnet only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

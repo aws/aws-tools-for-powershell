@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling
-    /// Which Auto Scaling Instances Terminate During Scale In</a> in the <i>Amazon EC2 Auto
+    /// which Auto Scaling instances terminate during scale in</a> in the <i>Amazon EC2 Auto
     /// Scaling User Guide</i>.
     /// </para>
     /// </summary>

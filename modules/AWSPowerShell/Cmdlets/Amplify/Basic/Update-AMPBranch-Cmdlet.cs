@@ -159,9 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnablePerformanceMode
         /// <summary>
         /// <para>
-        /// <para> Performance mode optimizes for faster hosting performance by keeping content cached
-        /// at the edge for a longer interval. Enabling performance mode will mean that hosting
-        /// configuration or code changes can take up to 10 minutes to roll out. </para>
+        /// <para>Enables performance mode for the branch.</para><para>Performance mode optimizes for faster hosting performance by keeping content cached
+        /// at the edge for a longer interval. When performance mode is enabled, hosting configuration
+        /// or code changes can take up to 10 minutes to roll out. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnablePullRequestPreview
         /// <summary>
         /// <para>
-        /// <para> Enables pull request preview for this branch. </para>
+        /// <para> Enables pull request previews for this branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

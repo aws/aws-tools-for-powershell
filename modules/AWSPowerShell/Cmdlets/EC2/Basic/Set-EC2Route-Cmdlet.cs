@@ -188,6 +188,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String TransitGatewayId { get; set; }
         #endregion
         
+        #region Parameter VpcEndpointId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcEndpointId { get; set; }
+        #endregion
+        
         #region Parameter VpcPeeringConnectionId
         /// <summary>
         /// <para>
@@ -277,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.TransitGatewayId = this.TransitGatewayId;
+            context.VpcEndpointId = this.VpcEndpointId;
             context.VpcPeeringConnectionId = this.VpcPeeringConnectionId;
             
             // allow further manipulation of loaded context prior to processing
@@ -345,6 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.TransitGatewayId != null)
             {
                 request.TransitGatewayId = cmdletContext.TransitGatewayId;
+            }
+            if (cmdletContext.VpcEndpointId != null)
+            {
+                request.VpcEndpointId = cmdletContext.VpcEndpointId;
             }
             if (cmdletContext.VpcPeeringConnectionId != null)
             {
@@ -424,6 +439,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String NetworkInterfaceId { get; set; }
             public System.String RouteTableId { get; set; }
             public System.String TransitGatewayId { get; set; }
+            public System.String VpcEndpointId { get; set; }
             public System.String VpcPeeringConnectionId { get; set; }
             public System.Func<Amazon.EC2.Model.ReplaceRouteResponse, SetEC2RouteCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

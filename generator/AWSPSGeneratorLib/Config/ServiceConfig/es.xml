@@ -111,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPackageVersionHistory" OutputProperty="*" Verb="Get" Noun="PackageVersionHistory" PipelineParameter="PackageID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetUpgradeHistory" OutputProperty="UpgradeHistories" Verb="Get" Noun="UpgradeHistory" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -160,6 +164,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateElasticsearchDomainConfig" OutputProperty="DomainConfig" Verb="Update" Noun="DomainConfig" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePackage" OutputProperty="PackageDetails" Verb="Update" Noun="Package" ShouldProcessTarget="PackageSource_S3BucketName" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

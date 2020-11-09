@@ -28,13 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Describes the specified load balancers or all of your load balancers.
-    /// 
-    ///  
-    /// <para>
-    /// To describe the listeners for a load balancer, use <a>DescribeListeners</a>. To describe
-    /// the attributes for a load balancer, use <a>DescribeLoadBalancerAttributes</a>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the specified load balancers or all of your load balancers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ELB2LoadBalancer")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.LoadBalancer")]

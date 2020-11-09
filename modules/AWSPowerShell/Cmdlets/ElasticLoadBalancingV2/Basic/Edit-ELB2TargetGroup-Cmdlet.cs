@@ -30,11 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// <summary>
     /// Modifies the health checks used when evaluating the health state of the targets in
     /// the specified target group.
-    /// 
-    ///  
-    /// <para>
-    /// To monitor the health of the targets, use <a>DescribeTargetHealth</a>.
-    /// </para>
     /// </summary>
     [Cmdlet("Edit", "ELB2TargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.TargetGroup")]
@@ -71,8 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The approximate amount of time, in seconds, between health checks of an individual
-        /// target. For HTTP and HTTPS health checks, the range is 5 to 300 seconds. For TPC health
-        /// checks, the supported values are 10 or 30 seconds.</para><para>With Network Load Balancers, you can't modify this setting.</para>
+        /// target. For TCP health checks, the supported values are 10 or 30 seconds.</para><para>With Network Load Balancers, you can't modify this setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The protocol the load balancer uses when performing health checks on targets. The
         /// TCP protocol is supported for health checks only if the protocol of the target group
-        /// is TCP, TLS, UDP, or TCP_UDP. The TLS, UDP, and TCP_UDP protocols are not supported
-        /// for health checks.</para><para>With Network Load Balancers, you can't modify this setting.</para>
+        /// is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP protocols are not
+        /// supported for health checks.</para><para>With Network Load Balancers, you can't modify this setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>For Application Load Balancers, you can specify values between 200 and 499, and the
         /// default value is 200. You can specify multiple values (for example, "200,202") or
-        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers, this is "200–399".</para>
+        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers and Gateway Load Balancers, this must be "200–399".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

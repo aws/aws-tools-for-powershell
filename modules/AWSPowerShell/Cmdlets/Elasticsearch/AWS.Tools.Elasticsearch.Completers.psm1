@@ -221,6 +221,7 @@ $ES_SelectMap = @{
                "Get-ESReservedElasticsearchInstanceList",
                "Start-ESDissociatePackage",
                "Get-ESCompatibleElasticsearchVersion",
+               "Get-ESPackageVersionHistory",
                "Get-ESUpgradeHistory",
                "Get-ESUpgradeStatus",
                "Get-ESDomainNameList",
@@ -234,6 +235,7 @@ $ES_SelectMap = @{
                "Remove-ESResourceTag",
                "Start-ESElasticsearchServiceSoftwareUpdate",
                "Update-ESDomainConfig",
+               "Update-ESPackage",
                "Update-ESElasticsearchDomain")
 }
 

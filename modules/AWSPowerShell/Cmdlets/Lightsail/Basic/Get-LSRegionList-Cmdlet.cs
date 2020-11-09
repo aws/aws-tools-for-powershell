@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter IncludeRelationalDatabaseAvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>&gt;A Boolean value indicating whether to also include Availability Zones for databases
+        /// <para>A Boolean value indicating whether to also include Availability Zones for databases
         /// in your get regions request. Availability Zones are indicated with a letter (e.g.,
         /// <code>us-east-2a</code>).</para>
         /// </para>

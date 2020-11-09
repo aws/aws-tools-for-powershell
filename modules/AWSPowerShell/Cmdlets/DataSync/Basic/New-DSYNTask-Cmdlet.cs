@@ -90,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>A list of filter rules that determines which files to exclude from a task. The list
         /// should contain a single filter string that consists of the patterns to exclude. The
-        /// patterns are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code></para>
+        /// patterns are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -146,6 +146,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTaskExecution" Verb="Update" Noun="TaskExecution" ShouldProcessTarget="TaskExecutionArn" PipelineParameter="TaskExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten>
         <Type>Amazon.DataSync.Model.Options</Type>

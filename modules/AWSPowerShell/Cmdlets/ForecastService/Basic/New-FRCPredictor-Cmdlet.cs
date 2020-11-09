@@ -32,31 +32,34 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// 
     ///  
     /// <para>
-    /// In the request, you provide a dataset group and either specify an algorithm or let
-    /// Amazon Forecast choose the algorithm for you using AutoML. If you specify an algorithm,
-    /// you also can override algorithm-specific hyperparameters.
+    /// In the request, provide a dataset group and either specify an algorithm or let Amazon
+    /// Forecast choose an algorithm for you using AutoML. If you specify an algorithm, you
+    /// also can override algorithm-specific hyperparameters.
     /// </para><para>
-    /// Amazon Forecast uses the chosen algorithm to train a model using the latest version
-    /// of the datasets in the specified dataset group. The result is called a predictor.
-    /// You then generate a forecast using the <a>CreateForecast</a> operation.
+    /// Amazon Forecast uses the algorithm to train a predictor using the latest version of
+    /// the datasets in the specified dataset group. You can then generate a forecast using
+    /// the <a>CreateForecast</a> operation.
     /// </para><para>
-    /// After training a model, the <code>CreatePredictor</code> operation also evaluates
-    /// it. To see the evaluation metrics, use the <a>GetAccuracyMetrics</a> operation. Always
-    /// review the evaluation metrics before deciding to use the predictor to generate a forecast.
+    ///  To see the evaluation metrics, use the <a>GetAccuracyMetrics</a> operation. 
     /// </para><para>
-    /// Optionally, you can specify a featurization configuration to fill and aggregate the
-    /// data fields in the <code>TARGET_TIME_SERIES</code> dataset to improve model training.
-    /// For more information, see <a>FeaturizationConfig</a>.
+    /// You can specify a featurization configuration to fill and aggregate the data fields
+    /// in the <code>TARGET_TIME_SERIES</code> dataset to improve model training. For more
+    /// information, see <a>FeaturizationConfig</a>.
     /// </para><para>
     /// For RELATED_TIME_SERIES datasets, <code>CreatePredictor</code> verifies that the <code>DataFrequency</code>
     /// specified when the dataset was created matches the <code>ForecastFrequency</code>.
     /// TARGET_TIME_SERIES datasets don't have this restriction. Amazon Forecast also verifies
     /// the delimiter and timestamp format. For more information, see <a>howitworks-datasets-groups</a>.
+    /// </para><para>
+    /// By default, predictors are trained and evaluated at the 0.1 (P10), 0.5 (P50), and
+    /// 0.9 (P90) quantiles. You can choose custom forecast types to train and evaluate your
+    /// predictor by setting the <code>ForecastTypes</code>. 
     /// </para><para><b>AutoML</b></para><para>
     /// If you want Amazon Forecast to evaluate each algorithm and choose the one that minimizes
     /// the <code>objective function</code>, set <code>PerformAutoML</code> to <code>true</code>.
-    /// The <code>objective function</code> is defined as the mean of the weighted p10, p50,
-    /// and p90 quantile losses. For more information, see <a>EvaluationResult</a>.
+    /// The <code>objective function</code> is defined as the mean of the weighted losses
+    /// over the forecast types. By default, these are the p10, p50, and p90 quantile losses.
+    /// For more information, see <a>EvaluationResult</a>.
     /// </para><para>
     /// When AutoML is enabled, the following properties are disallowed:
     /// </para><ul><li><para><code>AlgorithmArn</code></para></li><li><para><code>HPOConfig</code></para></li><li><para><code>PerformHPO</code></para></li><li><para><code>TrainingParameters</code></para></li></ul><para>
@@ -209,6 +212,19 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         public System.Int32? ForecastHorizon { get; set; }
         #endregion
         
+        #region Parameter ForecastType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the forecast types used to train a predictor. You can specify up to five
+        /// forecast types. Forecast types can be quantiles from 0.01 to 0.99, by increments of
+        /// 0.01 or higher. You can also specify the mean forecast with <code>mean</code>. </para><para>The default value is <code>["0.10", "0.50", "0.9"]</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ForecastTypes")]
+        public System.String[] ForecastType { get; set; }
+        #endregion
+        
         #region Parameter ParameterRanges_IntegerParameterRange
         /// <summary>
         /// <para>
@@ -267,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// optionally, supply the <a>HyperParameterTuningJobConfig</a> object. The tuning job
         /// specifies a metric to optimize, which hyperparameters participate in tuning, and the
         /// valid range for each tunable hyperparameter. In this case, you are required to specify
-        /// an algorithm and <code>PerformAutoML</code> must be false.</para><para>The following algorithm supports HPO:</para><ul><li><para>DeepAR+</para></li></ul>
+        /// an algorithm and <code>PerformAutoML</code> must be false.</para><para>The following algorithms support HPO:</para><ul><li><para>DeepAR+</para></li><li><para>CNN-QR</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -435,6 +451,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
                 WriteWarning("You are passing $null as a value for parameter ForecastHorizon which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ForecastType != null)
+            {
+                context.ForecastType = new List<System.String>(this.ForecastType);
+            }
             if (this.ParameterRanges_CategoricalParameterRange != null)
             {
                 context.ParameterRanges_CategoricalParameterRange = new List<Amazon.ForecastService.Model.CategoricalParameterRange>(this.ParameterRanges_CategoricalParameterRange);
@@ -599,6 +619,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             if (cmdletContext.ForecastHorizon != null)
             {
                 request.ForecastHorizon = cmdletContext.ForecastHorizon.Value;
+            }
+            if (cmdletContext.ForecastType != null)
+            {
+                request.ForecastTypes = cmdletContext.ForecastType;
             }
             
              // populate HPOConfig
@@ -773,6 +797,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             public List<System.String> FeaturizationConfig_ForecastDimension { get; set; }
             public System.String FeaturizationConfig_ForecastFrequency { get; set; }
             public System.Int32? ForecastHorizon { get; set; }
+            public List<System.String> ForecastType { get; set; }
             public List<Amazon.ForecastService.Model.CategoricalParameterRange> ParameterRanges_CategoricalParameterRange { get; set; }
             public List<Amazon.ForecastService.Model.ContinuousParameterRange> ParameterRanges_ContinuousParameterRange { get; set; }
             public List<Amazon.ForecastService.Model.IntegerParameterRange> ParameterRanges_IntegerParameterRange { get; set; }

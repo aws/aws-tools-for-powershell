@@ -1,4 +1,94 @@
-﻿### 4.1.4.0 (2020-11-06)
+﻿### 4.1.5.0 (2020-11-16)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.56.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Identity Store. Added cmdlets to support the service. Cmdlets for the service have the noun prefix IDS and can be listed using the command 'Get-AWSCmdletName -Service IDS'.
+  * Amazon Amplify
+    * Modified cmdlet New-AMPApp: added parameter CustomHeader.
+    * Modified cmdlet Update-AMPApp: added parameter CustomHeader.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet New-CWSYNCanary: added parameter RunConfig_EnvironmentVariable.
+    * Modified cmdlet Update-CWSYNCanary: added parameter RunConfig_EnvironmentVariable.
+  * Amazon Database Migration Service
+    * Added cmdlet Move-DMSReplicationTask leveraging the MoveReplicationTask service API.
+  * Amazon DataSync
+    * Added cmdlet Update-DSYNTaskExecution leveraging the UpdateTaskExecution service API.
+  * Amazon DynamoDB
+    * Added cmdlet Export-DDBTableToPointInTime leveraging the ExportTableToPointInTime service API.
+    * Added cmdlet Get-DDBExport leveraging the DescribeExport service API.
+    * Added cmdlet Get-DDBExportList leveraging the ListExports service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2VpcEndpointServiceConfiguration: added parameters AddGatewayLoadBalancerArn and RemoveGatewayLoadBalancerArn.
+    * Modified cmdlet New-EC2Route: added parameter VpcEndpointId.
+    * Modified cmdlet New-EC2VpcEndpointServiceConfiguration: added parameter GatewayLoadBalancerArn.
+    * Modified cmdlet Set-EC2Route: added parameter VpcEndpointId.
+  * Amazon Elastic Load Balancing V2
+    * Modified cmdlet Set-ELB2Subnet: added parameter IpAddressType.
+  * Amazon Elasticsearch
+    * Added cmdlet Get-ESPackageVersionHistory leveraging the GetPackageVersionHistory service API.
+    * Added cmdlet Update-ESPackage leveraging the UpdatePackage service API.
+  * Amazon Forecast Service
+    * Modified cmdlet New-FRCPredictor: added parameter ForecastType.
+  * Amazon FSx
+    * Added cmdlet Get-FSXFileSystemAlias leveraging the DescribeFileSystemAliases service API.
+    * Added cmdlet Register-FSXFileSystemAlias leveraging the AssociateFileSystemAliases service API.
+    * Added cmdlet Unregister-FSXFileSystemAlias leveraging the DisassociateFileSystemAliases service API.  
+  * Amazon IoT
+    * Modified cmdlet New-IOTTopicRule: added parameters Firehose_BatchMode, IotAnalytics_BatchMode and IotEvents_BatchMode.
+    * Modified cmdlet Set-IOTTopicRule: added parameters Firehose_BatchMode, IotAnalytics_BatchMode and IotEvents_BatchMode.
+  * Amazon IoT SiteWise
+    * Added cmdlet New-IOTSWPresignedPortalUrl leveraging the CreatePresignedPortalUrl service API.
+  * Amazon Lightsail
+    * Added cmdlet Get-LSContainerAPIMetadata leveraging the GetContainerAPIMetadata service API.
+    * Added cmdlet Get-LSContainerImage leveraging the GetContainerImages service API.
+    * Added cmdlet Get-LSContainerLog leveraging the GetContainerLog service API.
+    * Added cmdlet Get-LSContainerService leveraging the GetContainerServices service API.
+    * Added cmdlet Get-LSContainerServiceDeployment leveraging the GetContainerServiceDeployments service API.
+    * Added cmdlet Get-LSContainerServiceMetricData leveraging the GetContainerServiceMetricData service API.
+    * Added cmdlet Get-LSContainerServicePower leveraging the GetContainerServicePowers service API.
+    * Added cmdlet New-LSContainerService leveraging the CreateContainerService service API.
+    * Added cmdlet New-LSContainerServiceDeployment leveraging the CreateContainerServiceDeployment service API.
+    * Added cmdlet New-LSContainerServiceRegistryLogin leveraging the CreateContainerServiceRegistryLogin service API.
+    * Added cmdlet Register-LSContainerImage leveraging the RegisterContainerImage service API.
+    * Added cmdlet Remove-LSContainerImage leveraging the DeleteContainerImage service API.
+    * Added cmdlet Remove-LSContainerService leveraging the DeleteContainerService service API.
+    * Added cmdlet Update-LSContainerService leveraging the UpdateContainerService service API.
+  * Amazon Personalize Runtime
+    * Modified cmdlet Get-PERSRPersonalizedRanking: added parameter FilterValue.
+    * Modified cmdlet Get-PERSRRecommendation: added parameter FilterValue.
+  * Amazon QuickSight
+    * Modified cmdlet Get-QSDashboardEmbedUrl: added parameter StatePersistenceEnabled.
+    * Modified cmdlet New-QSDataSet: added parameter ColumnLevelPermissionRule.
+    * Modified cmdlet New-QSDataSource: added parameters OracleParameters_Database, OracleParameters_Host and OracleParameters_Port.
+    * Modified cmdlet Update-QSDataSet: added parameter ColumnLevelPermissionRule.
+    * Modified cmdlet Update-QSDataSource: added parameters OracleParameters_Database, OracleParameters_Host and OracleParameters_Port.
+  * Amazon RoboMaker
+    * Modified cmdlet New-ROBOWorldGenerationJob: added parameter WorldTag.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameter KmsKeyId.
+  * Amazon Service Catalog
+    * Added cmdlet Import-SCAsProvisionedProduct leveraging the ImportAsProvisionedProduct service API.
+    * Modified cmdlet Remove-SCProvisionedProduct: added parameter RetainPhysicalResource.
+  * Amazon Service Catalog App Registry. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SCAR and can be listed using the command 'Get-AWSCmdletName -Service SCAR'.
+  * Amazon Shield
+    * Added cmdlet Get-SHLDAttackStatistic leveraging the DescribeAttackStatistics service API.
+    * Added cmdlet Get-SHLDProtectionGroup leveraging the DescribeProtectionGroup service API.
+    * Added cmdlet Get-SHLDProtectionGroupList leveraging the ListProtectionGroups service API.
+    * Added cmdlet Get-SHLDResourcesInProtectionGroupList leveraging the ListResourcesInProtectionGroup service API.
+    * Added cmdlet New-SHLDProtectionGroup leveraging the CreateProtectionGroup service API.
+    * Added cmdlet Remove-SHLDProtectionGroup leveraging the DeleteProtectionGroup service API.
+    * Added cmdlet Update-SHLDProtectionGroup leveraging the UpdateProtectionGroup service API.
+  * Amazon Simple Storage Service (S3)
+    * Added cmdlet Get-S3BucketIntelligentTieringConfiguration leveraging the GetBucketIntelligentTieringConfiguration service API.
+    * Added cmdlet Get-S3BucketIntelligentTieringConfigurationList leveraging the ListBucketIntelligentTieringConfigurations service API.
+    * Added cmdlet Remove-S3BucketIntelligentTieringConfiguration leveraging the DeleteBucketIntelligentTieringConfiguration service API.
+    * Added cmdlet Write-S3BucketIntelligentTieringConfiguration leveraging the PutBucketIntelligentTieringConfiguration service API.
+  * Amazon Storage Gateway
+    * Added cmdlet Get-SGBandwidthRateLimitSchedule leveraging the DescribeBandwidthRateLimitSchedule service API.
+    * Added cmdlet Update-SGBandwidthRateLimitSchedule leveraging the UpdateBandwidthRateLimitSchedule service API.
+  * Amazon Textract
+    * Modified cmdlet Start-TXTDocumentAnalysis: added parameter KMSKeyId.
+    * Modified cmdlet Start-TXTDocumentTextDetection: added parameter KMSKeyId.
+
+### 4.1.4.0 (2020-11-06)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.5.50.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Amplify
     * Modified cmdlet New-AMPApp: added parameter AutoBranchCreationConfig_EnablePerformanceMode.

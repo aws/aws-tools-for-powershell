@@ -133,6 +133,22 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.Int64? SessionLifetimeInMinute { get; set; }
         #endregion
         
+        #region Parameter StatePersistenceEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Adds persistence of state for the user session in an embedded dashboard. Persistence
+        /// applies to the sheet and the parameter settings. These are control settings that the
+        /// dashboard subscriber (QuickSight reader) chooses while viewing the dashboard. If this
+        /// is set to <code>TRUE</code>, the settings are the same when the the subscriber reopens
+        /// the same dashboard URL. The state is stored in QuickSight, not in a browser cookie.
+        /// If this is set to FALSE, the state of the user session is not persisted. The default
+        /// is <code>FALSE</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StatePersistenceEnabled { get; set; }
+        #endregion
+        
         #region Parameter UndoRedoDisabled
         /// <summary>
         /// <para>
@@ -225,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             #endif
             context.ResetDisabled = this.ResetDisabled;
             context.SessionLifetimeInMinute = this.SessionLifetimeInMinute;
+            context.StatePersistenceEnabled = this.StatePersistenceEnabled;
             context.UndoRedoDisabled = this.UndoRedoDisabled;
             context.UserArn = this.UserArn;
             
@@ -262,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.SessionLifetimeInMinute != null)
             {
                 request.SessionLifetimeInMinutes = cmdletContext.SessionLifetimeInMinute.Value;
+            }
+            if (cmdletContext.StatePersistenceEnabled != null)
+            {
+                request.StatePersistenceEnabled = cmdletContext.StatePersistenceEnabled.Value;
             }
             if (cmdletContext.UndoRedoDisabled != null)
             {
@@ -337,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.IdentityType IdentityType { get; set; }
             public System.Boolean? ResetDisabled { get; set; }
             public System.Int64? SessionLifetimeInMinute { get; set; }
+            public System.Boolean? StatePersistenceEnabled { get; set; }
             public System.Boolean? UndoRedoDisabled { get; set; }
             public System.String UserArn { get; set; }
             public System.Func<Amazon.QuickSight.Model.GetDashboardEmbedUrlResponse, GetQSDashboardEmbedUrlCmdlet, object> Select { get; set; } =

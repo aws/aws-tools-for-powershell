@@ -319,7 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 }
                 
                 ProcessOutput(output);
-            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken) && (!_emitLimit.HasValue || _emitLimit.Value >= 0));
             
             
             if (useParameterSelect)

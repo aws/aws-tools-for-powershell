@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>servicecatalog-appregistry</C2jFilename>
+    <AssemblyName>AppRegistry</AssemblyName>
+    <ServiceNounPrefix>SCAR</ServiceNounPrefix>
+    <ServiceName>AWS Service Catalog App Registry</ServiceName>
+    <ServiceClientInterface>IAmazonAppRegistry</ServiceClientInterface>
+    <ServiceClient>AmazonAppRegistryClient</ServiceClient>
+    <ServiceModuleGuid>8866605E-40B1-4D05-A6C1-B49ECAEB31E1</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="nextToken" Next="nextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateAttributeGroup" OutputProperty="*" Verb="Register" Noun="AttributeGroup" ShouldProcessTarget="Application" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateResource" OutputProperty="*" Verb="Register" Noun="Resource" ShouldProcessTarget="Application" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="Application" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAttributeGroup" OutputProperty="AttributeGroup" Verb="New" Noun="AttributeGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplication" OutputProperty="Application" Verb="Remove" Noun="Application" ShouldProcessTarget="Application" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAttributeGroup" OutputProperty="AttributeGroup" Verb="Remove" Noun="AttributeGroup" ShouldProcessTarget="AttributeGroup" PipelineParameter="AttributeGroup" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAttributeGroup" OutputProperty="*" Verb="Unregister" Noun="AttributeGroup" ShouldProcessTarget="Application" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateResource" OutputProperty="*" Verb="Unregister" Noun="Resource" ShouldProcessTarget="Application" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAttributeGroup" OutputProperty="*" Verb="Get" Noun="AttributeGroup" PipelineParameter="AttributeGroup" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociatedAttributeGroups" OutputProperty="AttributeGroups" Verb="Get" Noun="AssociatedAttributeGroupList" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociatedResources" OutputProperty="Resources" Verb="Get" Noun="AssociatedResourceList" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAttributeGroups" OutputProperty="AttributeGroups" Verb="Get" Noun="AttributeGroupList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplication" OutputProperty="Application" Verb="Update" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAttributeGroup" OutputProperty="AttributeGroup" Verb="Update" Noun="AttributeGroup" ShouldProcessTarget="Name" PipelineParameter="AttributeGroup" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

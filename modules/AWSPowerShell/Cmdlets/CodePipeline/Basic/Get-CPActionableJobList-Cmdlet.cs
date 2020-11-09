@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>
         /// <para>A category defines what kind of action can be taken in the stage, and constrains the
         /// provider type for the action. Valid categories are limited to one of the following
-        /// values. </para>
+        /// values. </para><ul><li><para>Source</para></li><li><para>Build</para></li><li><para>Test</para></li><li><para>Deploy</para></li><li><para>Invoke</para></li><li><para>Approval</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter ActionTypeId_Owner
         /// <summary>
         /// <para>
-        /// <para>The creator of the action being called.</para>
+        /// <para>The creator of the action being called. There are three valid values for the <code>Owner</code>
+        /// field in the action category section within your pipeline structure: <code>AWS</code>,
+        /// <code>ThirdParty</code>, and <code>Custom</code>. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid
+        /// Action Types and Providers in CodePipeline</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

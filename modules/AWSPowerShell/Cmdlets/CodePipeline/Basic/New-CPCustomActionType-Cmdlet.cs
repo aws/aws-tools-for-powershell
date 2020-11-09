@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Category
         /// <summary>
         /// <para>
-        /// <para>The category of the custom action, such as a build action or a test action.</para><note><para>Although <code>Source</code> and <code>Approval</code> are listed as valid values,
-        /// they are not currently functional. These values are reserved for future use.</para></note>
+        /// <para>The category of the custom action, such as a build action or a test action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

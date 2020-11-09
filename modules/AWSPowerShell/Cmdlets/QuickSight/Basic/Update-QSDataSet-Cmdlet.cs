@@ -78,6 +78,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.ColumnGroup[] ColumnGroup { get; set; }
         #endregion
         
+        #region Parameter ColumnLevelPermissionRule
+        /// <summary>
+        /// <para>
+        /// <para>A set of one or more definitions of a <code><a>ColumnLevelPermissionRule</a></code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ColumnLevelPermissionRules")]
+        public Amazon.QuickSight.Model.ColumnLevelPermissionRule[] ColumnLevelPermissionRule { get; set; }
+        #endregion
+        
         #region Parameter DataSetId
         /// <summary>
         /// <para>
@@ -250,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.ColumnGroup = new List<Amazon.QuickSight.Model.ColumnGroup>(this.ColumnGroup);
             }
+            if (this.ColumnLevelPermissionRule != null)
+            {
+                context.ColumnLevelPermissionRule = new List<Amazon.QuickSight.Model.ColumnLevelPermissionRule>(this.ColumnLevelPermissionRule);
+            }
             context.DataSetId = this.DataSetId;
             #if MODULAR
             if (this.DataSetId == null && ParameterWasBound(nameof(this.DataSetId)))
@@ -319,6 +334,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.ColumnGroup != null)
             {
                 request.ColumnGroups = cmdletContext.ColumnGroup;
+            }
+            if (cmdletContext.ColumnLevelPermissionRule != null)
+            {
+                request.ColumnLevelPermissionRules = cmdletContext.ColumnLevelPermissionRule;
             }
             if (cmdletContext.DataSetId != null)
             {
@@ -442,6 +461,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             public System.String AwsAccountId { get; set; }
             public List<Amazon.QuickSight.Model.ColumnGroup> ColumnGroup { get; set; }
+            public List<Amazon.QuickSight.Model.ColumnLevelPermissionRule> ColumnLevelPermissionRule { get; set; }
             public System.String DataSetId { get; set; }
             public Amazon.QuickSight.DataSetImportMode ImportMode { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.LogicalTable> LogicalTableMap { get; set; }

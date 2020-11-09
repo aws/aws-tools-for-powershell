@@ -197,6 +197,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="MoveReplicationTask" OutputProperty="ReplicationTask" Verb="Move" Noun="ReplicationTask" AnonymousShouldProcessTarget="true" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RebootReplicationInstance" OutputProperty="ReplicationInstance" Verb="Restart" Noun="ReplicationInstance" ShouldProcessTarget="ReplicationInstanceArn" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

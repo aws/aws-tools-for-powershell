@@ -43,9 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
-        /// <para>The names of the Auto Scaling groups. Each name can be a maximum of 1600 characters.
-        /// By default, you can only specify up to 50 names. You can optionally increase this
-        /// limit using the <code>MaxRecords</code> parameter.</para><para>If you omit this parameter, all Auto Scaling groups are described.</para>
+        /// <para>The names of the Auto Scaling groups. By default, you can only specify up to 50 names.
+        /// You can optionally increase this limit using the <code>MaxRecords</code> parameter.</para><para>If you omit this parameter, all Auto Scaling groups are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

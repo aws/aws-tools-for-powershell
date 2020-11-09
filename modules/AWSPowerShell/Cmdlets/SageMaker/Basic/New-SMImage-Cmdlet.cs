@@ -28,8 +28,10 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a SageMaker <code>Image</code>. A SageMaker image represents a set of container
-    /// images. Each of these container images is represented by a SageMaker <code>ImageVersion</code>.
+    /// Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each
+    /// image version represents a container image stored in Amazon Container Registry (ECR).
+    /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring
+    /// your own SageMaker image</a>.
     /// </summary>
     [Cmdlet("New", "SMImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -54,8 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The display name of the image. When the image is added to a domain, <code>DisplayName</code>
-        /// must be unique to the domain.</para>
+        /// <para>The display name of the image. If not provided, <code>ImageName</code> is displayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

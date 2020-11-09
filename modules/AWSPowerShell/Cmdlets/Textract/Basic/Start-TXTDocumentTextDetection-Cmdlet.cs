@@ -95,6 +95,19 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         public System.String JobTag { get; set; }
         #endregion
         
+        #region Parameter KMSKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key used to encrypt the inference results. This can be in either Key ID or
+        /// Key Alias format. When a KMS key is provided, the KMS key will be used for server-side
+        /// encryption of the objects in the customer bucket. When this parameter is not enabled,
+        /// the result will be encrypted server side,using SSE-S3.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KMSKeyId { get; set; }
+        #endregion
+        
         #region Parameter S3Object_Name
         /// <summary>
         /// <para>
@@ -206,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             context.S3Object_Name = this.S3Object_Name;
             context.S3Object_Version = this.S3Object_Version;
             context.JobTag = this.JobTag;
+            context.KMSKeyId = this.KMSKeyId;
             context.NotificationChannel_RoleArn = this.NotificationChannel_RoleArn;
             context.NotificationChannel_SNSTopicArn = this.NotificationChannel_SNSTopicArn;
             context.OutputConfig_S3Bucket = this.OutputConfig_S3Bucket;
@@ -287,6 +301,10 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             if (cmdletContext.JobTag != null)
             {
                 request.JobTag = cmdletContext.JobTag;
+            }
+            if (cmdletContext.KMSKeyId != null)
+            {
+                request.KMSKeyId = cmdletContext.KMSKeyId;
             }
             
              // populate NotificationChannel
@@ -412,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             public System.String S3Object_Name { get; set; }
             public System.String S3Object_Version { get; set; }
             public System.String JobTag { get; set; }
+            public System.String KMSKeyId { get; set; }
             public System.String NotificationChannel_RoleArn { get; set; }
             public System.String NotificationChannel_SNSTopicArn { get; set; }
             public System.String OutputConfig_S3Bucket { get; set; }

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// termination policy to determine which instances to terminate. 
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-manual-scaling.html">Manual
-    /// Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ASDesiredCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

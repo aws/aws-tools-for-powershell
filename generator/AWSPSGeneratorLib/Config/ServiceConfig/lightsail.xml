@@ -65,6 +65,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateContainerService" OutputProperty="ContainerService" Verb="New" Noun="ContainerService" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateContainerServiceDeployment" OutputProperty="ContainerService" Verb="New" Noun="ContainerServiceDeployment" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateContainerServiceRegistryLogin" OutputProperty="RegistryLogin" Verb="New" Noun="ContainerServiceRegistryLogin" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDisk" OutputProperty="Operations" Verb="New" Noun="Disk" ShouldProcessTarget="DiskName" PipelineParameter="DiskName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -138,6 +150,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteContactMethod" OutputProperty="Operations" Verb="Remove" Noun="ContactMethod" ShouldProcessTarget="Protocol" PipelineParameter="Protocol" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContainerImage" Verb="Remove" Noun="ContainerImage" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContainerService" Verb="Remove" Noun="ContainerService" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -256,6 +276,34 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetContactMethods" OutputProperty="ContactMethods" Verb="Get" Noun="ContactMethod" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContainerAPIMetadata" OutputProperty="Metadata" Verb="Get" Noun="ContainerAPIMetadata" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContainerImages" OutputProperty="ContainerImages" Verb="Get" Noun="ContainerImage" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContainerLog" OutputProperty="LogEvents" Verb="Get" Noun="ContainerLog" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContainerServiceDeployments" OutputProperty="Deployments" Verb="Get" Noun="ContainerServiceDeployment" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContainerServiceMetricData" OutputProperty="*" Verb="Get" Noun="ContainerServiceMetricData" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContainerServicePowers" OutputProperty="Powers" Verb="Get" Noun="ContainerServicePower" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContainerServices" OutputProperty="ContainerServices" Verb="Get" Noun="ContainerService" PipelineParameter="ServiceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -463,6 +511,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RegisterContainerImage" OutputProperty="ContainerImage" Verb="Register" Noun="ContainerImage" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ReleaseStaticIp" OutputProperty="Operations" Verb="Remove" Noun="StaticIp" ShouldProcessTarget="StaticIpName" PipelineParameter="StaticIpName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -506,6 +558,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" OutputProperty="Operations" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContainerService" OutputProperty="ContainerService" Verb="Update" Noun="ContainerService" ShouldProcessTarget="ServiceName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

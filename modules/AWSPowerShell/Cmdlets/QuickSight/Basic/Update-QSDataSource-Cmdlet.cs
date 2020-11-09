@@ -165,6 +165,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String MySqlParameters_Database { get; set; }
         #endregion
         
+        #region Parameter OracleParameters_Database
+        /// <summary>
+        /// <para>
+        /// <para>Database.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_OracleParameters_Database")]
+        public System.String OracleParameters_Database { get; set; }
+        #endregion
+        
         #region Parameter PostgreSqlParameters_Database
         /// <summary>
         /// <para>
@@ -323,6 +334,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_MySqlParameters_Host")]
         public System.String MySqlParameters_Host { get; set; }
+        #endregion
+        
+        #region Parameter OracleParameters_Host
+        /// <summary>
+        /// <para>
+        /// <para>An Oracle host.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_OracleParameters_Host")]
+        public System.String OracleParameters_Host { get; set; }
         #endregion
         
         #region Parameter PostgreSqlParameters_Host
@@ -505,6 +527,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_MySqlParameters_Port")]
         public System.Int32? MySqlParameters_Port { get; set; }
+        #endregion
+        
+        #region Parameter OracleParameters_Port
+        /// <summary>
+        /// <para>
+        /// <para>Port.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_OracleParameters_Port")]
+        public System.Int32? OracleParameters_Port { get; set; }
         #endregion
         
         #region Parameter PostgreSqlParameters_Port
@@ -747,6 +780,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.MySqlParameters_Database = this.MySqlParameters_Database;
             context.MySqlParameters_Host = this.MySqlParameters_Host;
             context.MySqlParameters_Port = this.MySqlParameters_Port;
+            context.OracleParameters_Database = this.OracleParameters_Database;
+            context.OracleParameters_Host = this.OracleParameters_Host;
+            context.OracleParameters_Port = this.OracleParameters_Port;
             context.PostgreSqlParameters_Database = this.PostgreSqlParameters_Database;
             context.PostgreSqlParameters_Host = this.PostgreSqlParameters_Host;
             context.PostgreSqlParameters_Port = this.PostgreSqlParameters_Port;
@@ -1336,6 +1372,51 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.MySqlParameters = requestDataSourceParameters_dataSourceParameters_MySqlParameters;
                 requestDataSourceParametersIsNull = false;
             }
+            Amazon.QuickSight.Model.OracleParameters requestDataSourceParameters_dataSourceParameters_OracleParameters = null;
+            
+             // populate OracleParameters
+            var requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_OracleParameters = new Amazon.QuickSight.Model.OracleParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Database = null;
+            if (cmdletContext.OracleParameters_Database != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Database = cmdletContext.OracleParameters_Database;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Database != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters.Database = requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Database;
+                requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Host = null;
+            if (cmdletContext.OracleParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Host = cmdletContext.OracleParameters_Host;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters.Host = requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Host;
+                requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull = false;
+            }
+            System.Int32? requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Port = null;
+            if (cmdletContext.OracleParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Port = cmdletContext.OracleParameters_Port.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters.Port = requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Port.Value;
+                requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_OracleParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_OracleParameters != null)
+            {
+                request.DataSourceParameters.OracleParameters = requestDataSourceParameters_dataSourceParameters_OracleParameters;
+                requestDataSourceParametersIsNull = false;
+            }
             Amazon.QuickSight.Model.PostgreSqlParameters requestDataSourceParameters_dataSourceParameters_PostgreSqlParameters = null;
             
              // populate PostgreSqlParameters
@@ -1746,6 +1827,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String MySqlParameters_Database { get; set; }
             public System.String MySqlParameters_Host { get; set; }
             public System.Int32? MySqlParameters_Port { get; set; }
+            public System.String OracleParameters_Database { get; set; }
+            public System.String OracleParameters_Host { get; set; }
+            public System.Int32? OracleParameters_Port { get; set; }
             public System.String PostgreSqlParameters_Database { get; set; }
             public System.String PostgreSqlParameters_Host { get; set; }
             public System.Int32? PostgreSqlParameters_Port { get; set; }

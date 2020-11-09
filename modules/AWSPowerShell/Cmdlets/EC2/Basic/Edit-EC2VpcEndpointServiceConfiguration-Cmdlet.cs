@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Modifies the attributes of your VPC endpoint service configuration. You can change
-    /// the Network Load Balancers for your service, and you can specify whether acceptance
-    /// is required for requests to connect to your endpoint service through an interface
-    /// VPC endpoint.
+    /// the Network Load Balancers or Gateway Load Balancers for your service, and you can
+    /// specify whether acceptance is required for requests to connect to your endpoint service
+    /// through an interface VPC endpoint.
     /// 
     ///  
     /// <para>
@@ -61,6 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? AcceptanceRequired { get; set; }
         #endregion
         
+        #region Parameter AddGatewayLoadBalancerArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service
+        /// configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AddGatewayLoadBalancerArns")]
+        public System.String[] AddGatewayLoadBalancerArn { get; set; }
+        #endregion
+        
         #region Parameter AddNetworkLoadBalancerArn
         /// <summary>
         /// <para>
@@ -76,11 +88,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PrivateDnsName
         /// <summary>
         /// <para>
-        /// <para>The private DNS name to assign to the endpoint service.</para>
+        /// <para>(Interface endpoint configuration) The private DNS name to assign to the endpoint
+        /// service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PrivateDnsName { get; set; }
+        #endregion
+        
+        #region Parameter RemoveGatewayLoadBalancerArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service
+        /// configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RemoveGatewayLoadBalancerArns")]
+        public System.String[] RemoveGatewayLoadBalancerArn { get; set; }
         #endregion
         
         #region Parameter RemoveNetworkLoadBalancerArn
@@ -98,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemovePrivateDnsName
         /// <summary>
         /// <para>
-        /// <para>Removes the private DNS name of the endpoint service.</para>
+        /// <para>(Interface endpoint configuration) Removes the private DNS name of the endpoint service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,11 +209,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AcceptanceRequired = this.AcceptanceRequired;
+            if (this.AddGatewayLoadBalancerArn != null)
+            {
+                context.AddGatewayLoadBalancerArn = new List<System.String>(this.AddGatewayLoadBalancerArn);
+            }
             if (this.AddNetworkLoadBalancerArn != null)
             {
                 context.AddNetworkLoadBalancerArn = new List<System.String>(this.AddNetworkLoadBalancerArn);
             }
             context.PrivateDnsName = this.PrivateDnsName;
+            if (this.RemoveGatewayLoadBalancerArn != null)
+            {
+                context.RemoveGatewayLoadBalancerArn = new List<System.String>(this.RemoveGatewayLoadBalancerArn);
+            }
             if (this.RemoveNetworkLoadBalancerArn != null)
             {
                 context.RemoveNetworkLoadBalancerArn = new List<System.String>(this.RemoveNetworkLoadBalancerArn);
@@ -221,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.AcceptanceRequired = cmdletContext.AcceptanceRequired.Value;
             }
+            if (cmdletContext.AddGatewayLoadBalancerArn != null)
+            {
+                request.AddGatewayLoadBalancerArns = cmdletContext.AddGatewayLoadBalancerArn;
+            }
             if (cmdletContext.AddNetworkLoadBalancerArn != null)
             {
                 request.AddNetworkLoadBalancerArns = cmdletContext.AddNetworkLoadBalancerArn;
@@ -228,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.PrivateDnsName != null)
             {
                 request.PrivateDnsName = cmdletContext.PrivateDnsName;
+            }
+            if (cmdletContext.RemoveGatewayLoadBalancerArn != null)
+            {
+                request.RemoveGatewayLoadBalancerArns = cmdletContext.RemoveGatewayLoadBalancerArn;
             }
             if (cmdletContext.RemoveNetworkLoadBalancerArn != null)
             {
@@ -303,8 +344,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AcceptanceRequired { get; set; }
+            public List<System.String> AddGatewayLoadBalancerArn { get; set; }
             public List<System.String> AddNetworkLoadBalancerArn { get; set; }
             public System.String PrivateDnsName { get; set; }
+            public List<System.String> RemoveGatewayLoadBalancerArn { get; set; }
             public List<System.String> RemoveNetworkLoadBalancerArn { get; set; }
             public System.Boolean? RemovePrivateDnsName { get; set; }
             public System.String ServiceId { get; set; }

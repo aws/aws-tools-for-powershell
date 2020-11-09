@@ -38,11 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// When the conditions for a rule are met, its actions are performed. If the conditions
     /// for no rules are met, the actions for the default rule are performed. For more information,
     /// see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener
-    /// Rules</a> in the <i>Application Load Balancers Guide</i>.
-    /// </para><para>
-    /// To view your current rules, use <a>DescribeRules</a>. To update a rule, use <a>ModifyRule</a>.
-    /// To set the priorities of your rules, use <a>SetRulePriorities</a>. To delete a rule,
-    /// use <a>DeleteRule</a>.
+    /// rules</a> in the <i>Application Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ELB2Rule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

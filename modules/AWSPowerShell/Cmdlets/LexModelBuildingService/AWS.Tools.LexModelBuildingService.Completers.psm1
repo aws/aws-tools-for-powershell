@@ -101,7 +101,7 @@ $LMB_Completers = {
             ($_ -eq "Write-LMBBot/Locale")
         }
         {
-            $v = "de-DE","en-AU","en-GB","en-US","es-US"
+            $v = "de-DE","en-AU","en-GB","en-US","es-ES","es-US","fr-CA","fr-FR","it-IT"
             break
         }
 

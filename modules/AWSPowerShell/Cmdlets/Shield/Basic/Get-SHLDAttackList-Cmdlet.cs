@@ -95,12 +95,12 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of <a>AttackSummary</a> objects to be returned. If this is left
-        /// blank, the first 20 results will be returned.</para><para>This is a maximum value; it is possible that AWS WAF will return the results in smaller
-        /// batches. That is, the number of <a>AttackSummary</a> objects returned could be less
-        /// than <code>MaxResults</code>, even if there are still more <a>AttackSummary</a> objects
-        /// yet to return. If there are more <a>AttackSummary</a> objects to return, AWS WAF will
-        /// always also return a <code>NextToken</code>.</para>
+        /// <para>The maximum number of <a>AttackSummary</a> objects to return. If you leave this blank,
+        /// Shield Advanced returns the first 20 results.</para><para>This is a maximum value. Shield Advanced might return the results in smaller batches.
+        /// That is, the number of objects returned could be less than <code>MaxResults</code>,
+        /// even if there are still more objects yet to return. If there are more objects to return,
+        /// Shield Advanced returns a value in <code>NextToken</code> that you can use in your
+        /// next request, to get the next batch of objects.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

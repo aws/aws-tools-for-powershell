@@ -28,9 +28,9 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Creates one of the following entry records associated with the domain: Address (A),
-    /// canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority
-    /// (SOA), service locator (SRV), or text (TXT).
+    /// Creates one of the following domain name system (DNS) records in a domain DNS zone:
+    /// Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start
+    /// of authority (SOA), service locator (SRV), or text (TXT).
     /// 
     ///  
     /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>When <code>true</code>, specifies whether the domain entry is an alias used by the
         /// Lightsail load balancer. You can include an alias (A type) record in your request,
-        /// which points to a load balancer DNS name and routes traffic to your load balancer</para>
+        /// which points to a load balancer DNS name and routes traffic to your load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

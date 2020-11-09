@@ -251,9 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>A load balancer object representing the load balancers to use with your service. For
         /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
         /// Load Balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If the service is using the rolling update (<code>ECS</code>) deployment controller
-        /// and using either an Application Load Balancer or Network Load Balancer, you can specify
-        /// multiple target groups to attach to the service. The service-linked role is required
-        /// for services that make use of multiple target groups. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+        /// and using either an Application Load Balancer or Network Load Balancer, you must specify
+        /// one or more target group ARNs to attach to the service. The service-linked role is
+        /// required for services that make use of multiple target groups. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
         /// Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
         /// Developer Guide</i>.</para><para>If the service is using the <code>CODE_DEPLOY</code> deployment controller, the service
         /// is required to use either an Application Load Balancer or Network Load Balancer. When
@@ -268,12 +269,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// the service definition are immutable. If you are using the <code>CODE_DEPLOY</code>
         /// deployment controller, these values can be changed when updating the service.</para><para>For Application Load Balancers and Network Load Balancers, this object must contain
         /// the load balancer target group ARN, the container name (as it appears in a container
-        /// definition), and the container port to access from the load balancer. When a task
-        /// from this service is placed on a container instance, the container instance and port
-        /// combination is registered as a target in the target group specified here.</para><para>For Classic Load Balancers, this object must contain the load balancer name, the container
+        /// definition), and the container port to access from the load balancer. The load balancer
+        /// name parameter must be omitted. When a task from this service is placed on a container
+        /// instance, the container instance and port combination is registered as a target in
+        /// the target group specified here.</para><para>For Classic Load Balancers, this object must contain the load balancer name, the container
         /// name (as it appears in a container definition), and the container port to access from
-        /// the load balancer. When a task from this service is placed on a container instance,
-        /// the container instance is registered with the load balancer specified here.</para><para>Services with tasks that use the <code>awsvpc</code> network mode (for example, those
+        /// the load balancer. The target group ARN parameter must be omitted. When a task from
+        /// this service is placed on a container instance, the container instance is registered
+        /// with the load balancer specified here.</para><para>Services with tasks that use the <code>awsvpc</code> network mode (for example, those
         /// with the Fargate launch type) only support Application Load Balancers and Network
         /// Load Balancers. Classic Load Balancers are not supported. Also, when you create any
         /// target groups for these services, you must choose <code>ip</code> as the target type,
@@ -444,9 +447,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AwsvpcConfiguration_SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The security groups associated with the task or service. If you do not specify a security
-        /// group, the default security group for the VPC is used. There is a limit of 5 security
-        /// groups that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
+        /// <para>The IDs of the security groups associated with the task or service. If you do not
+        /// specify a security group, the default security group for the VPC is used. There is
+        /// a limit of 5 security groups that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -491,8 +494,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AwsvpcConfiguration_Subnet
         /// <summary>
         /// <para>
-        /// <para>The subnets associated with the task or service. There is a limit of 16 subnets that
-        /// can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
+        /// <para>The IDs of the subnets associated with the task or service. There is a limit of 16
+        /// subnets that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -525,8 +528,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
         /// full ARN of the task definition to run in your service. If a <code>revision</code>
-        /// is not specified, the latest <code>ACTIVE</code> revision is used.</para><para>A task definition must be specified if the service is using the <code>ECS</code> deployment
-        /// controller.</para>
+        /// is not specified, the latest <code>ACTIVE</code> revision is used.</para><para>A task definition must be specified if the service is using either the <code>ECS</code>
+        /// or <code>CODE_DEPLOY</code> deployment controllers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

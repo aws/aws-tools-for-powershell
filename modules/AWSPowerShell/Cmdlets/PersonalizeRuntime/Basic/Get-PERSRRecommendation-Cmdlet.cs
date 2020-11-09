@@ -83,12 +83,31 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         /// <summary>
         /// <para>
         /// <para>The ARN of the filter to apply to the returned recommendations. For more information,
-        /// see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filters.html">Using
-        /// Filters with Amazon Personalize</a>.</para><para>When using this parameter, be sure the filter resource is <code>ACTIVE</code>.</para>
+        /// see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering
+        /// Recommendations</a>.</para><para>When using this parameter, be sure the filter resource is <code>ACTIVE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String FilterArn { get; set; }
+        #endregion
+        
+        #region Parameter FilterValue
+        /// <summary>
+        /// <para>
+        /// <para>The values to use when filtering recommendations. For each placeholder parameter in
+        /// your filter expression, provide the parameter name (in matching case) as a key and
+        /// the filter value(s) as the corresponding value. Separate multiple values for one parameter
+        /// with a comma. </para><para>For filter expressions that use an <code>INCLUDE</code> element to include items,
+        /// you must provide values for all parameters that are defined in the expression. For
+        /// filters with expressions that use an <code>EXCLUDE</code> element to exclude items,
+        /// you can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't
+        /// use that portion of the expression to filter recommendations.</para><para>For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering
+        /// Recommendations</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterValues")]
+        public System.Collections.Hashtable FilterValue { get; set; }
         #endregion
         
         #region Parameter ItemId
@@ -183,6 +202,14 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
                 }
             }
             context.FilterArn = this.FilterArn;
+            if (this.FilterValue != null)
+            {
+                context.FilterValue = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.FilterValue.Keys)
+                {
+                    context.FilterValue.Add((String)hashKey, (String)(this.FilterValue[hashKey]));
+                }
+            }
             context.ItemId = this.ItemId;
             context.NumResult = this.NumResult;
             context.UserId = this.UserId;
@@ -213,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
             if (cmdletContext.FilterArn != null)
             {
                 request.FilterArn = cmdletContext.FilterArn;
+            }
+            if (cmdletContext.FilterValue != null)
+            {
+                request.FilterValues = cmdletContext.FilterValue;
             }
             if (cmdletContext.ItemId != null)
             {
@@ -290,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
             public System.String CampaignArn { get; set; }
             public Dictionary<System.String, System.String> Context { get; set; }
             public System.String FilterArn { get; set; }
+            public Dictionary<System.String, System.String> FilterValue { get; set; }
             public System.String ItemId { get; set; }
             public System.Int32? NumResult { get; set; }
             public System.String UserId { get; set; }

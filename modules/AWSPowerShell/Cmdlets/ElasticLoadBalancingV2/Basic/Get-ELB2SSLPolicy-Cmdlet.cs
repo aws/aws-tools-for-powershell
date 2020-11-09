@@ -33,7 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
-    /// Policies</a> in the <i>Application Load Balancers Guide</i>.
+    /// policies</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security
+    /// policies</a> in the <i>Network Load Balancers Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ELB2SSLPolicy")]

@@ -32,10 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes">Target
-    /// Group Attributes</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-group-attributes">Target
-    /// Group Attributes</a> in the <i>Network Load Balancers Guide</i>.
-    /// </para>
+    /// For more information, see the following:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes">Target
+    /// group attributes</a> in the <i>Application Load Balancers Guide</i></para></li><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-group-attributes">Target
+    /// group attributes</a> in the <i>Network Load Balancers Guide</i></para></li><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html#target-group-attributes">Target
+    /// group attributes</a> in the <i>Gateway Load Balancers Guide</i></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "ELB2TargetGroupAttribute")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.TargetGroupAttribute")]

@@ -114,6 +114,13 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.IntelligentTieringStatus
+        "Write-S3BucketIntelligentTieringConfiguration/IntelligentTieringConfiguration_Status"
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.S3.InventoryFormat
         "Write-S3BucketInventoryConfiguration/InventoryConfiguration_Destination_S3BucketDestination_InventoryFormat"
         {
@@ -259,6 +266,7 @@ $S3_map = @{
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "Encoding"=@("Get-S3Object","Get-S3Version")
     "ExpressionType"=@("Select-S3ObjectContent")
+    "IntelligentTieringConfiguration_Status"=@("Write-S3BucketIntelligentTieringConfiguration")
     "InventoryConfiguration_Destination_S3BucketDestination_InventoryFormat"=@("Write-S3BucketInventoryConfiguration")
     "InventoryConfiguration_IncludedObjectVersions"=@("Write-S3BucketInventoryConfiguration")
     "InventoryConfiguration_Schedule_Frequency"=@("Write-S3BucketInventoryConfiguration")
@@ -332,6 +340,7 @@ $S3_SelectCompleters = {
 $S3_SelectMap = @{
     "Select"=@("Remove-S3BucketAnalyticsConfiguration",
                "Remove-S3BucketEncryption",
+               "Remove-S3BucketIntelligentTieringConfiguration",
                "Remove-S3BucketInventoryConfiguration",
                "Remove-S3BucketMetricsConfiguration",
                "Remove-S3BucketOwnershipControl",
@@ -347,6 +356,7 @@ $S3_SelectMap = @{
                "Get-S3BucketAccelerateConfiguration",
                "Get-S3BucketAnalyticsConfiguration",
                "Get-S3BucketEncryption",
+               "Get-S3BucketIntelligentTieringConfiguration",
                "Get-S3BucketInventoryConfiguration",
                "Get-S3BucketLocation",
                "Get-S3BucketLogging",
@@ -369,6 +379,7 @@ $S3_SelectMap = @{
                "Get-S3ObjectTagSet",
                "Get-S3PublicAccessBlock",
                "Get-S3BucketAnalyticsConfigurationList",
+               "Get-S3BucketIntelligentTieringConfigurationList",
                "Get-S3BucketInventoryConfigurationList",
                "Get-S3BucketMetricsConfigurationList",
                "Get-S3Bucket",
@@ -378,6 +389,7 @@ $S3_SelectMap = @{
                "Write-S3BucketAccelerateConfiguration",
                "Write-S3BucketAnalyticsConfiguration",
                "Set-S3BucketEncryption",
+               "Write-S3BucketIntelligentTieringConfiguration",
                "Write-S3BucketInventoryConfiguration",
                "Write-S3BucketLogging",
                "Write-S3BucketMetricsConfiguration",

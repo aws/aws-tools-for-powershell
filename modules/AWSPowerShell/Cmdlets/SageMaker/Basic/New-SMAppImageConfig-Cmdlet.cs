@@ -28,7 +28,9 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a configuration for running an Amazon SageMaker image as a KernelGateway app.
+    /// Creates a configuration for running a SageMaker image as a KernelGateway app. The
+    /// configuration specifies the Amazon Elastic File System (EFS) storage volume on the
+    /// image, and a list of the kernels in the image.
     /// </summary>
     [Cmdlet("New", "SMAppImageConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -60,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter FileSystemConfig_DefaultGid
         /// <summary>
         /// <para>
-        /// <para>The default POSIX group ID. If not specified, defaults to <code>100</code>.</para>
+        /// <para>The default POSIX group ID (GID). If not specified, defaults to <code>100</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter FileSystemConfig_DefaultUid
         /// <summary>
         /// <para>
-        /// <para>The default POSIX user ID. If not specified, defaults to <code>1000</code>.</para>
+        /// <para>The default POSIX user ID (UID). If not specified, defaults to <code>1000</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,8 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter KernelGatewayImageConfig_KernelSpec
         /// <summary>
         /// <para>
-        /// <para>Defines how a kernel is started and the arguments, environment variables, and metadata
-        /// that are available to the kernel.</para>
+        /// <para>The specification of the Jupyter kernels in the image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

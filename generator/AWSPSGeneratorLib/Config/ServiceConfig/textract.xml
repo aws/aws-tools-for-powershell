@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>textract</C2jFilename>
     <AssemblyName>Textract</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -35,7 +35,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDocumentAnalysis" OutputProperty="JobId" Verb="Start" Noun="DocumentAnalysis" ShouldProcessTarget="" PipelineParameter="FeatureTypes" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartDocumentAnalysis" OutputProperty="JobId" Verb="Start" Noun="DocumentAnalysis" AnonymousShouldProcessTarget="true" PipelineParameter="FeatureTypes" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -44,7 +44,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

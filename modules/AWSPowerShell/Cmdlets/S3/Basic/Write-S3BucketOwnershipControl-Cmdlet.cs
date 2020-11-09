@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Creates or modifies <code>OwnershipControls</code> for an Amazon S3 bucket. To use
-    /// this operation, you must have the <code>s3:GetBucketOwnershipControls</code> permission.
+    /// this operation, you must have the <code>s3:PutBucketOwnershipControls</code> permission.
     /// For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
     /// Permissions in a Policy</a>. 
     /// 
@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html">Using
     /// Object Ownership</a>. 
     /// </para><para>
-    /// The following operations are related to <code>GetBucketOwnershipControls</code>:
+    /// The following operations are related to <code>PutBucketOwnershipControls</code>:
     /// </para><ul><li><para><a>GetBucketOwnershipControls</a></para></li><li><para><a>DeleteBucketOwnershipControls</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketOwnershipControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <p>The account id of the expected bucket owner. If the bucket is owned by a different account, 
+        /// the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

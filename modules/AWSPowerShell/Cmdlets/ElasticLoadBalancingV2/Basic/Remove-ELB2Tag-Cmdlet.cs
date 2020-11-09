@@ -30,12 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// <summary>
     /// Removes the specified tags from the specified Elastic Load Balancing resources. You
     /// can remove the tags for one or more Application Load Balancers, Network Load Balancers,
-    /// target groups, listeners, or rules.
-    /// 
-    ///  
-    /// <para>
-    /// To list the current tags for your resources, use <a>DescribeTags</a>.
-    /// </para>
+    /// Gateway Load Balancers, target groups, listeners, or rules.
     /// </summary>
     [Cmdlet("Remove", "ELB2Tag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

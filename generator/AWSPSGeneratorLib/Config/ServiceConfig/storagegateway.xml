@@ -158,6 +158,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBandwidthRateLimitSchedule" OutputProperty="*" Verb="Get" Noun="BandwidthRateLimitSchedule" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCache" OutputProperty="*" Verb="Get" Noun="Cache" PipelineParameter="GatewayARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -324,6 +328,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBandwidthRateLimit" OutputProperty="GatewayARN" Verb="Update" Noun="BandwidthRateLimit" ShouldProcessTarget="GatewayARN" PositionalParameters="AverageUploadRateLimitInBitsPerSec;AverageDownloadRateLimitInBitsPerSec" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBandwidthRateLimitSchedule" OutputProperty="GatewayARN" Verb="Update" Noun="BandwidthRateLimitSchedule" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

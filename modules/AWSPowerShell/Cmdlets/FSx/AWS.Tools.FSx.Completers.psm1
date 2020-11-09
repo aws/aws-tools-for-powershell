@@ -184,7 +184,8 @@ $FSX_SelectCompleters = {
 }
 
 $FSX_SelectMap = @{
-    "Select"=@("Stop-FSXDataRepositoryTask",
+    "Select"=@("Register-FSXFileSystemAlias",
+               "Stop-FSXDataRepositoryTask",
                "New-FSXBackup",
                "New-FSXDataRepositoryTask",
                "New-FSXFileSystem",
@@ -193,7 +194,9 @@ $FSX_SelectMap = @{
                "Remove-FSXFileSystem",
                "Get-FSXBackup",
                "Get-FSXDataRepositoryTask",
+               "Get-FSXFileSystemAlias",
                "Get-FSXFileSystem",
+               "Unregister-FSXFileSystemAlias",
                "Get-FSXResourceTagList",
                "Add-FSXResourceTag",
                "Remove-FSXResourceTag",

@@ -97,6 +97,9 @@
     <Reference Include="AWSSDK.AppMesh">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppMesh.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AppRegistry">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppRegistry.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AppStream">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppStream.dll</HintPath>
     </Reference>
@@ -366,6 +369,9 @@
     </Reference>
     <Reference Include="AWSSDK.IdentityManagement">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IdentityManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IdentityStore">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IdentityStore.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Imagebuilder">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Imagebuilder.dll</HintPath>
@@ -759,6 +765,9 @@
     <Reference Include="AWSSDK.AppMesh">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppMesh.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AppRegistry">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppRegistry.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AppStream">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppStream.dll</HintPath>
     </Reference>
@@ -1028,6 +1037,9 @@
     </Reference>
     <Reference Include="AWSSDK.IdentityManagement">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IdentityManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IdentityStore">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IdentityStore.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Imagebuilder">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Imagebuilder.dll</HintPath>

@@ -406,6 +406,7 @@ $DMS_SelectMap = @{
                "Edit-DMSReplicationInstance",
                "Edit-DMSReplicationSubnetGroup",
                "Edit-DMSReplicationTask",
+               "Move-DMSReplicationTask",
                "Restart-DMSReplicationInstance",
                "Invoke-DMSSchemaRefresh",
                "Restore-DMSTable",

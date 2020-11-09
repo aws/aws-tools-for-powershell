@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Token
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// A token to allow Object Lock to be enabled for an existing bucket.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

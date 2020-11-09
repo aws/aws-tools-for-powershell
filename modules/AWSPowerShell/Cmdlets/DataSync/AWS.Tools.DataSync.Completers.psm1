@@ -202,7 +202,8 @@ $DSYN_SelectMap = @{
                "Add-DSYNResourceTag",
                "Remove-DSYNResourceTag",
                "Update-DSYNAgent",
-               "Update-DSYNTask")
+               "Update-DSYNTask",
+               "Update-DSYNTaskExecution")
 }
 
 _awsArgumentCompleterRegistration $DSYN_SelectCompleters $DSYN_SelectMap

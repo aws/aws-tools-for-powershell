@@ -131,6 +131,23 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.ContainerServiceMetricName
+        "Get-LSContainerServiceMetricData/MetricName"
+        {
+            $v = "CPUUtilization","MemoryUtilization"
+            break
+        }
+
+        # Amazon.Lightsail.ContainerServicePowerName
+        {
+            ($_ -eq "New-LSContainerService/Power") -Or
+            ($_ -eq "Update-LSContainerService/Power")
+        }
+        {
+            $v = "large","medium","micro","nano","small","xlarge"
+            break
+        }
+
         # Amazon.Lightsail.DistributionMetricName
         "Get-LSDistributionMetricData/MetricName"
         {
@@ -265,11 +282,12 @@ $LS_map = @{
     "CacheBehaviorSettings_ForwardedHeaders_Option"=@("New-LSDistribution","Update-LSDistribution")
     "ComparisonOperator"=@("Add-LSAlarm")
     "DefaultCacheBehavior_Behavior"=@("New-LSDistribution","Update-LSDistribution")
-    "MetricName"=@("Add-LSAlarm","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
+    "MetricName"=@("Add-LSAlarm","Get-LSContainerServiceMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
     "Origin_ProtocolPolicy"=@("New-LSDistribution","Update-LSDistribution")
     "Origin_RegionName"=@("New-LSDistribution","Update-LSDistribution")
     "PasswordVersion"=@("Get-LSRelationalDatabaseMasterUserPassword")
     "PortInfo_Protocol"=@("Close-LSInstancePublicPort","Open-LSInstancePublicPort")
+    "Power"=@("New-LSContainerService","Update-LSContainerService")
     "Protocol"=@("Get-LSInstanceAccessDetail","New-LSContactMethod","Remove-LSContactMethod","Send-LSContactMethodVerification")
     "SourceRegion"=@("Copy-LSSnapshot")
     "State"=@("Test-LSAlarm")
@@ -338,6 +356,9 @@ $LS_SelectMap = @{
                "New-LSCertificate",
                "New-LSCloudFormationStack",
                "New-LSContactMethod",
+               "New-LSContainerService",
+               "New-LSContainerServiceDeployment",
+               "New-LSContainerServiceRegistryLogin",
                "New-LSDisk",
                "New-LSDiskFromSnapshot",
                "New-LSDiskSnapshot",
@@ -357,6 +378,8 @@ $LS_SelectMap = @{
                "Remove-LSAutoSnapshot",
                "Remove-LSCertificate",
                "Remove-LSContactMethod",
+               "Remove-LSContainerImage",
+               "Remove-LSContainerService",
                "Remove-LSDisk",
                "Remove-LSDiskSnapshot",
                "Remove-LSDistribution",
@@ -386,6 +409,13 @@ $LS_SelectMap = @{
                "Get-LSCertificate",
                "Get-LSCloudFormationStackRecord",
                "Get-LSContactMethod",
+               "Get-LSContainerAPIMetadata",
+               "Get-LSContainerImage",
+               "Get-LSContainerLog",
+               "Get-LSContainerServiceDeployment",
+               "Get-LSContainerServiceMetricData",
+               "Get-LSContainerServicePower",
+               "Get-LSContainerService",
                "Get-LSDisk",
                "Get-LSDiskList",
                "Get-LSDiskSnapshot",
@@ -437,6 +467,7 @@ $LS_SelectMap = @{
                "Set-LSInstancePublicPort",
                "Restart-LSInstance",
                "Restart-LSRelationalDatabase",
+               "Register-LSContainerImage",
                "Remove-LSStaticIp",
                "Reset-LSDistributionCache",
                "Send-LSContactMethodVerification",
@@ -448,6 +479,7 @@ $LS_SelectMap = @{
                "Test-LSAlarm",
                "Remove-LSPeerVpc",
                "Remove-LSResourceTag",
+               "Update-LSContainerService",
                "Update-LSDistribution",
                "Update-LSDistributionBundle",
                "Update-LSDomainEntry",

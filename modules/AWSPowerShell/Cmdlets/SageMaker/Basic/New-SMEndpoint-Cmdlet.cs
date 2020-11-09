@@ -71,7 +71,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
     /// and Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management
     /// User Guide</i>.
-    /// </para>
+    /// </para><note><para>
+    ///  To add the IAM role policies for using this API operation, go to the <a href="https://console.aws.amazon.com/iam/">IAM
+    /// console</a>, and choose Roles in the left navigation pane. Search the IAM role that
+    /// you want to grant access to use the <a>CreateEndpoint</a> and <a>CreateEndpointConfig</a>
+    /// API operations, add the following policies to the role. 
+    /// </para><ul><li><para>
+    /// Option 1: For a full Amazon SageMaker access, search and attach the <code>AmazonSageMakerFullAccess</code>
+    /// policy.
+    /// </para></li><li><para>
+    /// Option 2: For granting a limited access to an IAM role, paste the following Action
+    /// elements manually into the JSON file of the IAM role: 
+    /// </para><para><code>"Action": ["sagemaker:CreateEndpoint", "sagemaker:CreateEndpointConfig"]</code></para><para><code>"Resource": [</code></para><para><code>"arn:aws:sagemaker:region:account-id:endpoint/endpointName"</code></para><para><code>"arn:aws:sagemaker:region:account-id:endpoint-config/endpointConfigName"</code></para><para><code>]</code></para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html">Amazon
+    /// SageMaker API Permissions: Actions, Permissions, and Resources Reference</a>.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("New", "SMEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
