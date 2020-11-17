@@ -28,7 +28,7 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Restarts a batch build.
+    /// Restarts a failed batch build. Only batch builds that have failed can be retried.
     /// </summary>
     [Cmdlet("Redo", "CBBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeBuild.Model.BuildBatch")]

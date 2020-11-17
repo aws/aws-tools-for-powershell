@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>Specifies which audit checks are enabled and disabled for this account. Use <code>DescribeAccountAuditConfiguration</code>
         /// to see the list of all checks, including those that are currently enabled.</para><para>Some data collection might start immediately when certain checks are enabled. When
-        /// a check is disabled, any data collected so far in relation to the check is deleted.</para><para>You cannot disable a check if it is used by any scheduled audit. You must first delete
+        /// a check is disabled, any data collected so far in relation to the check is deleted.</para><para>You cannot disable a check if it's used by any scheduled audit. You must first delete
         /// the check from the scheduled audit or delete the scheduled audit itself.</para><para>On the first call to <code>UpdateAccountAuditConfiguration</code>, this parameter
         /// is required and must specify at least one enabled check.</para>
         /// </para>
@@ -70,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the role that grants permission to AWS IoT to access information about
-        /// your devices, policies, certificates and other items as required when performing an
-        /// audit.</para>
+        /// <para>The Amazon Resource Name (ARN) of the role that grants permission to AWS IoT to access
+        /// information about your devices, policies, certificates, and other items as required
+        /// when performing an audit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

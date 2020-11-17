@@ -50,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DisassociateWhenNotFound
+        /// <summary>
+        /// <para>
+        /// <para>When true, disassociates a resource when software is uninstalled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DisassociateWhenNotFound { get; set; }
+        #endregion
+        
         #region Parameter LicenseConfigurationArn
         /// <summary>
         /// <para>
@@ -191,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            context.DisassociateWhenNotFound = this.DisassociateWhenNotFound;
             context.LicenseConfigurationArn = this.LicenseConfigurationArn;
             #if MODULAR
             if (this.LicenseConfigurationArn == null && ParameterWasBound(nameof(this.LicenseConfigurationArn)))
@@ -229,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DisassociateWhenNotFound != null)
+            {
+                request.DisassociateWhenNotFound = cmdletContext.DisassociateWhenNotFound.Value;
             }
             if (cmdletContext.LicenseConfigurationArn != null)
             {
@@ -320,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.Boolean? DisassociateWhenNotFound { get; set; }
             public System.String LicenseConfigurationArn { get; set; }
             public Amazon.LicenseManager.LicenseConfigurationStatus LicenseConfigurationStatus { get; set; }
             public System.Int64? LicenseCount { get; set; }

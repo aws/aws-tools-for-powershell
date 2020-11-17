@@ -73,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         #region Parameter ProviderType
         /// <summary>
         /// <para>
-        /// <para>The name of the external provider where your third-party code repository is configured.
-        /// The valid provider type is Bitbucket.</para>
+        /// <para>The name of the external provider where your third-party code repository is configured.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

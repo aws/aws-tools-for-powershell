@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <para>
     /// An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated
     /// Amazon EC2 instances that are managed by AWS for an Amazon EKS cluster. Each node
-    /// group uses a version of the Amazon EKS-optimized Amazon Linux 2 AMI. For more information,
+    /// group uses a version of the Amazon EKS optimized Amazon Linux 2 AMI. For more information,
     /// see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
     /// Node Groups</a> in the <i>Amazon EKS User Guide</i>. 
     /// </para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The AMI type for your node group. GPU instance types should use the <code>AL2_x86_64_GPU</code>
         /// AMI type. Non-GPU instances should use the <code>AL2_x86_64</code> AMI type. Arm instances
-        /// should use the <code>AL2_ARM_64</code> AMI type. All types use the Amazon EKS-optimized
+        /// should use the <code>AL2_ARM_64</code> AMI type. All types use the Amazon EKS optimized
         /// Amazon Linux 2 AMI. If you specify <code>launchTemplate</code>, and your launch template
         /// uses a custom AMI, then don't specify <code>amiType</code>, or the node group deployment
         /// will fail. For more information about using launch templates with Amazon EKS, see
@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.EKS.AMITypes")]
         public Amazon.EKS.AMITypes AmiType { get; set; }
+        #endregion
+        
+        #region Parameter CapacityType
+        /// <summary>
+        /// <para>
+        /// <para>The capacity type for your node group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.CapacityTypes")]
+        public Amazon.EKS.CapacityTypes CapacityType { get; set; }
         #endregion
         
         #region Parameter ClientRequestToken
@@ -149,13 +160,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type to use for your node group. You can specify a single instance type
-        /// for a node group. The default value for <code>instanceTypes</code> is <code>t3.medium</code>.
-        /// If you choose a GPU instance type, be sure to specify <code>AL2_x86_64_GPU</code>
-        /// with the <code>amiType</code> parameter. If you specify <code>launchTemplate</code>,
-        /// then don't specify <code>instanceTypes</code>, or the node group deployment will fail.
-        /// For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the Amazon EKS User Guide.</para>
+        /// <para>Specify the instance types for a node group. If you specify a GPU instance type, be
+        /// sure to specify <code>AL2_x86_64_GPU</code> with the <code>amiType</code> parameter.
+        /// If you specify <code>launchTemplate</code>, then you can specify zero or one instance
+        /// type in your launch template <i>or</i> you can specify 0-20 instance types for <code>instanceTypes</code>.
+        /// If however, you specify an instance type in your launch template <i>and</i> specify
+        /// any <code>instanceTypes</code>, the node group deployment will fail. If you don't
+        /// specify an instance type in a launch template or for <code>instanceTypes</code>, then
+        /// <code>t3.medium</code> is used, by default. If you specify <code>Spot</code> for <code>capacityType</code>,
+        /// then we recommend specifying multiple values for <code>instanceTypes</code>. For more
+        /// information, see <a href="https://docs.aws.amazon.com/managed-node-groups.html#managed-node-group-capacity-types">Managed
+        /// node group capacity types</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,13 +269,14 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ReleaseVersion
         /// <summary>
         /// <para>
-        /// <para>The AMI version of the Amazon EKS-optimized AMI to use with your node group. By default,
+        /// <para>The AMI version of the Amazon EKS optimized AMI to use with your node group. By default,
         /// the latest available AMI version for the node group's current Kubernetes version is
         /// used. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon
-        /// EKS-Optimized Linux AMI Versions</a> in the <i>Amazon EKS User Guide</i>. If you specify
-        /// <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't
-        /// specify <code>releaseVersion</code>, or the node group deployment will fail. For more
-        /// information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// EKS optimized Amazon Linux 2 AMI versions</a> in the <i>Amazon EKS User Guide</i>.
+        /// If you specify <code>launchTemplate</code>, and your launch template uses a custom
+        /// AMI, then don't specify <code>releaseVersion</code>, or the node group deployment
+        /// will fail. For more information about using launch templates with Amazon EKS, see
+        /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the Amazon EKS User Guide.</para>
         /// </para>
         /// </summary>
@@ -408,6 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AmiType = this.AmiType;
+            context.CapacityType = this.CapacityType;
             context.ClientRequestToken = this.ClientRequestToken;
             context.ClusterName = this.ClusterName;
             #if MODULAR
@@ -493,6 +511,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.AmiType != null)
             {
                 request.AmiType = cmdletContext.AmiType;
+            }
+            if (cmdletContext.CapacityType != null)
+            {
+                request.CapacityType = cmdletContext.CapacityType;
             }
             if (cmdletContext.ClientRequestToken != null)
             {
@@ -707,6 +729,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.EKS.AMITypes AmiType { get; set; }
+            public Amazon.EKS.CapacityTypes CapacityType { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String ClusterName { get; set; }
             public System.Int32? DiskSize { get; set; }

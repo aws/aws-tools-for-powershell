@@ -30,6 +30,10 @@
         <Property>MaxItems</Property>
     </MetadataProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="ActivateKeySigningKey" OutputProperty="ChangeInfo" Verb="Enable" Noun="KeySigningKey" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateVPCWithHostedZone" OutputProperty="ChangeInfo" Verb="Register" Noun="VPCWithHostedZone" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
@@ -51,6 +55,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateHostedZone" OutputProperty="*" Verb="New" Noun="HostedZone" ShouldProcessTarget="Name" PositionalParameters="CallerReference;HostedZoneConfig_Comment" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateKeySigningKey" OutputProperty="*" Verb="New" Noun="KeySigningKey" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -80,11 +88,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeactivateKeySigningKey" OutputProperty="ChangeInfo" Verb="Disable" Noun="KeySigningKey" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteHealthCheck" Verb="Remove" Noun="HealthCheck" ShouldProcessTarget="HealthCheckId" PipelineParameter="HealthCheckId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteHostedZone" OutputProperty="ChangeInfo" Verb="Remove" Noun="HostedZone" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKeySigningKey" OutputProperty="ChangeInfo" Verb="Remove" Noun="KeySigningKey" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -108,10 +124,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableHostedZoneDNSSEC" OutputProperty="ChangeInfo" Verb="Disable" Noun="HostedZoneDNSSEC" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateVPCFromHostedZone" OutputProperty="ChangeInfo" Verb="Unregister" Noun="VPCFromHostedZone" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableHostedZoneDNSSEC" OutputProperty="ChangeInfo" Verb="Enable" Noun="HostedZoneDNSSEC" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAccountLimit" OutputProperty="Count" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="true">
@@ -123,6 +147,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCheckerIpRanges" OutputProperty="CheckerIpRanges" Verb="Get" Noun="CheckerIpRange" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-R53CheckerIpRanges">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDNSSEC" OutputProperty="*" Verb="Get" Noun="DNSSEC" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

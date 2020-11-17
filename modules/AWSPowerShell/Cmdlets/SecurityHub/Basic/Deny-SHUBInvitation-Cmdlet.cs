@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Declines invitations to become a member account.
+    /// 
+    ///  
+    /// <para>
+    /// This operation is only used by accounts that are not part of an organization. Organization
+    /// accounts do not receive invitations.
+    /// </para>
     /// </summary>
     [Cmdlet("Deny", "SHUBInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.Result")]

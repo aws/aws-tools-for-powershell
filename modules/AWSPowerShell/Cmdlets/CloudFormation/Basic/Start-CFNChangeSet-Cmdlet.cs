@@ -41,6 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// If a stack policy is associated with the stack, AWS CloudFormation enforces the policy
     /// during the update. You can't specify a temporary stack policy that overrides the current
     /// policy.
+    /// </para><para>
+    /// To create a change set for the entire stack hierachy, <code>IncludeNestedStacks</code>
+    /// must have been set to <code>True</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "CFNChangeSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

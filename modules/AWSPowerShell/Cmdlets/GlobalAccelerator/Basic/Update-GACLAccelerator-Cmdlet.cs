@@ -28,8 +28,7 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Update an accelerator. To see an AWS CLI example of updating an accelerator, scroll
-    /// down to <b>Example</b>.
+    /// Update an accelerator. 
     /// 
     ///  <important><para>
     /// Global Accelerator is a global service that supports endpoints in multiple AWS Regions
@@ -78,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The value for the address type must be IPv4. </para>
+        /// <para>The IP address type, which must be IPv4.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

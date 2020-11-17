@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// <summary>
     /// Lists the IPSets of the GuardDuty service specified by the detector ID. If you use
     /// this operation from a member account, the IPSets returned are the IPSets from the
-    /// associated master account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// associated administrator account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GDIPSetList")]
     [OutputType("System.String")]

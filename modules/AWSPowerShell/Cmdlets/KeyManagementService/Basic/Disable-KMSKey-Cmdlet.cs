@@ -28,9 +28,9 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Sets the state of a customer master key (CMK) to disabled, thereby preventing its
-    /// use for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
-    /// operations</a>. You cannot perform this operation on a CMK in a different AWS account.
+    /// Sets the state of a customer master key (CMK) to disabled. This change temporarily
+    /// prevents use of the CMK for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+    /// operations</a>. 
     /// 
     ///  
     /// <para>
@@ -42,7 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
     /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
     /// Developer Guide</i>.
-    /// </para>
+    /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different
+    /// AWS account.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DisableKey</a>
+    /// (key policy)
+    /// </para><para><b>Related operations</b>: <a>EnableKey</a></para>
     /// </summary>
     [Cmdlet("Disable", "KMSKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

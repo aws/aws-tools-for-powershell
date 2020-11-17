@@ -98,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <para>
         /// <para>The resource type. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS
         /// Resource Types Reference</a>. Supported resource types are: <code>AWS::EC2::Instance</code>,
-        /// <code>AWS::EC2::NetworkInterface</code>, or <code>AWS::EC2::SecurityGroup</code>.
-        /// </para>
+        /// <code>AWS::EC2::NetworkInterface</code>, <code>AWS::EC2::SecurityGroup</code>, <code>AWS::NetworkFirewall::FirewallPolicy</code>,
+        /// and <code>AWS::EC2::Subnet</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

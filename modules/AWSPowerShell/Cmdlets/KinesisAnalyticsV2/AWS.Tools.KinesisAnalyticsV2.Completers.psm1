@@ -83,7 +83,14 @@ $KINA2_Completers = {
         # Amazon.KinesisAnalyticsV2.RuntimeEnvironment
         "New-KINA2Application/RuntimeEnvironment"
         {
-            $v = "FLINK-1_6","FLINK-1_8","SQL-1_0"
+            $v = "FLINK-1_11","FLINK-1_6","FLINK-1_8","SQL-1_0"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.UrlType
+        "New-KINA2ApplicationPresignedUrl/UrlType"
+        {
+            $v = "FLINK_DASHBOARD_URL"
             break
         }
 
@@ -97,6 +104,7 @@ $KINA2_Completers = {
 
 $KINA2_map = @{
     "RuntimeEnvironment"=@("New-KINA2Application")
+    "UrlType"=@("New-KINA2ApplicationPresignedUrl")
 }
 
 _awsArgumentCompleterRegistration $KINA2_Completers $KINA2_map
@@ -156,6 +164,7 @@ $KINA2_SelectMap = @{
                "Add-KINA2ApplicationReferenceDataSource",
                "Add-KINA2ApplicationVpcConfiguration",
                "New-KINA2Application",
+               "New-KINA2ApplicationPresignedUrl",
                "New-KINA2ApplicationSnapshot",
                "Remove-KINA2Application",
                "Remove-KINA2ApplicationCloudWatchLoggingOption",

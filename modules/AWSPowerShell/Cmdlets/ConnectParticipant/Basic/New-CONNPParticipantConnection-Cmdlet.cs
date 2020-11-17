@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// 
     ///  
     /// <para>
-    /// The participant token is valid for the lifetime of the participant – until the they
-    /// are part of a contact.
+    /// The participant token is valid for the lifetime of the participant – until they are
+    /// part of a contact.
     /// </para><para>
     /// The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s.
     /// Clients must manually connect to the returned websocket URL and subscribe to the desired
@@ -45,7 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter,
     /// clients need to call this API again to obtain a new websocket URL and perform the
     /// same steps as before.
-    /// </para>
+    /// </para><note><para>
+    /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
+    /// Version 4 authentication</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "CONNPParticipantConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ConnectParticipant.Model.CreateParticipantConnectionResponse")]
@@ -59,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         #region Parameter ParticipantToken
         /// <summary>
         /// <para>
-        /// <para>Participant Token as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContactResponse.html">StartChatContact</a>
+        /// <para>This is a header parameter.</para><para>The Participant Token as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
         /// API response.</para>
         /// </para>
         /// </summary>

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to which you want to remove tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

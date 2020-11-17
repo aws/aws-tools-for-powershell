@@ -1,0 +1,3 @@
+﻿# SagemakerEdgeManager
+
+Export-ModuleMember -Alias *

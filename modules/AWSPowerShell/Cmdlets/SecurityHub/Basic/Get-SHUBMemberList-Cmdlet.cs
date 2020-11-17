@@ -28,7 +28,13 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Lists details about all member accounts for the current Security Hub master account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists details about all member accounts for the current Security Hub master account.
+    /// 
+    ///  
+    /// <para>
+    /// The results include both member accounts that belong to an organization and member
+    /// accounts that were invited manually.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBMemberList")]
     [OutputType("Amazon.SecurityHub.Model.Member")]
@@ -45,8 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para>Specifies which member accounts to include in the response based on their relationship
         /// status with the master account. The default value is <code>TRUE</code>.</para><para>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes
-        /// member accounts whose relationship status with the master is set to <code>ENABLED</code>
-        /// or <code>DISABLED</code>.</para><para>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes
+        /// member accounts whose relationship status with the master is set to <code>ENABLED</code>.</para><para>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes
         /// all existing member accounts. </para>
         /// </para>
         /// </summary>
@@ -64,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
         /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
-        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>100</b>'.</para>
+        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>50</b>'.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaxItems","MaxResults")]
@@ -126,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             #if MODULAR
             if (!ParameterWasBound(nameof(this.MaxResult)))
             {
-                WriteVerbose("MaxResult parameter unset, using default value of '100'");
-                context.MaxResult = 100;
+                WriteVerbose("MaxResult parameter unset, using default value of '50'");
+                context.MaxResult = 50;
             }
             #endif
             #if !MODULAR
@@ -238,10 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             if (cmdletContext.MaxResult.HasValue)
             {
-                // The service has a maximum page size of 100. If the user has
+                // The service has a maximum page size of 50. If the user has
                 // asked for more items than page max, and there is no page size
                 // configured, we rely on the service ignoring the set maximum
-                // and giving us 100 items back. If a page size is set, that will
+                // and giving us 50 items back. If a page size is set, that will
                 // be used to configure the pagination.
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResult;
@@ -254,12 +259,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 request.NextToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = Math.Min(100, _emitLimit.Value);
+                    int correctPageSize = Math.Min(50, _emitLimit.Value);
                     request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
                 else if (!ParameterWasBound(nameof(this.MaxResult)))
                 {
-                    request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(100);
+                    request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(50);
                 }
                 
                 CmdletOutput output;

@@ -33,6 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
     ///  
     /// <para>
     /// A delegated admin is authorized to invoke this command.
+    /// </para><para>
+    /// The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
+    /// IAM policy permission. This policy permission is required when using the <code>ImportFromPhysicalId</code>
+    /// template source in the information data section.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SCProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -110,8 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactParameters_Info
         /// <summary>
         /// <para>
-        /// <para>The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format
-        /// as follows:</para><para><code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code></para>
+        /// <para>Specify the template source with one of the following options, but not both. Keys
+        /// accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</para><para>The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format
+        /// as follows:</para><para><code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code></para><para><code>ImportFromPhysicalId</code>: The physical id of the resource that contains
+        /// the template. Currently only supports CloudFormation stack arn. Specify the physical
+        /// id in JSON format as follows: <code>ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -192,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter SupportUrl
         /// <summary>
         /// <para>
-        /// <para>The contact URL for product support.</para>
+        /// <para>The contact URL for product support.</para><para><code>^https?:\/\// </code>/ is the pattern used to validate SupportUrl.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

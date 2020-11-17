@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Deletes invitations received by the AWS account to become a member account.
+    /// 
+    ///  
+    /// <para>
+    /// This operation is only used by accounts that are not part of an organization. Organization
+    /// accounts do not receive invitations.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "SHUBInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SecurityHub.Model.Result")]

@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// snapshots are encrypted, even if you omit this parameter and encryption by default
         /// is not enabled. You cannot set this parameter to false. For more information, see
         /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

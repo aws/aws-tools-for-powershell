@@ -87,6 +87,89 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.DirectoryType
+        "New-CONNInstance/IdentityManagementType"
+        {
+            $v = "CONNECT_MANAGED","EXISTING_DIRECTORY","SAML"
+            break
+        }
+
+        # Amazon.Connect.EncryptionType
+        {
+            ($_ -eq "Add-CONNInstanceStorageConfig/StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType") -Or
+            ($_ -eq "Update-CONNInstanceStorageConfig/StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType") -Or
+            ($_ -eq "Add-CONNInstanceStorageConfig/StorageConfig_S3Config_EncryptionConfig_EncryptionType") -Or
+            ($_ -eq "Update-CONNInstanceStorageConfig/StorageConfig_S3Config_EncryptionConfig_EncryptionType")
+        }
+        {
+            $v = "KMS"
+            break
+        }
+
+        # Amazon.Connect.InstanceAttributeType
+        {
+            ($_ -eq "Get-CONNInstanceAttribute/AttributeType") -Or
+            ($_ -eq "Update-CONNInstanceAttribute/AttributeType")
+        }
+        {
+            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","INBOUND_CALLS","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
+            break
+        }
+
+        # Amazon.Connect.InstanceStorageResourceType
+        {
+            ($_ -eq "Add-CONNInstanceStorageConfig/ResourceType") -Or
+            ($_ -eq "Get-CONNInstanceStorageConfig/ResourceType") -Or
+            ($_ -eq "Get-CONNInstanceStorageConfigList/ResourceType") -Or
+            ($_ -eq "Remove-CONNInstanceStorageConfig/ResourceType") -Or
+            ($_ -eq "Update-CONNInstanceStorageConfig/ResourceType")
+        }
+        {
+            $v = "AGENT_EVENTS","CALL_RECORDINGS","CHAT_TRANSCRIPTS","CONTACT_TRACE_RECORDS","MEDIA_STREAMS","SCHEDULED_REPORTS"
+            break
+        }
+
+        # Amazon.Connect.IntegrationType
+        "New-CONNIntegrationAssociation/IntegrationType"
+        {
+            $v = "EVENT"
+            break
+        }
+
+        # Amazon.Connect.QuickConnectType
+        {
+            ($_ -eq "New-CONNQuickConnect/QuickConnectConfig_QuickConnectType") -Or
+            ($_ -eq "Update-CONNQuickConnectConfig/QuickConnectConfig_QuickConnectType")
+        }
+        {
+            $v = "PHONE_NUMBER","QUEUE","USER"
+            break
+        }
+
+        # Amazon.Connect.SourceType
+        "New-CONNIntegrationAssociation/SourceType"
+        {
+            $v = "SALESFORCE","ZENDESK"
+            break
+        }
+
+        # Amazon.Connect.StorageType
+        {
+            ($_ -eq "Add-CONNInstanceStorageConfig/StorageConfig_StorageType") -Or
+            ($_ -eq "Update-CONNInstanceStorageConfig/StorageConfig_StorageType")
+        }
+        {
+            $v = "KINESIS_FIREHOSE","KINESIS_STREAM","KINESIS_VIDEO_STREAM","S3"
+            break
+        }
+
+        # Amazon.Connect.UseCaseType
+        "New-CONNUseCase/UseCaseType"
+        {
+            $v = "RULES_EVALUATION"
+            break
+        }
+
         # Amazon.Connect.VoiceRecordingTrack
         "Start-CONNContactRecording/VoiceRecordingConfiguration_VoiceRecordingTrack"
         {
@@ -103,7 +186,17 @@ $CONN_Completers = {
 }
 
 $CONN_map = @{
+    "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
+    "IdentityManagementType"=@("New-CONNInstance")
+    "IntegrationType"=@("New-CONNIntegrationAssociation")
+    "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
+    "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "SourceType"=@("New-CONNIntegrationAssociation")
+    "StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "StorageConfig_S3Config_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "Type"=@("New-CONNContactFlow")
+    "UseCaseType"=@("New-CONNUseCase")
     "VoiceRecordingConfiguration_VoiceRecordingTrack"=@("Start-CONNContactRecording")
 }
 
@@ -157,36 +250,71 @@ $CONN_SelectCompleters = {
 }
 
 $CONN_SelectMap = @{
-    "Select"=@("Join-CONNRoutingProfileQueue",
+    "Select"=@("Add-CONNApprovedOrigin",
+               "Add-CONNInstanceStorageConfig",
+               "Add-CONNLambdaFunction",
+               "Add-CONNLexBot",
+               "Join-CONNRoutingProfileQueue",
+               "Add-CONNSecurityKey",
                "New-CONNContactFlow",
+               "New-CONNInstance",
+               "New-CONNIntegrationAssociation",
+               "New-CONNQuickConnect",
                "New-CONNRoutingProfile",
+               "New-CONNUseCase",
                "New-CONNUser",
+               "New-CONNUserHierarchyGroup",
+               "Remove-CONNInstance",
+               "Remove-CONNIntegrationAssociation",
+               "Remove-CONNQuickConnect",
+               "Remove-CONNUseCase",
                "Remove-CONNUser",
+               "Remove-CONNUserHierarchyGroup",
                "Get-CONNContactFlow",
+               "Get-CONNInstance",
+               "Get-CONNInstanceAttribute",
+               "Get-CONNInstanceStorageConfig",
+               "Get-CONNQuickConnect",
                "Get-CONNRoutingProfile",
                "Get-CONNUser",
                "Get-CONNUserHierarchyGroup",
                "Get-CONNUserHierarchyStructure",
+               "Remove-CONNApprovedOrigin",
+               "Remove-CONNInstanceStorageConfig",
+               "Remove-CONNLambdaFunction",
+               "Remove-CONNLexBot",
                "Disconnect-CONNRoutingProfileQueue",
+               "Remove-CONNSecurityKey",
                "Get-CONNContactAttribute",
                "Get-CONNCurrentMetricData",
                "Get-CONNFederationToken",
                "Get-CONNMetricData",
+               "Get-CONNApprovedOriginList",
                "Get-CONNContactFlowList",
                "Get-CONNHoursOfOperationList",
+               "Get-CONNInstanceAttributeList",
+               "Get-CONNInstanceList",
+               "Get-CONNInstanceStorageConfigList",
+               "Get-CONNIntegrationAssociationList",
+               "Get-CONNLambdaFunctionList",
+               "Get-CONNLexBotList",
                "Get-CONNPhoneNumberList",
                "Get-CONNPromptList",
                "Get-CONNQueueList",
+               "Get-CONNQuickConnectList",
                "Get-CONNRoutingProfileQueueList",
                "Get-CONNRoutingProfileList",
+               "Get-CONNSecurityKeyList",
                "Get-CONNSecurityProfileList",
                "Get-CONNResourceTag",
+               "Get-CONNUseCaseList",
                "Get-CONNUserHierarchyGroupList",
                "Get-CONNUserList",
                "Resume-CONNContactRecording",
                "Start-CONNChatContact",
                "Start-CONNContactRecording",
                "Start-CONNOutboundVoiceContact",
+               "Start-CONNTaskContact",
                "Stop-CONNContact",
                "Stop-CONNContactRecording",
                "Suspend-CONNContactRecording",
@@ -195,11 +323,17 @@ $CONN_SelectMap = @{
                "Update-CONNContactAttribute",
                "Update-CONNContactFlowContent",
                "Update-CONNContactFlowName",
+               "Update-CONNInstanceAttribute",
+               "Update-CONNInstanceStorageConfig",
+               "Update-CONNQuickConnectConfig",
+               "Update-CONNQuickConnectName",
                "Update-CONNRoutingProfileConcurrency",
                "Update-CONNRoutingProfileDefaultOutboundQueue",
                "Update-CONNRoutingProfileName",
                "Update-CONNRoutingProfileQueue",
                "Update-CONNUserHierarchy",
+               "Update-CONNUserHierarchyGroupName",
+               "Update-CONNUserHierarchyStructure",
                "Update-CONNUserIdentityInfo",
                "Update-CONNUserPhoneConfig",
                "Update-CONNUserRoutingProfile",

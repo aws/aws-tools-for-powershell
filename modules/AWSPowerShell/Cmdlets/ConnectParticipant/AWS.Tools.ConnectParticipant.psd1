@@ -86,11 +86,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Complete-CONNPAttachmentUpload', 
         'Disconnect-CONNPParticipant', 
+        'Get-CONNPAttachment', 
         'Get-CONNPTranscript', 
         'New-CONNPParticipantConnection', 
         'Send-CONNPEvent', 
-        'Send-CONNPMessage')
+        'Send-CONNPMessage', 
+        'Start-CONNPAttachmentUpload')
 
     # Variables to export from this module
     VariablesToExport = '*'

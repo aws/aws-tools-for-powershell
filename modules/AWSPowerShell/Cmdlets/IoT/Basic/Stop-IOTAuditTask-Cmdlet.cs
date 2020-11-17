@@ -28,8 +28,8 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Cancels an audit that is in progress. The audit can be either scheduled or on-demand.
-    /// If the audit is not in progress, an "InvalidRequestException" occurs.
+    /// Cancels an audit that is in progress. The audit can be either scheduled or on demand.
+    /// If the audit isn't in progress, an "InvalidRequestException" occurs.
     /// </summary>
     [Cmdlet("Stop", "IOTAuditTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

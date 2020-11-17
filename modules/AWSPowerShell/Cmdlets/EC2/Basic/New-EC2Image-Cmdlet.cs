@@ -115,13 +115,28 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>By default, Amazon EC2 attempts to shut down and reboot the instance before creating
-        /// the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance
-        /// before creating the image. When this option is used, file system integrity on the
-        /// created image can't be guaranteed.</para>
+        /// the image. If the <code>No Reboot</code> option is set, Amazon EC2 doesn't shut down
+        /// the instance before creating the image. When this option is used, file system integrity
+        /// on the created image can't be guaranteed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
         public System.Boolean? NoReboot { get; set; }
+        #endregion
+        
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the AMI and snapshots on creation. You can tag the AMI, the snapshots,
+        /// or both.</para><ul><li><para>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</para></li><li><para>To tag the snapshots that are created of the root volume and of other EBS volumes
+        /// that are attached to the instance, the value for <code>ResourceType</code> must be
+        /// <code>snapshot</code>. The same tag is applied to all of the snapshots that are created.</para></li></ul><para>If you specify other values for <code>ResourceType</code>, the request fails.</para><para>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
         #region Parameter Select
@@ -205,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.NoReboot = this.NoReboot;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -240,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.NoReboot != null)
             {
                 request.NoReboot = cmdletContext.NoReboot.Value;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -307,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
             public System.Boolean? NoReboot { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateImageResponse, NewEC2ImageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ImageId;
         }

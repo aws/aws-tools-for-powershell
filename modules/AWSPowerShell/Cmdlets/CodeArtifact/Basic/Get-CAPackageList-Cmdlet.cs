@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para> The format of the packages. The valid package types are: </para><ul><li><para><code>npm</code>: A Node Package Manager (npm) package. </para></li><li><para><code>pypi</code>: A Python Package Index (PyPI) package. </para></li><li><para><code>maven</code>: A Maven package that contains compiled code in a distributable
-        /// format, such as a JAR file. </para></li></ul>
+        /// format, such as a JAR file. </para></li><li><para><code>nuget</code>: A NuGet package. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,6 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <para>
         /// <para> The namespace of the package. The package component that specifies its namespace
         /// depends on its type. For example: </para><ul><li><para> The namespace of a Maven package is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package is its <code>scope</code>. </para></li><li><para> A Python package does not contain a corresponding component, so Python packages do
+        /// not have a namespace. </para></li><li><para> A NuGet package does not contain a corresponding component, so NuGet packages do
         /// not have a namespace. </para></li></ul>
         /// </para>
         /// </summary>
@@ -97,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter PackagePrefix
         /// <summary>
         /// <para>
-        /// <para> A prefix used to filter returned repositories. Only repositories with names that
-        /// start with <code>repositoryPrefix</code> are returned. </para>
+        /// <para> A prefix used to filter returned packages. Only packages with names that start with
+        /// <code>packagePrefix</code> are returned. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

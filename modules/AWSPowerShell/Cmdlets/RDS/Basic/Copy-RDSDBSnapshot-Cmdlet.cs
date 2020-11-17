@@ -65,16 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key ID for an encrypted DB snapshot. The KMS key ID is the Amazon Resource
-        /// Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. </para><para>If you copy an encrypted DB snapshot from your AWS account, you can specify a value
-        /// for this parameter to encrypt the copy with a new KMS encryption key. If you don't
-        /// specify a value for this parameter, then the copy of the DB snapshot is encrypted
-        /// with the same KMS key as the source DB snapshot. </para><para>If you copy an encrypted DB snapshot that is shared from another AWS account, then
+        /// <para>The AWS KMS key identifier for an encrypted DB snapshot. The AWS KMS key identifier
+        /// is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key
+        /// (CMK). </para><para>If you copy an encrypted DB snapshot from your AWS account, you can specify a value
+        /// for this parameter to encrypt the copy with a new AWS KMS CMK. If you don't specify
+        /// a value for this parameter, then the copy of the DB snapshot is encrypted with the
+        /// same AWS KMS key as the source DB snapshot. </para><para>If you copy an encrypted DB snapshot that is shared from another AWS account, then
         /// you must specify a value for this parameter. </para><para>If you specify this parameter when you copy an unencrypted snapshot, the copy is encrypted.
         /// </para><para>If you copy an encrypted snapshot to a different AWS Region, then you must specify
-        /// a KMS key for the destination AWS Region. KMS encryption keys are specific to the
-        /// AWS Region that they are created in, and you can't use encryption keys from one AWS
-        /// Region in another AWS Region. </para>
+        /// a AWS KMS key identifier for the destination AWS Region. AWS KMS CMKs are specific
+        /// to the AWS Region that they are created in, and you can't use CMKs from one AWS Region
+        /// in another AWS Region. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// and your DB instance uses a nondefault option group. If your source DB instance uses
         /// Transparent Data Encryption for Oracle or Microsoft SQL Server, you must specify this
         /// option when copying across AWS Regions. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option
-        /// Group Considerations</a> in the <i>Amazon RDS User Guide.</i></para>
+        /// group considerations</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,10 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// the us-east-1 AWS Region, then you call the <code>CopyDBSnapshot</code> action in
         /// the us-east-1 AWS Region and provide a presigned URL that contains a call to the <code>CopyDBSnapshot</code>
         /// action in the us-west-2 AWS Region. For this example, the <code>DestinationRegion</code>
-        /// in the presigned URL must be set to the us-east-1 AWS Region. </para></li><li><para><code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt
-        /// the copy of the DB snapshot in the destination AWS Region. This is the same identifier
-        /// for both the <code>CopyDBSnapshot</code> action that is called in the destination
-        /// AWS Region, and the action contained in the presigned URL. </para></li><li><para><code>SourceDBSnapshotIdentifier</code> - The DB snapshot identifier for the encrypted
+        /// in the presigned URL must be set to the us-east-1 AWS Region. </para></li><li><para><code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK)
+        /// to use to encrypt the copy of the DB snapshot in the destination AWS Region. This
+        /// is the same identifier for both the <code>CopyDBSnapshot</code> action that is called
+        /// in the destination AWS Region, and the action contained in the presigned URL. </para></li><li><para><code>SourceDBSnapshotIdentifier</code> - The DB snapshot identifier for the encrypted
         /// snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format
         /// for the source AWS Region. For example, if you are copying an encrypted DB snapshot
         /// from the us-west-2 AWS Region, then your <code>SourceDBSnapshotIdentifier</code> looks
@@ -177,6 +178,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter TargetCustomAvailabilityZone
+        /// <summary>
+        /// <para>
+        /// <para>The external custom Availability Zone (CAZ) identifier for the target CAZ.</para><para>Example: <code>rds-caz-aiqhTgQv</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetCustomAvailabilityZone { get; set; }
         #endregion
         
         #region Parameter TargetDBSnapshotIdentifier
@@ -273,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
+            context.TargetCustomAvailabilityZone = this.TargetCustomAvailabilityZone;
             context.TargetDBSnapshotIdentifier = this.TargetDBSnapshotIdentifier;
             #if MODULAR
             if (this.TargetDBSnapshotIdentifier == null && ParameterWasBound(nameof(this.TargetDBSnapshotIdentifier)))
@@ -323,6 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.TargetCustomAvailabilityZone != null)
+            {
+                request.TargetCustomAvailabilityZone = cmdletContext.TargetCustomAvailabilityZone;
             }
             if (cmdletContext.TargetDBSnapshotIdentifier != null)
             {
@@ -396,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String PreSignedUrl { get; set; }
             public System.String SourceDBSnapshotIdentifier { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
+            public System.String TargetCustomAvailabilityZone { get; set; }
             public System.String TargetDBSnapshotIdentifier { get; set; }
             public System.Func<Amazon.RDS.Model.CopyDBSnapshotResponse, CopyRDSDBSnapshotCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DBSnapshot;

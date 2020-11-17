@@ -47,6 +47,43 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2TransitGatewayMulticastDomainCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter Options_AutoAcceptSharedAssociation
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to automatically accept cross-account subnet associations that are
+        /// associated with the transit gateway multicast domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Options_AutoAcceptSharedAssociations")]
+        [AWSConstantClassSource("Amazon.EC2.AutoAcceptSharedAssociationsValue")]
+        public Amazon.EC2.AutoAcceptSharedAssociationsValue Options_AutoAcceptSharedAssociation { get; set; }
+        #endregion
+        
+        #region Parameter Options_Igmpv2Support
+        /// <summary>
+        /// <para>
+        /// <para>Specify whether to enable Internet Group Management Protocol (IGMP) version 2 for
+        /// the transit gateway multicast domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.Igmpv2SupportValue")]
+        public Amazon.EC2.Igmpv2SupportValue Options_Igmpv2Support { get; set; }
+        #endregion
+        
+        #region Parameter Options_StaticSourcesSupport
+        /// <summary>
+        /// <para>
+        /// <para>Specify whether to enable support for statically configuring multicast group sources
+        /// for a domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.StaticSourcesSupportValue")]
+        public Amazon.EC2.StaticSourcesSupportValue Options_StaticSourcesSupport { get; set; }
+        #endregion
+        
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
@@ -136,6 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.TransitGatewayId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Options_AutoAcceptSharedAssociation = this.Options_AutoAcceptSharedAssociation;
+            context.Options_Igmpv2Support = this.Options_Igmpv2Support;
+            context.Options_StaticSourcesSupport = this.Options_StaticSourcesSupport;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -163,6 +203,45 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.CreateTransitGatewayMulticastDomainRequest();
             
+            
+             // populate Options
+            var requestOptionsIsNull = true;
+            request.Options = new Amazon.EC2.Model.CreateTransitGatewayMulticastDomainRequestOptions();
+            Amazon.EC2.AutoAcceptSharedAssociationsValue requestOptions_options_AutoAcceptSharedAssociation = null;
+            if (cmdletContext.Options_AutoAcceptSharedAssociation != null)
+            {
+                requestOptions_options_AutoAcceptSharedAssociation = cmdletContext.Options_AutoAcceptSharedAssociation;
+            }
+            if (requestOptions_options_AutoAcceptSharedAssociation != null)
+            {
+                request.Options.AutoAcceptSharedAssociations = requestOptions_options_AutoAcceptSharedAssociation;
+                requestOptionsIsNull = false;
+            }
+            Amazon.EC2.Igmpv2SupportValue requestOptions_options_Igmpv2Support = null;
+            if (cmdletContext.Options_Igmpv2Support != null)
+            {
+                requestOptions_options_Igmpv2Support = cmdletContext.Options_Igmpv2Support;
+            }
+            if (requestOptions_options_Igmpv2Support != null)
+            {
+                request.Options.Igmpv2Support = requestOptions_options_Igmpv2Support;
+                requestOptionsIsNull = false;
+            }
+            Amazon.EC2.StaticSourcesSupportValue requestOptions_options_StaticSourcesSupport = null;
+            if (cmdletContext.Options_StaticSourcesSupport != null)
+            {
+                requestOptions_options_StaticSourcesSupport = cmdletContext.Options_StaticSourcesSupport;
+            }
+            if (requestOptions_options_StaticSourcesSupport != null)
+            {
+                request.Options.StaticSourcesSupport = requestOptions_options_StaticSourcesSupport;
+                requestOptionsIsNull = false;
+            }
+             // determine if request.Options should be set to null
+            if (requestOptionsIsNull)
+            {
+                request.Options = null;
+            }
             if (cmdletContext.TagSpecification != null)
             {
                 request.TagSpecifications = cmdletContext.TagSpecification;
@@ -232,6 +311,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.EC2.AutoAcceptSharedAssociationsValue Options_AutoAcceptSharedAssociation { get; set; }
+            public Amazon.EC2.Igmpv2SupportValue Options_Igmpv2Support { get; set; }
+            public Amazon.EC2.StaticSourcesSupportValue Options_StaticSourcesSupport { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String TransitGatewayId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateTransitGatewayMulticastDomainResponse, NewEC2TransitGatewayMulticastDomainCmdlet, object> Select { get; set; } =

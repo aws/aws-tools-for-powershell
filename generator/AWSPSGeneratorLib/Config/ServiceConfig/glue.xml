@@ -77,6 +77,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CheckSchemaVersionValidity" OutputProperty="*" Verb="Get" Noun="SchemaVersionValidity" PipelineParameter="SchemaDefinition" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateClassifier" Verb="New" Noun="Classifier" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -108,6 +112,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePartition" Verb="New" Noun="Partition" ShouldProcessTarget="TableName" PipelineParameter="PartitionInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePartitionIndex" Verb="New" Noun="PartitionIndex" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRegistry" OutputProperty="*" Verb="New" Noun="Registry" ShouldProcessTarget="RegistryName" PipelineParameter="RegistryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSchema" OutputProperty="*" Verb="New" Noun="Schema" ShouldProcessTarget="SchemaName" PipelineParameter="SchemaName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -175,7 +191,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeletePartitionIndex" Verb="Remove" Noun="PartitionIndex" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRegistry" OutputProperty="*" Verb="Remove" Noun="Registry" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="RegistryId_RegistryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="PolicyHashCondition" PipelineParameter="PolicyHashCondition" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSchema" OutputProperty="*" Verb="Remove" Noun="Schema" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="SchemaId_SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSchemaVersions" OutputProperty="SchemaVersionErrors" Verb="Remove" Noun="SchemaVersion" ShouldProcessTarget="" PipelineParameter="Versions" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -323,11 +355,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetRegistry" OutputProperty="*" Verb="Get" Noun="Registry" PipelineParameter="RegistryId_RegistryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetResourcePolicies" OutputProperty="GetResourcePoliciesResponseList" Verb="Get" Noun="GluePolicyList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSchema" OutputProperty="*" Verb="Get" Noun="Schema" PipelineParameter="SchemaId_SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSchemaByDefinition" OutputProperty="*" Verb="Get" Noun="SchemaByDefinition" PipelineParameter="SchemaDefinition" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSchemaVersion" OutputProperty="*" Verb="Get" Noun="SchemaVersion" PipelineParameter="SchemaVersionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSchemaVersionsDiff" OutputProperty="Diff" Verb="Get" Noun="SchemaVersionsDiff" PipelineParameter="SchemaDiffType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -411,6 +463,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRegistries" OutputProperty="Registries" Verb="Get" Noun="RegistryList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSchemas" OutputProperty="Schemas" Verb="Get" Noun="SchemaList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSchemaVersions" OutputProperty="Schemas" Verb="Get" Noun="SchemaVersionList" PipelineParameter="SchemaId_SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTriggers" OutputProperty="TriggerNames" Verb="Get" Noun="TriggerNameList" PipelineParameter="DependentJobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -427,7 +491,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutSchemaVersionMetadata" OutputProperty="*" Verb="Write" Noun="SchemaVersionMetadata" ShouldProcessTarget="SchemaVersionId" PipelineParameter="SchemaVersionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutWorkflowRunProperties" Verb="Write" Noun="WorkflowRunProperty" ShouldProcessTarget="RunId" PipelineParameter="RunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="QuerySchemaVersionMetadata" OutputProperty="*" Verb="Find" Noun="SchemaVersionMetadata" PipelineParameter="SchemaVersionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterSchemaVersion" OutputProperty="*" Verb="Register" Noun="SchemaVersion" ShouldProcessTarget="" PipelineParameter="SchemaDefinition" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveSchemaVersionMetadata" OutputProperty="*" Verb="Remove" Noun="SchemaVersionMetadata" ShouldProcessTarget="SchemaVersionId" PipelineParameter="SchemaVersionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -544,6 +624,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePartition" Verb="Update" Noun="Partition" ShouldProcessTarget="TableName" PipelineParameter="PartitionInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRegistry" OutputProperty="*" Verb="Update" Noun="Registry" ShouldProcessTarget="" PipelineParameter="Description" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSchema" OutputProperty="*" Verb="Update" Noun="Schema" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="SchemaId_SchemaArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

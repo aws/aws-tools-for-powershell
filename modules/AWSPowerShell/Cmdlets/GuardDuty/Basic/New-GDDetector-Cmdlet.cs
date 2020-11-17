@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter FindingPublishingFrequency
         /// <summary>
         /// <para>
-        /// <para>An enum value that specifies how frequently updated findings are exported.</para>
+        /// <para>A value that specifies how frequently updated findings are exported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

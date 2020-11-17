@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter QueueConfig
         /// <summary>
         /// <para>
-        /// <para>The queues to be updated for this routing profile.</para>
+        /// <para>The queues to be updated for this routing profile. Queues must first be associated
+        /// to the routing profile. You can do this using AssociateRoutingProfileQueues.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

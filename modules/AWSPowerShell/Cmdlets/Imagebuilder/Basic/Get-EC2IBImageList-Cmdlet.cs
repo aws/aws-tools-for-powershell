@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     public partial class GetEC2IBImageListCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
+        #region Parameter ByName
+        /// <summary>
+        /// <para>
+        /// <para>Requests a list of images with a specific recipe name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ByName { get; set; }
+        #endregion
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
@@ -49,6 +59,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filters")]
         public Amazon.Imagebuilder.Model.Filter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter IncludeDeprecated
+        /// <summary>
+        /// <para>
+        /// <para>Includes deprecated images in the response list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeDeprecated { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -126,10 +146,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 context.Select = CreateSelectDelegate<Amazon.Imagebuilder.Model.ListImagesResponse, GetEC2IBImageListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ByName = this.ByName;
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.Imagebuilder.Model.Filter>(this.Filter);
             }
+            context.IncludeDeprecated = this.IncludeDeprecated;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.Owner = this.Owner;
@@ -151,9 +173,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             // create request and set iteration invariants
             var request = new Amazon.Imagebuilder.Model.ListImagesRequest();
             
+            if (cmdletContext.ByName != null)
+            {
+                request.ByName = cmdletContext.ByName.Value;
+            }
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IncludeDeprecated != null)
+            {
+                request.IncludeDeprecated = cmdletContext.IncludeDeprecated.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -248,7 +278,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ByName { get; set; }
             public List<Amazon.Imagebuilder.Model.Filter> Filter { get; set; }
+            public System.Boolean? IncludeDeprecated { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.Imagebuilder.Ownership Owner { get; set; }

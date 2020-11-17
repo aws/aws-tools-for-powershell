@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>license-manager</C2jFilename>
     <AssemblyName>LicenseManager</AssemblyName>
@@ -13,13 +14,56 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptGrant" OutputProperty="*" Verb="Approve" Noun="Grant" ShouldProcessTarget="GrantArn" PipelineParameter="GrantArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CheckInLicense" Verb="Invoke" Noun="LicenseCheckIn" ShouldProcessTarget="LicenseConsumptionToken" PipelineParameter="LicenseConsumptionToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CheckoutBorrowLicense" OutputProperty="*" Verb="Invoke" Noun="LicenseCheckoutBorrow" ShouldProcessTarget="LicenseArn" PipelineParameter="LicenseArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CheckoutLicense" OutputProperty="*" Verb="Invoke" Noun="LicenseCheckout" ShouldProcessTarget="ProductSKU" PipelineParameter="ProductSKU" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGrant" OutputProperty="*" Verb="New" Noun="Grant" ShouldProcessTarget="LicenseArn" PipelineParameter="LicenseArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGrantVersion" OutputProperty="*" Verb="New" Noun="GrantVersion" ShouldProcessTarget="GrantArn" PipelineParameter="GrantArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLicense" OutputProperty="*" Verb="New" Noun="License" ShouldProcessTarget="LicenseName" PipelineParameter="LicenseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLicenseConfiguration" OutputProperty="LicenseConfigurationArn" Verb="New" Noun="LicenseConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLicenseVersion" OutputProperty="*" Verb="New" Noun="LicenseVersion" ShouldProcessTarget="LicenseArn" PipelineParameter="LicenseArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateToken" OutputProperty="*" Verb="New" Noun="Token" ShouldProcessTarget="LicenseArn" PipelineParameter="LicenseArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGrant" OutputProperty="*" Verb="Remove" Noun="Grant" ShouldProcessTarget="GrantArn" PipelineParameter="GrantArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLicense" OutputProperty="*" Verb="Remove" Noun="License" ShouldProcessTarget="LicenseArn" PipelineParameter="LicenseArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -27,7 +71,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteToken" Verb="Remove" Noun="Token" ShouldProcessTarget="TokenId" PipelineParameter="TokenId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExtendLicenseConsumption" OutputProperty="*" Verb="Invoke" Noun="ExtendLicenseConsumption" ShouldProcessTarget="LicenseConsumptionToken" PipelineParameter="LicenseConsumptionToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessToken" OutputProperty="AccessToken" Verb="Get" Noun="AccessToken" PipelineParameter="Token" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGrant" OutputProperty="Grant" Verb="Get" Noun="Grant" PipelineParameter="GrantArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLicense" OutputProperty="License" Verb="Get" Noun="License" PipelineParameter="LicenseArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLicenseConfiguration" OutputProperty="*" Verb="Get" Noun="LicenseConfiguration" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLicenseUsage" OutputProperty="LicenseUsage" Verb="Get" Noun="LicenseUsage" PipelineParameter="LicenseArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -39,6 +107,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributedGrants" OutputProperty="Grants" Verb="Get" Noun="DistributedGrantList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListFailuresForLicenseConfigurationOperations" OutputProperty="LicenseOperationFailureList" Verb="Get" Noun="FailuresForLicenseConfigurationOperationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -47,7 +119,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListLicenses" OutputProperty="Licenses" Verb="Get" Noun="LicenseList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListLicenseSpecificationsForResource" OutputProperty="LicenseSpecifications" Verb="Get" Noun="LicenseSpecificationsForResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLicenseVersions" OutputProperty="Licenses" Verb="Get" Noun="LicenseVersionList" PipelineParameter="LicenseArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReceivedGrants" OutputProperty="Grants" Verb="Get" Noun="ReceivedGrantList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReceivedLicenses" OutputProperty="Licenses" Verb="Get" Noun="ReceivedLicenseList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -59,7 +147,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTokens" OutputProperty="Tokens" Verb="Get" Noun="TokenList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListUsageForLicenseConfiguration" OutputProperty="LicenseConfigurationUsageList" Verb="Get" Noun="UsageForLicenseConfigurationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectGrant" OutputProperty="*" Verb="Deny" Noun="Grant" ShouldProcessTarget="GrantArn" PipelineParameter="GrantArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -84,7 +180,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

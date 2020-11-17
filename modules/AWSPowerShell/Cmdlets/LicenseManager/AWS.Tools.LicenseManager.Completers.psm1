@@ -80,6 +80,27 @@ $LICM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.LicenseManager.CheckoutType
+        "Invoke-LICMLicenseCheckout/CheckoutType"
+        {
+            $v = "PROVISIONAL"
+            break
+        }
+
+        # Amazon.LicenseManager.DigitalSignatureMethod
+        "Invoke-LICMLicenseCheckoutBorrow/DigitalSignatureMethod"
+        {
+            $v = "JWT_PS384"
+            break
+        }
+
+        # Amazon.LicenseManager.GrantStatus
+        "New-LICMGrantVersion/Status"
+        {
+            $v = "ACTIVE","DELETED","DISABLED","FAILED_WORKFLOW","PENDING_ACCEPT","PENDING_DELETE","PENDING_WORKFLOW","REJECTED"
+            break
+        }
+
         # Amazon.LicenseManager.LicenseConfigurationStatus
         "Update-LICMLicenseConfiguration/LicenseConfigurationStatus"
         {
@@ -94,6 +115,23 @@ $LICM_Completers = {
             break
         }
 
+        # Amazon.LicenseManager.LicenseStatus
+        "New-LICMLicenseVersion/Status"
+        {
+            $v = "AVAILABLE","DEACTIVATED","DELETED","EXPIRED","PENDING_AVAILABLE","PENDING_DELETE","SUSPENDED"
+            break
+        }
+
+        # Amazon.LicenseManager.RenewType
+        {
+            ($_ -eq "New-LICMLicense/ConsumptionConfiguration_RenewType") -Or
+            ($_ -eq "New-LICMLicenseVersion/ConsumptionConfiguration_RenewType")
+        }
+        {
+            $v = "Monthly","None","Weekly"
+            break
+        }
+
 
     }
 
@@ -103,8 +141,12 @@ $LICM_Completers = {
 }
 
 $LICM_map = @{
+    "CheckoutType"=@("Invoke-LICMLicenseCheckout")
+    "ConsumptionConfiguration_RenewType"=@("New-LICMLicense","New-LICMLicenseVersion")
+    "DigitalSignatureMethod"=@("Invoke-LICMLicenseCheckoutBorrow")
     "LicenseConfigurationStatus"=@("Update-LICMLicenseConfiguration")
     "LicenseCountingType"=@("New-LICMLicenseConfiguration")
+    "Status"=@("New-LICMGrantVersion","New-LICMLicenseVersion")
 }
 
 _awsArgumentCompleterRegistration $LICM_Completers $LICM_map
@@ -157,17 +199,41 @@ $LICM_SelectCompleters = {
 }
 
 $LICM_SelectMap = @{
-    "Select"=@("New-LICMLicenseConfiguration",
+    "Select"=@("Approve-LICMGrant",
+               "Invoke-LICMLicenseCheckIn",
+               "Invoke-LICMLicenseCheckoutBorrow",
+               "Invoke-LICMLicenseCheckout",
+               "New-LICMGrant",
+               "New-LICMGrantVersion",
+               "New-LICMLicense",
+               "New-LICMLicenseConfiguration",
+               "New-LICMLicenseVersion",
+               "New-LICMToken",
+               "Remove-LICMGrant",
+               "Remove-LICMLicense",
                "Remove-LICMLicenseConfiguration",
+               "Remove-LICMToken",
+               "Invoke-LICMExtendLicenseConsumption",
+               "Get-LICMAccessToken",
+               "Get-LICMGrant",
+               "Get-LICMLicense",
                "Get-LICMLicenseConfiguration",
+               "Get-LICMLicenseUsage",
                "Get-LICMServiceSetting",
                "Get-LICMAssociationsForLicenseConfigurationList",
+               "Get-LICMDistributedGrantList",
                "Get-LICMFailuresForLicenseConfigurationOperationList",
                "Get-LICMLicenseConfigurationList",
+               "Get-LICMLicenseList",
                "Get-LICMLicenseSpecificationsForResourceList",
+               "Get-LICMLicenseVersionList",
+               "Get-LICMReceivedGrantList",
+               "Get-LICMReceivedLicenseList",
                "Get-LICMResourceInventoryList",
                "Get-LICMResourceTagList",
+               "Get-LICMTokenList",
                "Get-LICMUsageForLicenseConfigurationList",
+               "Deny-LICMGrant",
                "Add-LICMResourceTag",
                "Remove-LICMResourceTag",
                "Update-LICMLicenseConfiguration",

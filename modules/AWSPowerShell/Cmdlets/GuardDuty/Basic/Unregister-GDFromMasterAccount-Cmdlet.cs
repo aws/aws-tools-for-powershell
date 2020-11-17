@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Disassociates the current GuardDuty member account from its master account.
+    /// Disassociates the current GuardDuty member account from its administrator account.
     /// </summary>
     [Cmdlet("Unregister", "GDFromMasterAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// <summary>
     /// Sends an event. Note that ConnectionToken is used for invoking this API instead of
     /// ParticipantToken.
+    /// 
+    ///  
+    /// <para>
+    /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
+    /// Version 4 authentication</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Send", "CONNPEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ConnectParticipant.Model.SendEventResponse")]

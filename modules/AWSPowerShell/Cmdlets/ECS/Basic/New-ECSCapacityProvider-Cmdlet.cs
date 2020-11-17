@@ -67,6 +67,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String AutoScalingGroupProvider_AutoScalingGroupArn { get; set; }
         #endregion
         
+        #region Parameter ManagedScaling_InstanceWarmupPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute
+        /// to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default
+        /// value of <code>300</code> seconds is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingGroupProvider_ManagedScaling_InstanceWarmupPeriod")]
+        public System.Int32? ManagedScaling_InstanceWarmupPeriod { get; set; }
+        #endregion
+        
         #region Parameter AutoScalingGroupProvider_ManagedTerminationProtection
         /// <summary>
         /// <para>
@@ -89,9 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedScaling_MaximumScalingStepSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time.
-        /// The scale in process is not affected by this parameter. If this parameter is omitted,
-        /// the default value of <code>10000</code> is used.</para>
+        /// <para>The maximum number of container instances that Amazon ECS will scale in or scale out
+        /// at one time. If this parameter is omitted, the default value of <code>10000</code>
+        /// is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,13 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedScaling_MinimumScalingStepSize
         /// <summary>
         /// <para>
-        /// <para>The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time.
-        /// The scale in process is not affected by this parameter If this parameter is omitted,
-        /// the default value of <code>1</code> is used.</para><para>When additional capacity is required, Amazon ECS will scale up the minimum scaling
-        /// step size even if the actual demand is less than the minimum scaling step size.</para><para>If you use a capacity provider with an Auto Scaling group configured with more than
-        /// one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the
-        /// exact minimum scaling step size value and will ignore both the maximum scaling step
-        /// size as well as the capacity demand.</para>
+        /// <para>The minimum number of container instances that Amazon ECS will scale in or scale out
+        /// at one time. If this parameter is omitted, the default value of <code>1</code> is
+        /// used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 WriteWarning("You are passing $null as a value for parameter AutoScalingGroupProvider_AutoScalingGroupArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ManagedScaling_InstanceWarmupPeriod = this.ManagedScaling_InstanceWarmupPeriod;
             context.ManagedScaling_MaximumScalingStepSize = this.ManagedScaling_MaximumScalingStepSize;
             context.ManagedScaling_MinimumScalingStepSize = this.ManagedScaling_MinimumScalingStepSize;
             context.ManagedScaling_Status = this.ManagedScaling_Status;
@@ -309,6 +319,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
              // populate ManagedScaling
             var requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedScalingIsNull = true;
             requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedScaling = new Amazon.ECS.Model.ManagedScaling();
+            System.Int32? requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedScaling_managedScaling_InstanceWarmupPeriod = null;
+            if (cmdletContext.ManagedScaling_InstanceWarmupPeriod != null)
+            {
+                requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedScaling_managedScaling_InstanceWarmupPeriod = cmdletContext.ManagedScaling_InstanceWarmupPeriod.Value;
+            }
+            if (requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedScaling_managedScaling_InstanceWarmupPeriod != null)
+            {
+                requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedScaling.InstanceWarmupPeriod = requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedScaling_managedScaling_InstanceWarmupPeriod.Value;
+                requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedScalingIsNull = false;
+            }
             System.Int32? requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedScaling_managedScaling_MaximumScalingStepSize = null;
             if (cmdletContext.ManagedScaling_MaximumScalingStepSize != null)
             {
@@ -434,6 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingGroupProvider_AutoScalingGroupArn { get; set; }
+            public System.Int32? ManagedScaling_InstanceWarmupPeriod { get; set; }
             public System.Int32? ManagedScaling_MaximumScalingStepSize { get; set; }
             public System.Int32? ManagedScaling_MinimumScalingStepSize { get; set; }
             public Amazon.ECS.ManagedScalingStatus ManagedScaling_Status { get; set; }

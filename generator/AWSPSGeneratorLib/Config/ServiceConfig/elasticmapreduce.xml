@@ -55,7 +55,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateStudio" OutputProperty="*" Verb="New" Noun="Studio" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStudioSessionMapping" Verb="New" Noun="StudioSessionMapping" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteSecurityConfiguration" Verb="Remove" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStudio" Verb="Remove" Noun="Studio" ShouldProcessTarget="StudioId" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStudioSessionMapping" Verb="Remove" Noun="StudioSessionMapping" ShouldProcessTarget="StudioId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,11 +95,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStudio" OutputProperty="Studio" Verb="Get" Noun="Studio" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetBlockPublicAccessConfiguration" OutputProperty="*" Verb="Get" Noun="BlockPublicAccessConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetManagedScalingPolicy" OutputProperty="ManagedScalingPolicy" Verb="Get" Noun="ManagedScalingPolicy" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStudioSessionMapping" OutputProperty="SessionMapping" Verb="Get" Noun="StudioSessionMapping" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -116,6 +140,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListSteps" OutputProperty="Steps" Verb="Get" Noun="StepList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRSteps">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStudios" OutputProperty="Studios" Verb="Get" Noun="StudioList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStudioSessionMappings" OutputProperty="SessionMappings" Verb="Get" Noun="StudioSessionMappingList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -185,6 +217,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TerminateJobFlows" Verb="Stop" Noun="JobFlow" ShouldProcessTarget="JobFlowIds" PipelineParameter="JobFlowIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStudioSessionMapping" Verb="Update" Noun="StudioSessionMapping" ShouldProcessTarget="StudioId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

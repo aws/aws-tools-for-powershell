@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// <summary>
     /// Advertises an IPv4 address range that is provisioned for use with your AWS resources
     /// through bring your own IP addresses (BYOIP). It can take a few minutes before traffic
-    /// to the specified addresses starts routing to AWS because of propagation delays. To
-    /// see an AWS CLI example of advertising an address range, scroll down to <b>Example</b>.
+    /// to the specified addresses starts routing to AWS because of propagation delays. 
     /// 
     ///  
     /// <para>

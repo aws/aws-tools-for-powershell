@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename> BedrockAssessmentManagerLambda</C2jFilename>
+    <AssemblyName>AuditManager</AssemblyName>
+    <ServiceNounPrefix>AUDM</ServiceNounPrefix>
+    <ServiceName>AWS Audit Manager</ServiceName>
+    <ServiceClientInterface>IAmazonAuditManager</ServiceClientInterface>
+    <ServiceClient>AmazonAuditManagerClient</ServiceClient>
+    <ServiceModuleGuid>BCDC0213-2FDC-4B58-9EDF-DB2C3DBFDBF1</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="nextToken" Next="nextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateAssessmentReportEvidenceFolder" Verb="Add" Noun="AssessmentReportEvidenceFolder" ShouldProcessTarget="EvidenceFolderId" PipelineParameter="EvidenceFolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchAssociateAssessmentReportEvidence" OutputProperty="*" Verb="Add" Noun="AssessmentReportEvidence" ShouldProcessTarget="EvidenceFolderId" PipelineParameter="EvidenceFolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchCreateDelegationByAssessment" OutputProperty="*" Verb="New" Noun="CreateDelegationByAssessment" ShouldProcessTarget="AssessmentId" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteDelegationByAssessment" OutputProperty="Errors" Verb="Remove" Noun="DelegationByAssessment" ShouldProcessTarget="AssessmentId" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDisassociateAssessmentReportEvidence" OutputProperty="*" Verb="Remove" Noun="AssessmentReportEvidence" ShouldProcessTarget="EvidenceFolderId" PipelineParameter="EvidenceFolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchImportEvidenceToAssessmentControl" OutputProperty="Errors" Verb="Add" Noun="EvidenceToAssessmentControl" ShouldProcessTarget="ControlId" PipelineParameter="ControlId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssessment" OutputProperty="Assessment" Verb="New" Noun="Assessment" ShouldProcessTarget="Name" PipelineParameter="FrameworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssessmentFramework" OutputProperty="Framework" Verb="New" Noun="AssessmentFramework" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssessmentReport" OutputProperty="AssessmentReport" Verb="New" Noun="AssessmentReport" ShouldProcessTarget="Name" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateControl" OutputProperty="Control" Verb="New" Noun="Control" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssessment" Verb="Remove" Noun="Assessment" ShouldProcessTarget="AssessmentId" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssessmentFramework" Verb="Remove" Noun="AssessmentFramework" ShouldProcessTarget="FrameworkId" PipelineParameter="FrameworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssessmentReport" Verb="Remove" Noun="AssessmentReport" ShouldProcessTarget="AssessmentReportId" PipelineParameter="AssessmentReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteControl" Verb="Remove" Noun="Control" ShouldProcessTarget="ControlId" PipelineParameter="ControlId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterAccount" OutputProperty="Status" Verb="Unregister" Noun="Account" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterOrganizationAdminAccount" Verb="Unregister" Noun="OrganizationAdminAccount" ShouldProcessTarget="AdminAccountId" PipelineParameter="AdminAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAssessmentReportEvidenceFolder" Verb="Remove" Noun="AssessmentReportEvidenceFolder" ShouldProcessTarget="EvidenceFolderId" PipelineParameter="EvidenceFolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountStatus" OutputProperty="Status" Verb="Get" Noun="AccountStatus" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssessment" OutputProperty="Assessment" Verb="Get" Noun="Assessment" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssessmentFramework" OutputProperty="Framework" Verb="Get" Noun="AssessmentFramework" PipelineParameter="FrameworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssessmentReportUrl" OutputProperty="PreSignedUrl" Verb="Get" Noun="AssessmentReportUrl" PipelineParameter="AssessmentReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetChangeLogs" OutputProperty="ChangeLogs" Verb="Get" Noun="ChangeLog" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetControl" OutputProperty="Control" Verb="Get" Noun="Control" PipelineParameter="ControlId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDelegations" OutputProperty="Delegations" Verb="Get" Noun="Delegation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEvidence" OutputProperty="Evidence" Verb="Get" Noun="Evidence" PipelineParameter="EvidenceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEvidenceByEvidenceFolder" OutputProperty="Evidence" Verb="Get" Noun="EvidenceByEvidenceFolder" PipelineParameter="EvidenceFolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEvidenceFolder" OutputProperty="EvidenceFolder" Verb="Get" Noun="EvidenceFolder" PipelineParameter="EvidenceFolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEvidenceFoldersByAssessment" OutputProperty="EvidenceFolders" Verb="Get" Noun="EvidenceFolderByAssessment" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEvidenceFoldersByAssessmentControl" OutputProperty="EvidenceFolders" Verb="Get" Noun="EvidenceFolderByAssessmentControl" PipelineParameter="ControlId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOrganizationAdminAccount" OutputProperty="*" Verb="Get" Noun="OrganizationAdminAccount" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServicesInScope" OutputProperty="ServiceMetadata" Verb="Get" Noun="ServiceInScope" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSettings" OutputProperty="Settings" Verb="Get" Noun="Setting" PipelineParameter="Attribute" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentFrameworks" OutputProperty="FrameworkMetadataList" Verb="Get" Noun="AssessmentFrameworkList" PipelineParameter="FrameworkType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentReports" OutputProperty="AssessmentReports" Verb="Get" Noun="AssessmentReportList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessments" OutputProperty="AssessmentMetadata" Verb="Get" Noun="AssessmentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListControls" OutputProperty="ControlMetadataList" Verb="Get" Noun="ControlList" PipelineParameter="ControlType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListKeywordsForDataSource" OutputProperty="Keywords" Verb="Get" Noun="KeywordForDataSourceList" PipelineParameter="Source" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotifications" OutputProperty="Notifications" Verb="Get" Noun="NotificationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterAccount" OutputProperty="Status" Verb="Register" Noun="Account" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterOrganizationAdminAccount" OutputProperty="*" Verb="Register" Noun="OrganizationAdminAccount" ShouldProcessTarget="AdminAccountId" PipelineParameter="AdminAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssessment" OutputProperty="Assessment" Verb="Edit" Noun="Assessment" ShouldProcessTarget="AssessmentId" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssessmentControl" OutputProperty="Control" Verb="Edit" Noun="AssessmentControl" ShouldProcessTarget="ControlId" PipelineParameter="ControlId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssessmentControlSetStatus" OutputProperty="ControlSet" Verb="Edit" Noun="AssessmentControlSetStatus" ShouldProcessTarget="ControlSetId" PipelineParameter="ControlSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssessmentFramework" OutputProperty="Framework" Verb="Edit" Noun="AssessmentFramework" ShouldProcessTarget="Name" PipelineParameter="FrameworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssessmentStatus" OutputProperty="Assessment" Verb="Edit" Noun="AssessmentStatus" ShouldProcessTarget="AssessmentId" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateControl" OutputProperty="Control" Verb="Edit" Noun="Control" ShouldProcessTarget="Name" PipelineParameter="ControlId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSettings" OutputProperty="Settings" Verb="Edit" Noun="Setting" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidateAssessmentReportIntegrity" OutputProperty="*" Verb="Confirm" Noun="AssessmentReportIntegrity" ShouldProcessTarget="S3RelativePath" PipelineParameter="S3RelativePath" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -42,6 +42,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2TransitGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter Options_AddTransitGatewayCidrBlock
+        /// <summary>
+        /// <para>
+        /// <para>Adds IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block
+        /// or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Options_AddTransitGatewayCidrBlocks")]
+        public System.String[] Options_AddTransitGatewayCidrBlock { get; set; }
+        #endregion
+        
         #region Parameter Options_AssociationDefaultRouteTableId
         /// <summary>
         /// <para>
@@ -116,6 +128,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Options_PropagationDefaultRouteTableId { get; set; }
+        #endregion
+        
+        #region Parameter Options_RemoveTransitGatewayCidrBlock
+        /// <summary>
+        /// <para>
+        /// <para>Removes CIDR blocks for the transit gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Options_RemoveTransitGatewayCidrBlocks")]
+        public System.String[] Options_RemoveTransitGatewayCidrBlock { get; set; }
         #endregion
         
         #region Parameter TransitGatewayId
@@ -208,12 +231,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            if (this.Options_AddTransitGatewayCidrBlock != null)
+            {
+                context.Options_AddTransitGatewayCidrBlock = new List<System.String>(this.Options_AddTransitGatewayCidrBlock);
+            }
             context.Options_AssociationDefaultRouteTableId = this.Options_AssociationDefaultRouteTableId;
             context.Options_AutoAcceptSharedAttachment = this.Options_AutoAcceptSharedAttachment;
             context.Options_DefaultRouteTableAssociation = this.Options_DefaultRouteTableAssociation;
             context.Options_DefaultRouteTablePropagation = this.Options_DefaultRouteTablePropagation;
             context.Options_DnsSupport = this.Options_DnsSupport;
             context.Options_PropagationDefaultRouteTableId = this.Options_PropagationDefaultRouteTableId;
+            if (this.Options_RemoveTransitGatewayCidrBlock != null)
+            {
+                context.Options_RemoveTransitGatewayCidrBlock = new List<System.String>(this.Options_RemoveTransitGatewayCidrBlock);
+            }
             context.Options_VpnEcmpSupport = this.Options_VpnEcmpSupport;
             context.TransitGatewayId = this.TransitGatewayId;
             #if MODULAR
@@ -246,6 +277,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate Options
             var requestOptionsIsNull = true;
             request.Options = new Amazon.EC2.Model.ModifyTransitGatewayOptions();
+            List<System.String> requestOptions_options_AddTransitGatewayCidrBlock = null;
+            if (cmdletContext.Options_AddTransitGatewayCidrBlock != null)
+            {
+                requestOptions_options_AddTransitGatewayCidrBlock = cmdletContext.Options_AddTransitGatewayCidrBlock;
+            }
+            if (requestOptions_options_AddTransitGatewayCidrBlock != null)
+            {
+                request.Options.AddTransitGatewayCidrBlocks = requestOptions_options_AddTransitGatewayCidrBlock;
+                requestOptionsIsNull = false;
+            }
             System.String requestOptions_options_AssociationDefaultRouteTableId = null;
             if (cmdletContext.Options_AssociationDefaultRouteTableId != null)
             {
@@ -304,6 +345,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOptions_options_PropagationDefaultRouteTableId != null)
             {
                 request.Options.PropagationDefaultRouteTableId = requestOptions_options_PropagationDefaultRouteTableId;
+                requestOptionsIsNull = false;
+            }
+            List<System.String> requestOptions_options_RemoveTransitGatewayCidrBlock = null;
+            if (cmdletContext.Options_RemoveTransitGatewayCidrBlock != null)
+            {
+                requestOptions_options_RemoveTransitGatewayCidrBlock = cmdletContext.Options_RemoveTransitGatewayCidrBlock;
+            }
+            if (requestOptions_options_RemoveTransitGatewayCidrBlock != null)
+            {
+                request.Options.RemoveTransitGatewayCidrBlocks = requestOptions_options_RemoveTransitGatewayCidrBlock;
                 requestOptionsIsNull = false;
             }
             Amazon.EC2.VpnEcmpSupportValue requestOptions_options_VpnEcmpSupport = null;
@@ -387,12 +438,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public List<System.String> Options_AddTransitGatewayCidrBlock { get; set; }
             public System.String Options_AssociationDefaultRouteTableId { get; set; }
             public Amazon.EC2.AutoAcceptSharedAttachmentsValue Options_AutoAcceptSharedAttachment { get; set; }
             public Amazon.EC2.DefaultRouteTableAssociationValue Options_DefaultRouteTableAssociation { get; set; }
             public Amazon.EC2.DefaultRouteTablePropagationValue Options_DefaultRouteTablePropagation { get; set; }
             public Amazon.EC2.DnsSupportValue Options_DnsSupport { get; set; }
             public System.String Options_PropagationDefaultRouteTableId { get; set; }
+            public List<System.String> Options_RemoveTransitGatewayCidrBlock { get; set; }
             public Amazon.EC2.VpnEcmpSupportValue Options_VpnEcmpSupport { get; set; }
             public System.String TransitGatewayId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyTransitGatewayResponse, EditEC2TransitGatewayCmdlet, object> Select { get; set; } =

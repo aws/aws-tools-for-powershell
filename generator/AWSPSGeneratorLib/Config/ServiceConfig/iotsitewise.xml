@@ -59,10 +59,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePresignedPortalUrl" OutputProperty="PresignedPortalUrl" Verb="New" Noun="PresignedPortalUrl" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="CreateProject" OutputProperty="*" Verb="New" Noun="Project" AnonymousShouldProcessTarget="true" PipelineParameter="PortalId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -115,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDefaultEncryptionConfiguration" OutputProperty="*" Verb="Get" Noun="DefaultEncryptionConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeGateway" OutputProperty="*" Verb="Get" Noun="Gateway" PipelineParameter="GatewayId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -159,6 +159,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAssetRelationships" OutputProperty="AssetRelationshipSummaries" Verb="Get" Noun="AssetRelationshipList" PipelineParameter="AssetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAssets" OutputProperty="AssetSummaries" Verb="Get" Noun="AssetList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -188,6 +192,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDefaultEncryptionConfiguration" OutputProperty="*" Verb="Write" Noun="DefaultEncryptionConfiguration" ShouldProcessTarget="KmsKeyId" PipelineParameter="EncryptionType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

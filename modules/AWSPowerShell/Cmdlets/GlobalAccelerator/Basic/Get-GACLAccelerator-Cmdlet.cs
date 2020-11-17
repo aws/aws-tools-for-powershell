@@ -28,8 +28,7 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Describe an accelerator. To see an AWS CLI example of describing an accelerator, scroll
-    /// down to <b>Example</b>.
+    /// Describe an accelerator.
     /// </summary>
     [Cmdlet("Get", "GACLAccelerator")]
     [OutputType("Amazon.GlobalAccelerator.Model.Accelerator")]

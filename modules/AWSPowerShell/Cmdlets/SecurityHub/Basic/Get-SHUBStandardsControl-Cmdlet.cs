@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter StandardsSubscriptionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of a resource that represents your subscription to a supported standard.</para>
+        /// <para>The ARN of a resource that represents your subscription to a supported standard. To
+        /// get the subscription ARNs of the standards you have enabled, use the <code><a>GetEnabledStandards</a></code> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

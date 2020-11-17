@@ -29,12 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
     /// Lists the IP address ranges that were specified in calls to <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/ProvisionByoipCidr.html">ProvisionByoipCidr</a>,
-    /// including the current state and a history of state changes.
-    /// 
-    ///  
-    /// <para>
-    /// To see an AWS CLI example of listing BYOIP CIDR addresses, scroll down to <b>Example</b>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// including the current state and a history of state changes.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GACLByoipCidrList")]
     [OutputType("Amazon.GlobalAccelerator.Model.ByoipCidr")]

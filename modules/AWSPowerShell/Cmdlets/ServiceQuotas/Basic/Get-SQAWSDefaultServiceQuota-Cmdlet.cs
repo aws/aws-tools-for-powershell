@@ -28,8 +28,8 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Retrieves the default service quotas values. The Value returned for each quota is
-    /// the AWS default value, even if the quotas have been increased..
+    /// Retrieves the default value for the specified quota. The default value does not reflect
+    /// any quota increases.
     /// </summary>
     [Cmdlet("Get", "SQAWSDefaultServiceQuota")]
     [OutputType("Amazon.ServiceQuotas.Model.ServiceQuota")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter QuotaCode
         /// <summary>
         /// <para>
-        /// <para>Identifies the service quota you want to select.</para>
+        /// <para>The quota identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the service that you want to use.</para>
+        /// <para>The service identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

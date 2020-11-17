@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Disassociates the current Security Hub member account from the associated master account.
+    /// 
+    ///  
+    /// <para>
+    /// This operation is only used by accounts that are not part of an organization. For
+    /// organization accounts, only the master account (the designated Security Hub administrator)
+    /// can disassociate a member account.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "SHUBMasterAccountAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

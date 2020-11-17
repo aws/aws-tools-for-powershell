@@ -28,8 +28,13 @@ using Amazon.ManagedBlockchain.Model;
 namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
-    /// Deletes a peer node from a member that your AWS account owns. All data on the node
-    /// is lost and cannot be recovered.
+    /// Deletes a node that your AWS account owns. All data on the node is lost and cannot
+    /// be recovered.
+    /// 
+    ///  
+    /// <para>
+    /// Applies to Hyperledger Fabric and Ethereum.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "MBCNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,24 +49,17 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter MemberId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the member that owns this node.</para>
+        /// <para>The unique identifier of the member that owns this node.</para><para>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MemberId { get; set; }
         #endregion
         
         #region Parameter NetworkId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the network that the node belongs to.</para>
+        /// <para>The unique identifier of the network that the node is on.</para><para>Ethereum public networks have the following <code>NetworkId</code>s:</para><ul><li><para><code>n-ethereum-mainnet</code></para></li><li><para><code>n-ethereum-rinkeby</code></para></li><li><para><code>n-ethereum-ropsten</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,12 +151,6 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MemberId = this.MemberId;
-            #if MODULAR
-            if (this.MemberId == null && ParameterWasBound(nameof(this.MemberId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MemberId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.NetworkId = this.NetworkId;
             #if MODULAR
             if (this.NetworkId == null && ParameterWasBound(nameof(this.NetworkId)))

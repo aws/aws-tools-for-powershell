@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// maximum of 50 possible. The response includes a token that you can use to get the
     /// next page of results.
     /// </para><important><para>
-    /// The rate of lookup requests is limited to two per second per account. If this limit
-    /// is exceeded, a throttling error occurs.
+    /// The rate of lookup requests is limited to two per second, per account, per region.
+    /// If this limit is exceeded, a throttling error occurs.
     /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Find", "CTEvent")]

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>connectparticipant</C2jFilename>
     <AssemblyName>ConnectParticipant</AssemblyName>
@@ -13,17 +14,24 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CompleteAttachmentUpload" Verb="Complete" Noun="AttachmentUpload" ShouldProcessTarget="ConnectionToken" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateParticipantConnection" OutputProperty="*" Verb="New" Noun="ParticipantConnection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ParticipantToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisconnectParticipant" Verb="Disconnect" Noun="Participant" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAttachment" OutputProperty="*" Verb="Get" Noun="Attachment" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -39,8 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartAttachmentUpload" OutputProperty="*" Verb="Start" Noun="AttachmentUpload" ShouldProcessTarget="AttachmentName" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

@@ -60,6 +60,39 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.DateTime? CreationTimeBefore { get; set; }
         #endregion
         
+        #region Parameter ModelApprovalStatus
+        /// <summary>
+        /// <para>
+        /// <para>A filter that returns only the model packages with the specified approval status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ModelApprovalStatus")]
+        public Amazon.SageMaker.ModelApprovalStatus ModelApprovalStatus { get; set; }
+        #endregion
+        
+        #region Parameter ModelPackageGroupName
+        /// <summary>
+        /// <para>
+        /// <para>A filter that returns only model versions that belong to the specified model group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelPackageGroupName { get; set; }
+        #endregion
+        
+        #region Parameter ModelPackageType
+        /// <summary>
+        /// <para>
+        /// <para>A filter that returns onlyl the model packages of the specified type. This can be
+        /// one of the following values.</para><ul><li><para><code>VERSIONED</code> - List only versioned models.</para></li><li><para><code>UNVERSIONED</code> - List only unversioined models.</para></li><li><para><code>BOTH</code> - List both versioned and unversioned models.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ModelPackageType")]
+        public Amazon.SageMaker.ModelPackageType ModelPackageType { get; set; }
+        #endregion
+        
         #region Parameter NameContain
         /// <summary>
         /// <para>
@@ -201,6 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.ModelApprovalStatus = this.ModelApprovalStatus;
+            context.ModelPackageGroupName = this.ModelPackageGroupName;
+            context.ModelPackageType = this.ModelPackageType;
             context.NameContain = this.NameContain;
             context.NextToken = this.NextToken;
             context.SortBy = this.SortBy;
@@ -237,6 +273,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.ModelApprovalStatus != null)
+            {
+                request.ModelApprovalStatus = cmdletContext.ModelApprovalStatus;
+            }
+            if (cmdletContext.ModelPackageGroupName != null)
+            {
+                request.ModelPackageGroupName = cmdletContext.ModelPackageGroupName;
+            }
+            if (cmdletContext.ModelPackageType != null)
+            {
+                request.ModelPackageType = cmdletContext.ModelPackageType;
             }
             if (cmdletContext.NameContain != null)
             {
@@ -312,6 +360,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.CreationTimeBefore != null)
             {
                 request.CreationTimeBefore = cmdletContext.CreationTimeBefore.Value;
+            }
+            if (cmdletContext.ModelApprovalStatus != null)
+            {
+                request.ModelApprovalStatus = cmdletContext.ModelApprovalStatus;
+            }
+            if (cmdletContext.ModelPackageGroupName != null)
+            {
+                request.ModelPackageGroupName = cmdletContext.ModelPackageGroupName;
+            }
+            if (cmdletContext.ModelPackageType != null)
+            {
+                request.ModelPackageType = cmdletContext.ModelPackageType;
             }
             if (cmdletContext.NameContain != null)
             {
@@ -451,6 +511,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.DateTime? CreationTimeAfter { get; set; }
             public System.DateTime? CreationTimeBefore { get; set; }
             public int? MaxResult { get; set; }
+            public Amazon.SageMaker.ModelApprovalStatus ModelApprovalStatus { get; set; }
+            public System.String ModelPackageGroupName { get; set; }
+            public Amazon.SageMaker.ModelPackageType ModelPackageType { get; set; }
             public System.String NameContain { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.SageMaker.ModelPackageSortBy SortBy { get; set; }

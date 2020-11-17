@@ -271,8 +271,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// uploaded to the target Redshift cluster. </para><para>For full load mode, AWS DMS converts source records into .csv files and loads them
         /// to the <i>BucketFolder/TableID</i> path. AWS DMS uses the Redshift <code>COPY</code>
         /// command to upload the .csv files to the target table. The files are deleted once the
-        /// <code>COPY</code> operation has finished. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html">Amazon
-        /// Redshift Database Developer Guide</a></para><para>For change-data-capture (CDC) mode, AWS DMS creates a <i>NetChanges</i> table, and
+        /// <code>COPY</code> operation has finished. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html">COPY</a>
+        /// in the <i>Amazon Redshift Database Developer Guide</i>.</para><para>For change-data-capture (CDC) mode, AWS DMS creates a <i>NetChanges</i> table, and
         /// loads the .csv files to this <i>BucketFolder/NetChangesTableID</i> path.</para>
         /// </para>
         /// </summary>
@@ -403,6 +403,27 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? S3Settings_CdcInsertsOnly { get; set; }
         #endregion
         
+        #region Parameter S3Settings_CdcPath
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the folder path of CDC files. For an S3 source, this setting is required
+        /// if a task captures change data; otherwise, it's optional. If <code>CdcPath</code>
+        /// is set, AWS DMS reads CDC files from this path and replicates the data changes to
+        /// the target endpoint. For an S3 target if you set <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-PreserveTransactions"><code>PreserveTransactions</code></a> to <code>true</code>, AWS DMS verifies that
+        /// you have set this parameter to a folder path on your S3 target where AWS DMS can save
+        /// the transaction order for the CDC load. AWS DMS creates this CDC folder path in either
+        /// your S3 target working directory or the S3 target location specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketFolder"><code>BucketFolder</code></a> and <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketName"><code>BucketName</code></a>.</para><para>For example, if you specify <code>CdcPath</code> as <code>MyChangedData</code>, and
+        /// you specify <code>BucketName</code> as <code>MyTargetBucket</code> but do not specify
+        /// <code>BucketFolder</code>, AWS DMS creates the CDC folder path following: <code>MyTargetBucket/MyChangedData</code>.</para><para>If you specify the same <code>CdcPath</code>, and you specify <code>BucketName</code>
+        /// as <code>MyTargetBucket</code> and <code>BucketFolder</code> as <code>MyTargetData</code>,
+        /// AWS DMS creates the CDC folder path following: <code>MyTargetBucket/MyTargetData/MyChangedData</code>.</para><para>For more information on CDC including transaction order on an S3 target, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath">Capturing
+        /// data changes (CDC) including transaction order on the S3 target</a>.</para><note><para>This setting is supported in AWS DMS versions 3.4.2 and later.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3Settings_CdcPath { get; set; }
+        #endregion
+        
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
@@ -469,9 +490,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MicrosoftSQLServerSettings_ControlTablesFileGroup
         /// <summary>
         /// <para>
-        /// <para>Specify a filegroup for the AWS DMS internal tables. When the replication task starts,
-        /// all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply, awsdms_changes)
-        /// are created on the specified filegroup.</para>
+        /// <para>Specifies a file group for the AWS DMS internal tables. When the replication task
+        /// starts, all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply,
+        /// awsdms_changes) are created for the specified file group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -487,6 +508,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String S3Settings_CsvDelimiter { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_CsvNoSupValue
+        /// <summary>
+        /// <para>
+        /// <para>This setting only applies if your Amazon S3 output files during a change data capture
+        /// (CDC) load are written in .csv format. If <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-UseCsvNoSupValue"><code>UseCsvNoSupValue</code></a> is set to true, specify a string value that you
+        /// want AWS DMS to use for all columns not included in the supplemental log. If you do
+        /// not specify a string value, AWS DMS uses the null value for these columns regardless
+        /// of the <code>UseCsvNoSupValue</code> setting.</para><note><para>This setting is supported in AWS DMS versions 3.4.1 and later.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3Settings_CsvNoSupValue { get; set; }
         #endregion
         
         #region Parameter S3Settings_CsvRowDelimiter
@@ -1455,10 +1490,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MySQLSettings_ParallelLoadThread
         /// <summary>
         /// <para>
-        /// <para>Improves performance when loading data into the MySQLcompatible target database. Specifies
-        /// how many threads to use to load the data into the MySQL-compatible target database.
-        /// Setting a large number of threads can have an adverse effect on database performance,
-        /// because a separate connection is required for each thread.</para><para>Example: <code>parallelLoadThreads=1</code></para>
+        /// <para>Improves performance when loading data into the MySQL-compatible target database.
+        /// Specifies how many threads to use to load the data into the MySQL-compatible target
+        /// database. Setting a large number of threads can have an adverse effect on database
+        /// performance, because a separate connection is required for each thread.</para><para>Example: <code>parallelLoadThreads=1</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1728,6 +1763,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? SybaseSettings_Port { get; set; }
         #endregion
         
+        #region Parameter S3Settings_PreserveTransaction
+        /// <summary>
+        /// <para>
+        /// <para>If set to <code>true</code>, AWS DMS saves the transaction order for a change data
+        /// capture (CDC) load on the Amazon S3 target specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CdcPath"><code>CdcPath</code></a>. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath">Capturing
+        /// data changes (CDC) including transaction order on the S3 target</a>.</para><note><para>This setting is supported in AWS DMS versions 3.4.2 and later.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("S3Settings_PreserveTransactions")]
+        public System.Boolean? S3Settings_PreserveTransaction { get; set; }
+        #endregion
+        
         #region Parameter OracleSettings_ReadAheadBlock
         /// <summary>
         /// <para>
@@ -1898,6 +1946,285 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DatabaseMigrationService.SafeguardPolicy")]
         public Amazon.DatabaseMigrationService.SafeguardPolicy MicrosoftSQLServerSettings_SafeguardPolicy { get; set; }
+        #endregion
+        
+        #region Parameter DocDbSettings_SecretsManagerAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+        /// trusted entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
+        /// <code>SecretsManagerSecret</code> has the value of the AWS Secrets Manager secret
+        /// that allows access to the DocumentDB endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
+        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
+        /// and <code>Port</code>. You can't specify both. For more information on creating this
+        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
+        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// secrets to access AWS Database Migration Service resources</a> in the <i>AWS Database
+        /// Migration Service User Guide</i>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DocDbSettings_SecretsManagerAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter IBMDb2Settings_SecretsManagerAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+        /// trusted entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
+        /// <code>SecretsManagerSecret</code> has the value of the AWS Secrets Manager secret
+        /// that allows access to the Db2 LUW endpoint. </para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
+        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
+        /// and <code>Port</code>. You can't specify both. For more information on creating this
+        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
+        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// secrets to access AWS Database Migration Service resources</a> in the <i>AWS Database
+        /// Migration Service User Guide</i>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IBMDb2Settings_SecretsManagerAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+        /// trusted entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
+        /// <code>SecretsManagerSecret</code> has the value of the AWS Secrets Manager secret
+        /// that allows access to the SQL Server endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
+        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
+        /// and <code>Port</code>. You can't specify both. For more information on creating this
+        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
+        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// secrets to access AWS Database Migration Service resources</a> in the <i>AWS Database
+        /// Migration Service User Guide</i>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter MongoDbSettings_SecretsManagerAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+        /// trusted entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
+        /// <code>SecretsManagerSecret</code> has the value of the AWS Secrets Manager secret
+        /// that allows access to the MongoDB endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
+        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
+        /// and <code>Port</code>. You can't specify both. For more information on creating this
+        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
+        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// secrets to access AWS Database Migration Service resources</a> in the <i>AWS Database
+        /// Migration Service User Guide</i>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MongoDbSettings_SecretsManagerAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter MySQLSettings_SecretsManagerAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+        /// trusted entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
+        /// <code>SecretsManagerSecret</code> has the value of the AWS Secrets Manager secret
+        /// that allows access to the MySQL endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
+        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
+        /// and <code>Port</code>. You can't specify both. For more information on creating this
+        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
+        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// secrets to access AWS Database Migration Service resources</a> in the <i>AWS Database
+        /// Migration Service User Guide</i>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MySQLSettings_SecretsManagerAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_SecretsManagerAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+        /// trusted entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
+        /// <code>SecretsManagerSecret</code> has the value of the AWS Secrets Manager secret
+        /// that allows access to the Oracle endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
+        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
+        /// and <code>Port</code>. You can't specify both. For more information on creating this
+        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
+        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// secrets to access AWS Database Migration Service resources</a> in the <i>AWS Database
+        /// Migration Service User Guide</i>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_SecretsManagerAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_SecretsManagerAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+        /// trusted entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
+        /// <code>SecretsManagerSecret</code> has the value of the AWS Secrets Manager secret
+        /// that allows access to the PostgreSQL endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
+        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
+        /// and <code>Port</code>. You can't specify both. For more information on creating this
+        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
+        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// secrets to access AWS Database Migration Service resources</a> in the <i>AWS Database
+        /// Migration Service User Guide</i>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostgreSQLSettings_SecretsManagerAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_SecretsManagerAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+        /// trusted entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
+        /// <code>SecretsManagerSecret</code> has the value of the AWS Secrets Manager secret
+        /// that allows access to the Amazon Redshift endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
+        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
+        /// and <code>Port</code>. You can't specify both. For more information on creating this
+        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
+        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// secrets to access AWS Database Migration Service resources</a> in the <i>AWS Database
+        /// Migration Service User Guide</i>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RedshiftSettings_SecretsManagerAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter SybaseSettings_SecretsManagerAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+        /// trusted entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
+        /// <code>SecretsManagerSecret</code> has the value of the AWS Secrets Manager secret
+        /// that allows access to the SAP ASE endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
+        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
+        /// and <code>Port</code>. You can't specify both. For more information on creating this
+        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
+        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// secrets to access AWS Database Migration Service resources</a> in the <i>AWS Database
+        /// Migration Service User Guide</i>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SybaseSettings_SecretsManagerAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter DocDbSettings_SecretsManagerSecretId
+        /// <summary>
+        /// <para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
+        /// that contains the DocumentDB endpoint connection details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DocDbSettings_SecretsManagerSecretId { get; set; }
+        #endregion
+        
+        #region Parameter IBMDb2Settings_SecretsManagerSecretId
+        /// <summary>
+        /// <para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
+        /// that contains the Db2 LUW endpoint connection details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IBMDb2Settings_SecretsManagerSecretId { get; set; }
+        #endregion
+        
+        #region Parameter MicrosoftSQLServerSettings_SecretsManagerSecretId
+        /// <summary>
+        /// <para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
+        /// that contains the SQL Server endpoint connection details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MicrosoftSQLServerSettings_SecretsManagerSecretId { get; set; }
+        #endregion
+        
+        #region Parameter MongoDbSettings_SecretsManagerSecretId
+        /// <summary>
+        /// <para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
+        /// that contains the MongoDB endpoint connection details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MongoDbSettings_SecretsManagerSecretId { get; set; }
+        #endregion
+        
+        #region Parameter MySQLSettings_SecretsManagerSecretId
+        /// <summary>
+        /// <para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
+        /// that contains the MySQL endpoint connection details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MySQLSettings_SecretsManagerSecretId { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_SecretsManagerSecretId
+        /// <summary>
+        /// <para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
+        /// that contains the Oracle endpoint connection details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_SecretsManagerSecretId { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_SecretsManagerSecretId
+        /// <summary>
+        /// <para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
+        /// that contains the PostgreSQL endpoint connection details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostgreSQLSettings_SecretsManagerSecretId { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_SecretsManagerSecretId
+        /// <summary>
+        /// <para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
+        /// that contains the Amazon Redshift endpoint connection details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RedshiftSettings_SecretsManagerSecretId { get; set; }
+        #endregion
+        
+        #region Parameter SybaseSettings_SecretsManagerSecretId
+        /// <summary>
+        /// <para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
+        /// that contains the SAP SAE endpoint connection details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SybaseSettings_SecretsManagerSecretId { get; set; }
         #endregion
         
         #region Parameter OracleSettings_SecurityDbEncryption
@@ -2319,6 +2646,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? MicrosoftSQLServerSettings_UseBcpFullLoad { get; set; }
         #endregion
         
+        #region Parameter S3Settings_UseCsvNoSupValue
+        /// <summary>
+        /// <para>
+        /// <para>This setting applies if the S3 output files during a change data capture (CDC) load
+        /// are written in .csv format. If set to <code>true</code> for columns not included in
+        /// the supplemental log, AWS DMS uses the value specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue"><code>CsvNoSupValue</code></a>. If not set or set to <code>false</code>, AWS DMS
+        /// uses the null value for these columns.</para><note><para>This setting is supported in AWS DMS versions 3.4.1 and later.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? S3Settings_UseCsvNoSupValue { get; set; }
+        #endregion
+        
         #region Parameter OracleSettings_UsePathPrefix
         /// <summary>
         /// <para>
@@ -2515,6 +2855,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.DocDbSettings_NestingLevel = this.DocDbSettings_NestingLevel;
             context.DocDbSettings_Password = this.DocDbSettings_Password;
             context.DocDbSettings_Port = this.DocDbSettings_Port;
+            context.DocDbSettings_SecretsManagerAccessRoleArn = this.DocDbSettings_SecretsManagerAccessRoleArn;
+            context.DocDbSettings_SecretsManagerSecretId = this.DocDbSettings_SecretsManagerSecretId;
             context.DocDbSettings_ServerName = this.DocDbSettings_ServerName;
             context.DocDbSettings_Username = this.DocDbSettings_Username;
             context.DynamoDbSettings_ServiceAccessRoleArn = this.DynamoDbSettings_ServiceAccessRoleArn;
@@ -2550,6 +2892,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.IBMDb2Settings_MaxKBytesPerRead = this.IBMDb2Settings_MaxKBytesPerRead;
             context.IBMDb2Settings_Password = this.IBMDb2Settings_Password;
             context.IBMDb2Settings_Port = this.IBMDb2Settings_Port;
+            context.IBMDb2Settings_SecretsManagerAccessRoleArn = this.IBMDb2Settings_SecretsManagerAccessRoleArn;
+            context.IBMDb2Settings_SecretsManagerSecretId = this.IBMDb2Settings_SecretsManagerSecretId;
             context.IBMDb2Settings_ServerName = this.IBMDb2Settings_ServerName;
             context.IBMDb2Settings_SetDataCaptureChange = this.IBMDb2Settings_SetDataCaptureChange;
             context.IBMDb2Settings_Username = this.IBMDb2Settings_Username;
@@ -2580,6 +2924,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MicrosoftSQLServerSettings_Port = this.MicrosoftSQLServerSettings_Port;
             context.MicrosoftSQLServerSettings_ReadBackupOnly = this.MicrosoftSQLServerSettings_ReadBackupOnly;
             context.MicrosoftSQLServerSettings_SafeguardPolicy = this.MicrosoftSQLServerSettings_SafeguardPolicy;
+            context.MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn = this.MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn;
+            context.MicrosoftSQLServerSettings_SecretsManagerSecretId = this.MicrosoftSQLServerSettings_SecretsManagerSecretId;
             context.MicrosoftSQLServerSettings_ServerName = this.MicrosoftSQLServerSettings_ServerName;
             context.MicrosoftSQLServerSettings_UseBcpFullLoad = this.MicrosoftSQLServerSettings_UseBcpFullLoad;
             context.MicrosoftSQLServerSettings_Username = this.MicrosoftSQLServerSettings_Username;
@@ -2593,6 +2939,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MongoDbSettings_NestingLevel = this.MongoDbSettings_NestingLevel;
             context.MongoDbSettings_Password = this.MongoDbSettings_Password;
             context.MongoDbSettings_Port = this.MongoDbSettings_Port;
+            context.MongoDbSettings_SecretsManagerAccessRoleArn = this.MongoDbSettings_SecretsManagerAccessRoleArn;
+            context.MongoDbSettings_SecretsManagerSecretId = this.MongoDbSettings_SecretsManagerSecretId;
             context.MongoDbSettings_ServerName = this.MongoDbSettings_ServerName;
             context.MongoDbSettings_Username = this.MongoDbSettings_Username;
             context.MySQLSettings_AfterConnectScript = this.MySQLSettings_AfterConnectScript;
@@ -2602,6 +2950,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MySQLSettings_ParallelLoadThread = this.MySQLSettings_ParallelLoadThread;
             context.MySQLSettings_Password = this.MySQLSettings_Password;
             context.MySQLSettings_Port = this.MySQLSettings_Port;
+            context.MySQLSettings_SecretsManagerAccessRoleArn = this.MySQLSettings_SecretsManagerAccessRoleArn;
+            context.MySQLSettings_SecretsManagerSecretId = this.MySQLSettings_SecretsManagerSecretId;
             context.MySQLSettings_ServerName = this.MySQLSettings_ServerName;
             context.MySQLSettings_ServerTimezone = this.MySQLSettings_ServerTimezone;
             context.MySQLSettings_TargetDbType = this.MySQLSettings_TargetDbType;
@@ -2637,6 +2987,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.OracleSettings_ReadTableSpaceName = this.OracleSettings_ReadTableSpaceName;
             context.OracleSettings_ReplacePathPrefix = this.OracleSettings_ReplacePathPrefix;
             context.OracleSettings_RetryInterval = this.OracleSettings_RetryInterval;
+            context.OracleSettings_SecretsManagerAccessRoleArn = this.OracleSettings_SecretsManagerAccessRoleArn;
+            context.OracleSettings_SecretsManagerSecretId = this.OracleSettings_SecretsManagerSecretId;
             context.OracleSettings_SecurityDbEncryption = this.OracleSettings_SecurityDbEncryption;
             context.OracleSettings_SecurityDbEncryptionName = this.OracleSettings_SecurityDbEncryptionName;
             context.OracleSettings_ServerName = this.OracleSettings_ServerName;
@@ -2654,6 +3006,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.PostgreSQLSettings_MaxFileSize = this.PostgreSQLSettings_MaxFileSize;
             context.PostgreSQLSettings_Password = this.PostgreSQLSettings_Password;
             context.PostgreSQLSettings_Port = this.PostgreSQLSettings_Port;
+            context.PostgreSQLSettings_SecretsManagerAccessRoleArn = this.PostgreSQLSettings_SecretsManagerAccessRoleArn;
+            context.PostgreSQLSettings_SecretsManagerSecretId = this.PostgreSQLSettings_SecretsManagerSecretId;
             context.PostgreSQLSettings_ServerName = this.PostgreSQLSettings_ServerName;
             context.PostgreSQLSettings_SlotName = this.PostgreSQLSettings_SlotName;
             context.PostgreSQLSettings_Username = this.PostgreSQLSettings_Username;
@@ -2677,6 +3031,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.RedshiftSettings_RemoveQuote = this.RedshiftSettings_RemoveQuote;
             context.RedshiftSettings_ReplaceChar = this.RedshiftSettings_ReplaceChar;
             context.RedshiftSettings_ReplaceInvalidChar = this.RedshiftSettings_ReplaceInvalidChar;
+            context.RedshiftSettings_SecretsManagerAccessRoleArn = this.RedshiftSettings_SecretsManagerAccessRoleArn;
+            context.RedshiftSettings_SecretsManagerSecretId = this.RedshiftSettings_SecretsManagerSecretId;
             context.RedshiftSettings_ServerName = this.RedshiftSettings_ServerName;
             context.RedshiftSettings_ServerSideEncryptionKmsKeyId = this.RedshiftSettings_ServerSideEncryptionKmsKeyId;
             context.RedshiftSettings_ServiceAccessRoleArn = this.RedshiftSettings_ServiceAccessRoleArn;
@@ -2690,8 +3046,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.S3Settings_BucketName = this.S3Settings_BucketName;
             context.S3Settings_CdcInsertsAndUpdate = this.S3Settings_CdcInsertsAndUpdate;
             context.S3Settings_CdcInsertsOnly = this.S3Settings_CdcInsertsOnly;
+            context.S3Settings_CdcPath = this.S3Settings_CdcPath;
             context.S3Settings_CompressionType = this.S3Settings_CompressionType;
             context.S3Settings_CsvDelimiter = this.S3Settings_CsvDelimiter;
+            context.S3Settings_CsvNoSupValue = this.S3Settings_CsvNoSupValue;
             context.S3Settings_CsvRowDelimiter = this.S3Settings_CsvRowDelimiter;
             context.S3Settings_DataFormat = this.S3Settings_DataFormat;
             context.S3Settings_DataPageSize = this.S3Settings_DataPageSize;
@@ -2706,16 +3064,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.S3Settings_IncludeOpForFullLoad = this.S3Settings_IncludeOpForFullLoad;
             context.S3Settings_ParquetTimestampInMillisecond = this.S3Settings_ParquetTimestampInMillisecond;
             context.S3Settings_ParquetVersion = this.S3Settings_ParquetVersion;
+            context.S3Settings_PreserveTransaction = this.S3Settings_PreserveTransaction;
             context.S3Settings_RowGroupLength = this.S3Settings_RowGroupLength;
             context.S3Settings_ServerSideEncryptionKmsKeyId = this.S3Settings_ServerSideEncryptionKmsKeyId;
             context.S3Settings_ServiceAccessRoleArn = this.S3Settings_ServiceAccessRoleArn;
             context.S3Settings_TimestampColumnName = this.S3Settings_TimestampColumnName;
+            context.S3Settings_UseCsvNoSupValue = this.S3Settings_UseCsvNoSupValue;
             context.ServerName = this.ServerName;
             context.ServiceAccessRoleArn = this.ServiceAccessRoleArn;
             context.SslMode = this.SslMode;
             context.SybaseSettings_DatabaseName = this.SybaseSettings_DatabaseName;
             context.SybaseSettings_Password = this.SybaseSettings_Password;
             context.SybaseSettings_Port = this.SybaseSettings_Port;
+            context.SybaseSettings_SecretsManagerAccessRoleArn = this.SybaseSettings_SecretsManagerAccessRoleArn;
+            context.SybaseSettings_SecretsManagerSecretId = this.SybaseSettings_SecretsManagerSecretId;
             context.SybaseSettings_ServerName = this.SybaseSettings_ServerName;
             context.SybaseSettings_Username = this.SybaseSettings_Username;
             if (this.Tag != null)
@@ -2848,6 +3210,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestDocDbSettings_docDbSettings_Port != null)
             {
                 request.DocDbSettings.Port = requestDocDbSettings_docDbSettings_Port.Value;
+                requestDocDbSettingsIsNull = false;
+            }
+            System.String requestDocDbSettings_docDbSettings_SecretsManagerAccessRoleArn = null;
+            if (cmdletContext.DocDbSettings_SecretsManagerAccessRoleArn != null)
+            {
+                requestDocDbSettings_docDbSettings_SecretsManagerAccessRoleArn = cmdletContext.DocDbSettings_SecretsManagerAccessRoleArn;
+            }
+            if (requestDocDbSettings_docDbSettings_SecretsManagerAccessRoleArn != null)
+            {
+                request.DocDbSettings.SecretsManagerAccessRoleArn = requestDocDbSettings_docDbSettings_SecretsManagerAccessRoleArn;
+                requestDocDbSettingsIsNull = false;
+            }
+            System.String requestDocDbSettings_docDbSettings_SecretsManagerSecretId = null;
+            if (cmdletContext.DocDbSettings_SecretsManagerSecretId != null)
+            {
+                requestDocDbSettings_docDbSettings_SecretsManagerSecretId = cmdletContext.DocDbSettings_SecretsManagerSecretId;
+            }
+            if (requestDocDbSettings_docDbSettings_SecretsManagerSecretId != null)
+            {
+                request.DocDbSettings.SecretsManagerSecretId = requestDocDbSettings_docDbSettings_SecretsManagerSecretId;
                 requestDocDbSettingsIsNull = false;
             }
             System.String requestDocDbSettings_docDbSettings_ServerName = null;
@@ -3015,6 +3397,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestIBMDb2Settings_iBMDb2Settings_Port != null)
             {
                 request.IBMDb2Settings.Port = requestIBMDb2Settings_iBMDb2Settings_Port.Value;
+                requestIBMDb2SettingsIsNull = false;
+            }
+            System.String requestIBMDb2Settings_iBMDb2Settings_SecretsManagerAccessRoleArn = null;
+            if (cmdletContext.IBMDb2Settings_SecretsManagerAccessRoleArn != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_SecretsManagerAccessRoleArn = cmdletContext.IBMDb2Settings_SecretsManagerAccessRoleArn;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_SecretsManagerAccessRoleArn != null)
+            {
+                request.IBMDb2Settings.SecretsManagerAccessRoleArn = requestIBMDb2Settings_iBMDb2Settings_SecretsManagerAccessRoleArn;
+                requestIBMDb2SettingsIsNull = false;
+            }
+            System.String requestIBMDb2Settings_iBMDb2Settings_SecretsManagerSecretId = null;
+            if (cmdletContext.IBMDb2Settings_SecretsManagerSecretId != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_SecretsManagerSecretId = cmdletContext.IBMDb2Settings_SecretsManagerSecretId;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_SecretsManagerSecretId != null)
+            {
+                request.IBMDb2Settings.SecretsManagerSecretId = requestIBMDb2Settings_iBMDb2Settings_SecretsManagerSecretId;
                 requestIBMDb2SettingsIsNull = false;
             }
             System.String requestIBMDb2Settings_iBMDb2Settings_ServerName = null;
@@ -3338,6 +3740,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.MicrosoftSQLServerSettings.SafeguardPolicy = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_SafeguardPolicy;
                 requestMicrosoftSQLServerSettingsIsNull = false;
             }
+            System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_SecretsManagerAccessRoleArn = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_SecretsManagerAccessRoleArn = cmdletContext.MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_SecretsManagerAccessRoleArn != null)
+            {
+                request.MicrosoftSQLServerSettings.SecretsManagerAccessRoleArn = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_SecretsManagerAccessRoleArn;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
+            System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_SecretsManagerSecretId = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_SecretsManagerSecretId != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_SecretsManagerSecretId = cmdletContext.MicrosoftSQLServerSettings_SecretsManagerSecretId;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_SecretsManagerSecretId != null)
+            {
+                request.MicrosoftSQLServerSettings.SecretsManagerSecretId = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_SecretsManagerSecretId;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
             System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ServerName = null;
             if (cmdletContext.MicrosoftSQLServerSettings_ServerName != null)
             {
@@ -3477,6 +3899,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.MongoDbSettings.Port = requestMongoDbSettings_mongoDbSettings_Port.Value;
                 requestMongoDbSettingsIsNull = false;
             }
+            System.String requestMongoDbSettings_mongoDbSettings_SecretsManagerAccessRoleArn = null;
+            if (cmdletContext.MongoDbSettings_SecretsManagerAccessRoleArn != null)
+            {
+                requestMongoDbSettings_mongoDbSettings_SecretsManagerAccessRoleArn = cmdletContext.MongoDbSettings_SecretsManagerAccessRoleArn;
+            }
+            if (requestMongoDbSettings_mongoDbSettings_SecretsManagerAccessRoleArn != null)
+            {
+                request.MongoDbSettings.SecretsManagerAccessRoleArn = requestMongoDbSettings_mongoDbSettings_SecretsManagerAccessRoleArn;
+                requestMongoDbSettingsIsNull = false;
+            }
+            System.String requestMongoDbSettings_mongoDbSettings_SecretsManagerSecretId = null;
+            if (cmdletContext.MongoDbSettings_SecretsManagerSecretId != null)
+            {
+                requestMongoDbSettings_mongoDbSettings_SecretsManagerSecretId = cmdletContext.MongoDbSettings_SecretsManagerSecretId;
+            }
+            if (requestMongoDbSettings_mongoDbSettings_SecretsManagerSecretId != null)
+            {
+                request.MongoDbSettings.SecretsManagerSecretId = requestMongoDbSettings_mongoDbSettings_SecretsManagerSecretId;
+                requestMongoDbSettingsIsNull = false;
+            }
             System.String requestMongoDbSettings_mongoDbSettings_ServerName = null;
             if (cmdletContext.MongoDbSettings_ServerName != null)
             {
@@ -3574,6 +4016,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMySQLSettings_mySQLSettings_Port != null)
             {
                 request.MySQLSettings.Port = requestMySQLSettings_mySQLSettings_Port.Value;
+                requestMySQLSettingsIsNull = false;
+            }
+            System.String requestMySQLSettings_mySQLSettings_SecretsManagerAccessRoleArn = null;
+            if (cmdletContext.MySQLSettings_SecretsManagerAccessRoleArn != null)
+            {
+                requestMySQLSettings_mySQLSettings_SecretsManagerAccessRoleArn = cmdletContext.MySQLSettings_SecretsManagerAccessRoleArn;
+            }
+            if (requestMySQLSettings_mySQLSettings_SecretsManagerAccessRoleArn != null)
+            {
+                request.MySQLSettings.SecretsManagerAccessRoleArn = requestMySQLSettings_mySQLSettings_SecretsManagerAccessRoleArn;
+                requestMySQLSettingsIsNull = false;
+            }
+            System.String requestMySQLSettings_mySQLSettings_SecretsManagerSecretId = null;
+            if (cmdletContext.MySQLSettings_SecretsManagerSecretId != null)
+            {
+                requestMySQLSettings_mySQLSettings_SecretsManagerSecretId = cmdletContext.MySQLSettings_SecretsManagerSecretId;
+            }
+            if (requestMySQLSettings_mySQLSettings_SecretsManagerSecretId != null)
+            {
+                request.MySQLSettings.SecretsManagerSecretId = requestMySQLSettings_mySQLSettings_SecretsManagerSecretId;
                 requestMySQLSettingsIsNull = false;
             }
             System.String requestMySQLSettings_mySQLSettings_ServerName = null;
@@ -3944,6 +4406,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.OracleSettings.RetryInterval = requestOracleSettings_oracleSettings_RetryInterval.Value;
                 requestOracleSettingsIsNull = false;
             }
+            System.String requestOracleSettings_oracleSettings_SecretsManagerAccessRoleArn = null;
+            if (cmdletContext.OracleSettings_SecretsManagerAccessRoleArn != null)
+            {
+                requestOracleSettings_oracleSettings_SecretsManagerAccessRoleArn = cmdletContext.OracleSettings_SecretsManagerAccessRoleArn;
+            }
+            if (requestOracleSettings_oracleSettings_SecretsManagerAccessRoleArn != null)
+            {
+                request.OracleSettings.SecretsManagerAccessRoleArn = requestOracleSettings_oracleSettings_SecretsManagerAccessRoleArn;
+                requestOracleSettingsIsNull = false;
+            }
+            System.String requestOracleSettings_oracleSettings_SecretsManagerSecretId = null;
+            if (cmdletContext.OracleSettings_SecretsManagerSecretId != null)
+            {
+                requestOracleSettings_oracleSettings_SecretsManagerSecretId = cmdletContext.OracleSettings_SecretsManagerSecretId;
+            }
+            if (requestOracleSettings_oracleSettings_SecretsManagerSecretId != null)
+            {
+                request.OracleSettings.SecretsManagerSecretId = requestOracleSettings_oracleSettings_SecretsManagerSecretId;
+                requestOracleSettingsIsNull = false;
+            }
             System.String requestOracleSettings_oracleSettings_SecurityDbEncryption = null;
             if (cmdletContext.OracleSettings_SecurityDbEncryption != null)
             {
@@ -4109,6 +4591,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestPostgreSQLSettings_postgreSQLSettings_Port != null)
             {
                 request.PostgreSQLSettings.Port = requestPostgreSQLSettings_postgreSQLSettings_Port.Value;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.String requestPostgreSQLSettings_postgreSQLSettings_SecretsManagerAccessRoleArn = null;
+            if (cmdletContext.PostgreSQLSettings_SecretsManagerAccessRoleArn != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_SecretsManagerAccessRoleArn = cmdletContext.PostgreSQLSettings_SecretsManagerAccessRoleArn;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_SecretsManagerAccessRoleArn != null)
+            {
+                request.PostgreSQLSettings.SecretsManagerAccessRoleArn = requestPostgreSQLSettings_postgreSQLSettings_SecretsManagerAccessRoleArn;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.String requestPostgreSQLSettings_postgreSQLSettings_SecretsManagerSecretId = null;
+            if (cmdletContext.PostgreSQLSettings_SecretsManagerSecretId != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_SecretsManagerSecretId = cmdletContext.PostgreSQLSettings_SecretsManagerSecretId;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_SecretsManagerSecretId != null)
+            {
+                request.PostgreSQLSettings.SecretsManagerSecretId = requestPostgreSQLSettings_postgreSQLSettings_SecretsManagerSecretId;
                 requestPostgreSQLSettingsIsNull = false;
             }
             System.String requestPostgreSQLSettings_postgreSQLSettings_ServerName = null;
@@ -4350,6 +4852,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.RedshiftSettings.ReplaceInvalidChars = requestRedshiftSettings_redshiftSettings_ReplaceInvalidChar;
                 requestRedshiftSettingsIsNull = false;
             }
+            System.String requestRedshiftSettings_redshiftSettings_SecretsManagerAccessRoleArn = null;
+            if (cmdletContext.RedshiftSettings_SecretsManagerAccessRoleArn != null)
+            {
+                requestRedshiftSettings_redshiftSettings_SecretsManagerAccessRoleArn = cmdletContext.RedshiftSettings_SecretsManagerAccessRoleArn;
+            }
+            if (requestRedshiftSettings_redshiftSettings_SecretsManagerAccessRoleArn != null)
+            {
+                request.RedshiftSettings.SecretsManagerAccessRoleArn = requestRedshiftSettings_redshiftSettings_SecretsManagerAccessRoleArn;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_SecretsManagerSecretId = null;
+            if (cmdletContext.RedshiftSettings_SecretsManagerSecretId != null)
+            {
+                requestRedshiftSettings_redshiftSettings_SecretsManagerSecretId = cmdletContext.RedshiftSettings_SecretsManagerSecretId;
+            }
+            if (requestRedshiftSettings_redshiftSettings_SecretsManagerSecretId != null)
+            {
+                request.RedshiftSettings.SecretsManagerSecretId = requestRedshiftSettings_redshiftSettings_SecretsManagerSecretId;
+                requestRedshiftSettingsIsNull = false;
+            }
             System.String requestRedshiftSettings_redshiftSettings_ServerName = null;
             if (cmdletContext.RedshiftSettings_ServerName != null)
             {
@@ -4483,6 +5005,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.S3Settings.CdcInsertsOnly = requestS3Settings_s3Settings_CdcInsertsOnly.Value;
                 requestS3SettingsIsNull = false;
             }
+            System.String requestS3Settings_s3Settings_CdcPath = null;
+            if (cmdletContext.S3Settings_CdcPath != null)
+            {
+                requestS3Settings_s3Settings_CdcPath = cmdletContext.S3Settings_CdcPath;
+            }
+            if (requestS3Settings_s3Settings_CdcPath != null)
+            {
+                request.S3Settings.CdcPath = requestS3Settings_s3Settings_CdcPath;
+                requestS3SettingsIsNull = false;
+            }
             Amazon.DatabaseMigrationService.CompressionTypeValue requestS3Settings_s3Settings_CompressionType = null;
             if (cmdletContext.S3Settings_CompressionType != null)
             {
@@ -4501,6 +5033,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestS3Settings_s3Settings_CsvDelimiter != null)
             {
                 request.S3Settings.CsvDelimiter = requestS3Settings_s3Settings_CsvDelimiter;
+                requestS3SettingsIsNull = false;
+            }
+            System.String requestS3Settings_s3Settings_CsvNoSupValue = null;
+            if (cmdletContext.S3Settings_CsvNoSupValue != null)
+            {
+                requestS3Settings_s3Settings_CsvNoSupValue = cmdletContext.S3Settings_CsvNoSupValue;
+            }
+            if (requestS3Settings_s3Settings_CsvNoSupValue != null)
+            {
+                request.S3Settings.CsvNoSupValue = requestS3Settings_s3Settings_CsvNoSupValue;
                 requestS3SettingsIsNull = false;
             }
             System.String requestS3Settings_s3Settings_CsvRowDelimiter = null;
@@ -4643,6 +5185,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.S3Settings.ParquetVersion = requestS3Settings_s3Settings_ParquetVersion;
                 requestS3SettingsIsNull = false;
             }
+            System.Boolean? requestS3Settings_s3Settings_PreserveTransaction = null;
+            if (cmdletContext.S3Settings_PreserveTransaction != null)
+            {
+                requestS3Settings_s3Settings_PreserveTransaction = cmdletContext.S3Settings_PreserveTransaction.Value;
+            }
+            if (requestS3Settings_s3Settings_PreserveTransaction != null)
+            {
+                request.S3Settings.PreserveTransactions = requestS3Settings_s3Settings_PreserveTransaction.Value;
+                requestS3SettingsIsNull = false;
+            }
             System.Int32? requestS3Settings_s3Settings_RowGroupLength = null;
             if (cmdletContext.S3Settings_RowGroupLength != null)
             {
@@ -4681,6 +5233,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestS3Settings_s3Settings_TimestampColumnName != null)
             {
                 request.S3Settings.TimestampColumnName = requestS3Settings_s3Settings_TimestampColumnName;
+                requestS3SettingsIsNull = false;
+            }
+            System.Boolean? requestS3Settings_s3Settings_UseCsvNoSupValue = null;
+            if (cmdletContext.S3Settings_UseCsvNoSupValue != null)
+            {
+                requestS3Settings_s3Settings_UseCsvNoSupValue = cmdletContext.S3Settings_UseCsvNoSupValue.Value;
+            }
+            if (requestS3Settings_s3Settings_UseCsvNoSupValue != null)
+            {
+                request.S3Settings.UseCsvNoSupValue = requestS3Settings_s3Settings_UseCsvNoSupValue.Value;
                 requestS3SettingsIsNull = false;
             }
              // determine if request.S3Settings should be set to null
@@ -4732,6 +5294,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSybaseSettings_sybaseSettings_Port != null)
             {
                 request.SybaseSettings.Port = requestSybaseSettings_sybaseSettings_Port.Value;
+                requestSybaseSettingsIsNull = false;
+            }
+            System.String requestSybaseSettings_sybaseSettings_SecretsManagerAccessRoleArn = null;
+            if (cmdletContext.SybaseSettings_SecretsManagerAccessRoleArn != null)
+            {
+                requestSybaseSettings_sybaseSettings_SecretsManagerAccessRoleArn = cmdletContext.SybaseSettings_SecretsManagerAccessRoleArn;
+            }
+            if (requestSybaseSettings_sybaseSettings_SecretsManagerAccessRoleArn != null)
+            {
+                request.SybaseSettings.SecretsManagerAccessRoleArn = requestSybaseSettings_sybaseSettings_SecretsManagerAccessRoleArn;
+                requestSybaseSettingsIsNull = false;
+            }
+            System.String requestSybaseSettings_sybaseSettings_SecretsManagerSecretId = null;
+            if (cmdletContext.SybaseSettings_SecretsManagerSecretId != null)
+            {
+                requestSybaseSettings_sybaseSettings_SecretsManagerSecretId = cmdletContext.SybaseSettings_SecretsManagerSecretId;
+            }
+            if (requestSybaseSettings_sybaseSettings_SecretsManagerSecretId != null)
+            {
+                request.SybaseSettings.SecretsManagerSecretId = requestSybaseSettings_sybaseSettings_SecretsManagerSecretId;
                 requestSybaseSettingsIsNull = false;
             }
             System.String requestSybaseSettings_sybaseSettings_ServerName = null;
@@ -4839,6 +5421,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public Amazon.DatabaseMigrationService.NestingLevelValue DocDbSettings_NestingLevel { get; set; }
             public System.String DocDbSettings_Password { get; set; }
             public System.Int32? DocDbSettings_Port { get; set; }
+            public System.String DocDbSettings_SecretsManagerAccessRoleArn { get; set; }
+            public System.String DocDbSettings_SecretsManagerSecretId { get; set; }
             public System.String DocDbSettings_ServerName { get; set; }
             public System.String DocDbSettings_Username { get; set; }
             public System.String DynamoDbSettings_ServiceAccessRoleArn { get; set; }
@@ -4856,6 +5440,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? IBMDb2Settings_MaxKBytesPerRead { get; set; }
             public System.String IBMDb2Settings_Password { get; set; }
             public System.Int32? IBMDb2Settings_Port { get; set; }
+            public System.String IBMDb2Settings_SecretsManagerAccessRoleArn { get; set; }
+            public System.String IBMDb2Settings_SecretsManagerSecretId { get; set; }
             public System.String IBMDb2Settings_ServerName { get; set; }
             public System.Boolean? IBMDb2Settings_SetDataCaptureChange { get; set; }
             public System.String IBMDb2Settings_Username { get; set; }
@@ -4886,6 +5472,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? MicrosoftSQLServerSettings_Port { get; set; }
             public System.Boolean? MicrosoftSQLServerSettings_ReadBackupOnly { get; set; }
             public Amazon.DatabaseMigrationService.SafeguardPolicy MicrosoftSQLServerSettings_SafeguardPolicy { get; set; }
+            public System.String MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn { get; set; }
+            public System.String MicrosoftSQLServerSettings_SecretsManagerSecretId { get; set; }
             public System.String MicrosoftSQLServerSettings_ServerName { get; set; }
             public System.Boolean? MicrosoftSQLServerSettings_UseBcpFullLoad { get; set; }
             public System.String MicrosoftSQLServerSettings_Username { get; set; }
@@ -4899,6 +5487,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public Amazon.DatabaseMigrationService.NestingLevelValue MongoDbSettings_NestingLevel { get; set; }
             public System.String MongoDbSettings_Password { get; set; }
             public System.Int32? MongoDbSettings_Port { get; set; }
+            public System.String MongoDbSettings_SecretsManagerAccessRoleArn { get; set; }
+            public System.String MongoDbSettings_SecretsManagerSecretId { get; set; }
             public System.String MongoDbSettings_ServerName { get; set; }
             public System.String MongoDbSettings_Username { get; set; }
             public System.String MySQLSettings_AfterConnectScript { get; set; }
@@ -4908,6 +5498,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? MySQLSettings_ParallelLoadThread { get; set; }
             public System.String MySQLSettings_Password { get; set; }
             public System.Int32? MySQLSettings_Port { get; set; }
+            public System.String MySQLSettings_SecretsManagerAccessRoleArn { get; set; }
+            public System.String MySQLSettings_SecretsManagerSecretId { get; set; }
             public System.String MySQLSettings_ServerName { get; set; }
             public System.String MySQLSettings_ServerTimezone { get; set; }
             public Amazon.DatabaseMigrationService.TargetDbType MySQLSettings_TargetDbType { get; set; }
@@ -4943,6 +5535,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Boolean? OracleSettings_ReadTableSpaceName { get; set; }
             public System.Boolean? OracleSettings_ReplacePathPrefix { get; set; }
             public System.Int32? OracleSettings_RetryInterval { get; set; }
+            public System.String OracleSettings_SecretsManagerAccessRoleArn { get; set; }
+            public System.String OracleSettings_SecretsManagerSecretId { get; set; }
             public System.String OracleSettings_SecurityDbEncryption { get; set; }
             public System.String OracleSettings_SecurityDbEncryptionName { get; set; }
             public System.String OracleSettings_ServerName { get; set; }
@@ -4960,6 +5554,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? PostgreSQLSettings_MaxFileSize { get; set; }
             public System.String PostgreSQLSettings_Password { get; set; }
             public System.Int32? PostgreSQLSettings_Port { get; set; }
+            public System.String PostgreSQLSettings_SecretsManagerAccessRoleArn { get; set; }
+            public System.String PostgreSQLSettings_SecretsManagerSecretId { get; set; }
             public System.String PostgreSQLSettings_ServerName { get; set; }
             public System.String PostgreSQLSettings_SlotName { get; set; }
             public System.String PostgreSQLSettings_Username { get; set; }
@@ -4983,6 +5579,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Boolean? RedshiftSettings_RemoveQuote { get; set; }
             public System.String RedshiftSettings_ReplaceChar { get; set; }
             public System.String RedshiftSettings_ReplaceInvalidChar { get; set; }
+            public System.String RedshiftSettings_SecretsManagerAccessRoleArn { get; set; }
+            public System.String RedshiftSettings_SecretsManagerSecretId { get; set; }
             public System.String RedshiftSettings_ServerName { get; set; }
             public System.String RedshiftSettings_ServerSideEncryptionKmsKeyId { get; set; }
             public System.String RedshiftSettings_ServiceAccessRoleArn { get; set; }
@@ -4996,8 +5594,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String S3Settings_BucketName { get; set; }
             public System.Boolean? S3Settings_CdcInsertsAndUpdate { get; set; }
             public System.Boolean? S3Settings_CdcInsertsOnly { get; set; }
+            public System.String S3Settings_CdcPath { get; set; }
             public Amazon.DatabaseMigrationService.CompressionTypeValue S3Settings_CompressionType { get; set; }
             public System.String S3Settings_CsvDelimiter { get; set; }
+            public System.String S3Settings_CsvNoSupValue { get; set; }
             public System.String S3Settings_CsvRowDelimiter { get; set; }
             public Amazon.DatabaseMigrationService.DataFormatValue S3Settings_DataFormat { get; set; }
             public System.Int32? S3Settings_DataPageSize { get; set; }
@@ -5012,16 +5612,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Boolean? S3Settings_IncludeOpForFullLoad { get; set; }
             public System.Boolean? S3Settings_ParquetTimestampInMillisecond { get; set; }
             public Amazon.DatabaseMigrationService.ParquetVersionValue S3Settings_ParquetVersion { get; set; }
+            public System.Boolean? S3Settings_PreserveTransaction { get; set; }
             public System.Int32? S3Settings_RowGroupLength { get; set; }
             public System.String S3Settings_ServerSideEncryptionKmsKeyId { get; set; }
             public System.String S3Settings_ServiceAccessRoleArn { get; set; }
             public System.String S3Settings_TimestampColumnName { get; set; }
+            public System.Boolean? S3Settings_UseCsvNoSupValue { get; set; }
             public System.String ServerName { get; set; }
             public System.String ServiceAccessRoleArn { get; set; }
             public Amazon.DatabaseMigrationService.DmsSslModeValue SslMode { get; set; }
             public System.String SybaseSettings_DatabaseName { get; set; }
             public System.String SybaseSettings_Password { get; set; }
             public System.Int32? SybaseSettings_Port { get; set; }
+            public System.String SybaseSettings_SecretsManagerAccessRoleArn { get; set; }
+            public System.String SybaseSettings_SecretsManagerSecretId { get; set; }
             public System.String SybaseSettings_ServerName { get; set; }
             public System.String SybaseSettings_Username { get; set; }
             public List<Amazon.DatabaseMigrationService.Model.Tag> Tag { get; set; }

@@ -33,8 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// that you want the request to return. You can also filter and group your data by various
     /// dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range.
     /// For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
-    /// operation. Master account in an organization in AWS Organizations have access to all
-    /// member accounts.<br/><br/>In the AWS.Tools.CostExplorer module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// operation. Management account in an organization in AWS Organizations have access
+    /// to all member accounts.
+    /// 
+    ///  
+    /// <para>
+    /// For information about filter limitations, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-limits.html">Quotas
+    /// and restrictions</a> in the <i>Billing and Cost Management User Guide</i>.
+    /// </para><br/><br/>In the AWS.Tools.CostExplorer module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CECostAndUsage")]
     [OutputType("Amazon.CostExplorer.Model.GetCostAndUsageResponse")]

@@ -263,8 +263,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The replacement strategy to use. Only available for fleets of type <code>maintain</code>.
         /// You must specify a value, otherwise you get an error.</para><para>To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance
         /// notification is emitted for a Spot Instance in the fleet, specify <code>launch</code>.</para><note><para>When a replacement instance is launched, the instance marked for rebalance is not
-        /// automatically terminated. You can terminate it, or you can wait until Amazon EC2 interrupts
-        /// it. You are charged for all instances while they are running.</para></note>
+        /// automatically terminated. You can terminate it, or you can leave it running. You are
+        /// charged for all instances while they are running.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

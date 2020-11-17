@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEBSVolumeRecommendations" OutputProperty="*" Verb="Get" Noun="EBSVolumeRecommendation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEC2InstanceRecommendations" OutputProperty="*" Verb="Get" Noun="EC2InstanceRecommendation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

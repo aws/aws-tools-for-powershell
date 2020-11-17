@@ -277,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// on isolated, single-tenant hardware and can only be launched into a VPC.</para><para>To launch dedicated instances into a shared tenancy VPC (a VPC with the instance placement
         /// tenancy attribute set to <code>default</code>), you must set the value of this parameter
         /// to <code>dedicated</code>.</para><para>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet
-        /// for <code>VPCZoneIdentifier</code> when you create your group.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html">Configuring
+        /// for <code>VPCZoneIdentifier</code> when you create your group.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html">Configuring
         /// instance tenancy with Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling
         /// User Guide</i>.</para><para>Valid Values: <code>default</code> | <code>dedicated</code></para>
         /// </para>

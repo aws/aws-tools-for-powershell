@@ -28,7 +28,8 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Returns the details of the service quota increase request in your template.
+    /// Retrieves information about the specified quota increase request in your quota request
+    /// template.
     /// </summary>
     [Cmdlet("Get", "SQServiceQuotaIncreaseRequestFromTemplate")]
     [OutputType("Amazon.ServiceQuotas.Model.ServiceQuotaIncreaseRequestInTemplate")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter AwsRegion
         /// <summary>
         /// <para>
-        /// <para>Specifies the AWS Region for the quota that you want to use.</para>
+        /// <para>The AWS Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter QuotaCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the quota you want.</para>
+        /// <para>The quota identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the service that you want to use.</para>
+        /// <para>The service identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

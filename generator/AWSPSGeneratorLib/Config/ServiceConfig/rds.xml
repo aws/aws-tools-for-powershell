@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>rds</C2jFilename>
     <AssemblyName>RDS</AssemblyName>
@@ -38,7 +39,6 @@
         <Map From="EngineDefaultClusterParameters" To="EngineDefaultClusterParameter" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -575,6 +575,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartDBInstanceAutomatedBackupsReplication" OutputProperty="DBInstanceAutomatedBackup" Verb="Start" Noun="DBInstanceAutomatedBackupsReplication" ShouldProcessTarget="SourceDBInstanceArn" PipelineParameter="SourceDBInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartExportTask" OutputProperty="*" Verb="Start" Noun="ExportTask" ShouldProcessTarget="ExportTaskIdentifier" PipelineParameter="ExportTaskIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -591,8 +595,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StopDBInstanceAutomatedBackupsReplication" OutputProperty="DBInstanceAutomatedBackup" Verb="Stop" Noun="DBInstanceAutomatedBackupsReplication" ShouldProcessTarget="SourceDBInstanceArn" PipelineParameter="SourceDBInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

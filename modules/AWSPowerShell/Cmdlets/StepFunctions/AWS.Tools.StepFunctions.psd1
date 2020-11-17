@@ -106,6 +106,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Send-SFNTaskHeartbeat', 
         'Send-SFNTaskSuccess', 
         'Start-SFNExecution', 
+        'Start-SFNSyncExecution', 
         'Stop-SFNExecution', 
         'Update-SFNStateMachine')
 

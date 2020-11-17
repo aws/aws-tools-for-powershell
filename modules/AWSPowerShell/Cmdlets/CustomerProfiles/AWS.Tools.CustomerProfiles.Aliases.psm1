@@ -1,0 +1,3 @@
+﻿# CustomerProfiles
+
+Export-ModuleMember -Alias *

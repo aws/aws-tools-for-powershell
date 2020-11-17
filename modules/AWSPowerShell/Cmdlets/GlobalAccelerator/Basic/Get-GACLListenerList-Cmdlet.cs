@@ -28,8 +28,7 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// List the listeners for an accelerator. To see an AWS CLI example of listing the listeners
-    /// for an accelerator, scroll down to <b>Example</b>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List the listeners for an accelerator.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GACLListenerList")]
     [OutputType("Amazon.GlobalAccelerator.Model.Listener")]

@@ -172,6 +172,7 @@ $CO_SelectMap = @{
                "Export-COAutoScalingGroupRecommendation",
                "Export-COEC2InstanceRecommendation",
                "Get-COAutoScalingGroupRecommendation",
+               "Get-COEBSVolumeRecommendation",
                "Get-COEC2InstanceRecommendation",
                "Get-COEC2RecommendationProjectedMetric",
                "Get-COEnrollmentStatus",

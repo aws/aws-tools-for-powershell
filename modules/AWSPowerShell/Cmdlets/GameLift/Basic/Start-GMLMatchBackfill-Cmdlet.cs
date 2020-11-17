@@ -49,10 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// formed, the matchmaker creates player sessions for the new players. All tickets in
     /// the match are updated with the game session's connection information, and the <a>GameSession</a>
     /// object is updated to include matchmaker data on the new players. For more detail on
-    /// how match backfill requests are processed, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-match.html">
+    /// how match backfill requests are processed, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
     /// How Amazon GameLift FlexMatch Works</a>. 
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html">
-    /// Backfill Existing Games with FlexMatch</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-match.html">
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">
+    /// Backfill Existing Games with FlexMatch</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
     /// How GameLift FlexMatch Works</a></para><para><b>Related operations</b></para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>
     /// </summary>
     [Cmdlet("Start", "GMLMatchBackfill", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -92,14 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// the game session ID.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String GameSessionArn { get; set; }
         #endregion
         
@@ -111,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// existing game.</para><ul><li><para>PlayerID, PlayerAttributes, Team -\\- This information is maintained in the <a>GameSession</a>
         /// object, <code>MatchmakerData</code> property, for all players who are currently assigned
         /// to the game session. The matchmaker data is in JSON syntax, formatted as a string.
-        /// For more details, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-server.html#match-server-data">
+        /// For more details, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data">
         /// Match Data</a>. </para></li><li><para>LatencyInMs -\\- If the matchmaker uses player latency, include a latency value, in
         /// milliseconds, for the Region that the game session is currently in. Do not include
         /// latency values for any other Region.</para></li></ul>
@@ -210,12 +203,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             #endif
             context.GameSessionArn = this.GameSessionArn;
-            #if MODULAR
-            if (this.GameSessionArn == null && ParameterWasBound(nameof(this.GameSessionArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter GameSessionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Player != null)
             {
                 context.Player = new List<Amazon.GameLift.Model.Player>(this.Player);

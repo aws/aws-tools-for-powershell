@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// <summary>
     /// Submits an AWS Batch job from a job definition. Parameters specified during <a>SubmitJob</a>
     /// override parameters defined in the job definition.
+    /// 
+    ///  <important><para>
+    /// Jobs run on Fargate resources don't run for more than 14 days. After 14 days, the
+    /// Fargate resources might no longer be available and the job is terminated.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Submit", "BATJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Batch.Model.SubmitJobResponse")]
@@ -43,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter RetryStrategy_Attempt
         /// <summary>
         /// <para>
-        /// <para>The number of times to move a job to the <code>RUNNABLE</code> status. You may specify
+        /// <para>The number of times to move a job to the <code>RUNNABLE</code> status. You can specify
         /// between 1 and 10 attempts. If the value of <code>attempts</code> is greater than one,
         /// the job is retried on failure the same number of attempts as the value.</para>
         /// </para>
@@ -107,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerOverrides_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type to use for a multi-node parallel job. This parameter is not valid
-        /// for single-node container jobs.</para>
+        /// <para>The instance type to use for a multi-node parallel job.</para><note><para>This parameter isn't applicable to single-node container jobs or for jobs running
+        /// on Fargate resources and shouldn't be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,17 +175,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String JobQueue { get; set; }
         #endregion
         
-        #region Parameter ContainerOverrides_Memory
-        /// <summary>
-        /// <para>
-        /// <para>The number of MiB of memory reserved for the job. This value overrides the value set
-        /// in the job definition.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? ContainerOverrides_Memory { get; set; }
-        #endregion
-        
         #region Parameter NodeOverrides_NodePropertyOverride
         /// <summary>
         /// <para>
@@ -221,11 +215,28 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Collections.Hashtable Parameter { get; set; }
         #endregion
         
+        #region Parameter PropagateTag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to propagate the tags from the job or job definition to the corresponding
+        /// Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only
+        /// be propagated to the tasks during task creation. For tags with the same name, job
+        /// tags are given priority over job definitions tags. If the total number of combined
+        /// tags from the job and job definition is over 50, the job is moved to the <code>FAILED</code>
+        /// state. When specified, this overrides the tag propagation setting in the job definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PropagateTags")]
+        public System.Boolean? PropagateTag { get; set; }
+        #endregion
+        
         #region Parameter ContainerOverrides_ResourceRequirement
         /// <summary>
         /// <para>
-        /// <para>The type and amount of a resource to assign to a container. This value overrides the
-        /// value set in the job definition. Currently, the only supported resource is <code>GPU</code>.</para>
+        /// <para>The type and amount of resources to assign to a container. This overrides the settings
+        /// in the job definition. The supported resources include <code>GPU</code>, <code>MEMORY</code>,
+        /// and <code>VCPU</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,10 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The timeout configuration for this <a>SubmitJob</a> operation. You can specify a timeout
-        /// duration after which AWS Batch terminates your jobs if they have not finished. If
-        /// a job is terminated due to a timeout, it is not retried. The minimum value for the
-        /// timeout is 60 seconds. This configuration overrides any timeout configuration specified
-        /// in the job definition. For array jobs, child jobs have the same timeout configuration
+        /// duration after which AWS Batch terminates your jobs if they haven't finished. If a
+        /// job is terminated due to a timeout, it isn't retried. The minimum value for the timeout
+        /// is 60 seconds. This configuration overrides any timeout configuration specified in
+        /// the job definition. For array jobs, child jobs have the same timeout configuration
         /// as the parent job. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
         /// Timeouts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
@@ -273,14 +284,41 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.Model.JobTimeout Timeout { get; set; }
         #endregion
         
+        #region Parameter ContainerOverrides_Memory
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is deprecated and not supported for jobs run on Fargate resources,
+        /// use <code>ResourceRequirement</code>. For jobs run on EC2 resource, the number of
+        /// MiB of memory reserved for the job. This value overrides the value set in the job
+        /// definition.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This field is deprecated, use resourceRequirements instead.")]
+        public System.Int32? ContainerOverrides_Memory { get; set; }
+        #endregion
+        
         #region Parameter ContainerOverrides_Vcpus
         /// <summary>
         /// <para>
-        /// <para>The number of vCPUs to reserve for the container. This value overrides the value set
-        /// in the job definition.</para>
+        /// <para>This parameter is deprecated and not supported for jobs run on Fargate resources,
+        /// see <code>resourceRequirement</code>. For jobs run on EC2 resources, the number of
+        /// vCPUs to reserve for the container. This value overrides the value set in the job
+        /// definition. Jobs run on EC2 resources can specify the vCPU requirement using <code>resourceRequirement</code>
+        /// but the vCPU requirements can't be specified both here and in <code>resourceRequirement</code>.
+        /// This parameter maps to <code>CpuShares</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
+        /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one
+        /// vCPU.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
+        /// be provided. Jobs running on Fargate resources must specify the vCPU requirement for
+        /// the job using <code>resourceRequirements</code>.</para></note>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This field is deprecated, use resourceRequirements instead.")]
         public System.Int32? ContainerOverrides_Vcpus { get; set; }
         #endregion
         
@@ -355,12 +393,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.ContainerOverrides_Environment = new List<Amazon.Batch.Model.KeyValuePair>(this.ContainerOverrides_Environment);
             }
             context.ContainerOverrides_InstanceType = this.ContainerOverrides_InstanceType;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ContainerOverrides_Memory = this.ContainerOverrides_Memory;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ContainerOverrides_ResourceRequirement != null)
             {
                 context.ContainerOverrides_ResourceRequirement = new List<Amazon.Batch.Model.ResourceRequirement>(this.ContainerOverrides_ResourceRequirement);
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ContainerOverrides_Vcpus = this.ContainerOverrides_Vcpus;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.DependsOn != null)
             {
                 context.DependsOn = new List<Amazon.Batch.Model.JobDependency>(this.DependsOn);
@@ -399,6 +441,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                     context.Parameter.Add((String)hashKey, (String)(this.Parameter[hashKey]));
                 }
             }
+            context.PropagateTag = this.PropagateTag;
             context.RetryStrategy_Attempt = this.RetryStrategy_Attempt;
             if (this.RetryStrategy_EvaluateOnExit != null)
             {
@@ -482,6 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerOverrides.InstanceType = requestContainerOverrides_containerOverrides_InstanceType;
                 requestContainerOverridesIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int32? requestContainerOverrides_containerOverrides_Memory = null;
             if (cmdletContext.ContainerOverrides_Memory != null)
             {
@@ -492,6 +536,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerOverrides.Memory = requestContainerOverrides_containerOverrides_Memory.Value;
                 requestContainerOverridesIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<Amazon.Batch.Model.ResourceRequirement> requestContainerOverrides_containerOverrides_ResourceRequirement = null;
             if (cmdletContext.ContainerOverrides_ResourceRequirement != null)
             {
@@ -502,6 +547,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerOverrides.ResourceRequirements = requestContainerOverrides_containerOverrides_ResourceRequirement;
                 requestContainerOverridesIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int32? requestContainerOverrides_containerOverrides_Vcpus = null;
             if (cmdletContext.ContainerOverrides_Vcpus != null)
             {
@@ -512,6 +558,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerOverrides.Vcpus = requestContainerOverrides_containerOverrides_Vcpus.Value;
                 requestContainerOverridesIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if request.ContainerOverrides should be set to null
             if (requestContainerOverridesIsNull)
             {
@@ -565,6 +612,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (cmdletContext.Parameter != null)
             {
                 request.Parameters = cmdletContext.Parameter;
+            }
+            if (cmdletContext.PropagateTag != null)
+            {
+                request.PropagateTags = cmdletContext.PropagateTag.Value;
             }
             
              // populate RetryStrategy
@@ -668,8 +719,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<System.String> ContainerOverrides_Command { get; set; }
             public List<Amazon.Batch.Model.KeyValuePair> ContainerOverrides_Environment { get; set; }
             public System.String ContainerOverrides_InstanceType { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int32? ContainerOverrides_Memory { get; set; }
             public List<Amazon.Batch.Model.ResourceRequirement> ContainerOverrides_ResourceRequirement { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int32? ContainerOverrides_Vcpus { get; set; }
             public List<Amazon.Batch.Model.JobDependency> DependsOn { get; set; }
             public System.String JobDefinition { get; set; }
@@ -678,6 +731,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<Amazon.Batch.Model.NodePropertyOverride> NodeOverrides_NodePropertyOverride { get; set; }
             public System.Int32? NodeOverrides_NumNode { get; set; }
             public Dictionary<System.String, System.String> Parameter { get; set; }
+            public System.Boolean? PropagateTag { get; set; }
             public System.Int32? RetryStrategy_Attempt { get; set; }
             public List<Amazon.Batch.Model.EvaluateOnExit> RetryStrategy_EvaluateOnExit { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
     /// Updates a member configuration with new parameters.
+    /// 
+    ///  
+    /// <para>
+    /// Applies only to Hyperledger Fabric.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "MBCMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -54,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter MemberId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the member.</para>
+        /// <para>The unique identifier of the member.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter NetworkId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the Managed Blockchain network to which the member belongs.</para>
+        /// <para>The unique identifier of the Managed Blockchain network to which the member belongs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

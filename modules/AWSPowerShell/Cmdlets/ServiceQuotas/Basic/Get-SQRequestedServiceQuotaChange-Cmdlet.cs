@@ -28,7 +28,7 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Retrieves the details for a particular increase request.
+    /// Retrieves information about the specified quota increase request.
     /// </summary>
     [Cmdlet("Get", "SQRequestedServiceQuotaChange")]
     [OutputType("Amazon.ServiceQuotas.Model.RequestedServiceQuotaChange")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter RequestId
         /// <summary>
         /// <para>
-        /// <para>Identifies the quota increase request.</para>
+        /// <para>The ID of the quota increase request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

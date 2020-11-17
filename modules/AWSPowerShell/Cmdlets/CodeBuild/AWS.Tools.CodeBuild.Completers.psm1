@@ -230,6 +230,13 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.ReportGroupTrendFieldType
+        "Get-CBReportGroupTrend/TrendField"
+        {
+            $v = "BRANCHES_COVERED","BRANCHES_MISSED","BRANCH_COVERAGE","DURATION","LINES_COVERED","LINES_MISSED","LINE_COVERAGE","PASS_RATE","TOTAL"
+            break
+        }
+
         # Amazon.CodeBuild.ReportPackagingType
         {
             ($_ -eq "New-CBReportGroup/ExportConfig_S3Destination_Packaging") -Or
@@ -386,6 +393,7 @@ $CB_map = @{
     "Source_Type"=@("New-CBProject","Update-CBProject")
     "SourceAuthOverride_Type"=@("Start-CBBatch","Start-CBBuild")
     "SourceTypeOverride"=@("Start-CBBatch","Start-CBBuild")
+    "TrendField"=@("Get-CBReportGroupTrend")
     "Type"=@("New-CBReportGroup")
 }
 
@@ -457,6 +465,7 @@ $CB_SelectMap = @{
                "Remove-CBWebhook",
                "Get-CBCodeCoverage",
                "Get-CBTestCase",
+               "Get-CBReportGroupTrend",
                "Get-CBResourcePolicy",
                "Import-CBSourceCredential",
                "Reset-CBProjectCache",

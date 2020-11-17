@@ -28,14 +28,23 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Returns a list of all grants for which the grant's <code>RetiringPrincipal</code>
-    /// matches the one specified.
+    /// Returns all grants in which the specified principal is the <code>RetiringPrincipal</code>
+    /// in the grant. 
     /// 
     ///  
     /// <para>
-    /// A typical use is to list all grants that you are able to retire. To retire a grant,
-    /// use <a>RetireGrant</a>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// You can specify any principal in your AWS account. The grants that are returned include
+    /// grants for CMKs in your AWS account and other AWS accounts.
+    /// </para><para>
+    /// You might use this operation to determine which grants you may retire. To retire a
+    /// grant, use the <a>RetireGrant</a> operation.
+    /// </para><para><b>Cross-account use</b>: You must specify a principal in your AWS account. However,
+    /// this operation can return grants in any AWS account. You do not need <code>kms:ListRetirableGrants</code>
+    /// permission (or any other additional permission) in any AWS account other than your
+    /// own.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListRetirableGrants</a>
+    /// (IAM policy) in your AWS account.
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>RetireGrant</a></para></li><li><para><a>RevokeGrant</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KMSRetirableGrant")]
     [OutputType("Amazon.KeyManagementService.Model.GrantListEntry")]
@@ -50,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter RetiringPrincipal
         /// <summary>
         /// <para>
-        /// <para>The retiring principal for which to list grants.</para><para>To specify the retiring principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// <para>The retiring principal for which to list grants. Enter a principal in your AWS account.</para><para>To specify the retiring principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Name (ARN)</a> of an AWS principal. Valid AWS principals include AWS accounts
         /// (root), IAM users, federated users, and assumed role users. For examples of the ARN
         /// syntax for specifying a principal, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS

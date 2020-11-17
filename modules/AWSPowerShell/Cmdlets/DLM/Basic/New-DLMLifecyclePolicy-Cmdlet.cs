@@ -41,6 +41,19 @@ namespace Amazon.PowerShell.Cmdlets.DLM
     public partial class NewDLMLifecyclePolicyCmdlet : AmazonDLMClientCmdlet, IExecutor
     {
         
+        #region Parameter PolicyDetails_Action
+        /// <summary>
+        /// <para>
+        /// <para>The actions to be performed when the event-based policy is triggered. You can specify
+        /// only one action per policy.</para><para>This parameter is required for event-based policies only. If you are creating a snapshot
+        /// or AMI policy, omit this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PolicyDetails_Actions")]
+        public Amazon.DLM.Model.Action[] PolicyDetails_Action { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -56,6 +69,33 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Parameters_DescriptionRegex
+        /// <summary>
+        /// <para>
+        /// <para>The snapshot description that can trigger the policy. The description pattern is specified
+        /// using a regular expression. The policy runs only if a snapshot with a description
+        /// that matches the specified pattern is shared with your account.</para><para>For example, specifying <code>^.*Created for policy: policy-1234567890abcdef0.*$</code>
+        /// configures the policy to run only if snapshots created by policy <code>policy-1234567890abcdef0</code>
+        /// are shared with your account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PolicyDetails_EventSource_Parameters_DescriptionRegex")]
+        public System.String Parameters_DescriptionRegex { get; set; }
+        #endregion
+        
+        #region Parameter Parameters_EventType
+        /// <summary>
+        /// <para>
+        /// <para>The type of event. Currently, only snapshot sharing events are supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PolicyDetails_EventSource_Parameters_EventType")]
+        [AWSConstantClassSource("Amazon.DLM.EventTypeValues")]
+        public Amazon.DLM.EventTypeValues Parameters_EventType { get; set; }
         #endregion
         
         #region Parameter Parameters_ExcludeBootVolume
@@ -95,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <para>Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted
         /// when the lifecycle policy runs. <code>true</code> indicates that targeted instances
         /// are not rebooted when the policy runs. <code>false</code> indicates that target instances
-        /// are rebooted when the policy runs. The default is <code>true</code> (instance are
+        /// are rebooted when the policy runs. The default is <code>true</code> (instances are
         /// not rebooted).</para>
         /// </para>
         /// </summary>
@@ -110,7 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <para>The valid target resource types and actions a policy can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code>
         /// to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify
         /// <code>IMAGE_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle
-        /// of EBS-backed AMIs. The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</para>
+        /// of EBS-backed AMIs. Specify <code>EVENT_BASED_POLICY </code> to create an event-based
+        /// policy that performs specific actions when a defined event occurs in your AWS account.</para><para>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type. Use VOLUME to create snapshots of individual volumes or use INSTANCE
-        /// to create multi-volume snapshots from the volumes for an instance.</para>
+        /// <para>The target resource type for snapshot and AMI lifecycle policies. Use <code>VOLUME
+        /// </code>to create snapshots of individual volumes or use <code>INSTANCE</code> to create
+        /// multi-volume snapshots from the volumes for an instance.</para><para>This parameter is required for snapshot and AMI policies only. If you are creating
+        /// an event-based policy, omit this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,13 +176,28 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_Schedule
         /// <summary>
         /// <para>
-        /// <para>The schedules of policy-defined actions. A policy can have up to four schedules -
-        /// one mandatory schedule and up to three optional schedules.</para>
+        /// <para>The schedules of policy-defined actions for snapshot and AMI lifecycle policies. A
+        /// policy can have up to four schedules—one mandatory schedule and up to three optional
+        /// schedules.</para><para>This parameter is required for snapshot and AMI policies only. If you are creating
+        /// an event-based policy, omit this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PolicyDetails_Schedules")]
         public Amazon.DLM.Model.Schedule[] PolicyDetails_Schedule { get; set; }
+        #endregion
+        
+        #region Parameter Parameters_SnapshotOwner
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the AWS accounts that can trigger policy by sharing snapshots with your
+        /// account. The policy only runs if one of the specified AWS accounts shares a snapshot
+        /// with your account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PolicyDetails_EventSource_Parameters_SnapshotOwner")]
+        public System.String[] Parameters_SnapshotOwner { get; set; }
         #endregion
         
         #region Parameter State
@@ -173,12 +231,25 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_TargetTag
         /// <summary>
         /// <para>
-        /// <para>The single tag that identifies targeted resources for this policy.</para>
+        /// <para>The single tag that identifies targeted resources for this policy.</para><para>This parameter is required for snapshot and AMI policies only. If you are creating
+        /// an event-based policy, omit this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PolicyDetails_TargetTags")]
         public Amazon.DLM.Model.Tag[] PolicyDetails_TargetTag { get; set; }
+        #endregion
+        
+        #region Parameter EventSource_Type
+        /// <summary>
+        /// <para>
+        /// <para>The source of the event. Currently only managed AWS CloudWatch Events rules are supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PolicyDetails_EventSource_Type")]
+        [AWSConstantClassSource("Amazon.DLM.EventSourceValues")]
+        public Amazon.DLM.EventSourceValues EventSource_Type { get; set; }
         #endregion
         
         #region Parameter Select
@@ -256,6 +327,17 @@ namespace Amazon.PowerShell.Cmdlets.DLM
                 WriteWarning("You are passing $null as a value for parameter ExecutionRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PolicyDetails_Action != null)
+            {
+                context.PolicyDetails_Action = new List<Amazon.DLM.Model.Action>(this.PolicyDetails_Action);
+            }
+            context.Parameters_DescriptionRegex = this.Parameters_DescriptionRegex;
+            context.Parameters_EventType = this.Parameters_EventType;
+            if (this.Parameters_SnapshotOwner != null)
+            {
+                context.Parameters_SnapshotOwner = new List<System.String>(this.Parameters_SnapshotOwner);
+            }
+            context.EventSource_Type = this.EventSource_Type;
             context.Parameters_ExcludeBootVolume = this.Parameters_ExcludeBootVolume;
             context.Parameters_NoReboot = this.Parameters_NoReboot;
             context.PolicyDetails_PolicyType = this.PolicyDetails_PolicyType;
@@ -314,6 +396,16 @@ namespace Amazon.PowerShell.Cmdlets.DLM
              // populate PolicyDetails
             var requestPolicyDetailsIsNull = true;
             request.PolicyDetails = new Amazon.DLM.Model.PolicyDetails();
+            List<Amazon.DLM.Model.Action> requestPolicyDetails_policyDetails_Action = null;
+            if (cmdletContext.PolicyDetails_Action != null)
+            {
+                requestPolicyDetails_policyDetails_Action = cmdletContext.PolicyDetails_Action;
+            }
+            if (requestPolicyDetails_policyDetails_Action != null)
+            {
+                request.PolicyDetails.Actions = requestPolicyDetails_policyDetails_Action;
+                requestPolicyDetailsIsNull = false;
+            }
             Amazon.DLM.PolicyTypeValues requestPolicyDetails_policyDetails_PolicyType = null;
             if (cmdletContext.PolicyDetails_PolicyType != null)
             {
@@ -352,6 +444,76 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             if (requestPolicyDetails_policyDetails_TargetTag != null)
             {
                 request.PolicyDetails.TargetTags = requestPolicyDetails_policyDetails_TargetTag;
+                requestPolicyDetailsIsNull = false;
+            }
+            Amazon.DLM.Model.EventSource requestPolicyDetails_policyDetails_EventSource = null;
+            
+             // populate EventSource
+            var requestPolicyDetails_policyDetails_EventSourceIsNull = true;
+            requestPolicyDetails_policyDetails_EventSource = new Amazon.DLM.Model.EventSource();
+            Amazon.DLM.EventSourceValues requestPolicyDetails_policyDetails_EventSource_eventSource_Type = null;
+            if (cmdletContext.EventSource_Type != null)
+            {
+                requestPolicyDetails_policyDetails_EventSource_eventSource_Type = cmdletContext.EventSource_Type;
+            }
+            if (requestPolicyDetails_policyDetails_EventSource_eventSource_Type != null)
+            {
+                requestPolicyDetails_policyDetails_EventSource.Type = requestPolicyDetails_policyDetails_EventSource_eventSource_Type;
+                requestPolicyDetails_policyDetails_EventSourceIsNull = false;
+            }
+            Amazon.DLM.Model.EventParameters requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters = null;
+            
+             // populate Parameters
+            var requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_ParametersIsNull = true;
+            requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters = new Amazon.DLM.Model.EventParameters();
+            System.String requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters_parameters_DescriptionRegex = null;
+            if (cmdletContext.Parameters_DescriptionRegex != null)
+            {
+                requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters_parameters_DescriptionRegex = cmdletContext.Parameters_DescriptionRegex;
+            }
+            if (requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters_parameters_DescriptionRegex != null)
+            {
+                requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters.DescriptionRegex = requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters_parameters_DescriptionRegex;
+                requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_ParametersIsNull = false;
+            }
+            Amazon.DLM.EventTypeValues requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters_parameters_EventType = null;
+            if (cmdletContext.Parameters_EventType != null)
+            {
+                requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters_parameters_EventType = cmdletContext.Parameters_EventType;
+            }
+            if (requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters_parameters_EventType != null)
+            {
+                requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters.EventType = requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters_parameters_EventType;
+                requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_ParametersIsNull = false;
+            }
+            List<System.String> requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters_parameters_SnapshotOwner = null;
+            if (cmdletContext.Parameters_SnapshotOwner != null)
+            {
+                requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters_parameters_SnapshotOwner = cmdletContext.Parameters_SnapshotOwner;
+            }
+            if (requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters_parameters_SnapshotOwner != null)
+            {
+                requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters.SnapshotOwner = requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters_parameters_SnapshotOwner;
+                requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_ParametersIsNull = false;
+            }
+             // determine if requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters should be set to null
+            if (requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_ParametersIsNull)
+            {
+                requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters = null;
+            }
+            if (requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters != null)
+            {
+                requestPolicyDetails_policyDetails_EventSource.Parameters = requestPolicyDetails_policyDetails_EventSource_policyDetails_EventSource_Parameters;
+                requestPolicyDetails_policyDetails_EventSourceIsNull = false;
+            }
+             // determine if requestPolicyDetails_policyDetails_EventSource should be set to null
+            if (requestPolicyDetails_policyDetails_EventSourceIsNull)
+            {
+                requestPolicyDetails_policyDetails_EventSource = null;
+            }
+            if (requestPolicyDetails_policyDetails_EventSource != null)
+            {
+                request.PolicyDetails.EventSource = requestPolicyDetails_policyDetails_EventSource;
                 requestPolicyDetailsIsNull = false;
             }
             Amazon.DLM.Model.Parameters requestPolicyDetails_policyDetails_Parameters = null;
@@ -465,6 +627,11 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         {
             public System.String Description { get; set; }
             public System.String ExecutionRoleArn { get; set; }
+            public List<Amazon.DLM.Model.Action> PolicyDetails_Action { get; set; }
+            public System.String Parameters_DescriptionRegex { get; set; }
+            public Amazon.DLM.EventTypeValues Parameters_EventType { get; set; }
+            public List<System.String> Parameters_SnapshotOwner { get; set; }
+            public Amazon.DLM.EventSourceValues EventSource_Type { get; set; }
             public System.Boolean? Parameters_ExcludeBootVolume { get; set; }
             public System.Boolean? Parameters_NoReboot { get; set; }
             public Amazon.DLM.PolicyTypeValues PolicyDetails_PolicyType { get; set; }

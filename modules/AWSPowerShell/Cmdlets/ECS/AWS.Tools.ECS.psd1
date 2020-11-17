@@ -121,6 +121,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Submit-ECSAttachmentStateChange', 
         'Unregister-ECSContainerInstance', 
         'Unregister-ECSTaskDefinition', 
+        'Update-ECSCapacityProvider', 
         'Update-ECSClusterSetting', 
         'Update-ECSContainerAgent', 
         'Update-ECSContainerInstancesState', 

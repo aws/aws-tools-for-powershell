@@ -28,10 +28,7 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Requests a list of the changes to specific service quotas. This command provides additional
-    /// granularity over the <code>ListRequestedServiceQuotaChangeHistory</code> command.
-    /// Once a quota change request has reached <code>CASE_CLOSED, APPROVED,</code> or <code>DENIED</code>,
-    /// the history has been kept for 90 days.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the quota increase requests for the specified quota.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SQRequestedServiceQuotaChangeHistoryByQuotaList")]
     [OutputType("Amazon.ServiceQuotas.Model.RequestedServiceQuotaChange")]
@@ -46,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter QuotaCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the service quota that you want to use</para>
+        /// <para>The quota identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the service that you want to use.</para>
+        /// <para>The service identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Specifies the status value of the quota increase request.</para>
+        /// <para>The status value of the quota increase request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,13 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) Limits the number of results that you want to include in the response.
-        /// If you don't include this parameter, the response defaults to a value that's specific
-        /// to the operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
-        /// element is present and has a value (isn't null). Include that value as the <code>NextToken</code>
-        /// request parameter in the call to the operation to get the next part of the results.
-        /// You should check <code>NextToken</code> after every operation to ensure that you receive
-        /// all of the results.</para>
+        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
+        /// results, if any, make another call with the token returned from this call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -113,10 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
-        /// response in a previous request that indicates that there's more output available.
-        /// In a subsequent call, set it to the value of the previous call's <code>NextToken</code>
-        /// response to indicate where the output should continue from.</para>
+        /// <para>The token for the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

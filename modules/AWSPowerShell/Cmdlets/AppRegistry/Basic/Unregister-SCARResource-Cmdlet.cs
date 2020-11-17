@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the resource of which the application will be associated.</para>
+        /// <para>The name or ID of the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the resource that's being disassociated.</para>
+        /// <para>The type of the resource that is being disassociated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -81,7 +81,10 @@ $TRN_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Translate.EncryptionKeyType
-        "Import-TRNTerminology/EncryptionKey_Type"
+        {
+            ($_ -eq "Import-TRNTerminology/EncryptionKey_Type") -Or
+            ($_ -eq "New-TRNParallelData/EncryptionKey_Type")
+        }
         {
             $v = "KMS"
             break
@@ -98,6 +101,16 @@ $TRN_Completers = {
         "Import-TRNTerminology/MergeStrategy"
         {
             $v = "OVERWRITE"
+            break
+        }
+
+        # Amazon.Translate.ParallelDataFormat
+        {
+            ($_ -eq "New-TRNParallelData/ParallelDataConfig_Format") -Or
+            ($_ -eq "Update-TRNParallelData/ParallelDataConfig_Format")
+        }
+        {
+            $v = "CSV","TMX","TSV"
             break
         }
 
@@ -120,9 +133,10 @@ $TRN_Completers = {
 }
 
 $TRN_map = @{
-    "EncryptionKey_Type"=@("Import-TRNTerminology")
+    "EncryptionKey_Type"=@("Import-TRNTerminology","New-TRNParallelData")
     "Filter_JobStatus"=@("Get-TRNTextTranslationJobList")
     "MergeStrategy"=@("Import-TRNTerminology")
+    "ParallelDataConfig_Format"=@("New-TRNParallelData","Update-TRNParallelData")
     "TerminologyData_Format"=@("Import-TRNTerminology")
     "TerminologyDataFormat"=@("Get-TRNTerminology")
 }
@@ -177,15 +191,20 @@ $TRN_SelectCompleters = {
 }
 
 $TRN_SelectMap = @{
-    "Select"=@("Remove-TRNTerminology",
+    "Select"=@("New-TRNParallelData",
+               "Remove-TRNParallelData",
+               "Remove-TRNTerminology",
                "Get-TRNTextTranslationJob",
+               "Get-TRNParallelData",
                "Get-TRNTerminology",
                "Import-TRNTerminology",
+               "Get-TRNParallelDataList",
                "Get-TRNTerminologyList",
                "Get-TRNTextTranslationJobList",
                "Start-TRNTextTranslationJob",
                "Stop-TRNTextTranslationJob",
-               "ConvertTo-TRNTargetLanguage")
+               "ConvertTo-TRNTargetLanguage",
+               "Update-TRNParallelData")
 }
 
 _awsArgumentCompleterRegistration $TRN_SelectCompleters $TRN_SelectMap

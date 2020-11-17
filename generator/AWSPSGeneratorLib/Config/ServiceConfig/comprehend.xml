@@ -91,6 +91,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventsDetectionJob" OutputProperty="EventsDetectionJobProperties" Verb="Get" Noun="EventsDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeKeyPhrasesDetectionJob" OutputProperty="KeyPhrasesDetectionJobProperties" Verb="Get" Noun="KeyPhrasesDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -155,6 +159,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListEventsDetectionJobs" OutputProperty="EventsDetectionJobPropertiesList" Verb="Get" Noun="EventsDetectionJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListKeyPhrasesDetectionJobs" OutputProperty="KeyPhrasesDetectionJobPropertiesList" Verb="Get" Noun="KeyPhrasesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -187,6 +195,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartEventsDetectionJob" OutputProperty="*" Verb="Start" Noun="EventsDetectionJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartKeyPhrasesDetectionJob" OutputProperty="*" Verb="Start" Noun="KeyPhrasesDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -208,6 +220,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopEntitiesDetectionJob" OutputProperty="*" Verb="Stop" Noun="EntitiesDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopEventsDetectionJob" OutputProperty="*" Verb="Stop" Noun="EventsDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

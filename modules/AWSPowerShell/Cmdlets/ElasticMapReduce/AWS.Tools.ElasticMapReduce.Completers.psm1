@@ -80,6 +80,13 @@ $EMR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ElasticMapReduce.AuthMode
+        "New-EMRStudio/AuthMode"
+        {
+            $v = "IAM","SSO"
+            break
+        }
+
         # Amazon.ElasticMapReduce.ComputeLimitsUnitType
         {
             ($_ -eq "Start-EMRJobFlow/ManagedScalingPolicy_ComputeLimits_UnitType") -Or
@@ -94,6 +101,19 @@ $EMR_Completers = {
         "Start-EMRNotebookExecution/ExecutionEngine_Type"
         {
             $v = "EMR"
+            break
+        }
+
+        # Amazon.ElasticMapReduce.IdentityType
+        {
+            ($_ -eq "Get-EMRStudioSessionMapping/IdentityType") -Or
+            ($_ -eq "Get-EMRStudioSessionMappingList/IdentityType") -Or
+            ($_ -eq "New-EMRStudioSessionMapping/IdentityType") -Or
+            ($_ -eq "Remove-EMRStudioSessionMapping/IdentityType") -Or
+            ($_ -eq "Update-EMRStudioSessionMapping/IdentityType")
+        }
+        {
+            $v = "GROUP","USER"
             break
         }
 
@@ -165,7 +185,9 @@ $EMR_Completers = {
 }
 
 $EMR_map = @{
+    "AuthMode"=@("New-EMRStudio")
     "ExecutionEngine_Type"=@("Start-EMRNotebookExecution")
+    "IdentityType"=@("Get-EMRStudioSessionMapping","Get-EMRStudioSessionMappingList","New-EMRStudioSessionMapping","Remove-EMRStudioSessionMapping","Update-EMRStudioSessionMapping")
     "InstanceFleet_InstanceFleetType"=@("Add-EMRInstanceFleet")
     "InstanceFleet_LaunchSpecifications_OnDemandSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
     "InstanceFleet_LaunchSpecifications_SpotSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
@@ -234,14 +256,20 @@ $EMR_SelectMap = @{
                "Add-EMRResourceTag",
                "Stop-EMRStep",
                "New-EMRSecurityConfiguration",
+               "New-EMRStudio",
+               "New-EMRStudioSessionMapping",
                "Remove-EMRSecurityConfiguration",
+               "Remove-EMRStudio",
+               "Remove-EMRStudioSessionMapping",
                "Get-EMRCluster",
                "Get-EMRJobFlow",
                "Get-EMRNotebookExecution",
                "Get-EMRSecurityConfiguration",
                "Get-EMRStep",
+               "Get-EMRStudio",
                "Get-EMRBlockPublicAccessConfiguration",
                "Get-EMRManagedScalingPolicy",
+               "Get-EMRStudioSessionMapping",
                "Get-EMRBootstrapActionList",
                "Get-EMRClusterList",
                "Get-EMRInstanceFleetList",
@@ -250,6 +278,8 @@ $EMR_SelectMap = @{
                "Get-EMRNotebookExecutionList",
                "Get-EMRSecurityConfigurationList",
                "Get-EMRStepList",
+               "Get-EMRStudioList",
+               "Get-EMRStudioSessionMappingList",
                "Edit-EMRCluster",
                "Edit-EMRInstanceFleet",
                "Edit-EMRInstanceGroup",
@@ -264,7 +294,8 @@ $EMR_SelectMap = @{
                "Set-EMRVisibleToAllUser",
                "Start-EMRNotebookExecution",
                "Stop-EMRNotebookExecution",
-               "Stop-EMRJobFlow")
+               "Stop-EMRJobFlow",
+               "Update-EMRStudioSessionMapping")
 }
 
 _awsArgumentCompleterRegistration $EMR_SelectCompleters $EMR_SelectMap

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>healthlake</C2jFilename>
+    <AssemblyName>HealthLake</AssemblyName>
+    <ServiceNounPrefix>AHL</ServiceNounPrefix>
+    <ServiceName>Amazon HealthLake</ServiceName>
+    <ServiceClientInterface>IAmazonHealthLake</ServiceClientInterface>
+    <ServiceClient>AmazonHealthLakeClient</ServiceClient>
+    <ServiceModuleGuid>6411B6C6-5FB7-42C7-9F81-514555A4BD5D</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateFHIRDatastore" OutputProperty="*" Verb="New" Noun="FHIRDatastore" ShouldProcessTarget="DatastoreName" PipelineParameter="DatastoreTypeVersion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFHIRDatastore" OutputProperty="*" Verb="Remove" Noun="FHIRDatastore" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFHIRDatastore" OutputProperty="DatastoreProperties" Verb="Get" Noun="FHIRDatastore" PipelineParameter="DatastoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFHIRImportJob" OutputProperty="ImportJobProperties" Verb="Get" Noun="FHIRImportJob" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFHIRDatastores" OutputProperty="DatastorePropertiesList" Verb="Get" Noun="FHIRDatastoreList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartFHIRImportJob" OutputProperty="*" Verb="Start" Noun="FHIRImportJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

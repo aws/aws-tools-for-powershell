@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Lists the tasks in a maintenance window.
+    /// 
+    ///  <note><para>
+    /// For maintenance window tasks without a specified target, you cannot supply values
+    /// for <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system
+    /// inserts a placeholder value of <code>1</code>, which may be reported in the response
+    /// to this command. These values do not affect the running of your task and can be ignored.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowTask")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowTaskResponse")]

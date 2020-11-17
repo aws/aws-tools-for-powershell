@@ -28,13 +28,19 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Updates a Lambda function's code.
+    /// Updates a Lambda function's code. If code signing is enabled for the function, the
+    /// code package must be signed by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">Configuring
+    /// code signing</a>.
     /// 
     ///  
     /// <para>
     /// The function's code is locked when you publish a version. You can't modify the code
     /// of a published version, only the unpublished version.
-    /// </para>
+    /// </para><note><para>
+    /// For a function defined as a container image, Lambda resolves the image tag to an image
+    /// digest. In Amazon ECR, if you update the image tag to a new image, Lambda does not
+    /// automatically update the function.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "LMFunctionCode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName="FromMemoryStream")]
     [OutputType("Amazon.Lambda.Model.UpdateFunctionCodeResponse")]
@@ -64,6 +70,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         public System.String FunctionName { get; set; }
+        #endregion
+        
+        #region Parameter ImageUri
+        /// <summary>
+        /// <para>
+        /// <para>URI of a container image in the Amazon ECR registry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageUri { get; set; }
         #endregion
         
         #region Parameter PublishVersion
@@ -205,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 WriteWarning("You are passing $null as a value for parameter FunctionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ImageUri = this.ImageUri;
             context.PublishVersion = this.PublishVersion;
             context.RevisionId = this.RevisionId;
             context.S3Bucket = this.S3Bucket;
@@ -238,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (cmdletContext.FunctionName != null)
                 {
                     request.FunctionName = cmdletContext.FunctionName;
+                }
+                if (cmdletContext.ImageUri != null)
+                {
+                    request.ImageUri = cmdletContext.ImageUri;
                 }
                 if (cmdletContext.PublishVersion != null)
                 {
@@ -335,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             public System.Boolean? DryRun { get; set; }
             public System.String FunctionName { get; set; }
+            public System.String ImageUri { get; set; }
             public System.Boolean? PublishVersion { get; set; }
             public System.String RevisionId { get; set; }
             public System.String S3Bucket { get; set; }

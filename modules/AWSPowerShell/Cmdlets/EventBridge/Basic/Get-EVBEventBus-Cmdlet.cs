@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the event bus to show details for. If you omit this, the default event
-        /// bus is displayed.</para>
+        /// <para>The name or ARN of the event bus to show details for. If you omit this, the default
+        /// event bus is displayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

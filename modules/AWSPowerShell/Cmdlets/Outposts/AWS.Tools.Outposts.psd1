@@ -86,12 +86,15 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-OUTPResourceTag', 
         'Get-OUTPOutpost', 
         'Get-OUTPOutpostInstanceType', 
         'Get-OUTPOutpostList', 
+        'Get-OUTPResourceTag', 
         'Get-OUTPSiteList', 
         'New-OUTPOutpost', 
         'Remove-OUTPOutpost', 
+        'Remove-OUTPResourceTag', 
         'Remove-OUTPSite')
 
     # Variables to export from this module

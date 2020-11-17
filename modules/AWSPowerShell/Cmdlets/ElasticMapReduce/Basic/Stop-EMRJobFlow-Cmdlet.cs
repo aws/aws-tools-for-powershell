@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter JobFlowId
         /// <summary>
         /// <para>
-        /// <para>A list of job flows to be shutdown.</para>
+        /// <para>A list of job flows to be shut down.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

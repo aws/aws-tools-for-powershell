@@ -31,19 +31,19 @@ namespace Amazon.PowerShell.Cmdlets.QLDBS
     /// Sends a command to an Amazon QLDB ledger.
     /// 
     ///  <note><para>
-    /// Instead of interacting directly with this API, we recommend that you use the Amazon
-    /// QLDB Driver or the QLDB Shell to execute data transactions on a ledger.
+    /// Instead of interacting directly with this API, we recommend using the QLDB driver
+    /// or the QLDB shell to execute data transactions on a ledger.
     /// </para><ul><li><para>
-    /// If you are working with an AWS SDK, use the QLDB Driver. The driver provides a high-level
-    /// abstraction layer above this <code>qldbsession</code> data plane and manages <code>SendCommand</code>
+    /// If you are working with an AWS SDK, use the QLDB driver. The driver provides a high-level
+    /// abstraction layer above this <i>QLDB Session</i> data plane and manages <code>SendCommand</code>
     /// API calls for you. For information and a list of supported programming languages,
     /// see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-driver.html">Getting
     /// started with the driver</a> in the <i>Amazon QLDB Developer Guide</i>.
     /// </para></li><li><para>
-    /// If you are working with the AWS Command Line Interface (AWS CLI), use the QLDB Shell.
-    /// The shell is a command line interface that uses the QLDB Driver to interact with a
+    /// If you are working with the AWS Command Line Interface (AWS CLI), use the QLDB shell.
+    /// The shell is a command line interface that uses the QLDB driver to interact with a
     /// ledger. For information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/data-shell.html">Accessing
-    /// Amazon QLDB using the QLDB Shell</a>.
+    /// Amazon QLDB using the QLDB shell</a>.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Send", "QLDBSCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -71,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.QLDBS
         /// <para>Specifies the commit digest for the transaction to commit. For every active transaction,
         /// the commit digest must be passed. QLDB validates <code>CommitDigest</code> and rejects
         /// the commit with an error if the digest computed on the client does not match the digest
-        /// computed by QLDB.</para>
+        /// computed by QLDB.</para><para>The purpose of the <code>CommitDigest</code> parameter is to ensure that QLDB commits
+        /// a transaction if and only if the server has processed the exact set of statements
+        /// sent by the client, in the same order that client sent them, and with no duplicates.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

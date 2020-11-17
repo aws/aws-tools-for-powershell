@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_DesiredvCpu
         /// <summary>
         /// <para>
-        /// <para>The desired number of Amazon EC2 vCPUS in the compute environment.</para>
+        /// <para>The desired number of Amazon EC2 vCPUS in the compute environment.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources, and shouldn't
+        /// be specified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_MaxvCpu
         /// <summary>
         /// <para>
-        /// <para>The maximum number of Amazon EC2 vCPUs that an environment can reach.</para>
+        /// <para>The maximum number of Amazon EC2 vCPUs that an environment can reach.</para><note><para>With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
+        /// allocation strategies, AWS Batch might need to go above <code>maxvCpus</code> to meet
+        /// your capacity requirements. In this event, AWS Batch will never go above <code>maxvCpus</code>
+        /// by more than a single instance (e.g., no more than a single instance from among those
+        /// specified in your compute environment).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_MinvCpu
         /// <summary>
         /// <para>
-        /// <para>The minimum number of Amazon EC2 vCPUs that an environment should maintain.</para>
+        /// <para>The minimum number of Amazon EC2 vCPUs that an environment should maintain.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources, and shouldn't
+        /// be specified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,12 +95,27 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Int32? ComputeResources_MinvCpu { get; set; }
         #endregion
         
+        #region Parameter ComputeResources_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon EC2 security groups associated with instances launched in the compute environment.
+        /// This parameter is required for Fargate compute resources, where it can contain up
+        /// to 5 security groups. This can't be specified for EC2 compute resources. Providing
+        /// an empty list is handled as if this parameter wasn't specified and no change is made.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeResources_SecurityGroupIds")]
+        public System.String[] ComputeResources_SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter ServiceRole
         /// <summary>
         /// <para>
         /// <para>The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make
-        /// calls to other AWS services on your behalf.</para><para>If your specified role has a path other than <code>/</code>, then you must either
-        /// specify the full role ARN (this is recommended) or prefix the role name with the path.</para><note><para>Depending on how you created your AWS Batch service role, its ARN may contain the
+        /// calls to other AWS services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">AWS
+        /// Batch service IAM role</a> in the <i>AWS Batch User Guide</i>.</para><para>If your specified role has a path other than <code>/</code>, then you must either
+        /// specify the full role ARN (this is recommended) or prefix the role name with the path.</para><note><para>Depending on how you created your AWS Batch service role, its ARN might contain the
         /// <code>service-role</code> path prefix. When you only specify the name of the service
         /// role, AWS Batch assumes that your ARN does not use the <code>service-role</code> path
         /// prefix. Because of this, we recommend that you specify the full ARN of your service
@@ -110,12 +131,35 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The state of the compute environment. Compute environments in the <code>ENABLED</code>
         /// state can accept jobs from a queue and scale in or out automatically based on the
-        /// workload demand of its associated queues.</para>
+        /// workload demand of its associated queues.</para><para>If the state is <code>ENABLED</code>, then the AWS Batch scheduler can attempt to
+        /// place jobs from an associated job queue on the compute resources within the environment.
+        /// If the compute environment is managed, then it can scale its instances out or in automatically,
+        /// based on the job queue demand.</para><para>If the state is <code>DISABLED</code>, then the AWS Batch scheduler doesn't attempt
+        /// to place jobs within the environment. Jobs in a <code>STARTING</code> or <code>RUNNING</code>
+        /// state continue to progress normally. Managed compute environments in the <code>DISABLED</code>
+        /// state don't scale out. However, they scale in to <code>minvCpus</code> value after
+        /// instances become idle.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Batch.CEState")]
         public Amazon.Batch.CEState State { get; set; }
+        #endregion
+        
+        #region Parameter ComputeResources_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>The VPC subnets that the compute resources are launched into. This parameter is required
+        /// for jobs running on Fargate compute resources, where it can contain up to 16 subnets.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs
+        /// and Subnets</a> in the <i>Amazon VPC User Guide</i>. This can't be specified for EC2
+        /// compute resources. Providing an empty list will be handled as if this parameter wasn't
+        /// specified and no change is made.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeResources_Subnets")]
+        public System.String[] ComputeResources_Subnet { get; set; }
         #endregion
         
         #region Parameter Select
@@ -189,6 +233,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             context.ComputeResources_DesiredvCpu = this.ComputeResources_DesiredvCpu;
             context.ComputeResources_MaxvCpu = this.ComputeResources_MaxvCpu;
             context.ComputeResources_MinvCpu = this.ComputeResources_MinvCpu;
+            if (this.ComputeResources_SecurityGroupId != null)
+            {
+                context.ComputeResources_SecurityGroupId = new List<System.String>(this.ComputeResources_SecurityGroupId);
+            }
+            if (this.ComputeResources_Subnet != null)
+            {
+                context.ComputeResources_Subnet = new List<System.String>(this.ComputeResources_Subnet);
+            }
             context.ServiceRole = this.ServiceRole;
             context.State = this.State;
             
@@ -243,6 +295,26 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestComputeResources_computeResources_MinvCpu != null)
             {
                 request.ComputeResources.MinvCpus = requestComputeResources_computeResources_MinvCpu.Value;
+                requestComputeResourcesIsNull = false;
+            }
+            List<System.String> requestComputeResources_computeResources_SecurityGroupId = null;
+            if (cmdletContext.ComputeResources_SecurityGroupId != null)
+            {
+                requestComputeResources_computeResources_SecurityGroupId = cmdletContext.ComputeResources_SecurityGroupId;
+            }
+            if (requestComputeResources_computeResources_SecurityGroupId != null)
+            {
+                request.ComputeResources.SecurityGroupIds = requestComputeResources_computeResources_SecurityGroupId;
+                requestComputeResourcesIsNull = false;
+            }
+            List<System.String> requestComputeResources_computeResources_Subnet = null;
+            if (cmdletContext.ComputeResources_Subnet != null)
+            {
+                requestComputeResources_computeResources_Subnet = cmdletContext.ComputeResources_Subnet;
+            }
+            if (requestComputeResources_computeResources_Subnet != null)
+            {
+                request.ComputeResources.Subnets = requestComputeResources_computeResources_Subnet;
                 requestComputeResourcesIsNull = false;
             }
              // determine if request.ComputeResources should be set to null
@@ -323,6 +395,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Int32? ComputeResources_DesiredvCpu { get; set; }
             public System.Int32? ComputeResources_MaxvCpu { get; set; }
             public System.Int32? ComputeResources_MinvCpu { get; set; }
+            public List<System.String> ComputeResources_SecurityGroupId { get; set; }
+            public List<System.String> ComputeResources_Subnet { get; set; }
             public System.String ServiceRole { get; set; }
             public Amazon.Batch.CEState State { get; set; }
             public System.Func<Amazon.Batch.Model.UpdateComputeEnvironmentResponse, UpdateBATComputeEnvironmentCmdlet, object> Select { get; set; } =

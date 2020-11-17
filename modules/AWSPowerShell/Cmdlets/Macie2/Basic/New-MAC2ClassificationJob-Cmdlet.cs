@@ -66,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter S3JobDefinition_BucketDefinition
         /// <summary>
         /// <para>
-        /// <para>An array of objects, one for each bucket that contains objects to analyze.</para>
+        /// <para>An array of objects, one for each AWS account that owns buckets to analyze. Each object
+        /// specifies the account ID for an account and one or more buckets to analyze for the
+        /// account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

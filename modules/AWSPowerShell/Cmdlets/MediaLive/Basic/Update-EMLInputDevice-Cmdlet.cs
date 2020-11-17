@@ -53,6 +53,20 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.InputDeviceConfiguredInput HdDeviceSettings_ConfiguredInput { get; set; }
         #endregion
         
+        #region Parameter UhdDeviceSettings_ConfiguredInput
+        /// <summary>
+        /// <para>
+        /// The input source that you want to use.
+        /// If the device has a source connected to only one of its input ports, or if you don't
+        /// care which source the device sends, specify Auto. If the device has sources connected
+        /// to both its input ports, and you want to use a specific source, specify the source.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.InputDeviceConfiguredInput")]
+        public Amazon.MediaLive.InputDeviceConfiguredInput UhdDeviceSettings_ConfiguredInput { get; set; }
+        #endregion
+        
         #region Parameter InputDeviceId
         /// <summary>
         /// <para>
@@ -80,6 +94,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? HdDeviceSettings_MaxBitrate { get; set; }
+        #endregion
+        
+        #region Parameter UhdDeviceSettings_MaxBitrate
+        /// <summary>
+        /// <para>
+        /// The maximum bitrate in bits per second. Set
+        /// a value here to throttle the bitrate of the source video.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? UhdDeviceSettings_MaxBitrate { get; set; }
         #endregion
         
         #region Parameter Name
@@ -164,6 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             #endif
             context.Name = this.Name;
+            context.UhdDeviceSettings_ConfiguredInput = this.UhdDeviceSettings_ConfiguredInput;
+            context.UhdDeviceSettings_MaxBitrate = this.UhdDeviceSettings_MaxBitrate;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -216,6 +243,35 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate UhdDeviceSettings
+            var requestUhdDeviceSettingsIsNull = true;
+            request.UhdDeviceSettings = new Amazon.MediaLive.Model.InputDeviceConfigurableSettings();
+            Amazon.MediaLive.InputDeviceConfiguredInput requestUhdDeviceSettings_uhdDeviceSettings_ConfiguredInput = null;
+            if (cmdletContext.UhdDeviceSettings_ConfiguredInput != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_ConfiguredInput = cmdletContext.UhdDeviceSettings_ConfiguredInput;
+            }
+            if (requestUhdDeviceSettings_uhdDeviceSettings_ConfiguredInput != null)
+            {
+                request.UhdDeviceSettings.ConfiguredInput = requestUhdDeviceSettings_uhdDeviceSettings_ConfiguredInput;
+                requestUhdDeviceSettingsIsNull = false;
+            }
+            System.Int32? requestUhdDeviceSettings_uhdDeviceSettings_MaxBitrate = null;
+            if (cmdletContext.UhdDeviceSettings_MaxBitrate != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_MaxBitrate = cmdletContext.UhdDeviceSettings_MaxBitrate.Value;
+            }
+            if (requestUhdDeviceSettings_uhdDeviceSettings_MaxBitrate != null)
+            {
+                request.UhdDeviceSettings.MaxBitrate = requestUhdDeviceSettings_uhdDeviceSettings_MaxBitrate.Value;
+                requestUhdDeviceSettingsIsNull = false;
+            }
+             // determine if request.UhdDeviceSettings should be set to null
+            if (requestUhdDeviceSettingsIsNull)
+            {
+                request.UhdDeviceSettings = null;
             }
             
             CmdletOutput output;
@@ -282,6 +338,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.Int32? HdDeviceSettings_MaxBitrate { get; set; }
             public System.String InputDeviceId { get; set; }
             public System.String Name { get; set; }
+            public Amazon.MediaLive.InputDeviceConfiguredInput UhdDeviceSettings_ConfiguredInput { get; set; }
+            public System.Int32? UhdDeviceSettings_MaxBitrate { get; set; }
             public System.Func<Amazon.MediaLive.Model.UpdateInputDeviceResponse, UpdateEMLInputDeviceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

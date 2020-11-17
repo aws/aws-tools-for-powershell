@@ -29,20 +29,35 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Creates a member association in Security Hub between the specified accounts and the
-    /// account used to make the request, which is the master account. To successfully create
-    /// a member, you must use this action from an account that already has Security Hub enabled.
-    /// To enable Security Hub, you can use the <code><a>EnableSecurityHub</a></code> operation.
+    /// account used to make the request, which is the master account. If you are integrated
+    /// with Organizations, then the master account is the Security Hub administrator account
+    /// that is designated by the organization management account.
     /// 
     ///  
-    /// <para>
-    /// After you use <code>CreateMembers</code> to create member account associations in
-    /// Security Hub, you must use the <code><a>InviteMembers</a></code> operation to invite
-    /// the accounts to enable Security Hub and become member accounts in Security Hub.
+    /// <para><code>CreateMembers</code> is always used to add accounts that are not organization
+    /// members.
     /// </para><para>
-    /// If the account owner accepts the invitation, the account becomes a member account
-    /// in Security Hub. A permissions policy is added that permits the master account to
-    /// view the findings generated in the member account. When Security Hub is enabled in
-    /// the invited account, findings start to be sent to both the member and master accounts.
+    /// For accounts that are part of an organization, <code>CreateMembers</code> is only
+    /// used in the following cases:
+    /// </para><ul><li><para>
+    /// Security Hub is not configured to automatically add new accounts in an organization.
+    /// </para></li><li><para>
+    /// The account was disassociated or deleted in Security Hub.
+    /// </para></li></ul><para>
+    /// This action can only be used by an account that has Security Hub enabled. To enable
+    /// Security Hub, you can use the <code><a>EnableSecurityHub</a></code> operation.
+    /// </para><para>
+    /// For accounts that are not organization members, you create the account association
+    /// and then send an invitation to the member account. To send the invitation, you use
+    /// the <code><a>InviteMembers</a></code> operation. If the account owner accepts the
+    /// invitation, the account becomes a member account in Security Hub.
+    /// </para><para>
+    /// Accounts that are part of an organization do not receive an invitation. They automatically
+    /// become a member account in Security Hub.
+    /// </para><para>
+    /// A permissions policy is added that permits the master account to view the findings
+    /// generated in the member account. When Security Hub is enabled in a member account,
+    /// findings are sent to both the member and master accounts. 
     /// </para><para>
     /// To remove the association between the master and member accounts, use the <code><a>DisassociateFromMasterAccount</a></code> or <code><a>DisassociateMembers</a></code> operation.
     /// </para>
@@ -61,10 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>The list of accounts to associate with the Security Hub master account. For each account,
-        /// the list includes the account ID and the email address.</para>
+        /// the list includes the account ID and optionally the email address.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("AccountDetails")]
         public Amazon.SecurityHub.Model.AccountDetails[] AccountDetail { get; set; }
         #endregion
@@ -134,6 +156,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             {
                 context.AccountDetail = new List<Amazon.SecurityHub.Model.AccountDetails>(this.AccountDetail);
             }
+            #if MODULAR
+            if (this.AccountDetail == null && ParameterWasBound(nameof(this.AccountDetail)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AccountDetail which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

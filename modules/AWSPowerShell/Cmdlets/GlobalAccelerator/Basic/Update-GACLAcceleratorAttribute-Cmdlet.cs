@@ -28,8 +28,7 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Update the attributes for an accelerator. To see an AWS CLI example of updating an
-    /// accelerator to enable flow logs, scroll down to <b>Example</b>.
+    /// Update the attributes for an accelerator.
     /// </summary>
     [Cmdlet("Update", "GACLAcceleratorAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GlobalAccelerator.Model.AcceleratorAttributes")]

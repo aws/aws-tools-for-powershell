@@ -442,8 +442,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
         /// different ways, for example, by purpose, owner, or environment. For more information,
-        /// see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
-        /// Tagging Strategies</a>.</para><para>Tags that you specify for the tuning job are also added to all training jobs that
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// AWS Resources</a>.</para><para>Tags that you specify for the tuning job are also added to all training jobs that
         /// the tuning job launches.</para>
         /// </para>
         /// </summary>

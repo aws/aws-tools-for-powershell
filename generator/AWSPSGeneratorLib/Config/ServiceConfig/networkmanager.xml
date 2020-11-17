@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>networkmanager</C2jFilename>
     <AssemblyName>NetworkManager</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -24,6 +24,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateLink" OutputProperty="LinkAssociation" Verb="Register" Noun="Link" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateTransitGatewayConnectPeer" OutputProperty="TransitGatewayConnectPeerAssociation" Verb="Register" Noun="TransitGatewayConnectPeer" ShouldProcessTarget="TransitGatewayConnectPeerArn" PipelineParameter="TransitGatewayConnectPeerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnection" OutputProperty="Connection" Verb="New" Noun="Connection" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -40,6 +48,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSite" OutputProperty="Site" Verb="New" Noun="Site" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnection" OutputProperty="Connection" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,6 +87,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateTransitGatewayConnectPeer" OutputProperty="TransitGatewayConnectPeerAssociation" Verb="Unregister" Noun="TransitGatewayConnectPeer" ShouldProcessTarget="TransitGatewayConnectPeerArn" PipelineParameter="TransitGatewayConnectPeerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnections" OutputProperty="Connections" Verb="Get" Noun="Connection" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCustomerGatewayAssociations" OutputProperty="CustomerGatewayAssociations" Verb="Get" Noun="CustomerGatewayAssociation" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +112,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSites" OutputProperty="Sites" Verb="Get" Noun="Site" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTransitGatewayConnectPeerAssociations" OutputProperty="TransitGatewayConnectPeerAssociations" Verb="Get" Noun="TransitGatewayConnectPeerAssociation" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,6 +139,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnection" OutputProperty="Connection" Verb="Update" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateDevice" OutputProperty="Device" Verb="Update" Noun="Device" ShouldProcessTarget="DeviceId" PipelineParameter="DeviceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -132,7 +160,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

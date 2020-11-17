@@ -28,26 +28,31 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Defines a new matchmaking configuration for use with FlexMatch. A matchmaking configuration
-    /// sets out guidelines for matching players and getting the matches into games. You can
-    /// set up multiple matchmaking configurations to handle the scenarios needed for your
-    /// game. Each matchmaking ticket (<a>StartMatchmaking</a> or <a>StartMatchBackfill</a>)
-    /// specifies a configuration for the match and provides player attributes to support
-    /// the configuration being used. 
+    /// Defines a new matchmaking configuration for use with FlexMatch. Whether your are using
+    /// FlexMatch with GameLift hosting or as a standalone matchmaking service, the matchmaking
+    /// configuration sets out rules for matching players and forming teams. If you're also
+    /// using GameLift hosting, it defines how to start game sessions for each match. Your
+    /// matchmaking system can use multiple configurations to handle different game scenarios.
+    /// All matchmaking requests (<a>StartMatchmaking</a> or <a>StartMatchBackfill</a>) identify
+    /// the matchmaking configuration to use and provide player attributes consistent with
+    /// that configuration. 
     /// 
     ///  
     /// <para>
-    /// To create a matchmaking configuration, at a minimum you must specify the following:
-    /// configuration name; a rule set that governs how to evaluate players and find acceptable
-    /// matches; a game session queue to use when placing a new game session for the match;
-    /// and the maximum time allowed for a matchmaking attempt.
+    /// To create a matchmaking configuration, you must provide the following: configuration
+    /// name and FlexMatch mode (with or without GameLift hosting); a rule set that specifies
+    /// how to evaluate players and find acceptable matches; whether player acceptance is
+    /// required; and the maximum time allowed for a matchmaking attempt. When using FlexMatch
+    /// with GameLift hosting, you also need to identify the game session queue to use when
+    /// starting a game session for the match.
     /// </para><para>
-    /// To track the progress of matchmaking tickets, set up an Amazon Simple Notification
-    /// Service (SNS) to receive notifications, and provide the topic ARN in the matchmaking
-    /// configuration. An alternative method, continuously poling ticket status with <a>DescribeMatchmaking</a>,
-    /// should only be used for games in development with low matchmaking usage.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html">
-    /// Design a FlexMatch Matchmaker</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html">
+    /// In addition, you must set up an Amazon Simple Notification Service (SNS) to receive
+    /// matchmaking notifications, and provide the topic ARN in the matchmaking configuration.
+    /// An alternative method, continuously polling ticket status with <a>DescribeMatchmaking</a>,
+    /// is only suitable for games in development with low matchmaking usage.
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
+    /// FlexMatch Developer Guide</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">
+    /// Design a FlexMatch Matchmaker</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
     /// Set Up FlexMatch Event Notification</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li><li><para><a>DeleteMatchmakingRuleSet</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLMatchmakingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A flag that determines whether a match that was created with this configuration must
-        /// be accepted by the matched players. To require acceptance, set to <code>TRUE</code>.</para>
+        /// be accepted by the matched players. To require acceptance, set to <code>TRUE</code>.
+        /// With this option enabled, matchmaking tickets use the status <code>REQUIRES_ACCEPTANCE</code>
+        /// to indicate when a completed potential match is waiting for player acceptance. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,9 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter AcceptanceTimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>The length of time (in seconds) to wait for players to accept a proposed match. If
-        /// any player rejects the match or fails to accept before the timeout, the ticket continues
-        /// to look for an acceptable match.</para>
+        /// <para>The length of time (in seconds) to wait for players to accept a proposed match, if
+        /// acceptance is required. If any player rejects the match or fails to accept before
+        /// the timeout, the tickets are returned to the ticket pool and continue to be evaluated
+        /// for an acceptable match.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>The number of player slots in a match to keep open for future players. For example,
         /// assume that the configuration's rule set specifies a match for a single 12-person
         /// team. If the additional player count is set to 2, only 10 players are initially selected
-        /// for the match.</para>
+        /// for the match. This parameter is not used if <code>FlexMatchMode</code> is set to
+        /// <code>STANDALONE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// Specify <code>MANUAL</code> when your game manages backfill requests manually or does
         /// not use the match backfill feature. Specify <code>AUTOMATIC</code> to have GameLift
         /// create a <a>StartMatchBackfill</a> request whenever a game session has one or more
-        /// open slots. Learn more about manual and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html">
-        /// Backfill Existing Games with FlexMatch</a>. </para>
+        /// open slots. Learn more about manual and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">
+        /// Backfill Existing Games with FlexMatch</a>. Automatic backfill is not available when
+        /// <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,6 +149,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter FlexMatchMode
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether this matchmaking configuration is being used with GameLift hosting
+        /// or as a standalone matchmaking solution. </para><ul><li><para><b>STANDALONE</b> - FlexMatch forms matches and returns match information, including
+        /// players and team assignments, in a <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded">
+        /// MatchmakingSucceeded</a> event.</para></li><li><para><b>WITH_QUEUE</b> - FlexMatch forms matches and uses the specified GameLift queue
+        /// to start a game session for the match. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GameLift.FlexMatchMode")]
+        public Amazon.GameLift.FlexMatchMode FlexMatchMode { get; set; }
+        #endregion
+        
         #region Parameter GameProperty
         /// <summary>
         /// <para>
@@ -146,7 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// properties are passed to a game server process in the <a>GameSession</a> object with
         /// a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>). This information is added to the new <a>GameSession</a> object
-        /// that is created for a successful match. </para>
+        /// that is created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
+        /// is set to <code>STANDALONE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// data is passed to a game server process in the <a>GameSession</a> object with a request
         /// to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>). This information is added to the new <a>GameSession</a> object
-        /// that is created for a successful match.</para>
+        /// that is created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
+        /// is set to <code>STANDALONE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,19 +200,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>)
         /// that is assigned to a GameLift game session queue resource and uniquely identifies
-        /// it. ARNs are unique across all Regions. These queues are used when placing game sessions
-        /// for matches that are created with this matchmaking configuration. Queues can be located
-        /// in any Region.</para>
+        /// it. ARNs are unique across all Regions. Queues can be located in any Region. Queues
+        /// are used to start new GameLift-hosted game sessions for matches that are created with
+        /// this matchmaking configuration. If <code>FlexMatchMode</code> is set to <code>STANDALONE</code>,
+        /// do not set this parameter. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("GameSessionQueueArns")]
         public System.String[] GameSessionQueueArn { get; set; }
         #endregion
@@ -345,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             context.BackfillMode = this.BackfillMode;
             context.CustomEventData = this.CustomEventData;
             context.Description = this.Description;
+            context.FlexMatchMode = this.FlexMatchMode;
             if (this.GameProperty != null)
             {
                 context.GameProperty = new List<Amazon.GameLift.Model.GameProperty>(this.GameProperty);
@@ -354,12 +376,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 context.GameSessionQueueArn = new List<System.String>(this.GameSessionQueueArn);
             }
-            #if MODULAR
-            if (this.GameSessionQueueArn == null && ParameterWasBound(nameof(this.GameSessionQueueArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter GameSessionQueueArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -425,6 +441,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.FlexMatchMode != null)
+            {
+                request.FlexMatchMode = cmdletContext.FlexMatchMode;
             }
             if (cmdletContext.GameProperty != null)
             {
@@ -525,6 +545,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public Amazon.GameLift.BackfillMode BackfillMode { get; set; }
             public System.String CustomEventData { get; set; }
             public System.String Description { get; set; }
+            public Amazon.GameLift.FlexMatchMode FlexMatchMode { get; set; }
             public List<Amazon.GameLift.Model.GameProperty> GameProperty { get; set; }
             public System.String GameSessionData { get; set; }
             public List<System.String> GameSessionQueueArn { get; set; }

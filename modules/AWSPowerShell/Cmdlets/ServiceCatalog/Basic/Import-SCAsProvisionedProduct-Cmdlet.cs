@@ -29,19 +29,24 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Requests the import of a resource as a Service Catalog provisioned product that is
-    /// associated to a Service Catalog product and provisioning artifact. Once imported all
-    /// supported Service Catalog governance actions are supported on the provisioned product.
+    /// associated to a Service Catalog product and provisioning artifact. Once imported,
+    /// all supported Service Catalog governance actions are supported on the provisioned
+    /// product.
     /// 
     ///  
     /// <para>
     /// Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets
     /// and non-root nested stacks are not supported.
     /// </para><para>
-    /// The CloudFormation stack must have one of the following statuses to be imported: CREATE_COMPLETE,
-    /// UPDATE_COMPLETE, UPDATE_ROLLBACK_COMPLETE, IMPORT_COMPLETE, IMPORT_ROLLBACK_COMPLETE.
+    /// The CloudFormation stack must have one of the following statuses to be imported: <code>CREATE_COMPLETE</code>,
+    /// <code>UPDATE_COMPLETE</code>, <code>UPDATE_ROLLBACK_COMPLETE</code>, <code>IMPORT_COMPLETE</code>,
+    /// <code>IMPORT_ROLLBACK_COMPLETE</code>.
     /// </para><para>
     /// Import of the resource requires that the CloudFormation stack template matches the
     /// associated Service Catalog product provisioning artifact. 
+    /// </para><para>
+    /// The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
+    /// and <code>cloudformation:DescribeStacks</code> IAM policy permissions. 
     /// </para>
     /// </summary>
     [Cmdlet("Import", "SCAsProvisionedProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

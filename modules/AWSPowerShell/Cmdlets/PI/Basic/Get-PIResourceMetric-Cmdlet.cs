@@ -31,6 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.PI
     /// Retrieve Performance Insights metrics for a set of data sources, over a time period.
     /// You can provide specific dimension groups and dimensions, and provide aggregation
     /// and filtering criteria for each group.
+    /// 
+    ///  <note><para>
+    /// Each response element returns a maximum of 500 bytes. For larger elements, such as
+    /// SQL statements, only the first 500 bytes are returned.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "PIResourceMetric")]
     [OutputType("Amazon.PI.Model.GetResourceMetricsResponse")]
@@ -44,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The date and time specifiying the end of the requested time series data. The value
+        /// <para>The date and time specifying the end of the requested time series data. The value
         /// specified is <i>exclusive</i> - data points less than (but not equal to) <code>EndTime</code>
         /// will be returned.</para><para>The value for <code>EndTime</code> must be later than the value for <code>StartTime</code>.</para>
         /// </para>
@@ -63,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>An immutable, AWS Region-unique identifier for a data source. Performance Insights
-        /// gathers metrics from this data source.</para><para>To use an Amazon RDS instance as a data source, you specify its <code>DbiResourceId</code>
-        /// value - for example: <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code></para>
+        /// gathers metrics from this data source.</para><para>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value.
+        /// For example, specify <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
         #region Parameter ServiceType
         /// <summary>
         /// <para>
-        /// <para>The AWS service for which Performance Insights will return metrics. The only valid
-        /// value for <i>ServiceType</i> is: <code>RDS</code></para>
+        /// <para>The AWS service for which Performance Insights returns metrics. The only valid value
+        /// for <i>ServiceType</i> is <code>RDS</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

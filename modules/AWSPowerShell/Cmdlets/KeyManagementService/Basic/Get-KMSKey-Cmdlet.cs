@@ -61,10 +61,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// that is, an AWS alias with no key ID, AWS KMS creates an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">AWS
     /// managed CMK</a>. Then, it associates the alias with the new CMK, and returns the <code>KeyId</code>
     /// and <code>Arn</code> of the new CMK in the response.
-    /// </para><para>
-    /// To perform this operation on a CMK in a different AWS account, specify the key ARN
-    /// or alias ARN in the value of the KeyId parameter.
-    /// </para>
+    /// </para><para><b>Cross-account use</b>: Yes. To perform this operation with a CMK in a different
+    /// AWS account, specify the key ARN or alias ARN in the value of the <code>KeyId</code>
+    /// parameter.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DescribeKey</a>
+    /// (key policy)
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>GetKeyPolicy</a></para></li><li><para><a>GetKeyRotationStatus</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>ListKeys</a></para></li><li><para><a>ListResourceTags</a></para></li><li><para><a>ListRetirableGrants</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "KMSKey")]
     [OutputType("Amazon.KeyManagementService.Model.KeyMetadata")]

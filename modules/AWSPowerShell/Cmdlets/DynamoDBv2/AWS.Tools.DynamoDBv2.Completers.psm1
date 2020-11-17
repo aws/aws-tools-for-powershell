@@ -258,7 +258,8 @@ $DDB_SelectCompleters = {
 }
 
 $DDB_SelectMap = @{
-    "Select"=@("New-DDBBackup",
+    "Select"=@("Invoke-DDBDDBBatchExecuteStatement",
+               "New-DDBBackup",
                "New-DDBGlobalTable",
                "Remove-DDBBackup",
                "Remove-DDBTable",
@@ -269,10 +270,15 @@ $DDB_SelectMap = @{
                "Get-DDBExport",
                "Get-DDBGlobalTable",
                "Get-DDBGlobalTableSetting",
+               "Get-DDBKinesisStreamingDestination",
                "Get-DDBProvisionLimit",
                "Get-DDBTable",
                "Get-DDBTableReplicaAutoScaling",
                "Get-DDBTimeToLive",
+               "Disable-DDBKinesisStreamingDestination",
+               "Enable-DDBKinesisStreamingDestination",
+               "Invoke-DDBDDBExecuteStatement",
+               "Invoke-DDBDDBExecuteTransaction",
                "Export-DDBTableToPointInTime",
                "Get-DDBBackupList",
                "Get-DDBContributorInsightList",

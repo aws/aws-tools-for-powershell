@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para> Specifies the ID of the cluster for which the managed scaling policy will be fetched.
+        /// <para>Specifies the ID of the cluster for which the managed scaling policy will be fetched.
         /// </para>
         /// </para>
         /// </summary>

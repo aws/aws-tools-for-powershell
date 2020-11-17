@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePredictorBacktestExportJob" OutputProperty="PredictorBacktestExportJobArn" Verb="New" Noun="PredictorBacktestExportJob" ShouldProcessTarget="PredictorBacktestExportJobName" PipelineParameter="PredictorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetArn" PipelineParameter="DatasetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -64,6 +68,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePredictor" Verb="Remove" Noun="Predictor" ShouldProcessTarget="PredictorArn" PipelineParameter="PredictorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePredictorBacktestExportJob" Verb="Remove" Noun="PredictorBacktestExportJob" ShouldProcessTarget="PredictorBacktestExportJobArn" PipelineParameter="PredictorBacktestExportJobArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -91,6 +99,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribePredictorBacktestExportJob" OutputProperty="*" Verb="Get" Noun="PredictorBacktestExportJob" PipelineParameter="PredictorBacktestExportJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAccuracyMetrics" OutputProperty="PredictorEvaluationResults" Verb="Get" Noun="AccuracyMetric" PipelineParameter="PredictorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -112,6 +124,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListForecasts" OutputProperty="Forecasts" Verb="Get" Noun="ForecastList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPredictorBacktestExportJobs" OutputProperty="PredictorBacktestExportJobs" Verb="Get" Noun="PredictorBacktestExportJobList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -88,6 +88,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-HSM2ResourceTag', 
         'Copy-HSM2BackupToRegion', 
+        'Edit-HSM2BackupAttribute', 
+        'Edit-HSM2Cluster', 
         'Get-HSM2Backup', 
         'Get-HSM2Cluster', 
         'Get-HSM2ResourceTag', 

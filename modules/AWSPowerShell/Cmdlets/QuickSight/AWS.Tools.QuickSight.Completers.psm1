@@ -130,6 +130,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.EmbeddingIdentityType
+        "Get-QSDashboardEmbedUrl/IdentityType"
+        {
+            $v = "ANONYMOUS","IAM","QUICKSIGHT"
+            break
+        }
+
         # Amazon.QuickSight.IdentityStore
         "New-QSNamespace/IdentityStore"
         {
@@ -138,10 +145,7 @@ $QS_Completers = {
         }
 
         # Amazon.QuickSight.IdentityType
-        {
-            ($_ -eq "Get-QSDashboardEmbedUrl/IdentityType") -Or
-            ($_ -eq "Register-QSUser/IdentityType")
-        }
+        "Register-QSUser/IdentityType"
         {
             $v = "IAM","QUICKSIGHT"
             break

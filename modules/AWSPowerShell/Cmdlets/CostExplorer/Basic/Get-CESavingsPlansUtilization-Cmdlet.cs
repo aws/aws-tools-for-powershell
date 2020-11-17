@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
     /// Retrieves the Savings Plans utilization for your account across date ranges with daily
-    /// or monthly granularity. Master account in an organization have access to member accounts.
-    /// You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine
-    /// the possible dimension values.
+    /// or monthly granularity. Management account in an organization have access to member
+    /// accounts. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code>
+    /// to determine the possible dimension values.
     /// 
     ///  <note><para>
     /// You cannot group by any dimension values for <code>GetSavingsPlansUtilization</code>.

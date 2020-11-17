@@ -154,7 +154,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.WorkspaceImageIngestionProcess
         "Import-WKSWorkspaceImage/IngestionProcess"
         {
-            $v = "BYOL_GRAPHICS","BYOL_GRAPHICSPRO","BYOL_REGULAR"
+            $v = "BYOL_GRAPHICS","BYOL_GRAPHICSPRO","BYOL_REGULAR","BYOL_REGULAR_WSP"
             break
         }
 

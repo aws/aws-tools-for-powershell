@@ -1,0 +1,3 @@
+﻿# WellArchitected
+
+Export-ModuleMember -Alias *

@@ -28,17 +28,17 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Configures an event selector for your trail. Use event selectors to further specify
-    /// the management and data event settings for your trail. By default, trails created
-    /// without specific event selectors will be configured to log all read and write management
-    /// events, and no data events. 
+    /// Configures an event selector or advanced event selectors for your trail. Use event
+    /// selectors or advanced event selectors to specify management and data event settings
+    /// for your trail. By default, trails created without specific event selectors are configured
+    /// to log all read and write management events, and no data events.
     /// 
     ///  
     /// <para>
-    /// When an event occurs in your account, CloudTrail evaluates the event selectors in
-    /// all trails. For each trail, if the event matches any event selector, the trail processes
-    /// and logs the event. If the event doesn't match any event selector, the trail doesn't
-    /// log the event. 
+    /// When an event occurs in your account, CloudTrail evaluates the event selectors or
+    /// advanced event selectors in all trails. For each trail, if the event matches any event
+    /// selector, the trail processes and logs the event. If the event doesn't match any event
+    /// selector, the trail doesn't log the event. 
     /// </para><para>
     /// Example
     /// </para><ol><li><para>
@@ -52,16 +52,25 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// The <code>RunInstances</code> is a write-only event and it matches your event selector.
     /// The trail logs the event.
     /// </para></li><li><para>
-    /// The <code>GetConsoleOutput</code> is a read-only event but it doesn't match your event
+    /// The <code>GetConsoleOutput</code> is a read-only event that doesn't match your event
     /// selector. The trail doesn't log the event. 
     /// </para></li></ol><para>
     /// The <code>PutEventSelectors</code> operation must be called from the region in which
-    /// the trail was created; otherwise, an <code>InvalidHomeRegionException</code> is thrown.
+    /// the trail was created; otherwise, an <code>InvalidHomeRegionException</code> exception
+    /// is thrown.
     /// </para><para>
     /// You can configure up to five event selectors for each trail. For more information,
     /// see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging
-    /// Data and Management Events for Trails </a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Limits
+    /// data and management events for trails </a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas
     /// in AWS CloudTrail</a> in the <i>AWS CloudTrail User Guide</i>.
+    /// </para><para>
+    /// You can add advanced event selectors, and conditions for your advanced event selectors,
+    /// up to a maximum of 500 values for all conditions and selectors on a trail. You can
+    /// use either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but
+    /// not both. If you apply <code>AdvancedEventSelectors</code> to a trail, any existing
+    /// <code>EventSelectors</code> are overwritten. For more information about advanced event
+    /// selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
+    /// data events for trails</a> in the <i>AWS CloudTrail User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CTEventSelector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,21 +82,33 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class WriteCTEventSelectorCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
+        #region Parameter AdvancedEventSelector
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the settings for advanced event selectors. You can add advanced event selectors,
+        /// and conditions for your advanced event selectors, up to a maximum of 500 values for
+        /// all conditions and selectors on a trail. You can use either <code>AdvancedEventSelectors</code>
+        /// or <code>EventSelectors</code>, but not both. If you apply <code>AdvancedEventSelectors</code>
+        /// to a trail, any existing <code>EventSelectors</code> are overwritten. For more information
+        /// about advanced event selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
+        /// data events for trails</a> in the <i>AWS CloudTrail User Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedEventSelectors")]
+        public Amazon.CloudTrail.Model.AdvancedEventSelector[] AdvancedEventSelector { get; set; }
+        #endregion
+        
         #region Parameter EventSelector
         /// <summary>
         /// <para>
         /// <para>Specifies the settings for your event selectors. You can configure up to five event
-        /// selectors for a trail.</para>
+        /// selectors for a trail. You can use either <code>EventSelectors</code> or <code>AdvancedEventSelectors</code>
+        /// in a <code>PutEventSelectors</code> request, but not both. If you apply <code>EventSelectors</code>
+        /// to a trail, any existing <code>AdvancedEventSelectors</code> are overwritten.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("EventSelectors")]
         public Amazon.CloudTrail.Model.EventSelector[] EventSelector { get; set; }
         #endregion
@@ -173,16 +194,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 context.Select = (response, cmdlet) => this.TrailName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AdvancedEventSelector != null)
+            {
+                context.AdvancedEventSelector = new List<Amazon.CloudTrail.Model.AdvancedEventSelector>(this.AdvancedEventSelector);
+            }
             if (this.EventSelector != null)
             {
                 context.EventSelector = new List<Amazon.CloudTrail.Model.EventSelector>(this.EventSelector);
             }
-            #if MODULAR
-            if (this.EventSelector == null && ParameterWasBound(nameof(this.EventSelector)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EventSelector which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TrailName = this.TrailName;
             #if MODULAR
             if (this.TrailName == null && ParameterWasBound(nameof(this.TrailName)))
@@ -206,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             // create request
             var request = new Amazon.CloudTrail.Model.PutEventSelectorsRequest();
             
+            if (cmdletContext.AdvancedEventSelector != null)
+            {
+                request.AdvancedEventSelectors = cmdletContext.AdvancedEventSelector;
+            }
             if (cmdletContext.EventSelector != null)
             {
                 request.EventSelectors = cmdletContext.EventSelector;
@@ -275,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.CloudTrail.Model.AdvancedEventSelector> AdvancedEventSelector { get; set; }
             public List<Amazon.CloudTrail.Model.EventSelector> EventSelector { get; set; }
             public System.String TrailName { get; set; }
             public System.Func<Amazon.CloudTrail.Model.PutEventSelectorsResponse, WriteCTEventSelectorCmdlet, object> Select { get; set; } =

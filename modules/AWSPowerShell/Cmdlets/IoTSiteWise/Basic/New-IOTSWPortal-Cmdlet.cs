@@ -68,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// AWS SSO. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling
         /// AWS SSO</a> in the <i>AWS IoT SiteWise User Guide</i>. This option is only available
         /// in AWS Regions other than the China Regions.</para></li><li><para><code>IAM</code> – The portal uses AWS Identity and Access Management (IAM) to authenticate
-        /// users and manage user permissions. IAM users must have the <code>iotsitewise:CreatePresignedPortalUrl</code>
-        /// permission to sign in to the portal. This option is only available in the China Regions.</para></li></ul><para>You can't change this value after you create a portal.</para><para>Default: <code>SSO</code></para>
+        /// users and manage user permissions. This option is only available in the China Regions.</para></li></ul><para>You can't change this value after you create a portal.</para><para>Default: <code>SSO</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,12 @@ using Amazon.ManagedBlockchain.Model;
 namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
-    /// Returns information about the networks in which the current AWS account has members.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about the networks in which the current AWS account participates.
+    /// 
+    ///  
+    /// <para>
+    /// Applies to Hyperledger Fabric and Ethereum.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MBCNetworkList")]
     [OutputType("Amazon.ManagedBlockchain.Model.NetworkSummary")]
@@ -66,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// <summary>
         /// <para>
         /// <para>An optional status specifier. If provided, only networks currently in this status
-        /// are listed.</para>
+        /// are listed.</para><para>Applies only to Hyperledger Fabric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,0 +1,3 @@
+﻿# MWAA
+
+Export-ModuleMember -Alias *

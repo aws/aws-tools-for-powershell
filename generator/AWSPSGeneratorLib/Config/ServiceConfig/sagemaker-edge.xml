@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sagemaker-edge</C2jFilename>
+    <AssemblyName>SagemakerEdgeManager</AssemblyName>
+    <ServiceNounPrefix>SME</ServiceNounPrefix>
+    <ServiceName>Amazon Sagemaker Edge Manager</ServiceName>
+    <ServiceClientInterface>IAmazonSagemakerEdgeManager</ServiceClientInterface>
+    <ServiceClient>AmazonSagemakerEdgeManagerClient</ServiceClient>
+    <ServiceModuleGuid>90DED21C-D6DE-4524-8CA4-43EB708C6F2E</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetDeviceRegistration" OutputProperty="*" Verb="Get" Noun="DeviceRegistration" PipelineParameter="DeviceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendHeartbeat" Verb="Send" Noun="Heartbeat" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="DeviceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

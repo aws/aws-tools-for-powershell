@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>iotdeviceadvisor</C2jFilename>
+    <AssemblyName>IoTDeviceAdvisor</AssemblyName>
+    <ServiceNounPrefix>IOTDA</ServiceNounPrefix>
+    <ServiceName>AWS IoT Core Device Advisor</ServiceName>
+    <ServiceClientInterface>IAmazonIoTDeviceAdvisor</ServiceClientInterface>
+    <ServiceClient>AmazonIoTDeviceAdvisorClient</ServiceClient>
+    <ServiceModuleGuid>549d4386-c6a9-4a79-863b-02c449049361</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateSuiteDefinition" OutputProperty="*" Verb="New" Noun="SuiteDefinition" ShouldProcessTarget="SuiteDefinitionConfiguration_SuiteDefinitionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSuiteDefinition" Verb="Remove" Noun="SuiteDefinition" ShouldProcessTarget="SuiteDefinitionId" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSuiteDefinition" OutputProperty="*" Verb="Get" Noun="SuiteDefinition" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSuiteRun" OutputProperty="*" Verb="Get" Noun="SuiteRun" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSuiteRunReport" OutputProperty="QualificationReportDownloadUrl" Verb="Get" Noun="SuiteRunReport" PipelineParameter="SuiteRunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSuiteDefinitions" OutputProperty="SuiteDefinitionInformationList" Verb="Get" Noun="SuiteDefinitionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSuiteRuns" OutputProperty="SuiteRunsList" Verb="Get" Noun="SuiteRunList" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestCases" OutputProperty="*" Verb="Get" Noun="TestCaseList" PipelineParameter="IntendedForQualification" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSuiteRun" OutputProperty="*" Verb="Start" Noun="SuiteRun" ShouldProcessTarget="SuiteDefinitionId" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSuiteDefinition" OutputProperty="*" Verb="Update" Noun="SuiteDefinition" ShouldProcessTarget="SuiteDefinitionId" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

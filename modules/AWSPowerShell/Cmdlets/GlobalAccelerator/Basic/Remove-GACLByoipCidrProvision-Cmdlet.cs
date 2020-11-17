@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// <summary>
     /// Releases the specified address range that you provisioned to use with your AWS resources
     /// through bring your own IP addresses (BYOIP) and deletes the corresponding address
-    /// pool. To see an AWS CLI example of deprovisioning an address range, scroll down to
-    /// <b>Example</b>.
+    /// pool. 
     /// 
     ///  
     /// <para>

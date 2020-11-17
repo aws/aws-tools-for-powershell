@@ -28,8 +28,7 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// List the endpoint groups that are associated with a listener. To see an AWS CLI example
-    /// of listing the endpoint groups for listener, scroll down to <b>Example</b>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List the endpoint groups that are associated with a listener.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GACLEndpointGroupList")]
     [OutputType("Amazon.GlobalAccelerator.Model.EndpointGroup")]

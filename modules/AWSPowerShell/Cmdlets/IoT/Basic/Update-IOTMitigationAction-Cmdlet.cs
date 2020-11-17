@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter UpdateCACertificateParams_Action
         /// <summary>
         /// <para>
-        /// <para>The action that you want to apply to the CA cerrtificate. The only supported value
+        /// <para>The action that you want to apply to the CA certificate. The only supported value
         /// is <code>DEACTIVATE</code>.</para>
         /// </para>
         /// </summary>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter UpdateDeviceCertificateParams_Action
         /// <summary>
         /// <para>
-        /// <para>The action that you want to apply to the device cerrtificate. The only supported value
+        /// <para>The action that you want to apply to the device certificate. The only supported value
         /// is <code>DEACTIVATE</code>.</para>
         /// </para>
         /// </summary>
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ActionName
         /// <summary>
         /// <para>
-        /// <para>The friendly name for the mitigation action. You can't change the name by using <code>UpdateMitigationAction</code>.
-        /// Instead, you must delete and re-create the mitigation action with the new name.</para>
+        /// <para>The friendly name for the mitigation action. You cannot change the name by using <code>UpdateMitigationAction</code>.
+        /// Instead, you must delete and recreate the mitigation action with the new name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter EnableIoTLoggingParams_LogLevel
         /// <summary>
         /// <para>
-        /// <para>Specifies the types of information to be logged.</para>
+        /// <para>Specifies the type of information to be logged.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Specifies if this mitigation action can move the things that triggered the mitigation
-        /// action even if they are part of one or more dynamic things groups.</para>
+        /// action even if they are part of one or more dynamic thing groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter EnableIoTLoggingParams_RoleArnForLogging
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role used for logging.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role used for logging.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The list of groups to which you want to add the things that triggered the mitigation
-        /// action. You can add a thing to a maximum of 10 groups, but you cannot add a thing
-        /// to more than one group in the same hierarchy.</para>
+        /// action. You can add a thing to a maximum of 10 groups, but you can't add a thing to
+        /// more than one group in the same hierarchy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

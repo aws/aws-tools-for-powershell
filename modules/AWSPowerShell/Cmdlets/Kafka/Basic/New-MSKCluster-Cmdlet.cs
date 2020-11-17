@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         /// <summary>
         /// <para>
         /// <para>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT,
-        /// PER_BROKER, and PER_TOPIC_PER_BROKER.</para>
+        /// PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

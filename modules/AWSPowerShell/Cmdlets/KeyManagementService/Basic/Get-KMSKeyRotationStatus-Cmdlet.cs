@@ -49,10 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Pending deletion: While a CMK is pending deletion, its key rotation status is <code>false</code>
     /// and AWS KMS does not rotate the backing key. If you cancel the deletion, the original
     /// key rotation status is restored.
-    /// </para></li></ul><para>
-    /// To perform this operation on a CMK in a different AWS account, specify the key ARN
-    /// in the value of the <code>KeyId</code> parameter.
-    /// </para>
+    /// </para></li></ul><para><b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different
+    /// AWS account, specify the key ARN in the value of the <code>KeyId</code> parameter.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetKeyRotationStatus</a>
+    /// (key policy)
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>DisableKeyRotation</a></para></li><li><para><a>EnableKeyRotation</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "KMSKeyRotationStatus")]
     [OutputType("System.Boolean")]

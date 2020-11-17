@@ -101,6 +101,18 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         public System.String DatasetImportJobName { get; set; }
         #endregion
         
+        #region Parameter GeolocationFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format of the geolocation attribute. The geolocation attribute can be formatted
+        /// in one of two ways:</para><ul><li><para><code>LAT_LONG</code> - the latitude and longitude in decimal format (Example: 47.61_-122.33).</para></li><li><para><code>CC_POSTALCODE</code> (US Only) - the country code (US), followed by the 5-digit
+        /// ZIP code (Example: US_98121).</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GeolocationFormat { get; set; }
+        #endregion
+        
         #region Parameter S3Config_KMSKeyArn
         /// <summary>
         /// <para>
@@ -186,6 +198,31 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TimestampFormat { get; set; }
+        #endregion
+        
+        #region Parameter TimeZone
+        /// <summary>
+        /// <para>
+        /// <para>A single time zone for every item in your dataset. This option is ideal for datasets
+        /// with all timestamps within a single time zone, or if all timestamps are normalized
+        /// to a single time zone. </para><para>Refer to the <a href="http://joda-time.sourceforge.net/timezones.html">Joda-Time API</a>
+        /// for a complete list of valid time zone names.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TimeZone { get; set; }
+        #endregion
+        
+        #region Parameter UseGeolocationForTimeZone
+        /// <summary>
+        /// <para>
+        /// <para>Automatically derive time zone information from the geolocation attribute. This option
+        /// is ideal for datasets that contain timestamps in multiple time zones and those timestamps
+        /// are expressed in local time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UseGeolocationForTimeZone { get; set; }
         #endregion
         
         #region Parameter Select
@@ -278,11 +315,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
                 WriteWarning("You are passing $null as a value for parameter S3Config_RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.GeolocationFormat = this.GeolocationFormat;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ForecastService.Model.Tag>(this.Tag);
             }
             context.TimestampFormat = this.TimestampFormat;
+            context.TimeZone = this.TimeZone;
+            context.UseGeolocationForTimeZone = this.UseGeolocationForTimeZone;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -361,6 +401,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             {
                 request.DataSource = null;
             }
+            if (cmdletContext.GeolocationFormat != null)
+            {
+                request.GeolocationFormat = cmdletContext.GeolocationFormat;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -368,6 +412,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             if (cmdletContext.TimestampFormat != null)
             {
                 request.TimestampFormat = cmdletContext.TimestampFormat;
+            }
+            if (cmdletContext.TimeZone != null)
+            {
+                request.TimeZone = cmdletContext.TimeZone;
+            }
+            if (cmdletContext.UseGeolocationForTimeZone != null)
+            {
+                request.UseGeolocationForTimeZone = cmdletContext.UseGeolocationForTimeZone.Value;
             }
             
             CmdletOutput output;
@@ -435,8 +487,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             public System.String S3Config_KMSKeyArn { get; set; }
             public System.String S3Config_Path { get; set; }
             public System.String S3Config_RoleArn { get; set; }
+            public System.String GeolocationFormat { get; set; }
             public List<Amazon.ForecastService.Model.Tag> Tag { get; set; }
             public System.String TimestampFormat { get; set; }
+            public System.String TimeZone { get; set; }
+            public System.Boolean? UseGeolocationForTimeZone { get; set; }
             public System.Func<Amazon.ForecastService.Model.CreateDatasetImportJobResponse, NewFRCDatasetImportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DatasetImportJobArn;
         }

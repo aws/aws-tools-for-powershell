@@ -87,14 +87,19 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'ConvertTo-TRNTargetLanguage', 
+        'Get-TRNParallelData', 
+        'Get-TRNParallelDataList', 
         'Get-TRNTerminology', 
         'Get-TRNTerminologyList', 
         'Get-TRNTextTranslationJob', 
         'Get-TRNTextTranslationJobList', 
         'Import-TRNTerminology', 
+        'New-TRNParallelData', 
+        'Remove-TRNParallelData', 
         'Remove-TRNTerminology', 
         'Start-TRNTextTranslationJob', 
-        'Stop-TRNTextTranslationJob')
+        'Stop-TRNTextTranslationJob', 
+        'Update-TRNParallelData')
 
     # Variables to export from this module
     VariablesToExport = '*'

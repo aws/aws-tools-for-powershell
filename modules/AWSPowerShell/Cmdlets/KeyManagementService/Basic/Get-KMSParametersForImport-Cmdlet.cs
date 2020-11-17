@@ -55,7 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
     /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
     /// Developer Guide</i>.
-    /// </para>
+    /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different
+    /// AWS account.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetParametersForImport</a>
+    /// (key policy)
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>ImportKeyMaterial</a></para></li><li><para><a>DeleteImportedKeyMaterial</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "KMSParametersForImport")]
     [OutputType("Amazon.KeyManagementService.Model.GetParametersForImportResponse")]

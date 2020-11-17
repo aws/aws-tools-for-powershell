@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Returns a list of the source AWS Regions where the current AWS Region can create a
-    /// read replica or copy a DB snapshot from. This API action supports pagination.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// read replica, copy a DB snapshot from, or replicate automated backups from. This API
+    /// action supports pagination.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSSourceRegion")]
     [OutputType("Amazon.RDS.Model.SourceRegion")]

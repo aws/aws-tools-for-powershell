@@ -30,12 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// You can modify several parameters of an existing EBS volume, including volume size,
     /// volume type, and IOPS capacity. If your EBS volume is attached to a current-generation
-    /// EC2 instance type, you may be able to apply these changes without stopping the instance
+    /// EC2 instance type, you might be able to apply these changes without stopping the instance
     /// or detaching the volume from it. For more information about modifying an EBS volume
     /// running Linux, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying
     /// the size, IOPS, or type of an EBS volume on Linux</a>. For more information about
     /// modifying an EBS volume running Windows, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying
-    /// the size, IOPS, or type of an EBS volume on Windows</a>. 
+    /// the size, IOPS, or type of an EBS volume on Windows</a>.
     /// 
     ///  
     /// <para>
@@ -53,11 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring
     /// volume modifications</a>. 
     /// </para><para>
-    /// With previous-generation instance types, resizing an EBS volume may require detaching
+    /// With previous-generation instance types, resizing an EBS volume might require detaching
     /// and reattaching the volume or stopping and restarting the instance. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying
-    /// the size, IOPS, or type of an EBS volume on Linux</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying
-    /// the size, IOPS, or type of an EBS volume on Windows</a>.
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html">Amazon
+    /// EBS Elastic Volumes</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html">Amazon
+    /// EBS Elastic Volumes</a> (Windows).
     /// </para><para>
     /// If you reach the maximum volume modification rate per volume limit, you will need
     /// to wait at least six hours before applying further modifications to the affected EBS
@@ -77,26 +77,49 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Iops
         /// <summary>
         /// <para>
-        /// <para>The target IOPS rate of the volume.</para><para>This is only valid for Provisioned IOPS SSD (<code>io1</code> and <code>io2</code>)
-        /// volumes. For moreinformation, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">
-        /// Provisioned IOPS SSD (io1 and io2) volumes</a>.</para><para>Default: If no IOPS value is specified, the existing value is retained.</para>
+        /// <para>The target IOPS rate of the volume. This parameter is valid only for <code>gp3</code>,
+        /// <code>io1</code>, and <code>io2</code> volumes.</para><para>The following are the supported values for each volume type:</para><ul><li><para><code>gp3</code>: 3,000-16,000 IOPS</para></li><li><para><code>io1</code>: 100-64,000 IOPS</para></li><li><para><code>io2</code>: 100-64,000 IOPS</para></li></ul><para>Default: If no IOPS value is specified, the existing value is retained.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Iops { get; set; }
         #endregion
         
+        #region Parameter MultiAttachEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you
+        /// can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">
+        /// Nitro-based instances</a> in the same Availability Zone. This parameter is supported
+        /// with <code>io1</code> and <code>io2</code> volumes only. For more information, see
+        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
+        /// Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MultiAttachEnabled { get; set; }
+        #endregion
+        
         #region Parameter Size
         /// <summary>
         /// <para>
         /// <para>The target size of the volume, in GiB. The target volume size must be greater than
-        /// or equal to than the existing size of the volume. For information about available
-        /// EBS volume sizes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
-        /// EBS Volume Types</a>.</para><para>Default: If no size is specified, the existing size is retained.</para>
+        /// or equal to the existing size of the volume.</para><para>The following are the supported volumes sizes for each volume type:</para><ul><li><para><code>gp2</code> and <code>gp3</code>: 1-16,384</para></li><li><para><code>io1</code> and <code>io2</code>: 4-16,384</para></li><li><para><code>st1</code> and <code>sc1</code>: 125-16,384</para></li><li><para><code>standard</code>: 1-1,024</para></li></ul><para>Default: If no size is specified, the existing size is retained.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Size { get; set; }
+        #endregion
+        
+        #region Parameter Throughput
+        /// <summary>
+        /// <para>
+        /// <para>The target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code>
+        /// volumes. The maximum value is 1,000.</para><para>Default: If no throughput value is specified, the existing value is retained.</para><para>Valid Range: Minimum value of 125. Maximum value of 1000.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Throughput { get; set; }
         #endregion
         
         #region Parameter VolumeId
@@ -119,7 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VolumeType
         /// <summary>
         /// <para>
-        /// <para>The target EBS volume type of the volume.</para><para>Default: If no type is specified, the existing type is retained.</para>
+        /// <para>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+        /// EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>Default: If no type is specified, the existing type is retained.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Iops = this.Iops;
+            context.MultiAttachEnabled = this.MultiAttachEnabled;
             context.Size = this.Size;
+            context.Throughput = this.Throughput;
             context.VolumeId = this.VolumeId;
             #if MODULAR
             if (this.VolumeId == null && ParameterWasBound(nameof(this.VolumeId)))
@@ -218,9 +244,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Iops = cmdletContext.Iops.Value;
             }
+            if (cmdletContext.MultiAttachEnabled != null)
+            {
+                request.MultiAttachEnabled = cmdletContext.MultiAttachEnabled.Value;
+            }
             if (cmdletContext.Size != null)
             {
                 request.Size = cmdletContext.Size.Value;
+            }
+            if (cmdletContext.Throughput != null)
+            {
+                request.Throughput = cmdletContext.Throughput.Value;
             }
             if (cmdletContext.VolumeId != null)
             {
@@ -292,7 +326,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? Iops { get; set; }
+            public System.Boolean? MultiAttachEnabled { get; set; }
             public System.Int32? Size { get; set; }
+            public System.Int32? Throughput { get; set; }
             public System.String VolumeId { get; set; }
             public Amazon.EC2.VolumeType VolumeType { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVolumeResponse, EditEC2VolumeCmdlet, object> Select { get; set; } =

@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB cluster,
-        /// for example <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</para>
+        /// for example, <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

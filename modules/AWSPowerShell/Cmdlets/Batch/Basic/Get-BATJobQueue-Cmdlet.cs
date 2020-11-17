@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// results in a single page along with a <code>nextToken</code> response element. The
         /// remaining results of the initial request can be seen by sending another <code>DescribeJobQueues</code>
         /// request with the returned <code>nextToken</code> value. This value can be between
-        /// 1 and 100. If this parameter is not used, then <code>DescribeJobQueues</code> returns
+        /// 1 and 100. If this parameter isn't used, then <code>DescribeJobQueues</code> returns
         /// up to 100 results and a <code>nextToken</code> value if applicable.</para>
         /// </para>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// request where <code>maxResults</code> was used and the results exceeded the value
         /// of that parameter. Pagination continues from the end of the previous results that
         /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// are no more results to return.</para><note><para>This token should be treated as an opaque identifier that's only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

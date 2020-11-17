@@ -76,9 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of <code>Tag</code> objects. Each tag is a key-value pair. Only the <code>key</code>
-        /// parameter is required. If you don't specify a value, Amazon SageMaker sets the value
-        /// to an empty string. </para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
+        /// different ways, for example, by purpose, owner, or environment. For more information,
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// AWS Resources</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

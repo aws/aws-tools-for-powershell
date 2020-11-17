@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
     /// Creates a new blockchain network using Amazon Managed Blockchain.
+    /// 
+    ///  
+    /// <para>
+    /// Applies only to Hyperledger Fabric.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "MBCNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ManagedBlockchain.Model.CreateNetworkResponse")]
@@ -45,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// <para>The password for the member's initial administrative user. The <code>AdminPassword</code>
         /// must be at least eight characters long and no more than 32 characters. It must contain
         /// at least one uppercase letter, one lowercase letter, and one digit. It cannot have
-        /// a single quote(‘), double quote(“), forward slash(/), backward slash(\), @, or a space.</para>
+        /// a single quotation mark (‘), a double quotation marks (“), a forward slash(/), a backward
+        /// slash(\), @, or a space.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

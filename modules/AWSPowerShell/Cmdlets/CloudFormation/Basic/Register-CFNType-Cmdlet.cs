@@ -119,11 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>A url to the S3 bucket containing the schema handler package that contains the schema,
         /// event handlers, and associated files for the type you want to register.</para><para>For information on generating a schema handler package for the type you want to register,
         /// see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html">submit</a>
-        /// in the <i>CloudFormation CLI User Guide</i>.</para><note><para>As part of registering a resource provider type, CloudFormation must be able to access
-        /// the S3 bucket which contains the schema handler package for that resource provider.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-register-permissions">IAM
-        /// Permissions for Registering a Resource Provider</a> in the <i>AWS CloudFormation User
-        /// Guide</i>.</para></note>
+        /// in the <i>CloudFormation CLI User Guide</i>.</para><note><para>The user registering the resource provider type must be able to access the the schema
+        /// handler package in the S3 bucket. That is, the user needs to have <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
+        /// permissions for the schema handler package. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html">Actions,
+        /// Resources, and Condition Keys for Amazon S3</a> in the <i>AWS Identity and Access
+        /// Management User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

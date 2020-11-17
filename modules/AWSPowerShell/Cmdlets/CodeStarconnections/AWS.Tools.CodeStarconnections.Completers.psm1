@@ -164,7 +164,8 @@ $CSTC_SelectMap = @{
                "Get-CSTCHostList",
                "Get-CSTCResourceTagList",
                "Add-CSTCResourceTag",
-               "Remove-CSTCResourceTag")
+               "Remove-CSTCResourceTag",
+               "Update-CSTCHost")
 }
 
 _awsArgumentCompleterRegistration $CSTC_SelectCompleters $CSTC_SelectMap

@@ -47,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplicationPresignedUrl" OutputProperty="AuthorizedUrl" Verb="New" Noun="ApplicationPresignedUrl" ShouldProcessTarget="ApplicationName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateApplicationSnapshot" Verb="New" Noun="ApplicationSnapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

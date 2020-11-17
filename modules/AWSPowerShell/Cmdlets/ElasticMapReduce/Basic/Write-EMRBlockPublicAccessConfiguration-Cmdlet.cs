@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter BlockPublicAccessConfiguration_BlockPublicSecurityGroupRule
         /// <summary>
         /// <para>
-        /// <para>Indicates whether EMR block public access is enabled (<code>true</code>) or disabled
-        /// (<code>false</code>). By default, the value is <code>false</code> for accounts that
-        /// have created EMR clusters before July 2019. For accounts created after this, the default
-        /// is <code>true</code>.</para>
+        /// <para>Indicates whether Amazon EMR block public access is enabled (<code>true</code>) or
+        /// disabled (<code>false</code>). By default, the value is <code>false</code> for accounts
+        /// that have created EMR clusters before July 2019. For accounts created after this,
+        /// the default is <code>true</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

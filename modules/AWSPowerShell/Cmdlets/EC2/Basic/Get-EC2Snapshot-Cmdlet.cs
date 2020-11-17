@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// To get the state of fast snapshot restores for a snapshot, use <a>DescribeFastSnapshotRestores</a>.
     /// </para><para>
     /// For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon
-    /// EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2Snapshot", DefaultParameterSetName="ByFilter")]
@@ -152,10 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// returns <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
         /// response element. The remaining results of the initial request can be seen by sending
         /// another <code>DescribeSnapshots</code> request with the returned <code>NextToken</code>
-        /// value. This value can be between 5 and 1000; if <code>MaxResults</code> is given a
-        /// value larger than 1000, only 1000 results are returned. If this parameter is not used,
-        /// then <code>DescribeSnapshots</code> returns all results. You cannot specify this parameter
-        /// and the snapshot IDs parameter in the same request.</para>
+        /// value. This value can be between 5 and 1,000; if <code>MaxResults</code> is given
+        /// a value larger than 1,000, only 1,000 results are returned. If this parameter is not
+        /// used, then <code>DescribeSnapshots</code> returns all results. You cannot specify
+        /// this parameter and the snapshot IDs parameter in the same request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

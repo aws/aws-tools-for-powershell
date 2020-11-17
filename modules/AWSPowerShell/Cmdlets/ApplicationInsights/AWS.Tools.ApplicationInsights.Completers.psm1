@@ -93,7 +93,7 @@ $CWAI_Completers = {
             ($_ -eq "Update-CWAIComponentConfiguration/Tier")
         }
         {
-            $v = "DEFAULT","DOT_NET_CORE","DOT_NET_WEB","DOT_NET_WORKER","SQL_SERVER"
+            $v = "CUSTOM","DEFAULT","DOT_NET_CORE","DOT_NET_WEB","DOT_NET_WEB_TIER","DOT_NET_WORKER","JAVA_JMX","MYSQL","ORACLE","POSTGRESQL","SQL_SERVER","SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP"
             break
         }
 

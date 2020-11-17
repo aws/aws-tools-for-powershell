@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter DeleteOption
         /// <summary>
         /// <para>
-        /// <para>The type of delete to perform. Options include the following:</para><ul><li><para><code>SAFE_DELETE</code> – Terminates the game server group and EC2 Auto Scaling
-        /// group only when it has no game servers that are in <code>UTILIZED</code> status.</para></li><li><para><code>FORCE_DELETE</code> – Terminates the game server group, including all active
+        /// <para>The type of delete to perform. Options include the following:</para><ul><li><para><code>SAFE_DELETE</code> – (default) Terminates the game server group and EC2 Auto
+        /// Scaling group only when it has no game servers that are in <code>UTILIZED</code> status.</para></li><li><para><code>FORCE_DELETE</code> – Terminates the game server group, including all active
         /// game servers regardless of their utilization status, and the EC2 Auto Scaling group.
         /// </para></li><li><para><code>RETAIN</code> – Does a safe delete of the game server group but retains the
         /// EC2 Auto Scaling group as is.</para></li></ul>

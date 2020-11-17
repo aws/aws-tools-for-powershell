@@ -335,7 +335,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter Scheduled_ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para> The scheduling expression that determines when and how often the rule runs. </para>
+        /// <para> The scheduling expression that determines the rate at which the schedule will run,
+        /// for example <code>rate(5minutes)</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

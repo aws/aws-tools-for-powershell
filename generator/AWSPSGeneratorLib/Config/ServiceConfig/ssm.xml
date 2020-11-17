@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>ssm</C2jFilename>
     <AssemblyName>SimpleSystemsManagement</AssemblyName>
@@ -18,7 +19,6 @@
     </VerbMappings>
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases>
         <AliasSet Cmdlet="Get-SSMComplianceItemList">Get-SSMComplianceItemsList</AliasSet>
@@ -65,6 +65,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateOpsMetadata" OutputProperty="OpsMetadataArn" Verb="New" Noun="OpsMetadata" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePatchBaseline" OutputProperty="BaselineId" Verb="New" Noun="PatchBaseline" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +96,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteMaintenanceWindow" OutputProperty="WindowId" Verb="Remove" Noun="MaintenanceWindow" ShouldProcessTarget="WindowId" PipelineParameter="WindowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOpsMetadata" Verb="Remove" Noun="OpsMetadata" ShouldProcessTarget="OpsMetadataArn" PipelineParameter="OpsMetadataArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -317,6 +325,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetOpsMetadata" OutputProperty="*" Verb="Get" Noun="OpsMetadata" PipelineParameter="OpsMetadataArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetOpsSummary" OutputProperty="Entities" Verb="Get" Noun="OpsSummary" PipelineParameter="Aggregators" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -378,6 +390,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDocumentMetadataHistory" OutputProperty="*" Verb="Get" Noun="DocumentMetadataHistory" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDocuments" OutputProperty="DocumentIdentifiers" Verb="Get" Noun="DocumentList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -387,6 +403,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListInventoryEntries" OutputProperty="*" Verb="Get" Noun="InventoryEntryList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOpsItemEvents" OutputProperty="Summaries" Verb="Get" Noun="OpsItemEvent" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOpsMetadata" OutputProperty="OpsMetadataList" Verb="Get" Noun="OpsMetadataList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -462,6 +486,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartChangeRequestExecution" OutputProperty="AutomationExecutionId" Verb="Start" Noun="ChangeRequestExecution" ShouldProcessTarget="DocumentName" PipelineParameter="DocumentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartSession" OutputProperty="*" Verb="Start" Noun="Session" ShouldProcessTarget="DocumentName" PipelineParameter="DocumentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -490,6 +518,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDocumentMetadata" Verb="Update" Noun="DocumentMetadata" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateMaintenanceWindow" OutputProperty="*" Verb="Update" Noun="MaintenanceWindow" ShouldProcessTarget="WindowId" PipelineParameter="WindowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -510,6 +542,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOpsMetadata" OutputProperty="OpsMetadataArn" Verb="Update" Noun="OpsMetadata" ShouldProcessTarget="OpsMetadataArn" PipelineParameter="OpsMetadataArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdatePatchBaseline" OutputProperty="*" Verb="Update" Noun="PatchBaseline" ShouldProcessTarget="BaselineId" PipelineParameter="BaselineId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -523,7 +559,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

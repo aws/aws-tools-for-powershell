@@ -69,22 +69,15 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// be <code>events:PutEvents</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Action { get; set; }
         #endregion
         
         #region Parameter EventBusName
         /// <summary>
         /// <para>
-        /// <para>The event bus associated with the rule. If you omit this, the default event bus is
-        /// used.</para>
+        /// <para>The name of the event bus associated with the rule. If you omit this, the default
+        /// event bus is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,6 +94,18 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         public System.String Condition_Key { get; set; }
         #endregion
         
+        #region Parameter Policy
+        /// <summary>
+        /// <para>
+        /// <para>A JSON string that describes the permission policy statement. You can include a <code>Policy</code>
+        /// parameter in the request instead of using the <code>StatementId</code>, <code>Action</code>,
+        /// <code>Principal</code>, or <code>Condition</code> parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Policy { get; set; }
+        #endregion
+        
         #region Parameter Principal
         /// <summary>
         /// <para>
@@ -112,14 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// any events sent from other accounts.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Principal { get; set; }
         #endregion
         
@@ -131,14 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <code>StatementId</code> when you run <a>RemovePermission</a>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String StatementId { get; set; }
         #endregion
         
@@ -223,30 +214,13 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Action = this.Action;
-            #if MODULAR
-            if (this.Action == null && ParameterWasBound(nameof(this.Action)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Action which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Condition_Key = this.Condition_Key;
             context.Condition_Type = this.Condition_Type;
             context.Condition_Value = this.Condition_Value;
             context.EventBusName = this.EventBusName;
+            context.Policy = this.Policy;
             context.Principal = this.Principal;
-            #if MODULAR
-            if (this.Principal == null && ParameterWasBound(nameof(this.Principal)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Principal which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.StatementId = this.StatementId;
-            #if MODULAR
-            if (this.StatementId == null && ParameterWasBound(nameof(this.StatementId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StatementId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -309,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             if (cmdletContext.EventBusName != null)
             {
                 request.EventBusName = cmdletContext.EventBusName;
+            }
+            if (cmdletContext.Policy != null)
+            {
+                request.Policy = cmdletContext.Policy;
             }
             if (cmdletContext.Principal != null)
             {
@@ -384,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             public System.String Condition_Type { get; set; }
             public System.String Condition_Value { get; set; }
             public System.String EventBusName { get; set; }
+            public System.String Policy { get; set; }
             public System.String Principal { get; set; }
             public System.String StatementId { get; set; }
             public System.Func<Amazon.CloudWatchEvents.Model.PutPermissionResponse, WriteCWEPermissionCmdlet, object> Select { get; set; } =

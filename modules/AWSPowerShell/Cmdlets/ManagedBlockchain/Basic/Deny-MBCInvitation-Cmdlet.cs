@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     /// <summary>
     /// Rejects an invitation to join a network. This action can be called by a principal
     /// in an AWS account that has received an invitation to create a member and join a network.
+    /// 
+    ///  
+    /// <para>
+    /// Applies only to Hyperledger Fabric.
+    /// </para>
     /// </summary>
     [Cmdlet("Deny", "MBCInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

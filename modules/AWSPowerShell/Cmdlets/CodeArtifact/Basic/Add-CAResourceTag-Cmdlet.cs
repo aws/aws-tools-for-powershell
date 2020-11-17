@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to which you want to add or update
-        /// tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource that you want to add or update tags
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

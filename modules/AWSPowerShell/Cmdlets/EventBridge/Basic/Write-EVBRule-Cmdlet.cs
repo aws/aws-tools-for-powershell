@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter EventBusName
         /// <summary>
         /// <para>
-        /// <para>The event bus to associate with this rule. If you omit this, the default event bus
-        /// is used.</para>
+        /// <para>The name or ARN of the event bus to associate with this rule. If you omit this, the
+        /// default event bus is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

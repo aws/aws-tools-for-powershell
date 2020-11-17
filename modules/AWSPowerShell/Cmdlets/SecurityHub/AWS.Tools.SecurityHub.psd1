@@ -90,9 +90,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Confirm-SHUBInvitation', 
         'Deny-SHUBInvitation', 
         'Disable-SHUBImportFindingsForProduct', 
+        'Disable-SHUBOrganizationAdminAccount', 
         'Disable-SHUBSecurityHub', 
         'Disable-SHUBStandardsBatch', 
         'Enable-SHUBImportFindingsForProduct', 
+        'Enable-SHUBOrganizationAdminAccount', 
         'Enable-SHUBSecurityHub', 
         'Enable-SHUBStandardsBatch', 
         'Get-SHUBActionTarget', 
@@ -107,6 +109,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SHUBMasterAccount', 
         'Get-SHUBMember', 
         'Get-SHUBMemberList', 
+        'Get-SHUBOrganizationAdminAccountList', 
+        'Get-SHUBOrganizationConfiguration', 
         'Get-SHUBProduct', 
         'Get-SHUBResourceTag', 
         'Get-SHUBStandard', 
@@ -127,6 +131,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-SHUBFinding', 
         'Update-SHUBFindingsBatch', 
         'Update-SHUBInsight', 
+        'Update-SHUBOrganizationConfiguration', 
         'Update-SHUBSecurityHubConfiguration', 
         'Update-SHUBStandardsControl')
 

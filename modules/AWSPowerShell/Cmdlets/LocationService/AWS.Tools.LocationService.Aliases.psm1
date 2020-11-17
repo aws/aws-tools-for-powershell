@@ -1,0 +1,3 @@
+﻿# LocationService
+
+Export-ModuleMember -Alias *

@@ -48,6 +48,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     public partial class GetEKSUpdateCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
+        #region Parameter AddonName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html"><code>ListAddons</code></a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AddonName { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -137,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.Select = (response, cmdlet) => this.UpdateId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AddonName = this.AddonName;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -168,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             // create request
             var request = new Amazon.EKS.Model.DescribeUpdateRequest();
             
+            if (cmdletContext.AddonName != null)
+            {
+                request.AddonName = cmdletContext.AddonName;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -241,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AddonName { get; set; }
             public System.String Name { get; set; }
             public System.String NodegroupName { get; set; }
             public System.String UpdateId { get; set; }

@@ -40,6 +40,28 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTActiveViolationListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter BehaviorCriteriaType
+        /// <summary>
+        /// <para>
+        /// <para> The criteria for a behavior. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.BehaviorCriteriaType")]
+        public Amazon.IoT.BehaviorCriteriaType BehaviorCriteriaType { get; set; }
+        #endregion
+        
+        #region Parameter ListSuppressedAlert
+        /// <summary>
+        /// <para>
+        /// <para> A list of all suppressed alerts. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ListSuppressedAlerts")]
+        public System.Boolean? ListSuppressedAlert { get; set; }
+        #endregion
+        
         #region Parameter SecurityProfileName
         /// <summary>
         /// <para>
@@ -145,6 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Select = (response, cmdlet) => this.SecurityProfileName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BehaviorCriteriaType = this.BehaviorCriteriaType;
+            context.ListSuppressedAlert = this.ListSuppressedAlert;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -179,6 +203,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request and set iteration invariants
             var request = new Amazon.IoT.Model.ListActiveViolationsRequest();
             
+            if (cmdletContext.BehaviorCriteriaType != null)
+            {
+                request.BehaviorCriteriaType = cmdletContext.BehaviorCriteriaType;
+            }
+            if (cmdletContext.ListSuppressedAlert != null)
+            {
+                request.ListSuppressedAlerts = cmdletContext.ListSuppressedAlert.Value;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -246,6 +278,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             // create request and set iteration invariants
             var request = new Amazon.IoT.Model.ListActiveViolationsRequest();
+            if (cmdletContext.BehaviorCriteriaType != null)
+            {
+                request.BehaviorCriteriaType = cmdletContext.BehaviorCriteriaType;
+            }
+            if (cmdletContext.ListSuppressedAlert != null)
+            {
+                request.ListSuppressedAlerts = cmdletContext.ListSuppressedAlert.Value;
+            }
             if (cmdletContext.SecurityProfileName != null)
             {
                 request.SecurityProfileName = cmdletContext.SecurityProfileName;
@@ -373,6 +413,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.IoT.BehaviorCriteriaType BehaviorCriteriaType { get; set; }
+            public System.Boolean? ListSuppressedAlert { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String SecurityProfileName { get; set; }

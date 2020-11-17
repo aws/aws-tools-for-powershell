@@ -49,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// <code>EQUALS</code> | <code>NOT_EQUALS</code>. Possible values are <code>sql-server-enterprise</code>
         /// | <code>sql-server-standard</code> | <code>sql-server-web</code> | <code>windows-server-datacenter</code>.</para></li><li><para><code>platform</code> - The platform of the resource. Logical operators are <code>EQUALS</code>
         /// | <code>BEGINS_WITH</code>.</para></li><li><para><code>resource_id</code> - The ID of the resource. Logical operators are <code>EQUALS</code>
-        /// | <code>NOT_EQUALS</code>.</para></li></ul>
+        /// | <code>NOT_EQUALS</code>.</para></li><li><para><code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the
+        /// resource. Logical operators are <code>EQUALS</code> (single account) or <code>EQUALS</code>
+        /// | <code>NOT_EQUALS</code> (cross account).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

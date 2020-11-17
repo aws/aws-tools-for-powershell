@@ -87,6 +87,23 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.CapacityTypes
+        "New-EKSNodegroup/CapacityType"
+        {
+            $v = "ON_DEMAND","SPOT"
+            break
+        }
+
+        # Amazon.EKS.ResolveConflicts
+        {
+            ($_ -eq "New-EKSAddon/ResolveConflicts") -Or
+            ($_ -eq "Update-EKSAddon/ResolveConflicts")
+        }
+        {
+            $v = "NONE","OVERWRITE"
+            break
+        }
+
 
     }
 
@@ -97,6 +114,8 @@ $EKS_Completers = {
 
 $EKS_map = @{
     "AmiType"=@("New-EKSNodegroup")
+    "CapacityType"=@("New-EKSNodegroup")
+    "ResolveConflicts"=@("New-EKSAddon","Update-EKSAddon")
 }
 
 _awsArgumentCompleterRegistration $EKS_Completers $EKS_map
@@ -149,16 +168,21 @@ $EKS_SelectCompleters = {
 }
 
 $EKS_SelectMap = @{
-    "Select"=@("New-EKSCluster",
+    "Select"=@("New-EKSAddon",
+               "New-EKSCluster",
                "New-EKSFargateProfile",
                "New-EKSNodegroup",
+               "Remove-EKSAddon",
                "Remove-EKSCluster",
                "Remove-EKSFargateProfile",
                "Remove-EKSNodegroup",
+               "Get-EKSAddon",
+               "Get-EKSAddonVersion",
                "Get-EKSCluster",
                "Get-EKSFargateProfile",
                "Get-EKSNodegroup",
                "Get-EKSUpdate",
+               "Get-EKSAddonList",
                "Get-EKSClusterList",
                "Get-EKSFargateProfileList",
                "Get-EKSNodegroupList",
@@ -166,6 +190,7 @@ $EKS_SelectMap = @{
                "Get-EKSUpdateList",
                "Add-EKSResourceTag",
                "Remove-EKSResourceTag",
+               "Update-EKSAddon",
                "Update-EKSClusterConfig",
                "Update-EKSClusterVersion",
                "Update-EKSNodegroupConfig",

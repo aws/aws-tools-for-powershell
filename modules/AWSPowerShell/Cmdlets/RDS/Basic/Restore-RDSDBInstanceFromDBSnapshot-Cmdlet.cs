@@ -29,20 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Creates a new DB instance from a DB snapshot. The target database is created from
-    /// the source database restore point with the most of original configuration with the
-    /// default security group and the default DB parameter group. By default, the new DB
-    /// instance is created as a single-AZ deployment except when the instance is a SQL Server
-    /// instance that has an option group that is associated with mirroring; in this case,
-    /// the instance becomes a mirrored AZ deployment and not a single-AZ deployment.
+    /// the source database restore point with most of the source's original configuration,
+    /// including the default security group and DB parameter group. By default, the new DB
+    /// instance is created as a Single-AZ deployment, except when the instance is a SQL Server
+    /// instance that has an option group associated with mirroring. In this case, the instance
+    /// becomes a Multi-AZ deployment, not a Single-AZ deployment.
     /// 
     ///  
     /// <para>
-    /// If your intent is to replace your original DB instance with the new, restored DB instance,
+    /// If you want to replace your original DB instance with the new, restored DB instance,
     /// then rename your original DB instance before you call the RestoreDBInstanceFromDBSnapshot
-    /// action. RDS doesn't allow two DB instances with the same name. Once you have renamed
+    /// action. RDS doesn't allow two DB instances with the same name. After you have renamed
     /// your original DB instance with a different identifier, then you can pass the original
     /// name of the DB instance as the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot
-    /// action. The result is that you will replace the original DB instance with the DB instance
+    /// action. The result is that you replace the original DB instance with the DB instance
     /// created from the snapshot.
     /// </para><para>
     /// If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
@@ -223,6 +223,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EnableCloudwatchLogsExports")]
         public System.String[] EnableCloudwatchLogsExport { get; set; }
+        #endregion
+        
+        #region Parameter EnableCustomerOwnedIp
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to enable a customer-owned IP address (CoIP) for an
+        /// RDS on Outposts DB instance.</para><para>A <i>CoIP</i> provides local or external connectivity to resources in your Outpost
+        /// subnets through your on-premises network. For some use cases, a CoIP can provide lower
+        /// latency for connections to the DB instance from outside of its virtual private cloud
+        /// (VPC) on your local network.</para><para>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+        /// with Amazon RDS on AWS Outposts</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
+        /// IP addresses</a> in the <i>AWS Outposts User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableCustomerOwnedIp { get; set; }
         #endregion
         
         #region Parameter EnableIAMDatabaseAuthentication
@@ -492,6 +508,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.EnableCloudwatchLogsExport = new List<System.String>(this.EnableCloudwatchLogsExport);
             }
+            context.EnableCustomerOwnedIp = this.EnableCustomerOwnedIp;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.Engine = this.Engine;
             context.Iops = this.Iops;
@@ -583,6 +600,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EnableCloudwatchLogsExport != null)
             {
                 request.EnableCloudwatchLogsExports = cmdletContext.EnableCloudwatchLogsExport;
+            }
+            if (cmdletContext.EnableCustomerOwnedIp != null)
+            {
+                request.EnableCustomerOwnedIp = cmdletContext.EnableCustomerOwnedIp.Value;
             }
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
@@ -718,6 +739,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
+            public System.Boolean? EnableCustomerOwnedIp { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String Engine { get; set; }
             public System.Int32? Iops { get; set; }

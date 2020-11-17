@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// the remaining results.
     /// </para><para>
     /// For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon
-    /// EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2Volume", DefaultParameterSetName="ByFilter")]
@@ -69,10 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
         /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>volume-id</code> - The volume ID.</para></li><li><para><code>volume-type</code> - The Amazon EBS volume type. This can be <code>gp2</code>
-        /// for General Purpose SSD, <code>io1</code> or <code>io2</code> for Provisioned IOPS
-        /// SSD, <code>st1</code> for Throughput Optimized HDD, <code>sc1</code> for Cold HDD,
-        /// or <code>standard</code> for Magnetic volumes.</para></li></ul>
+        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>volume-id</code> - The volume ID.</para></li><li><para><code>volume-type</code> - The Amazon EBS volume type (<code>gp2</code> | <code>gp3</code>
+        /// | <code>io1</code> | <code>io2</code> | <code>st1</code> | <code>sc1</code>| <code>standard</code>)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, ParameterSetName = "ByFilter")]

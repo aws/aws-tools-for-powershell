@@ -105,6 +105,19 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         public System.String Accept { get; set; }
         #endregion
         
+        #region Parameter ActiveContext
+        /// <summary>
+        /// <para>
+        /// <para>A list of contexts active for the request. A context can be activated when a previous
+        /// intent is fulfilled, or by including the context in the request,</para><para>If you don't specify a list of contexts, Amazon Lex will use the current list of contexts
+        /// for the session. If you specify an empty list, all contexts for the session are cleared.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ActiveContexts")]
+        public System.String ActiveContext { get; set; }
+        #endregion
+        
         #region Parameter BotAlias
         /// <summary>
         /// <para>
@@ -261,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Accept = this.Accept;
+            context.ActiveContext = this.ActiveContext;
             context.BotAlias = this.BotAlias;
             #if MODULAR
             if (this.BotAlias == null && ParameterWasBound(nameof(this.BotAlias)))
@@ -321,6 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.LEX
                 if (cmdletContext.Accept != null)
                 {
                     request.Accept = cmdletContext.Accept;
+                }
+                if (cmdletContext.ActiveContext != null)
+                {
+                    request.ActiveContexts = cmdletContext.ActiveContext;
                 }
                 if (cmdletContext.BotAlias != null)
                 {
@@ -421,6 +439,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Accept { get; set; }
+            public System.String ActiveContext { get; set; }
             public System.String BotAlias { get; set; }
             public System.String BotName { get; set; }
             public System.String ContentType { get; set; }

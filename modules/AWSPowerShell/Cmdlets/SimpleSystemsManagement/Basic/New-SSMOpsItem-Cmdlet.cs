@@ -50,6 +50,27 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class NewSSMOpsItemCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter ActualEndTime
+        /// <summary>
+        /// <para>
+        /// <para>The time a runbook workflow ended. Currently reported only for the OpsItem type <code>/aws/changerequest</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? ActualEndTime { get; set; }
+        #endregion
+        
+        #region Parameter ActualStartTime
+        /// <summary>
+        /// <para>
+        /// <para>The time a runbook workflow started. Currently reported only for the OpsItem type
+        /// <code>/aws/changerequest</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? ActualStartTime { get; set; }
+        #endregion
+        
         #region Parameter Category
         /// <summary>
         /// <para>
@@ -110,6 +131,39 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Collections.Hashtable OperationalData { get; set; }
+        #endregion
+        
+        #region Parameter OpsItemType
+        /// <summary>
+        /// <para>
+        /// <para>The type of OpsItem to create. Currently, the only valid values are <code>/aws/changerequest</code>
+        /// and <code>/aws/issue</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OpsItemType { get; set; }
+        #endregion
+        
+        #region Parameter PlannedEndTime
+        /// <summary>
+        /// <para>
+        /// <para>The time specified in a change request for a runbook workflow to end. Currently supported
+        /// only for the OpsItem type <code>/aws/changerequest</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? PlannedEndTime { get; set; }
+        #endregion
+        
+        #region Parameter PlannedStartTime
+        /// <summary>
+        /// <para>
+        /// <para>The time specified in a change request for a runbook workflow to start. Currently
+        /// supported only for the OpsItem type <code>/aws/changerequest</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? PlannedStartTime { get; set; }
         #endregion
         
         #region Parameter Priority
@@ -253,6 +307,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Select = (response, cmdlet) => this.Title;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ActualEndTime = this.ActualEndTime;
+            context.ActualStartTime = this.ActualStartTime;
             context.Category = this.Category;
             context.Description = this.Description;
             #if MODULAR
@@ -273,6 +329,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     context.OperationalData.Add((String)hashKey, (OpsItemDataValue)(this.OperationalData[hashKey]));
                 }
             }
+            context.OpsItemType = this.OpsItemType;
+            context.PlannedEndTime = this.PlannedEndTime;
+            context.PlannedStartTime = this.PlannedStartTime;
             context.Priority = this.Priority;
             if (this.RelatedOpsItem != null)
             {
@@ -313,6 +372,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.CreateOpsItemRequest();
             
+            if (cmdletContext.ActualEndTime != null)
+            {
+                request.ActualEndTime = cmdletContext.ActualEndTime.Value;
+            }
+            if (cmdletContext.ActualStartTime != null)
+            {
+                request.ActualStartTime = cmdletContext.ActualStartTime.Value;
+            }
             if (cmdletContext.Category != null)
             {
                 request.Category = cmdletContext.Category;
@@ -328,6 +395,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.OperationalData != null)
             {
                 request.OperationalData = cmdletContext.OperationalData;
+            }
+            if (cmdletContext.OpsItemType != null)
+            {
+                request.OpsItemType = cmdletContext.OpsItemType;
+            }
+            if (cmdletContext.PlannedEndTime != null)
+            {
+                request.PlannedEndTime = cmdletContext.PlannedEndTime.Value;
+            }
+            if (cmdletContext.PlannedStartTime != null)
+            {
+                request.PlannedStartTime = cmdletContext.PlannedStartTime.Value;
             }
             if (cmdletContext.Priority != null)
             {
@@ -414,10 +493,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.DateTime? ActualEndTime { get; set; }
+            public System.DateTime? ActualStartTime { get; set; }
             public System.String Category { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.OpsItemNotification> Notification { get; set; }
             public Dictionary<System.String, Amazon.SimpleSystemsManagement.Model.OpsItemDataValue> OperationalData { get; set; }
+            public System.String OpsItemType { get; set; }
+            public System.DateTime? PlannedEndTime { get; set; }
+            public System.DateTime? PlannedStartTime { get; set; }
             public System.Int32? Priority { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.RelatedOpsItem> RelatedOpsItem { get; set; }
             public System.String Severity { get; set; }

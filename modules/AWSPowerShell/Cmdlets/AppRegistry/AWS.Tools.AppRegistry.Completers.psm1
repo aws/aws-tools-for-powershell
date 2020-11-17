@@ -83,6 +83,7 @@ $SCAR_Completers = {
         # Amazon.AppRegistry.ResourceType
         {
             ($_ -eq "Register-SCARResource/ResourceType") -Or
+            ($_ -eq "Sync-SCARResource/ResourceType") -Or
             ($_ -eq "Unregister-SCARResource/ResourceType")
         }
         {
@@ -99,7 +100,7 @@ $SCAR_Completers = {
 }
 
 $SCAR_map = @{
-    "ResourceType"=@("Register-SCARResource","Unregister-SCARResource")
+    "ResourceType"=@("Register-SCARResource","Sync-SCARResource","Unregister-SCARResource")
 }
 
 _awsArgumentCompleterRegistration $SCAR_Completers $SCAR_map
@@ -166,6 +167,10 @@ $SCAR_SelectMap = @{
                "Get-SCARAssociatedAttributeGroupList",
                "Get-SCARAssociatedResourceList",
                "Get-SCARAttributeGroupList",
+               "Get-SCARResourceTag",
+               "Sync-SCARResource",
+               "Add-SCARResourceTag",
+               "Remove-SCARResourceTag",
                "Update-SCARApplication",
                "Update-SCARAttributeGroup")
 }

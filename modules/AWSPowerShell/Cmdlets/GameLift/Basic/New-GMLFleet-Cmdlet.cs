@@ -179,12 +179,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for an AWS IAM role that manages access to your AWS services.
-        /// With an instance role ARN set, any application that runs on an instance in this fleet
-        /// can assume the role, including install scripts, server processes, and daemons (background
-        /// processes). Create a role or look up a role's ARN from the <a href="https://console.aws.amazon.com/iam/">IAM
-        /// dashboard</a> in the AWS Management Console. Learn more about using on-box credentials
-        /// for your game servers at <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
-        /// Access external resources from a game server</a>.</para>
+        /// Fleets with an instance role ARN allow applications that are running on the fleet's
+        /// instances to assume the role. Learn more about using on-box credentials for your game
+        /// servers at <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+        /// Access external resources from a game server</a>. To call this operation with instance
+        /// role ARN, you must have IAM PassRole permissions. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html">IAM
+        /// policy examples for GameLift</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

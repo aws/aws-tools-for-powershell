@@ -28,7 +28,10 @@ using Amazon.CodeGuruReviewer.Model;
 namespace Amazon.PowerShell.Cmdlets.CGR
 {
     /// <summary>
-    /// Use to create a code review for a repository analysis.
+    /// Use to create a code review with a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html"><code>CodeReviewType</code></a> of <code>RepositoryAnalysis</code>. This type of
+    /// code review analyzes all code under a specified branch in an associated repository.
+    /// <code>PullRequest</code> code reviews are automatically triggered by a pull request
+    /// so cannot be created using this method.
     /// </summary>
     [Cmdlet("New", "CGRCodeReview", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeGuruReviewer.Model.CodeReview")]
@@ -73,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para> The name of the code review. Each code review of the same code review type must have
-        /// a unique name in your AWS account. </para>
+        /// <para> The name of the code review. The name of each code review in your AWS account must
+        /// be unique. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html"><code>RepositoryAssociation</code></a> object. You can retrieve this ARN by calling
-        /// <code>ListRepositories</code>. </para><para> A code review can only be created on an associated repository. This is the ARN of
+        /// <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html"><code>ListRepositoryAssociations</code></a>. </para><para> A code review can only be created on an associated repository. This is the ARN of
         /// the associated repository. </para>
         /// </para>
         /// </summary>

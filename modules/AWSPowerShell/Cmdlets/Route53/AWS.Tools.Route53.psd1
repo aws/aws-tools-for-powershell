@@ -86,11 +86,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Disable-R53HostedZoneDNSSEC', 
+        'Disable-R53KeySigningKey', 
         'Edit-R53ResourceRecordSet', 
         'Edit-R53TagsForResource', 
+        'Enable-R53HostedZoneDNSSEC', 
+        'Enable-R53KeySigningKey', 
         'Get-R53AccountLimit', 
         'Get-R53Change', 
         'Get-R53CheckerIpRange', 
+        'Get-R53DNSSEC', 
         'Get-R53GeoLocation', 
         'Get-R53GeoLocationList', 
         'Get-R53HealthCheck', 
@@ -123,6 +128,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-R53VPCAssociationAuthorizationList', 
         'New-R53HealthCheck', 
         'New-R53HostedZone', 
+        'New-R53KeySigningKey', 
         'New-R53QueryLoggingConfig', 
         'New-R53ReusableDelegationSet', 
         'New-R53TrafficPolicy', 
@@ -132,6 +138,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Register-R53VPCWithHostedZone', 
         'Remove-R53HealthCheck', 
         'Remove-R53HostedZone', 
+        'Remove-R53KeySigningKey', 
         'Remove-R53QueryLoggingConfig', 
         'Remove-R53ReusableDelegationSet', 
         'Remove-R53TrafficPolicy', 

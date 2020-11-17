@@ -28,7 +28,8 @@ using Amazon.AppRegistry.Model;
 namespace Amazon.PowerShell.Cmdlets.SCAR
 {
     /// <summary>
-    /// Retrieves an attribute group, either by its name or its ID.
+    /// Retrieves an attribute group, either by its name or its ID. The attribute group can
+    /// be specified either by its unique ID or by its name.
     /// </summary>
     [Cmdlet("Get", "SCARAttributeGroup")]
     [OutputType("Amazon.AppRegistry.Model.GetAttributeGroupResponse")]

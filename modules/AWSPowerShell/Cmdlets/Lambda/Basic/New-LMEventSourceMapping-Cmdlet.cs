@@ -37,8 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda
     /// with Amazon DynamoDB</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS
     /// Lambda with Amazon Kinesis</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda
-    /// with Amazon SQS</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda
-    /// with Amazon MSK</a></para></li></ul><para>
+    /// with Amazon SQS</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Using AWS Lambda
+    /// with Amazon MQ</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda
+    /// with Amazon MSK</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">Using AWS
+    /// Lambda with Self-Managed Apache Kafka</a></para></li></ul><para>
     /// The following error handling options are only available for stream sources (DynamoDB
     /// and Kinesis):
     /// </para><ul><li><para><code>BisectBatchOnFunctionError</code> - If the function returns an error, split
@@ -66,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter BatchSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to retrieve in a single batch.</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</para></li></ul>
+        /// <para>The maximum number of items to retrieve in a single batch.</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000.
+        /// For FIFO queues the max is 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,20 +118,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Boolean? Enabled { get; set; }
         #endregion
         
+        #region Parameter SelfManagedEventSource_Endpoint
+        /// <summary>
+        /// <para>
+        /// <para>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS":
+        /// ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SelfManagedEventSource_Endpoints")]
+        public System.Collections.Hashtable SelfManagedEventSource_Endpoint { get; set; }
+        #endregion
+        
         #region Parameter EventSourceArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the event source.</para><ul><li><para><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</para></li><li><para><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</para></li><li><para><b>Amazon Simple Queue Service</b> - The ARN of the queue.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EventSourceArn { get; set; }
         #endregion
         
@@ -149,11 +157,22 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String FunctionName { get; set; }
         #endregion
         
+        #region Parameter FunctionResponseType
+        /// <summary>
+        /// <para>
+        /// <para>(Streams) A list of current response type enums applied to the event source mapping.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FunctionResponseTypes")]
+        public System.String[] FunctionResponseType { get; set; }
+        #endregion
+        
         #region Parameter MaximumBatchingWindowInSecond
         /// <summary>
         /// <para>
-        /// <para>(Streams) The maximum amount of time to gather records before invoking the function,
-        /// in seconds.</para>
+        /// <para>(Streams and SQS standard queues) The maximum amount of time to gather records before
+        /// invoking the function, in seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,12 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter SourceAccessConfiguration
         /// <summary>
         /// <para>
-        /// <para> (MQ) The Secrets Manager secret that stores your broker credentials. To store your
-        /// secret, use the following format: <code> { "username": "your username", "password":
-        /// "your password" }</code></para><para>To reference the secret, use the following format: <code>[ { "Type": "BASIC_AUTH",
-        /// "URI": "secretARN" } ]</code></para><para>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret,
-        /// you can use customer or service managed keys. When using a customer managed KMS key,
-        /// the Lambda execution role requires <code>kms:Decrypt</code> permissions.</para>
+        /// <para>An array of the authentication protocol, or the VPC components to secure your event
+        /// source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,12 +265,24 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Topic
         /// <summary>
         /// <para>
-        /// <para> (MSK) The name of the Kafka topic. </para>
+        /// <para>The name of the Kafka topic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Topics")]
         public System.String[] Topic { get; set; }
+        #endregion
+        
+        #region Parameter TumblingWindowInSecond
+        /// <summary>
+        /// <para>
+        /// <para>(Streams) The duration of a processing window in seconds. The range is between 1 second
+        /// up to 15 minutes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TumblingWindowInSeconds")]
+        public System.Int32? TumblingWindowInSecond { get; set; }
         #endregion
         
         #region Parameter Select
@@ -325,12 +352,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.OnSuccess_Destination = this.OnSuccess_Destination;
             context.Enabled = this.Enabled;
             context.EventSourceArn = this.EventSourceArn;
-            #if MODULAR
-            if (this.EventSourceArn == null && ParameterWasBound(nameof(this.EventSourceArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EventSourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.FunctionName = this.FunctionName;
             #if MODULAR
             if (this.FunctionName == null && ParameterWasBound(nameof(this.FunctionName)))
@@ -338,6 +359,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 WriteWarning("You are passing $null as a value for parameter FunctionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.FunctionResponseType != null)
+            {
+                context.FunctionResponseType = new List<System.String>(this.FunctionResponseType);
+            }
             context.MaximumBatchingWindowInSecond = this.MaximumBatchingWindowInSecond;
             context.MaximumRecordAgeInSecond = this.MaximumRecordAgeInSecond;
             context.MaximumRetryAttempt = this.MaximumRetryAttempt;
@@ -345,6 +370,26 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (this.Queue != null)
             {
                 context.Queue = new List<System.String>(this.Queue);
+            }
+            if (this.SelfManagedEventSource_Endpoint != null)
+            {
+                context.SelfManagedEventSource_Endpoint = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.SelfManagedEventSource_Endpoint.Keys)
+                {
+                    object hashValue = this.SelfManagedEventSource_Endpoint[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.SelfManagedEventSource_Endpoint.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((String)s);
+                    }
+                    context.SelfManagedEventSource_Endpoint.Add((String)hashKey, valueSet);
+                }
             }
             if (this.SourceAccessConfiguration != null)
             {
@@ -356,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 context.Topic = new List<System.String>(this.Topic);
             }
+            context.TumblingWindowInSecond = this.TumblingWindowInSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -451,6 +497,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.FunctionName = cmdletContext.FunctionName;
             }
+            if (cmdletContext.FunctionResponseType != null)
+            {
+                request.FunctionResponseTypes = cmdletContext.FunctionResponseType;
+            }
             if (cmdletContext.MaximumBatchingWindowInSecond != null)
             {
                 request.MaximumBatchingWindowInSeconds = cmdletContext.MaximumBatchingWindowInSecond.Value;
@@ -471,6 +521,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.Queues = cmdletContext.Queue;
             }
+            
+             // populate SelfManagedEventSource
+            var requestSelfManagedEventSourceIsNull = true;
+            request.SelfManagedEventSource = new Amazon.Lambda.Model.SelfManagedEventSource();
+            Dictionary<System.String, List<System.String>> requestSelfManagedEventSource_selfManagedEventSource_Endpoint = null;
+            if (cmdletContext.SelfManagedEventSource_Endpoint != null)
+            {
+                requestSelfManagedEventSource_selfManagedEventSource_Endpoint = cmdletContext.SelfManagedEventSource_Endpoint;
+            }
+            if (requestSelfManagedEventSource_selfManagedEventSource_Endpoint != null)
+            {
+                request.SelfManagedEventSource.Endpoints = requestSelfManagedEventSource_selfManagedEventSource_Endpoint;
+                requestSelfManagedEventSourceIsNull = false;
+            }
+             // determine if request.SelfManagedEventSource should be set to null
+            if (requestSelfManagedEventSourceIsNull)
+            {
+                request.SelfManagedEventSource = null;
+            }
             if (cmdletContext.SourceAccessConfiguration != null)
             {
                 request.SourceAccessConfigurations = cmdletContext.SourceAccessConfiguration;
@@ -486,6 +555,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.Topic != null)
             {
                 request.Topics = cmdletContext.Topic;
+            }
+            if (cmdletContext.TumblingWindowInSecond != null)
+            {
+                request.TumblingWindowInSeconds = cmdletContext.TumblingWindowInSecond.Value;
             }
             
             CmdletOutput output;
@@ -555,15 +628,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Boolean? Enabled { get; set; }
             public System.String EventSourceArn { get; set; }
             public System.String FunctionName { get; set; }
+            public List<System.String> FunctionResponseType { get; set; }
             public System.Int32? MaximumBatchingWindowInSecond { get; set; }
             public System.Int32? MaximumRecordAgeInSecond { get; set; }
             public System.Int32? MaximumRetryAttempt { get; set; }
             public System.Int32? ParallelizationFactor { get; set; }
             public List<System.String> Queue { get; set; }
+            public Dictionary<System.String, List<System.String>> SelfManagedEventSource_Endpoint { get; set; }
             public List<Amazon.Lambda.Model.SourceAccessConfiguration> SourceAccessConfiguration { get; set; }
             public Amazon.Lambda.EventSourcePosition StartingPosition { get; set; }
             public System.DateTime? StartingPositionTimestamp { get; set; }
             public List<System.String> Topic { get; set; }
+            public System.Int32? TumblingWindowInSecond { get; set; }
             public System.Func<Amazon.Lambda.Model.CreateEventSourceMappingResponse, NewLMEventSourceMappingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

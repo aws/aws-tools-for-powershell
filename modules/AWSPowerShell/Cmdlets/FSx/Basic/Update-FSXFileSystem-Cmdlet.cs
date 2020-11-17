@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// </para></li><li><para>
     /// DailyAutomaticBackupStartTime
     /// </para></li><li><para>
+    /// StorageCapacity
+    /// </para></li><li><para>
     /// WeeklyMaintenanceStartTime
     /// </para></li></ul>
     /// </summary>
@@ -111,14 +113,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
-        /// <para>Use this parameter to increase the storage capacity of an Amazon FSx for Windows File
-        /// Server file system. Specifies the storage capacity target value, GiB, for the file
-        /// system you're updating. The storage capacity target value must be at least 10 percent
+        /// <para>Use this parameter to increase the storage capacity of an Amazon FSx file system.
+        /// Specifies the storage capacity target value, GiB, to increase the storage capacity
+        /// for the file system that you're updating. You cannot make a storage capacity increase
+        /// request if there is an existing storage capacity increase request in progress.</para><para>For Windows file systems, the storage capacity target value must be at least 10 percent
         /// (%) greater than the current storage capacity value. In order to increase storage
-        /// capacity, the file system needs to have at least 16 MB/s of throughput capacity. You
-        /// cannot make a storage capacity increase request if there is an existing storage capacity
-        /// increase request in progress. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
-        /// Storage Capacity</a>.</para>
+        /// capacity, the file system must have at least 16 MB/s of throughput capacity.</para><para>For Lustre file systems, the storage capacity target value can be the following:</para><ul><li><para>For <code>SCRATCH_2</code> and <code>PERSISTENT_1 SSD</code> deployment types, valid
+        /// values are in multiples of 2400 GiB. The value must be greater than the current storage
+        /// capacity.</para></li><li><para>For <code>PERSISTENT HDD</code> file systems, valid values are multiples of 6000 GiB
+        /// for 12 MB/s/TiB file systems and multiples of 1800 GiB for 40 MB/s/TiB file systems.
+        /// The values must be greater than the current storage capacity.</para></li><li><para>For <code>SCRATCH_1</code> file systems, you cannot increase the storage capacity.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
+        /// storage capacity</a> in the <i>Amazon FSx for Windows File Server User Guide</i> and
+        /// <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing
+        /// storage and throughput capacity</a> in the <i>Amazon FSx for Lustre User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

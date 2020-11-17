@@ -43,31 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// overwrites the previous configuration of the alarm.
     /// </para><para>
     /// If you are an IAM user, you must have Amazon EC2 permissions for some alarm operations:
-    /// </para><ul><li><para><code>iam:CreateServiceLinkedRole</code> for all alarms with EC2 actions
-    /// </para></li><li><para><code>ec2:DescribeInstanceStatus</code> and <code>ec2:DescribeInstances</code> for
-    /// all alarms on EC2 instance status metrics
-    /// </para></li><li><para><code>ec2:StopInstances</code> for alarms with stop actions
-    /// </para></li><li><para><code>ec2:TerminateInstances</code> for alarms with terminate actions
+    /// </para><ul><li><para>
+    /// The <code>iam:CreateServiceLinkedRole</code> for all alarms with EC2 actions
     /// </para></li><li><para>
-    /// No specific permissions are needed for alarms with recover actions
+    /// The <code>iam:CreateServiceLinkedRole</code> to create an alarm with Systems Manager
+    /// OpsItem actions.
     /// </para></li></ul><para>
-    /// If you have read/write permissions for Amazon CloudWatch but not for Amazon EC2, you
-    /// can still create an alarm, but the stop or terminate actions are not performed. However,
-    /// if you are later granted the required permissions, the alarm actions that you created
-    /// earlier are performed.
-    /// </para><para>
-    /// If you are using an IAM role (for example, an EC2 instance profile), you cannot stop
-    /// or terminate the instance using alarm actions. However, you can still see the alarm
-    /// state and perform any other actions such as Amazon SNS notifications or Auto Scaling
-    /// policies.
-    /// </para><para>
-    /// If you are using temporary security credentials granted using AWS STS, you cannot
-    /// stop or terminate an EC2 instance using alarm actions.
-    /// </para><para>
     /// The first time you create an alarm in the AWS Management Console, the CLI, or by using
-    /// the PutMetricAlarm API, CloudWatch creates the necessary service-linked role for you.
-    /// The service-linked role is called <code>AWSServiceRoleForCloudWatchEvents</code>.
-    /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">AWS
+    /// the PutMetricAlarm API, CloudWatch creates the necessary service-linked rolea for
+    /// you. The service-linked roles are called <code>AWSServiceRoleForCloudWatchEvents</code>
+    /// and <code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">AWS
     /// service-linked role</a>.
     /// </para>
     /// </summary>
@@ -99,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// from any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
         /// | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
         /// | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code>
-        /// | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para><para>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
+        /// | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code> | <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i></code></para><para>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
         /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
         /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></para>
         /// </para>
@@ -351,7 +337,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>A list of key-value pairs to associate with the alarm. You can associate as many as
         /// 50 tags with an alarm.</para><para>Tags can help you organize and categorize your resources. You can also use them to
         /// scope user permissions by granting a user permission to access or change only resources
-        /// with certain tag values.</para>
+        /// with certain tag values.</para><para>If you are using this operation to update an existing alarm, any tags you specify
+        /// in this parameter are ignored. To change the tags of an existing alarm, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>
+        /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

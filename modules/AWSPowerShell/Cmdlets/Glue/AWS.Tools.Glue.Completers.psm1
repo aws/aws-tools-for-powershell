@@ -94,6 +94,26 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.Compatibility
+        {
+            ($_ -eq "New-GLUESchema/Compatibility") -Or
+            ($_ -eq "Update-GLUESchema/Compatibility")
+        }
+        {
+            $v = "BACKWARD","BACKWARD_ALL","DISABLED","FORWARD","FORWARD_ALL","FULL","FULL_ALL","NONE"
+            break
+        }
+
+        # Amazon.Glue.CrawlerLineageSettings
+        {
+            ($_ -eq "New-GLUECrawler/LineageConfiguration_CrawlerLineageSettings") -Or
+            ($_ -eq "Update-GLUECrawler/LineageConfiguration_CrawlerLineageSettings")
+        }
+        {
+            $v = "DISABLE","ENABLE"
+            break
+        }
+
         # Amazon.Glue.CsvHeaderOption
         {
             ($_ -eq "New-GLUEClassifier/CsvClassifier_ContainsHeader") -Or
@@ -101,6 +121,16 @@ $GLUE_Completers = {
         }
         {
             $v = "ABSENT","PRESENT","UNKNOWN"
+            break
+        }
+
+        # Amazon.Glue.DataFormat
+        {
+            ($_ -eq "Get-GLUESchemaVersionValidity/DataFormat") -Or
+            ($_ -eq "New-GLUESchema/DataFormat")
+        }
+        {
+            $v = "AVRO"
             break
         }
 
@@ -159,6 +189,13 @@ $GLUE_Completers = {
         }
         {
             $v = "ALL","FOREIGN"
+            break
+        }
+
+        # Amazon.Glue.SchemaDiffType
+        "Get-GLUESchemaVersionsDiff/SchemaDiffType"
+        {
+            $v = "SYNTAX_DIFF"
             break
         }
 
@@ -255,8 +292,10 @@ $GLUE_Completers = {
 }
 
 $GLUE_map = @{
+    "Compatibility"=@("New-GLUESchema","Update-GLUESchema")
     "CsvClassifier_ContainsHeader"=@("New-GLUEClassifier","Update-GLUEClassifier")
     "DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
+    "DataFormat"=@("Get-GLUESchemaVersionValidity","New-GLUESchema")
     "EnableHybrid"=@("Set-GLUEResourcePolicy")
     "EncryptionConfiguration_CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
     "EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
@@ -264,10 +303,12 @@ $GLUE_map = @{
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
+    "LineageConfiguration_CrawlerLineageSettings"=@("New-GLUECrawler","Update-GLUECrawler")
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
     "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
     "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
     "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
+    "SchemaDiffType"=@("Get-GLUESchemaVersionsDiff")
     "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
@@ -339,6 +380,7 @@ $GLUE_SelectMap = @{
                "Stop-GLUEJobRunBatch",
                "Update-GLUEPartitionBatch",
                "Stop-GLUEMLTaskRun",
+               "Get-GLUESchemaVersionValidity",
                "New-GLUEClassifier",
                "New-GLUEConnection",
                "New-GLUECrawler",
@@ -347,6 +389,9 @@ $GLUE_SelectMap = @{
                "New-GLUEJob",
                "New-GLUEMLTransform",
                "New-GLUEPartition",
+               "New-GLUEPartitionIndex",
+               "New-GLUERegistry",
+               "New-GLUESchema",
                "New-GLUEScript",
                "New-GLUESecurityConfiguration",
                "New-GLUETable",
@@ -363,7 +408,11 @@ $GLUE_SelectMap = @{
                "Remove-GLUEJob",
                "Remove-GLUEMLTransform",
                "Remove-GLUEPartition",
+               "Remove-GLUEPartitionIndex",
+               "Remove-GLUERegistry",
                "Remove-GLUEResourcePolicy",
+               "Remove-GLUESchema",
+               "Remove-GLUESchemaVersion",
                "Remove-GLUESecurityConfiguration",
                "Remove-GLUETable",
                "Remove-GLUETableVersion",
@@ -400,8 +449,13 @@ $GLUE_SelectMap = @{
                "Get-GLUEPartitionIndex",
                "Get-GLUEPartitionList",
                "Get-GLUEPlan",
+               "Get-GLUERegistry",
                "Get-GLUEGluePolicyList",
                "Get-GLUEResourcePolicy",
+               "Get-GLUESchema",
+               "Get-GLUESchemaByDefinition",
+               "Get-GLUESchemaVersion",
+               "Get-GLUESchemaVersionsDiff",
                "Get-GLUESecurityConfiguration",
                "Get-GLUESecurityConfigurationList",
                "Get-GLUETable",
@@ -422,11 +476,18 @@ $GLUE_SelectMap = @{
                "Get-GLUEDevEndpointNameList",
                "Get-GLUEJobNameList",
                "Get-GLUEMLTransformIdentifier",
+               "Get-GLUERegistryList",
+               "Get-GLUESchemaList",
+               "Get-GLUESchemaVersionList",
                "Get-GLUETriggerNameList",
                "Get-GLUEWorkflowList",
                "Set-GLUEDataCatalogEncryptionSetting",
                "Set-GLUEResourcePolicy",
+               "Write-GLUESchemaVersionMetadata",
                "Write-GLUEWorkflowRunProperty",
+               "Find-GLUESchemaVersionMetadata",
+               "Register-GLUESchemaVersion",
+               "Remove-GLUESchemaVersionMetadata",
                "Reset-GLUEJobBookmark",
                "Resume-GLUEWorkflowRun",
                "Find-GLUETable",
@@ -456,6 +517,8 @@ $GLUE_SelectMap = @{
                "Update-GLUEJob",
                "Update-GLUEMLTransform",
                "Update-GLUEPartition",
+               "Update-GLUERegistry",
+               "Update-GLUESchema",
                "Update-GLUETable",
                "Update-GLUETrigger",
                "Update-GLUEUserDefinedFunction",

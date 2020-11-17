@@ -28,17 +28,9 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Lists all service quotas for the specified AWS service. This request returns a list
-    /// of the service quotas for the specified service. you'll see the default values are
-    /// the values that AWS provides for the quotas. 
-    /// 
-    ///  <note><para>
-    /// Always check the <code>NextToken</code> response parameter when calling any of the
-    /// <code>List*</code> operations. These operations can return an unexpected list of results,
-    /// even when there are more results available. When this happens, the <code>NextToken</code>
-    /// response parameter contains a value to pass the next call to the same API to request
-    /// the next part of the list.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the applied quota values for the specified AWS service. For some quotas, only
+    /// the default values are available. If the applied quota value is not available for
+    /// a quota, the quota is not retrieved.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SQServiceQuotaList")]
     [OutputType("Amazon.ServiceQuotas.Model.ServiceQuota")]
@@ -53,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
-        /// <para>The identifier for a service. When performing an operation, use the <code>ServiceCode</code>
-        /// to specify a particular service. </para>
+        /// <para>The service identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,13 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) Limits the number of results that you want to include in the response.
-        /// If you don't include this parameter, the response defaults to a value that's specific
-        /// to the operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
-        /// element is present and has a value (isn't null). Include that value as the <code>NextToken</code>
-        /// request parameter in the call to the operation to get the next part of the results.
-        /// You should check <code>NextToken</code> after every operation to ensure that you receive
-        /// all of the results.</para>
+        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
+        /// results, if any, make another call with the token returned from this call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -93,10 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
-        /// response in a previous request that indicates that there's more output available.
-        /// In a subsequent call, set it to the value of the previous call's <code>NextToken</code>
-        /// response to indicate where the output should continue from.</para>
+        /// <para>The token for the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

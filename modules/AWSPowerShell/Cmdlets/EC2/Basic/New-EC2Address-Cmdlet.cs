@@ -130,6 +130,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String PublicIpv4Pool { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the Elastic IP address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -176,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Domain = this.Domain;
             context.NetworkBorderGroup = this.NetworkBorderGroup;
             context.PublicIpv4Pool = this.PublicIpv4Pool;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -211,6 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.PublicIpv4Pool != null)
             {
                 request.PublicIpv4Pool = cmdletContext.PublicIpv4Pool;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -278,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.DomainType Domain { get; set; }
             public System.String NetworkBorderGroup { get; set; }
             public System.String PublicIpv4Pool { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.AllocateAddressResponse, NewEC2AddressCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// If you set the parameter to <code>true</code>, your bot has access to accuracy improvements.</para><para>The Regions where you can set the <code>enableModelImprovements</code> parameter to
         /// <code>true</code> are:</para><ul><li><para>US East (N. Virginia) (us-east-1)</para></li><li><para>US West (Oregon) (us-west-2)</para></li><li><para>Asia Pacific (Sydney) (ap-southeast-2)</para></li><li><para>EU (Ireland) (eu-west-1)</para></li></ul><para>In other Regions, the <code>enableModelImprovements</code> parameter is set to <code>true</code>
         /// by default. In these Regions setting the parameter to <code>false</code> throws a
-        /// <code>ValidationException</code> exception.</para><ul><li><para>Asia Pacific (Singapore) (ap-southeast-1)</para></li><li><para>Asia Pacific (Tokyo) (ap-northeast-1)</para></li><li><para>EU (Frankfurt) (eu-central-1)</para></li><li><para>EU (London) (eu-west-2)</para></li></ul>
+        /// <code>ValidationException</code> exception.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// or <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html">PostText</a>
         /// response. <code>AMAZON.FallbackIntent</code> and <code>AMAZON.KendraSearchIntent</code>
         /// are only inserted if they are configured for the bot.</para><para>You must set the <code>enableModelImprovements</code> parameter to <code>true</code>
-        /// to use confidence scores.</para><ul><li><para>US East (N. Virginia) (us-east-1)</para></li><li><para>US West (Oregon) (us-west-2)</para></li><li><para>Asia Pacific (Sydney) (ap-southeast-2)</para></li><li><para>EU (Ireland) (eu-west-1)</para></li></ul><para>In other Regions, the <code>enableModelImprovements</code> parameter is set to <code>true</code>
+        /// to use confidence scores in the following regions.</para><ul><li><para>US East (N. Virginia) (us-east-1)</para></li><li><para>US West (Oregon) (us-west-2)</para></li><li><para>Asia Pacific (Sydney) (ap-southeast-2)</para></li><li><para>EU (Ireland) (eu-west-1)</para></li></ul><para>In other Regions, the <code>enableModelImprovements</code> parameter is set to <code>true</code>
         /// by default.</para><para>For example, suppose a bot is configured with the confidence threshold of 0.80 and
         /// the <code>AMAZON.FallbackIntent</code>. Amazon Lex returns three alternative intents
         /// with the following confidence scores: IntentA (0.70), IntentB (0.60), IntentC (0.50).

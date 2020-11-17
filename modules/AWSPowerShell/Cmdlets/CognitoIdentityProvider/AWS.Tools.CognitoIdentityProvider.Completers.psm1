@@ -128,6 +128,26 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.CustomEmailSenderLambdaVersionType
+        {
+            ($_ -eq "New-CGIPUserPool/LambdaConfig_CustomEmailSender_LambdaVersion") -Or
+            ($_ -eq "Update-CGIPUserPool/LambdaConfig_CustomEmailSender_LambdaVersion")
+        }
+        {
+            $v = "V1_0"
+            break
+        }
+
+        # Amazon.CognitoIdentityProvider.CustomSMSSenderLambdaVersionType
+        {
+            ($_ -eq "New-CGIPUserPool/LambdaConfig_CustomSMSSender_LambdaVersion") -Or
+            ($_ -eq "Update-CGIPUserPool/LambdaConfig_CustomSMSSender_LambdaVersion")
+        }
+        {
+            $v = "V1_0"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.DefaultEmailOptionType
         {
             ($_ -eq "New-CGIPUserPool/VerificationMessageTemplate_DefaultEmailOption") -Or
@@ -235,6 +255,8 @@ $CGIP_map = @{
     "DeviceRememberedStatus"=@("Edit-CGIPDeviceStatus","Edit-CGIPDeviceStatusAdmin")
     "EmailConfiguration_EmailSendingAccount"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "FeedbackValue"=@("Update-CGIPAuthEventFeedback","Update-CGIPAuthEventFeedbackAdmin")
+    "LambdaConfig_CustomEmailSender_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "LambdaConfig_CustomSMSSender_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "MessageAction"=@("New-CGIPUserAdmin")
     "MfaConfiguration"=@("New-CGIPUserPool","Set-CGIPUserPoolMfaConfig","Update-CGIPUserPool")
     "PreventUserExistenceErrors"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")

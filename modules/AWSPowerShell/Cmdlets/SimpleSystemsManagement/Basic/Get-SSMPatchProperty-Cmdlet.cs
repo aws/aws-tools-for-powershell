@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
     /// </para></dd><dt>DEBIAN</dt><dd><para>
     /// Valid properties: PRODUCT, PRIORITY
+    /// </para></dd><dt>MACOS</dt><dd><para>
+    /// Valid properties: PRODUCT, CLASSIFICATION
     /// </para></dd><dt>ORACLE_LINUX</dt><dd><para>
     /// Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
     /// </para></dd><dt>REDHAT_ENTERPRISE_LINUX</dt><dd><para>
@@ -88,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Indicates whether to list patches for the Windows operating system or for Microsoft
-        /// applications. Not applicable for Linux operating systems.</para>
+        /// applications. Not applicable for the Linux or macOS operating systems.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

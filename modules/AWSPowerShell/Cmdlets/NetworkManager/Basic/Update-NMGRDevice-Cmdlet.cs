@@ -145,6 +145,16 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         public System.String SiteId { get; set; }
         #endregion
         
+        #region Parameter AWSLocation_SubnetArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the subnet the device is located in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AWSLocation_SubnetArn { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -163,6 +173,17 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Vendor { get; set; }
+        #endregion
+        
+        #region Parameter AWSLocation_Zone
+        /// <summary>
+        /// <para>
+        /// <para>The Zone the device is located in. This can be the ID of an Availability Zone, Local
+        /// Zone, Wavelength Zone, or an Outpost.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AWSLocation_Zone { get; set; }
         #endregion
         
         #region Parameter Select
@@ -226,6 +247,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
                 context.Select = (response, cmdlet) => this.DeviceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AWSLocation_SubnetArn = this.AWSLocation_SubnetArn;
+            context.AWSLocation_Zone = this.AWSLocation_Zone;
             context.Description = this.Description;
             context.DeviceId = this.DeviceId;
             #if MODULAR
@@ -265,6 +288,35 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             // create request
             var request = new Amazon.NetworkManager.Model.UpdateDeviceRequest();
             
+            
+             // populate AWSLocation
+            var requestAWSLocationIsNull = true;
+            request.AWSLocation = new Amazon.NetworkManager.Model.AWSLocation();
+            System.String requestAWSLocation_aWSLocation_SubnetArn = null;
+            if (cmdletContext.AWSLocation_SubnetArn != null)
+            {
+                requestAWSLocation_aWSLocation_SubnetArn = cmdletContext.AWSLocation_SubnetArn;
+            }
+            if (requestAWSLocation_aWSLocation_SubnetArn != null)
+            {
+                request.AWSLocation.SubnetArn = requestAWSLocation_aWSLocation_SubnetArn;
+                requestAWSLocationIsNull = false;
+            }
+            System.String requestAWSLocation_aWSLocation_Zone = null;
+            if (cmdletContext.AWSLocation_Zone != null)
+            {
+                requestAWSLocation_aWSLocation_Zone = cmdletContext.AWSLocation_Zone;
+            }
+            if (requestAWSLocation_aWSLocation_Zone != null)
+            {
+                request.AWSLocation.Zone = requestAWSLocation_aWSLocation_Zone;
+                requestAWSLocationIsNull = false;
+            }
+             // determine if request.AWSLocation should be set to null
+            if (requestAWSLocationIsNull)
+            {
+                request.AWSLocation = null;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -397,6 +449,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AWSLocation_SubnetArn { get; set; }
+            public System.String AWSLocation_Zone { get; set; }
             public System.String Description { get; set; }
             public System.String DeviceId { get; set; }
             public System.String GlobalNetworkId { get; set; }

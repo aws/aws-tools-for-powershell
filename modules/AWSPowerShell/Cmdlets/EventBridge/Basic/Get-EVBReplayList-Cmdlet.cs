@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter NamePrefix
         /// <summary>
         /// <para>
-        /// <para>A name prefix to filter the archives returned. Only archives with name that match
-        /// the prefix are returned.</para>
+        /// <para>A name prefix to filter the replays returned. Only replays with name that match the
+        /// prefix are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

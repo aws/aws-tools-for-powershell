@@ -19,7 +19,32 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateApprovedOrigin" Verb="Add" Noun="ApprovedOrigin" ShouldProcessTarget="Origin" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateInstanceStorageConfig" OutputProperty="AssociationId" Verb="Add" Noun="InstanceStorageConfig" ShouldProcessTarget="InstanceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType" NewName="StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType" />
+                <Param Name="StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_KeyId" NewName="StorageConfigKinesisVideoStreamConfigEncryptionConfigKeyId" />
+                <Param Name="StorageConfig_S3Config_EncryptionConfig_EncryptionType" NewName="StorageConfigS3ConfigEncryptionConfigEncryptionType" />
+                <Param Name="StorageConfig_S3Config_EncryptionConfig_KeyId" NewName="StorageConfigS3ConfigEncryptionConfigKeyId" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateLambdaFunction" Verb="Add" Noun="LambdaFunction" ShouldProcessTarget="FunctionArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateLexBot" Verb="Add" Noun="LexBot" ShouldProcessTarget="LexBot_Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateRoutingProfileQueues" Verb="Join" Noun="RoutingProfileQueue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSecurityKey" OutputProperty="AssociationId" Verb="Add" Noun="SecurityKey" ShouldProcessTarget="Key" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -27,7 +52,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateInstance" OutputProperty="*" Verb="New" Noun="Instance" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIntegrationAssociation" OutputProperty="*" Verb="New" Noun="IntegrationAssociation" ShouldProcessTarget="SourceApplicationName" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateQuickConnect" OutputProperty="*" Verb="New" Noun="QuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateRoutingProfile" OutputProperty="*" Verb="New" Noun="RoutingProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUseCase" OutputProperty="*" Verb="New" Noun="UseCase" ShouldProcessTarget="UseCaseType" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -35,11 +76,51 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserHierarchyGroup" OutputProperty="*" Verb="New" Noun="UserHierarchyGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInstance" Verb="Remove" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIntegrationAssociation" Verb="Remove" Noun="IntegrationAssociation" ShouldProcessTarget="IntegrationAssociationId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteQuickConnect" Verb="Remove" Noun="QuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUseCase" Verb="Remove" Noun="UseCase" ShouldProcessTarget="UseCaseId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserHierarchyGroup" Verb="Remove" Noun="UserHierarchyGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeContactFlow" OutputProperty="ContactFlow" Verb="Get" Noun="ContactFlow" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstance" OutputProperty="Instance" Verb="Get" Noun="Instance" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceAttribute" OutputProperty="Attribute" Verb="Get" Noun="InstanceAttribute" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceStorageConfig" OutputProperty="StorageConfig" Verb="Get" Noun="InstanceStorageConfig" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeQuickConnect" OutputProperty="QuickConnect" Verb="Get" Noun="QuickConnect" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -59,7 +140,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateApprovedOrigin" Verb="Remove" Noun="ApprovedOrigin" ShouldProcessTarget="Origin" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateInstanceStorageConfig" Verb="Remove" Noun="InstanceStorageConfig" ShouldProcessTarget="AssociationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateLambdaFunction" Verb="Remove" Noun="LambdaFunction" ShouldProcessTarget="FunctionArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateLexBot" Verb="Remove" Noun="LexBot" ShouldProcessTarget="BotName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateRoutingProfileQueues" Verb="Disconnect" Noun="RoutingProfileQueue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSecurityKey" Verb="Remove" Noun="SecurityKey" ShouldProcessTarget="AssociationId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,11 +180,39 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListApprovedOrigins" OutputProperty="Origins" Verb="Get" Noun="ApprovedOriginList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListContactFlows" OutputProperty="ContactFlowSummaryList" Verb="Get" Noun="ContactFlowList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListHoursOfOperations" OutputProperty="HoursOfOperationSummaryList" Verb="Get" Noun="HoursOfOperationList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInstanceAttributes" OutputProperty="Attributes" Verb="Get" Noun="InstanceAttributeList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInstances" OutputProperty="InstanceSummaryList" Verb="Get" Noun="InstanceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInstanceStorageConfigs" OutputProperty="StorageConfigs" Verb="Get" Noun="InstanceStorageConfigList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIntegrationAssociations" OutputProperty="IntegrationAssociationSummaryList" Verb="Get" Noun="IntegrationAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLambdaFunctions" OutputProperty="LambdaFunctions" Verb="Get" Noun="LambdaFunctionList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLexBots" OutputProperty="LexBots" Verb="Get" Noun="LexBotList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -99,6 +228,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListQuickConnects" OutputProperty="QuickConnectSummaryList" Verb="Get" Noun="QuickConnectList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRoutingProfileQueues" OutputProperty="RoutingProfileQueueConfigSummaryList" Verb="Get" Noun="RoutingProfileQueueList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -107,11 +240,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityKeys" OutputProperty="SecurityKeys" Verb="Get" Noun="SecurityKeyList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSecurityProfiles" OutputProperty="SecurityProfileSummaryList" Verb="Get" Noun="SecurityProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUseCases" OutputProperty="UseCaseSummaryList" Verb="Get" Noun="UseCaseList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -136,6 +277,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartOutboundVoiceContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundVoiceContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTaskContact" OutputProperty="ContactId" Verb="Start" Noun="TaskContact" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -171,6 +316,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInstanceAttribute" Verb="Update" Noun="InstanceAttribute" ShouldProcessTarget="InstanceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInstanceStorageConfig" Verb="Update" Noun="InstanceStorageConfig" ShouldProcessTarget="AssociationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType" NewName="StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType" />
+                <Param Name="StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_KeyId" NewName="StorageConfigKinesisVideoStreamConfigEncryptionConfigKeyId" />
+                <Param Name="StorageConfig_S3Config_EncryptionConfig_EncryptionType" NewName="StorageConfigS3ConfigEncryptionConfigEncryptionType" />
+                <Param Name="StorageConfig_S3Config_EncryptionConfig_KeyId" NewName="StorageConfigS3ConfigEncryptionConfigKeyId" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQuickConnectConfig" Verb="Update" Noun="QuickConnectConfig" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQuickConnectName" Verb="Update" Noun="QuickConnectName" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateRoutingProfileConcurrency" Verb="Update" Noun="RoutingProfileConcurrency" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -188,6 +354,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateUserHierarchy" Verb="Update" Noun="UserHierarchy" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserHierarchyGroupName" Verb="Update" Noun="UserHierarchyGroupName" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserHierarchyStructure" Verb="Update" Noun="UserHierarchyStructure" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

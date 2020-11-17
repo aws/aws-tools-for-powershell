@@ -90,6 +90,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.DateTime? LastModifiedTimeBefore { get; set; }
         #endregion
         
+        #region Parameter MonitoringJobDefinitionName
+        /// <summary>
+        /// <para>
+        /// <para>Gets a list of the monitoring schedules for the specified monitoring job definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MonitoringJobDefinitionName { get; set; }
+        #endregion
+        
+        #region Parameter MonitoringTypeEqual
+        /// <summary>
+        /// <para>
+        /// <para>A filter that returns only the monitoring schedules for the specified monitoring type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MonitoringTypeEquals")]
+        [AWSConstantClassSource("Amazon.SageMaker.MonitoringType")]
+        public Amazon.SageMaker.MonitoringType MonitoringTypeEqual { get; set; }
+        #endregion
+        
         #region Parameter NameContain
         /// <summary>
         /// <para>
@@ -226,6 +248,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.MonitoringJobDefinitionName = this.MonitoringJobDefinitionName;
+            context.MonitoringTypeEqual = this.MonitoringTypeEqual;
             context.NameContain = this.NameContain;
             context.NextToken = this.NextToken;
             context.SortBy = this.SortBy;
@@ -273,6 +297,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.MonitoringJobDefinitionName != null)
+            {
+                request.MonitoringJobDefinitionName = cmdletContext.MonitoringJobDefinitionName;
+            }
+            if (cmdletContext.MonitoringTypeEqual != null)
+            {
+                request.MonitoringTypeEquals = cmdletContext.MonitoringTypeEqual;
             }
             if (cmdletContext.NameContain != null)
             {
@@ -364,6 +396,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.LastModifiedTimeBefore != null)
             {
                 request.LastModifiedTimeBefore = cmdletContext.LastModifiedTimeBefore.Value;
+            }
+            if (cmdletContext.MonitoringJobDefinitionName != null)
+            {
+                request.MonitoringJobDefinitionName = cmdletContext.MonitoringJobDefinitionName;
+            }
+            if (cmdletContext.MonitoringTypeEqual != null)
+            {
+                request.MonitoringTypeEquals = cmdletContext.MonitoringTypeEqual;
             }
             if (cmdletContext.NameContain != null)
             {
@@ -510,6 +550,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.DateTime? LastModifiedTimeAfter { get; set; }
             public System.DateTime? LastModifiedTimeBefore { get; set; }
             public int? MaxResult { get; set; }
+            public System.String MonitoringJobDefinitionName { get; set; }
+            public Amazon.SageMaker.MonitoringType MonitoringTypeEqual { get; set; }
             public System.String NameContain { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.SageMaker.MonitoringScheduleSortKey SortBy { get; set; }

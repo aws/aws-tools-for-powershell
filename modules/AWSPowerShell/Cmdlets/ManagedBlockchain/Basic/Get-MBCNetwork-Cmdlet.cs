@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
     /// Returns detailed information about a network.
+    /// 
+    ///  
+    /// <para>
+    /// Applies to Hyperledger Fabric and Ethereum.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "MBCNetwork")]
     [OutputType("Amazon.ManagedBlockchain.Model.Network")]

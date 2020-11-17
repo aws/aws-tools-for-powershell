@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
-    /// GuardDuty generates findings based on ThreatIntelSets. Only users of the master account
-    /// can use this operation.
+    /// GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator
+    /// account can use this operation.
     /// </summary>
     [Cmdlet("New", "GDThreatIntelSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

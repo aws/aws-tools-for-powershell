@@ -39,10 +39,26 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class RegisterBATJobDefinitionCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        #region Parameter NetworkConfiguration_AssignPublicIp
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the job should have a public IP address. For a job running on Fargate
+        /// resources in a private subnet to send outbound traffic to the internet (for example,
+        /// in order to pull container images), the private subnet requires a NAT gateway be attached
+        /// to route requests to the internet. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Amazon
+        /// ECS task networking</a>. The default value is "DISABLED".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_NetworkConfiguration_AssignPublicIp")]
+        [AWSConstantClassSource("Amazon.Batch.AssignPublicIp")]
+        public Amazon.Batch.AssignPublicIp NetworkConfiguration_AssignPublicIp { get; set; }
+        #endregion
+        
         #region Parameter RetryStrategy_Attempt
         /// <summary>
         /// <para>
-        /// <para>The number of times to move a job to the <code>RUNNABLE</code> status. You may specify
+        /// <para>The number of times to move a job to the <code>RUNNABLE</code> status. You can specify
         /// between 1 and 10 attempts. If the value of <code>attempts</code> is greater than one,
         /// the job is retried on failure the same number of attempts as the value.</para>
         /// </para>
@@ -55,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_Command
         /// <summary>
         /// <para>
-        /// <para>The command that is passed to the container. This parameter maps to <code>Cmd</code>
+        /// <para>The command that's passed to the container. This parameter maps to <code>Cmd</code>
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>COMMAND</code> parameter to <a href="https://docs.docker.com/engine/reference/run/">docker
@@ -73,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--device</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para>
+        /// run</a>.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
+        /// be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--env</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para><important><para>We do not recommend using plaintext environment variables for sensitive information,
+        /// run</a>.</para><important><para>We don't recommend using plaintext environment variables for sensitive information,
         /// such as credential data.</para></important><note><para>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention
         /// is reserved for variables that are set by the AWS Batch service.</para></note>
         /// </para>
@@ -112,9 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_ExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For
-        /// more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">AWS
-        /// Batch execution IAM role</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. Jobs
+        /// running on Fargate resources must provide an execution role. For more information,
+        /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">AWS
+        /// Batch execution IAM role</a> in the <i>AWS Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>IMAGE</code> parameter of <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para><ul><li><para>Images in Amazon ECR repositories use the full registry and repository URI (for example,
+        /// run</a>.</para><note><para>Docker image architecture must match the processor architecture of the compute resources
+        /// that they're scheduled on. For example, ARM-based Docker images can only run on ARM-based
+        /// compute resources.</para></note><ul><li><para>Images in Amazon ECR repositories use the full registry and repository URI (for example,
         /// <code>012345678910.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt;</code>).</para></li><li><para>Images in official repositories on Docker Hub use a single name (for example, <code>ubuntu</code>
         /// or <code>mongo</code>).</para></li><li><para>Images in other repositories on Docker Hub are qualified with an organization name
         /// (for example, <code>amazon/amazon-ecs-agent</code>).</para></li><li><para>Images in other online repositories are qualified further by a domain name (for example,
@@ -162,9 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type to use for a multi-node parallel job. Currently all node groups
-        /// in a multi-node parallel job must use the same instance type. This parameter is not
-        /// valid for single-node container jobs.</para>
+        /// <para>The instance type to use for a multi-node parallel job. All node groups in a multi-node
+        /// parallel job must use the same instance type.</para><note><para>This parameter isn't applicable to single-node container jobs or for jobs running
+        /// on Fargate resources and shouldn't be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS
-        /// permissions.</para>
+        /// permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
+        /// Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,7 +227,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The log driver to use for the container. The valid values listed for this parameter
         /// are log drivers that the Amazon ECS container agent can communicate with by default.</para><para>The supported log drivers are <code>awslogs</code>, <code>fluentd</code>, <code>gelf</code>,
         /// <code>json-file</code>, <code>journald</code>, <code>logentries</code>, <code>syslog</code>,
-        /// and <code>splunk</code>.</para><dl><dt>awslogs</dt><dd><para>Specifies the Amazon CloudWatch Logs logging driver. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html">Using
+        /// and <code>splunk</code>.</para><note><para>Jobs running on Fargate resources are restricted to the <code>awslogs</code> and <code>splunk</code>
+        /// log drivers.</para></note><dl><dt>awslogs</dt><dd><para>Specifies the Amazon CloudWatch Logs logging driver. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html">Using
         /// the awslogs Log Driver</a> in the <i>AWS Batch User Guide</i> and <a href="https://docs.docker.com/config/containers/logging/awslogs/">Amazon
         /// CloudWatch Logs logging driver</a> in the Docker documentation.</para></dd><dt>fluentd</dt><dd><para>Specifies the Fluentd logging driver. For more information, including usage and options,
         /// see <a href="https://docs.docker.com/config/containers/logging/fluentd/">Fluentd logging
@@ -220,12 +242,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// see <a href="https://docs.docker.com/config/containers/logging/splunk/">Splunk logging
         /// driver</a> in the Docker documentation.</para></dd><dt>syslog</dt><dd><para>Specifies the syslog logging driver. For more information, including usage and options,
         /// see <a href="https://docs.docker.com/config/containers/logging/syslog/">Syslog logging
-        /// driver</a> in the Docker documentation.</para></dd></dl><note><para>If you have a custom driver that is not listed earlier that you would like to work
-        /// with the Amazon ECS container agent, you can fork the Amazon ECS container agent project
-        /// that is <a href="https://github.com/aws/amazon-ecs-agent">available on GitHub</a>
-        /// and customize it to work with that driver. We encourage you to submit pull requests
-        /// for changes that you would like to have included. However, Amazon Web Services does
-        /// not currently support running modified copies of this software.</para></note><para>This parameter requires version 1.18 of the Docker Remote API or greater on your container
+        /// driver</a> in the Docker documentation.</para></dd></dl><note><para>If you have a custom driver that'sn't listed earlier that you want to work with the
+        /// Amazon ECS container agent, you can fork the Amazon ECS container agent project that's
+        /// <a href="https://github.com/aws/amazon-ecs-agent">available on GitHub</a> and customize
+        /// it to work with that driver. We encourage you to submit pull requests for changes
+        /// that you want to have included. However, Amazon Web Services doesn't currently support
+        /// running modified copies of this software.</para></note><para>This parameter requires version 1.18 of the Docker Remote API or greater on your container
         /// instance. To check the Docker Remote API version on your container instance, log into
         /// your container instance and run the following command: <code>sudo docker version |
         /// grep "Server API version"</code></para>
@@ -251,38 +273,20 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter LinuxParameters_MaxSwap
         /// <summary>
         /// <para>
-        /// <para>The total amount of swap memory (in MiB) a container can use. This parameter will
-        /// be translated to the <code>--memory-swap</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a> where the value would be the sum of the container memory plus the <code>maxSwap</code>
-        /// value. For more information, see <a href="https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details"><code>--memory-swap</code> details</a> in the Docker documentation.</para><para>If a <code>maxSwap</code> value of <code>0</code> is specified, the container will
-        /// not use swap. Accepted values are <code>0</code> or any positive integer. If the <code>maxSwap</code>
-        /// parameter is omitted, the container will use the swap configuration for the container
+        /// <para>The total amount of swap memory (in MiB) a container can use. This parameter is translated
+        /// to the <code>--memory-swap</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// run</a> where the value is the sum of the container memory plus the <code>maxSwap</code>
+        /// value. For more information, see <a href="https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details"><code>--memory-swap</code> details</a> in the Docker documentation.</para><para>If a <code>maxSwap</code> value of <code>0</code> is specified, the container doesn't
+        /// use swap. Accepted values are <code>0</code> or any positive integer. If the <code>maxSwap</code>
+        /// parameter is omitted, the container doesn't use the swap configuration for the container
         /// instance it is running on. A <code>maxSwap</code> value must be set for the <code>swappiness</code>
-        /// parameter to be used.</para>
+        /// parameter to be used.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
+        /// be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ContainerProperties_LinuxParameters_MaxSwap")]
         public System.Int32? LinuxParameters_MaxSwap { get; set; }
-        #endregion
-        
-        #region Parameter ContainerProperties_Memory
-        /// <summary>
-        /// <para>
-        /// <para>The hard limit (in MiB) of memory to present to the container. If your container attempts
-        /// to exceed the memory specified here, the container is killed. This parameter maps
-        /// to <code>Memory</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>--memory</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>. You must specify at least 4 MiB of memory for a job. This is required but
-        /// can be specified in several places for multi-node parallel (MNP) jobs; it must be
-        /// specified for each node at least once.</para><note><para>If you are trying to maximize your resource utilization by providing your jobs as
-        /// much memory as possible for a particular instance type, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html">Memory
-        /// Management</a> in the <i>AWS Batch User Guide</i>.</para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? ContainerProperties_Memory { get; set; }
         #endregion
         
         #region Parameter ContainerProperties_MountPoint
@@ -349,19 +353,65 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Collections.Hashtable Parameter { get; set; }
         #endregion
         
+        #region Parameter PlatformCapability
+        /// <summary>
+        /// <para>
+        /// <para>The platform capabilities required by the job definition. If no value is specified,
+        /// it defaults to <code>EC2</code>. To run the job on Fargate resources, specify <code>FARGATE</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PlatformCapabilities")]
+        public System.String[] PlatformCapability { get; set; }
+        #endregion
+        
+        #region Parameter FargatePlatformConfiguration_PlatformVersion
+        /// <summary>
+        /// <para>
+        /// <para>The AWS Fargate platform version on which the jobs are running. A platform version
+        /// is specified only for jobs running on Fargate resources. If one isn't specified, the
+        /// <code>LATEST</code> platform version is used by default. This will use a recent, approved
+        /// version of the AWS Fargate platform for compute resources. For more information, see
+        /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+        /// Fargate platform versions</a> in the <i>Amazon Elastic Container Service Developer
+        /// Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_FargatePlatformConfiguration_PlatformVersion")]
+        public System.String FargatePlatformConfiguration_PlatformVersion { get; set; }
+        #endregion
+        
         #region Parameter ContainerProperties_Privileged
         /// <summary>
         /// <para>
-        /// <para>When this parameter is true, the container is given elevated privileges on the host
+        /// <para>When this parameter is true, the container is given elevated permissions on the host
         /// container instance (similar to the <code>root</code> user). This parameter maps to
         /// <code>Privileged</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--privileged</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para>
+        /// run</a>. The default value is false.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
+        /// be provided, or specified as false.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ContainerProperties_Privileged { get; set; }
+        #endregion
+        
+        #region Parameter PropagateTag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to propagate the tags from the job or job definition to the corresponding
+        /// Amazon ECS task. If no value is specified, the tags are not propagated. Tags can only
+        /// be propagated to the tasks during task creation. For tags with the same name, job
+        /// tags are given priority over job definitions tags. If the total number of combined
+        /// tags from the job and job definition is over 50, the job is moved to the <code>FAILED</code>
+        /// state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PropagateTags")]
+        public System.Boolean? PropagateTag { get; set; }
         #endregion
         
         #region Parameter ContainerProperties_ReadonlyRootFilesystem
@@ -380,8 +430,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_ResourceRequirement
         /// <summary>
         /// <para>
-        /// <para>The type and amount of a resource to assign to a container. Currently, the only supported
-        /// resource is <code>GPU</code>.</para>
+        /// <para>The type and amount of resources to assign to a container. The supported resources
+        /// include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -404,8 +454,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_Secret
         /// <summary>
         /// <para>
-        /// <para>The secrets for the container. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
-        /// Sensitive Data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
+        /// <para>The secrets for the container. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html">Specifying
+        /// sensitive data</a> in the <i>AWS Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -418,7 +468,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The value for the size (in MiB) of the <code>/dev/shm</code> volume. This parameter
         /// maps to the <code>--shm-size</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para>
+        /// run</a>.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
+        /// be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -430,13 +481,24 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>This allows you to tune a container's memory swappiness behavior. A <code>swappiness</code>
-        /// value of <code>0</code> will cause swapping to not happen unless absolutely necessary.
-        /// A <code>swappiness</code> value of <code>100</code> will cause pages to be swapped
-        /// very aggressively. Accepted values are whole numbers between <code>0</code> and <code>100</code>.
-        /// If the <code>swappiness</code> parameter is not specified, a default value of <code>60</code>
-        /// is used. If a value is not specified for <code>maxSwap</code> then this parameter
-        /// is ignored. This parameter maps to the <code>--memory-swappiness</code> option to
-        /// <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</para>
+        /// value of <code>0</code> causes swapping not to happen unless absolutely necessary.
+        /// A <code>swappiness</code> value of <code>100</code> causes pages to be swapped very
+        /// aggressively. Accepted values are whole numbers between <code>0</code> and <code>100</code>.
+        /// If the <code>swappiness</code> parameter isn't specified, a default value of <code>60</code>
+        /// is used. If a value isn't specified for <code>maxSwap</code> then this parameter is
+        /// ignored. If <code>maxSwap</code> is set to 0, the container doesn't use swap. This
+        /// parameter maps to the <code>--memory-swappiness</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// run</a>.</para><para>Consider the following when you use a per-container swap configuration.</para><ul><li><para>Swap space must be enabled and allocated on the container instance for the containers
+        /// to use.</para><note><para>The Amazon ECS optimized AMIs don't have swap enabled by default. You must enable
+        /// swap on the instance to use this feature. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-swap-volumes.html">Instance
+        /// Store Swap Volumes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i> or
+        /// <a href="http://aws.amazon.com/premiumsupport/knowledge-center/ec2-memory-swap-file/">How
+        /// do I allocate memory to work as swap space in an Amazon EC2 instance by using a swap
+        /// file?</a></para></note></li><li><para>The swap space parameters are only supported for job definitions using EC2 resources.</para></li><li><para>If the <code>maxSwap</code> and <code>swappiness</code> parameters are omitted from
+        /// a job definition, each container will have a default <code>swappiness</code> value
+        /// of 60 and the total swap usage will be limited to two times the memory reservation
+        /// of the container.</para></li></ul><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
+        /// be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -449,8 +511,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The tags that you apply to the job definition to help you categorize and organize
         /// your resources. Each tag consists of a key and an optional value. For more information,
-        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS Resources</a> in <i>AWS General Reference</i>.</para>
+        /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging
+        /// AWS Resources</a> in <i>AWS Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -463,10 +525,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The timeout configuration for jobs that are submitted with this job definition, after
         /// which AWS Batch terminates your jobs if they have not finished. If a job is terminated
-        /// due to a timeout, it is not retried. The minimum value for the timeout is 60 seconds.
-        /// Any timeout configuration that is specified during a <a>SubmitJob</a> operation overrides
-        /// the timeout configuration defined here. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
-        /// Timeouts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
+        /// due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
+        /// Any timeout configuration that's specified during a <a>SubmitJob</a> operation overrides
+        /// the timeout configuration defined here. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html">Job
+        /// Timeouts</a> in the <i>AWS Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,7 +540,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter
         /// maps to the <code>--tmpfs</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para>
+        /// run</a>.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
+        /// be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -489,7 +552,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of job definition.</para>
+        /// <para>The type of job definition. For more information about multi-node parallel jobs, see
+        /// <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html">Creating
+        /// a multi-node parallel job definition</a> in the <i>AWS Batch User Guide</i>.</para><note><para>If the job is run on Fargate resources, then <code>multinode</code> isn't supported.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -510,7 +575,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para>
+        /// run</a>.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
+        /// be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -532,22 +598,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String ContainerProperties_User { get; set; }
         #endregion
         
-        #region Parameter ContainerProperties_Vcpus
-        /// <summary>
-        /// <para>
-        /// <para>The number of vCPUs reserved for the container. This parameter maps to <code>CpuShares</code>
-        /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one
-        /// vCPU. This is required but can be specified in several places for multi-node parallel
-        /// (MNP) jobs; it must be specified for each node at least once.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? ContainerProperties_Vcpus { get; set; }
-        #endregion
-        
         #region Parameter ContainerProperties_Volume
         /// <summary>
         /// <para>
@@ -557,6 +607,52 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ContainerProperties_Volumes")]
         public Amazon.Batch.Model.Volume[] ContainerProperties_Volume { get; set; }
+        #endregion
+        
+        #region Parameter ContainerProperties_Memory
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is deprecated and not supported for jobs run on Fargate resources,
+        /// use <code>ResourceRequirement</code>. For jobs run on EC2 resources can specify the
+        /// memory requirement using the <code>ResourceRequirement</code> structure. The hard
+        /// limit (in MiB) of memory to present to the container. If your container attempts to
+        /// exceed the memory specified here, the container is killed. This parameter maps to
+        /// <code>Memory</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
+        /// Remote API</a> and the <code>--memory</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// run</a>. You must specify at least 4 MiB of memory for a job. This is required but
+        /// can be specified in several places; it must be specified for each node at least once.</para><note><para>If you're trying to maximize your resource utilization by providing your jobs as much
+        /// memory as possible for a particular instance type, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html">Memory
+        /// Management</a> in the <i>AWS Batch User Guide</i>.</para></note>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This field is deprecated, use resourceRequirements instead.")]
+        public System.Int32? ContainerProperties_Memory { get; set; }
+        #endregion
+        
+        #region Parameter ContainerProperties_Vcpus
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is deprecated and not supported for jobs run on Fargate resources,
+        /// see <code>resourceRequirement</code>. The number of vCPUs reserved for the container.
+        /// Jobs running on EC2 resources can specify the vCPU requirement for the job using <code>resourceRequirements</code>
+        /// but the vCPU requirements can't be specified both here and in the <code>resourceRequirement</code>
+        /// structure. This parameter maps to <code>CpuShares</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
+        /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one
+        /// vCPU. This is required but can be specified in several places. It must be specified
+        /// for each node at least once.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
+        /// be provided. Jobs running on Fargate resources must specify the vCPU requirement for
+        /// the job using <code>resourceRequirements</code>.</para></note>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This field is deprecated, use resourceRequirements instead.")]
+        public System.Int32? ContainerProperties_Vcpus { get; set; }
         #endregion
         
         #region Parameter Select
@@ -629,6 +725,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.ContainerProperties_Environment = new List<Amazon.Batch.Model.KeyValuePair>(this.ContainerProperties_Environment);
             }
             context.ContainerProperties_ExecutionRoleArn = this.ContainerProperties_ExecutionRoleArn;
+            context.FargatePlatformConfiguration_PlatformVersion = this.FargatePlatformConfiguration_PlatformVersion;
             context.ContainerProperties_Image = this.ContainerProperties_Image;
             context.ContainerProperties_InstanceType = this.ContainerProperties_InstanceType;
             context.ContainerProperties_JobRoleArn = this.ContainerProperties_JobRoleArn;
@@ -657,11 +754,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.LogConfiguration_SecretOption = new List<Amazon.Batch.Model.Secret>(this.LogConfiguration_SecretOption);
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ContainerProperties_Memory = this.ContainerProperties_Memory;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ContainerProperties_MountPoint != null)
             {
                 context.ContainerProperties_MountPoint = new List<Amazon.Batch.Model.MountPoint>(this.ContainerProperties_MountPoint);
             }
+            context.NetworkConfiguration_AssignPublicIp = this.NetworkConfiguration_AssignPublicIp;
             context.ContainerProperties_Privileged = this.ContainerProperties_Privileged;
             context.ContainerProperties_ReadonlyRootFilesystem = this.ContainerProperties_ReadonlyRootFilesystem;
             if (this.ContainerProperties_ResourceRequirement != null)
@@ -677,7 +777,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.ContainerProperties_Ulimit = new List<Amazon.Batch.Model.Ulimit>(this.ContainerProperties_Ulimit);
             }
             context.ContainerProperties_User = this.ContainerProperties_User;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ContainerProperties_Vcpus = this.ContainerProperties_Vcpus;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ContainerProperties_Volume != null)
             {
                 context.ContainerProperties_Volume = new List<Amazon.Batch.Model.Volume>(this.ContainerProperties_Volume);
@@ -703,6 +805,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                     context.Parameter.Add((String)hashKey, (String)(this.Parameter[hashKey]));
                 }
             }
+            if (this.PlatformCapability != null)
+            {
+                context.PlatformCapability = new List<System.String>(this.PlatformCapability);
+            }
+            context.PropagateTag = this.PropagateTag;
             context.RetryStrategy_Attempt = this.RetryStrategy_Attempt;
             if (this.RetryStrategy_EvaluateOnExit != null)
             {
@@ -804,6 +911,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerProperties.JobRoleArn = requestContainerProperties_containerProperties_JobRoleArn;
                 requestContainerPropertiesIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int32? requestContainerProperties_containerProperties_Memory = null;
             if (cmdletContext.ContainerProperties_Memory != null)
             {
@@ -814,6 +922,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerProperties.Memory = requestContainerProperties_containerProperties_Memory.Value;
                 requestContainerPropertiesIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<Amazon.Batch.Model.MountPoint> requestContainerProperties_containerProperties_MountPoint = null;
             if (cmdletContext.ContainerProperties_MountPoint != null)
             {
@@ -884,6 +993,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerProperties.User = requestContainerProperties_containerProperties_User;
                 requestContainerPropertiesIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int32? requestContainerProperties_containerProperties_Vcpus = null;
             if (cmdletContext.ContainerProperties_Vcpus != null)
             {
@@ -894,6 +1004,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerProperties.Vcpus = requestContainerProperties_containerProperties_Vcpus.Value;
                 requestContainerPropertiesIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<Amazon.Batch.Model.Volume> requestContainerProperties_containerProperties_Volume = null;
             if (cmdletContext.ContainerProperties_Volume != null)
             {
@@ -902,6 +1013,56 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestContainerProperties_containerProperties_Volume != null)
             {
                 request.ContainerProperties.Volumes = requestContainerProperties_containerProperties_Volume;
+                requestContainerPropertiesIsNull = false;
+            }
+            Amazon.Batch.Model.FargatePlatformConfiguration requestContainerProperties_containerProperties_FargatePlatformConfiguration = null;
+            
+             // populate FargatePlatformConfiguration
+            var requestContainerProperties_containerProperties_FargatePlatformConfigurationIsNull = true;
+            requestContainerProperties_containerProperties_FargatePlatformConfiguration = new Amazon.Batch.Model.FargatePlatformConfiguration();
+            System.String requestContainerProperties_containerProperties_FargatePlatformConfiguration_fargatePlatformConfiguration_PlatformVersion = null;
+            if (cmdletContext.FargatePlatformConfiguration_PlatformVersion != null)
+            {
+                requestContainerProperties_containerProperties_FargatePlatformConfiguration_fargatePlatformConfiguration_PlatformVersion = cmdletContext.FargatePlatformConfiguration_PlatformVersion;
+            }
+            if (requestContainerProperties_containerProperties_FargatePlatformConfiguration_fargatePlatformConfiguration_PlatformVersion != null)
+            {
+                requestContainerProperties_containerProperties_FargatePlatformConfiguration.PlatformVersion = requestContainerProperties_containerProperties_FargatePlatformConfiguration_fargatePlatformConfiguration_PlatformVersion;
+                requestContainerProperties_containerProperties_FargatePlatformConfigurationIsNull = false;
+            }
+             // determine if requestContainerProperties_containerProperties_FargatePlatformConfiguration should be set to null
+            if (requestContainerProperties_containerProperties_FargatePlatformConfigurationIsNull)
+            {
+                requestContainerProperties_containerProperties_FargatePlatformConfiguration = null;
+            }
+            if (requestContainerProperties_containerProperties_FargatePlatformConfiguration != null)
+            {
+                request.ContainerProperties.FargatePlatformConfiguration = requestContainerProperties_containerProperties_FargatePlatformConfiguration;
+                requestContainerPropertiesIsNull = false;
+            }
+            Amazon.Batch.Model.NetworkConfiguration requestContainerProperties_containerProperties_NetworkConfiguration = null;
+            
+             // populate NetworkConfiguration
+            var requestContainerProperties_containerProperties_NetworkConfigurationIsNull = true;
+            requestContainerProperties_containerProperties_NetworkConfiguration = new Amazon.Batch.Model.NetworkConfiguration();
+            Amazon.Batch.AssignPublicIp requestContainerProperties_containerProperties_NetworkConfiguration_networkConfiguration_AssignPublicIp = null;
+            if (cmdletContext.NetworkConfiguration_AssignPublicIp != null)
+            {
+                requestContainerProperties_containerProperties_NetworkConfiguration_networkConfiguration_AssignPublicIp = cmdletContext.NetworkConfiguration_AssignPublicIp;
+            }
+            if (requestContainerProperties_containerProperties_NetworkConfiguration_networkConfiguration_AssignPublicIp != null)
+            {
+                requestContainerProperties_containerProperties_NetworkConfiguration.AssignPublicIp = requestContainerProperties_containerProperties_NetworkConfiguration_networkConfiguration_AssignPublicIp;
+                requestContainerProperties_containerProperties_NetworkConfigurationIsNull = false;
+            }
+             // determine if requestContainerProperties_containerProperties_NetworkConfiguration should be set to null
+            if (requestContainerProperties_containerProperties_NetworkConfigurationIsNull)
+            {
+                requestContainerProperties_containerProperties_NetworkConfiguration = null;
+            }
+            if (requestContainerProperties_containerProperties_NetworkConfiguration != null)
+            {
+                request.ContainerProperties.NetworkConfiguration = requestContainerProperties_containerProperties_NetworkConfiguration;
                 requestContainerPropertiesIsNull = false;
             }
             Amazon.Batch.Model.LogConfiguration requestContainerProperties_containerProperties_LogConfiguration = null;
@@ -1076,6 +1237,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.Parameters = cmdletContext.Parameter;
             }
+            if (cmdletContext.PlatformCapability != null)
+            {
+                request.PlatformCapabilities = cmdletContext.PlatformCapability;
+            }
+            if (cmdletContext.PropagateTag != null)
+            {
+                request.PropagateTags = cmdletContext.PropagateTag.Value;
+            }
             
              // populate RetryStrategy
             var requestRetryStrategyIsNull = true;
@@ -1181,6 +1350,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<System.String> ContainerProperties_Command { get; set; }
             public List<Amazon.Batch.Model.KeyValuePair> ContainerProperties_Environment { get; set; }
             public System.String ContainerProperties_ExecutionRoleArn { get; set; }
+            public System.String FargatePlatformConfiguration_PlatformVersion { get; set; }
             public System.String ContainerProperties_Image { get; set; }
             public System.String ContainerProperties_InstanceType { get; set; }
             public System.String ContainerProperties_JobRoleArn { get; set; }
@@ -1193,14 +1363,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public Amazon.Batch.LogDriver LogConfiguration_LogDriver { get; set; }
             public Dictionary<System.String, System.String> LogConfiguration_Option { get; set; }
             public List<Amazon.Batch.Model.Secret> LogConfiguration_SecretOption { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int32? ContainerProperties_Memory { get; set; }
             public List<Amazon.Batch.Model.MountPoint> ContainerProperties_MountPoint { get; set; }
+            public Amazon.Batch.AssignPublicIp NetworkConfiguration_AssignPublicIp { get; set; }
             public System.Boolean? ContainerProperties_Privileged { get; set; }
             public System.Boolean? ContainerProperties_ReadonlyRootFilesystem { get; set; }
             public List<Amazon.Batch.Model.ResourceRequirement> ContainerProperties_ResourceRequirement { get; set; }
             public List<Amazon.Batch.Model.Secret> ContainerProperties_Secret { get; set; }
             public List<Amazon.Batch.Model.Ulimit> ContainerProperties_Ulimit { get; set; }
             public System.String ContainerProperties_User { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int32? ContainerProperties_Vcpus { get; set; }
             public List<Amazon.Batch.Model.Volume> ContainerProperties_Volume { get; set; }
             public System.String JobDefinitionName { get; set; }
@@ -1208,6 +1381,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<Amazon.Batch.Model.NodeRangeProperty> NodeProperties_NodeRangeProperty { get; set; }
             public System.Int32? NodeProperties_NumNode { get; set; }
             public Dictionary<System.String, System.String> Parameter { get; set; }
+            public List<System.String> PlatformCapability { get; set; }
+            public System.Boolean? PropagateTag { get; set; }
             public System.Int32? RetryStrategy_Attempt { get; set; }
             public List<Amazon.Batch.Model.EvaluateOnExit> RetryStrategy_EvaluateOnExit { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

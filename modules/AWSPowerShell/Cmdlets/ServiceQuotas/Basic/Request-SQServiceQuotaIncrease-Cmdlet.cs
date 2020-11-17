@@ -28,8 +28,7 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Retrieves the details of a service quota increase request. The response to this command
-    /// provides the details in the <a>RequestedServiceQuotaChange</a> object.
+    /// Submits a quota increase request for the specified quota.
     /// </summary>
     [Cmdlet("Request", "SQServiceQuotaIncrease", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceQuotas.Model.RequestedServiceQuotaChange")]
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter DesiredValue
         /// <summary>
         /// <para>
-        /// <para>Specifies the value submitted in the service quota increase request. </para>
+        /// <para>The new, increased value for the quota.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter QuotaCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the service quota that you want to use.</para>
+        /// <para>The quota identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the service that you want to use.</para>
+        /// <para>The service identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

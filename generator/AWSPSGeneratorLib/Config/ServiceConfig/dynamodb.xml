@@ -25,6 +25,10 @@
         <Property>LastEvaluatedTableName</Property>
     </MetadataProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchExecuteStatement" OutputProperty="Responses" Verb="Invoke" Noun="DDBBatchExecuteStatement" ShouldProcessTarget="Statements" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetItem" Verb="Get" Noun="BatchItem" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -85,6 +89,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeKinesisStreamingDestination" OutputProperty="*" Verb="Get" Noun="KinesisStreamingDestination" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeLimits" OutputProperty="*" Verb="Get" Noun="ProvisionLimit" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -98,6 +106,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTimeToLive" OutputProperty="TimeToLiveDescription" Verb="Get" Noun="TimeToLive" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableKinesisStreamingDestination" OutputProperty="*" Verb="Disable" Noun="KinesisStreamingDestination" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableKinesisStreamingDestination" OutputProperty="*" Verb="Enable" Noun="KinesisStreamingDestination" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExecuteStatement" OutputProperty="Items" Verb="Invoke" Noun="DDBExecuteStatement" ShouldProcessTarget="Statement" PipelineParameter="Statement" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExecuteTransaction" OutputProperty="Responses" Verb="Invoke" Noun="DDBExecuteTransaction" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

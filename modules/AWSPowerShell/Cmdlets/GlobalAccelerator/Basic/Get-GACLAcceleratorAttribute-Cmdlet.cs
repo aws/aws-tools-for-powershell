@@ -28,8 +28,7 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Describe the attributes of an accelerator. To see an AWS CLI example of describing
-    /// the attributes of an accelerator, scroll down to <b>Example</b>.
+    /// Describe the attributes of an accelerator.
     /// </summary>
     [Cmdlet("Get", "GACLAcceleratorAttribute")]
     [OutputType("Amazon.GlobalAccelerator.Model.AcceleratorAttributes")]

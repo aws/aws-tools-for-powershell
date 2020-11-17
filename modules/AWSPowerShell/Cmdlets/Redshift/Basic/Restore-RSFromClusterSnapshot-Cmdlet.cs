@@ -98,6 +98,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter AvailabilityZoneRelocation
+        /// <summary>
+        /// <para>
+        /// <para>The option to enable relocation for an Amazon Redshift cluster between Availability
+        /// Zones after the cluster is restored.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AvailabilityZoneRelocation { get; set; }
+        #endregion
+        
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
@@ -435,6 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.AllowVersionUpgrade = this.AllowVersionUpgrade;
             context.AutomatedSnapshotRetentionPeriod = this.AutomatedSnapshotRetentionPeriod;
             context.AvailabilityZone = this.AvailabilityZone;
+            context.AvailabilityZoneRelocation = this.AvailabilityZoneRelocation;
             context.ClusterIdentifier = this.ClusterIdentifier;
             #if MODULAR
             if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
@@ -509,6 +521,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.AvailabilityZoneRelocation != null)
+            {
+                request.AvailabilityZoneRelocation = cmdletContext.AvailabilityZoneRelocation.Value;
             }
             if (cmdletContext.ClusterIdentifier != null)
             {
@@ -663,6 +679,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.Boolean? AllowVersionUpgrade { get; set; }
             public System.Int32? AutomatedSnapshotRetentionPeriod { get; set; }
             public System.String AvailabilityZone { get; set; }
+            public System.Boolean? AvailabilityZoneRelocation { get; set; }
             public System.String ClusterIdentifier { get; set; }
             public System.String ClusterParameterGroupName { get; set; }
             public List<System.String> ClusterSecurityGroup { get; set; }

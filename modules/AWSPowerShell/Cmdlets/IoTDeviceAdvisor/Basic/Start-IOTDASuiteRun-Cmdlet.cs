@@ -1,0 +1,410 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.IoTDeviceAdvisor;
+using Amazon.IoTDeviceAdvisor.Model;
+
+namespace Amazon.PowerShell.Cmdlets.IOTDA
+{
+    /// <summary>
+    /// Starts a Device Advisor test suite run.
+    /// </summary>
+    [Cmdlet("Start", "IOTDASuiteRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.IoTDeviceAdvisor.Model.StartSuiteRunResponse")]
+    [AWSCmdlet("Calls the AWS IoT Core Device Advisor StartSuiteRun API operation.", Operation = new[] {"StartSuiteRun"}, SelectReturnType = typeof(Amazon.IoTDeviceAdvisor.Model.StartSuiteRunResponse))]
+    [AWSCmdletOutput("Amazon.IoTDeviceAdvisor.Model.StartSuiteRunResponse",
+        "This cmdlet returns an Amazon.IoTDeviceAdvisor.Model.StartSuiteRunResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class StartIOTDASuiteRunCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
+    {
+        
+        #region Parameter PrimaryDevice_CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>Lists devices certificate arn</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SuiteRunConfiguration_PrimaryDevice_CertificateArn")]
+        public System.String PrimaryDevice_CertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter SecondaryDevice_CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>Lists devices certificate arn</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SuiteRunConfiguration_SecondaryDevice_CertificateArn")]
+        public System.String SecondaryDevice_CertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter SuiteRunConfiguration_SelectedTestList
+        /// <summary>
+        /// <para>
+        /// <para>Gets test case list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] SuiteRunConfiguration_SelectedTestList { get; set; }
+        #endregion
+        
+        #region Parameter SuiteDefinitionId
+        /// <summary>
+        /// <para>
+        /// <para>Request to start suite run based on suite definition Id.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SuiteDefinitionId { get; set; }
+        #endregion
+        
+        #region Parameter SuiteDefinitionVersion
+        /// <summary>
+        /// <para>
+        /// <para>Request to start suite run based on suite definition version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SuiteDefinitionVersion { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to be attached to the suite run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter PrimaryDevice_ThingArn
+        /// <summary>
+        /// <para>
+        /// <para>Lists devices thing arn</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SuiteRunConfiguration_PrimaryDevice_ThingArn")]
+        public System.String PrimaryDevice_ThingArn { get; set; }
+        #endregion
+        
+        #region Parameter SecondaryDevice_ThingArn
+        /// <summary>
+        /// <para>
+        /// <para>Lists devices thing arn</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SuiteRunConfiguration_SecondaryDevice_ThingArn")]
+        public System.String SecondaryDevice_ThingArn { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTDeviceAdvisor.Model.StartSuiteRunResponse).
+        /// Specifying the name of a property of type Amazon.IoTDeviceAdvisor.Model.StartSuiteRunResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the SuiteDefinitionId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SuiteDefinitionId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SuiteDefinitionId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SuiteDefinitionId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-IOTDASuiteRun (StartSuiteRun)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.IoTDeviceAdvisor.Model.StartSuiteRunResponse, StartIOTDASuiteRunCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.SuiteDefinitionId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.SuiteDefinitionId = this.SuiteDefinitionId;
+            #if MODULAR
+            if (this.SuiteDefinitionId == null && ParameterWasBound(nameof(this.SuiteDefinitionId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SuiteDefinitionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SuiteDefinitionVersion = this.SuiteDefinitionVersion;
+            context.PrimaryDevice_CertificateArn = this.PrimaryDevice_CertificateArn;
+            context.PrimaryDevice_ThingArn = this.PrimaryDevice_ThingArn;
+            context.SecondaryDevice_CertificateArn = this.SecondaryDevice_CertificateArn;
+            context.SecondaryDevice_ThingArn = this.SecondaryDevice_ThingArn;
+            if (this.SuiteRunConfiguration_SelectedTestList != null)
+            {
+                context.SuiteRunConfiguration_SelectedTestList = new List<System.String>(this.SuiteRunConfiguration_SelectedTestList);
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.IoTDeviceAdvisor.Model.StartSuiteRunRequest();
+            
+            if (cmdletContext.SuiteDefinitionId != null)
+            {
+                request.SuiteDefinitionId = cmdletContext.SuiteDefinitionId;
+            }
+            if (cmdletContext.SuiteDefinitionVersion != null)
+            {
+                request.SuiteDefinitionVersion = cmdletContext.SuiteDefinitionVersion;
+            }
+            
+             // populate SuiteRunConfiguration
+            var requestSuiteRunConfigurationIsNull = true;
+            request.SuiteRunConfiguration = new Amazon.IoTDeviceAdvisor.Model.SuiteRunConfiguration();
+            List<System.String> requestSuiteRunConfiguration_suiteRunConfiguration_SelectedTestList = null;
+            if (cmdletContext.SuiteRunConfiguration_SelectedTestList != null)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_SelectedTestList = cmdletContext.SuiteRunConfiguration_SelectedTestList;
+            }
+            if (requestSuiteRunConfiguration_suiteRunConfiguration_SelectedTestList != null)
+            {
+                request.SuiteRunConfiguration.SelectedTestList = requestSuiteRunConfiguration_suiteRunConfiguration_SelectedTestList;
+                requestSuiteRunConfigurationIsNull = false;
+            }
+            Amazon.IoTDeviceAdvisor.Model.DeviceUnderTest requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice = null;
+            
+             // populate PrimaryDevice
+            var requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDeviceIsNull = true;
+            requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice = new Amazon.IoTDeviceAdvisor.Model.DeviceUnderTest();
+            System.String requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_CertificateArn = null;
+            if (cmdletContext.PrimaryDevice_CertificateArn != null)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_CertificateArn = cmdletContext.PrimaryDevice_CertificateArn;
+            }
+            if (requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_CertificateArn != null)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice.CertificateArn = requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_CertificateArn;
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDeviceIsNull = false;
+            }
+            System.String requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_ThingArn = null;
+            if (cmdletContext.PrimaryDevice_ThingArn != null)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_ThingArn = cmdletContext.PrimaryDevice_ThingArn;
+            }
+            if (requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_ThingArn != null)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice.ThingArn = requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_ThingArn;
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDeviceIsNull = false;
+            }
+             // determine if requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice should be set to null
+            if (requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDeviceIsNull)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice = null;
+            }
+            if (requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice != null)
+            {
+                request.SuiteRunConfiguration.PrimaryDevice = requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice;
+                requestSuiteRunConfigurationIsNull = false;
+            }
+            Amazon.IoTDeviceAdvisor.Model.DeviceUnderTest requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice = null;
+            
+             // populate SecondaryDevice
+            var requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDeviceIsNull = true;
+            requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice = new Amazon.IoTDeviceAdvisor.Model.DeviceUnderTest();
+            System.String requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_CertificateArn = null;
+            if (cmdletContext.SecondaryDevice_CertificateArn != null)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_CertificateArn = cmdletContext.SecondaryDevice_CertificateArn;
+            }
+            if (requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_CertificateArn != null)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice.CertificateArn = requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_CertificateArn;
+                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDeviceIsNull = false;
+            }
+            System.String requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_ThingArn = null;
+            if (cmdletContext.SecondaryDevice_ThingArn != null)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_ThingArn = cmdletContext.SecondaryDevice_ThingArn;
+            }
+            if (requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_ThingArn != null)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice.ThingArn = requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_ThingArn;
+                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDeviceIsNull = false;
+            }
+             // determine if requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice should be set to null
+            if (requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDeviceIsNull)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice = null;
+            }
+            if (requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice != null)
+            {
+                request.SuiteRunConfiguration.SecondaryDevice = requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice;
+                requestSuiteRunConfigurationIsNull = false;
+            }
+             // determine if request.SuiteRunConfiguration should be set to null
+            if (requestSuiteRunConfigurationIsNull)
+            {
+                request.SuiteRunConfiguration = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.IoTDeviceAdvisor.Model.StartSuiteRunResponse CallAWSServiceOperation(IAmazonIoTDeviceAdvisor client, Amazon.IoTDeviceAdvisor.Model.StartSuiteRunRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT Core Device Advisor", "StartSuiteRun");
+            try
+            {
+                #if DESKTOP
+                return client.StartSuiteRun(request);
+                #elif CORECLR
+                return client.StartSuiteRunAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String SuiteDefinitionId { get; set; }
+            public System.String SuiteDefinitionVersion { get; set; }
+            public System.String PrimaryDevice_CertificateArn { get; set; }
+            public System.String PrimaryDevice_ThingArn { get; set; }
+            public System.String SecondaryDevice_CertificateArn { get; set; }
+            public System.String SecondaryDevice_ThingArn { get; set; }
+            public List<System.String> SuiteRunConfiguration_SelectedTestList { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Func<Amazon.IoTDeviceAdvisor.Model.StartSuiteRunResponse, StartIOTDASuiteRunCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

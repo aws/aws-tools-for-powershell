@@ -94,6 +94,13 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.Format
+        "Write-S3CStorageLensConfiguration/StorageLensConfiguration_DataExport_S3BucketDestination_Format"
+        {
+            $v = "CSV","Parquet"
+            break
+        }
+
         # Amazon.S3Control.JobManifestFormat
         "New-S3CJob/Manifest_Spec_Format"
         {
@@ -112,6 +119,13 @@ $S3C_Completers = {
         "New-S3CJob/Report_ReportScope"
         {
             $v = "AllTasks","FailedTasksOnly"
+            break
+        }
+
+        # Amazon.S3Control.OutputSchemaVersion
+        "Write-S3CStorageLensConfiguration/StorageLensConfiguration_DataExport_S3BucketDestination_OutputSchemaVersion"
+        {
+            $v = "V_1"
             break
         }
 
@@ -209,6 +223,8 @@ $S3C_map = @{
     "Report_Format"=@("New-S3CJob")
     "Report_ReportScope"=@("New-S3CJob")
     "RequestedJobStatus"=@("Update-S3CJobStatus")
+    "StorageLensConfiguration_DataExport_S3BucketDestination_Format"=@("Write-S3CStorageLensConfiguration")
+    "StorageLensConfiguration_DataExport_S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
 }
 
 _awsArgumentCompleterRegistration $S3C_Completers $S3C_map
@@ -272,6 +288,8 @@ $S3C_SelectMap = @{
                "Remove-S3CBucketTagging",
                "Remove-S3CJobTagging",
                "Remove-S3CPublicAccessBlock",
+               "Remove-S3CStorageLensConfiguration",
+               "Remove-S3CStorageLensConfigurationTagging",
                "Get-S3CJob",
                "Get-S3CAccessPoint",
                "Get-S3CAccessPointPolicy",
@@ -282,15 +300,20 @@ $S3C_SelectMap = @{
                "Get-S3CBucketTagging",
                "Get-S3CJobTagging",
                "Get-S3CPublicAccessBlock",
+               "Get-S3CStorageLensConfiguration",
+               "Get-S3CStorageLensConfigurationTagging",
                "Get-S3CAccessPointList",
                "Get-S3CJobList",
                "Get-S3CRegionalBucketList",
+               "Get-S3CStorageLensConfigurationList",
                "Write-S3CAccessPointPolicy",
                "Write-S3CBucketLifecycleConfiguration",
                "Write-S3CBucketPolicy",
                "Write-S3CBucketTagging",
                "Add-S3CJobTagging",
                "Add-S3CPublicAccessBlock",
+               "Write-S3CStorageLensConfiguration",
+               "Write-S3CStorageLensConfigurationTagging",
                "Update-S3CJobPriority",
                "Update-S3CJobStatus")
 }

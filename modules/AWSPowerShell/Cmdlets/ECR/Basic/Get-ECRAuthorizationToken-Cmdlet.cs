@@ -58,8 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// AuthorizationData objects. If you do not specify a registry, the default registry
         /// is assumed.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.ObsoleteAttribute("This field is deprecated. The returned authorization token can be used to access any Amazon ECR registry that the IAM principal has access to, specifying a registry ID doesn\u0027t change the permissions scope of the authorization token.")]
         [Alias("RegistryIds")]
         public System.String[] RegistryId { get; set; }
         #endregion
@@ -109,10 +111,12 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 context.Select = (response, cmdlet) => this.RegistryId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.RegistryId != null)
             {
                 context.RegistryId = new List<System.String>(this.RegistryId);
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -129,10 +133,12 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             // create request
             var request = new Amazon.ECR.Model.GetAuthorizationTokenRequest();
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.RegistryId != null)
             {
                 request.RegistryIds = cmdletContext.RegistryId;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -194,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            [System.ObsoleteAttribute]
             public List<System.String> RegistryId { get; set; }
             public System.Func<Amazon.ECR.Model.GetAuthorizationTokenResponse, GetECRAuthorizationTokenCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AuthorizationData;

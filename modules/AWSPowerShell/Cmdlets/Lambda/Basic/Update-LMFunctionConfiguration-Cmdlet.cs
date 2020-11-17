@@ -58,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class UpdateLMFunctionConfigurationCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        #region Parameter ImageConfig_Command
+        /// <summary>
+        /// <para>
+        /// <para>Specifies parameters that you want to pass in with ENTRYPOINT. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ImageConfig_Command { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -66,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter ImageConfig_EntryPoint
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the entry point to their application, which is typically the location of
+        /// the runtime executable.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ImageConfig_EntryPoint { get; set; }
         #endregion
         
         #region Parameter FileSystemConfig
@@ -107,6 +128,34 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Handler { get; set; }
+        #endregion
+        
+        #region Parameter ImageConfig_IsCommandSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.Lambda.Model.ImageConfig.Command" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ImageConfig_IsCommandSet { get; set; }
+        #endregion
+        
+        #region Parameter ImageConfig_IsEntryPointSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.Lambda.Model.ImageConfig.EntryPoint" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ImageConfig_IsEntryPointSet { get; set; }
         #endregion
         
         #region Parameter IsLayersSet
@@ -165,9 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MemorySize
         /// <summary>
         /// <para>
-        /// <para>The amount of memory that your function has access to. Increasing the function's memory
-        /// also increases its CPU allocation. The default value is 128 MB. The value must be
-        /// a multiple of 64 MB.</para>
+        /// <para>The amount of memory available to the function at runtime. Increasing the function's
+        /// memory also increases its CPU allocation. The default value is 128 MB. The value can
+        /// be any multiple of 1 MB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,6 +320,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Collections.Hashtable Environment_Variable { get; set; }
         #endregion
         
+        #region Parameter ImageConfig_WorkingDirectory
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the working directory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageConfig_WorkingDirectory { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -355,6 +414,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
             }
             #endif
             context.Handler = this.Handler;
+            if (this.ImageConfig_Command != null)
+            {
+                context.ImageConfig_Command = new List<System.String>(this.ImageConfig_Command);
+            }
+            context.ImageConfig_IsCommandSet = this.ImageConfig_IsCommandSet;
+            if (this.ImageConfig_EntryPoint != null)
+            {
+                context.ImageConfig_EntryPoint = new List<System.String>(this.ImageConfig_EntryPoint);
+            }
+            context.ImageConfig_IsEntryPointSet = this.ImageConfig_IsEntryPointSet;
+            context.ImageConfig_WorkingDirectory = this.ImageConfig_WorkingDirectory;
             context.KMSKeyArn = this.KMSKeyArn;
             if (this.Layer != null)
             {
@@ -454,6 +524,65 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.Handler != null)
             {
                 request.Handler = cmdletContext.Handler;
+            }
+            
+             // populate ImageConfig
+            var requestImageConfigIsNull = true;
+            request.ImageConfig = new Amazon.Lambda.Model.ImageConfig();
+            List<System.String> requestImageConfig_imageConfig_Command = null;
+            if (cmdletContext.ImageConfig_Command != null)
+            {
+                requestImageConfig_imageConfig_Command = cmdletContext.ImageConfig_Command;
+            }
+            if (requestImageConfig_imageConfig_Command != null)
+            {
+                request.ImageConfig.Command = requestImageConfig_imageConfig_Command;
+                requestImageConfigIsNull = false;
+            }
+            System.Boolean? requestImageConfig_imageConfig_IsCommandSet = null;
+            if (cmdletContext.ImageConfig_IsCommandSet != null)
+            {
+                requestImageConfig_imageConfig_IsCommandSet = cmdletContext.ImageConfig_IsCommandSet.Value;
+            }
+            if (requestImageConfig_imageConfig_IsCommandSet != null)
+            {
+                request.ImageConfig.IsCommandSet = requestImageConfig_imageConfig_IsCommandSet.Value;
+                requestImageConfigIsNull = false;
+            }
+            List<System.String> requestImageConfig_imageConfig_EntryPoint = null;
+            if (cmdletContext.ImageConfig_EntryPoint != null)
+            {
+                requestImageConfig_imageConfig_EntryPoint = cmdletContext.ImageConfig_EntryPoint;
+            }
+            if (requestImageConfig_imageConfig_EntryPoint != null)
+            {
+                request.ImageConfig.EntryPoint = requestImageConfig_imageConfig_EntryPoint;
+                requestImageConfigIsNull = false;
+            }
+            System.Boolean? requestImageConfig_imageConfig_IsEntryPointSet = null;
+            if (cmdletContext.ImageConfig_IsEntryPointSet != null)
+            {
+                requestImageConfig_imageConfig_IsEntryPointSet = cmdletContext.ImageConfig_IsEntryPointSet.Value;
+            }
+            if (requestImageConfig_imageConfig_IsEntryPointSet != null)
+            {
+                request.ImageConfig.IsEntryPointSet = requestImageConfig_imageConfig_IsEntryPointSet.Value;
+                requestImageConfigIsNull = false;
+            }
+            System.String requestImageConfig_imageConfig_WorkingDirectory = null;
+            if (cmdletContext.ImageConfig_WorkingDirectory != null)
+            {
+                requestImageConfig_imageConfig_WorkingDirectory = cmdletContext.ImageConfig_WorkingDirectory;
+            }
+            if (requestImageConfig_imageConfig_WorkingDirectory != null)
+            {
+                request.ImageConfig.WorkingDirectory = requestImageConfig_imageConfig_WorkingDirectory;
+                requestImageConfigIsNull = false;
+            }
+             // determine if request.ImageConfig should be set to null
+            if (requestImageConfigIsNull)
+            {
+                request.ImageConfig = null;
             }
             if (cmdletContext.KMSKeyArn != null)
             {
@@ -603,6 +732,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public List<Amazon.Lambda.Model.FileSystemConfig> FileSystemConfig { get; set; }
             public System.String FunctionName { get; set; }
             public System.String Handler { get; set; }
+            public List<System.String> ImageConfig_Command { get; set; }
+            public System.Boolean? ImageConfig_IsCommandSet { get; set; }
+            public List<System.String> ImageConfig_EntryPoint { get; set; }
+            public System.Boolean? ImageConfig_IsEntryPointSet { get; set; }
+            public System.String ImageConfig_WorkingDirectory { get; set; }
             public System.String KMSKeyArn { get; set; }
             public List<System.String> Layer { get; set; }
             public System.Boolean? IsLayersSet { get; set; }

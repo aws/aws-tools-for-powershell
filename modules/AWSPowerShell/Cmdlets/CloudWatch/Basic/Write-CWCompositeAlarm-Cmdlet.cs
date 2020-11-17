@@ -68,6 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </para><para>
     /// When you update an existing alarm, its state is left unchanged, but the update completely
     /// overwrites the previous configuration of the alarm.
+    /// </para><para>
+    /// If you are an IAM user, you must have <code>iam:CreateServiceLinkedRole</code> to
+    /// create a composite alarm that has Systems Manager OpsItem actions.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWCompositeAlarm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -95,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The actions to execute when this alarm transitions to the <code>ALARM</code> state
-        /// from any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code></para>
+        /// from any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code> | <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i></code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

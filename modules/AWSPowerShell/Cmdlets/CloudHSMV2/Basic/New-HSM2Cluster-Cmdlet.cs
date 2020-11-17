@@ -99,6 +99,28 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         public Amazon.CloudHSMV2.Model.Tag[] TagList { get; set; }
         #endregion
         
+        #region Parameter BackupRetentionPolicy_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of backup retention policy. For the <code>DAYS</code> type, the value is
+        /// the number of days to retain backups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudHSMV2.BackupRetentionType")]
+        public Amazon.CloudHSMV2.BackupRetentionType BackupRetentionPolicy_Type { get; set; }
+        #endregion
+        
+        #region Parameter BackupRetentionPolicy_Value
+        /// <summary>
+        /// <para>
+        /// <para>Use a value between 7 - 379.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BackupRetentionPolicy_Value { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Cluster'.
@@ -140,6 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
                 context.Select = CreateSelectDelegate<Amazon.CloudHSMV2.Model.CreateClusterResponse, NewHSM2ClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.BackupRetentionPolicy_Type = this.BackupRetentionPolicy_Type;
+            context.BackupRetentionPolicy_Value = this.BackupRetentionPolicy_Value;
             context.HsmType = this.HsmType;
             #if MODULAR
             if (this.HsmType == null && ParameterWasBound(nameof(this.HsmType)))
@@ -178,6 +202,35 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             // create request
             var request = new Amazon.CloudHSMV2.Model.CreateClusterRequest();
             
+            
+             // populate BackupRetentionPolicy
+            var requestBackupRetentionPolicyIsNull = true;
+            request.BackupRetentionPolicy = new Amazon.CloudHSMV2.Model.BackupRetentionPolicy();
+            Amazon.CloudHSMV2.BackupRetentionType requestBackupRetentionPolicy_backupRetentionPolicy_Type = null;
+            if (cmdletContext.BackupRetentionPolicy_Type != null)
+            {
+                requestBackupRetentionPolicy_backupRetentionPolicy_Type = cmdletContext.BackupRetentionPolicy_Type;
+            }
+            if (requestBackupRetentionPolicy_backupRetentionPolicy_Type != null)
+            {
+                request.BackupRetentionPolicy.Type = requestBackupRetentionPolicy_backupRetentionPolicy_Type;
+                requestBackupRetentionPolicyIsNull = false;
+            }
+            System.String requestBackupRetentionPolicy_backupRetentionPolicy_Value = null;
+            if (cmdletContext.BackupRetentionPolicy_Value != null)
+            {
+                requestBackupRetentionPolicy_backupRetentionPolicy_Value = cmdletContext.BackupRetentionPolicy_Value;
+            }
+            if (requestBackupRetentionPolicy_backupRetentionPolicy_Value != null)
+            {
+                request.BackupRetentionPolicy.Value = requestBackupRetentionPolicy_backupRetentionPolicy_Value;
+                requestBackupRetentionPolicyIsNull = false;
+            }
+             // determine if request.BackupRetentionPolicy should be set to null
+            if (requestBackupRetentionPolicyIsNull)
+            {
+                request.BackupRetentionPolicy = null;
+            }
             if (cmdletContext.HsmType != null)
             {
                 request.HsmType = cmdletContext.HsmType;
@@ -255,6 +308,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.CloudHSMV2.BackupRetentionType BackupRetentionPolicy_Type { get; set; }
+            public System.String BackupRetentionPolicy_Value { get; set; }
             public System.String HsmType { get; set; }
             public System.String SourceBackupId { get; set; }
             public List<System.String> SubnetId { get; set; }

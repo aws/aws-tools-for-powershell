@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>iotwireless</C2jFilename>
+    <AssemblyName>IoTWireless</AssemblyName>
+    <ServiceNounPrefix>IOTW</ServiceNounPrefix>
+    <ServiceName>AWS IoT Wireless</ServiceName>
+    <ServiceClientInterface>IAmazonIoTWireless</ServiceClientInterface>
+    <ServiceClient>AmazonIoTWirelessClient</ServiceClient>
+    <ServiceModuleGuid>841c8390-26c9-43eb-bdc5-4f7408581e2a</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateAwsAccountWithPartnerAccount" OutputProperty="Sidewalk" Verb="Join" Noun="AwsAccountWithPartnerAccount" ShouldProcessTarget="Sidewalk_AmazonId" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateWirelessDeviceWithThing" Verb="Join" Noun="WirelessDeviceWithThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateWirelessGatewayWithCertificate" OutputProperty="IotCertificateId" Verb="Join" Noun="WirelessGatewayWithCertificate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateWirelessGatewayWithThing" Verb="Join" Noun="WirelessGatewayWithThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDestination" OutputProperty="*" Verb="New" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDeviceProfile" OutputProperty="*" Verb="New" Noun="DeviceProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateServiceProfile" OutputProperty="*" Verb="New" Noun="ServiceProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWirelessDevice" OutputProperty="*" Verb="New" Noun="WirelessDevice" ShouldProcessTarget="DestinationName" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params>
+                <Param Name="LoRaWAN_AbpV1_0_x_DevAddr" NewName="LoRaWAN_AbpV1_0_x_DevAddr" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_AbpV1_0_x_SessionKeys_AppSKey" NewName="LoRaWAN_AbpV1_0_x_SessionKeys_AppSKey" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_AbpV1_0_x_SessionKeys_NwkSKey" NewName="LoRaWAN_AbpV1_0_x_SessionKeys_NwkSKey" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_AbpV1_1_DevAddr" NewName="LoRaWAN_AbpV1_1_DevAddr" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_AbpV1_1_SessionKeys_AppSKey" NewName="LoRaWAN_AbpV1_1_SessionKeys_AppSKey" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_AbpV1_1_SessionKeys_FNwkSIntKey" NewName="LoRaWAN_AbpV1_1_SessionKeys_FNwkSIntKey" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_AbpV1_1_SessionKeys_NwkSEncKey" NewName="LoRaWAN_AbpV1_1_SessionKeys_NwkSEncKey" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_AbpV1_1_SessionKeys_SNwkSIntKey" NewName="LoRaWAN_AbpV1_1_SessionKeys_SNwkSIntKey" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_DevEui" NewName="LoRaWAN_DevEui" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_DeviceProfileId" NewName="LoRaWAN_DeviceProfileId" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_OtaaV1_0_x_AppEui" NewName="LoRaWAN_OtaaV1_0_x_AppEui" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_OtaaV1_0_x_AppKey" NewName="LoRaWAN_OtaaV1_0_x_AppKey" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_OtaaV1_1_AppKey" NewName="LoRaWAN_OtaaV1_1_AppKey" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_OtaaV1_1_JoinEui" NewName="LoRaWAN_OtaaV1_1_JoinEui" AutoApplyAlias="false" />
+                <Param Name="LoRaWAN_OtaaV1_1_NwkKey" NewName="LoRaWAN_OtaaV1_1_NwkKey" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWirelessGateway" OutputProperty="*" Verb="New" Noun="WirelessGateway" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWirelessGatewayTask" OutputProperty="*" Verb="New" Noun="WirelessGatewayTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWirelessGatewayTaskDefinition" OutputProperty="Id" Verb="New" Noun="WirelessGatewayTaskDefinition" ShouldProcessTarget="Name" PipelineParameter="AutoCreateTasks" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDestination" Verb="Remove" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeviceProfile" Verb="Remove" Noun="DeviceProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServiceProfile" Verb="Remove" Noun="ServiceProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWirelessDevice" Verb="Remove" Noun="WirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWirelessGateway" Verb="Remove" Noun="WirelessGateway" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWirelessGatewayTask" Verb="Remove" Noun="WirelessGatewayTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWirelessGatewayTaskDefinition" Verb="Remove" Noun="WirelessGatewayTaskDefinition" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAwsAccountFromPartnerAccount" Verb="Split" Noun="AwsAccountFromPartnerAccount" ShouldProcessTarget="PartnerAccountId" PipelineParameter="PartnerAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateWirelessDeviceFromThing" Verb="Split" Noun="WirelessDeviceFromThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateWirelessGatewayFromCertificate" Verb="Split" Noun="WirelessGatewayFromCertificate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateWirelessGatewayFromThing" Verb="Split" Noun="WirelessGatewayFromThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDestination" OutputProperty="*" Verb="Get" Noun="Destination" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeviceProfile" OutputProperty="*" Verb="Get" Noun="DeviceProfile" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPartnerAccount" OutputProperty="*" Verb="Get" Noun="PartnerAccount" PipelineParameter="PartnerAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceEndpoint" OutputProperty="*" Verb="Get" Noun="ServiceEndpoint" PipelineParameter="ServiceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceProfile" OutputProperty="*" Verb="Get" Noun="ServiceProfile" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWirelessDevice" OutputProperty="*" Verb="Get" Noun="WirelessDevice" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWirelessDeviceStatistics" OutputProperty="*" Verb="Get" Noun="WirelessDeviceStatistic" PipelineParameter="WirelessDeviceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWirelessGateway" OutputProperty="*" Verb="Get" Noun="WirelessGateway" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWirelessGatewayCertificate" OutputProperty="IotCertificateId" Verb="Get" Noun="WirelessGatewayCertificate" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWirelessGatewayFirmwareInformation" OutputProperty="LoRaWAN" Verb="Get" Noun="WirelessGatewayFirmwareInformation" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWirelessGatewayStatistics" OutputProperty="*" Verb="Get" Noun="WirelessGatewayStatistic" PipelineParameter="WirelessGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWirelessGatewayTask" OutputProperty="*" Verb="Get" Noun="WirelessGatewayTask" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWirelessGatewayTaskDefinition" OutputProperty="*" Verb="Get" Noun="WirelessGatewayTaskDefinition" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDestinations" OutputProperty="DestinationList" Verb="Get" Noun="DestinationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeviceProfiles" OutputProperty="DeviceProfileList" Verb="Get" Noun="DeviceProfileList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPartnerAccounts" OutputProperty="Sidewalk" Verb="Get" Noun="PartnerAccountList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceProfiles" OutputProperty="ServiceProfileList" Verb="Get" Noun="ServiceProfileList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWirelessDevices" OutputProperty="WirelessDeviceList" Verb="Get" Noun="WirelessDeviceList" PipelineParameter="DestinationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWirelessGateways" OutputProperty="WirelessGatewayList" Verb="Get" Noun="WirelessGatewayList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWirelessGatewayTaskDefinitions" OutputProperty="TaskDefinitions" Verb="Get" Noun="WirelessGatewayTaskDefinitionList" PipelineParameter="TaskDefinitionType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendDataToWirelessDevice" OutputProperty="MessageId" Verb="Send" Noun="DataToWirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestWirelessDevice" OutputProperty="Result" Verb="Test" Noun="WirelessDevice" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDestination" Verb="Update" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePartnerAccount" Verb="Update" Noun="PartnerAccount" ShouldProcessTarget="PartnerAccountId" PipelineParameter="PartnerAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWirelessDevice" Verb="Update" Noun="WirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWirelessGateway" Verb="Update" Noun="WirelessGateway" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -33,11 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     ///  
     /// <para>
     /// All Amazon S3 on Outposts REST API requests for this action require an additional
-    /// parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint
-    /// hostname prefix instead of s3-control. For an example of the request syntax for Amazon
-    /// S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id
-    /// derived using the access point ARN, see the ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteAccessPoint.html#API_control_DeleteAccessPoint_Examples">
-    /// Example</a> section below.
+    /// parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3
+    /// on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example
+    /// of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
+    /// hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point
+    /// ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html#API_control_DeleteAccessPoint_Examples">Examples</a>
+    /// section.
     /// </para><para>
     /// The following actions are related to <code>DeleteAccessPoint</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html">CreateAccessPoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html">GetAccessPoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html">ListAccessPoints</a></para></li></ul>
@@ -72,8 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the access point you want to delete.</para><para>For Amazon S3 on Outposts specify the ARN of the access point accessed in the format
-        /// <code>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/accesspoint/&lt;my-accesspoint-name&gt;</code>.
+        /// <para>The name of the access point you want to delete.</para><para>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify
+        /// the name and the x-amz-outpost-id as well.</para><para>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must specify
+        /// the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/accesspoint/&lt;my-accesspoint-name&gt;</code>.
         /// For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code>
         /// owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the
         /// URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>.

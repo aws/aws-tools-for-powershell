@@ -153,6 +153,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
+        #region Parameter Options_TransitGatewayCidrBlock
+        /// <summary>
+        /// <para>
+        /// <para>One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR
+        /// block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Options_TransitGatewayCidrBlocks")]
+        public System.String[] Options_TransitGatewayCidrBlock { get; set; }
+        #endregion
+        
         #region Parameter Options_VpnEcmpSupport
         /// <summary>
         /// <para>
@@ -212,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Options_DefaultRouteTablePropagation = this.Options_DefaultRouteTablePropagation;
             context.Options_DnsSupport = this.Options_DnsSupport;
             context.Options_MulticastSupport = this.Options_MulticastSupport;
+            if (this.Options_TransitGatewayCidrBlock != null)
+            {
+                context.Options_TransitGatewayCidrBlock = new List<System.String>(this.Options_TransitGatewayCidrBlock);
+            }
             context.Options_VpnEcmpSupport = this.Options_VpnEcmpSupport;
             if (this.TagSpecification != null)
             {
@@ -301,6 +317,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Options.MulticastSupport = requestOptions_options_MulticastSupport;
                 requestOptionsIsNull = false;
             }
+            List<System.String> requestOptions_options_TransitGatewayCidrBlock = null;
+            if (cmdletContext.Options_TransitGatewayCidrBlock != null)
+            {
+                requestOptions_options_TransitGatewayCidrBlock = cmdletContext.Options_TransitGatewayCidrBlock;
+            }
+            if (requestOptions_options_TransitGatewayCidrBlock != null)
+            {
+                request.Options.TransitGatewayCidrBlocks = requestOptions_options_TransitGatewayCidrBlock;
+                requestOptionsIsNull = false;
+            }
             Amazon.EC2.VpnEcmpSupportValue requestOptions_options_VpnEcmpSupport = null;
             if (cmdletContext.Options_VpnEcmpSupport != null)
             {
@@ -388,6 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.DefaultRouteTablePropagationValue Options_DefaultRouteTablePropagation { get; set; }
             public Amazon.EC2.DnsSupportValue Options_DnsSupport { get; set; }
             public Amazon.EC2.MulticastSupportValue Options_MulticastSupport { get; set; }
+            public List<System.String> Options_TransitGatewayCidrBlock { get; set; }
             public Amazon.EC2.VpnEcmpSupportValue Options_VpnEcmpSupport { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateTransitGatewayResponse, NewEC2TransitGatewayCmdlet, object> Select { get; set; } =

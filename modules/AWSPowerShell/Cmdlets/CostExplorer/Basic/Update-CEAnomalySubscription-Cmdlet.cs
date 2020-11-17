@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter MonitorArnList
         /// <summary>
         /// <para>
-        /// <para> A list of cost anomaly subscription ARNs. </para>
+        /// <para> A list of cost anomaly monitor ARNs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

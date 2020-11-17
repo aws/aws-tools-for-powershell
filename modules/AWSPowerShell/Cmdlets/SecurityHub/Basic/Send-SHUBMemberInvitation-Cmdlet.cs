@@ -33,10 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// 
     ///  
     /// <para>
+    /// This operation is only used to invite accounts that do not belong to an organization.
+    /// Organization accounts do not receive invitations.
+    /// </para><para>
     /// Before you can use this action to invite a member, you must first use the <code><a>CreateMembers</a></code> action to create the member account in Security Hub.
     /// </para><para>
-    /// When the account owner accepts the invitation to become a member account and enables
-    /// Security Hub, the master account can view the findings generated from the member account.
+    /// When the account owner enables Security Hub and accepts the invitation to become a
+    /// member account, the master account can view the findings generated from the member
+    /// account.
     /// </para>
     /// </summary>
     [Cmdlet("Send", "SHUBMemberInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,7 +60,14 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("AccountIds")]
         public System.String[] AccountId { get; set; }
         #endregion
@@ -126,6 +137,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             {
                 context.AccountId = new List<System.String>(this.AccountId);
             }
+            #if MODULAR
+            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

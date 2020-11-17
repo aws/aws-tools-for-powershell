@@ -134,6 +134,18 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter InputContext
+        /// <summary>
+        /// <para>
+        /// <para>An array of <code>InputContext</code> objects that lists the contexts that must be
+        /// active for Amazon Lex to choose the intent in a conversation with the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputContexts")]
+        public Amazon.LexModelBuildingService.Model.InputContext[] InputContext { get; set; }
+        #endregion
+        
         #region Parameter KendraConfiguration_KendraIndex
         /// <summary>
         /// <para>
@@ -234,6 +246,18 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter OutputContext
+        /// <summary>
+        /// <para>
+        /// <para>An array of <code>OutputContext</code> objects that lists the contexts that the intent
+        /// activates when the intent is fulfilled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutputContexts")]
+        public Amazon.LexModelBuildingService.Model.OutputContext[] OutputContext { get; set; }
         #endregion
         
         #region Parameter ParentIntentSignature
@@ -465,6 +489,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             context.CodeHook_MessageVersion = this.CodeHook_MessageVersion;
             context.CodeHook_Uri = this.CodeHook_Uri;
             context.FulfillmentActivity_Type = this.FulfillmentActivity_Type;
+            if (this.InputContext != null)
+            {
+                context.InputContext = new List<Amazon.LexModelBuildingService.Model.InputContext>(this.InputContext);
+            }
             context.KendraConfiguration_KendraIndex = this.KendraConfiguration_KendraIndex;
             context.KendraConfiguration_QueryFilterString = this.KendraConfiguration_QueryFilterString;
             context.KendraConfiguration_Role = this.KendraConfiguration_Role;
@@ -475,6 +503,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.OutputContext != null)
+            {
+                context.OutputContext = new List<Amazon.LexModelBuildingService.Model.OutputContext>(this.OutputContext);
+            }
             context.ParentIntentSignature = this.ParentIntentSignature;
             context.RejectionStatement = this.RejectionStatement;
             if (this.SampleUtterance != null)
@@ -703,6 +735,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             {
                 request.FulfillmentActivity = null;
             }
+            if (cmdletContext.InputContext != null)
+            {
+                request.InputContexts = cmdletContext.InputContext;
+            }
             
              // populate KendraConfiguration
             var requestKendraConfigurationIsNull = true;
@@ -745,6 +781,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.OutputContext != null)
+            {
+                request.OutputContexts = cmdletContext.OutputContext;
             }
             if (cmdletContext.ParentIntentSignature != null)
             {
@@ -839,10 +879,12 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             public System.String CodeHook_MessageVersion { get; set; }
             public System.String CodeHook_Uri { get; set; }
             public Amazon.LexModelBuildingService.FulfillmentActivityType FulfillmentActivity_Type { get; set; }
+            public List<Amazon.LexModelBuildingService.Model.InputContext> InputContext { get; set; }
             public System.String KendraConfiguration_KendraIndex { get; set; }
             public System.String KendraConfiguration_QueryFilterString { get; set; }
             public System.String KendraConfiguration_Role { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.LexModelBuildingService.Model.OutputContext> OutputContext { get; set; }
             public System.String ParentIntentSignature { get; set; }
             public Amazon.LexModelBuildingService.Model.Statement RejectionStatement { get; set; }
             public List<System.String> SampleUtterance { get; set; }

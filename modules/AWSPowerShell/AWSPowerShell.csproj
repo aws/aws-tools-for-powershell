@@ -70,6 +70,9 @@
     <Reference Include="AWSSDK.Amplify">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Amplify.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AmplifyBackend">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AmplifyBackend.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.APIGateway">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.APIGateway.dll</HintPath>
     </Reference>
@@ -84,6 +87,9 @@
     </Reference>
     <Reference Include="AWSSDK.Appflow">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Appflow.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AppIntegrationsService">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppIntegrationsService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationAutoScaling">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApplicationAutoScaling.dll</HintPath>
@@ -108,6 +114,9 @@
     </Reference>
     <Reference Include="AWSSDK.Athena">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Athena.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AuditManager">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AuditManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AugmentedAIRuntime">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AugmentedAIRuntime.dll</HintPath>
@@ -238,6 +247,9 @@
     <Reference Include="AWSSDK.Connect">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Connect.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ConnectContactLens">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectContactLens.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ConnectParticipant">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectParticipant.dll</HintPath>
     </Reference>
@@ -249,6 +261,9 @@
     </Reference>
     <Reference Include="AWSSDK.CostExplorer">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CostExplorer.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CustomerProfiles">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CustomerProfiles.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DatabaseMigrationService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DatabaseMigrationService.dll</HintPath>
@@ -270,6 +285,9 @@
     </Reference>
     <Reference Include="AWSSDK.DeviceFarm">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DeviceFarm.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DevOpsGuru">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DevOpsGuru.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectConnect">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DirectConnect.dll</HintPath>
@@ -294,6 +312,9 @@
     </Reference>
     <Reference Include="AWSSDK.ECR">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ECR.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ECRPublic">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ECRPublic.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ECS.dll</HintPath>
@@ -328,6 +349,9 @@
     <Reference Include="AWSSDK.ElasticTranscoder">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ElasticTranscoder.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EMRContainers">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EMRContainers.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.EventBridge">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EventBridge.dll</HintPath>
     </Reference>
@@ -361,11 +385,17 @@
     <Reference Include="AWSSDK.Greengrass">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Greengrass.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.GreengrassV2">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GreengrassV2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.GroundStation">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GroundStation.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GuardDuty">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GuardDuty.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.HealthLake">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.HealthLake.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IdentityManagement">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IdentityManagement.dll</HintPath>
@@ -385,11 +415,17 @@
     <Reference Include="AWSSDK.IoT">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoT.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.IoTDeviceAdvisor">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTDeviceAdvisor.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IoTEvents">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTEvents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTEventsData">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTEventsData.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IoTFleetHub">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTFleetHub.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTJobsDataPlane">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTJobsDataPlane.dll</HintPath>
@@ -402,6 +438,9 @@
     </Reference>
     <Reference Include="AWSSDK.IoTThingsGraph">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTThingsGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IoTWireless">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTWireless.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IVS">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IVS.dll</HintPath>
@@ -453,6 +492,12 @@
     </Reference>
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Lightsail.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LocationService">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LocationService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LookoutforVision">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LookoutforVision.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MachineLearning">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MachineLearning.dll</HintPath>
@@ -511,8 +556,14 @@
     <Reference Include="AWSSDK.MTurk">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MTurk.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MWAA">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MWAA.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Neptune">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Neptune.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.NetworkFirewall">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkFirewall.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.NetworkManager">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkManager.dll</HintPath>
@@ -552,6 +603,9 @@
     </Reference>
     <Reference Include="AWSSDK.Pricing">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Pricing.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.PrometheusService">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PrometheusService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.QLDB">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QLDB.dll</HintPath>
@@ -609,6 +663,12 @@
     </Reference>
     <Reference Include="AWSSDK.SageMaker">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMaker.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SagemakerEdgeManager">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SagemakerEdgeManager.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SageMakerFeatureStoreRuntime">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMakerFeatureStoreRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMakerRuntime">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMakerRuntime.dll</HintPath>
@@ -703,6 +763,9 @@
     <Reference Include="AWSSDK.WAFV2">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WAFV2.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.WellArchitected">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WellArchitected.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.WorkDocs">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkDocs.dll</HintPath>
     </Reference>
@@ -738,6 +801,9 @@
     <Reference Include="AWSSDK.Amplify">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Amplify.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AmplifyBackend">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AmplifyBackend.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.APIGateway">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.APIGateway.dll</HintPath>
     </Reference>
@@ -752,6 +818,9 @@
     </Reference>
     <Reference Include="AWSSDK.Appflow">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Appflow.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AppIntegrationsService">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppIntegrationsService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationAutoScaling">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ApplicationAutoScaling.dll</HintPath>
@@ -776,6 +845,9 @@
     </Reference>
     <Reference Include="AWSSDK.Athena">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Athena.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AuditManager">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AuditManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AugmentedAIRuntime">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AugmentedAIRuntime.dll</HintPath>
@@ -906,6 +978,9 @@
     <Reference Include="AWSSDK.Connect">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Connect.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ConnectContactLens">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectContactLens.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ConnectParticipant">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectParticipant.dll</HintPath>
     </Reference>
@@ -917,6 +992,9 @@
     </Reference>
     <Reference Include="AWSSDK.CostExplorer">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CostExplorer.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CustomerProfiles">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CustomerProfiles.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DatabaseMigrationService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DatabaseMigrationService.dll</HintPath>
@@ -938,6 +1016,9 @@
     </Reference>
     <Reference Include="AWSSDK.DeviceFarm">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DeviceFarm.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DevOpsGuru">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DevOpsGuru.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectConnect">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DirectConnect.dll</HintPath>
@@ -962,6 +1043,9 @@
     </Reference>
     <Reference Include="AWSSDK.ECR">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ECR.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ECRPublic">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ECRPublic.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ECS.dll</HintPath>
@@ -996,6 +1080,9 @@
     <Reference Include="AWSSDK.ElasticTranscoder">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ElasticTranscoder.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EMRContainers">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EMRContainers.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.EventBridge">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EventBridge.dll</HintPath>
     </Reference>
@@ -1029,11 +1116,17 @@
     <Reference Include="AWSSDK.Greengrass">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Greengrass.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.GreengrassV2">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.GreengrassV2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.GroundStation">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.GroundStation.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GuardDuty">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.GuardDuty.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.HealthLake">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.HealthLake.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IdentityManagement">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IdentityManagement.dll</HintPath>
@@ -1053,11 +1146,17 @@
     <Reference Include="AWSSDK.IoT">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoT.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.IoTDeviceAdvisor">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTDeviceAdvisor.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IoTEvents">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTEvents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTEventsData">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTEventsData.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IoTFleetHub">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTFleetHub.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTJobsDataPlane">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTJobsDataPlane.dll</HintPath>
@@ -1070,6 +1169,9 @@
     </Reference>
     <Reference Include="AWSSDK.IoTThingsGraph">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTThingsGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IoTWireless">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTWireless.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IVS">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IVS.dll</HintPath>
@@ -1121,6 +1223,12 @@
     </Reference>
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Lightsail.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LocationService">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LocationService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LookoutforVision">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LookoutforVision.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MachineLearning">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MachineLearning.dll</HintPath>
@@ -1179,8 +1287,14 @@
     <Reference Include="AWSSDK.MTurk">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MTurk.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MWAA">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MWAA.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Neptune">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Neptune.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.NetworkFirewall">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkFirewall.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.NetworkManager">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkManager.dll</HintPath>
@@ -1220,6 +1334,9 @@
     </Reference>
     <Reference Include="AWSSDK.Pricing">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Pricing.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.PrometheusService">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PrometheusService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.QLDB">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.QLDB.dll</HintPath>
@@ -1277,6 +1394,12 @@
     </Reference>
     <Reference Include="AWSSDK.SageMaker">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMaker.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SagemakerEdgeManager">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SagemakerEdgeManager.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SageMakerFeatureStoreRuntime">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMakerFeatureStoreRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMakerRuntime">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMakerRuntime.dll</HintPath>
@@ -1370,6 +1493,9 @@
     </Reference>
     <Reference Include="AWSSDK.WAFV2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WAFV2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.WellArchitected">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WellArchitected.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkDocs">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkDocs.dll</HintPath>

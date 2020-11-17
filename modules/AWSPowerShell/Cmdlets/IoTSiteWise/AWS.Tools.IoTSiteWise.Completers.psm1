@@ -87,6 +87,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.EncryptionType
+        "Write-IOTSWDefaultEncryptionConfiguration/EncryptionType"
+        {
+            $v = "KMS_BASED_ENCRYPTION","SITEWISE_DEFAULT_ENCRYPTION"
+            break
+        }
+
         # Amazon.IoTSiteWise.IdentityType
         "Get-IOTSWAccessPolicyList/IdentityType"
         {
@@ -159,6 +166,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.TraversalType
+        "Get-IOTSWAssetRelationshipList/TraversalType"
+        {
+            $v = "PATH_TO_ROOT"
+            break
+        }
+
 
     }
 
@@ -169,6 +183,7 @@ $IOTSW_Completers = {
 
 $IOTSW_map = @{
     "AccessPolicyPermission"=@("New-IOTSWAccessPolicy","Update-IOTSWAccessPolicy")
+    "EncryptionType"=@("Write-IOTSWDefaultEncryptionConfiguration")
     "Filter"=@("Get-IOTSWAssetList")
     "IdentityType"=@("Get-IOTSWAccessPolicyList")
     "LoggingOptions_Level"=@("Write-IOTSWLoggingOption")
@@ -179,6 +194,7 @@ $IOTSW_map = @{
     "ResourceType"=@("Get-IOTSWAccessPolicyList")
     "TimeOrdering"=@("Get-IOTSWAssetPropertyAggregate","Get-IOTSWAssetPropertyValueHistory")
     "TraversalDirection"=@("Get-IOTSWAssociatedAssetList")
+    "TraversalType"=@("Get-IOTSWAssetRelationshipList")
 }
 
 _awsArgumentCompleterRegistration $IOTSW_Completers $IOTSW_map
@@ -241,7 +257,6 @@ $IOTSW_SelectMap = @{
                "New-IOTSWDashboard",
                "New-IOTSWGateway",
                "New-IOTSWPortal",
-               "New-IOTSWPresignedPortalUrl",
                "New-IOTSWProject",
                "Remove-IOTSWAccessPolicy",
                "Remove-IOTSWAsset",
@@ -255,6 +270,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetModel",
                "Get-IOTSWAssetProperty",
                "Get-IOTSWDashboard",
+               "Get-IOTSWDefaultEncryptionConfiguration",
                "Get-IOTSWGateway",
                "Get-IOTSWGatewayCapabilityConfiguration",
                "Get-IOTSWLoggingOption",
@@ -266,6 +282,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetPropertyValueHistory",
                "Get-IOTSWAccessPolicyList",
                "Get-IOTSWAssetModelList",
+               "Get-IOTSWAssetRelationshipList",
                "Get-IOTSWAssetList",
                "Get-IOTSWAssociatedAssetList",
                "Get-IOTSWDashboardList",
@@ -274,6 +291,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWProjectAssetList",
                "Get-IOTSWProjectList",
                "Get-IOTSWResourceTag",
+               "Write-IOTSWDefaultEncryptionConfiguration",
                "Write-IOTSWLoggingOption",
                "Add-IOTSWResourceTag",
                "Remove-IOTSWResourceTag",

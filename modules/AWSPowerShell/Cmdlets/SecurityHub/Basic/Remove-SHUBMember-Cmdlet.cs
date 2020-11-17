@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Deletes the specified member accounts from Security Hub.
+    /// 
+    ///  
+    /// <para>
+    /// Can be used to delete member accounts that belong to an organization as well as member
+    /// accounts that were invited manually.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "SHUBMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SecurityHub.Model.Result")]
@@ -46,7 +52,14 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>The list of account IDs for the member accounts to delete.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("AccountIds")]
         public System.String[] AccountId { get; set; }
         #endregion
@@ -116,6 +129,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             {
                 context.AccountId = new List<System.String>(this.AccountId);
             }
+            #if MODULAR
+            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

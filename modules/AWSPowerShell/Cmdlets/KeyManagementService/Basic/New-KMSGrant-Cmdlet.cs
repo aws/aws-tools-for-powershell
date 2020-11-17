@@ -65,17 +65,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para></li></ul><para>
     /// For information about symmetric and asymmetric CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
     /// Symmetric and Asymmetric CMKs</a> in the <i>AWS Key Management Service Developer Guide</i>.
-    /// </para><para>
-    /// To perform this operation on a CMK in a different AWS account, specify the key ARN
-    /// in the value of the <code>KeyId</code> parameter. For more information about grants,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a>
+    /// For more information about grants, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a>
     /// in the <i><i>AWS Key Management Service Developer Guide</i></i>.
     /// </para><para>
     /// The CMK that you use for this operation must be in a compatible key state. For details,
     /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
     /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
     /// Developer Guide</i>.
-    /// </para>
+    /// </para><para><b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different
+    /// AWS account, specify the key ARN in the value of the <code>KeyId</code> parameter.
+    /// 
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateGrant</a>
+    /// (key policy)
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>ListGrants</a></para></li><li><para><a>ListRetirableGrants</a></para></li><li><para><a>RetireGrant</a></para></li><li><para><a>RevokeGrant</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "KMSGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KeyManagementService.Model.CreateGrantResponse")]
@@ -167,15 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A friendly name for identifying the grant. Use this value to prevent the unintended
-        /// creation of duplicate grants when retrying this request.</para><para>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
+        /// <para>A friendly name for the grant. Use this value to prevent the unintended creation of
+        /// duplicate grants when retrying this request.</para><para>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
         /// with a unique <code>GrantId</code> even if all the supplied parameters are identical.
         /// This can result in unintended duplicates when you retry the <code>CreateGrant</code>
         /// request.</para><para>When this value is present, you can retry a <code>CreateGrant</code> request with
         /// identical parameters; if the grant already exists, the original <code>GrantId</code>
         /// is returned without creating a new grant. Note that the returned grant token is unique
         /// with every <code>CreateGrant</code> request, even when a duplicate <code>GrantId</code>
-        /// is returned. All grant tokens obtained in this way can be used interchangeably.</para>
+        /// is returned. All grant tokens for the same grant ID can be used interchangeably.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

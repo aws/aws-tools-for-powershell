@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// If you choose to host your model using Amazon SageMaker hosting services, you can
     /// use the resulting model artifacts as part of the model. You can also use the artifacts
     /// in a machine learning service other than Amazon SageMaker, provided that you know
-    /// how to use them for inferences. 
+    /// how to use them for inference. 
     /// </para><para>
     /// In the request body, you provide the following: 
     /// </para><ul><li><para><code>AlgorithmSpecification</code> - Identifies the training algorithm to use. 
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// models by up to 80% by using Amazon EC2 Spot instances. For more information, see
     /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html">Managed
     /// Spot Training</a>. 
-    /// </para></li><li><para><code>RoleARN</code> - The Amazon Resource Number (ARN) that Amazon SageMaker assumes
+    /// </para></li><li><para><code>RoleArn</code> - The Amazon Resource Number (ARN) that Amazon SageMaker assumes
     /// to perform tasks on your behalf during model training. You must grant this role the
     /// necessary permissions so that Amazon SageMaker can successfully complete model training.
     /// 
@@ -101,7 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DebugHookConfig_CollectionConfiguration
         /// <summary>
         /// <para>
-        /// <para>Configuration information for tensor collections.</para>
+        /// <para>Configuration information for Debugger tensor collections. To learn more about how
+        /// to configure the <code>CollectionConfiguration</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use
+        /// the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug
+        /// Your Training Job</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DebugRuleConfiguration
         /// <summary>
         /// <para>
-        /// <para>Configuration information for debugging rules.</para>
+        /// <para>Configuration information for Debugger rules for debugging output tensors.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DebugHookConfig_HookParameter
         /// <summary>
         /// <para>
-        /// <para>Configuration information for the debug hook parameters.</para>
+        /// <para>Configuration information for the Debugger hook parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DebugHookConfig_LocalPath
         /// <summary>
         /// <para>
-        /// <para>Path to local storage location for tensors. Defaults to <code>/opt/ml/output/tensors/</code>.</para>
+        /// <para>Path to local storage location for metrics and tensors. Defaults to <code>/opt/ml/output/tensors/</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -295,6 +298,47 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.OutputDataConfig OutputDataConfig { get; set; }
         #endregion
         
+        #region Parameter ProfilerRuleConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Configuration information for Debugger rules for profiling system and framework metrics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProfilerRuleConfigurations")]
+        public Amazon.SageMaker.Model.ProfilerRuleConfiguration[] ProfilerRuleConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter ProfilerConfig_ProfilingIntervalInMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>A time interval for capturing system metrics in milliseconds. Available values are
+        /// 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000 (1 minute) milliseconds.
+        /// The default value is 500 milliseconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProfilerConfig_ProfilingIntervalInMilliseconds")]
+        public System.Int64? ProfilerConfig_ProfilingIntervalInMillisecond { get; set; }
+        #endregion
+        
+        #region Parameter ProfilerConfig_ProfilingParameter
+        /// <summary>
+        /// <para>
+        /// <para>Configuration information for capturing framework metrics. Available key strings for
+        /// different profiling options are <code>DetailedProfilingConfig</code>, <code>PythonProfilingConfig</code>,
+        /// and <code>DataLoaderProfilingConfig</code>. The following codes are configuration
+        /// structures for the <code>ProfilingParameters</code> parameter. To learn more about
+        /// how to configure the <code>ProfilingParameters</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use
+        /// the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug
+        /// Your Training Job</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProfilerConfig_ProfilingParameters")]
+        public System.Collections.Hashtable ProfilerConfig_ProfilingParameter { get; set; }
+        #endregion
+        
         #region Parameter ResourceConfig
         /// <summary>
         /// <para>
@@ -343,11 +387,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DebugHookConfig_S3OutputPath
         /// <summary>
         /// <para>
-        /// <para>Path to Amazon S3 storage location for tensors.</para>
+        /// <para>Path to Amazon S3 storage location for metrics and tensors.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DebugHookConfig_S3OutputPath { get; set; }
+        #endregion
+        
+        #region Parameter ProfilerConfig_S3OutputPath
+        /// <summary>
+        /// <para>
+        /// <para>Path to Amazon S3 storage location for system and framework metrics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProfilerConfig_S3OutputPath { get; set; }
         #endregion
         
         #region Parameter TensorBoardOutputConfig_S3OutputPath
@@ -399,9 +453,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-        /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
-        /// </para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
+        /// different ways, for example, by purpose, owner, or environment. For more information,
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// AWS Resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -562,6 +617,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter OutputDataConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ProfilerConfig_ProfilingIntervalInMillisecond = this.ProfilerConfig_ProfilingIntervalInMillisecond;
+            if (this.ProfilerConfig_ProfilingParameter != null)
+            {
+                context.ProfilerConfig_ProfilingParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ProfilerConfig_ProfilingParameter.Keys)
+                {
+                    context.ProfilerConfig_ProfilingParameter.Add((String)hashKey, (String)(this.ProfilerConfig_ProfilingParameter[hashKey]));
+                }
+            }
+            context.ProfilerConfig_S3OutputPath = this.ProfilerConfig_S3OutputPath;
+            if (this.ProfilerRuleConfiguration != null)
+            {
+                context.ProfilerRuleConfiguration = new List<Amazon.SageMaker.Model.ProfilerRuleConfiguration>(this.ProfilerRuleConfiguration);
+            }
             context.ResourceConfig = this.ResourceConfig;
             #if MODULAR
             if (this.ResourceConfig == null && ParameterWasBound(nameof(this.ResourceConfig)))
@@ -764,6 +833,49 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.OutputDataConfig = cmdletContext.OutputDataConfig;
             }
+            
+             // populate ProfilerConfig
+            var requestProfilerConfigIsNull = true;
+            request.ProfilerConfig = new Amazon.SageMaker.Model.ProfilerConfig();
+            System.Int64? requestProfilerConfig_profilerConfig_ProfilingIntervalInMillisecond = null;
+            if (cmdletContext.ProfilerConfig_ProfilingIntervalInMillisecond != null)
+            {
+                requestProfilerConfig_profilerConfig_ProfilingIntervalInMillisecond = cmdletContext.ProfilerConfig_ProfilingIntervalInMillisecond.Value;
+            }
+            if (requestProfilerConfig_profilerConfig_ProfilingIntervalInMillisecond != null)
+            {
+                request.ProfilerConfig.ProfilingIntervalInMilliseconds = requestProfilerConfig_profilerConfig_ProfilingIntervalInMillisecond.Value;
+                requestProfilerConfigIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestProfilerConfig_profilerConfig_ProfilingParameter = null;
+            if (cmdletContext.ProfilerConfig_ProfilingParameter != null)
+            {
+                requestProfilerConfig_profilerConfig_ProfilingParameter = cmdletContext.ProfilerConfig_ProfilingParameter;
+            }
+            if (requestProfilerConfig_profilerConfig_ProfilingParameter != null)
+            {
+                request.ProfilerConfig.ProfilingParameters = requestProfilerConfig_profilerConfig_ProfilingParameter;
+                requestProfilerConfigIsNull = false;
+            }
+            System.String requestProfilerConfig_profilerConfig_S3OutputPath = null;
+            if (cmdletContext.ProfilerConfig_S3OutputPath != null)
+            {
+                requestProfilerConfig_profilerConfig_S3OutputPath = cmdletContext.ProfilerConfig_S3OutputPath;
+            }
+            if (requestProfilerConfig_profilerConfig_S3OutputPath != null)
+            {
+                request.ProfilerConfig.S3OutputPath = requestProfilerConfig_profilerConfig_S3OutputPath;
+                requestProfilerConfigIsNull = false;
+            }
+             // determine if request.ProfilerConfig should be set to null
+            if (requestProfilerConfigIsNull)
+            {
+                request.ProfilerConfig = null;
+            }
+            if (cmdletContext.ProfilerRuleConfiguration != null)
+            {
+                request.ProfilerRuleConfigurations = cmdletContext.ProfilerRuleConfiguration;
+            }
             if (cmdletContext.ResourceConfig != null)
             {
                 request.ResourceConfig = cmdletContext.ResourceConfig;
@@ -945,6 +1057,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Dictionary<System.String, System.String> HyperParameter { get; set; }
             public List<Amazon.SageMaker.Model.Channel> InputDataConfig { get; set; }
             public Amazon.SageMaker.Model.OutputDataConfig OutputDataConfig { get; set; }
+            public System.Int64? ProfilerConfig_ProfilingIntervalInMillisecond { get; set; }
+            public Dictionary<System.String, System.String> ProfilerConfig_ProfilingParameter { get; set; }
+            public System.String ProfilerConfig_S3OutputPath { get; set; }
+            public List<Amazon.SageMaker.Model.ProfilerRuleConfiguration> ProfilerRuleConfiguration { get; set; }
             public Amazon.SageMaker.Model.ResourceConfig ResourceConfig { get; set; }
             public System.String RoleArn { get; set; }
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }

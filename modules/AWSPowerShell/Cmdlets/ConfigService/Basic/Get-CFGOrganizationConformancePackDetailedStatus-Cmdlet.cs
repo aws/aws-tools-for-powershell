@@ -29,14 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Returns detailed status for each member account within an organization for a given
-    /// organization conformance pack.
-    /// 
-    ///  
-    /// <para>
-    /// Only a master account and a delegated administrator account can call this API. When
-    /// calling this API with a delegated administrator, you must ensure AWS Organizations
-    /// <code>ListDelegatedAdministrator</code> permissions are added.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// organization conformance pack.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGOrganizationConformancePackDetailedStatus")]
     [OutputType("Amazon.ConfigService.Model.OrganizationConformancePackDetailedStatus")]

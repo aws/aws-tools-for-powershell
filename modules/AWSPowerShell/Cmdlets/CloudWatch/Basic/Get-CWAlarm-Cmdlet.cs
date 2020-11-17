@@ -28,7 +28,7 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Retrieves the specified alarms. You can filter the results by specifying a a prefix
+    /// Retrieves the specified alarms. You can filter the results by specifying a prefix
     /// for the alarm name, the alarm state, or a prefix for any action.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWAlarm")]

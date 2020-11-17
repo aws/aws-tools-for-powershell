@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The number of days to wait after the date and time specified by a CRON expression
         /// before running the maintenance window.</para><para>For example, the following cron expression schedules a maintenance window to run on
-        /// the third Tuesday of every month at 11:30 PM.</para><para><code>cron(0 30 23 ? * TUE#3 *)</code></para><para>If the schedule offset is <code>2</code>, the maintenance window won't run until two
+        /// the third Tuesday of every month at 11:30 PM.</para><para><code>cron(30 23 ? * TUE#3 *)</code></para><para>If the schedule offset is <code>2</code>, the maintenance window won't run until two
         /// days later.</para>
         /// </para>
         /// </summary>
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The time zone that the scheduled maintenance window executions are based on, in Internet
-        /// Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC",
+        /// Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC",
         /// or "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
         /// Zone Database</a> on the IANA website.</para>
         /// </para>

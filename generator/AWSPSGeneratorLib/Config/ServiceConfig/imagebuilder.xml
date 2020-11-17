@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>imagebuilder</C2jFilename>
     <AssemblyName>Imagebuilder</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -24,6 +24,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateComponent" OutputProperty="ComponentBuildVersionArn" Verb="New" Noun="Component" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateContainerRecipe" OutputProperty="ContainerRecipeArn" Verb="New" Noun="ContainerRecipe" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -48,6 +52,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteComponent" OutputProperty="*" Verb="Remove" Noun="Component" ShouldProcessTarget="ComponentBuildVersionArn" PipelineParameter="ComponentBuildVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContainerRecipe" OutputProperty="ContainerRecipeArn" Verb="Remove" Noun="ContainerRecipe" ShouldProcessTarget="ContainerRecipeArn" PipelineParameter="ContainerRecipeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -76,6 +84,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetComponentPolicy" OutputProperty="Policy" Verb="Get" Noun="ComponentPolicy" PipelineParameter="ComponentArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContainerRecipe" OutputProperty="ContainerRecipe" Verb="Get" Noun="ContainerRecipe" PipelineParameter="ContainerRecipeArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContainerRecipePolicy" OutputProperty="Policy" Verb="Get" Noun="ContainerRecipePolicy" PipelineParameter="ContainerRecipeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,7 +131,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComponents" OutputProperty="ComponentVersionList" Verb="Get" Noun="ComponentList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListComponents" OutputProperty="ComponentVersionList" Verb="Get" Noun="ComponentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContainerRecipes" OutputProperty="ContainerRecipeSummaryList" Verb="Get" Noun="ContainerRecipeList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -139,7 +159,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImages" OutputProperty="ImageVersionList" Verb="Get" Noun="ImageList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListImages" OutputProperty="ImageVersionList" Verb="Get" Noun="ImageList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -152,6 +172,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutComponentPolicy" OutputProperty="*" Verb="Write" Noun="ComponentPolicy" ShouldProcessTarget="ComponentArn" PipelineParameter="Policy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutContainerRecipePolicy" OutputProperty="ContainerRecipeArn" Verb="Write" Noun="ContainerRecipePolicy" ShouldProcessTarget="ContainerRecipeArn" PipelineParameter="ContainerRecipeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -188,7 +212,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

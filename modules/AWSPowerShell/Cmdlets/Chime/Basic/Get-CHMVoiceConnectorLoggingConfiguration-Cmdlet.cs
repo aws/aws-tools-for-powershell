@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Retrieves the logging configuration details for the specified Amazon Chime Voice Connector.
-    /// Shows whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
+    /// Shows whether SIP message logs are enabled for sending to Amazon CloudWatch.
     /// </summary>
     [Cmdlet("Get", "CHMVoiceConnectorLoggingConfiguration")]
     [OutputType("Amazon.Chime.Model.LoggingConfiguration")]

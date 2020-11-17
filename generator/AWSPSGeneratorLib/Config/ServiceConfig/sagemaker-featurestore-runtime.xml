@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sagemaker-featurestore-runtime</C2jFilename>
+    <AssemblyName>SageMakerFeatureStoreRuntime</AssemblyName>
+    <ServiceNounPrefix>SMFS</ServiceNounPrefix>
+    <ServiceName>Amazon SageMaker Feature Store Runtime</ServiceName>
+    <ServiceClientInterface>IAmazonSageMakerFeatureStoreRuntime</ServiceClientInterface>
+    <ServiceClient>AmazonSageMakerFeatureStoreRuntimeClient</ServiceClient>
+    <ServiceModuleGuid>37f7a7ec-988f-41a5-a05e-db144063db5a</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteRecord" Verb="Remove" Noun="Record" ShouldProcessTarget="FeatureGroupName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecord" OutputProperty="Record" Verb="Get" Noun="Record" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRecord" Verb="Write" Noun="Record" ShouldProcessTarget="FeatureGroupName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

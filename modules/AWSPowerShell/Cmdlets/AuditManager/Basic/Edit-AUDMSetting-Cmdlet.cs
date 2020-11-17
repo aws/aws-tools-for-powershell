@@ -1,0 +1,273 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.AuditManager;
+using Amazon.AuditManager.Model;
+
+namespace Amazon.PowerShell.Cmdlets.AUDM
+{
+    /// <summary>
+    /// Updates AWS Audit Manager settings for the current user account.
+    /// </summary>
+    [Cmdlet("Edit", "AUDMSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.AuditManager.Model.Settings")]
+    [AWSCmdlet("Calls the AWS Audit Manager UpdateSettings API operation.", Operation = new[] {"UpdateSettings"}, SelectReturnType = typeof(Amazon.AuditManager.Model.UpdateSettingsResponse))]
+    [AWSCmdletOutput("Amazon.AuditManager.Model.Settings or Amazon.AuditManager.Model.UpdateSettingsResponse",
+        "This cmdlet returns an Amazon.AuditManager.Model.Settings object.",
+        "The service call response (type Amazon.AuditManager.Model.UpdateSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class EditAUDMSettingCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
+    {
+        
+        #region Parameter DefaultProcessOwner
+        /// <summary>
+        /// <para>
+        /// <para> A list of the default audit owners. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultProcessOwners")]
+        public Amazon.AuditManager.Model.Role[] DefaultProcessOwner { get; set; }
+        #endregion
+        
+        #region Parameter DefaultAssessmentReportsDestination_Destination
+        /// <summary>
+        /// <para>
+        /// <para> The destination of the assessment report. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultAssessmentReportsDestination_Destination { get; set; }
+        #endregion
+        
+        #region Parameter DefaultAssessmentReportsDestination_DestinationType
+        /// <summary>
+        /// <para>
+        /// <para> The destination type, such as Amazon S3. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AuditManager.AssessmentReportDestinationType")]
+        public Amazon.AuditManager.AssessmentReportDestinationType DefaultAssessmentReportsDestination_DestinationType { get; set; }
+        #endregion
+        
+        #region Parameter KmsKey
+        /// <summary>
+        /// <para>
+        /// <para> The AWS KMS key details. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKey { get; set; }
+        #endregion
+        
+        #region Parameter SnsTopic
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Simple Notification Service (Amazon SNS) topic to which AWS Audit Manager
+        /// sends notifications. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnsTopic { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Settings'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AuditManager.Model.UpdateSettingsResponse).
+        /// Specifying the name of a property of type Amazon.AuditManager.Model.UpdateSettingsResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "Settings";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-AUDMSetting (UpdateSettings)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.AuditManager.Model.UpdateSettingsResponse, EditAUDMSettingCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.DefaultAssessmentReportsDestination_Destination = this.DefaultAssessmentReportsDestination_Destination;
+            context.DefaultAssessmentReportsDestination_DestinationType = this.DefaultAssessmentReportsDestination_DestinationType;
+            if (this.DefaultProcessOwner != null)
+            {
+                context.DefaultProcessOwner = new List<Amazon.AuditManager.Model.Role>(this.DefaultProcessOwner);
+            }
+            context.KmsKey = this.KmsKey;
+            context.SnsTopic = this.SnsTopic;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.AuditManager.Model.UpdateSettingsRequest();
+            
+            
+             // populate DefaultAssessmentReportsDestination
+            var requestDefaultAssessmentReportsDestinationIsNull = true;
+            request.DefaultAssessmentReportsDestination = new Amazon.AuditManager.Model.AssessmentReportsDestination();
+            System.String requestDefaultAssessmentReportsDestination_defaultAssessmentReportsDestination_Destination = null;
+            if (cmdletContext.DefaultAssessmentReportsDestination_Destination != null)
+            {
+                requestDefaultAssessmentReportsDestination_defaultAssessmentReportsDestination_Destination = cmdletContext.DefaultAssessmentReportsDestination_Destination;
+            }
+            if (requestDefaultAssessmentReportsDestination_defaultAssessmentReportsDestination_Destination != null)
+            {
+                request.DefaultAssessmentReportsDestination.Destination = requestDefaultAssessmentReportsDestination_defaultAssessmentReportsDestination_Destination;
+                requestDefaultAssessmentReportsDestinationIsNull = false;
+            }
+            Amazon.AuditManager.AssessmentReportDestinationType requestDefaultAssessmentReportsDestination_defaultAssessmentReportsDestination_DestinationType = null;
+            if (cmdletContext.DefaultAssessmentReportsDestination_DestinationType != null)
+            {
+                requestDefaultAssessmentReportsDestination_defaultAssessmentReportsDestination_DestinationType = cmdletContext.DefaultAssessmentReportsDestination_DestinationType;
+            }
+            if (requestDefaultAssessmentReportsDestination_defaultAssessmentReportsDestination_DestinationType != null)
+            {
+                request.DefaultAssessmentReportsDestination.DestinationType = requestDefaultAssessmentReportsDestination_defaultAssessmentReportsDestination_DestinationType;
+                requestDefaultAssessmentReportsDestinationIsNull = false;
+            }
+             // determine if request.DefaultAssessmentReportsDestination should be set to null
+            if (requestDefaultAssessmentReportsDestinationIsNull)
+            {
+                request.DefaultAssessmentReportsDestination = null;
+            }
+            if (cmdletContext.DefaultProcessOwner != null)
+            {
+                request.DefaultProcessOwners = cmdletContext.DefaultProcessOwner;
+            }
+            if (cmdletContext.KmsKey != null)
+            {
+                request.KmsKey = cmdletContext.KmsKey;
+            }
+            if (cmdletContext.SnsTopic != null)
+            {
+                request.SnsTopic = cmdletContext.SnsTopic;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.AuditManager.Model.UpdateSettingsResponse CallAWSServiceOperation(IAmazonAuditManager client, Amazon.AuditManager.Model.UpdateSettingsRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Audit Manager", "UpdateSettings");
+            try
+            {
+                #if DESKTOP
+                return client.UpdateSettings(request);
+                #elif CORECLR
+                return client.UpdateSettingsAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String DefaultAssessmentReportsDestination_Destination { get; set; }
+            public Amazon.AuditManager.AssessmentReportDestinationType DefaultAssessmentReportsDestination_DestinationType { get; set; }
+            public List<Amazon.AuditManager.Model.Role> DefaultProcessOwner { get; set; }
+            public System.String KmsKey { get; set; }
+            public System.String SnsTopic { get; set; }
+            public System.Func<Amazon.AuditManager.Model.UpdateSettingsResponse, EditAUDMSettingCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Settings;
+        }
+        
+    }
+}

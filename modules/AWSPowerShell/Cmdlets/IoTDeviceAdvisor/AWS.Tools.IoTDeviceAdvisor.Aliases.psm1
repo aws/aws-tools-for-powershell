@@ -1,0 +1,3 @@
+﻿# IoTDeviceAdvisor
+
+Export-ModuleMember -Alias *

@@ -302,10 +302,12 @@ $RDS_SelectMap = @{
                "Start-RDSActivityStream",
                "Start-RDSDBCluster",
                "Start-RDSDBInstance",
+               "Start-RDSDBInstanceAutomatedBackupsReplication",
                "Start-RDSExportTask",
                "Stop-RDSActivityStream",
                "Stop-RDSDBCluster",
-               "Stop-RDSDBInstance")
+               "Stop-RDSDBInstance",
+               "Stop-RDSDBInstanceAutomatedBackupsReplication")
 }
 
 _awsArgumentCompleterRegistration $RDS_SelectCompleters $RDS_SelectMap

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// 
     ///  
     /// <para>
-    /// This operation creates a S3 Batch Operations job.
+    /// This operation creates an S3 Batch Operations job.
     /// </para><para>
     /// Related actions include:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a></para></li></ul>
@@ -531,7 +531,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_RedirectLocation
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies an optional metadata property for website redirects, <code>x-amz-website-redirect-location</code>.
+        /// Allows webpage redirects if the object is accessed through a website endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -677,7 +678,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_TargetKeyPrefix
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies the folder prefix into which you would like the objects to be copied. For
+        /// example, to copy objects into a folder named "Folder1" in the destination bucket,
+        /// set the TargetKeyPrefix to "Folder1/".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -688,7 +691,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_TargetResource
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies the destination bucket ARN for the batch copy operation. For example, to
+        /// copy objects to a bucket named "destinationBucket", set the TargetResource to "arn:aws:s3:::destinationBucket".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

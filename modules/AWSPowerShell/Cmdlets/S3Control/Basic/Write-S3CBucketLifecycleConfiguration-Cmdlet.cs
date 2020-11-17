@@ -29,21 +29,23 @@ namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
     /// <note><para>
-    /// This API action puts a lifecycle configuration to an Amazon S3 on Outposts bucket.
-    /// To put a lifecycle configuration to an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a>
+    /// This action puts a lifecycle configuration to an Amazon S3 on Outposts bucket. To
+    /// put a lifecycle configuration to an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a>
     /// in the <i>Amazon Simple Storage Service API</i>. 
     /// </para></note><para>
     /// Creates a new lifecycle configuration for the Outposts bucket or replaces an existing
-    /// lifecycle configuration. Outposts buckets can only support a lifecycle that deletes
-    /// objects after a certain period of time. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Managing
+    /// lifecycle configuration. Outposts buckets only support lifecycle configurations that
+    /// delete/expire objects after a certain period of time and abort incomplete multipart
+    /// uploads. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Managing
     /// Lifecycle Permissions for Amazon S3 on Outposts</a>.
     /// </para><para>
     /// All Amazon S3 on Outposts REST API requests for this action require an additional
-    /// parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint
-    /// hostname prefix instead of s3-control. For an example of the request syntax for Amazon
-    /// S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id
-    /// derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutBucketLifecycleConfiguration.html#API_control_PutBucketLifecycleConfiguration_Examples">
-    /// Example</a> section below.
+    /// parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3
+    /// on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example
+    /// of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
+    /// hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point
+    /// ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html#API_control_PutBucketLifecycleConfiguration_Examples">Examples</a>
+    /// section.
     /// </para><para>
     /// The following actions are related to <code>PutBucketLifecycleConfiguration</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html">DeleteBucketLifecycleConfiguration</a></para></li></ul>

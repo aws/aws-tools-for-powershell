@@ -1,5 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>sso-admin</C2jFilename>
     <AssemblyName>SSOAdmin</AssemblyName>
@@ -8,332 +9,140 @@
     <ServiceClientInterface>IAmazonSSOAdmin</ServiceClientInterface>
     <ServiceClient>AmazonSSOAdminClient</ServiceClient>
     <ServiceModuleGuid>740e18d5-9595-4361-8485-6b3371ad1099</ServiceModuleGuid>
-	<AutoIterate Start="NextToken" Next="NextToken" />
     <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
     <VerbMappings />
     <NounMappings />
     <Params />
-	<AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
-    <!--The current full configuration for this service is available at https://raw.githubusercontent.com/aws/aws-tools-for-powershell/master/generator/AWSPSGeneratorLib/Config/ServiceConfig/sso-admin.xml.-->
     <ServiceOperations>
-      <ServiceOperation MethodName="AttachManagedPolicyToPermissionSet" Verb="Mount" Noun="ManagedPolicyToPermissionSet" ShouldProcessTarget="ManagedPolicyArn" PipelineParameter="ManagedPolicyArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.String ManagedPolicyArn [required];
-             System.String PermissionSetArn [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.AttachManagedPolicyToPermissionSetResponse.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="CreateAccountAssignment" OutputProperty="AccountAssignmentCreationStatus" Verb="New" Noun="AccountAssignment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.String PermissionSetArn [required];
-             System.String PrincipalId [required];
-             Amazon.SSOAdmin.PrincipalType PrincipalType [required];
-             System.String TargetId [required];
-             Amazon.SSOAdmin.TargetType TargetType [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.CreateAccountAssignmentResponse {
-            Amazon.SSOAdmin.Model.AccountAssignmentOperationStatus AccountAssignmentCreationStatus }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="CreatePermissionSet" OutputProperty="PermissionSet" Verb="New" Noun="PermissionSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String Description;
-             System.String InstanceArn [required];
-             System.String Name [required];
-             System.String RelayState;
-             System.String SessionDuration;
-             List<Amazon.SSOAdmin.Model.Tag> Tags as Tag (aliases: Tags).-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.CreatePermissionSetResponse {
-            Amazon.SSOAdmin.Model.PermissionSet PermissionSet }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="DeleteAccountAssignment" OutputProperty="AccountAssignmentDeletionStatus" Verb="Remove" Noun="AccountAssignment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.String PermissionSetArn [required];
-             System.String PrincipalId [required];
-             Amazon.SSOAdmin.PrincipalType PrincipalType [required];
-             System.String TargetId [required];
-             Amazon.SSOAdmin.TargetType TargetType [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.DeleteAccountAssignmentResponse {
-            Amazon.SSOAdmin.Model.AccountAssignmentOperationStatus AccountAssignmentDeletionStatus }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="DeleteInlinePolicyFromPermissionSet" Verb="Remove" Noun="InlinePolicyFromPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.String PermissionSetArn [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.DeleteInlinePolicyFromPermissionSetResponse.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="DeletePermissionSet" Verb="Remove" Noun="PermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.String PermissionSetArn [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.DeletePermissionSetResponse.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="DescribeAccountAssignmentCreationStatus" OutputProperty="AccountAssignmentCreationStatus" Verb="Get" Noun="AccountAssignmentCreationStatus" PipelineParameter="AccountAssignmentCreationRequestId" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String AccountAssignmentCreationRequestId [required];
-             System.String InstanceArn [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.DescribeAccountAssignmentCreationStatusResponse {
-            Amazon.SSOAdmin.Model.AccountAssignmentOperationStatus AccountAssignmentCreationStatus }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="DescribeAccountAssignmentDeletionStatus" OutputProperty="AccountAssignmentDeletionStatus" Verb="Get" Noun="AccountAssignmentDeletionStatus" PipelineParameter="AccountAssignmentDeletionRequestId" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String AccountAssignmentDeletionRequestId [required];
-             System.String InstanceArn [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.DescribeAccountAssignmentDeletionStatusResponse {
-            Amazon.SSOAdmin.Model.AccountAssignmentOperationStatus AccountAssignmentDeletionStatus }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="DescribePermissionSet" OutputProperty="PermissionSet" Verb="Get" Noun="PermissionSet" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.String PermissionSetArn [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.DescribePermissionSetResponse {
-            Amazon.SSOAdmin.Model.PermissionSet PermissionSet }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="DescribePermissionSetProvisioningStatus" OutputProperty="PermissionSetProvisioningStatus" Verb="Get" Noun="PermissionSetProvisioningStatus" PipelineParameter="ProvisionPermissionSetRequestId" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.String ProvisionPermissionSetRequestId [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.DescribePermissionSetProvisioningStatusResponse {
-            Amazon.SSOAdmin.Model.PermissionSetProvisioningStatus PermissionSetProvisioningStatus }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="DetachManagedPolicyFromPermissionSet" Verb="Dismount" Noun="ManagedPolicyFromPermissionSet" ShouldProcessTarget="ManagedPolicyArn" PipelineParameter="ManagedPolicyArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.String ManagedPolicyArn [required];
-             System.String PermissionSetArn [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.DetachManagedPolicyFromPermissionSetResponse.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="GetInlinePolicyForPermissionSet" OutputProperty="InlinePolicy" Verb="Get" Noun="InlinePolicyForPermissionSet" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.String PermissionSetArn [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.GetInlinePolicyForPermissionSetResponse {
-            System.String InlinePolicy }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="ListAccountAssignmentCreationStatus" OutputProperty="AccountAssignmentsCreationStatus" Verb="Get" Noun="AccountAssignmentCreationStatusList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             Amazon.SSOAdmin.StatusValues Filter_Status;
-             System.String InstanceArn [required];
-             System.Int32 MaxResults as MaxResult (aliases: MaxResults);
-             System.String NextToken.-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.ListAccountAssignmentCreationStatusResponse {
-            System.Collections.Generic.List<Amazon.SSOAdmin.Model.AccountAssignmentOperationStatusMetadata> AccountAssignmentsCreationStatus;
-            System.String NextToken }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="ListAccountAssignmentDeletionStatus" OutputProperty="AccountAssignmentsDeletionStatus" Verb="Get" Noun="AccountAssignmentDeletionStatusList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             Amazon.SSOAdmin.StatusValues Filter_Status;
-             System.String InstanceArn [required];
-             System.Int32 MaxResults as MaxResult (aliases: MaxResults);
-             System.String NextToken.-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.ListAccountAssignmentDeletionStatusResponse {
-            System.Collections.Generic.List<Amazon.SSOAdmin.Model.AccountAssignmentOperationStatusMetadata> AccountAssignmentsDeletionStatus;
-            System.String NextToken }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="ListAccountAssignments" OutputProperty="AccountAssignments" Verb="Get" Noun="AccountAssignmentList" PipelineParameter="AccountId" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String AccountId [required];
-             System.String InstanceArn [required];
-             System.Int32 MaxResults as MaxResult (aliases: MaxResults);
-             System.String NextToken;
-             System.String PermissionSetArn [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.ListAccountAssignmentsResponse {
-            System.Collections.Generic.List<Amazon.SSOAdmin.Model.AccountAssignment> AccountAssignments;
-            System.String NextToken }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="ListAccountsForProvisionedPermissionSet" OutputProperty="AccountIds" Verb="Get" Noun="AccountsForProvisionedPermissionSetList" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.Int32 MaxResults as MaxResult (aliases: MaxResults);
-             System.String NextToken;
-             System.String PermissionSetArn [required];
-             Amazon.SSOAdmin.ProvisioningStatus ProvisioningStatus.-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.ListAccountsForProvisionedPermissionSetResponse {
-            System.Collections.Generic.List<System.String> AccountIds;
-            System.String NextToken }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PipelineParameter="" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.Int32 MaxResults as MaxResult (aliases: MaxResults);
-             System.String NextToken.-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.ListInstancesResponse {
-            System.Collections.Generic.List<Amazon.SSOAdmin.Model.InstanceMetadata> Instances;
-            System.String NextToken }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="ListManagedPoliciesInPermissionSet" OutputProperty="AttachedManagedPolicies" Verb="Get" Noun="ManagedPoliciesInPermissionSetList" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.Int32 MaxResults as MaxResult (aliases: MaxResults);
-             System.String NextToken;
-             System.String PermissionSetArn [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.ListManagedPoliciesInPermissionSetResponse {
-            System.Collections.Generic.List<Amazon.SSOAdmin.Model.AttachedManagedPolicy> AttachedManagedPolicies;
-            System.String NextToken }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="ListPermissionSetProvisioningStatus" OutputProperty="PermissionSetsProvisioningStatus" Verb="Get" Noun="PermissionSetProvisioningStatusList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             Amazon.SSOAdmin.StatusValues Filter_Status;
-             System.String InstanceArn [required];
-             System.Int32 MaxResults as MaxResult (aliases: MaxResults);
-             System.String NextToken.-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.ListPermissionSetProvisioningStatusResponse {
-            System.String NextToken;
-            System.Collections.Generic.List<Amazon.SSOAdmin.Model.PermissionSetProvisioningStatusMetadata> PermissionSetsProvisioningStatus }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="ListPermissionSets" OutputProperty="PermissionSets" Verb="Get" Noun="PermissionSetList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.Int32 MaxResults as MaxResult (aliases: MaxResults);
-             System.String NextToken.-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.ListPermissionSetsResponse {
-            System.String NextToken;
-            System.Collections.Generic.List<System.String> PermissionSets }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="ListPermissionSetsProvisionedToAccount" OutputProperty="PermissionSets" Verb="Get" Noun="PermissionSetsProvisionedToAccountList" PipelineParameter="AccountId" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String AccountId [required];
-             System.String InstanceArn [required];
-             System.Int32 MaxResults as MaxResult (aliases: MaxResults);
-             System.String NextToken;
-             Amazon.SSOAdmin.ProvisioningStatus ProvisioningStatus.-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.ListPermissionSetsProvisionedToAccountResponse {
-            System.String NextToken;
-            System.Collections.Generic.List<System.String> PermissionSets }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.String NextToken;
-             System.String ResourceArn [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.ListTagsForResourceResponse {
-            System.String NextToken;
-            System.Collections.Generic.List<Amazon.SSOAdmin.Model.Tag> Tags }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="ProvisionPermissionSet" OutputProperty="PermissionSetProvisioningStatus" Verb="Add" Noun="PermissionSetProvision" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.String PermissionSetArn [required];
-             System.String TargetId;
-             Amazon.SSOAdmin.ProvisionTargetType TargetType [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.ProvisionPermissionSetResponse {
-            Amazon.SSOAdmin.Model.PermissionSetProvisioningStatus PermissionSetProvisioningStatus }.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="PutInlinePolicyToPermissionSet" Verb="Write" Noun="InlinePolicyToPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InlinePolicy [required];
-             System.String InstanceArn [required];
-             System.String PermissionSetArn [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.PutInlinePolicyToPermissionSetResponse.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.String ResourceArn [required];
-             List<Amazon.SSOAdmin.Model.Tag> Tags as Tag (aliases: Tags) [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.TagResourceResponse.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String InstanceArn [required];
-             System.String ResourceArn [required];
-             List<System.String> TagKeys as TagKey (aliases: TagKeys) [required].-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.UntagResourceResponse.-->
-      </ServiceOperation>
-      <ServiceOperation MethodName="UpdatePermissionSet" Verb="Update" Noun="PermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
-        <!--INFO - The configuration of this cmdlet is being changed through overrides.-->
-        <Params />
-        <TypesNotToFlatten />
-        <!--INFO - Parameters:
-             System.String Description;
-             System.String InstanceArn [required];
-             System.String PermissionSetArn [required];
-             System.String RelayState;
-             System.String SessionDuration.-->
-        <!--INFO - Operation result type: Amazon.SSOAdmin.Model.UpdatePermissionSetResponse.-->
-      </ServiceOperation>
+        <ServiceOperation MethodName="AttachManagedPolicyToPermissionSet" Verb="Mount" Noun="ManagedPolicyToPermissionSet" ShouldProcessTarget="ManagedPolicyArn" PipelineParameter="ManagedPolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccountAssignment" OutputProperty="AccountAssignmentCreationStatus" Verb="New" Noun="AccountAssignment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInstanceAccessControlAttributeConfiguration" Verb="New" Noun="InstanceAccessControlAttributeConfiguration" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePermissionSet" OutputProperty="PermissionSet" Verb="New" Noun="PermissionSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccountAssignment" OutputProperty="AccountAssignmentDeletionStatus" Verb="Remove" Noun="AccountAssignment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInlinePolicyFromPermissionSet" Verb="Remove" Noun="InlinePolicyFromPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInstanceAccessControlAttributeConfiguration" Verb="Remove" Noun="InstanceAccessControlAttributeConfiguration" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePermissionSet" Verb="Remove" Noun="PermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountAssignmentCreationStatus" OutputProperty="AccountAssignmentCreationStatus" Verb="Get" Noun="AccountAssignmentCreationStatus" PipelineParameter="AccountAssignmentCreationRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountAssignmentDeletionStatus" OutputProperty="AccountAssignmentDeletionStatus" Verb="Get" Noun="AccountAssignmentDeletionStatus" PipelineParameter="AccountAssignmentDeletionRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceAccessControlAttributeConfiguration" OutputProperty="*" Verb="Get" Noun="InstanceAccessControlAttributeConfiguration" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePermissionSet" OutputProperty="PermissionSet" Verb="Get" Noun="PermissionSet" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePermissionSetProvisioningStatus" OutputProperty="PermissionSetProvisioningStatus" Verb="Get" Noun="PermissionSetProvisioningStatus" PipelineParameter="ProvisionPermissionSetRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachManagedPolicyFromPermissionSet" Verb="Dismount" Noun="ManagedPolicyFromPermissionSet" ShouldProcessTarget="ManagedPolicyArn" PipelineParameter="ManagedPolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInlinePolicyForPermissionSet" OutputProperty="InlinePolicy" Verb="Get" Noun="InlinePolicyForPermissionSet" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccountAssignmentCreationStatus" OutputProperty="AccountAssignmentsCreationStatus" Verb="Get" Noun="AccountAssignmentCreationStatusList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccountAssignmentDeletionStatus" OutputProperty="AccountAssignmentsDeletionStatus" Verb="Get" Noun="AccountAssignmentDeletionStatusList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccountAssignments" OutputProperty="AccountAssignments" Verb="Get" Noun="AccountAssignmentList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccountsForProvisionedPermissionSet" OutputProperty="AccountIds" Verb="Get" Noun="AccountsForProvisionedPermissionSetList" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedPoliciesInPermissionSet" OutputProperty="AttachedManagedPolicies" Verb="Get" Noun="ManagedPoliciesInPermissionSetList" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPermissionSetProvisioningStatus" OutputProperty="PermissionSetsProvisioningStatus" Verb="Get" Noun="PermissionSetProvisioningStatusList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPermissionSets" OutputProperty="PermissionSets" Verb="Get" Noun="PermissionSetList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPermissionSetsProvisionedToAccount" OutputProperty="PermissionSets" Verb="Get" Noun="PermissionSetsProvisionedToAccountList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ProvisionPermissionSet" OutputProperty="PermissionSetProvisioningStatus" Verb="Add" Noun="PermissionSetProvision" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutInlinePolicyToPermissionSet" Verb="Write" Noun="InlinePolicyToPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInstanceAccessControlAttributeConfiguration" Verb="Update" Noun="InstanceAccessControlAttributeConfiguration" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePermissionSet" Verb="Update" Noun="PermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
-
 </ConfigModel>

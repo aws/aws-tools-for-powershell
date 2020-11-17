@@ -94,10 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter RetainPhysicalResource
         /// <summary>
         /// <para>
-        /// <para>When this boolean parameter is set to true, the TerminateProvisionedProduct API deletes
-        /// the Service Catalog provisioned product. However, it does not remove the CloudFormation
-        /// stack, stack set, or the underlying resources of the deleted provisioned product.
-        /// The default value is false.</para>
+        /// <para>When this boolean parameter is set to true, the <code>TerminateProvisionedProduct</code>
+        /// API deletes the Service Catalog provisioned product. However, it does not remove the
+        /// CloudFormation stack, stack set, or the underlying resources of the deleted provisioned
+        /// product. The default value is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

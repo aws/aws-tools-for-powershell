@@ -28,8 +28,13 @@ using Amazon.ManagedBlockchain.Model;
 namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
-    /// Returns the listing of votes for a specified proposal, including the value of each
-    /// vote and the unique identifier of the member that cast the vote.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the list of votes for a specified proposal, including the value of each vote
+    /// and the unique identifier of the member that cast the vote.
+    /// 
+    ///  
+    /// <para>
+    /// Applies only to Hyperledger Fabric.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MBCProposalVoteList")]
     [OutputType("Amazon.ManagedBlockchain.Model.VoteSummary")]

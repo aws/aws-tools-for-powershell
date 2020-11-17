@@ -28,8 +28,8 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// For the specified directory, lists all the certificates registered for a secured LDAP
-    /// connection.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// For the specified directory, lists all the certificates registered for a secure LDAP
+    /// or client certificate authentication.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DSCertificateList")]
     [OutputType("Amazon.DirectoryService.Model.CertificateInfo")]

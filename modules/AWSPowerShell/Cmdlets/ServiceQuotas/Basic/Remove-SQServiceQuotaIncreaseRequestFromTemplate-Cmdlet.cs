@@ -28,7 +28,8 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Removes a service quota increase request from the Service Quotas template.
+    /// Deletes the quota increase request for the specified quota from your quota request
+    /// template.
     /// </summary>
     [Cmdlet("Remove", "SQServiceQuotaIncreaseRequestFromTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter AwsRegion
         /// <summary>
         /// <para>
-        /// <para>Specifies the AWS Region for the quota that you want to delete.</para>
+        /// <para>The AWS Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter QuotaCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the code for the quota that you want to delete.</para>
+        /// <para>The quota identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the code for the service that you want to delete.</para>
+        /// <para>The service identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

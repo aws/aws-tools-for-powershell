@@ -80,6 +80,16 @@ $LM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Lambda.CodeSigningPolicy
+        {
+            ($_ -eq "New-LMCodeSigningConfig/CodeSigningPolicies_UntrustedArtifactOnDeployment") -Or
+            ($_ -eq "Update-LMCodeSigningConfig/CodeSigningPolicies_UntrustedArtifactOnDeployment")
+        }
+        {
+            $v = "Enforce","Warn"
+            break
+        }
+
         # Amazon.Lambda.EventSourcePosition
         "New-LMEventSourceMapping/StartingPosition"
         {
@@ -105,6 +115,13 @@ $LM_Completers = {
         "Invoke-LMFunction/LogType"
         {
             $v = "None","Tail"
+            break
+        }
+
+        # Amazon.Lambda.PackageType
+        "Publish-LMFunction/PackageType"
+        {
+            $v = "Image","Zip"
             break
         }
 
@@ -139,10 +156,12 @@ $LM_Completers = {
 }
 
 $LM_map = @{
+    "CodeSigningPolicies_UntrustedArtifactOnDeployment"=@("New-LMCodeSigningConfig","Update-LMCodeSigningConfig")
     "CompatibleRuntime"=@("Get-LMLayerList","Get-LMLayerVersionList")
     "FunctionVersion"=@("Get-LMFunctionList")
     "InvocationType"=@("Invoke-LMFunction")
     "LogType"=@("Invoke-LMFunction")
+    "PackageType"=@("Publish-LMFunction")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
     "TracingConfig_Mode"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
@@ -201,19 +220,24 @@ $LM_SelectMap = @{
     "Select"=@("Add-LMLayerVersionPermission",
                "Add-LMPermission",
                "New-LMAlias",
+               "New-LMCodeSigningConfig",
                "New-LMEventSourceMapping",
                "Publish-LMFunction",
                "Remove-LMAlias",
+               "Remove-LMCodeSigningConfig",
                "Remove-LMEventSourceMapping",
                "Remove-LMFunction",
+               "Remove-LMFunctionCodeSigningConfig",
                "Remove-LMFunctionConcurrency",
                "Remove-LMFunctionEventInvokeConfig",
                "Remove-LMLayerVersion",
                "Remove-LMProvisionedConcurrencyConfig",
                "Get-LMAccountSetting",
                "Get-LMAlias",
+               "Get-LMCodeSigningConfig",
                "Get-LMEventSourceMapping",
                "Get-LMFunction",
+               "Get-LMFunctionCodeSigningConfig",
                "Get-LMFunctionConcurrency",
                "Get-LMFunctionConfiguration",
                "Get-LMFunctionEventInvokeConfig",
@@ -225,9 +249,11 @@ $LM_SelectMap = @{
                "Invoke-LMFunction",
                "Invoke-LMFunctionAsync",
                "Get-LMAliasList",
+               "Get-LMCodeSigningConfigList",
                "Get-LMEventSourceMappingList",
                "Get-LMFunctionEventInvokeConfigList",
                "Get-LMFunctionList",
+               "Get-LMFunctionsByCodeSigningConfigList",
                "Get-LMLayerList",
                "Get-LMLayerVersionList",
                "Get-LMProvisionedConcurrencyConfigList",
@@ -235,6 +261,7 @@ $LM_SelectMap = @{
                "Get-LMVersionsByFunction",
                "Publish-LMLayerVersion",
                "Publish-LMVersion",
+               "Write-LMFunctionCodeSigningConfig",
                "Write-LMFunctionConcurrency",
                "Write-LMFunctionEventInvokeConfig",
                "Write-LMProvisionedConcurrencyConfig",
@@ -243,6 +270,7 @@ $LM_SelectMap = @{
                "Add-LMResourceTag",
                "Remove-LMResourceTag",
                "Update-LMAlias",
+               "Update-LMCodeSigningConfig",
                "Update-LMEventSourceMapping",
                "Update-LMFunctionCode",
                "Update-LMFunctionConfiguration",

@@ -177,9 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningPreferences_StackSetAccount
         /// <summary>
         /// <para>
-        /// <para>One or more AWS accounts that will have access to the provisioned product.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>The AWS accounts specified should be within the list of accounts in the <code>STACKSET</code>
+        /// <para>One or more AWS accounts where the provisioned product will be available.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>The specified accounts should be within the list of accounts from the <code>STACKSET</code>
         /// constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use
-        /// the <code>DescribeProvisioningParameters</code> operation.</para><para>If no values are specified, the default value is all accounts from the <code>STACKSET</code>
+        /// the <code>DescribeProvisioningParameters</code> operation.</para><para>If no values are specified, the default value is all acounts from the <code>STACKSET</code>
         /// constraint.</para>
         /// </para>
         /// </summary>

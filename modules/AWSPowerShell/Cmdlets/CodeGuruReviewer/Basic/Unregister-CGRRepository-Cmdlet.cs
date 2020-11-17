@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html"><code>RepositoryAssociation</code></a> object. You can retrieve this ARN by calling
-        /// <code>ListRepositories</code>. </para>
+        /// <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html"><code>ListRepositoryAssociations</code></a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

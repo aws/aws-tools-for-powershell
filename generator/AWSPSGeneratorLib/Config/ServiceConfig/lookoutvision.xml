@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>lookoutvision</C2jFilename>
+    <AssemblyName>LookoutforVision</AssemblyName>
+    <ServiceNounPrefix>LFV</ServiceNounPrefix>
+    <ServiceName>Amazon Lookout for Vision</ServiceName>
+    <ServiceClientInterface>IAmazonLookoutforVision</ServiceClientInterface>
+    <ServiceClient>AmazonLookoutforVisionClient</ServiceClient>
+    <ServiceModuleGuid>0D264018-BEBC-4109-9E66-C2E0361124B9</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetMetadata" Verb="New" Noun="Dataset" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateModel" OutputProperty="ModelMetadata" Verb="New" Noun="Model" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="OutputConfig_S3Location_Bucket" NewName="Output_S3Location_Bucket" />
+                <Param Name="OutputConfig_S3Location_Prefix" NewName="Output_S3Location_Prefix" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProject" OutputProperty="ProjectMetadata" Verb="New" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteModel" OutputProperty="ModelArn" Verb="Remove" Noun="Model" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProject" OutputProperty="ProjectArn" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataset" OutputProperty="DatasetDescription" Verb="Get" Noun="Dataset" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModel" OutputProperty="ModelDescription" Verb="Get" Noun="Model" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProject" OutputProperty="ProjectDescription" Verb="Get" Noun="Project" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetectAnomalies" OutputProperty="DetectAnomalyResult" Verb="Find" Noun="Anomaly" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDatasetEntries" OutputProperty="DatasetEntries" Verb="Get" Noun="DatasetEntryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModels" OutputProperty="Models" Verb="Get" Noun="ModelList" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProjects" OutputProperty="Projects" Verb="Get" Noun="ProjectList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartModel" OutputProperty="Status" Verb="Start" Noun="Model" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopModel" OutputProperty="Status" Verb="Stop" Noun="Model" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDatasetEntries" OutputProperty="Status" Verb="Update" Noun="DatasetEntry" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

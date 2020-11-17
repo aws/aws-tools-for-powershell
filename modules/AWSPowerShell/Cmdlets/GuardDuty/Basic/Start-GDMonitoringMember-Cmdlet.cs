@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector of the GuardDuty master account associated with the
-        /// member accounts to monitor.</para>
+        /// <para>The unique ID of the detector of the GuardDuty administrator account associated with
+        /// the member accounts to monitor.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

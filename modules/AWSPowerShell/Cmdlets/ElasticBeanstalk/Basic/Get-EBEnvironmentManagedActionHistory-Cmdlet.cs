@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
         /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
-        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>1000</b>'.</para>
+        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>100</b>'.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaxItems")]
@@ -132,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
             #if MODULAR
             if (!ParameterWasBound(nameof(this.MaxItem)))
             {
-                WriteVerbose("MaxItem parameter unset, using default value of '1000'");
-                context.MaxItem = 1000;
+                WriteVerbose("MaxItem parameter unset, using default value of '100'");
+                context.MaxItem = 100;
             }
             #endif
             #if !MODULAR
@@ -251,10 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             }
             if (cmdletContext.MaxItem.HasValue)
             {
-                // The service has a maximum page size of 1000. If the user has
+                // The service has a maximum page size of 100. If the user has
                 // asked for more items than page max, and there is no page size
                 // configured, we rely on the service ignoring the set maximum
-                // and giving us 1000 items back. If a page size is set, that will
+                // and giving us 100 items back. If a page size is set, that will
                 // be used to configure the pagination.
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxItem;
@@ -267,12 +267,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 request.NextToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = Math.Min(1000, _emitLimit.Value);
+                    int correctPageSize = Math.Min(100, _emitLimit.Value);
                     request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
                 else if (!ParameterWasBound(nameof(this.MaxItem)))
                 {
-                    request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(1000);
+                    request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(100);
                 }
                 
                 CmdletOutput output;

@@ -152,6 +152,21 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         public System.String GitHubEnterpriseServer_Owner { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para> An array of key-value pairs used to tag an associated repository. A tag is a custom
+        /// attribute label with two parts: </para><ul><li><para>A <i>tag key</i> (for example, <code>CostCenter</code>, <code>Environment</code>,
+        /// <code>Project</code>, or <code>Secret</code>). Tag keys are case sensitive.</para></li><li><para>An optional field known as a <i>tag value</i> (for example, <code>111122223333</code>,
+        /// <code>Production</code>, or a team name). Omitting the tag value is the same as using
+        /// an empty string. Like tag keys, tag values are case sensitive.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'RepositoryAssociation'.
@@ -221,6 +236,14 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             context.GitHubEnterpriseServer_ConnectionArn = this.GitHubEnterpriseServer_ConnectionArn;
             context.GitHubEnterpriseServer_Name = this.GitHubEnterpriseServer_Name;
             context.GitHubEnterpriseServer_Owner = this.GitHubEnterpriseServer_Owner;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -365,6 +388,10 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             {
                 request.Repository = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -434,6 +461,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             public System.String GitHubEnterpriseServer_ConnectionArn { get; set; }
             public System.String GitHubEnterpriseServer_Name { get; set; }
             public System.String GitHubEnterpriseServer_Owner { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CodeGuruReviewer.Model.AssociateRepositoryResponse, RegisterCGRRepositoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RepositoryAssociation;
         }

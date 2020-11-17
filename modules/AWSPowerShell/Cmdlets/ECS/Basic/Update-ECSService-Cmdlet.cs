@@ -193,6 +193,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Int32? DesiredCount { get; set; }
         #endregion
         
+        #region Parameter DeploymentCircuitBreaker_Enable
+        /// <summary>
+        /// <para>
+        /// <para>Whether to enable the deployment circuit breaker logic for the service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_DeploymentCircuitBreaker_Enable")]
+        public System.Boolean? DeploymentCircuitBreaker_Enable { get; set; }
+        #endregion
+        
         #region Parameter ForceNewDeployment
         /// <summary>
         /// <para>
@@ -322,6 +333,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String PlatformVersion { get; set; }
         #endregion
         
+        #region Parameter DeploymentCircuitBreaker_Rollback
+        /// <summary>
+        /// <para>
+        /// <para>Whether to enable Amazon ECS to roll back the service if a service deployment fails.
+        /// If rollback is enabled, when a service deployment fails, the service is rolled back
+        /// to the last deployment that completed successfully.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_DeploymentCircuitBreaker_Rollback")]
+        public System.Boolean? DeploymentCircuitBreaker_Rollback { get; set; }
+        #endregion
+        
         #region Parameter AwsvpcConfiguration_SecurityGroup
         /// <summary>
         /// <para>
@@ -445,6 +469,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.CapacityProviderStrategy = new List<Amazon.ECS.Model.CapacityProviderStrategyItem>(this.CapacityProviderStrategy);
             }
             context.Cluster = this.Cluster;
+            context.DeploymentCircuitBreaker_Enable = this.DeploymentCircuitBreaker_Enable;
+            context.DeploymentCircuitBreaker_Rollback = this.DeploymentCircuitBreaker_Rollback;
             context.DeploymentConfiguration_MaximumPercent = this.DeploymentConfiguration_MaximumPercent;
             context.DeploymentConfiguration_MinimumHealthyPercent = this.DeploymentConfiguration_MinimumHealthyPercent;
             context.DesiredCount = this.DesiredCount;
@@ -522,6 +548,41 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestDeploymentConfiguration_deploymentConfiguration_MinimumHealthyPercent != null)
             {
                 request.DeploymentConfiguration.MinimumHealthyPercent = requestDeploymentConfiguration_deploymentConfiguration_MinimumHealthyPercent.Value;
+                requestDeploymentConfigurationIsNull = false;
+            }
+            Amazon.ECS.Model.DeploymentCircuitBreaker requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker = null;
+            
+             // populate DeploymentCircuitBreaker
+            var requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull = true;
+            requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker = new Amazon.ECS.Model.DeploymentCircuitBreaker();
+            System.Boolean? requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Enable = null;
+            if (cmdletContext.DeploymentCircuitBreaker_Enable != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Enable = cmdletContext.DeploymentCircuitBreaker_Enable.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Enable != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker.Enable = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Enable.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull = false;
+            }
+            System.Boolean? requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Rollback = null;
+            if (cmdletContext.DeploymentCircuitBreaker_Rollback != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Rollback = cmdletContext.DeploymentCircuitBreaker_Rollback.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Rollback != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker.Rollback = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Rollback.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull = false;
+            }
+             // determine if requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker should be set to null
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker = null;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker != null)
+            {
+                request.DeploymentConfiguration.DeploymentCircuitBreaker = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker;
                 requestDeploymentConfigurationIsNull = false;
             }
              // determine if request.DeploymentConfiguration should be set to null
@@ -678,6 +739,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public List<Amazon.ECS.Model.CapacityProviderStrategyItem> CapacityProviderStrategy { get; set; }
             public System.String Cluster { get; set; }
+            public System.Boolean? DeploymentCircuitBreaker_Enable { get; set; }
+            public System.Boolean? DeploymentCircuitBreaker_Rollback { get; set; }
             public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }
             public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
             public System.Int32? DesiredCount { get; set; }

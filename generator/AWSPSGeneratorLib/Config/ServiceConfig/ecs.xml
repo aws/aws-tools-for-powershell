@@ -185,6 +185,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCapacityProvider" OutputProperty="CapacityProvider" Verb="Update" Noun="CapacityProvider" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateClusterSettings" OutputProperty="Cluster" Verb="Update" Noun="ClusterSetting" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -157,11 +157,14 @@ $CONNP_SelectCompleters = {
 }
 
 $CONNP_SelectMap = @{
-    "Select"=@("New-CONNPParticipantConnection",
+    "Select"=@("Complete-CONNPAttachmentUpload",
+               "New-CONNPParticipantConnection",
                "Disconnect-CONNPParticipant",
+               "Get-CONNPAttachment",
                "Get-CONNPTranscript",
                "Send-CONNPEvent",
-               "Send-CONNPMessage")
+               "Send-CONNPMessage",
+               "Start-CONNPAttachmentUpload")
 }
 
 _awsArgumentCompleterRegistration $CONNP_SelectCompleters $CONNP_SelectMap

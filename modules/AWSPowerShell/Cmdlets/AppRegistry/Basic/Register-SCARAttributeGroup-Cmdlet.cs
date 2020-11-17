@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
 {
     /// <summary>
     /// Associates an attribute group with an application to augment the application's metadata
-    /// with the group's attributes. This way applications can be described with user-defined
-    /// details which are machine-readable (e.g. for third-party integrations).
+    /// with the group's attributes. This feature enables applications to be described with
+    /// user-defined details that are machine-readable, such as third-party integrations.
     /// </summary>
     [Cmdlet("Register", "SCARAttributeGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppRegistry.Model.AssociateAttributeGroupResponse")]

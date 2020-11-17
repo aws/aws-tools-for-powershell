@@ -28,14 +28,14 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Gets a list of aliases in the caller's AWS account and region. You cannot list aliases
-    /// in other accounts. For more information about aliases, see <a>CreateAlias</a>.
+    /// Gets a list of aliases in the caller's AWS account and region. For more information
+    /// about aliases, see <a>CreateAlias</a>.
     /// 
     ///  
     /// <para>
-    /// By default, the ListAliases command returns all aliases in the account and region.
-    /// To get only the aliases that point to a particular customer master key (CMK), use
-    /// the <code>KeyId</code> parameter.
+    /// By default, the <code>ListAliases</code> operation returns all aliases in the account
+    /// and region. To get only the aliases associated with a particular customer master key
+    /// (CMK), use the <code>KeyId</code> parameter.
     /// </para><para>
     /// The <code>ListAliases</code> response can include aliases that you created and associated
     /// with your customer managed CMKs, and aliases that AWS created and associated with
@@ -47,7 +47,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// a CMK. Aliases that AWS creates in your account, including predefined aliases, do
     /// not count against your <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit">AWS
     /// KMS aliases quota</a>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><para><b>Cross-account use</b>: No. <code>ListAliases</code> does not return aliases in
+    /// other AWS accounts.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListAliases</a>
+    /// (IAM policy)
+    /// </para><para>
+    /// For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access">Controlling
+    /// access to aliases</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateAlias</a></para></li><li><para><a>DeleteAlias</a></para></li><li><para><a>UpdateAlias</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KMSAliasList")]
     [OutputType("Amazon.KeyManagementService.Model.AliasListEntry")]
@@ -62,10 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>Lists only aliases that refer to the specified CMK. The value of this parameter can
-        /// be the ID or Amazon Resource Name (ARN) of a CMK in the caller's account and region.
-        /// You cannot use an alias name or alias ARN in this value.</para><para>This parameter is optional. If you omit it, <code>ListAliases</code> returns all aliases
-        /// in the account and region.</para>
+        /// <para>Lists only aliases that are associated with the specified CMK. Enter a CMK in your
+        /// AWS account. </para><para>This parameter is optional. If you omit it, <code>ListAliases</code> returns all aliases
+        /// in the account and Region.</para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

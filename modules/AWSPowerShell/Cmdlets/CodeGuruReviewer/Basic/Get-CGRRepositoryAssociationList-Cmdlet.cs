@@ -86,7 +86,12 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// in your repository to trigger CodeGuru Reviewer reviews. If you delete these webhooks,
         /// reviews of code in your repository cannot be triggered. </para></note></li><li><para> Setting up source code access. This is required for CodeGuru Reviewer to securely
         /// clone code in your repository. </para></li></ul></li><li><para><b>Failed</b>: The repository failed to associate or disassociate. </para></li><li><para><b>Disassociating</b>: CodeGuru Reviewer is removing the repository's pull request
-        /// notifications and source code access. </para></li></ul>
+        /// notifications and source code access. </para></li><li><para><b>Disassociated</b>: CodeGuru Reviewer successfully disassociated the repository.
+        /// You can create a new association with this repository if you want to review source
+        /// code in it later. You can control access to code reviews created in an associated
+        /// repository with tags after it has been disassociated. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html">Using
+        /// tags to control access to associated repositories</a> in the <i>Amazon CodeGuru Reviewer
+        /// User Guide</i>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

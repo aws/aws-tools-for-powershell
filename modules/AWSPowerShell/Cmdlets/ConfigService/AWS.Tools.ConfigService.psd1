@@ -130,6 +130,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CFGResourceConfigHistory', 
         'Get-CFGResourceTag', 
         'Get-CFGRetentionConfiguration', 
+        'Get-CFGStoredQuery', 
+        'Get-CFGStoredQueryList', 
         'Remove-CFGAggregationAuthorization', 
         'Remove-CFGConfigRule', 
         'Remove-CFGConfigurationAggregator', 
@@ -145,6 +147,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CFGResourceConfig', 
         'Remove-CFGResourceTag', 
         'Remove-CFGRetentionConfiguration', 
+        'Remove-CFGStoredQuery', 
         'Select-CFGAggregateResourceConfig', 
         'Select-CFGResourceConfig', 
         'Start-CFGConfigRulesEvaluation', 
@@ -159,12 +162,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-CFGConformancePack', 
         'Write-CFGDeliveryChannel', 
         'Write-CFGEvaluation', 
+        'Write-CFGExternalEvaluation', 
         'Write-CFGOrganizationConfigRule', 
         'Write-CFGOrganizationConformancePack', 
         'Write-CFGRemediationConfiguration', 
         'Write-CFGRemediationException', 
         'Write-CFGResourceConfig', 
-        'Write-CFGRetentionConfiguration')
+        'Write-CFGRetentionConfiguration', 
+        'Write-CFGStoredQuery')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// <summary>
     /// Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If
     /// you use this operation from a member account, the ThreatIntelSets associated with
-    /// the master account are returned.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// the administrator account are returned.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GDThreatIntelSetList")]
     [OutputType("System.String")]

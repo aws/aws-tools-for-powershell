@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// Only the owner of a queue can remove permissions from it.
     /// </para></li><li><para>
     /// Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
-    /// Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue
+    /// cross-account permissions to a role and a user name</a> in the <i>Amazon Simple Queue
     /// Service Developer Guide</i>.
     /// </para></li><li><para>
     /// To remove the ability to change queue permissions, you must deny permission to the

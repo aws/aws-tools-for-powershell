@@ -90,6 +90,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-R53RResolverQueryLogConfigAssociation', 
         'Add-R53RResolverRuleAssociation', 
         'Add-R53RResourceTag', 
+        'Get-R53RResolverDnssecConfig', 
+        'Get-R53RResolverDnssecConfigList', 
         'Get-R53RResolverEndpoint', 
         'Get-R53RResolverEndpointIpAddressList', 
         'Get-R53RResolverEndpointList', 
@@ -115,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-R53RResolverRuleAssociation', 
         'Remove-R53RResourceTag', 
         'Set-R53RResolverRulePolicy', 
+        'Update-R53RResolverDnssecConfig', 
         'Update-R53RResolverEndpoint', 
         'Update-R53RResolverRule', 
         'Write-R53RResolverQueryLogConfigPolicy')

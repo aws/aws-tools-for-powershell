@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// After you enable encryption by default, the EBS volumes that you create are are always
     /// encrypted, either using the default CMK or the CMK that you specified when you created
     /// each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-    /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// You can specify the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
     /// or <a>ResetEbsDefaultKmsKeyId</a>.

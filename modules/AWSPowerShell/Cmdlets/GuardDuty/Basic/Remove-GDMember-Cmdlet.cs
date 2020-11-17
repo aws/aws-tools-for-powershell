@@ -28,8 +28,8 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Deletes GuardDuty member accounts (to the current GuardDuty master account) specified
-    /// by the account IDs.
+    /// Deletes GuardDuty member accounts (to the current GuardDuty administrator account)
+    /// specified by the account IDs.
     /// </summary>
     [Cmdlet("Remove", "GDMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.GuardDuty.Model.UnprocessedAccount")]

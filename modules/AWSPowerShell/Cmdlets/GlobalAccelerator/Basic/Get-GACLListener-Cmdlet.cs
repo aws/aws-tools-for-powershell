@@ -28,8 +28,7 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Describe a listener. To see an AWS CLI example of describing a listener, scroll down
-    /// to <b>Example</b>.
+    /// Describe a listener.
     /// </summary>
     [Cmdlet("Get", "GACLListener")]
     [OutputType("Amazon.GlobalAccelerator.Model.Listener")]

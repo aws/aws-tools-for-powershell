@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// <summary>
     /// Stops advertising an address range that is provisioned as an address pool. You can
     /// perform this operation at most once every 10 seconds, even if you specify different
-    /// address ranges each time. To see an AWS CLI example of withdrawing an address range
-    /// for BYOIP so it will no longer be advertised by AWS, scroll down to <b>Example</b>.
+    /// address ranges each time.
     /// 
     ///  
     /// <para>

@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
     /// Returns detailed information about a member.
+    /// 
+    ///  
+    /// <para>
+    /// Applies only to Hyperledger Fabric.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "MBCMember")]
     [OutputType("Amazon.ManagedBlockchain.Model.Member")]

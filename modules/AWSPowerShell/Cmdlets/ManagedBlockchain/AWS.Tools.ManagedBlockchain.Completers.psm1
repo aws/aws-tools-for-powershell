@@ -93,7 +93,7 @@ $MBC_Completers = {
             ($_ -eq "New-MBCNetwork/Framework")
         }
         {
-            $v = "HYPERLEDGER_FABRIC"
+            $v = "ETHEREUM","HYPERLEDGER_FABRIC"
             break
         }
 
@@ -114,7 +114,7 @@ $MBC_Completers = {
         # Amazon.ManagedBlockchain.NodeStatus
         "Get-MBCNodeList/Status"
         {
-            $v = "AVAILABLE","CREATE_FAILED","CREATING","DELETED","DELETING","FAILED","UPDATING"
+            $v = "AVAILABLE","CREATE_FAILED","CREATING","DELETED","DELETING","FAILED","UNHEALTHY","UPDATING"
             break
         }
 

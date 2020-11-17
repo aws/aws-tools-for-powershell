@@ -70,9 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// without first reviewing the resulting changes in a change set, you must acknowledge
         /// this capability. This includes the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a>
         /// and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
-        /// transforms, which are macros hosted by AWS CloudFormation.</para><para>Change sets do not currently support nested stacks. If you want to create a stack
-        /// from a stack template that contains macros <i>and</i> nested stacks, you must create
-        /// the stack directly from the template using this capability.</para><important><para>You should only create stacks directly from a stack template that contains macros
+        /// transforms, which are macros hosted by AWS CloudFormation.</para><para>If you want to create a stack from a stack template that contains macros <i>and</i>
+        /// nested stacks, you must create the stack directly from the template using this capability.</para><important><para>You should only create stacks directly from a stack template that contains macros
         /// if you know what processing the macro performs.</para><para>Each macro relies on an underlying Lambda service function for processing stack templates.
         /// Be aware that the Lambda function owner can update the function operation without
         /// AWS CloudFormation being notified.</para></important><para>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using

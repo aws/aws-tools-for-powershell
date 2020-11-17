@@ -107,6 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         public System.String JobName { get; set; }
         #endregion
         
+        #region Parameter ParallelDataName
+        /// <summary>
+        /// <para>
+        /// <para>The names of the parallel data resources to use in the batch translation job. For
+        /// a list of available parallel data resources, use the <a>ListParallelData</a> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ParallelDataNames")]
+        public System.String[] ParallelDataName { get; set; }
+        #endregion
+        
         #region Parameter InputDataConfig_S3Uri
         /// <summary>
         /// <para>
@@ -273,6 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                 WriteWarning("You are passing $null as a value for parameter OutputDataConfig_S3Uri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ParallelDataName != null)
+            {
+                context.ParallelDataName = new List<System.String>(this.ParallelDataName);
+            }
             context.SourceLanguageCode = this.SourceLanguageCode;
             #if MODULAR
             if (this.SourceLanguageCode == null && ParameterWasBound(nameof(this.SourceLanguageCode)))
@@ -370,6 +386,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             {
                 request.OutputDataConfig = null;
             }
+            if (cmdletContext.ParallelDataName != null)
+            {
+                request.ParallelDataNames = cmdletContext.ParallelDataName;
+            }
             if (cmdletContext.SourceLanguageCode != null)
             {
                 request.SourceLanguageCode = cmdletContext.SourceLanguageCode;
@@ -449,6 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             public System.String InputDataConfig_S3Uri { get; set; }
             public System.String JobName { get; set; }
             public System.String OutputDataConfig_S3Uri { get; set; }
+            public List<System.String> ParallelDataName { get; set; }
             public System.String SourceLanguageCode { get; set; }
             public List<System.String> TargetLanguageCode { get; set; }
             public List<System.String> TerminologyName { get; set; }

@@ -350,23 +350,21 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter CacheOverride_Mode
         /// <summary>
         /// <para>
-        /// <para> If you use a <code>LOCAL</code> cache, the local cache mode. You can use one or more
-        /// local cache modes at the same time. </para><ul><li><para><code>LOCAL_SOURCE_CACHE</code> mode caches Git metadata for primary and secondary
-        /// sources. After the cache is created, subsequent builds pull only the change between
-        /// commits. This mode is a good choice for projects with a clean working directory and
-        /// a source that is a large Git repository. If you choose this option and your project
-        /// does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option
-        /// is ignored. </para></li><li><para><code>LOCAL_DOCKER_LAYER_CACHE</code> mode caches existing Docker layers. This mode
-        /// is a good choice for projects that build or pull large Docker images. It can prevent
-        /// the performance issues caused by pulling large Docker images down from the network.
-        /// </para><note><ul><li><para> You can use a Docker layer cache in the Linux environment only. </para></li><li><para> The <code>privileged</code> flag must be set so that your project has the required
-        /// Docker permissions. </para></li><li><para> You should consider the security implications before you use a Docker layer cache.
-        /// </para></li></ul></note></li></ul><ul><li><para><code>LOCAL_CUSTOM_CACHE</code> mode caches directories you specify in the buildspec
-        /// file. This mode is a good choice if your build scenario is not suited to one of the
-        /// other three local cache modes. If you use a custom cache: </para><ul><li><para> Only directories can be specified for caching. You cannot specify individual files.
-        /// </para></li><li><para> Symlinks are used to reference cached directories. </para></li><li><para> Cached directories are linked to your build before it downloads its project sources.
+        /// <para>An array of strings that specify the local cache modes. You can use one or more local
+        /// cache modes at the same time. This is only used for <code>LOCAL</code> cache types.</para><para>Possible values are:</para><dl><dt>LOCAL_SOURCE_CACHE</dt><dd><para>Caches Git metadata for primary and secondary sources. After the cache is created,
+        /// subsequent builds pull only the change between commits. This mode is a good choice
+        /// for projects with a clean working directory and a source that is a large Git repository.
+        /// If you choose this option and your project does not use a Git repository (GitHub,
+        /// GitHub Enterprise, or Bitbucket), the option is ignored. </para></dd><dt>LOCAL_DOCKER_LAYER_CACHE</dt><dd><para>Caches existing Docker layers. This mode is a good choice for projects that build
+        /// or pull large Docker images. It can prevent the performance issues caused by pulling
+        /// large Docker images down from the network. </para><note><ul><li><para>You can use a Docker layer cache in the Linux environment only. </para></li><li><para>The <code>privileged</code> flag must be set so that your project has the required
+        /// Docker permissions. </para></li><li><para>You should consider the security implications before you use a Docker layer cache.
+        /// </para></li></ul></note></dd><dt>LOCAL_CUSTOM_CACHE</dt><dd><para>Caches directories you specify in the buildspec file. This mode is a good choice if
+        /// your build scenario is not suited to one of the other three local cache modes. If
+        /// you use a custom cache: </para><ul><li><para>Only directories can be specified for caching. You cannot specify individual files.
+        /// </para></li><li><para>Symlinks are used to reference cached directories. </para></li><li><para>Cached directories are linked to your build before it downloads its project sources.
         /// Cached items are overridden if a source item has the same name. Directories are specified
-        /// using cache paths in the buildspec file. </para></li></ul></li></ul>
+        /// using cache paths in the buildspec file. </para></li></ul></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

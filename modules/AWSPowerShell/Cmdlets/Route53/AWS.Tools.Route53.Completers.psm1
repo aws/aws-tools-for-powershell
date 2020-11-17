@@ -137,7 +137,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53TrafficPolicyInstancesByPolicy/TrafficPolicyInstanceTypeMarker")
         }
         {
-            $v = "A","AAAA","CAA","CNAME","MX","NAPTR","NS","PTR","SOA","SPF","SRV","TXT"
+            $v = "A","AAAA","CAA","CNAME","DS","MX","NAPTR","NS","PTR","SOA","SPF","SRV","TXT"
             break
         }
 
@@ -239,28 +239,35 @@ $R53_SelectCompleters = {
 }
 
 $R53_SelectMap = @{
-    "Select"=@("Register-R53VPCWithHostedZone",
+    "Select"=@("Enable-R53KeySigningKey",
+               "Register-R53VPCWithHostedZone",
                "Edit-R53ResourceRecordSet",
                "Edit-R53TagsForResource",
                "New-R53HealthCheck",
                "New-R53HostedZone",
+               "New-R53KeySigningKey",
                "New-R53QueryLoggingConfig",
                "New-R53ReusableDelegationSet",
                "New-R53TrafficPolicy",
                "New-R53TrafficPolicyInstance",
                "New-R53TrafficPolicyVersion",
                "New-R53VPCAssociationAuthorization",
+               "Disable-R53KeySigningKey",
                "Remove-R53HealthCheck",
                "Remove-R53HostedZone",
+               "Remove-R53KeySigningKey",
                "Remove-R53QueryLoggingConfig",
                "Remove-R53ReusableDelegationSet",
                "Remove-R53TrafficPolicy",
                "Remove-R53TrafficPolicyInstance",
                "Remove-R53VPCAssociationAuthorization",
+               "Disable-R53HostedZoneDNSSEC",
                "Unregister-R53VPCFromHostedZone",
+               "Enable-R53HostedZoneDNSSEC",
                "Get-R53AccountLimit",
                "Get-R53Change",
                "Get-R53CheckerIpRange",
+               "Get-R53DNSSEC",
                "Get-R53GeoLocation",
                "Get-R53HealthCheck",
                "Get-R53HealthCheckCount",

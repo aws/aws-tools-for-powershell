@@ -238,8 +238,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter EbsRootVolumeSize
         /// <summary>
         /// <para>
-        /// <para>The size, in GiB, of the EBS root device volume of the Linux AMI that is used for
-        /// each EC2 instance. Available in Amazon EMR version 4.x and later.</para>
+        /// <para>The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used
+        /// for each EC2 instance. Available in Amazon EMR version 4.x and later.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,8 +249,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_Ec2KeyName
         /// <summary>
         /// <para>
-        /// <para>The name of the EC2 key pair that can be used to ssh to the master node as the user
-        /// called "hadoop."</para>
+        /// <para>The name of the EC2 key pair that can be used to connect to the master node using
+        /// SSH as the user called "hadoop."</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,10 +307,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for
-        /// the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205"
-        /// (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default
-        /// of 0.18 is used, unless the <code>AmiVersion</code> parameter is set in the RunJobFlow
-        /// call, in which case the default version of Hadoop for that AMI version is used.</para>
+        /// the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained),
+        /// "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set
+        /// this value, the default of 0.18 is used, unless the <code>AmiVersion</code> parameter
+        /// is set in the RunJobFlow call, in which case the default version of Hadoop for that
+        /// AMI version is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -390,8 +391,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The AWS KMS customer master key (CMK) used for encrypting log files. If a value is
-        /// not provided, the logs will remain encrypted by AES-256. This attribute is only available
-        /// with EMR version 5.30.0 and later, excluding EMR 6.0.0.</para>
+        /// not provided, the logs remain encrypted by AES-256. This attribute is only available
+        /// with Amazon EMR version 5.30.0 and later, excluding Amazon EMR 6.0.0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -422,7 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ComputeLimits_MaximumCapacityUnit
         /// <summary>
         /// <para>
-        /// <para> The upper boundary of EC2 units. It is measured through VCPU cores or instances for
+        /// <para> The upper boundary of EC2 units. It is measured through vCPU cores or instances for
         /// instance groups and measured through units for instance fleets. Managed scaling activities
         /// are not allowed beyond this boundary. The limit only applies to the core and task
         /// nodes. The master node cannot be scaled after initial configuration. </para>
@@ -437,7 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para> The upper boundary of EC2 units for core node type in a cluster. It is measured through
-        /// VCPU cores or instances for instance groups and measured through units for instance
+        /// vCPU cores or instances for instance groups and measured through units for instance
         /// fleets. The core units are not allowed to scale beyond this boundary. The parameter
         /// is used to split capacity allocation between core and task nodes. </para>
         /// </para>
@@ -450,10 +451,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ComputeLimits_MaximumOnDemandCapacityUnit
         /// <summary>
         /// <para>
-        /// <para> The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances
+        /// <para> The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or instances
         /// for instance groups and measured through units for instance fleets. The On-Demand
         /// units are not allowed to scale beyond this boundary. The parameter is used to split
-        /// capacity allocation between On-Demand and Spot instances. </para>
+        /// capacity allocation between On-Demand and Spot Instances. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -464,7 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ComputeLimits_MinimumCapacityUnit
         /// <summary>
         /// <para>
-        /// <para> The lower boundary of EC2 units. It is measured through VCPU cores or instances for
+        /// <para> The lower boundary of EC2 units. It is measured through vCPU cores or instances for
         /// instance groups and measured through units for instance fleets. Managed scaling activities
         /// are not allowed beyond this boundary. The limit only applies to the core and task
         /// nodes. The master node cannot be scaled after initial configuration. </para>
@@ -569,12 +570,13 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless
         /// of when the request to terminate the instance was submitted. This option is only available
         /// with Amazon EMR 5.1.0 and later and is the default for clusters created using that
-        /// version. <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR blacklists
-        /// and drains tasks from nodes before terminating the Amazon EC2 instances, regardless
-        /// of the instance-hour boundary. With either behavior, Amazon EMR removes the least
-        /// active nodes first and blocks instance termination if it could lead to HDFS corruption.
-        /// <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR version 4.1.0
-        /// and later, and is the default for versions of Amazon EMR earlier than 5.1.0.</para>
+        /// version. <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR adds
+        /// nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2
+        /// instances, regardless of the instance-hour boundary. With either behavior, Amazon
+        /// EMR removes the least active nodes first and blocks instance termination if it could
+        /// lead to HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> available only
+        /// in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR
+        /// earlier than 5.1.0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

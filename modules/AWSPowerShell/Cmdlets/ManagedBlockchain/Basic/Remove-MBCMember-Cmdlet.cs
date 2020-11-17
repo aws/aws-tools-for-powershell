@@ -35,6 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     /// as the result of an approved proposal to remove a member. If <code>MemberId</code>
     /// is the last member in a network specified by the last AWS account, the network is
     /// deleted also.
+    /// 
+    ///  
+    /// <para>
+    /// Applies only to Hyperledger Fabric.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "MBCMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

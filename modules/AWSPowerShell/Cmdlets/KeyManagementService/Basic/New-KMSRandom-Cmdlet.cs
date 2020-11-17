@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// For more information about entropy and random number generation, see the <a href="https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf">AWS
     /// Key Management Service Cryptographic Details</a> whitepaper.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateRandom</a>
+    /// (IAM policy)
     /// </para>
     /// </summary>
     [Cmdlet("New", "KMSRandom", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

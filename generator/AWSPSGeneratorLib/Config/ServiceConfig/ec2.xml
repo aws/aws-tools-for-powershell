@@ -73,6 +73,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AcceptTransitGatewayMulticastDomainAssociations" OutputProperty="Associations" Verb="Approve" Noun="TransitGatewayMulticastDomainAssociation" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AcceptTransitGatewayPeeringAttachment" OutputProperty="TransitGatewayPeeringAttachment" Verb="Approve" Noun="TransitGatewayPeeringAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false" LegacyAlias="Confirm-EC2TransitGatewayPeeringAttachment">
             <Params />
             <TypesNotToFlatten />
@@ -340,6 +344,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetworkInsightsPath" OutputProperty="NetworkInsightsPath" Verb="New" Noun="NetworkInsightsPath" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateNetworkInterface" OutputProperty="NetworkInterface" Verb="New" Noun="NetworkInterface" ShouldProcessTarget="SubnetId" PositionalParameters="Description;PrivateIpAddress;Groups" PipelineParameter="SubnetId" NoPipelineParameter="false">
             <Params>
                 <Param Name="PrivateIpAddresses" NewName="PrivateIpAddressSet" />
@@ -418,6 +426,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTransitGateway" OutputProperty="TransitGateway" Verb="New" Noun="TransitGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayConnect" OutputProperty="TransitGatewayConnect" Verb="New" Noun="TransitGatewayConnect" ShouldProcessTarget="TransportTransitGatewayAttachmentId" PipelineParameter="TransportTransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayConnectPeer" OutputProperty="TransitGatewayConnectPeer" Verb="New" Noun="TransitGatewayConnectPeer" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -559,6 +575,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkInsightsAnalysis" OutputProperty="NetworkInsightsAnalysisId" Verb="Remove" Noun="NetworkInsightsAnalysis" ShouldProcessTarget="NetworkInsightsAnalysisId" PipelineParameter="NetworkInsightsAnalysisId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkInsightsPath" OutputProperty="NetworkInsightsPathId" Verb="Remove" Noun="NetworkInsightsPath" ShouldProcessTarget="NetworkInsightsPathId" PipelineParameter="NetworkInsightsPathId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteNetworkInterface" Verb="Remove" Noun="NetworkInterface" ShouldProcessTarget="NetworkInterfaceId" ShouldProcessMsgNoun="Network Interface" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -628,6 +652,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTransitGateway" OutputProperty="TransitGateway" Verb="Remove" Noun="TransitGateway" ShouldProcessTarget="TransitGatewayId" PipelineParameter="TransitGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayConnect" OutputProperty="TransitGatewayConnect" Verb="Remove" Noun="TransitGatewayConnect" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayConnectPeer" OutputProperty="TransitGatewayConnectPeer" Verb="Remove" Noun="TransitGatewayConnectPeer" ShouldProcessTarget="TransitGatewayConnectPeerId" PipelineParameter="TransitGatewayConnectPeerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -962,6 +994,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkInsightsAnalyses" OutputProperty="NetworkInsightsAnalyses" Verb="Get" Noun="NetworkInsightsAnalysis" PipelineParameter="NetworkInsightsAnalysisIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkInsightsPaths" OutputProperty="NetworkInsightsPaths" Verb="Get" Noun="NetworkInsightsPath" PipelineParameter="NetworkInsightsPathIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeNetworkInterfaceAttribute" OutputProperty="*" Verb="Get" Noun="NetworkInterfaceAttribute" PositionalParameters="Attribute" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1115,6 +1155,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTransitGatewayAttachments" OutputProperty="TransitGatewayAttachments" Verb="Get" Noun="TransitGatewayAttachment" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransitGatewayConnectPeers" OutputProperty="TransitGatewayConnectPeers" Verb="Get" Noun="TransitGatewayConnectPeer" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransitGatewayConnects" OutputProperty="TransitGatewayConnects" Verb="Get" Noun="TransitGatewayConnect" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1688,6 +1736,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RejectTransitGatewayMulticastDomainAssociations" OutputProperty="Associations" Verb="Deny" Noun="TransitGatewayMulticastDomainAssociation" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RejectTransitGatewayPeeringAttachment" OutputProperty="TransitGatewayPeeringAttachment" Verb="Deny" Noun="TransitGatewayPeeringAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1858,6 +1910,10 @@
             <Params>
                 <Param Name="InstanceIds" NewName="InstanceId" Alias="Instance" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartNetworkInsightsAnalysis" OutputProperty="NetworkInsightsAnalysis" Verb="Start" Noun="NetworkInsightsAnalysis" ShouldProcessTarget="NetworkInsightsPathId" PipelineParameter="NetworkInsightsPathId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartVpcEndpointServicePrivateDnsVerification" OutputProperty="ReturnValue" Verb="Start" Noun="VpcEndpointServicePrivateDnsVerification" ShouldProcessTarget="ServiceId" PipelineParameter="ServiceId" NoPipelineParameter="false">

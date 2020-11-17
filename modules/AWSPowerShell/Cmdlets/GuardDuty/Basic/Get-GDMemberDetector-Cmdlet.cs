@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The detector ID for the master account.</para>
+        /// <para>The detector ID for the administrator account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

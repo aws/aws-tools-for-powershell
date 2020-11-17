@@ -28,7 +28,9 @@ using Amazon.AppRegistry.Model;
 namespace Amazon.PowerShell.Cmdlets.SCAR
 {
     /// <summary>
-    /// Delete an application, specified either by its application ID or name.
+    /// Deletes an application that is specified either by its application ID or name. All
+    /// associated attribute groups and resources must be disassociated from it before deleting
+    /// an application.
     /// </summary>
     [Cmdlet("Remove", "SCARApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.AppRegistry.Model.ApplicationSummary")]

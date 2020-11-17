@@ -159,7 +159,10 @@ $CGR_SelectMap = @{
                "Get-CGRRecommendationFeedbackList",
                "Get-CGRRecommendationList",
                "Get-CGRRepositoryAssociationList",
-               "Write-CGRRecommendationFeedback")
+               "Get-CGRResourceTag",
+               "Write-CGRRecommendationFeedback",
+               "Add-CGRResourceTag",
+               "Remove-CGRResourceTag")
 }
 
 _awsArgumentCompleterRegistration $CGR_SelectCompleters $CGR_SelectMap

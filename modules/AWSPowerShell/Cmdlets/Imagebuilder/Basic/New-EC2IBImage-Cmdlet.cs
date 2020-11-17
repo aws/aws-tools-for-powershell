@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     public partial class NewEC2IBImageCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
+        #region Parameter ContainerRecipeArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the container recipe that defines how images are
+        /// configured and tested.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContainerRecipeArn { get; set; }
+        #endregion
+        
         #region Parameter DistributionConfigurationArn
         /// <summary>
         /// <para>
@@ -71,14 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// tested, and assessed. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ImageRecipeArn { get; set; }
         #endregion
         
@@ -204,15 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.ContainerRecipeArn = this.ContainerRecipeArn;
             context.DistributionConfigurationArn = this.DistributionConfigurationArn;
             context.EnhancedImageMetadataEnabled = this.EnhancedImageMetadataEnabled;
             context.ImageRecipeArn = this.ImageRecipeArn;
-            #if MODULAR
-            if (this.ImageRecipeArn == null && ParameterWasBound(nameof(this.ImageRecipeArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ImageRecipeArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ImageTestsConfiguration_ImageTestsEnabled = this.ImageTestsConfiguration_ImageTestsEnabled;
             context.ImageTestsConfiguration_TimeoutMinute = this.ImageTestsConfiguration_TimeoutMinute;
             context.InfrastructureConfigurationArn = this.InfrastructureConfigurationArn;
@@ -249,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.ContainerRecipeArn != null)
+            {
+                request.ContainerRecipeArn = cmdletContext.ContainerRecipeArn;
             }
             if (cmdletContext.DistributionConfigurationArn != null)
             {
@@ -361,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String ContainerRecipeArn { get; set; }
             public System.String DistributionConfigurationArn { get; set; }
             public System.Boolean? EnhancedImageMetadataEnabled { get; set; }
             public System.String ImageRecipeArn { get; set; }

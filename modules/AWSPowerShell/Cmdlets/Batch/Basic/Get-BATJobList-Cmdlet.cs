@@ -32,16 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// 
     ///  
     /// <para>
-    /// You must specify only one of the following:
+    /// You must specify only one of the following items:
     /// </para><ul><li><para>
-    /// a job queue ID to return a list of jobs in that job queue
+    /// A job queue ID to return a list of jobs in that job queue
     /// </para></li><li><para>
-    /// a multi-node parallel job ID to return a list of that job's nodes
+    /// A multi-node parallel job ID to return a list of that job's nodes
     /// </para></li><li><para>
-    /// an array job ID to return a list of that job's children
+    /// An array job ID to return a list of that job's children
     /// </para></li></ul><para>
     /// You can filter the results by job status with the <code>jobStatus</code> parameter.
-    /// If you do not specify a status, only <code>RUNNING</code> jobs are returned.
+    /// If you don't specify a status, only <code>RUNNING</code> jobs are returned.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BATJobList")]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobQueue
         /// <summary>
         /// <para>
-        /// <para>The name or full Amazon Resource Name (ARN) of the job queue with which to list jobs.</para>
+        /// <para>The name or full Amazon Resource Name (ARN) of the job queue used to list jobs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobStatus
         /// <summary>
         /// <para>
-        /// <para>The job status with which to filter jobs in the specified queue. If you do not specify
-        /// a status, only <code>RUNNING</code> jobs are returned.</para>
+        /// <para>The job status used to filter jobs in the specified queue. If you don't specify a
+        /// status, only <code>RUNNING</code> jobs are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// results in a single page along with a <code>nextToken</code> response element. The
         /// remaining results of the initial request can be seen by sending another <code>ListJobs</code>
         /// request with the returned <code>nextToken</code> value. This value can be between
-        /// 1 and 100. If this parameter is not used, then <code>ListJobs</code> returns up to
+        /// 1 and 100. If this parameter isn't used, then <code>ListJobs</code> returns up to
         /// 100 results and a <code>nextToken</code> value if applicable.</para>
         /// </para>
         /// <para>
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// request where <code>maxResults</code> was used and the results exceeded the value
         /// of that parameter. Pagination continues from the end of the previous results that
         /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// are no more results to return.</para><note><para>This token should be treated as an opaque identifier that's only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

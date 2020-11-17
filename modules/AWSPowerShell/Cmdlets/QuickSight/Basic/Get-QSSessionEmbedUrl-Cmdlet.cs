@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code>
         /// identity type. You can use this for any type of Amazon QuickSight users in your account
-        /// (readers, authors, or admins). They need to be authenticated as one of the following:</para><ol><li><para>Active Directory (AD) users or group members</para></li><li><para>Invited nonfederated users</para></li><li><para>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On
-        /// using SAML, OpenID Connect, or IAM federation</para></li></ol><para>Omit this parameter for users in the third group – IAM users and IAM role-based sessions.</para>
+        /// (readers, authors, or admins). They need to be authenticated as one of the following:</para><ol><li><para>Active Directory (AD) users or group members</para></li><li><para>Invited nonfederated users</para></li><li><para>AWS Identity and Access Management (IAM) users and IAM role-based sessions authenticated
+        /// through Federated Single Sign-On using SAML, OpenID Connect, or IAM federation</para></li></ol><para>Omit this parameter for users in the third group, IAM users and IAM role-based sessions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

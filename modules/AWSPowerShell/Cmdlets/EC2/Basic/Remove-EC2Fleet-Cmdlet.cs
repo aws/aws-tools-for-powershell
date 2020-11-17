@@ -28,16 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Deletes the specified EC2 Fleet.
-    /// 
-    ///  
-    /// <para>
-    /// After you delete an EC2 Fleet, it launches no new instances. You must specify whether
-    /// an EC2 Fleet should also terminate its instances. If you terminate the instances,
-    /// the EC2 Fleet enters the <code>deleted_terminating</code> state. Otherwise, the EC2
-    /// Fleet enters the <code>deleted_running</code> state, and the instances continue to
-    /// run until they are interrupted or you terminate them manually. 
-    /// </para>
+    /// Amazon.EC2.IAmazonEC2.DeleteFleets
     /// </summary>
     [Cmdlet("Remove", "EC2Fleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.DeleteFleetsResponse")]
@@ -69,7 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TerminateInstance
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to terminate instances for an EC2 Fleet if it is deleted successfully.</para>
+        /// <para>Indicates whether to terminate the instances when the EC2 Fleet is deleted. The default
+        /// is to terminate the instances.</para><para>To let the instances continue to run after the EC2 Fleet is deleted, specify <code>NoTerminateInstances</code>.
+        /// Supported only for fleets of type <code>maintain</code> and <code>request</code>.</para><para>For <code>instant</code> fleets, you cannot specify <code>NoTerminateInstances</code>.
+        /// A deleted <code>instant</code> fleet with running instances is not supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

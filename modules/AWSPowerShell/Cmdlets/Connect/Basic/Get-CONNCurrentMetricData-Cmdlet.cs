@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>,
         /// the metrics returned apply to each queue rather than aggregated for all queues. If
-        /// you group by <code>CHANNEL</code>, you should include a Channels filter. Both <code>VOICE</code>
-        /// and <code>CHAT</code> channels are supported.</para><para>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</para>
+        /// you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT,
+        /// and TASK channels are supported.</para><para>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

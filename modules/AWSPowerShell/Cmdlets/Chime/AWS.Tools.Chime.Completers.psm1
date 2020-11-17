@@ -80,6 +80,50 @@ $CHM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Chime.ChannelMembershipType
+        {
+            ($_ -eq "Get-CHMChannelMembershipList/Type") -Or
+            ($_ -eq "New-CHMChannelMembership/Type")
+        }
+        {
+            $v = "DEFAULT","HIDDEN"
+            break
+        }
+
+        # Amazon.Chime.ChannelMessagePersistenceType
+        "Send-CHMChannelMessage/Persistence"
+        {
+            $v = "NON_PERSISTENT","PERSISTENT"
+            break
+        }
+
+        # Amazon.Chime.ChannelMessageType
+        "Send-CHMChannelMessage/Type"
+        {
+            $v = "CONTROL","STANDARD"
+            break
+        }
+
+        # Amazon.Chime.ChannelMode
+        {
+            ($_ -eq "New-CHMChannel/Mode") -Or
+            ($_ -eq "Update-CHMChannel/Mode")
+        }
+        {
+            $v = "RESTRICTED","UNRESTRICTED"
+            break
+        }
+
+        # Amazon.Chime.ChannelPrivacy
+        {
+            ($_ -eq "Get-CHMChannelList/Privacy") -Or
+            ($_ -eq "New-CHMChannel/Privacy")
+        }
+        {
+            $v = "PRIVATE","PUBLIC"
+            break
+        }
+
         # Amazon.Chime.GeoMatchLevel
         "New-CHMProxySession/GeoMatchLevel"
         {
@@ -104,7 +148,7 @@ $CHM_Completers = {
         # Amazon.Chime.PhoneNumberAssociationName
         "Get-CHMPhoneNumberList/FilterName"
         {
-            $v = "AccountId","UserId","VoiceConnectorGroupId","VoiceConnectorId"
+            $v = "AccountId","SipRuleId","UserId","VoiceConnectorGroupId","VoiceConnectorId"
             break
         }
 
@@ -143,6 +187,20 @@ $CHM_Completers = {
             break
         }
 
+        # Amazon.Chime.SipRuleTriggerType
+        "New-CHMSipRule/TriggerType"
+        {
+            $v = "RequestUriHostname","ToPhoneNumber"
+            break
+        }
+
+        # Amazon.Chime.SortOrder
+        "Get-CHMChannelMessageList/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
         # Amazon.Chime.UserType
         {
             ($_ -eq "Get-CHMUserList/UserType") -Or
@@ -175,10 +233,16 @@ $CHM_map = @{
     "FilterName"=@("Get-CHMPhoneNumberList")
     "GeoMatchLevel"=@("New-CHMProxySession")
     "LicenseType"=@("Update-CHMUser")
+    "Mode"=@("New-CHMChannel","Update-CHMChannel")
     "NumberSelectionBehavior"=@("New-CHMProxySession")
+    "Persistence"=@("Send-CHMChannelMessage")
+    "Privacy"=@("Get-CHMChannelList","New-CHMChannel")
     "ProductType"=@("Get-CHMPhoneNumberList","New-CHMPhoneNumberOrder","Update-CHMPhoneNumber")
     "Role"=@("New-CHMRoomMembership","Update-CHMRoomMembership")
+    "SortOrder"=@("Get-CHMChannelMessageList")
     "Status"=@("Get-CHMPhoneNumberList","Get-CHMProxySessionList")
+    "TriggerType"=@("New-CHMSipRule")
+    "Type"=@("Get-CHMChannelMembershipList","New-CHMChannelMembership","Send-CHMChannelMessage")
     "UserType"=@("Get-CHMUserList","New-CHMUser","Send-CHMUserInvitation","Update-CHMUser")
 }
 
@@ -244,25 +308,47 @@ $CHM_SelectMap = @{
                "Update-CHMPhoneNumberBatch",
                "Update-CHMUserBatch",
                "New-CHMAccount",
+               "New-CHMAppInstance",
+               "New-CHMAppInstanceAdmin",
+               "New-CHMAppInstanceUser",
                "New-CHMAttendee",
                "New-CHMBot",
+               "New-CHMChannel",
+               "New-CHMChannelBan",
+               "New-CHMChannelMembership",
+               "New-CHMChannelModerator",
                "New-CHMMeeting",
+               "New-CHMMeetingDialOut",
                "New-CHMMeetingWithAttendee",
                "New-CHMPhoneNumberOrder",
                "New-CHMProxySession",
                "New-CHMRoom",
                "New-CHMRoomMembership",
+               "New-CHMSipMediaApplication",
+               "New-CHMSipMediaApplicationCall",
+               "New-CHMSipRule",
                "New-CHMUser",
                "New-CHMVoiceConnector",
                "New-CHMVoiceConnectorGroup",
                "Remove-CHMAccount",
+               "Remove-CHMAppInstance",
+               "Remove-CHMAppInstanceAdmin",
+               "Remove-CHMAppInstanceStreamingConfiguration",
+               "Remove-CHMAppInstanceUser",
                "Remove-CHMAttendee",
+               "Remove-CHMChannel",
+               "Remove-CHMChannelBan",
+               "Remove-CHMChannelMembership",
+               "Remove-CHMChannelMessage",
+               "Remove-CHMChannelModerator",
                "Remove-CHMEventsConfiguration",
                "Remove-CHMMeeting",
                "Remove-CHMPhoneNumber",
                "Remove-CHMProxySession",
                "Remove-CHMRoom",
                "Remove-CHMRoomMembership",
+               "Remove-CHMSipMediaApplication",
+               "Remove-CHMSipRule",
                "Remove-CHMVoiceConnector",
                "Remove-CHMVoiceConnectorEmergencyCallingConfiguration",
                "Remove-CHMVoiceConnectorGroup",
@@ -271,23 +357,39 @@ $CHM_SelectMap = @{
                "Remove-CHMVoiceConnectorStreamingConfiguration",
                "Remove-CHMVoiceConnectorTermination",
                "Remove-CHMVoiceConnectorTerminationCredential",
+               "Get-CHMAppInstance",
+               "Get-CHMAppInstanceAdmin",
+               "Get-CHMAppInstanceUser",
+               "Get-CHMChannel",
+               "Get-CHMChannelBan",
+               "Get-CHMChannelMembership",
+               "Get-CHMChannelMembershipForAppInstanceUser",
+               "Get-CHMChannelModeratedByAppInstanceUser",
+               "Get-CHMChannelModerator",
                "Remove-CHMPhoneNumberFromUser",
                "Remove-CHMPhoneNumbersFromVoiceConnector",
                "Remove-CHMPhoneNumbersFromVoiceConnectorGroup",
                "Remove-CHMSigninDelegateGroupsFromAccount",
                "Get-CHMAccount",
                "Get-CHMAccountSetting",
+               "Get-CHMAppInstanceRetentionSetting",
+               "Get-CHMAppInstanceStreamingConfiguration",
                "Get-CHMAttendee",
                "Get-CHMBot",
+               "Get-CHMChannelMessage",
                "Get-CHMEventsConfiguration",
                "Get-CHMGlobalSetting",
                "Get-CHMMeeting",
+               "Get-CHMMessagingSessionEndpoint",
                "Get-CHMPhoneNumber",
                "Get-CHMPhoneNumberOrder",
                "Get-CHMPhoneNumberSetting",
                "Get-CHMProxySession",
                "Get-CHMRetentionSetting",
                "Get-CHMRoom",
+               "Get-CHMSipMediaApplication",
+               "Get-CHMSipMediaApplicationLoggingConfiguration",
+               "Get-CHMSipRule",
                "Get-CHMUser",
                "Get-CHMUserSetting",
                "Get-CHMVoiceConnector",
@@ -301,9 +403,19 @@ $CHM_SelectMap = @{
                "Get-CHMVoiceConnectorTerminationHealth",
                "Send-CHMUserInvitation",
                "Get-CHMAccountList",
+               "Get-CHMAppInstanceAdminList",
+               "Get-CHMAppInstanceList",
+               "Get-CHMAppInstanceUserList",
                "Get-CHMAttendeeList",
                "Get-CHMAttendeeTagList",
                "Get-CHMBotList",
+               "Get-CHMChannelBanList",
+               "Get-CHMChannelMembershipList",
+               "Get-CHMChannelMembershipsForAppInstanceUserList",
+               "Get-CHMChannelMessageList",
+               "Get-CHMChannelModeratorList",
+               "Get-CHMChannelList",
+               "Get-CHMChannelsModeratedByAppInstanceUserList",
                "Get-CHMMeetingList",
                "Get-CHMMeetingTagList",
                "Get-CHMPhoneNumberOrderList",
@@ -311,14 +423,19 @@ $CHM_SelectMap = @{
                "Get-CHMProxySessionList",
                "Get-CHMRoomMembershipList",
                "Get-CHMRoomList",
+               "Get-CHMSipMediaApplicationList",
+               "Get-CHMSipRuleList",
                "Get-CHMResourceTag",
                "Get-CHMUserList",
                "Get-CHMVoiceConnectorGroupList",
                "Get-CHMVoiceConnectorList",
                "Get-CHMVoiceConnectorTerminationCredentialList",
                "Invoke-CHMUserLogout",
+               "Write-CHMAppInstanceRetentionSetting",
+               "Write-CHMAppInstanceStreamingConfiguration",
                "Write-CHMEventsConfiguration",
                "Write-CHMRetentionSetting",
+               "Write-CHMSipMediaApplicationLoggingConfiguration",
                "Write-CHMVoiceConnectorEmergencyCallingConfiguration",
                "Write-CHMVoiceConnectorLoggingConfiguration",
                "Write-CHMVoiceConnectorOrigination",
@@ -326,12 +443,14 @@ $CHM_SelectMap = @{
                "Write-CHMVoiceConnectorStreamingConfiguration",
                "Write-CHMVoiceConnectorTermination",
                "Write-CHMVoiceConnectorTerminationCredential",
+               "Hide-CHMChannelMessage",
                "Hide-CHMConversationMessage",
                "Hide-CHMRoomMessage",
                "Update-CHMSecurityToken",
                "Reset-CHMPersonalPIN",
                "Restore-CHMPhoneNumber",
                "Search-CHMAvailablePhoneNumber",
+               "Send-CHMChannelMessage",
                "Add-CHMAttendee",
                "Add-CHMMeeting",
                "Add-CHMResourceTag",
@@ -340,13 +459,20 @@ $CHM_SelectMap = @{
                "Remove-CHMResourceTag",
                "Update-CHMAccount",
                "Update-CHMAccountSetting",
+               "Update-CHMAppInstance",
+               "Update-CHMAppInstanceUser",
                "Update-CHMBot",
+               "Update-CHMChannel",
+               "Update-CHMChannelMessage",
+               "Update-CHMChannelReadMarker",
                "Update-CHMGlobalSetting",
                "Update-CHMPhoneNumber",
                "Update-CHMPhoneNumberSetting",
                "Update-CHMProxySession",
                "Update-CHMRoom",
                "Update-CHMRoomMembership",
+               "Update-CHMSipMediaApplication",
+               "Update-CHMSipRule",
                "Update-CHMUser",
                "Update-CHMUserSetting",
                "Update-CHMVoiceConnector",

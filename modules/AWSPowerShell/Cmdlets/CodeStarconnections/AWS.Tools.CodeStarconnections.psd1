@@ -96,7 +96,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-CSTCHost', 
         'Remove-CSTCConnection', 
         'Remove-CSTCHost', 
-        'Remove-CSTCResourceTag')
+        'Remove-CSTCResourceTag', 
+        'Update-CSTCHost')
 
     # Variables to export from this module
     VariablesToExport = '*'

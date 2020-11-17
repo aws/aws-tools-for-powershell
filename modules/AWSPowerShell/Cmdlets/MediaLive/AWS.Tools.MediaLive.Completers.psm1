@@ -118,7 +118,10 @@ $EML_Completers = {
         }
 
         # Amazon.MediaLive.InputDeviceConfiguredInput
-        "Update-EMLInputDevice/HdDeviceSettings_ConfiguredInput"
+        {
+            ($_ -eq "Update-EMLInputDevice/HdDeviceSettings_ConfiguredInput") -Or
+            ($_ -eq "Update-EMLInputDevice/UhdDeviceSettings_ConfiguredInput")
+        }
         {
             $v = "AUTO","HDMI","SDI"
             break
@@ -190,6 +193,7 @@ $EML_map = @{
     "LogLevel"=@("New-EMLChannel","Update-EMLChannel")
     "MultiplexProgramSettings_PreferredChannelPipeline"=@("New-EMLMultiplexProgram","Update-EMLMultiplexProgram")
     "Type"=@("New-EMLInput")
+    "UhdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
 }
 
 _awsArgumentCompleterRegistration $EML_Completers $EML_map

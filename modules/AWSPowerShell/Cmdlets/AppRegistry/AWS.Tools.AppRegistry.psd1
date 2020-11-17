@@ -86,18 +86,22 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-SCARResourceTag', 
         'Get-SCARApplication', 
         'Get-SCARApplicationList', 
         'Get-SCARAssociatedAttributeGroupList', 
         'Get-SCARAssociatedResourceList', 
         'Get-SCARAttributeGroup', 
         'Get-SCARAttributeGroupList', 
+        'Get-SCARResourceTag', 
         'New-SCARApplication', 
         'New-SCARAttributeGroup', 
         'Register-SCARAttributeGroup', 
         'Register-SCARResource', 
         'Remove-SCARApplication', 
         'Remove-SCARAttributeGroup', 
+        'Remove-SCARResourceTag', 
+        'Sync-SCARResource', 
         'Unregister-SCARAttributeGroup', 
         'Unregister-SCARResource', 
         'Update-SCARApplication', 

@@ -70,6 +70,20 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter SourcePortfolioId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the shared portfolio that the specified product is associated
+        /// with.</para><para>You can provide this parameter to retrieve the shared TagOptions associated with the
+        /// product. If this parameter is provided and if TagOptions sharing is enabled in the
+        /// portfolio share, the API returns both local and shared TagOptions associated with
+        /// the product. Otherwise only local TagOptions will be returned. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourcePortfolioId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -118,6 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             context.AcceptLanguage = this.AcceptLanguage;
             context.Id = this.Id;
             context.Name = this.Name;
+            context.SourcePortfolioId = this.SourcePortfolioId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -145,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.SourcePortfolioId != null)
+            {
+                request.SourcePortfolioId = cmdletContext.SourcePortfolioId;
             }
             
             CmdletOutput output;
@@ -210,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public System.String AcceptLanguage { get; set; }
             public System.String Id { get; set; }
             public System.String Name { get; set; }
+            public System.String SourcePortfolioId { get; set; }
             public System.Func<Amazon.ServiceCatalog.Model.DescribeProductAsAdminResponse, GetSCProductAsAdminCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

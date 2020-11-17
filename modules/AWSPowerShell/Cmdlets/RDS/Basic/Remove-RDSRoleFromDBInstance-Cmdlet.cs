@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance,
-        /// for example <code>arn:aws:iam::123456789012:role/AccessRole</code>.</para>
+        /// for example, <code>arn:aws:iam::123456789012:role/AccessRole</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

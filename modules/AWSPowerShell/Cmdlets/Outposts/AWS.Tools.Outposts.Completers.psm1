@@ -129,7 +129,10 @@ $OUTP_SelectMap = @{
                "Get-OUTPOutpost",
                "Get-OUTPOutpostInstanceType",
                "Get-OUTPOutpostList",
-               "Get-OUTPSiteList")
+               "Get-OUTPSiteList",
+               "Get-OUTPResourceTag",
+               "Add-OUTPResourceTag",
+               "Remove-OUTPResourceTag")
 }
 
 _awsArgumentCompleterRegistration $OUTP_SelectCompleters $OUTP_SelectMap

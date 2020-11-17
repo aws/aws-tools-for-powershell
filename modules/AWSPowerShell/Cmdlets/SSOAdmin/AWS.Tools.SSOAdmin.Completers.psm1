@@ -195,12 +195,15 @@ $SSOADMN_SelectCompleters = {
 $SSOADMN_SelectMap = @{
     "Select"=@("Mount-SSOADMNManagedPolicyToPermissionSet",
                "New-SSOADMNAccountAssignment",
+               "New-SSOADMNInstanceAccessControlAttributeConfiguration",
                "New-SSOADMNPermissionSet",
                "Remove-SSOADMNAccountAssignment",
                "Remove-SSOADMNInlinePolicyFromPermissionSet",
+               "Remove-SSOADMNInstanceAccessControlAttributeConfiguration",
                "Remove-SSOADMNPermissionSet",
                "Get-SSOADMNAccountAssignmentCreationStatus",
                "Get-SSOADMNAccountAssignmentDeletionStatus",
+               "Get-SSOADMNInstanceAccessControlAttributeConfiguration",
                "Get-SSOADMNPermissionSet",
                "Get-SSOADMNPermissionSetProvisioningStatus",
                "Dismount-SSOADMNManagedPolicyFromPermissionSet",
@@ -219,6 +222,7 @@ $SSOADMN_SelectMap = @{
                "Write-SSOADMNInlinePolicyToPermissionSet",
                "Add-SSOADMNResourceTag",
                "Remove-SSOADMNResourceTag",
+               "Update-SSOADMNInstanceAccessControlAttributeConfiguration",
                "Update-SSOADMNPermissionSet")
 }
 

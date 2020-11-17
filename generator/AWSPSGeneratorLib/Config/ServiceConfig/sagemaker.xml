@@ -19,11 +19,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AddAssociation" OutputProperty="*" Verb="Add" Noun="Association" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AddTags" OutputProperty="Tags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="Tags" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateTrialComponent" OutputProperty="*" Verb="Register" Noun="TrialComponent" ShouldProcessTarget="TrialComponentName" PipelineParameter="TrialComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAction" OutputProperty="ActionArn" Verb="New" Noun="Action" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -39,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateArtifact" OutputProperty="ArtifactArn" Verb="New" Noun="Artifact" ShouldProcessTarget="Source_SourceUri" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAutoMLJob" OutputProperty="AutoMLJobArn" Verb="New" Noun="AutoMLJob" ShouldProcessTarget="AutoMLJobName" PipelineParameter="AutoMLJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -51,7 +63,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateContext" OutputProperty="ContextArn" Verb="New" Noun="Context" ShouldProcessTarget="ContextName" PipelineParameter="ContextName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataQualityJobDefinition" OutputProperty="JobDefinitionArn" Verb="New" Noun="DataQualityJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDeviceFleet" Verb="New" Noun="DeviceFleet" ShouldProcessTarget="DeviceFleetName" PipelineParameter="DeviceFleetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDomain" OutputProperty="*" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEdgePackagingJob" Verb="New" Noun="EdgePackagingJob" ShouldProcessTarget="EdgePackagingJobName" PipelineParameter="EdgePackagingJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -64,6 +92,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateExperiment" OutputProperty="ExperimentArn" Verb="New" Noun="Experiment" ShouldProcessTarget="ExperimentName" PipelineParameter="ExperimentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFeatureGroup" OutputProperty="FeatureGroupArn" Verb="New" Noun="FeatureGroup" ShouldProcessTarget="FeatureGroupName" PipelineParameter="FeatureGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,7 +127,42 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateModelBiasJobDefinition" OutputProperty="JobDefinitionArn" Verb="New" Noun="ModelBiasJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateModelExplainabilityJobDefinition" OutputProperty="JobDefinitionArn" Verb="New" Noun="ModelExplainabilityJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateModelPackage" OutputProperty="ModelPackageArn" Verb="New" Noun="ModelPackage" ShouldProcessTarget="ModelPackageName" PipelineParameter="ModelPackageName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="ModelMetrics_Bias_Report_ContentDigest" NewName="ModelMetrics_Bias_Report_ContentDigest" Alias="Bias_Report_ContentDigest" />
+                <Param Name="ModelMetrics_Explainability_Report_ContentDigest" NewName="ModelMetrics_Explainability_Report_ContentDigest" />
+                <Param Name="ModelMetrics_Bias_Report_ContentType" NewName="ModelMetrics_Bias_Report_ContentType" Alias="Bias_Report_ContentType" />
+                <Param Name="ModelMetrics_Explainability_Report_ContentType" NewName="ModelMetrics_Explainability_Report_ContentType" />
+                <Param Name="ModelMetrics_Bias_Report_S3Uri" NewName="ModelMetrics_Bias_Report_S3Uri" Alias="Bias_Report_S3Uri" />
+                <Param Name="ModelMetrics_Explainability_Report_S3Uri" NewName="ModelMetrics_Explainability_Report_S3Uri" />
+                <Param Name="ModelMetrics_ModelDataQuality_Constraints_ContentDigest" NewName="ModelMetrics_ModelDataQuality_Constraints_ContentDigest" Alias="ModelDataQuality_Constraints_ContentDigest" />
+                <Param Name="ModelMetrics_ModelQuality_Constraints_ContentDigest" NewName="ModelMetrics_ModelQuality_Constraints_ContentDigest" />
+                <Param Name="ModelMetrics_ModelDataQuality_Constraints_ContentType" NewName="ModelMetrics_ModelDataQuality_Constraints_ContentType" Alias="ModelDataQuality_Constraints_ContentType" />
+                <Param Name="ModelMetrics_ModelQuality_Constraints_ContentType" NewName="ModelMetrics_ModelQuality_Constraints_ContentType" />
+                <Param Name="ModelMetrics_ModelDataQuality_Constraints_S3Uri" NewName="ModelMetrics_ModelDataQuality_Constraints_S3Uri" Alias="ModelDataQuality_Constraints_S3Uri" />
+                <Param Name="ModelMetrics_ModelQuality_Constraints_S3Uri" NewName="ModelMetrics_ModelQuality_Constraints_S3Uri" />
+                <Param Name="ModelMetrics_ModelDataQuality_Statistics_ContentDigest" NewName="ModelMetrics_ModelDataQuality_Statistics_ContentDigest" Alias="ModelDataQuality_Statistics_ContentDigest" />
+                <Param Name="ModelMetrics_ModelQuality_Statistics_ContentDigest" NewName="ModelMetrics_ModelQuality_Statistics_ContentDigest" />
+                <Param Name="ModelMetrics_ModelDataQuality_Statistics_ContentType" NewName="ModelMetrics_ModelDataQuality_Statistics_ContentType" Alias="ModelDataQuality_Statistics_ContentType" />
+                <Param Name="ModelMetrics_ModelQuality_Statistics_ContentType" NewName="ModelMetrics_ModelQuality_Statistics_ContentType" />
+                <Param Name="ModelMetrics_ModelDataQuality_Statistics_S3Uri" NewName="ModelMetrics_ModelDataQuality_Statistics_S3Uri" Alias="ModelDataQuality_Statistics_S3Uri" />
+                <Param Name="ModelMetrics_ModelQuality_Statistics_S3Uri" NewName="ModelMetrics_ModelQuality_Statistics_S3Uri" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateModelPackageGroup" OutputProperty="ModelPackageGroupArn" Verb="New" Noun="ModelPackageGroup" ShouldProcessTarget="ModelPackageGroupName" PipelineParameter="ModelPackageGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateModelQualityJobDefinition" OutputProperty="JobDefinitionArn" Verb="New" Noun="ModelQualityJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -111,6 +178,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePipeline" OutputProperty="PipelineArn" Verb="New" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePresignedDomainUrl" OutputProperty="AuthorizedUrl" Verb="New" Noun="PresignedDomainUrl" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -120,6 +191,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProcessingJob" OutputProperty="ProcessingJobArn" Verb="New" Noun="ProcessingJob" ShouldProcessTarget="ProcessingJobName" PipelineParameter="ProcessingJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProject" OutputProperty="*" Verb="New" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -151,6 +226,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAction" OutputProperty="ActionArn" Verb="Remove" Noun="Action" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAlgorithm" Verb="Remove" Noun="Algorithm" ShouldProcessTarget="AlgorithmName" PipelineParameter="AlgorithmName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -163,7 +242,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteArtifact" OutputProperty="ArtifactArn" Verb="Remove" Noun="Artifact" ShouldProcessTarget="ArtifactArn" PipelineParameter="ArtifactArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssociation" OutputProperty="*" Verb="Remove" Noun="Association" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCodeRepository" Verb="Remove" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContext" OutputProperty="ContextArn" Verb="Remove" Noun="Context" ShouldProcessTarget="ContextName" PipelineParameter="ContextName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataQualityJobDefinition" Verb="Remove" Noun="DataQualityJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeviceFleet" Verb="Remove" Noun="DeviceFleet" ShouldProcessTarget="DeviceFleetName" PipelineParameter="DeviceFleetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -180,6 +279,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteExperiment" OutputProperty="ExperimentArn" Verb="Remove" Noun="Experiment" ShouldProcessTarget="ExperimentName" PipelineParameter="ExperimentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFeatureGroup" Verb="Remove" Noun="FeatureGroup" ShouldProcessTarget="FeatureGroupName" PipelineParameter="FeatureGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -203,7 +306,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteModelBiasJobDefinition" Verb="Remove" Noun="ModelBiasJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteModelExplainabilityJobDefinition" Verb="Remove" Noun="ModelExplainabilityJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteModelPackage" Verb="Remove" Noun="ModelPackage" ShouldProcessTarget="ModelPackageName" PipelineParameter="ModelPackageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteModelPackageGroup" Verb="Remove" Noun="ModelPackageGroup" ShouldProcessTarget="ModelPackageGroupName" PipelineParameter="ModelPackageGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteModelPackageGroupPolicy" Verb="Remove" Noun="ModelPackageGroupPolicy" ShouldProcessTarget="ModelPackageGroupName" PipelineParameter="ModelPackageGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteModelQualityJobDefinition" Verb="Remove" Noun="ModelQualityJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -216,6 +339,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteNotebookInstanceLifecycleConfig" Verb="Remove" Noun="NotebookInstanceLifecycleConfig" ShouldProcessTarget="NotebookInstanceLifecycleConfigName" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePipeline" OutputProperty="PipelineArn" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProject" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -243,6 +374,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterDevices" Verb="Remove" Noun="Device" ShouldProcessTarget="DeviceFleetName" PipelineParameter="DeviceFleetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAction" OutputProperty="*" Verb="Get" Noun="Action" PipelineParameter="ActionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAlgorithm" OutputProperty="*" Verb="Get" Noun="Algorithm" PipelineParameter="AlgorithmName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -252,6 +391,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAppImageConfig" OutputProperty="*" Verb="Get" Noun="AppImageConfig" PipelineParameter="AppImageConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeArtifact" OutputProperty="*" Verb="Get" Noun="Artifact" PipelineParameter="ArtifactArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -267,7 +410,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeContext" OutputProperty="*" Verb="Get" Noun="Context" PipelineParameter="ContextName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataQualityJobDefinition" OutputProperty="*" Verb="Get" Noun="DataQualityJobDefinition" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDevice" OutputProperty="*" Verb="Get" Noun="Device" PipelineParameter="DeviceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDeviceFleet" OutputProperty="*" Verb="Get" Noun="DeviceFleet" PipelineParameter="DeviceFleetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDomain" OutputProperty="*" Verb="Get" Noun="Domain" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEdgePackagingJob" OutputProperty="*" Verb="Get" Noun="EdgePackagingJob" PipelineParameter="EdgePackagingJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -280,6 +443,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeExperiment" OutputProperty="*" Verb="Get" Noun="Experiment" PipelineParameter="ExperimentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFeatureGroup" OutputProperty="*" Verb="Get" Noun="FeatureGroup" PipelineParameter="FeatureGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -311,7 +478,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModelBiasJobDefinition" OutputProperty="*" Verb="Get" Noun="ModelBiasJobDefinition" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModelExplainabilityJobDefinition" OutputProperty="*" Verb="Get" Noun="ModelExplainabilityJobDefinition" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeModelPackage" OutputProperty="*" Verb="Get" Noun="ModelPackage" PipelineParameter="ModelPackageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModelPackageGroup" OutputProperty="*" Verb="Get" Noun="ModelPackageGroup" PipelineParameter="ModelPackageGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModelQualityJobDefinition" OutputProperty="*" Verb="Get" Noun="ModelQualityJobDefinition" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -327,7 +510,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribePipeline" OutputProperty="*" Verb="Get" Noun="Pipeline" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePipelineDefinitionForExecution" OutputProperty="*" Verb="Get" Noun="PipelineDefinitionForExecution" PipelineParameter="PipelineExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePipelineExecution" OutputProperty="*" Verb="Get" Noun="PipelineExecution" PipelineParameter="PipelineExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeProcessingJob" OutputProperty="*" Verb="Get" Noun="ProcessingJob" PipelineParameter="ProcessingJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -363,11 +562,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableSagemakerServicecatalogPortfolio" Verb="Disable" Noun="SagemakerServicecatalogPortfolio" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateTrialComponent" OutputProperty="*" Verb="Unregister" Noun="TrialComponent" ShouldProcessTarget="TrialComponentName" PipelineParameter="TrialComponentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="EnableSagemakerServicecatalogPortfolio" Verb="Enable" Noun="SagemakerServicecatalogPortfolio" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeviceFleetReport" OutputProperty="*" Verb="Get" Noun="DeviceFleetReport" PipelineParameter="DeviceFleetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetModelPackageGroupPolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="ModelPackageGroupPolicy" PipelineParameter="ModelPackageGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSagemakerServicecatalogPortfolioStatus" OutputProperty="Status" Verb="Get" Noun="SagemakerServicecatalogPortfolioStatus" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSearchSuggestions" OutputProperty="PropertyNameSuggestions" Verb="Get" Noun="SearchSuggestion" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListActions" OutputProperty="ActionSummaries" Verb="Get" Noun="ActionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -380,6 +603,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListArtifacts" OutputProperty="ArtifactSummaries" Verb="Get" Noun="ArtifactList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociations" OutputProperty="AssociationSummaries" Verb="Get" Noun="AssociationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -399,7 +630,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListContexts" OutputProperty="ContextSummaries" Verb="Get" Noun="ContextList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataQualityJobDefinitions" OutputProperty="JobDefinitionSummaries" Verb="Get" Noun="DataQualityJobDefinitionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeviceFleets" OutputProperty="DeviceFleetSummaries" Verb="Get" Noun="DeviceFleetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDevices" OutputProperty="DeviceSummaries" Verb="Get" Noun="DeviceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEdgePackagingJobs" OutputProperty="EdgePackagingJobSummaries" Verb="Get" Noun="EdgePackagingJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -412,6 +663,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListExperiments" OutputProperty="ExperimentSummaries" Verb="Get" Noun="ExperimentList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFeatureGroups" OutputProperty="FeatureGroupSummaries" Verb="Get" Noun="FeatureGroupList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -443,7 +698,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListModelBiasJobDefinitions" OutputProperty="JobDefinitionSummaries" Verb="Get" Noun="ModelBiasJobDefinitionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModelExplainabilityJobDefinitions" OutputProperty="JobDefinitionSummaries" Verb="Get" Noun="ModelExplainabilityJobDefinitionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModelPackageGroups" OutputProperty="ModelPackageGroupSummaryList" Verb="Get" Noun="ModelPackageGroupList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListModelPackages" OutputProperty="ModelPackageSummaryList" Verb="Get" Noun="ModelPackageList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModelQualityJobDefinitions" OutputProperty="JobDefinitionSummaries" Verb="Get" Noun="ModelQualityJobDefinitionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -467,7 +738,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPipelineExecutions" OutputProperty="PipelineExecutionSummaries" Verb="Get" Noun="PipelineExecutionList" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPipelineExecutionSteps" OutputProperty="PipelineExecutionSteps" Verb="Get" Noun="PipelineExecutionStepList" PipelineParameter="PipelineExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPipelineParametersForExecution" OutputProperty="PipelineParameters" Verb="Get" Noun="PipelineParametersForExecutionList" PipelineParameter="PipelineExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPipelines" OutputProperty="PipelineSummaries" Verb="Get" Noun="PipelineList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProcessingJobs" OutputProperty="ProcessingJobSummaries" Verb="Get" Noun="ProcessingJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProjects" OutputProperty="ProjectSummaryList" Verb="Get" Noun="ProjectList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -511,6 +802,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutModelPackageGroupPolicy" OutputProperty="ModelPackageGroupArn" Verb="Write" Noun="ModelPackageGroupPolicy" ShouldProcessTarget="ModelPackageGroupName" PipelineParameter="ModelPackageGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterDevices" Verb="Register" Noun="Device" ShouldProcessTarget="DeviceFleetName" PipelineParameter="DeviceFleetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RenderUiTemplate" OutputProperty="*" Verb="Invoke" Noun="UiTemplateRendering" ShouldProcessTarget="RoleArn" PipelineParameter="UiTemplate_Content" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -527,11 +826,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartPipelineExecution" OutputProperty="PipelineExecutionArn" Verb="Start" Noun="PipelineExecution" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopAutoMLJob" Verb="Stop" Noun="AutoMLJob" ShouldProcessTarget="AutoMLJobName" PipelineParameter="AutoMLJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopCompilationJob" Verb="Stop" Noun="CompilationJob" ShouldProcessTarget="CompilationJobName" PipelineParameter="CompilationJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopEdgePackagingJob" Verb="Stop" Noun="EdgePackagingJob" ShouldProcessTarget="EdgePackagingJobName" PipelineParameter="EdgePackagingJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -551,6 +858,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StopPipelineExecution" OutputProperty="PipelineExecutionArn" Verb="Stop" Noun="PipelineExecution" ShouldProcessTarget="PipelineExecutionArn" PipelineParameter="PipelineExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopProcessingJob" Verb="Stop" Noun="ProcessingJob" ShouldProcessTarget="ProcessingJobName" PipelineParameter="ProcessingJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -563,11 +874,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAction" OutputProperty="ActionArn" Verb="Update" Noun="Action" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateAppImageConfig" OutputProperty="AppImageConfigArn" Verb="Update" Noun="AppImageConfig" ShouldProcessTarget="AppImageConfigName" PipelineParameter="AppImageConfigName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateArtifact" OutputProperty="ArtifactArn" Verb="Update" Noun="Artifact" ShouldProcessTarget="ArtifactArn" PipelineParameter="ArtifactArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateCodeRepository" OutputProperty="CodeRepositoryArn" Verb="Update" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContext" OutputProperty="ContextArn" Verb="Update" Noun="Context" ShouldProcessTarget="ContextName" PipelineParameter="ContextName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDeviceFleet" Verb="Update" Noun="DeviceFleet" ShouldProcessTarget="DeviceFleetName" PipelineParameter="DeviceFleetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDevices" Verb="Update" Noun="Device" ShouldProcessTarget="DeviceFleetName" PipelineParameter="DeviceFleetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -591,6 +922,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateModelPackage" OutputProperty="ModelPackageArn" Verb="Update" Noun="ModelPackage" ShouldProcessTarget="ModelPackageArn" PipelineParameter="ModelPackageArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateMonitoringSchedule" OutputProperty="MonitoringScheduleArn" Verb="Update" Noun="MonitoringSchedule" ShouldProcessTarget="MonitoringScheduleName" PipelineParameter="MonitoringScheduleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -600,6 +935,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateNotebookInstanceLifecycleConfig" Verb="Update" Noun="NotebookInstanceLifecycleConfig" ShouldProcessTarget="NotebookInstanceLifecycleConfigName" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePipeline" OutputProperty="PipelineArn" Verb="Update" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePipelineExecution" OutputProperty="PipelineExecutionArn" Verb="Update" Noun="PipelineExecution" ShouldProcessTarget="PipelineExecutionArn" PipelineParameter="PipelineExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTrainingJob" OutputProperty="TrainingJobArn" Verb="Update" Noun="TrainingJob" ShouldProcessTarget="TrainingJobName" PipelineParameter="TrainingJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

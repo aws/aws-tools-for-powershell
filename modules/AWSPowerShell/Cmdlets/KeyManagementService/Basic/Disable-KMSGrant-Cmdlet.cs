@@ -44,7 +44,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// grant ID and the Amazon Resource Name (ARN) of the customer master key (CMK). A grant
     /// token is a unique variable-length base64-encoded string. A grant ID is a 64 character
     /// unique identifier of a grant. The <a>CreateGrant</a> operation returns both.
-    /// </para>
+    /// </para><para><b>Cross-account use</b>: Yes. You can retire a grant on a CMK in a different AWS
+    /// account.
+    /// </para><para><b>Required permissions:</b>: Permission to retire a grant is specified in the grant.
+    /// You cannot control access to this operation in a policy. For more information, see
+    /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using
+    /// grants</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>ListRetirableGrants</a></para></li><li><para><a>RevokeGrant</a></para></li></ul>
     /// </summary>
     [Cmdlet("Disable", "KMSGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

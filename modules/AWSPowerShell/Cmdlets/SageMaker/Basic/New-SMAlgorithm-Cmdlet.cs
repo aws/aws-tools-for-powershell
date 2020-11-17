@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InferenceSpecification_SupportedRealtimeInferenceInstanceType
         /// <summary>
         /// <para>
-        /// <para>A list of the instance types that are used to generate inferences in real-time.</para>
+        /// <para>A list of the instance types that are used to generate inferences in real-time.</para><para>This parameter is required for unversioned models, and optional for versioned models.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A list of the instance types on which a transformation job can be run or on which
-        /// an endpoint can be deployed.</para>
+        /// an endpoint can be deployed.</para><para>This parameter is required for unversioned models, and optional for versioned models.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,6 +197,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? TrainingSpecification_SupportsDistributedTraining { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
+        /// different ways, for example, by purpose, owner, or environment. For more information,
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// AWS Resources</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter TrainingSpecification_TrainingChannel
@@ -358,6 +372,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.InferenceSpecification_SupportedTransformInstanceType = new List<System.String>(this.InferenceSpecification_SupportedTransformInstanceType);
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
+            }
             if (this.TrainingSpecification_MetricDefinition != null)
             {
                 context.TrainingSpecification_MetricDefinition = new List<Amazon.SageMaker.Model.MetricDefinition>(this.TrainingSpecification_MetricDefinition);
@@ -490,6 +508,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInferenceSpecificationIsNull)
             {
                 request.InferenceSpecification = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
              // populate TrainingSpecification
@@ -678,6 +700,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> InferenceSpecification_SupportedRealtimeInferenceInstanceType { get; set; }
             public List<System.String> InferenceSpecification_SupportedResponseMIMEType { get; set; }
             public List<System.String> InferenceSpecification_SupportedTransformInstanceType { get; set; }
+            public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public List<Amazon.SageMaker.Model.MetricDefinition> TrainingSpecification_MetricDefinition { get; set; }
             public List<Amazon.SageMaker.Model.HyperParameterSpecification> TrainingSpecification_SupportedHyperParameter { get; set; }
             public List<System.String> TrainingSpecification_SupportedTrainingInstanceType { get; set; }

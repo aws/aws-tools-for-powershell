@@ -33,6 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// into a CMK, you can <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport
     /// the same key material</a> into that CMK, but you cannot import different key material.
     /// 
+    /// 
     ///  
     /// <para>
     /// You cannot perform this operation on an asymmetric CMK or on any CMK in a different
@@ -78,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
     /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
     /// Developer Guide</i>.
-    /// </para>
+    /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different
+    /// AWS account.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ImportKeyMaterial</a>
+    /// (key policy)
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>DeleteImportedKeyMaterial</a></para></li><li><para><a>GetParametersForImport</a></para></li></ul>
     /// </summary>
     [Cmdlet("Import", "KMSKeyMaterial", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

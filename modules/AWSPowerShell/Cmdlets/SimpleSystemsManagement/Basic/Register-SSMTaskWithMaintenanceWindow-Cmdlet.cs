@@ -161,34 +161,24 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter MaxConcurrency
         /// <summary>
         /// <para>
-        /// <para>The maximum number of targets this task can be run for in parallel.</para>
+        /// <para>The maximum number of targets this task can be run for in parallel.</para><note><para>For maintenance window tasks without a target specified, you cannot supply a value
+        /// for this option. Instead, the system inserts a placeholder value of <code>1</code>.
+        /// This value does not affect the running of your task.</para></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MaxConcurrency { get; set; }
         #endregion
         
         #region Parameter MaxError
         /// <summary>
         /// <para>
-        /// <para>The maximum number of errors allowed before this task stops being scheduled.</para>
+        /// <para>The maximum number of errors allowed before this task stops being scheduled.</para><note><para>For maintenance window tasks without a target specified, you cannot supply a value
+        /// for this option. Instead, the system inserts a placeholder value of <code>1</code>.
+        /// This value does not affect the running of your task.</para></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("MaxErrors")]
         public System.String MaxError { get; set; }
         #endregion
@@ -409,17 +399,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets (either instances or maintenance window targets).</para><para>Specify instances using the following format: </para><para><code>Key=InstanceIds,Values=&lt;instance-id-1&gt;,&lt;instance-id-2&gt;</code></para><para>Specify maintenance window targets using the following format:</para><para><code>Key=WindowTargetIds;,Values=&lt;window-target-id-1&gt;,&lt;window-target-id-2&gt;</code></para>
+        /// <para>The targets (either instances or maintenance window targets).</para><note><para>One or more targets must be specified for maintenance window Run Command-type tasks.
+        /// Depending on the task, targets are optional for other maintenance window task types
+        /// (Automation, AWS Lambda, and AWS Step Functions). For more information about running
+        /// tasks that do not specify targets, see see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
+        /// maintenance window tasks without targets</a> in the <i>AWS Systems Manager User Guide</i>.</para></note><para>Specify instances using the following format: </para><para><code>Key=InstanceIds,Values=&lt;instance-id-1&gt;,&lt;instance-id-2&gt;</code></para><para>Specify maintenance window targets using the following format:</para><para><code>Key=WindowTargetIds,Values=&lt;window-target-id-1&gt;,&lt;window-target-id-2&gt;</code></para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Targets")]
         public Amazon.SimpleSystemsManagement.Model.Target[] Target { get; set; }
         #endregion
@@ -578,19 +565,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.LoggingInfo_S3KeyPrefix = this.LoggingInfo_S3KeyPrefix;
             context.LoggingInfo_S3Region = this.LoggingInfo_S3Region;
             context.MaxConcurrency = this.MaxConcurrency;
-            #if MODULAR
-            if (this.MaxConcurrency == null && ParameterWasBound(nameof(this.MaxConcurrency)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MaxConcurrency which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxError = this.MaxError;
-            #if MODULAR
-            if (this.MaxError == null && ParameterWasBound(nameof(this.MaxError)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MaxError which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Name = this.Name;
             context.Priority = this.Priority;
             context.ServiceRoleArn = this.ServiceRoleArn;
@@ -598,12 +573,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.Target = new List<Amazon.SimpleSystemsManagement.Model.Target>(this.Target);
             }
-            #if MODULAR
-            if (this.Target == null && ParameterWasBound(nameof(this.Target)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Target which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TaskArn = this.TaskArn;
             #if MODULAR
             if (this.TaskArn == null && ParameterWasBound(nameof(this.TaskArn)))

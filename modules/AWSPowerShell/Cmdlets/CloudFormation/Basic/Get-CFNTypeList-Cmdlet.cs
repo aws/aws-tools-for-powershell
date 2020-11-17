@@ -68,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public Amazon.CloudFormation.ProvisioningType ProvisioningType { get; set; }
         #endregion
         
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of extension.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.RegistryType")]
+        public Amazon.CloudFormation.RegistryType Type { get; set; }
+        #endregion
+        
         #region Parameter Visibility
         /// <summary>
         /// <para>
@@ -152,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.ProvisioningType = this.ProvisioningType;
+            context.Type = this.Type;
             context.Visibility = this.Visibility;
             
             // allow further manipulation of loaded context prior to processing
@@ -182,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.ProvisioningType != null)
             {
                 request.ProvisioningType = cmdletContext.ProvisioningType;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             if (cmdletContext.Visibility != null)
             {
@@ -276,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.CloudFormation.ProvisioningType ProvisioningType { get; set; }
+            public Amazon.CloudFormation.RegistryType Type { get; set; }
             public Amazon.CloudFormation.Visibility Visibility { get; set; }
             public System.Func<Amazon.CloudFormation.Model.ListTypesResponse, GetCFNTypeListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TypeSummaries;

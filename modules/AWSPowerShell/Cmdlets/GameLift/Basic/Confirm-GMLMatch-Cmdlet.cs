@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// one or more players failed to respond, the ticket status is set to <code>CANCELLED</code>,
     /// and processing is terminated. A new matchmaking request for these players can be submitted
     /// as needed. 
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html">
-    /// Add FlexMatch to a Game Client</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-events.html">
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
+    /// Add FlexMatch to a Game Client</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html">
     /// FlexMatch Events Reference</a></para><para><b>Related operations</b></para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>
     /// </summary>
     [Cmdlet("Confirm", "GMLMatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

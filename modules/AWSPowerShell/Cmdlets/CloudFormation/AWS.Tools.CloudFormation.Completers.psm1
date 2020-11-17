@@ -148,6 +148,7 @@ $CFN_Completers = {
         # Amazon.CloudFormation.RegistryType
         {
             ($_ -eq "Get-CFNType/Type") -Or
+            ($_ -eq "Get-CFNTypeList/Type") -Or
             ($_ -eq "Get-CFNTypeRegistrationList/Type") -Or
             ($_ -eq "Get-CFNTypeVersion/Type") -Or
             ($_ -eq "Register-CFNType/Type") -Or
@@ -155,7 +156,7 @@ $CFN_Completers = {
             ($_ -eq "Unregister-CFNType/Type")
         }
         {
-            $v = "RESOURCE"
+            $v = "MODULE","RESOURCE"
             break
         }
 
@@ -217,7 +218,7 @@ $CFN_map = @{
     "RegistrationStatusFilter"=@("Get-CFNTypeRegistrationList")
     "Status"=@("Get-CFNStackSetList","Send-CFNResourceSignal","Test-CFNStack","Wait-CFNStack")
     "TemplateStage"=@("Get-CFNTemplate")
-    "Type"=@("Get-CFNType","Get-CFNTypeRegistrationList","Get-CFNTypeVersion","Register-CFNType","Set-CFNTypeDefaultVersion","Unregister-CFNType")
+    "Type"=@("Get-CFNType","Get-CFNTypeList","Get-CFNTypeRegistrationList","Get-CFNTypeVersion","Register-CFNType","Set-CFNTypeDefaultVersion","Unregister-CFNType")
     "Visibility"=@("Get-CFNTypeList")
 }
 

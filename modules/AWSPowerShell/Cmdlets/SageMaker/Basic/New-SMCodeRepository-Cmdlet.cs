@@ -107,6 +107,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String GitConfig_SecretArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
+        /// different ways, for example, by purpose, owner, or environment. For more information,
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// AWS Resources</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'CodeRepositoryArn'.
@@ -184,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.GitConfig_SecretArn = this.GitConfig_SecretArn;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -242,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestGitConfigIsNull)
             {
                 request.GitConfig = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -308,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String GitConfig_Branch { get; set; }
             public System.String GitConfig_RepositoryUrl { get; set; }
             public System.String GitConfig_SecretArn { get; set; }
+            public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateCodeRepositoryResponse, NewSMCodeRepositoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CodeRepositoryArn;
         }

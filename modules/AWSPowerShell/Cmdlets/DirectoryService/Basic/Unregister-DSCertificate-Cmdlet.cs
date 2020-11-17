@@ -28,7 +28,8 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Deletes from the system the certificate that was registered for a secured LDAP connection.
+    /// Deletes from the system the certificate that was registered for secure LDAP or client
+    /// certificate authentication.
     /// </summary>
     [Cmdlet("Unregister", "DSCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

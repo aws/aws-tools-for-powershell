@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Redacts the specified message from the specified Amazon Chime chat room.
+    /// Redacts the specified message from the specified Amazon Chime channel.
     /// </summary>
     [Cmdlet("Hide", "CHMRoomMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

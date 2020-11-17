@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Provides the details for the Security Hub master account for the current member account.
+    /// 
+    ///  
+    /// <para>
+    /// Can be used by both member accounts that are in an organization and accounts that
+    /// were invited manually.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SHUBMasterAccount")]
     [OutputType("Amazon.SecurityHub.Model.Invitation")]

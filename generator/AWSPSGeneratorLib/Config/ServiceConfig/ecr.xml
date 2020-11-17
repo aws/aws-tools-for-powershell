@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>ecr</C2jFilename>
     <AssemblyName>ECR</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRegistryPolicy" OutputProperty="*" Verb="Remove" Noun="RegistryPolicy" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteRepository" OutputProperty="Repository" Verb="Remove" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="IgnoreExistingImages" AutoApplyAlias="false" />
@@ -58,6 +62,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeImageScanFindings" OutputProperty="*" Verb="Get" Noun="ImageScanFinding" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRegistry" OutputProperty="*" Verb="Get" Noun="Registry" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -80,6 +88,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetLifecyclePolicyPreview" OutputProperty="*" Verb="Get" Noun="LifecyclePolicyPreview" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRegistryPolicy" OutputProperty="*" Verb="Get" Noun="RegistryPolicy" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,6 +127,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutRegistryPolicy" OutputProperty="*" Verb="Write" Noun="RegistryPolicy" ShouldProcessTarget="PolicyText" PipelineParameter="PolicyText" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutReplicationConfiguration" OutputProperty="ReplicationConfiguration" Verb="Write" Noun="ReplicationConfiguration" ShouldProcessTarget="ReplicationConfiguration_Rules" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SetRepositoryPolicy" OutputProperty="*" Verb="Set" Noun="RepositoryPolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="PolicyText" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="OverridePolicy" AutoApplyAlias="false" />
@@ -144,7 +164,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

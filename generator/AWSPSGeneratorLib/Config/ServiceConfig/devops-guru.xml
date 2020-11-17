@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>devops-guru</C2jFilename>
+    <AssemblyName>DevOpsGuru</AssemblyName>
+    <ServiceNounPrefix>DGURU</ServiceNounPrefix>
+    <ServiceName>Amazon DevOps Guru</ServiceName>
+    <ServiceClientInterface>IAmazonDevOpsGuru</ServiceClientInterface>
+    <ServiceClient>AmazonDevOpsGuruClient</ServiceClient>
+    <ServiceModuleGuid>BD4637A4-72CE-4A39-BC8B-57EFC6BB9AFA</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddNotificationChannel" OutputProperty="Id" Verb="Add" Noun="NotificationChannel" ShouldProcessTarget="Config_Sns" PipelineParameter="Config_Sns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.DevOpsGuru.Model.SnsChannelConfig</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountHealth" OutputProperty="*" Verb="Get" Noun="AccountHealth" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountOverview" OutputProperty="*" Verb="Get" Noun="AccountOverview" PipelineParameter="FromTime" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAnomaly" OutputProperty="*" Verb="Get" Noun="Anomaly" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInsight" OutputProperty="*" Verb="Get" Noun="Insight" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResourceCollectionHealth" OutputProperty="CloudFormation" Verb="Get" Noun="ResourceCollectionHealth" PipelineParameter="ResourceCollectionType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeServiceIntegration" OutputProperty="ServiceIntegration" Verb="Get" Noun="ServiceIntegration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceCollection" OutputProperty="ResourceCollection" Verb="Get" Noun="ResourceCollection" PipelineParameter="ResourceCollectionType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAnomaliesForInsight" OutputProperty="*" Verb="Get" Noun="AnomaliesForInsightList" PipelineParameter="InsightId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.DevOpsGuru.Model.StartTimeRange</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEvents" OutputProperty="Events" Verb="Get" Noun="EventList" PipelineParameter="Filters_InsightId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.DevOpsGuru.Model.EventTimeRange</Type>
+                <Type>Amazon.DevOpsGuru.Model.ResourceCollection</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInsights" OutputProperty="*" Verb="Get" Noun="InsightList" PipelineParameter="StatusFilter" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.DevOpsGuru.Model.ListInsightsStatusFilter</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotificationChannels" OutputProperty="Channels" Verb="Get" Noun="NotificationChannelList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommendations" OutputProperty="Recommendations" Verb="Get" Noun="RecommendationList" PipelineParameter="InsightId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutFeedback" Verb="Write" Noun="Feedback" ShouldProcessTarget="InsightFeedback" PipelineParameter="InsightFeedback" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.DevOpsGuru.Model.InsightFeedback</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveNotificationChannel" Verb="Remove" Noun="NotificationChannel" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchInsights" OutputProperty="*" Verb="Search" Noun="Insight" ShouldProcessTarget="Type" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.DevOpsGuru.Model.StartTimeRange</Type>
+                <Type>Amazon.DevOpsGuru.Model.ResourceCollection</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourceCollection" Verb="Update" Noun="ResourceCollection" ShouldProcessTarget="ResourceCollection" PipelineParameter="ResourceCollection" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.DevOpsGuru.Model.UpdateResourceCollectionFilter</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceIntegration" Verb="Update" Noun="ServiceIntegration" ShouldProcessTarget="ServiceIntegration_OpsCenter" PipelineParameter="ServiceIntegration_OpsCenter" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.DevOpsGuru.Model.OpsCenterIntegrationConfig</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

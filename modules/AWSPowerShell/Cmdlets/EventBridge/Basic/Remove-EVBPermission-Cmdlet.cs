@@ -54,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         public System.String EventBusName { get; set; }
         #endregion
         
+        #region Parameter RemoveAllPermission
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to remove all permissions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RemoveAllPermissions")]
+        public System.Boolean? RemoveAllPermission { get; set; }
+        #endregion
+        
         #region Parameter StatementId
         /// <summary>
         /// <para>
@@ -61,14 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// to the default event bus.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String StatementId { get; set; }
         #endregion
         
@@ -133,13 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EventBusName = this.EventBusName;
+            context.RemoveAllPermission = this.RemoveAllPermission;
             context.StatementId = this.StatementId;
-            #if MODULAR
-            if (this.StatementId == null && ParameterWasBound(nameof(this.StatementId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StatementId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -159,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             if (cmdletContext.EventBusName != null)
             {
                 request.EventBusName = cmdletContext.EventBusName;
+            }
+            if (cmdletContext.RemoveAllPermission != null)
+            {
+                request.RemoveAllPermissions = cmdletContext.RemoveAllPermission.Value;
             }
             if (cmdletContext.StatementId != null)
             {
@@ -226,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String EventBusName { get; set; }
+            public System.Boolean? RemoveAllPermission { get; set; }
             public System.String StatementId { get; set; }
             public System.Func<Amazon.EventBridge.Model.RemovePermissionResponse, RemoveEVBPermissionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

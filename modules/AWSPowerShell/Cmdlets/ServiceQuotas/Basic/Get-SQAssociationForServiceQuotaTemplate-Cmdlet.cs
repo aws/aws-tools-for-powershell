@@ -28,8 +28,7 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Retrieves the <code>ServiceQuotaTemplateAssociationStatus</code> value from the service.
-    /// Use this action to determine if the Service Quota template is associated, or enabled.
+    /// Retrieves the status of the association for the quota request template.
     /// </summary>
     [Cmdlet("Get", "SQAssociationForServiceQuotaTemplate")]
     [OutputType("Amazon.ServiceQuotas.ServiceQuotaTemplateAssociationStatus")]

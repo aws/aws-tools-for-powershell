@@ -183,6 +183,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String[] EnableCloudwatchLogsExport { get; set; }
         #endregion
         
+        #region Parameter EnableCustomerOwnedIp
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to enable a customer-owned IP address (CoIP) for an
+        /// RDS on Outposts DB instance.</para><para>A <i>CoIP</i> provides local or external connectivity to resources in your Outpost
+        /// subnets through your on-premises network. For some use cases, a CoIP can provide lower
+        /// latency for connections to the DB instance from outside of its virtual private cloud
+        /// (VPC) on your local network.</para><para>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+        /// with Amazon RDS on AWS Outposts</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
+        /// IP addresses</a> in the <i>AWS Outposts User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableCustomerOwnedIp { get; set; }
+        #endregion
+        
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
@@ -307,6 +323,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? UtcRestoreTime { get; set; }
+        #endregion
+        
+        #region Parameter SourceDBInstanceAutomatedBackupsArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the replicated automated backups from which to restore,
+        /// for example, <code>arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceDBInstanceAutomatedBackupsArn { get; set; }
         #endregion
         
         #region Parameter SourceDBInstanceIdentifier
@@ -515,6 +542,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.EnableCloudwatchLogsExport = new List<System.String>(this.EnableCloudwatchLogsExport);
             }
+            context.EnableCustomerOwnedIp = this.EnableCustomerOwnedIp;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.Engine = this.Engine;
             context.Iops = this.Iops;
@@ -529,6 +557,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             context.PubliclyAccessible = this.PubliclyAccessible;
             context.UtcRestoreTime = this.UtcRestoreTime;
+            context.SourceDBInstanceAutomatedBackupsArn = this.SourceDBInstanceAutomatedBackupsArn;
             context.SourceDBInstanceIdentifier = this.SourceDBInstanceIdentifier;
             context.SourceDbiResourceId = this.SourceDbiResourceId;
             context.StorageType = this.StorageType;
@@ -614,6 +643,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.EnableCloudwatchLogsExports = cmdletContext.EnableCloudwatchLogsExport;
             }
+            if (cmdletContext.EnableCustomerOwnedIp != null)
+            {
+                request.EnableCustomerOwnedIp = cmdletContext.EnableCustomerOwnedIp.Value;
+            }
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
                 request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
@@ -657,6 +690,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.UtcRestoreTime != null)
             {
                 request.RestoreTimeUtc = cmdletContext.UtcRestoreTime.Value;
+            }
+            if (cmdletContext.SourceDBInstanceAutomatedBackupsArn != null)
+            {
+                request.SourceDBInstanceAutomatedBackupsArn = cmdletContext.SourceDBInstanceAutomatedBackupsArn;
             }
             if (cmdletContext.SourceDBInstanceIdentifier != null)
             {
@@ -780,6 +817,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
+            public System.Boolean? EnableCustomerOwnedIp { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String Engine { get; set; }
             public System.Int32? Iops { get; set; }
@@ -791,6 +829,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<Amazon.RDS.Model.ProcessorFeature> ProcessorFeature { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.DateTime? UtcRestoreTime { get; set; }
+            public System.String SourceDBInstanceAutomatedBackupsArn { get; set; }
             public System.String SourceDBInstanceIdentifier { get; set; }
             public System.String SourceDbiResourceId { get; set; }
             public System.String StorageType { get; set; }

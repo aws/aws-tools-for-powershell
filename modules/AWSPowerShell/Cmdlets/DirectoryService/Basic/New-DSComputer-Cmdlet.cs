@@ -28,8 +28,7 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Creates a computer account in the specified directory, and joins the computer to the
-    /// directory.
+    /// Creates an Active Directory computer object in the specified directory.
     /// </summary>
     [Cmdlet("New", "DSComputer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectoryService.Model.Computer")]

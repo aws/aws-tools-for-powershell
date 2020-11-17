@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Deletes automated backups based on the source instance's <code>DbiResourceId</code>
-    /// value or the restorable instance's resource ID.
+    /// Deletes automated backups using the <code>DbiResourceId</code> value of the source
+    /// DB instance or the Amazon Resource Name (ARN) of the automated backups.
     /// </summary>
     [Cmdlet("Remove", "RDSDBInstanceAutomatedBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RDS.Model.DBInstanceAutomatedBackup")]
@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RemoveRDSDBInstanceAutomatedBackupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        #region Parameter DBInstanceAutomatedBackupsArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the automated backups to delete, for example, <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBInstanceAutomatedBackupsArn { get; set; }
+        #endregion
+        
         #region Parameter DbiResourceId
         /// <summary>
         /// <para>
@@ -48,14 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// to an AWS Region.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DbiResourceId { get; set; }
         #endregion
         
@@ -120,13 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Select = (response, cmdlet) => this.DbiResourceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DBInstanceAutomatedBackupsArn = this.DBInstanceAutomatedBackupsArn;
             context.DbiResourceId = this.DbiResourceId;
-            #if MODULAR
-            if (this.DbiResourceId == null && ParameterWasBound(nameof(this.DbiResourceId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DbiResourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request
             var request = new Amazon.RDS.Model.DeleteDBInstanceAutomatedBackupRequest();
             
+            if (cmdletContext.DBInstanceAutomatedBackupsArn != null)
+            {
+                request.DBInstanceAutomatedBackupsArn = cmdletContext.DBInstanceAutomatedBackupsArn;
+            }
             if (cmdletContext.DbiResourceId != null)
             {
                 request.DbiResourceId = cmdletContext.DbiResourceId;
@@ -208,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DBInstanceAutomatedBackupsArn { get; set; }
             public System.String DbiResourceId { get; set; }
             public System.Func<Amazon.RDS.Model.DeleteDBInstanceAutomatedBackupResponse, RemoveRDSDBInstanceAutomatedBackupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DBInstanceAutomatedBackup;

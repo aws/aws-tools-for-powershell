@@ -176,6 +176,7 @@ $BAK_SelectMap = @{
                "Get-BAKBackupJob",
                "Get-BAKBackupVault",
                "Get-BAKCopyJob",
+               "Get-BAKGlobalSetting",
                "Get-BAKProtectedResource",
                "Get-BAKRecoveryPoint",
                "Get-BAKRegionSetting",
@@ -210,6 +211,7 @@ $BAK_SelectMap = @{
                "Add-BAKResourceTag",
                "Remove-BAKResourceTag",
                "Update-BAKBackupPlan",
+               "Update-BAKGlobalSetting",
                "Update-BAKRecoveryPointLifecycle",
                "Update-BAKRegionSetting")
 }

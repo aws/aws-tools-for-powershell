@@ -28,10 +28,7 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Defines and adds a quota to the service quota template. To add a quota to the template,
-    /// you must provide the <code>ServiceCode</code>, <code>QuotaCode</code>, <code>AwsRegion</code>,
-    /// and <code>DesiredValue</code>. Once you add a quota to the template, use <a>ListServiceQuotaIncreaseRequestsInTemplate</a>
-    /// to see the list of quotas in the template.
+    /// Adds a quota increase request to your quota request template.
     /// </summary>
     [Cmdlet("Write", "SQServiceQuotaIncreaseRequestIntoTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceQuotas.Model.ServiceQuotaIncreaseRequestInTemplate")]
@@ -46,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter AwsRegion
         /// <summary>
         /// <para>
-        /// <para>Specifies the AWS Region for the quota. </para>
+        /// <para>The AWS Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter DesiredValue
         /// <summary>
         /// <para>
-        /// <para>Specifies the new, increased value for the quota. </para>
+        /// <para>The new, increased value for the quota.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter QuotaCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the service quota that you want to use.</para>
+        /// <para>The quota identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the service that you want to use.</para>
+        /// <para>The service identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

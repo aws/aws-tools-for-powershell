@@ -169,6 +169,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String IotAnalytics_ChannelName { get; set; }
         #endregion
         
+        #region Parameter Kafka_ClientProperty
+        /// <summary>
+        /// <para>
+        /// <para>Properties of the Apache Kafka producer client.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Kafka_ClientProperties")]
+        public System.Collections.Hashtable Kafka_ClientProperty { get; set; }
+        #endregion
+        
         #region Parameter Http_ConfirmationUrl
         /// <summary>
         /// <para>
@@ -215,6 +226,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TopicRulePayload_Description { get; set; }
+        #endregion
+        
+        #region Parameter Kafka_DestinationArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of Kafka action's VPC <code>TopicRuleDestination</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Kafka_DestinationArn")]
+        public System.String Kafka_DestinationArn { get; set; }
         #endregion
         
         #region Parameter Timestream_Dimension
@@ -341,6 +363,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String IotEvents_InputName { get; set; }
         #endregion
         
+        #region Parameter Kafka_Key
+        /// <summary>
+        /// <para>
+        /// <para>The Kafka message key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Kafka_Key")]
+        public System.String Kafka_Key { get; set; }
+        #endregion
+        
         #region Parameter S3_Key
         /// <summary>
         /// <para>
@@ -461,6 +494,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_DynamoDB_Operation")]
         public System.String DynamoDB_Operation { get; set; }
+        #endregion
+        
+        #region Parameter Kafka_Partition
+        /// <summary>
+        /// <para>
+        /// <para>The Kafka message partition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Kafka_Partition")]
+        public System.String Kafka_Partition { get; set; }
         #endregion
         
         #region Parameter Kinesis_PartitionKey
@@ -938,6 +982,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Salesforce_Token { get; set; }
         #endregion
         
+        #region Parameter Kafka_Topic
+        /// <summary>
+        /// <para>
+        /// <para>The Kafka topic for messages to be sent to the Kafka broker.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Kafka_Topic")]
+        public System.String Kafka_Topic { get; set; }
+        #endregion
+        
         #region Parameter Republish_Topic
         /// <summary>
         /// <para>
@@ -1154,6 +1209,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.IotSiteWise_PutAssetPropertyValueEntry = new List<Amazon.IoT.Model.PutAssetPropertyValueEntry>(this.IotSiteWise_PutAssetPropertyValueEntry);
             }
             context.IotSiteWise_RoleArn = this.IotSiteWise_RoleArn;
+            if (this.Kafka_ClientProperty != null)
+            {
+                context.Kafka_ClientProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Kafka_ClientProperty.Keys)
+                {
+                    context.Kafka_ClientProperty.Add((String)hashKey, (String)(this.Kafka_ClientProperty[hashKey]));
+                }
+            }
+            context.Kafka_DestinationArn = this.Kafka_DestinationArn;
+            context.Kafka_Key = this.Kafka_Key;
+            context.Kafka_Partition = this.Kafka_Partition;
+            context.Kafka_Topic = this.Kafka_Topic;
             context.Kinesis_PartitionKey = this.Kinesis_PartitionKey;
             context.Kinesis_RoleArn = this.Kinesis_RoleArn;
             context.Kinesis_StreamName = this.Kinesis_StreamName;
@@ -2122,6 +2189,71 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 requestTopicRulePayload_topicRulePayload_ErrorAction.Elasticsearch = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Elasticsearch;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
+            Amazon.IoT.Model.KafkaAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka = null;
+            
+             // populate Kafka
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_KafkaIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka = new Amazon.IoT.Model.KafkaAction();
+            Dictionary<System.String, System.String> requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_ClientProperty = null;
+            if (cmdletContext.Kafka_ClientProperty != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_ClientProperty = cmdletContext.Kafka_ClientProperty;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_ClientProperty != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka.ClientProperties = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_ClientProperty;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_KafkaIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_DestinationArn = null;
+            if (cmdletContext.Kafka_DestinationArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_DestinationArn = cmdletContext.Kafka_DestinationArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_DestinationArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka.DestinationArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_DestinationArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_KafkaIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_Key = null;
+            if (cmdletContext.Kafka_Key != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_Key = cmdletContext.Kafka_Key;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_Key != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka.Key = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_Key;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_KafkaIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_Partition = null;
+            if (cmdletContext.Kafka_Partition != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_Partition = cmdletContext.Kafka_Partition;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_Partition != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka.Partition = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_Partition;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_KafkaIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_Topic = null;
+            if (cmdletContext.Kafka_Topic != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_Topic = cmdletContext.Kafka_Topic;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_Topic != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka.Topic = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka_kafka_Topic;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_KafkaIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_KafkaIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.Kafka = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
             Amazon.IoT.Model.TimestreamAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream = null;
             
              // populate Timestream
@@ -2531,6 +2663,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String IotEvents_RoleArn { get; set; }
             public List<Amazon.IoT.Model.PutAssetPropertyValueEntry> IotSiteWise_PutAssetPropertyValueEntry { get; set; }
             public System.String IotSiteWise_RoleArn { get; set; }
+            public Dictionary<System.String, System.String> Kafka_ClientProperty { get; set; }
+            public System.String Kafka_DestinationArn { get; set; }
+            public System.String Kafka_Key { get; set; }
+            public System.String Kafka_Partition { get; set; }
+            public System.String Kafka_Topic { get; set; }
             public System.String Kinesis_PartitionKey { get; set; }
             public System.String Kinesis_RoleArn { get; set; }
             public System.String Kinesis_StreamName { get; set; }

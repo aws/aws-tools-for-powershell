@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProcessingOutputConfig_Output
         /// <summary>
         /// <para>
-        /// <para>Output configuration information for a processing job.</para>
+        /// <para>List of output configurations for the processing job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,8 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProcessingInput
         /// <summary>
         /// <para>
-        /// <para>For each input, data is downloaded from S3 into the processing container before the
-        /// processing job begins running if "S3InputMode" is set to <code>File</code>.</para>
+        /// <para>List of input configurations for the processing job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

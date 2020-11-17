@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
     /// Returns detailed information about a proposal.
+    /// 
+    ///  
+    /// <para>
+    /// Applies only to Hyperledger Fabric.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "MBCProposal")]
     [OutputType("Amazon.ManagedBlockchain.Model.Proposal")]

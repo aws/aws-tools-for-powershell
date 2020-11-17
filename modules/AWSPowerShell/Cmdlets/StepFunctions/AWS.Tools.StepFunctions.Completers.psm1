@@ -186,6 +186,7 @@ $SFN_SelectMap = @{
                "Send-SFNTaskHeartbeat",
                "Send-SFNTaskSuccess",
                "Start-SFNExecution",
+               "Start-SFNSyncExecution",
                "Stop-SFNExecution",
                "Add-SFNResourceTag",
                "Remove-SFNResourceTag",

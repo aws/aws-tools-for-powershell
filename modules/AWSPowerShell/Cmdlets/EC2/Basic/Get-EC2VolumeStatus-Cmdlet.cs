@@ -44,15 +44,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <code>ok</code>, <code>impaired</code> , <code>warning</code>, or <code>insufficient-data</code>.
     /// If all checks pass, the overall status of the volume is <code>ok</code>. If the check
     /// fails, the overall status is <code>impaired</code>. If the status is <code>insufficient-data</code>,
-    /// then the checks may still be taking place on your volume at the time. We recommend
+    /// then the checks might still be taking place on your volume at the time. We recommend
     /// that you retry the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring
     /// the status of your volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para><para><i>Events</i>: Reflect the cause of a volume status and may require you to take action.
-    /// For example, if your volume returns an <code>impaired</code> status, then the volume
-    /// event might be <code>potential-data-inconsistency</code>. This means that your volume
-    /// has been affected by an issue with the underlying host, has all I/O operations disabled,
-    /// and may have inconsistent data.
-    /// </para><para><i>Actions</i>: Reflect the actions you may have to take in response to an event.
+    /// </para><para><i>Events</i>: Reflect the cause of a volume status and might require you to take
+    /// action. For example, if your volume returns an <code>impaired</code> status, then
+    /// the volume event might be <code>potential-data-inconsistency</code>. This means that
+    /// your volume has been affected by an issue with the underlying host, has all I/O operations
+    /// disabled, and might have inconsistent data.
+    /// </para><para><i>Actions</i>: Reflect the actions you might have to take in response to an event.
     /// For example, if the status of the volume is <code>impaired</code> and the volume event
     /// shows <code>potential-data-inconsistency</code>, then the action shows <code>enable-volume-io</code>.
     /// This means that you may want to enable the I/O operations for the volume by calling
@@ -108,11 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// in paginated output. When this parameter is used, the request only returns <code>MaxResults</code>
         /// results in a single page along with a <code>NextToken</code> response element. The
         /// remaining results of the initial request can be seen by sending another request with
-        /// the returned <code>NextToken</code> value. This value can be between 5 and 1000; if
-        /// <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned.
-        /// If this parameter is not used, then <code>DescribeVolumeStatus</code> returns all
-        /// results. You cannot specify this parameter and the volume IDs parameter in the same
-        /// request.</para>
+        /// the returned <code>NextToken</code> value. This value can be between 5 and 1,000;
+        /// if <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results
+        /// are returned. If this parameter is not used, then <code>DescribeVolumeStatus</code>
+        /// returns all results. You cannot specify this parameter and the volume IDs parameter
+        /// in the same request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

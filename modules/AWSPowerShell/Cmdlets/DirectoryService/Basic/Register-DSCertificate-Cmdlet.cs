@@ -28,7 +28,7 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Registers a certificate for secured LDAP connection.
+    /// Registers a certificate for a secure LDAP or client certificate authentication.
     /// </summary>
     [Cmdlet("Register", "DSCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -72,6 +72,29 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DirectoryId { get; set; }
+        #endregion
+        
+        #region Parameter ClientCertAuthSettings_OCSPUrl
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the URL of the default OCSP server used to check for revocation status.
+        /// A secondary value to any OCSP address found in the AIA extension of the user certificate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientCertAuthSettings_OCSPUrl { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code>
+        /// or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DirectoryService.CertificateType")]
+        public Amazon.DirectoryService.CertificateType Type { get; set; }
         #endregion
         
         #region Parameter Select
@@ -142,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 WriteWarning("You are passing $null as a value for parameter CertificateData which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClientCertAuthSettings_OCSPUrl = this.ClientCertAuthSettings_OCSPUrl;
             context.DirectoryId = this.DirectoryId;
             #if MODULAR
             if (this.DirectoryId == null && ParameterWasBound(nameof(this.DirectoryId)))
@@ -149,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 WriteWarning("You are passing $null as a value for parameter DirectoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -169,9 +194,32 @@ namespace Amazon.PowerShell.Cmdlets.DS
             {
                 request.CertificateData = cmdletContext.CertificateData;
             }
+            
+             // populate ClientCertAuthSettings
+            var requestClientCertAuthSettingsIsNull = true;
+            request.ClientCertAuthSettings = new Amazon.DirectoryService.Model.ClientCertAuthSettings();
+            System.String requestClientCertAuthSettings_clientCertAuthSettings_OCSPUrl = null;
+            if (cmdletContext.ClientCertAuthSettings_OCSPUrl != null)
+            {
+                requestClientCertAuthSettings_clientCertAuthSettings_OCSPUrl = cmdletContext.ClientCertAuthSettings_OCSPUrl;
+            }
+            if (requestClientCertAuthSettings_clientCertAuthSettings_OCSPUrl != null)
+            {
+                request.ClientCertAuthSettings.OCSPUrl = requestClientCertAuthSettings_clientCertAuthSettings_OCSPUrl;
+                requestClientCertAuthSettingsIsNull = false;
+            }
+             // determine if request.ClientCertAuthSettings should be set to null
+            if (requestClientCertAuthSettingsIsNull)
+            {
+                request.ClientCertAuthSettings = null;
+            }
             if (cmdletContext.DirectoryId != null)
             {
                 request.DirectoryId = cmdletContext.DirectoryId;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             CmdletOutput output;
@@ -235,7 +283,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CertificateData { get; set; }
+            public System.String ClientCertAuthSettings_OCSPUrl { get; set; }
             public System.String DirectoryId { get; set; }
+            public Amazon.DirectoryService.CertificateType Type { get; set; }
             public System.Func<Amazon.DirectoryService.Model.RegisterCertificateResponse, RegisterDSCertificateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CertificateId;
         }

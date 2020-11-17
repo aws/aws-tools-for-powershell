@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// changes, including POSIX metadata, to files, directories, and symbolic links (symlinks)
     /// from your FSx file system to its linked data repository. A <code>CreateDataRepositoryTask</code>
     /// operation will fail if a data repository is not linked to the FSx file system. To
-    /// learn more about data repository tasks, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html">Using
-    /// Data Repository Tasks</a>. To learn more about linking a data repository to your file
-    /// system, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/export-data-repository.html#export-prefix">Setting
-    /// the Export Prefix</a>.
+    /// learn more about data repository tasks, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html">Data
+    /// Repository Tasks</a>. To learn more about linking a data repository to your file system,
+    /// see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-fs-linked-data-repo.html">Linking
+    /// your file system to an S3 bucket</a>.
     /// </summary>
     [Cmdlet("New", "FSXDataRepositoryTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.DataRepositoryTask")]

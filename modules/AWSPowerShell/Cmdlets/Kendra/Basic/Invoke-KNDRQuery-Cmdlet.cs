@@ -189,6 +189,18 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String UserContext_Token { get; set; }
         #endregion
         
+        #region Parameter VisitorId
+        /// <summary>
+        /// <para>
+        /// <para>Provides an identifier for a specific user. The <code>VisitorId</code> should be a
+        /// unique identifier, such as a GUID. Don't use personally identifiable information,
+        /// such as the user's email address, as the <code>VisitorId</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VisitorId { get; set; }
+        #endregion
+        
         #region Parameter PageSize
         /// <summary>
         /// <para>
@@ -291,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             context.SortingConfiguration_DocumentAttributeKey = this.SortingConfiguration_DocumentAttributeKey;
             context.SortingConfiguration_SortOrder = this.SortingConfiguration_SortOrder;
             context.UserContext_Token = this.UserContext_Token;
+            context.VisitorId = this.VisitorId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -387,6 +400,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             {
                 request.UserContext = null;
             }
+            if (cmdletContext.VisitorId != null)
+            {
+                request.VisitorId = cmdletContext.VisitorId;
+            }
             
             CmdletOutput output;
             
@@ -459,6 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public System.String SortingConfiguration_DocumentAttributeKey { get; set; }
             public Amazon.Kendra.SortOrder SortingConfiguration_SortOrder { get; set; }
             public System.String UserContext_Token { get; set; }
+            public System.String VisitorId { get; set; }
             public System.Func<Amazon.Kendra.Model.QueryResponse, InvokeKNDRQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

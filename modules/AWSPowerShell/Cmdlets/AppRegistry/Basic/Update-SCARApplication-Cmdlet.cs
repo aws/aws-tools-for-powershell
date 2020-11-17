@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         #region Parameter Application
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the application. The name must be unique in the region in which
-        /// you are updating the attribute group.</para>
+        /// <para>The name or ID of the application that will be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the application.</para>
+        /// <para>The new description of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The anme of the application. The name must be unique in the region in which you are
-        /// creating the application.</para>
+        /// <para>The new name of the application. The name must be unique in the region in which you
+        /// are updating the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

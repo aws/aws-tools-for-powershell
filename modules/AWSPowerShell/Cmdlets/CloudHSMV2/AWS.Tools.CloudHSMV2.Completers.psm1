@@ -75,6 +75,35 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS CloudHSM V2
 
 
+$HSM2_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CloudHSMV2.BackupRetentionType
+        {
+            ($_ -eq "Edit-HSM2Cluster/BackupRetentionPolicy_Type") -Or
+            ($_ -eq "New-HSM2Cluster/BackupRetentionPolicy_Type")
+        }
+        {
+            $v = "DAYS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$HSM2_map = @{
+    "BackupRetentionPolicy_Type"=@("Edit-HSM2Cluster","New-HSM2Cluster")
+}
+
+_awsArgumentCompleterRegistration $HSM2_Completers $HSM2_map
+
 $HSM2_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -133,6 +162,8 @@ $HSM2_SelectMap = @{
                "Get-HSM2Cluster",
                "Initialize-HSM2Cluster",
                "Get-HSM2ResourceTag",
+               "Edit-HSM2BackupAttribute",
+               "Edit-HSM2Cluster",
                "Restore-HSM2Backup",
                "Add-HSM2ResourceTag",
                "Remove-HSM2ResourceTag")

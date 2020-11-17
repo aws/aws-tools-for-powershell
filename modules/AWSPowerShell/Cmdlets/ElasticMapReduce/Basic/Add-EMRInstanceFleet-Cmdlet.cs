@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter OnDemandSpecification_AllocationStrategy
         /// <summary>
         /// <para>
-        /// <para> Specifies the strategy to use in launching On-Demand instance fleets. Currently,
+        /// <para> Specifies the strategy to use in launching On-Demand Instance fleets. Currently,
         /// the only option is lowest-price (the default), which launches the lowest price first.
         /// </para>
         /// </para>
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter SpotSpecification_AllocationStrategy
         /// <summary>
         /// <para>
-        /// <para> Specifies the strategy to use in launching Spot instance fleets. Currently, the only
-        /// option is capacity-optimized (the default), which launches instances from Spot instance
+        /// <para> Specifies the strategy to use in launching Spot Instance fleets. Currently, the only
+        /// option is capacity-optimized (the default), which launches instances from Spot Instance
         /// pools with optimal capacity for the number of instances that are launching. </para>
         /// </para>
         /// </summary>
@@ -75,12 +75,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter SpotSpecification_BlockDurationMinute
         /// <summary>
         /// <para>
-        /// <para>The defined duration for Spot instances (also known as Spot blocks) in minutes. When
-        /// specified, the Spot instance does not terminate before the defined duration expires,
+        /// <para>The defined duration for Spot Instances (also known as Spot blocks) in minutes. When
+        /// specified, the Spot Instance does not terminate before the defined duration expires,
         /// and defined duration pricing for Spot instances applies. Valid values are 60, 120,
-        /// 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives
-        /// its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for
-        /// termination and provides a Spot instance termination notice, which gives the instance
+        /// 180, 240, 300, or 360. The duration period starts as soon as a Spot Instance receives
+        /// its instance ID. At the end of the duration, Amazon EC2 marks the Spot Instance for
+        /// termination and provides a Spot Instance termination notice, which gives the instance
         /// a two-minute warning before it terminates. </para>
         /// </para>
         /// </summary>
@@ -148,15 +148,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The target capacity of On-Demand units for the instance fleet, which determines how
-        /// many On-Demand instances to provision. When the instance fleet launches, Amazon EMR
-        /// tries to provision On-Demand instances as specified by <a>InstanceTypeConfig</a>.
+        /// many On-Demand Instances to provision. When the instance fleet launches, Amazon EMR
+        /// tries to provision On-Demand Instances as specified by <a>InstanceTypeConfig</a>.
         /// Each instance configuration has a specified <code>WeightedCapacity</code>. When an
-        /// On-Demand instance is provisioned, the <code>WeightedCapacity</code> units count toward
+        /// On-Demand Instance is provisioned, the <code>WeightedCapacity</code> units count toward
         /// the target capacity. Amazon EMR provisions instances until the target capacity is
         /// totally fulfilled, even if this results in an overage. For example, if there are 2
         /// units remaining to fulfill capacity, and Amazon EMR can only provision an instance
         /// with a <code>WeightedCapacity</code> of 5 units, the instance is provisioned, and
-        /// the target capacity is exceeded by 3 units.</para><note><para>If not specified or set to 0, only Spot instances are provisioned for the instance
+        /// the target capacity is exceeded by 3 units.</para><note><para>If not specified or set to 0, only Spot Instances are provisioned for the instance
         /// fleet using <code>TargetSpotCapacity</code>. At least one of <code>TargetSpotCapacity</code>
         /// and <code>TargetOnDemandCapacity</code> should be greater than 0. For a master instance
         /// fleet, only one of <code>TargetSpotCapacity</code> and <code>TargetOnDemandCapacity</code>
@@ -171,15 +171,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The target capacity of Spot units for the instance fleet, which determines how many
-        /// Spot instances to provision. When the instance fleet launches, Amazon EMR tries to
-        /// provision Spot instances as specified by <a>InstanceTypeConfig</a>. Each instance
-        /// configuration has a specified <code>WeightedCapacity</code>. When a Spot instance
+        /// Spot Instances to provision. When the instance fleet launches, Amazon EMR tries to
+        /// provision Spot Instances as specified by <a>InstanceTypeConfig</a>. Each instance
+        /// configuration has a specified <code>WeightedCapacity</code>. When a Spot Instance
         /// is provisioned, the <code>WeightedCapacity</code> units count toward the target capacity.
         /// Amazon EMR provisions instances until the target capacity is totally fulfilled, even
         /// if this results in an overage. For example, if there are 2 units remaining to fulfill
         /// capacity, and Amazon EMR can only provision an instance with a <code>WeightedCapacity</code>
         /// of 5 units, the instance is provisioned, and the target capacity is exceeded by 3
-        /// units.</para><note><para>If not specified or set to 0, only On-Demand instances are provisioned for the instance
+        /// units.</para><note><para>If not specified or set to 0, only On-Demand Instances are provisioned for the instance
         /// fleet. At least one of <code>TargetSpotCapacity</code> and <code>TargetOnDemandCapacity</code>
         /// should be greater than 0. For a master instance fleet, only one of <code>TargetSpotCapacity</code>
         /// and <code>TargetOnDemandCapacity</code> can be specified, and its value must be 1.</para></note>
@@ -193,10 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The action to take when <code>TargetSpotCapacity</code> has not been fulfilled when
-        /// the <code>TimeoutDurationMinutes</code> has expired; that is, when all Spot instances
+        /// the <code>TimeoutDurationMinutes</code> has expired; that is, when all Spot Instances
         /// could not be provisioned within the Spot provisioning timeout. Valid values are <code>TERMINATE_CLUSTER</code>
         /// and <code>SWITCH_TO_ON_DEMAND</code>. SWITCH_TO_ON_DEMAND specifies that if no Spot
-        /// instances are available, On-Demand Instances should be provisioned to fulfill any
+        /// Instances are available, On-Demand Instances should be provisioned to fulfill any
         /// remaining Spot capacity.</para>
         /// </para>
         /// </summary>
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter SpotSpecification_TimeoutDurationMinute
         /// <summary>
         /// <para>
-        /// <para>The spot provisioning timeout period in minutes. If Spot instances are not provisioned
+        /// <para>The spot provisioning timeout period in minutes. If Spot Instances are not provisioned
         /// within this time period, the <code>TimeOutAction</code> is taken. Minimum value is
         /// 5 and maximum value is 1440. The timeout applies only during initial provisioning,
         /// when the cluster is first created.</para>

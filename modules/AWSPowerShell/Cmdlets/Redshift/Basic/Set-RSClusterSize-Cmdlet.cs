@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </para></li><li><para>
     /// ds2.8xlarge
     /// </para></li><li><para>
+    /// ra3.xlplus
+    /// </para></li><li><para>
     /// ra3.4xlarge
     /// </para></li><li><para>
     /// ra3.16xlarge

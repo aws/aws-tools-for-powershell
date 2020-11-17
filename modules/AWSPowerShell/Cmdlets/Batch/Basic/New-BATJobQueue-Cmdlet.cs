@@ -54,9 +54,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The set of compute environments mapped to a job queue and their order relative to
         /// each other. The job scheduler uses this parameter to determine which compute environment
-        /// should execute a given job. Compute environments must be in the <code>VALID</code>
+        /// should run a specific job. Compute environments must be in the <code>VALID</code>
         /// state before you can associate them with a job queue. You can associate up to three
-        /// compute environments with a job queue.</para>
+        /// compute environments with a job queue. All of the compute environments must be either
+        /// EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>);
+        /// EC2 and Fargate compute environments can't be mixed.</para><note><para>All compute environments that are associated with a job queue must share the same
+        /// architecture. AWS Batch doesn't support mixing compute environment architecture types
+        /// in a single job queue.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobQueueName
         /// <summary>
         /// <para>
-        /// <para>The name of the job queue.</para>
+        /// <para>The name of the job queue. Up to 128 letters (uppercase and lowercase), numbers, and
+        /// underscores are allowed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,9 +97,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The priority of the job queue. Job queues with a higher priority (or a higher integer
         /// value for the <code>priority</code> parameter) are evaluated first when associated
-        /// with the same compute environment. Priority is determined in descending order, for
+        /// with the same compute environment. Priority is determined in descending order. For
         /// example, a job queue with a priority value of <code>10</code> is given scheduling
-        /// preference over a job queue with a priority value of <code>1</code>.</para>
+        /// preference over a job queue with a priority value of <code>1</code>. All of the compute
+        /// environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate
+        /// (<code>FARGATE</code> or <code>FARGATE_SPOT</code>); EC2 and Fargate compute environments
+        /// cannot be mixed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The state of the job queue. If the job queue state is <code>ENABLED</code>, it is
-        /// able to accept jobs. If the job queue state is <code>DISABLED</code>, new jobs cannot
+        /// able to accept jobs. If the job queue state is <code>DISABLED</code>, new jobs can't
         /// be added to the queue, but jobs already in the queue can finish.</para>
         /// </para>
         /// </summary>
@@ -125,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The tags that you apply to the job queue to help you categorize and organize your
         /// resources. Each tag consists of a key and an optional value. For more information,
-        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS Resources</a> in <i>AWS General Reference</i>.</para>
+        /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging
+        /// your AWS Batch resources</a> in <i>AWS Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

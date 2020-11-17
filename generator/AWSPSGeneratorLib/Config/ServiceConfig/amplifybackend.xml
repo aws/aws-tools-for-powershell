@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>amplifybackend</C2jFilename>
+    <AssemblyName>AmplifyBackend</AssemblyName>
+    <ServiceNounPrefix>AMPB</ServiceNounPrefix>
+    <ServiceName>Amplify Backend</ServiceName>
+    <ServiceClientInterface>IAmazonAmplifyBackend</ServiceClientInterface>
+    <ServiceClient>AmazonAmplifyBackendClient</ServiceClient>
+    <ServiceModuleGuid>0CCD1033-B9AA-4DA0-8DE8-060BF4C215F1</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CloneBackend" OutputProperty="*" Verb="Copy" Noun="Backend" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBackend" OutputProperty="*" Verb="New" Noun="Backend" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBackendAPI" OutputProperty="*" Verb="New" Noun="BackendAPI" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBackendAuth" OutputProperty="*" Verb="New" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBackendConfig" OutputProperty="*" Verb="New" Noun="BackendConfig" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateToken" OutputProperty="*" Verb="New" Noun="Token" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackend" OutputProperty="*" Verb="Remove" Noun="Backend" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackendAPI" OutputProperty="*" Verb="Remove" Noun="BackendAPI" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackendAuth" OutputProperty="*" Verb="Remove" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteToken" OutputProperty="IsSuccess" Verb="Remove" Noun="Token" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateBackendAPIModels" OutputProperty="*" Verb="New" Noun="BackendAPIModel" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBackend" OutputProperty="*" Verb="Get" Noun="Backend" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBackendAPI" OutputProperty="*" Verb="Get" Noun="BackendAPI" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBackendAPIModels" OutputProperty="*" Verb="Get" Noun="BackendAPIModel" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBackendAuth" OutputProperty="*" Verb="Get" Noun="BackendAuth" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBackendJob" OutputProperty="*" Verb="Get" Noun="BackendJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetToken" OutputProperty="*" Verb="Get" Noun="Token" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBackendJobs" OutputProperty="Jobs" Verb="Get" Noun="BackendJobList" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveAllBackends" OutputProperty="*" Verb="Remove" Noun="AllBackend" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveBackendConfig" OutputProperty="Error" Verb="Remove" Noun="BackendConfig" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBackendAPI" OutputProperty="*" Verb="Update" Noun="BackendAPI" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBackendAuth" OutputProperty="*" Verb="Update" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBackendConfig" OutputProperty="*" Verb="Update" Noun="BackendConfig" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBackendJob" OutputProperty="*" Verb="Update" Noun="BackendJob" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

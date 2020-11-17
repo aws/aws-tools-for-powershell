@@ -78,6 +78,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelDetectMitigationActionsTask" Verb="Stop" Noun="DetectMitigationActionsTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelJob" OutputProperty="*" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
@@ -111,6 +115,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCertificateFromCsr" OutputProperty="*" Verb="New" Noun="CertificateFromCsr" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomMetric" OutputProperty="*" Verb="New" Noun="CustomMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -222,6 +230,10 @@
             <Params>
                 <Param Name="ForceDelete" NewName="DeleteWithForce" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomMetric" Verb="Remove" Noun="CustomMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDimension" Verb="Remove" Noun="Dimension" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
@@ -356,7 +368,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCustomMetric" OutputProperty="*" Verb="Get" Noun="CustomMetric" PipelineParameter="MetricName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDefaultAuthorizer" OutputProperty="AuthorizerDescription" Verb="Get" Noun="DefaultAuthorizer" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDetectMitigationActionsTask" OutputProperty="TaskSummary" Verb="Get" Noun="DetectMitigationActionsTask" PipelineParameter="TaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -453,6 +473,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableTopicRule" Verb="Enable" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBehaviorModelTrainingSummaries" OutputProperty="Summaries" Verb="Get" Noun="BehaviorModelTrainingSummary" PipelineParameter="SecurityProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -572,6 +596,18 @@
         <ServiceOperation MethodName="ListCertificatesByCA" OutputProperty="Certificates" Verb="Get" Noun="CertificateListByCA" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomMetrics" OutputProperty="MetricNames" Verb="Get" Noun="CustomMetricList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDetectMitigationActionsExecutions" OutputProperty="ActionsExecutions" Verb="Get" Noun="DetectMitigationActionsExecutionList" PipelineParameter="TaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDetectMitigationActionsTasks" OutputProperty="Tasks" Verb="Get" Noun="DetectMitigationActionsTaskList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDimensions" OutputProperty="DimensionNames" Verb="Get" Noun="DimensionList" PipelineParameter="" NoPipelineParameter="false">
@@ -819,6 +855,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartDetectMitigationActionsTask" OutputProperty="TaskId" Verb="Start" Noun="DetectMitigationActionsTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartOnDemandAuditTask" OutputProperty="TaskId" Verb="Start" Noun="OnDemandAuditTask" ShouldProcessTarget="TargetCheckNames" PipelineParameter="TargetCheckNames" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -872,6 +912,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCertificate" Verb="Update" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCustomMetric" OutputProperty="*" Verb="Update" Noun="CustomMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

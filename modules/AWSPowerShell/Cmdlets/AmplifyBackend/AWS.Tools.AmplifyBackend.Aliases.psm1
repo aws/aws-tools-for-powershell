@@ -1,0 +1,3 @@
+﻿# AmplifyBackend
+
+Export-ModuleMember -Alias *

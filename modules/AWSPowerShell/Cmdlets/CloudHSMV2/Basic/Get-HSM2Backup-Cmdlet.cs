@@ -57,7 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         /// a source backup. The <code>sourceBackupID</code> of a source backup is returned by
         /// the <a>CopyBackupToRegion</a> operation.</para><para>Use the <code>clusterIds</code> filter to return only the backups for the specified
         /// clusters. Specify clusters by their cluster identifier (ID).</para><para>Use the <code>states</code> filter to return only backups that match the specified
-        /// state.</para>
+        /// state.</para><para>Use the <code>neverExpires</code> filter to return backups filtered by the value in
+        /// the <code>neverExpires</code> parameter. <code>True</code> returns all backups exempt
+        /// from the backup retention policy. <code>False</code> returns all backups with a backup
+        /// retention policy defined at the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,10 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             }
             if (cmdletContext.MaxResult.HasValue)
             {
-                // The service has a maximum page size of 100. If the user has
+                // The service has a maximum page size of 50. If the user has
                 // asked for more items than page max, and there is no page size
                 // configured, we rely on the service ignoring the set maximum
-                // and giving us 100 items back. If a page size is set, that will
+                // and giving us 50 items back. If a page size is set, that will
                 // be used to configure the pagination.
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResult;
@@ -296,7 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
                 request.NextToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = Math.Min(100, _emitLimit.Value);
+                    int correctPageSize = Math.Min(50, _emitLimit.Value);
                     request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
                 

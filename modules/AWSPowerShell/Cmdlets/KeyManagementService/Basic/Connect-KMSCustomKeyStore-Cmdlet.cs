@@ -65,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// If you are having trouble connecting or disconnecting a custom key store, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting
     /// a Custom Key Store</a> in the <i>AWS Key Management Service Developer Guide</i>.
-    /// </para>
+    /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a custom key store
+    /// in a different AWS account.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ConnectCustomKeyStore</a>
+    /// (IAM policy)
+    /// </para><para><b>Related operations</b></para><ul><li><para><a>CreateCustomKeyStore</a></para></li><li><para><a>DeleteCustomKeyStore</a></para></li><li><para><a>DescribeCustomKeyStores</a></para></li><li><para><a>DisconnectCustomKeyStore</a></para></li><li><para><a>UpdateCustomKeyStore</a></para></li></ul>
     /// </summary>
     [Cmdlet("Connect", "KMSCustomKeyStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

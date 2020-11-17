@@ -98,12 +98,15 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ECRLifecyclePolicy', 
         'Get-ECRLifecyclePolicyPreview', 
         'Get-ECRLoginCommand', 
+        'Get-ECRRegistry', 
+        'Get-ECRRegistryPolicy', 
         'Get-ECRRepository', 
         'Get-ECRRepositoryPolicy', 
         'Get-ECRResourceTag', 
         'New-ECRRepository', 
         'Remove-ECRImageBatch', 
         'Remove-ECRLifecyclePolicy', 
+        'Remove-ECRRegistryPolicy', 
         'Remove-ECRRepository', 
         'Remove-ECRRepositoryPolicy', 
         'Remove-ECRResourceTag', 
@@ -115,7 +118,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-ECRImage', 
         'Write-ECRImageScanningConfiguration', 
         'Write-ECRImageTagMutability', 
-        'Write-ECRLifecyclePolicy')
+        'Write-ECRLifecyclePolicy', 
+        'Write-ECRRegistryPolicy', 
+        'Write-ECRReplicationConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

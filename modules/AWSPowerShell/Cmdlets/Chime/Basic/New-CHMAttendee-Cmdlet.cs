@@ -45,8 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ExternalUserId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Chime SDK external user ID. Links the attendee to an identity managed by
-        /// a builder application.</para>
+        /// <para>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to
+        /// an identity managed by a builder application. If you create an attendee with the same
+        /// external user id, the service returns the existing record.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

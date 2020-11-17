@@ -28,7 +28,12 @@ using Amazon.ManagedBlockchain.Model;
 namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
-    /// Returns information about the nodes within a network.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about the nodes within a network.
+    /// 
+    ///  
+    /// <para>
+    /// Applies to Hyperledger Fabric and Ethereum.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MBCNodeList")]
     [OutputType("Amazon.ManagedBlockchain.Model.NodeSummary")]
@@ -43,17 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter MemberId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the member who owns the nodes to list.</para>
+        /// <para>The unique identifier of the member who owns the nodes to list.</para><para>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MemberId { get; set; }
         #endregion
         
@@ -182,12 +180,6 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             }
             #endif
             context.MemberId = this.MemberId;
-            #if MODULAR
-            if (this.MemberId == null && ParameterWasBound(nameof(this.MemberId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MemberId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.NetworkId = this.NetworkId;
             #if MODULAR
             if (this.NetworkId == null && ParameterWasBound(nameof(this.NetworkId)))

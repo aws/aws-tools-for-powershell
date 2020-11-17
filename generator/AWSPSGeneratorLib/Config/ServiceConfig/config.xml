@@ -15,7 +15,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -84,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRetentionConfiguration" Verb="Remove" Noun="RetentionConfiguration" ShouldProcessTarget="RetentionConfigurationName" PipelineParameter="RetentionConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStoredQuery" Verb="Remove" Noun="StoredQuery" ShouldProcessTarget="QueryName" PipelineParameter="QueryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -243,11 +246,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetStoredQuery" OutputProperty="StoredQuery" Verb="Get" Noun="StoredQuery" PipelineParameter="QueryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAggregateDiscoveredResources" OutputProperty="ResourceIdentifiers" Verb="Get" Noun="AggregateDiscoveredResourceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDiscoveredResources" OutputProperty="ResourceIdentifiers" Verb="Get" Noun="DiscoveredResource" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStoredQueries" OutputProperty="StoredQueryMetadata" Verb="Get" Noun="StoredQueryList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -287,6 +298,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutExternalEvaluation" Verb="Write" Noun="ExternalEvaluation" ShouldProcessTarget="ConfigRuleName" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutOrganizationConfigRule" OutputProperty="OrganizationConfigRuleArn" Verb="Write" Noun="OrganizationConfigRule" ShouldProcessTarget="OrganizationConfigRuleName" PipelineParameter="OrganizationConfigRuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -308,6 +323,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutRetentionConfiguration" OutputProperty="RetentionConfiguration" Verb="Write" Noun="RetentionConfiguration" ShouldProcessTarget="RetentionPeriodInDays" PipelineParameter="RetentionPeriodInDays" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutStoredQuery" OutputProperty="QueryArn" Verb="Write" Noun="StoredQuery" ShouldProcessTarget="StoredQuery_QueryName" PipelineParameter="StoredQuery_QueryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -344,7 +363,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

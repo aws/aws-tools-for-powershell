@@ -78,6 +78,28 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.Int32? AutomatedSnapshotRetentionPeriod { get; set; }
         #endregion
         
+        #region Parameter AvailabilityZone
+        /// <summary>
+        /// <para>
+        /// <para>The option to initiate relocation for an Amazon Redshift cluster to the target Availability
+        /// Zone.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneRelocation
+        /// <summary>
+        /// <para>
+        /// <para>The option to enable relocation for an Amazon Redshift cluster between Availability
+        /// Zones after the cluster modification is complete.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AvailabilityZoneRelocation { get; set; }
+        #endregion
+        
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
@@ -279,8 +301,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The new node type of the cluster. If you specify a new node type, you must also specify
         /// the number of nodes parameter.</para><para> For more information about resizing clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing
         /// Clusters in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</para><para>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> | <code>dc1.large</code>
-        /// | <code>dc1.8xlarge</code> | <code>dc2.large</code> | <code>dc2.8xlarge</code> | <code>ra3.4xlarge</code>
-        /// | <code>ra3.16xlarge</code></para>
+        /// | <code>dc1.8xlarge</code> | <code>dc2.large</code> | <code>dc2.8xlarge</code> | <code>ra3.xlplus</code>
+        /// | <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,6 +319,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? NumberOfNodes { get; set; }
+        #endregion
+        
+        #region Parameter Port
+        /// <summary>
+        /// <para>
+        /// <para>The option to change the port of an Amazon Redshift cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Port { get; set; }
         #endregion
         
         #region Parameter PreferredMaintenanceWindow
@@ -398,6 +430,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AllowVersionUpgrade = this.AllowVersionUpgrade;
             context.AutomatedSnapshotRetentionPeriod = this.AutomatedSnapshotRetentionPeriod;
+            context.AvailabilityZone = this.AvailabilityZone;
+            context.AvailabilityZoneRelocation = this.AvailabilityZoneRelocation;
             context.ClusterIdentifier = this.ClusterIdentifier;
             #if MODULAR
             if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
@@ -424,6 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.NewClusterIdentifier = this.NewClusterIdentifier;
             context.NodeType = this.NodeType;
             context.NumberOfNodes = this.NumberOfNodes;
+            context.Port = this.Port;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.PubliclyAccessible = this.PubliclyAccessible;
             if (this.VpcSecurityGroupId != null)
@@ -453,6 +488,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.AutomatedSnapshotRetentionPeriod != null)
             {
                 request.AutomatedSnapshotRetentionPeriod = cmdletContext.AutomatedSnapshotRetentionPeriod.Value;
+            }
+            if (cmdletContext.AvailabilityZone != null)
+            {
+                request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.AvailabilityZoneRelocation != null)
+            {
+                request.AvailabilityZoneRelocation = cmdletContext.AvailabilityZoneRelocation.Value;
             }
             if (cmdletContext.ClusterIdentifier != null)
             {
@@ -521,6 +564,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.NumberOfNodes != null)
             {
                 request.NumberOfNodes = cmdletContext.NumberOfNodes.Value;
+            }
+            if (cmdletContext.Port != null)
+            {
+                request.Port = cmdletContext.Port.Value;
             }
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
@@ -597,6 +644,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             public System.Boolean? AllowVersionUpgrade { get; set; }
             public System.Int32? AutomatedSnapshotRetentionPeriod { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public System.Boolean? AvailabilityZoneRelocation { get; set; }
             public System.String ClusterIdentifier { get; set; }
             public System.String ClusterParameterGroupName { get; set; }
             public List<System.String> ClusterSecurityGroup { get; set; }
@@ -614,6 +663,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String NewClusterIdentifier { get; set; }
             public System.String NodeType { get; set; }
             public System.Int32? NumberOfNodes { get; set; }
+            public System.Int32? Port { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }

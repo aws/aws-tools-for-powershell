@@ -41,9 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// Since matchmaking rule sets cannot be edited, it is a good idea to check the rule
     /// set syntax using <a>ValidateMatchmakingRuleSet</a> before creating a new rule set.
-    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html">Build
-    /// a Rule Set</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html">Design
-    /// a Matchmaker</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html">Matchmaking
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build
+    /// a Rule Set</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">Design
+    /// a Matchmaker</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-intro.html">Matchmaking
     /// with FlexMatch</a></para></li></ul><para><b>Related operations</b></para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li><li><para><a>DeleteMatchmakingRuleSet</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLMatchmakingRuleSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

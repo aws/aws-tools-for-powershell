@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more filters. The possible values are:</para><ul><li><para><code>association.state</code> - The state of the association (<code>associating</code>
         /// | <code>associated</code> | <code>disassociating</code>).</para></li><li><para><code>association.transit-gateway-route-table-id</code> - The ID of the route table
         /// for the transit gateway.</para></li><li><para><code>resource-id</code> - The ID of the resource.</para></li><li><para><code>resource-owner-id</code> - The ID of the AWS account that owns the resource.</para></li><li><para><code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
-        /// | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>.</para></li><li><para><code>state</code> - The state of the attachment. Valid values are <code>available</code>
+        /// | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code> |
+        /// <code>connect</code>.</para></li><li><para><code>state</code> - The state of the attachment. Valid values are <code>available</code>
         /// | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>failing</code>
         /// | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code>
         /// | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</para></li><li><para><code>transit-gateway-attachment-id</code> - The ID of the attachment.</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li><li><para><code>transit-gateway-owner-id</code> - The ID of the AWS account that owns the transit

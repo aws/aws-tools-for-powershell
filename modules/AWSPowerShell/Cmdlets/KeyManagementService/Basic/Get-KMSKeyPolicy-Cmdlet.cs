@@ -28,8 +28,14 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Gets a key policy attached to the specified customer master key (CMK). You cannot
-    /// perform this operation on a CMK in a different AWS account.
+    /// Gets a key policy attached to the specified customer master key (CMK).
+    /// 
+    ///  
+    /// <para><b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different
+    /// AWS account.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetKeyPolicy</a>
+    /// (key policy)
+    /// </para><para><b>Related operations</b>: <a>PutKeyPolicy</a></para>
     /// </summary>
     [Cmdlet("Get", "KMSKeyPolicy")]
     [OutputType("System.String")]

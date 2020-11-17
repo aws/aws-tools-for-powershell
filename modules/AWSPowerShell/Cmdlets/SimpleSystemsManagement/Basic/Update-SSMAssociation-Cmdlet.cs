@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>By default, when you update an association, the system runs it immediately after it
         /// is updated and then according to the schedule you specified. Specify this option if
-        /// you don't want an association to run immediately after you update it.</para><para>Also, if you specified this option when you created the association, you can reset
+        /// you don't want an association to run immediately after you update it. This parameter
+        /// is not supported for rate expressions.</para><para>Also, if you specified this option when you created the association, you can reset
         /// it. To do so, specify the <code>no-apply-only-at-cron-interval</code> parameter when
         /// you update the association from the command line. This parameter forces the association
         /// to run immediately after updating it and according to the interval specified.</para>
@@ -264,6 +265,19 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public Amazon.SimpleSystemsManagement.AssociationSyncCompliance SyncCompliance { get; set; }
         #endregion
         
+        #region Parameter TargetLocation
+        /// <summary>
+        /// <para>
+        /// <para>A location is a combination of AWS Regions and AWS accounts where you want to run
+        /// the association. Use this action to update an association in multiple Regions and
+        /// multiple accounts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetLocations")]
+        public Amazon.SimpleSystemsManagement.Model.TargetLocation[] TargetLocation { get; set; }
+        #endregion
+        
         #region Parameter Target
         /// <summary>
         /// <para>
@@ -377,6 +391,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             context.ScheduleExpression = this.ScheduleExpression;
             context.SyncCompliance = this.SyncCompliance;
+            if (this.TargetLocation != null)
+            {
+                context.TargetLocation = new List<Amazon.SimpleSystemsManagement.Model.TargetLocation>(this.TargetLocation);
+            }
             if (this.Target != null)
             {
                 context.Target = new List<Amazon.SimpleSystemsManagement.Model.Target>(this.Target);
@@ -503,6 +521,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.SyncCompliance = cmdletContext.SyncCompliance;
             }
+            if (cmdletContext.TargetLocation != null)
+            {
+                request.TargetLocations = cmdletContext.TargetLocation;
+            }
             if (cmdletContext.Target != null)
             {
                 request.Targets = cmdletContext.Target;
@@ -584,6 +606,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public Dictionary<System.String, List<System.String>> Parameter { get; set; }
             public System.String ScheduleExpression { get; set; }
             public Amazon.SimpleSystemsManagement.AssociationSyncCompliance SyncCompliance { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.TargetLocation> TargetLocation { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Target> Target { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.UpdateAssociationResponse, UpdateSSMAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AssociationDescription;

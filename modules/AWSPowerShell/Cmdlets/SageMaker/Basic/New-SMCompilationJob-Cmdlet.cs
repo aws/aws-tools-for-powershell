@@ -200,6 +200,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Framework InputConfig_Framework { get; set; }
         #endregion
         
+        #region Parameter OutputConfig_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
+        /// data on the storage volume after compilation job. If you don't provide a KMS key ID,
+        /// Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
@@ -301,10 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs that you want to use to organize and track your AWS resource
-        /// costs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-        /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
-        /// </para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
+        /// different ways, for example, by purpose, owner, or environment. For more information,
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// AWS Resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -416,6 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.OutputConfig_CompilerOption = this.OutputConfig_CompilerOption;
+            context.OutputConfig_KmsKeyId = this.OutputConfig_KmsKeyId;
             context.OutputConfig_S3OutputLocation = this.OutputConfig_S3OutputLocation;
             #if MODULAR
             if (this.OutputConfig_S3OutputLocation == null && ParameterWasBound(nameof(this.OutputConfig_S3OutputLocation)))
@@ -511,6 +524,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestOutputConfig_outputConfig_CompilerOption != null)
             {
                 request.OutputConfig.CompilerOptions = requestOutputConfig_outputConfig_CompilerOption;
+                requestOutputConfigIsNull = false;
+            }
+            System.String requestOutputConfig_outputConfig_KmsKeyId = null;
+            if (cmdletContext.OutputConfig_KmsKeyId != null)
+            {
+                requestOutputConfig_outputConfig_KmsKeyId = cmdletContext.OutputConfig_KmsKeyId;
+            }
+            if (requestOutputConfig_outputConfig_KmsKeyId != null)
+            {
+                request.OutputConfig.KmsKeyId = requestOutputConfig_outputConfig_KmsKeyId;
                 requestOutputConfigIsNull = false;
             }
             System.String requestOutputConfig_outputConfig_S3OutputLocation = null;
@@ -686,6 +709,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.Framework InputConfig_Framework { get; set; }
             public System.String InputConfig_S3Uri { get; set; }
             public System.String OutputConfig_CompilerOption { get; set; }
+            public System.String OutputConfig_KmsKeyId { get; set; }
             public System.String OutputConfig_S3OutputLocation { get; set; }
             public Amazon.SageMaker.TargetDevice OutputConfig_TargetDevice { get; set; }
             public Amazon.SageMaker.TargetPlatformAccelerator TargetPlatform_Accelerator { get; set; }

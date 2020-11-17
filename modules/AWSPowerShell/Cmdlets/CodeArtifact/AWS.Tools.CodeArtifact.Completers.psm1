@@ -96,7 +96,7 @@ $CA_Completers = {
             ($_ -eq "Update-CAPackageVersionsStatus/Format")
         }
         {
-            $v = "maven","npm","pypi"
+            $v = "maven","npm","nuget","pypi"
             break
         }
 

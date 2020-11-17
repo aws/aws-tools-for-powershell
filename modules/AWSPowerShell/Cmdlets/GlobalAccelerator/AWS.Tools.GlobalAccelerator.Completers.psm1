@@ -103,7 +103,9 @@ $GACL_Completers = {
         # Amazon.GlobalAccelerator.IpAddressType
         {
             ($_ -eq "New-GACLAccelerator/IpAddressType") -Or
-            ($_ -eq "Update-GACLAccelerator/IpAddressType")
+            ($_ -eq "New-GACLCustomRoutingAccelerator/IpAddressType") -Or
+            ($_ -eq "Update-GACLAccelerator/IpAddressType") -Or
+            ($_ -eq "Update-GACLCustomRoutingAccelerator/IpAddressType")
         }
         {
             $v = "IPV4"
@@ -131,7 +133,7 @@ $GACL_Completers = {
 $GACL_map = @{
     "ClientAffinity"=@("New-GACLListener","Update-GACLListener")
     "HealthCheckProtocol"=@("New-GACLEndpointGroup","Update-GACLEndpointGroup")
-    "IpAddressType"=@("New-GACLAccelerator","Update-GACLAccelerator")
+    "IpAddressType"=@("New-GACLAccelerator","New-GACLCustomRoutingAccelerator","Update-GACLAccelerator","Update-GACLCustomRoutingAccelerator")
     "Protocol"=@("New-GACLListener","Update-GACLListener")
 }
 
@@ -185,28 +187,50 @@ $GACL_SelectCompleters = {
 }
 
 $GACL_SelectMap = @{
-    "Select"=@("Start-GACLAdvertisingByoipCidr",
+    "Select"=@("Add-GACLCustomRoutingEndpoint",
+               "Start-GACLAdvertisingByoipCidr",
+               "Enable-GACLCustomRoutingTraffic",
                "New-GACLAccelerator",
+               "New-GACLCustomRoutingAccelerator",
+               "New-GACLCustomRoutingEndpointGroup",
+               "New-GACLCustomRoutingListener",
                "New-GACLEndpointGroup",
                "New-GACLListener",
                "Remove-GACLAccelerator",
+               "Remove-GACLCustomRoutingAccelerator",
+               "Remove-GACLCustomRoutingEndpointGroup",
+               "Remove-GACLCustomRoutingListener",
                "Remove-GACLEndpointGroup",
                "Remove-GACLListener",
+               "Disable-GACLCustomRoutingTraffic",
                "Remove-GACLByoipCidrProvision",
                "Get-GACLAccelerator",
                "Get-GACLAcceleratorAttribute",
+               "Get-GACLCustomRoutingAccelerator",
+               "Get-GACLCustomRoutingAcceleratorAttribute",
+               "Get-GACLCustomRoutingEndpointGroup",
+               "Get-GACLCustomRoutingListener",
                "Get-GACLEndpointGroup",
                "Get-GACLListener",
                "Get-GACLAcceleratorList",
                "Get-GACLByoipCidrList",
+               "Get-GACLCustomRoutingAcceleratorList",
+               "Get-GACLCustomRoutingEndpointGroupList",
+               "Get-GACLCustomRoutingListenerList",
+               "Get-GACLCustomRoutingPortMappingList",
+               "Get-GACLCustomRoutingPortMappingsByDestinationList",
                "Get-GACLEndpointGroupList",
                "Get-GACLListenerList",
                "Get-GACLResourceTag",
                "Add-GACLByoipCidrProvision",
+               "Remove-GACLCustomRoutingEndpoint",
                "Add-GACLResourceTag",
                "Remove-GACLResourceTag",
                "Update-GACLAccelerator",
                "Update-GACLAcceleratorAttribute",
+               "Update-GACLCustomRoutingAccelerator",
+               "Update-GACLCustomRoutingAcceleratorAttribute",
+               "Update-GACLCustomRoutingListener",
                "Update-GACLEndpointGroup",
                "Update-GACLListener",
                "Stop-GACLAdvertisingByoipCidr")

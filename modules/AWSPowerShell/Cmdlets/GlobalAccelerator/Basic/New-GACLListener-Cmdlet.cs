@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// <summary>
     /// Create a listener to process inbound connections from clients to an accelerator. Connections
     /// arrive to assigned static IP addresses on a port, port range, or list of port ranges
-    /// that you specify. To see an AWS CLI example of creating a listener, scroll down to
-    /// <b>Example</b>.
+    /// that you specify.
     /// </summary>
     [Cmdlet("New", "GACLListener", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GlobalAccelerator.Model.Listener")]

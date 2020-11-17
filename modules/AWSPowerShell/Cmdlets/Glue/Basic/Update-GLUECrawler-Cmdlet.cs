@@ -66,6 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Configuration { get; set; }
         #endregion
         
+        #region Parameter LineageConfiguration_CrawlerLineageSetting
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether data lineage is enabled for the crawler. Valid values are:</para><ul><li><para>ENABLE: enables data lineage for the crawler</para></li><li><para>DISABLE: disables data lineage for the crawler</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LineageConfiguration_CrawlerLineageSettings")]
+        [AWSConstantClassSource("Amazon.Glue.CrawlerLineageSettings")]
+        public Amazon.Glue.CrawlerLineageSettings LineageConfiguration_CrawlerLineageSetting { get; set; }
+        #endregion
+        
         #region Parameter CrawlerSecurityConfiguration
         /// <summary>
         /// <para>
@@ -248,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.CrawlerSecurityConfiguration = this.CrawlerSecurityConfiguration;
             context.DatabaseName = this.DatabaseName;
             context.Description = this.Description;
+            context.LineageConfiguration_CrawlerLineageSetting = this.LineageConfiguration_CrawlerLineageSetting;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -296,6 +309,25 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate LineageConfiguration
+            var requestLineageConfigurationIsNull = true;
+            request.LineageConfiguration = new Amazon.Glue.Model.LineageConfiguration();
+            Amazon.Glue.CrawlerLineageSettings requestLineageConfiguration_lineageConfiguration_CrawlerLineageSetting = null;
+            if (cmdletContext.LineageConfiguration_CrawlerLineageSetting != null)
+            {
+                requestLineageConfiguration_lineageConfiguration_CrawlerLineageSetting = cmdletContext.LineageConfiguration_CrawlerLineageSetting;
+            }
+            if (requestLineageConfiguration_lineageConfiguration_CrawlerLineageSetting != null)
+            {
+                request.LineageConfiguration.CrawlerLineageSettings = requestLineageConfiguration_lineageConfiguration_CrawlerLineageSetting;
+                requestLineageConfigurationIsNull = false;
+            }
+             // determine if request.LineageConfiguration should be set to null
+            if (requestLineageConfigurationIsNull)
+            {
+                request.LineageConfiguration = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -406,6 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String CrawlerSecurityConfiguration { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String Description { get; set; }
+            public Amazon.Glue.CrawlerLineageSettings LineageConfiguration_CrawlerLineageSetting { get; set; }
             public System.String Name { get; set; }
             public Amazon.Glue.RecrawlBehavior RecrawlPolicy_RecrawlBehavior { get; set; }
             public System.String Role { get; set; }

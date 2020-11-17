@@ -52,6 +52,51 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String HttpUrlConfiguration_ConfirmationUrl { get; set; }
         #endregion
         
+        #region Parameter VpcConfiguration_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of a role that has permission to create and attach to elastic network interfaces
+        /// (ENIs).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DestinationConfiguration_VpcConfiguration_RoleArn")]
+        public System.String VpcConfiguration_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfiguration_SecurityGroup
+        /// <summary>
+        /// <para>
+        /// <para>The security groups of the VPC destination.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DestinationConfiguration_VpcConfiguration_SecurityGroups")]
+        public System.String[] VpcConfiguration_SecurityGroup { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfiguration_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The subnet IDs of the VPC destination.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DestinationConfiguration_VpcConfiguration_SubnetIds")]
+        public System.String[] VpcConfiguration_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfiguration_VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DestinationConfiguration_VpcConfiguration_VpcId")]
+        public System.String VpcConfiguration_VpcId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'TopicRuleDestination'.
@@ -114,6 +159,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.HttpUrlConfiguration_ConfirmationUrl = this.HttpUrlConfiguration_ConfirmationUrl;
+            context.VpcConfiguration_RoleArn = this.VpcConfiguration_RoleArn;
+            if (this.VpcConfiguration_SecurityGroup != null)
+            {
+                context.VpcConfiguration_SecurityGroup = new List<System.String>(this.VpcConfiguration_SecurityGroup);
+            }
+            if (this.VpcConfiguration_SubnetId != null)
+            {
+                context.VpcConfiguration_SubnetId = new List<System.String>(this.VpcConfiguration_SubnetId);
+            }
+            context.VpcConfiguration_VpcId = this.VpcConfiguration_VpcId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -157,6 +212,61 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestDestinationConfiguration_destinationConfiguration_HttpUrlConfiguration != null)
             {
                 request.DestinationConfiguration.HttpUrlConfiguration = requestDestinationConfiguration_destinationConfiguration_HttpUrlConfiguration;
+                requestDestinationConfigurationIsNull = false;
+            }
+            Amazon.IoT.Model.VpcDestinationConfiguration requestDestinationConfiguration_destinationConfiguration_VpcConfiguration = null;
+            
+             // populate VpcConfiguration
+            var requestDestinationConfiguration_destinationConfiguration_VpcConfigurationIsNull = true;
+            requestDestinationConfiguration_destinationConfiguration_VpcConfiguration = new Amazon.IoT.Model.VpcDestinationConfiguration();
+            System.String requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_RoleArn = null;
+            if (cmdletContext.VpcConfiguration_RoleArn != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_RoleArn = cmdletContext.VpcConfiguration_RoleArn;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_RoleArn != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_VpcConfiguration.RoleArn = requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_RoleArn;
+                requestDestinationConfiguration_destinationConfiguration_VpcConfigurationIsNull = false;
+            }
+            List<System.String> requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_SecurityGroup = null;
+            if (cmdletContext.VpcConfiguration_SecurityGroup != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_SecurityGroup = cmdletContext.VpcConfiguration_SecurityGroup;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_SecurityGroup != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_VpcConfiguration.SecurityGroups = requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_SecurityGroup;
+                requestDestinationConfiguration_destinationConfiguration_VpcConfigurationIsNull = false;
+            }
+            List<System.String> requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_SubnetId = null;
+            if (cmdletContext.VpcConfiguration_SubnetId != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_SubnetId = cmdletContext.VpcConfiguration_SubnetId;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_SubnetId != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_VpcConfiguration.SubnetIds = requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_SubnetId;
+                requestDestinationConfiguration_destinationConfiguration_VpcConfigurationIsNull = false;
+            }
+            System.String requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_VpcId = null;
+            if (cmdletContext.VpcConfiguration_VpcId != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_VpcId = cmdletContext.VpcConfiguration_VpcId;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_VpcId != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_VpcConfiguration.VpcId = requestDestinationConfiguration_destinationConfiguration_VpcConfiguration_vpcConfiguration_VpcId;
+                requestDestinationConfiguration_destinationConfiguration_VpcConfigurationIsNull = false;
+            }
+             // determine if requestDestinationConfiguration_destinationConfiguration_VpcConfiguration should be set to null
+            if (requestDestinationConfiguration_destinationConfiguration_VpcConfigurationIsNull)
+            {
+                requestDestinationConfiguration_destinationConfiguration_VpcConfiguration = null;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_VpcConfiguration != null)
+            {
+                request.DestinationConfiguration.VpcConfiguration = requestDestinationConfiguration_destinationConfiguration_VpcConfiguration;
                 requestDestinationConfigurationIsNull = false;
             }
              // determine if request.DestinationConfiguration should be set to null
@@ -226,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String HttpUrlConfiguration_ConfirmationUrl { get; set; }
+            public System.String VpcConfiguration_RoleArn { get; set; }
+            public List<System.String> VpcConfiguration_SecurityGroup { get; set; }
+            public List<System.String> VpcConfiguration_SubnetId { get; set; }
+            public System.String VpcConfiguration_VpcId { get; set; }
             public System.Func<Amazon.IoT.Model.CreateTopicRuleDestinationResponse, NewIOTTopicRuleDestinationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TopicRuleDestination;
         }

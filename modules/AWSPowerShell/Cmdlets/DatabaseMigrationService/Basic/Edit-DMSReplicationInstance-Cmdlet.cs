@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>A value that indicates that minor version upgrades are applied automatically to the
         /// replication instance during the maintenance window. Changing this parameter doesn't
-        /// result in an outage, except in the case dsecribed following. The change is asynchronously
+        /// result in an outage, except in the case described following. The change is asynchronously
         /// applied as soon as possible. </para><para>An outage does result if these factors apply: </para><ul><li><para>This parameter is set to <code>true</code> during the maintenance window.</para></li><li><para>A newer minor version is available. </para></li><li><para>AWS DMS has enabled automatic patching for the given engine version. </para></li></ul>
         /// </para>
         /// </summary>

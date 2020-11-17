@@ -44,7 +44,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>Details the set of compute environments mapped to a job queue and their order relative
         /// to each other. This is one of the parameters used by the job scheduler to determine
-        /// which compute environment should execute a given job.</para>
+        /// which compute environment should run a given job. Compute environments must be in
+        /// the <code>VALID</code> state before you can associate them with a job queue. All of
+        /// the compute environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>)
+        /// or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>); EC2 and Fargate compute
+        /// environments can't be mixed.</para><note><para>All compute environments that are associated with a job queue must share the same
+        /// architecture. AWS Batch doesn't support mixing compute environment architecture types
+        /// in a single job queue.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// value for the <code>priority</code> parameter) are evaluated first when associated
         /// with the same compute environment. Priority is determined in descending order, for
         /// example, a job queue with a priority value of <code>10</code> is given scheduling
-        /// preference over a job queue with a priority value of <code>1</code>.</para>
+        /// preference over a job queue with a priority value of <code>1</code>. All of the compute
+        /// environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate
+        /// (<code>FARGATE</code> or <code>FARGATE_SPOT</code>); EC2 and Fargate compute environments
+        /// cannot be mixed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

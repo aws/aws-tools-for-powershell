@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// This operation detaches only Classic Load Balancers. If you have Application Load
-    /// Balancers or Network Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a>
+    /// Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a>
     /// API instead.
     /// </para><para>
     /// When you detach a load balancer, it enters the <code>Removing</code> state while deregistering

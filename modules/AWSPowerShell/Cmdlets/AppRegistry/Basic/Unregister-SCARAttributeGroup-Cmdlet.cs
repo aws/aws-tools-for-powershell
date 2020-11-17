@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     /// <summary>
     /// Disassociates an attribute group from an application to remove the extra attributes
     /// contained in the attribute group from the application's metadata. This operation reverts
-    /// AssociateAttributeGroup.
+    /// <code>AssociateAttributeGroup</code>.
     /// </summary>
     [Cmdlet("Unregister", "SCARAttributeGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppRegistry.Model.DisassociateAttributeGroupResponse")]

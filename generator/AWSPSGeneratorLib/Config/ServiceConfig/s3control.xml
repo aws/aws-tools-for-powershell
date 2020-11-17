@@ -63,6 +63,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStorageLensConfiguration" Verb="Remove" Noun="StorageLensConfiguration" ShouldProcessTarget="ConfigId" PipelineParameter="ConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStorageLensConfigurationTagging" Verb="Remove" Noun="StorageLensConfigurationTagging" ShouldProcessTarget="ConfigId" PipelineParameter="ConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeJob" OutputProperty="Job" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -103,6 +111,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetStorageLensConfiguration" OutputProperty="StorageLensConfiguration" Verb="Get" Noun="StorageLensConfiguration" PipelineParameter="ConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStorageLensConfigurationTagging" OutputProperty="Tags" Verb="Get" Noun="StorageLensConfigurationTagging" PipelineParameter="ConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAccessPoints" OutputProperty="AccessPointList" Verb="Get" Noun="AccessPointList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -112,6 +128,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRegionalBuckets" OutputProperty="RegionalBucketList" Verb="Get" Noun="RegionalBucketList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStorageLensConfigurations" OutputProperty="StorageLensConfigurationList" Verb="Get" Noun="StorageLensConfigurationList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -136,6 +156,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutPublicAccessBlock" Verb="Add" Noun="PublicAccessBlock" ShouldProcessTarget="AccountId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutStorageLensConfiguration" Verb="Write" Noun="StorageLensConfiguration" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled" NewName="StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled" />
+                <Param Name="StorageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics_IsEnabled" NewName="StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutStorageLensConfigurationTagging" Verb="Write" Noun="StorageLensConfigurationTagging" ShouldProcessTarget="ConfigId" PipelineParameter="ConfigId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

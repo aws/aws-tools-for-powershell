@@ -80,6 +80,23 @@ $DS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DirectoryService.CertificateType
+        "Register-DSCertificate/Type"
+        {
+            $v = "ClientCertAuth","ClientLDAPS"
+            break
+        }
+
+        # Amazon.DirectoryService.ClientAuthenticationType
+        {
+            ($_ -eq "Disable-DSClientAuthentication/Type") -Or
+            ($_ -eq "Enable-DSClientAuthentication/Type")
+        }
+        {
+            $v = "SmartCard"
+            break
+        }
+
         # Amazon.DirectoryService.DirectoryEdition
         "New-DSMicrosoftAD/Edition"
         {
@@ -176,7 +193,7 @@ $DS_map = @{
     "Size"=@("Connect-DSDirectory","New-DSDirectory")
     "TrustDirection"=@("New-DSTrust")
     "TrustType"=@("New-DSTrust")
-    "Type"=@("Disable-DSLDAPS","Enable-DSLDAPS","Get-DSLDAPSSetting")
+    "Type"=@("Disable-DSClientAuthentication","Disable-DSLDAPS","Enable-DSClientAuthentication","Enable-DSLDAPS","Get-DSLDAPSSetting","Register-DSCertificate")
     "UnshareTarget_Type"=@("Disable-DSDirectoryShare")
 }
 
@@ -232,6 +249,7 @@ $DS_SelectCompleters = {
 $DS_SelectMap = @{
     "Select"=@("Confirm-DSSharedDirectory",
                "Add-DSIpRoute",
+               "Add-DSRegion",
                "Add-DSResourceTag",
                "Stop-DSSchemaExtension",
                "Connect-DSDirectory",
@@ -256,12 +274,15 @@ $DS_SelectMap = @{
                "Get-DSDomainControllerList",
                "Get-DSEventTopic",
                "Get-DSLDAPSSetting",
+               "Get-DSRegion",
                "Get-DSSharedDirectory",
                "Get-DSSnapshot",
                "Get-DSTrust",
+               "Disable-DSClientAuthentication",
                "Disable-DSLDAPS",
                "Disable-DSRadius",
                "Disable-DSSso",
+               "Enable-DSClientAuthentication",
                "Enable-DSLDAPS",
                "Enable-DSRadius",
                "Enable-DSSso",
@@ -276,6 +297,7 @@ $DS_SelectMap = @{
                "Register-DSEventTopic",
                "Deny-DSSharedDirectory",
                "Remove-DSIpRoute",
+               "Remove-DSRegion",
                "Remove-DSResourceTag",
                "Reset-DSUserPassword",
                "Restore-DSFromSnapshot",

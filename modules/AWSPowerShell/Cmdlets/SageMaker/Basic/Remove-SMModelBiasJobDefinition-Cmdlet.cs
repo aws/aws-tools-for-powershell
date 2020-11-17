@@ -22,31 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoTSiteWise;
-using Amazon.IoTSiteWise.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOTSW
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a pre-signed URL to a portal. Use this operation to create URLs to portals
-    /// that use AWS Identity and Access Management (IAM) to authenticate users. An IAM user
-    /// with access to a portal can call this API to get a URL to that portal. The URL contains
-    /// a session token that lets the IAM user access the portal.
+    /// Deletes an Amazon SageMaker model bias job definition.
     /// </summary>
-    [Cmdlet("New", "IOTSWPresignedPortalUrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS IoT SiteWise CreatePresignedPortalUrl API operation.", Operation = new[] {"CreatePresignedPortalUrl"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse))]
-    [AWSCmdletOutput("System.String or Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "SMModelBiasJobDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service DeleteModelBiasJobDefinition API operation.", Operation = new[] {"DeleteModelBiasJobDefinition"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteModelBiasJobDefinitionResponse))]
+    [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteModelBiasJobDefinitionResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.SageMaker.Model.DeleteModelBiasJobDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewIOTSWPresignedPortalUrlCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
+    public partial class RemoveSMModelBiasJobDefinitionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
-        #region Parameter PortalId
+        #region Parameter JobDefinitionName
         /// <summary>
         /// <para>
-        /// <para>The ID of the portal to access.</para>
+        /// <para>The name of the model bias job definition to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,37 +54,25 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PortalId { get; set; }
-        #endregion
-        
-        #region Parameter SessionDurationSecond
-        /// <summary>
-        /// <para>
-        /// <para>The duration (in seconds) for which the session at the URL is valid.</para><para>Default: 900 seconds (15 minutes)</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("SessionDurationSeconds")]
-        public System.Int32? SessionDurationSecond { get; set; }
+        public System.String JobDefinitionName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'PresignedPortalUrl'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse).
-        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DeleteModelBiasJobDefinitionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "PresignedPortalUrl";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PortalId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PortalId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the JobDefinitionName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^JobDefinitionName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PortalId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobDefinitionName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -106,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PortalId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IOTSWPresignedPortalUrl (CreatePresignedPortalUrl)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobDefinitionName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SMModelBiasJobDefinition (DeleteModelBiasJobDefinition)"))
             {
                 return;
             }
@@ -120,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse, NewIOTSWPresignedPortalUrlCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DeleteModelBiasJobDefinitionResponse, RemoveSMModelBiasJobDefinitionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -129,17 +114,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PortalId;
+                context.Select = (response, cmdlet) => this.JobDefinitionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.PortalId = this.PortalId;
+            context.JobDefinitionName = this.JobDefinitionName;
             #if MODULAR
-            if (this.PortalId == null && ParameterWasBound(nameof(this.PortalId)))
+            if (this.JobDefinitionName == null && ParameterWasBound(nameof(this.JobDefinitionName)))
             {
-                WriteWarning("You are passing $null as a value for parameter PortalId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JobDefinitionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.SessionDurationSecond = this.SessionDurationSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,15 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlRequest();
+            var request = new Amazon.SageMaker.Model.DeleteModelBiasJobDefinitionRequest();
             
-            if (cmdletContext.PortalId != null)
+            if (cmdletContext.JobDefinitionName != null)
             {
-                request.PortalId = cmdletContext.PortalId;
-            }
-            if (cmdletContext.SessionDurationSecond != null)
-            {
-                request.SessionDurationSeconds = cmdletContext.SessionDurationSecond.Value;
+                request.JobDefinitionName = cmdletContext.JobDefinitionName;
             }
             
             CmdletOutput output;
@@ -197,15 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlRequest request)
+        private Amazon.SageMaker.Model.DeleteModelBiasJobDefinitionResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DeleteModelBiasJobDefinitionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "CreatePresignedPortalUrl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DeleteModelBiasJobDefinition");
             try
             {
                 #if DESKTOP
-                return client.CreatePresignedPortalUrl(request);
+                return client.DeleteModelBiasJobDefinition(request);
                 #elif CORECLR
-                return client.CreatePresignedPortalUrlAsync(request).GetAwaiter().GetResult();
+                return client.DeleteModelBiasJobDefinitionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -225,10 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String PortalId { get; set; }
-            public System.Int32? SessionDurationSecond { get; set; }
-            public System.Func<Amazon.IoTSiteWise.Model.CreatePresignedPortalUrlResponse, NewIOTSWPresignedPortalUrlCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.PresignedPortalUrl;
+            public System.String JobDefinitionName { get; set; }
+            public System.Func<Amazon.SageMaker.Model.DeleteModelBiasJobDefinitionResponse, RemoveSMModelBiasJobDefinitionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

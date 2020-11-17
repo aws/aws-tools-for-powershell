@@ -76,7 +76,14 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
         #endregion
         
@@ -95,6 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SiteId { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the Outpost.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -162,6 +180,12 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             context.AvailabilityZoneId = this.AvailabilityZoneId;
             context.Description = this.Description;
             context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.SiteId = this.SiteId;
             #if MODULAR
             if (this.SiteId == null && ParameterWasBound(nameof(this.SiteId)))
@@ -169,6 +193,14 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
                 WriteWarning("You are passing $null as a value for parameter SiteId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -204,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             if (cmdletContext.SiteId != null)
             {
                 request.SiteId = cmdletContext.SiteId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -271,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.String SiteId { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Outposts.Model.CreateOutpostResponse, NewOUTPOutpostCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Outpost;
         }

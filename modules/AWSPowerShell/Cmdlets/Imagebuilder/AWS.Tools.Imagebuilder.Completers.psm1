@@ -94,9 +94,24 @@ $EC2IB_Completers = {
             break
         }
 
+        # Amazon.Imagebuilder.ContainerRepositoryService
+        "New-EC2IBContainerRecipe/TargetRepository_Service"
+        {
+            $v = "ECR"
+            break
+        }
+
+        # Amazon.Imagebuilder.ContainerType
+        "New-EC2IBContainerRecipe/ContainerType"
+        {
+            $v = "DOCKER"
+            break
+        }
+
         # Amazon.Imagebuilder.Ownership
         {
             ($_ -eq "Get-EC2IBComponentList/Owner") -Or
+            ($_ -eq "Get-EC2IBContainerRecipeList/Owner") -Or
             ($_ -eq "Get-EC2IBImageList/Owner") -Or
             ($_ -eq "Get-EC2IBImageRecipeList/Owner")
         }
@@ -128,7 +143,8 @@ $EC2IB_Completers = {
         # Amazon.Imagebuilder.Platform
         {
             ($_ -eq "Import-EC2IBComponent/Platform") -Or
-            ($_ -eq "New-EC2IBComponent/Platform")
+            ($_ -eq "New-EC2IBComponent/Platform") -Or
+            ($_ -eq "New-EC2IBContainerRecipe/PlatformOverride")
         }
         {
             $v = "Linux","Windows"
@@ -144,11 +160,14 @@ $EC2IB_Completers = {
 }
 
 $EC2IB_map = @{
+    "ContainerType"=@("New-EC2IBContainerRecipe")
     "Format"=@("Import-EC2IBComponent")
-    "Owner"=@("Get-EC2IBComponentList","Get-EC2IBImageList","Get-EC2IBImageRecipeList")
+    "Owner"=@("Get-EC2IBComponentList","Get-EC2IBContainerRecipeList","Get-EC2IBImageList","Get-EC2IBImageRecipeList")
     "Platform"=@("Import-EC2IBComponent","New-EC2IBComponent")
+    "PlatformOverride"=@("New-EC2IBContainerRecipe")
     "Schedule_PipelineExecutionStartCondition"=@("New-EC2IBImagePipeline","Update-EC2IBImagePipeline")
     "Status"=@("New-EC2IBImagePipeline","Update-EC2IBImagePipeline")
+    "TargetRepository_Service"=@("New-EC2IBContainerRecipe")
     "Type"=@("Import-EC2IBComponent")
 }
 
@@ -204,12 +223,14 @@ $EC2IB_SelectCompleters = {
 $EC2IB_SelectMap = @{
     "Select"=@("Stop-EC2IBImageCreation",
                "New-EC2IBComponent",
+               "New-EC2IBContainerRecipe",
                "New-EC2IBDistributionConfiguration",
                "New-EC2IBImage",
                "New-EC2IBImagePipeline",
                "New-EC2IBImageRecipe",
                "New-EC2IBInfrastructureConfiguration",
                "Remove-EC2IBComponent",
+               "Remove-EC2IBContainerRecipe",
                "Remove-EC2IBDistributionConfiguration",
                "Remove-EC2IBImage",
                "Remove-EC2IBImagePipeline",
@@ -217,6 +238,8 @@ $EC2IB_SelectMap = @{
                "Remove-EC2IBInfrastructureConfiguration",
                "Get-EC2IBComponent",
                "Get-EC2IBComponentPolicy",
+               "Get-EC2IBContainerRecipe",
+               "Get-EC2IBContainerRecipePolicy",
                "Get-EC2IBDistributionConfiguration",
                "Get-EC2IBImage",
                "Get-EC2IBImagePipeline",
@@ -227,6 +250,7 @@ $EC2IB_SelectMap = @{
                "Import-EC2IBComponent",
                "Get-EC2IBComponentBuildVersionList",
                "Get-EC2IBComponentList",
+               "Get-EC2IBContainerRecipeList",
                "Get-EC2IBDistributionConfigurationList",
                "Get-EC2IBImageBuildVersionList",
                "Get-EC2IBImagePipelineImageList",
@@ -236,6 +260,7 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBInfrastructureConfigurationList",
                "Get-EC2IBResourceTag",
                "Write-EC2IBComponentPolicy",
+               "Write-EC2IBContainerRecipePolicy",
                "Write-EC2IBImagePolicy",
                "Write-EC2IBImageRecipePolicy",
                "Start-EC2IBImagePipelineExecution",

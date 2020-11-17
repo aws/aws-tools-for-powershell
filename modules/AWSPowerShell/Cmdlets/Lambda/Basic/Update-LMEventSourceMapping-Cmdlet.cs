@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter BatchSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to retrieve in a single batch.</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</para></li></ul>
+        /// <para>The maximum number of items to retrieve in a single batch.</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000.
+        /// For FIFO queues the max is 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,11 +120,22 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String FunctionName { get; set; }
         #endregion
         
+        #region Parameter FunctionResponseType
+        /// <summary>
+        /// <para>
+        /// <para>(Streams) A list of current response type enums applied to the event source mapping.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FunctionResponseTypes")]
+        public System.String[] FunctionResponseType { get; set; }
+        #endregion
+        
         #region Parameter MaximumBatchingWindowInSecond
         /// <summary>
         /// <para>
-        /// <para>(Streams) The maximum amount of time to gather records before invoking the function,
-        /// in seconds.</para>
+        /// <para>(Streams and SQS standard queues) The maximum amount of time to gather records before
+        /// invoking the function, in seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,17 +181,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter SourceAccessConfiguration
         /// <summary>
         /// <para>
-        /// <para> (MQ) The Secrets Manager secret that stores your broker credentials. To store your
-        /// secret, use the following format: <code> { "username": "your username", "password":
-        /// "your password" }</code></para><para>To reference the secret, use the following format: <code>[ { "Type": "BASIC_AUTH",
-        /// "URI": "secretARN" } ]</code></para><para>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret,
-        /// you can use customer or service managed keys. When using a customer managed KMS key,
-        /// the Lambda execution role requires <code>kms:Decrypt</code> permissions.</para>
+        /// <para>An array of the authentication protocol, or the VPC components to secure your event
+        /// source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SourceAccessConfigurations")]
         public Amazon.Lambda.Model.SourceAccessConfiguration[] SourceAccessConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter TumblingWindowInSecond
+        /// <summary>
+        /// <para>
+        /// <para>(Streams) The duration of a processing window in seconds. The range is between 1 second
+        /// up to 15 minutes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TumblingWindowInSeconds")]
+        public System.Int32? TumblingWindowInSecond { get; set; }
         #endregion
         
         #region Parameter UUID
@@ -266,6 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.OnSuccess_Destination = this.OnSuccess_Destination;
             context.Enabled = this.Enabled;
             context.FunctionName = this.FunctionName;
+            if (this.FunctionResponseType != null)
+            {
+                context.FunctionResponseType = new List<System.String>(this.FunctionResponseType);
+            }
             context.MaximumBatchingWindowInSecond = this.MaximumBatchingWindowInSecond;
             context.MaximumRecordAgeInSecond = this.MaximumRecordAgeInSecond;
             context.MaximumRetryAttempt = this.MaximumRetryAttempt;
@@ -274,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 context.SourceAccessConfiguration = new List<Amazon.Lambda.Model.SourceAccessConfiguration>(this.SourceAccessConfiguration);
             }
+            context.TumblingWindowInSecond = this.TumblingWindowInSecond;
             context.UUID = this.UUID;
             #if MODULAR
             if (this.UUID == null && ParameterWasBound(nameof(this.UUID)))
@@ -372,6 +397,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.FunctionName = cmdletContext.FunctionName;
             }
+            if (cmdletContext.FunctionResponseType != null)
+            {
+                request.FunctionResponseTypes = cmdletContext.FunctionResponseType;
+            }
             if (cmdletContext.MaximumBatchingWindowInSecond != null)
             {
                 request.MaximumBatchingWindowInSeconds = cmdletContext.MaximumBatchingWindowInSecond.Value;
@@ -391,6 +420,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.SourceAccessConfiguration != null)
             {
                 request.SourceAccessConfigurations = cmdletContext.SourceAccessConfiguration;
+            }
+            if (cmdletContext.TumblingWindowInSecond != null)
+            {
+                request.TumblingWindowInSeconds = cmdletContext.TumblingWindowInSecond.Value;
             }
             if (cmdletContext.UUID != null)
             {
@@ -463,11 +496,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String OnSuccess_Destination { get; set; }
             public System.Boolean? Enabled { get; set; }
             public System.String FunctionName { get; set; }
+            public List<System.String> FunctionResponseType { get; set; }
             public System.Int32? MaximumBatchingWindowInSecond { get; set; }
             public System.Int32? MaximumRecordAgeInSecond { get; set; }
             public System.Int32? MaximumRetryAttempt { get; set; }
             public System.Int32? ParallelizationFactor { get; set; }
             public List<Amazon.Lambda.Model.SourceAccessConfiguration> SourceAccessConfiguration { get; set; }
+            public System.Int32? TumblingWindowInSecond { get; set; }
             public System.String UUID { get; set; }
             public System.Func<Amazon.Lambda.Model.UpdateEventSourceMappingResponse, UpdateLMEventSourceMappingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

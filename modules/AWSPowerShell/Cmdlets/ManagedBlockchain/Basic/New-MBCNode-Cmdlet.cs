@@ -28,7 +28,12 @@ using Amazon.ManagedBlockchain.Model;
 namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
-    /// Creates a peer node in a member.
+    /// Creates a node on the specified blockchain network.
+    /// 
+    ///  
+    /// <para>
+    /// Applies to Hyperledger Fabric and Ethereum.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "MBCNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -46,14 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// <para>The Availability Zone in which the node exists.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String NodeConfiguration_AvailabilityZone { get; set; }
         #endregion
         
@@ -102,24 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter MemberId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the member that owns this node.</para>
+        /// <para>The unique identifier of the member that owns this node.</para><para>Applies only to Hyperledger Fabric.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MemberId { get; set; }
         #endregion
         
         #region Parameter NetworkId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the network in which this node runs.</para>
+        /// <para>The unique identifier of the network for the node.</para><para>Ethereum public networks have the following <code>NetworkId</code>s:</para><ul><li><para><code>n-ethereum-mainnet</code></para></li><li><para><code>n-ethereum-rinkeby</code></para></li><li><para><code>n-ethereum-ropsten</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -138,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// <para>
         /// <para>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>.
         /// When using an Amazon Managed Blockchain network with Hyperledger Fabric version 1.4
-        /// or later, the default is <code>CouchDB</code>.</para>
+        /// or later, the default is <code>CouchDB</code>.</para><para>Applies only to Hyperledger Fabric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,12 +200,6 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
             context.MemberId = this.MemberId;
-            #if MODULAR
-            if (this.MemberId == null && ParameterWasBound(nameof(this.MemberId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MemberId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.NetworkId = this.NetworkId;
             #if MODULAR
             if (this.NetworkId == null && ParameterWasBound(nameof(this.NetworkId)))
@@ -223,12 +208,6 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             }
             #endif
             context.NodeConfiguration_AvailabilityZone = this.NodeConfiguration_AvailabilityZone;
-            #if MODULAR
-            if (this.NodeConfiguration_AvailabilityZone == null && ParameterWasBound(nameof(this.NodeConfiguration_AvailabilityZone)))
-            {
-                WriteWarning("You are passing $null as a value for parameter NodeConfiguration_AvailabilityZone which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.NodeConfiguration_InstanceType = this.NodeConfiguration_InstanceType;
             #if MODULAR
             if (this.NodeConfiguration_InstanceType == null && ParameterWasBound(nameof(this.NodeConfiguration_InstanceType)))

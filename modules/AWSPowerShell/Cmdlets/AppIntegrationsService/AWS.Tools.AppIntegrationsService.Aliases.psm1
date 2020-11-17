@@ -1,0 +1,3 @@
+﻿# AppIntegrationsService
+
+Export-ModuleMember -Alias *

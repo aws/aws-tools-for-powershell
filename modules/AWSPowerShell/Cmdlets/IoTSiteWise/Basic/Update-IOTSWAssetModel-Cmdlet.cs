@@ -54,6 +54,20 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class UpdateIOTSWAssetModelCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        #region Parameter AssetModelCompositeModel
+        /// <summary>
+        /// <para>
+        /// <para>The composite asset models that are part of this asset model. Composite asset models
+        /// are asset models that contain specific properties. Each composite model has a type
+        /// that defines the properties that the composite model supports. Use composite asset
+        /// models to define alarms on this asset model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AssetModelCompositeModels")]
+        public Amazon.IoTSiteWise.Model.AssetModelCompositeModel[] AssetModelCompositeModel { get; set; }
+        #endregion
+        
         #region Parameter AssetModelDescription
         /// <summary>
         /// <para>
@@ -198,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.Select = (response, cmdlet) => this.AssetModelId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AssetModelCompositeModel != null)
+            {
+                context.AssetModelCompositeModel = new List<Amazon.IoTSiteWise.Model.AssetModelCompositeModel>(this.AssetModelCompositeModel);
+            }
             context.AssetModelDescription = this.AssetModelDescription;
             if (this.AssetModelHierarchy != null)
             {
@@ -238,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             // create request
             var request = new Amazon.IoTSiteWise.Model.UpdateAssetModelRequest();
             
+            if (cmdletContext.AssetModelCompositeModel != null)
+            {
+                request.AssetModelCompositeModels = cmdletContext.AssetModelCompositeModel;
+            }
             if (cmdletContext.AssetModelDescription != null)
             {
                 request.AssetModelDescription = cmdletContext.AssetModelDescription;
@@ -323,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.IoTSiteWise.Model.AssetModelCompositeModel> AssetModelCompositeModel { get; set; }
             public System.String AssetModelDescription { get; set; }
             public List<Amazon.IoTSiteWise.Model.AssetModelHierarchy> AssetModelHierarchy { get; set; }
             public System.String AssetModelId { get; set; }

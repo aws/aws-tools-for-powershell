@@ -51,6 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// When you are satisfied with the changes the change set will make, execute the change
     /// set by using the <a>ExecuteChangeSet</a> action. AWS CloudFormation doesn't make changes
     /// until you execute the change set.
+    /// </para><para>
+    /// To create a change set for the entire stack hierachy, set <code>IncludeNestedStacks</code>
+    /// to <code>True</code>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CFNChangeSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -92,10 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// this capability. This includes the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a>
         /// and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
         /// transforms, which are macros hosted by AWS CloudFormation.</para><note><para>This capacity does not apply to creating change sets, and specifying it when creating
-        /// change sets has no effect.</para><para>Also, change sets do not currently support nested stacks. If you want to create a
-        /// stack from a stack template that contains macros <i>and</i> nested stacks, you must
-        /// create or update the stack directly from the template using the <a>CreateStack</a>
-        /// or <a>UpdateStack</a> action, and specifying this capability.</para></note><para>For more information on macros, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using
+        /// change sets has no effect.</para><para>If you want to create a stack from a stack template that contains macros <i>and</i>
+        /// nested stacks, you must create or update the stack directly from the template using
+        /// the <a>CreateStack</a> or <a>UpdateStack</a> action, and specifying this capability.</para></note><para>For more information on macros, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using
         /// AWS CloudFormation Macros to Perform Custom Processing on Templates</a>.</para></li></ul>
         /// </para>
         /// </summary>
@@ -147,6 +149,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter IncludeNestedStack
+        /// <summary>
+        /// <para>
+        /// <para>Creates a change set for the all nested stacks specified in the template. The default
+        /// behavior of this action is set to <code>False</code>. To include nested sets in a
+        /// change set, specify <code>True</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeNestedStacks")]
+        public System.Boolean? IncludeNestedStack { get; set; }
         #endregion
         
         #region Parameter NotificationARNs
@@ -384,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             context.ChangeSetType = this.ChangeSetType;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.IncludeNestedStack = this.IncludeNestedStack;
             if (this.NotificationARNs != null)
             {
                 context.NotificationARNs = new List<System.String>(this.NotificationARNs);
@@ -451,6 +467,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.IncludeNestedStack != null)
+            {
+                request.IncludeNestedStacks = cmdletContext.IncludeNestedStack.Value;
             }
             if (cmdletContext.NotificationARNs != null)
             {
@@ -562,6 +582,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public Amazon.CloudFormation.ChangeSetType ChangeSetType { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? IncludeNestedStack { get; set; }
             public List<System.String> NotificationARNs { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameter { get; set; }
             public List<Amazon.CloudFormation.Model.ResourceToImport> ResourcesToImport { get; set; }

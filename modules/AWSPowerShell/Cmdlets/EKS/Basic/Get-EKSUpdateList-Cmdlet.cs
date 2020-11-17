@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     public partial class GetEKSUpdateListCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
+        #region Parameter AddonName
+        /// <summary>
+        /// <para>
+        /// <para>The names of the installed add-ons that have available updates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AddonName { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -163,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AddonName = this.AddonName;
             context.MaxResult = this.MaxResult;
             #if MODULAR
             if (!ParameterWasBound(nameof(this.MaxResult)))
@@ -210,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             // create request and set iteration invariants
             var request = new Amazon.EKS.Model.ListUpdatesRequest();
             
+            if (cmdletContext.AddonName != null)
+            {
+                request.AddonName = cmdletContext.AddonName;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -277,6 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             
             // create request and set iteration invariants
             var request = new Amazon.EKS.Model.ListUpdatesRequest();
+            if (cmdletContext.AddonName != null)
+            {
+                request.AddonName = cmdletContext.AddonName;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -408,6 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AddonName { get; set; }
             public int? MaxResult { get; set; }
             public System.String Name { get; set; }
             public System.String NextToken { get; set; }

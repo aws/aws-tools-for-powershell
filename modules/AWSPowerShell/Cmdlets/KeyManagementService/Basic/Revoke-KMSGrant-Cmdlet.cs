@@ -32,10 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// a grant to actively deny operations that depend on it.
     /// 
     ///  
-    /// <para>
-    /// To perform this operation on a CMK in a different AWS account, specify the key ARN
-    /// in the value of the <code>KeyId</code> parameter.
-    /// </para>
+    /// <para><b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different
+    /// AWS account, specify the key ARN in the value of the <code>KeyId</code> parameter.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:RevokeGrant</a>
+    /// (key policy)
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>ListRetirableGrants</a></para></li><li><para><a>RetireGrant</a></para></li></ul>
     /// </summary>
     [Cmdlet("Revoke", "KMSGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

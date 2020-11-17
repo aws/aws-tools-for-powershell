@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Accepts the invitation to be monitored by a master GuardDuty account.
+    /// Accepts the invitation to be monitored by a GuardDuty administrator account.
     /// </summary>
     [Cmdlet("Confirm", "GDInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter InvitationId
         /// <summary>
         /// <para>
-        /// <para>The value that is used to validate the master account to the member account.</para>
+        /// <para>The value that is used to validate the administrator account to the member account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter MasterId
         /// <summary>
         /// <para>
-        /// <para>The account ID of the master GuardDuty account whose invitation you're accepting.</para>
+        /// <para>The account ID of the GuardDuty administrator account whose invitation you're accepting.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

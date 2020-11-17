@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>wellarchitected</C2jFilename>
+    <AssemblyName>WellArchitected</AssemblyName>
+    <ServiceNounPrefix>WAT</ServiceNounPrefix>
+    <ServiceName>AWS Well-Architected Tool</ServiceName>
+    <ServiceClientInterface>IAmazonWellArchitected</ServiceClientInterface>
+    <ServiceClient>AmazonWellArchitectedClient</ServiceClient>
+    <ServiceModuleGuid>74ebdd37-f0d6-4e9a-ac53-6b837e867337</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateLenses" Verb="Add" Noun="Lense" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMilestone" OutputProperty="*" Verb="New" Noun="Milestone" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkload" OutputProperty="*" Verb="New" Noun="Workload" ShouldProcessTarget="WorkloadName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkloadShare" OutputProperty="*" Verb="New" Noun="WorkloadShare" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkload" Verb="Remove" Noun="Workload" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkloadShare" Verb="Remove" Noun="WorkloadShare" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateLenses" Verb="Remove" Noun="Lense" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAnswer" OutputProperty="*" Verb="Get" Noun="Answer" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLensReview" OutputProperty="*" Verb="Get" Noun="LensReview" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLensReviewReport" OutputProperty="*" Verb="Get" Noun="LensReviewReport" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLensVersionDifference" OutputProperty="*" Verb="Get" Noun="LensVersionDifference" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMilestone" OutputProperty="*" Verb="Get" Noun="Milestone" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkload" OutputProperty="Workload" Verb="Get" Noun="Workload" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAnswers" OutputProperty="*" Verb="Get" Noun="AnswerList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLenses" OutputProperty="LensSummaries" Verb="Get" Noun="LenseList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLensReviewImprovements" OutputProperty="*" Verb="Get" Noun="LensReviewImprovementList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLensReviews" OutputProperty="*" Verb="Get" Noun="LensReviewList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMilestones" OutputProperty="*" Verb="Get" Noun="MilestoneList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotifications" OutputProperty="NotificationSummaries" Verb="Get" Noun="NotificationList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListShareInvitations" OutputProperty="ShareInvitationSummaries" Verb="Get" Noun="ShareInvitationList" PipelineParameter="WorkloadNamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkloads" OutputProperty="WorkloadSummaries" Verb="Get" Noun="WorkloadList" PipelineParameter="WorkloadNamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkloadShares" OutputProperty="*" Verb="Get" Noun="WorkloadShareList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAnswer" OutputProperty="*" Verb="Update" Noun="Answer" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLensReview" OutputProperty="*" Verb="Update" Noun="LensReview" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateShareInvitation" OutputProperty="ShareInvitation" Verb="Update" Noun="ShareInvitation" ShouldProcessTarget="ShareInvitationId" PipelineParameter="ShareInvitationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkload" OutputProperty="Workload" Verb="Update" Noun="Workload" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkloadShare" OutputProperty="*" Verb="Update" Noun="WorkloadShare" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpgradeLensReview" Verb="Convert" Noun="LensReview" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

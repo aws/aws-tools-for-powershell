@@ -90,7 +90,7 @@ $KNDR_Completers = {
         # Amazon.Kendra.DataSourceType
         "New-KNDRDataSource/Type"
         {
-            $v = "CONFLUENCE","CUSTOM","DATABASE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT"
+            $v = "CONFLUENCE","CUSTOM","DATABASE","GOOGLEDRIVE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT"
             break
         }
 
@@ -205,17 +205,21 @@ $KNDR_SelectMap = @{
                "New-KNDRDataSource",
                "New-KNDRFaq",
                "New-KNDRIndex",
+               "New-KNDRThesaurus",
                "Remove-KNDRDataSource",
                "Remove-KNDRFaq",
                "Remove-KNDRIndex",
+               "Remove-KNDRThesaurus",
                "Get-KNDRDataSource",
                "Get-KNDRFaq",
                "Get-KNDRIndex",
+               "Get-KNDRThesaurus",
                "Get-KNDRDataSourceList",
                "Get-KNDRDataSourceSyncJobList",
                "Get-KNDRFaqList",
                "Get-KNDRIndexList",
                "Get-KNDRResourceTag",
+               "Get-KNDRThesauriList",
                "Invoke-KNDRQuery",
                "Start-KNDRDataSourceSyncJob",
                "Stop-KNDRDataSourceSyncJob",
@@ -223,7 +227,8 @@ $KNDR_SelectMap = @{
                "Add-KNDRResourceTag",
                "Remove-KNDRResourceTag",
                "Update-KNDRDataSource",
-               "Update-KNDRIndex")
+               "Update-KNDRIndex",
+               "Update-KNDRThesaurus")
 }
 
 _awsArgumentCompleterRegistration $KNDR_SelectCompleters $KNDR_SelectMap

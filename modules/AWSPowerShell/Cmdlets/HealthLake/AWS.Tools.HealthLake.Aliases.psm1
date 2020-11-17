@@ -1,0 +1,3 @@
+﻿# HealthLake
+
+Export-ModuleMember -Alias *

@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters. The possible values are:</para><ul><li><para><code>resource-id</code> - The ID of the resource.</para></li><li><para><code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
-        /// | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>.</para></li><li><para><code>transit-gateway-attachment-id</code> - The ID of the attachment.</para></li></ul>
+        /// | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code> |
+        /// <code>connect</code>.</para></li><li><para><code>transit-gateway-attachment-id</code> - The ID of the attachment.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

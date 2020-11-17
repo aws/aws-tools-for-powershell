@@ -28,12 +28,19 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Returns a list of all tags for the specified customer master key (CMK).
+    /// Returns all tags on the specified customer master key (CMK).
     /// 
     ///  
     /// <para>
-    /// You cannot perform this operation on a CMK in a different AWS account.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+    /// AWS resources</a> in the <i>Amazon Web Services General Reference</i>. For information
+    /// about using tags in AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging
+    /// keys</a>.
+    /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different
+    /// AWS account.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListResourceTags</a>
+    /// (key policy)
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>TagResource</a></para></li><li><para><a>UntagResource</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KMSResourceTag")]
     [OutputType("Amazon.KeyManagementService.Model.Tag")]

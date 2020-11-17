@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter EventBusName
         /// <summary>
         /// <para>
-        /// <para>Limits the results to show only the rules associated with the specified event bus.</para>
+        /// <para>The name or ARN of the event bus to list the rules for. If you omit this, the default
+        /// event bus is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

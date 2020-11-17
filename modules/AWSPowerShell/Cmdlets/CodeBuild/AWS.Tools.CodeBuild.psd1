@@ -99,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CBReportBatch', 
         'Get-CBReportGroupBatch', 
         'Get-CBReportGroupList', 
+        'Get-CBReportGroupTrend', 
         'Get-CBReportList', 
         'Get-CBReportsForReportGroupList', 
         'Get-CBResourcePolicy', 

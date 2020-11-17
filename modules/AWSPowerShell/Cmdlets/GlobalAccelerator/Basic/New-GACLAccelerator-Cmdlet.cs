@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// <summary>
     /// Create an accelerator. An accelerator includes one or more listeners that process
     /// inbound connections and direct traffic to one or more endpoint groups, each of which
-    /// includes endpoints, such as Network Load Balancers. To see an AWS CLI example of creating
-    /// an accelerator, scroll down to <b>Example</b>.
+    /// includes endpoints, such as Network Load Balancers. 
     /// 
     ///  <important><para>
     /// Global Accelerator is a global service that supports endpoints in multiple AWS Regions
@@ -92,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The value for the address type must be IPv4. </para>
+        /// <para>The value for the address type must be IPv4.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

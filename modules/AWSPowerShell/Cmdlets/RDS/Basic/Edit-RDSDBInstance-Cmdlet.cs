@@ -239,8 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The new DB subnet group for the DB instance. You can use this parameter to move your
         /// DB instance to a different VPC. If your DB instance isn't in a VPC, you can also use
-        /// this parameter to move your DB instance into a VPC. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
-        /// the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i></para><para>Changing the subnet group causes an outage during the change. The change is applied
+        /// this parameter to move your DB instance into a VPC. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Working
+        /// with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i></para><para>Changing the subnet group causes an outage during the change. The change is applied
         /// during the next maintenance window, unless you enable <code>ApplyImmediately</code>.
         /// </para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mySubnetGroup</code></para>
         /// </para>
@@ -295,6 +295,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DomainIAMRoleName { get; set; }
+        #endregion
+        
+        #region Parameter EnableCustomerOwnedIp
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to enable a customer-owned IP address (CoIP) for an
+        /// RDS on Outposts DB instance.</para><para>A <i>CoIP</i> provides local or external connectivity to resources in your Outpost
+        /// subnets through your on-premises network. For some use cases, a CoIP can provide lower
+        /// latency for connections to the DB instance from outside of its virtual private cloud
+        /// (VPC) on your local network.</para><para>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+        /// with Amazon RDS on AWS Outposts</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
+        /// IP addresses</a> in the <i>AWS Outposts User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableCustomerOwnedIp { get; set; }
         #endregion
         
         #region Parameter EnableIAMDatabaseAuthentication
@@ -491,12 +507,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key
-        /// ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for
-        /// the KMS encryption key.</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
-        /// RDS uses your default encryption key. AWS KMS creates the default encryption key for
-        /// your AWS account. Your AWS account has a different default encryption key for each
-        /// AWS Region.</para>
+        /// <para>The AWS KMS key identifier for encryption of Performance Insights data.</para><para>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the
+        /// AWS KMS customer master key (CMK).</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
+        /// RDS uses your default CMK. There is a default CMK for your AWS account. Your AWS account
+        /// has a different default CMK for each AWS Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -767,6 +781,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DeletionProtection = this.DeletionProtection;
             context.Domain = this.Domain;
             context.DomainIAMRoleName = this.DomainIAMRoleName;
+            context.EnableCustomerOwnedIp = this.EnableCustomerOwnedIp;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EnablePerformanceInsight = this.EnablePerformanceInsight;
             context.EngineVersion = this.EngineVersion;
@@ -910,6 +925,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DomainIAMRoleName != null)
             {
                 request.DomainIAMRoleName = cmdletContext.DomainIAMRoleName;
+            }
+            if (cmdletContext.EnableCustomerOwnedIp != null)
+            {
+                request.EnableCustomerOwnedIp = cmdletContext.EnableCustomerOwnedIp.Value;
             }
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
@@ -1091,6 +1110,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? DeletionProtection { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
+            public System.Boolean? EnableCustomerOwnedIp { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.Boolean? EnablePerformanceInsight { get; set; }
             public System.String EngineVersion { get; set; }

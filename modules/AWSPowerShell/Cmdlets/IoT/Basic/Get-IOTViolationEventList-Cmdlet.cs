@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTViolationEventListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter BehaviorCriteriaType
+        /// <summary>
+        /// <para>
+        /// <para> The criteria for a behavior. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.BehaviorCriteriaType")]
+        public Amazon.IoT.BehaviorCriteriaType BehaviorCriteriaType { get; set; }
+        #endregion
+        
         #region Parameter UtcEndTime
         /// <summary>
         /// <para>
@@ -56,6 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.DateTime? UtcEndTime { get; set; }
+        #endregion
+        
+        #region Parameter ListSuppressedAlert
+        /// <summary>
+        /// <para>
+        /// <para> A list of all suppressed alerts. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ListSuppressedAlerts")]
+        public System.Boolean? ListSuppressedAlert { get; set; }
         #endregion
         
         #region Parameter SecurityProfileName
@@ -193,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Select = CreateSelectDelegate<Amazon.IoT.Model.ListViolationEventsResponse, GetIOTViolationEventListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.BehaviorCriteriaType = this.BehaviorCriteriaType;
             context.UtcEndTime = this.UtcEndTime;
             #if MODULAR
             if (this.UtcEndTime == null && ParameterWasBound(nameof(this.UtcEndTime)))
@@ -200,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter UtcEndTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ListSuppressedAlert = this.ListSuppressedAlert;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -245,9 +269,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request and set iteration invariants
             var request = new Amazon.IoT.Model.ListViolationEventsRequest();
             
+            if (cmdletContext.BehaviorCriteriaType != null)
+            {
+                request.BehaviorCriteriaType = cmdletContext.BehaviorCriteriaType;
+            }
             if (cmdletContext.UtcEndTime != null)
             {
                 request.EndTimeUtc = cmdletContext.UtcEndTime.Value;
+            }
+            if (cmdletContext.ListSuppressedAlert != null)
+            {
+                request.ListSuppressedAlerts = cmdletContext.ListSuppressedAlert.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -340,9 +372,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             // create request and set iteration invariants
             var request = new Amazon.IoT.Model.ListViolationEventsRequest();
+            if (cmdletContext.BehaviorCriteriaType != null)
+            {
+                request.BehaviorCriteriaType = cmdletContext.BehaviorCriteriaType;
+            }
             if (cmdletContext.UtcEndTime != null)
             {
                 request.EndTimeUtc = cmdletContext.UtcEndTime.Value;
+            }
+            if (cmdletContext.ListSuppressedAlert != null)
+            {
+                request.ListSuppressedAlerts = cmdletContext.ListSuppressedAlert.Value;
             }
             if (cmdletContext.SecurityProfileName != null)
             {
@@ -495,7 +535,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.IoT.BehaviorCriteriaType BehaviorCriteriaType { get; set; }
             public System.DateTime? UtcEndTime { get; set; }
+            public System.Boolean? ListSuppressedAlert { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String SecurityProfileName { get; set; }

@@ -40,8 +40,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </para><para><code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio
     /// share to an organization node.
     /// </para><para>
-    /// You can't share a shared resource. This includes portfolios that contain a shared
-    /// product.
+    /// You can't share a shared resource, including portfolios that contain a shared product.
+    /// </para><para>
+    /// If the portfolio share with the specified account or organization node already exists,
+    /// this action will have no effect and will not return an error. To update an existing
+    /// share, you must use the <code> UpdatePortfolioShare</code> API instead.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SCPortfolioShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -89,6 +92,18 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PortfolioId { get; set; }
+        #endregion
+        
+        #region Parameter ShareTagOption
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share.
+        /// If this flag is not provided, TagOptions sharing is disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ShareTagOptions")]
+        public System.Boolean? ShareTagOption { get; set; }
         #endregion
         
         #region Parameter OrganizationNode_Type
@@ -184,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 WriteWarning("You are passing $null as a value for parameter PortfolioId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ShareTagOption = this.ShareTagOption;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -240,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.PortfolioId != null)
             {
                 request.PortfolioId = cmdletContext.PortfolioId;
+            }
+            if (cmdletContext.ShareTagOption != null)
+            {
+                request.ShareTagOptions = cmdletContext.ShareTagOption.Value;
             }
             
             CmdletOutput output;
@@ -307,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public Amazon.ServiceCatalog.OrganizationNodeType OrganizationNode_Type { get; set; }
             public System.String OrganizationNode_Value { get; set; }
             public System.String PortfolioId { get; set; }
+            public System.Boolean? ShareTagOption { get; set; }
             public System.Func<Amazon.ServiceCatalog.Model.CreatePortfolioShareResponse, NewSCPortfolioShareCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PortfolioShareToken;
         }

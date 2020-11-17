@@ -104,8 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter RadiusSettings_RadiusServer
         /// <summary>
         /// <para>
-        /// <para>An array of strings that contains the IP addresses of the RADIUS server endpoints,
-        /// or the IP addresses of your RADIUS server load balancer.</para>
+        /// <para>An array of strings that contains the fully qualified domain name (FQDN) or IP addresses
+        /// of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server
+        /// load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

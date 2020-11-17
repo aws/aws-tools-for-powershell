@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Disassociates GuardDuty member accounts (to the current GuardDuty master account)
+    /// Disassociates GuardDuty member accounts (to the current GuardDuty administrator account)
     /// specified by the account IDs.
     /// </summary>
     [Cmdlet("Unregister", "GDMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>A list of account IDs of the GuardDuty member accounts that you want to disassociate
-        /// from the master account.</para>
+        /// from the administrator account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>The unique ID of the detector of the GuardDuty account whose members you want to disassociate
-        /// from the master account.</para>
+        /// from the administrator account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

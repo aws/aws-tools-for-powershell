@@ -30,12 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// <summary>
     /// Update an endpoint group. A resource must be valid and active when you add it as an
     /// endpoint.
-    /// 
-    ///  
-    /// <para>
-    /// To see an AWS CLI example of updating an endpoint group, scroll down to <b>Example</b>.
-    /// 
-    /// </para>
     /// </summary>
     [Cmdlet("Update", "GACLEndpointGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GlobalAccelerator.Model.EndpointGroup")]

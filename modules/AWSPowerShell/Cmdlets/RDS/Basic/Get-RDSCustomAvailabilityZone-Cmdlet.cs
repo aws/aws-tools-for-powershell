@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <para>
     /// A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.
     /// </para><para>
-    /// For more information about RDS on VMware, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html"><i>RDS on VMware User Guide.</i></a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// For more information about RDS on VMware, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
+    /// RDS on VMware User Guide.</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSCustomAvailabilityZone")]
     [OutputType("Amazon.RDS.Model.CustomAvailabilityZone")]

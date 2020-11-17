@@ -30,17 +30,17 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <summary>
     /// Gets a list of all grants for the specified customer master key (CMK).
     /// 
-    ///  
-    /// <para>
-    /// To perform this operation on a CMK in a different AWS account, specify the key ARN
-    /// in the value of the <code>KeyId</code> parameter.
-    /// </para><note><para>
+    ///  <note><para>
     /// The <code>GranteePrincipal</code> field in the <code>ListGrants</code> response usually
     /// contains the user or role designated as the grantee principal in the grant. However,
     /// when the grantee principal in the grant is an AWS service, the <code>GranteePrincipal</code>
     /// field contains the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
     /// principal</a>, which might represent several different grantee principals.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></note><para><b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different
+    /// AWS account, specify the key ARN in the value of the <code>KeyId</code> parameter.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListGrants</a>
+    /// (key policy)
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListRetirableGrants</a></para></li><li><para><a>RetireGrant</a></para></li><li><para><a>RevokeGrant</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KMSGrantList")]
     [OutputType("Amazon.KeyManagementService.Model.GrantListEntry")]

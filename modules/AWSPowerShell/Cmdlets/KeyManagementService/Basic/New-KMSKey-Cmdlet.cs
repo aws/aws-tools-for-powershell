@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master-keys">customer
-    /// master key</a> (CMK) in your AWS account and Region. You cannot use this operation
-    /// to create a CMK in a different AWS account.
+    /// master key</a> (CMK) in your AWS account and Region.
     /// 
     ///  
     /// <para>
@@ -81,7 +80,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// You cannot create an asymmetric CMK in a custom key store. For information about custom
     /// key stores in AWS KMS see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Using
     /// Custom Key Stores</a> in the <i><i>AWS Key Management Service Developer Guide</i></i>.
-    /// </para></dd></dl>
+    /// </para></dd></dl><para><b>Cross-account use</b>: No. You cannot use this operation to create a CMK in a
+    /// different AWS account.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateKey</a>
+    /// (IAM policy). To use the <code>Tags</code> parameter, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a>
+    /// (IAM policy). For examples and information about related permissions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policy-example-create-key">Allow
+    /// a user to create CMKs</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>DescribeKey</a></para></li><li><para><a>ListKeys</a></para></li><li><para><a>ScheduleKeyDeletion</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "KMSKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KeyManagementService.Model.KeyMetadata")]
@@ -212,7 +217,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// that I make are not always immediately visible</a> in the <i>AWS Identity and Access
         /// Management User Guide</i>.</para></li></ul><para>If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default
-        /// Key Policy</a> in the <i>AWS Key Management Service Developer Guide</i>.</para><para>The key policy size quota is 32 kilobytes (32768 bytes).</para>
+        /// Key Policy</a> in the <i>AWS Key Management Service Developer Guide</i>. </para><para>The key policy size quota is 32 kilobytes (32768 bytes).</para><para>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
+        /// JSON Policy Reference</a> in the <i><i>IAM User Guide</i></i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,11 +229,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>One or more tags. Each tag consists of a tag key and a tag value. Both the tag key
-        /// and the tag value are required, but the tag value can be an empty (null) string.</para><para>When you add tags to an AWS resource, AWS generates a cost allocation report with
+        /// and the tag value are required, but the tag value can be an empty (null) string. </para><para>When you add tags to an AWS resource, AWS generates a cost allocation report with
         /// usage and costs aggregated by tags. For information about adding, changing, deleting
         /// and listing tags for CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging
         /// Keys</a>.</para><para>Use this parameter to tag the CMK when it is created. To add tags to an existing CMK,
-        /// use the <a>TagResource</a> operation.</para>
+        /// use the <a>TagResource</a> operation.</para><para>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a>
+        /// permission in an IAM policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

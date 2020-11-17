@@ -138,14 +138,20 @@ $ECS_Completers = {
         }
 
         # Amazon.ECS.ManagedScalingStatus
-        "New-ECSCapacityProvider/AutoScalingGroupProvider_ManagedScaling_Status"
+        {
+            ($_ -eq "New-ECSCapacityProvider/AutoScalingGroupProvider_ManagedScaling_Status") -Or
+            ($_ -eq "Update-ECSCapacityProvider/AutoScalingGroupProvider_ManagedScaling_Status")
+        }
         {
             $v = "DISABLED","ENABLED"
             break
         }
 
         # Amazon.ECS.ManagedTerminationProtection
-        "New-ECSCapacityProvider/AutoScalingGroupProvider_ManagedTerminationProtection"
+        {
+            ($_ -eq "New-ECSCapacityProvider/AutoScalingGroupProvider_ManagedTerminationProtection") -Or
+            ($_ -eq "Update-ECSCapacityProvider/AutoScalingGroupProvider_ManagedTerminationProtection")
+        }
         {
             $v = "DISABLED","ENABLED"
             break
@@ -252,8 +258,8 @@ $ECS_Completers = {
 }
 
 $ECS_map = @{
-    "AutoScalingGroupProvider_ManagedScaling_Status"=@("New-ECSCapacityProvider")
-    "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider")
+    "AutoScalingGroupProvider_ManagedScaling_Status"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
+    "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "DeploymentController_Type"=@("New-ECSService")
     "DesiredStatus"=@("Get-ECSTaskList")
     "IpcMode"=@("Register-ECSTaskDefinition")
@@ -360,6 +366,7 @@ $ECS_SelectMap = @{
                "Submit-ECSAttachmentStateChange",
                "Add-ECSResourceTag",
                "Remove-ECSResourceTag",
+               "Update-ECSCapacityProvider",
                "Update-ECSClusterSetting",
                "Update-ECSContainerAgent",
                "Update-ECSContainerInstancesState",

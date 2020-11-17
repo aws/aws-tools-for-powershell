@@ -28,9 +28,12 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Lists the Device Defender security profiles you have created. You can use filters
-    /// to list only those security profiles associated with a thing group or only those associated
-    /// with your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the Device Defender security profiles you've created. You can filter security
+    /// profiles by dimension or custom metric.
+    /// 
+    ///  <note><para><code>dimensionName</code> and <code>metricName</code> cannot be used in the same
+    /// request.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTSecurityProfileList")]
     [OutputType("Amazon.IoT.Model.SecurityProfileIdentifier")]
@@ -45,11 +48,22 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter DimensionName
         /// <summary>
         /// <para>
-        /// <para>A filter to limit results to the security profiles that use the defined dimension.</para>
+        /// <para>A filter to limit results to the security profiles that use the defined dimension.
+        /// Cannot be used with <code>metricName</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DimensionName { get; set; }
+        #endregion
+        
+        #region Parameter MetricName
+        /// <summary>
+        /// <para>
+        /// <para> The name of the custom metric. Cannot be used with <code>dimensionName</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MetricName { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -128,6 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.MetricName = this.MetricName;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -155,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.MetricName != null)
+            {
+                request.MetricName = cmdletContext.MetricName;
             }
             
             // Initialize loop variant and commence piping
@@ -214,6 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.DimensionName != null)
             {
                 request.DimensionName = cmdletContext.DimensionName;
+            }
+            if (cmdletContext.MetricName != null)
+            {
+                request.MetricName = cmdletContext.MetricName;
             }
             
             // Initialize loop variants and commence piping
@@ -336,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.String DimensionName { get; set; }
             public int? MaxResult { get; set; }
+            public System.String MetricName { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.IoT.Model.ListSecurityProfilesResponse, GetIOTSecurityProfileListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SecurityProfileIdentifiers;

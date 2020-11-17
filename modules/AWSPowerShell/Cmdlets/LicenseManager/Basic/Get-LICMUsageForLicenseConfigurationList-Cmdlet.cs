@@ -46,8 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// <summary>
         /// <para>
         /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><code>resourceArn</code> - The ARN of the license configuration resource. Logical
-        /// operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>resourceType</code> - The resource type (EC2_INSTANCE | EC2_HOST | EC2_AMI
-        /// | SYSTEMS_MANAGER_MANAGED_INSTANCE). Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>resourceAccount</code> - The ID of the account that owns the resource. Logical
+        /// operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>resourceType</code> - The resource type (<code>EC2_INSTANCE</code> | <code>EC2_HOST</code>
+        /// | <code>EC2_AMI</code> | <code>SYSTEMS_MANAGER_MANAGED_INSTANCE</code>). Logical operators
+        /// are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>resourceAccount</code> - The ID of the account that owns the resource. Logical
         /// operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li></ul>
         /// </para>
         /// </summary>

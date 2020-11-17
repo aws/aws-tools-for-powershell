@@ -92,10 +92,18 @@ $SC_Completers = {
             break
         }
 
+        # Amazon.ServiceCatalog.DescribePortfolioShareType
+        "Get-SCPortfolioShare/Type"
+        {
+            $v = "ACCOUNT","ORGANIZATION","ORGANIZATIONAL_UNIT","ORGANIZATION_MEMBER_ACCOUNT"
+            break
+        }
+
         # Amazon.ServiceCatalog.OrganizationNodeType
         {
             ($_ -eq "New-SCPortfolioShare/OrganizationNode_Type") -Or
             ($_ -eq "Remove-SCPortfolioShare/OrganizationNode_Type") -Or
+            ($_ -eq "Update-SCPortfolioShare/OrganizationNode_Type") -Or
             ($_ -eq "Get-SCOrganizationPortfolioAccessList/OrganizationNodeType")
         }
         {
@@ -206,7 +214,7 @@ $SC_map = @{
     "AccessLevelFilter_Key"=@("Find-SCProvisionedProduct","Get-SCProvisionedProduct","Get-SCProvisionedProductPlanList","Get-SCRecordHistory")
     "DefinitionType"=@("New-SCServiceAction")
     "Guidance"=@("Update-SCProvisioningArtifact")
-    "OrganizationNode_Type"=@("New-SCPortfolioShare","Remove-SCPortfolioShare")
+    "OrganizationNode_Type"=@("New-SCPortfolioShare","Remove-SCPortfolioShare","Update-SCPortfolioShare")
     "OrganizationNodeType"=@("Get-SCOrganizationPortfolioAccessList")
     "Parameters_Type"=@("New-SCProvisioningArtifact")
     "PlanType"=@("New-SCProvisionedProductPlan")
@@ -218,6 +226,7 @@ $SC_map = @{
     "ProvisioningPreferences_StackSetOperationType"=@("Update-SCProvisionedProduct")
     "SortBy"=@("Find-SCProduct","Find-SCProductsAsAdmin")
     "SortOrder"=@("Find-SCProduct","Find-SCProductsAsAdmin","Find-SCProvisionedProduct")
+    "Type"=@("Get-SCPortfolioShare")
 }
 
 _awsArgumentCompleterRegistration $SC_Completers $SC_map
@@ -298,6 +307,7 @@ $SC_SelectMap = @{
                "Get-SCConstraint",
                "Get-SCCopyProductStatus",
                "Get-SCPortfolio",
+               "Get-SCPortfolioShare",
                "Get-SCPortfolioShareStatus",
                "Get-SCProduct",
                "Get-SCProductAsAdmin",
@@ -349,6 +359,7 @@ $SC_SelectMap = @{
                "Remove-SCProvisionedProduct",
                "Update-SCConstraint",
                "Update-SCPortfolio",
+               "Update-SCPortfolioShare",
                "Update-SCProduct",
                "Update-SCProvisionedProduct",
                "Update-SCProvisionedProductProperty",

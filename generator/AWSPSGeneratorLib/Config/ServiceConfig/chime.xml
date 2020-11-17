@@ -67,6 +67,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAppInstance" OutputProperty="AppInstanceArn" Verb="New" Noun="AppInstance" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAppInstanceAdmin" OutputProperty="*" Verb="New" Noun="AppInstanceAdmin" ShouldProcessTarget="AppInstanceAdminArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAppInstanceUser" OutputProperty="AppInstanceUserArn" Verb="New" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserId" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAttendee" OutputProperty="Attendee" Verb="New" Noun="Attendee" ShouldProcessTarget="ExternalUserId" PipelineParameter="ExternalUserId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -75,7 +87,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannel" OutputProperty="ChannelArn" Verb="New" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannelBan" OutputProperty="*" Verb="New" Noun="ChannelBan" ShouldProcessTarget="MemberArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannelMembership" OutputProperty="*" Verb="New" Noun="ChannelMembership" ShouldProcessTarget="MemberArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannelModerator" OutputProperty="*" Verb="New" Noun="ChannelModerator" ShouldProcessTarget="ChannelModeratorArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMeeting" OutputProperty="Meeting" Verb="New" Noun="Meeting" ShouldProcessTarget="MeetingHostId" PipelineParameter="MeetingHostId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMeetingDialOut" OutputProperty="TransactionId" Verb="New" Noun="MeetingDialOut" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -99,6 +131,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSipMediaApplication" OutputProperty="SipMediaApplication" Verb="New" Noun="SipMediaApplication" ShouldProcessTarget="Name" PipelineParameter="AwsRegion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSipMediaApplicationCall" OutputProperty="SipMediaApplicationCall" Verb="New" Noun="SipMediaApplicationCall" ShouldProcessTarget="SipMediaApplicationId" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSipRule" OutputProperty="SipRule" Verb="New" Noun="SipRule" ShouldProcessTarget="Name" PipelineParameter="TriggerValue" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateUser" OutputProperty="User" Verb="New" Noun="User" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -115,7 +159,43 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppInstance" Verb="Remove" Noun="AppInstance" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppInstanceAdmin" Verb="Remove" Noun="AppInstanceAdmin" ShouldProcessTarget="AppInstanceAdminArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppInstanceStreamingConfigurations" Verb="Remove" Noun="AppInstanceStreamingConfiguration" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppInstanceUser" Verb="Remove" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAttendee" Verb="Remove" Noun="Attendee" ShouldProcessTarget="AttendeeId" PipelineParameter="AttendeeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannelBan" Verb="Remove" Noun="ChannelBan" ShouldProcessTarget="MemberArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannelMembership" Verb="Remove" Noun="ChannelMembership" ShouldProcessTarget="MemberArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannelMessage" Verb="Remove" Noun="ChannelMessage" ShouldProcessTarget="MessageId" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannelModerator" Verb="Remove" Noun="ChannelModerator" ShouldProcessTarget="ChannelModeratorArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -140,6 +220,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRoomMembership" Verb="Remove" Noun="RoomMembership" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSipMediaApplication" Verb="Remove" Noun="SipMediaApplication" ShouldProcessTarget="SipMediaApplicationId" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSipRule" Verb="Remove" Noun="SipRule" ShouldProcessTarget="SipRuleId" PipelineParameter="SipRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -175,6 +263,42 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAppInstance" OutputProperty="AppInstance" Verb="Get" Noun="AppInstance" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAppInstanceAdmin" OutputProperty="AppInstanceAdmin" Verb="Get" Noun="AppInstanceAdmin" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAppInstanceUser" OutputProperty="AppInstanceUser" Verb="Get" Noun="AppInstanceUser" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannel" OutputProperty="Channel" Verb="Get" Noun="Channel" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannelBan" OutputProperty="ChannelBan" Verb="Get" Noun="ChannelBan" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannelMembership" OutputProperty="ChannelMembership" Verb="Get" Noun="ChannelMembership" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannelMembershipForAppInstanceUser" OutputProperty="ChannelMembership" Verb="Get" Noun="ChannelMembershipForAppInstanceUser" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannelModeratedByAppInstanceUser" OutputProperty="Channel" Verb="Get" Noun="ChannelModeratedByAppInstanceUser" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannelModerator" OutputProperty="ChannelModerator" Verb="Get" Noun="ChannelModerator" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociatePhoneNumberFromUser" Verb="Remove" Noun="PhoneNumberFromUser" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -199,11 +323,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAppInstanceRetentionSettings" OutputProperty="*" Verb="Get" Noun="AppInstanceRetentionSetting" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAppInstanceStreamingConfigurations" OutputProperty="AppInstanceStreamingConfigurations" Verb="Get" Noun="AppInstanceStreamingConfiguration" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAttendee" OutputProperty="Attendee" Verb="Get" Noun="Attendee" PipelineParameter="AttendeeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBot" OutputProperty="Bot" Verb="Get" Noun="Bot" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetChannelMessage" OutputProperty="ChannelMessage" Verb="Get" Noun="ChannelMessage" PipelineParameter="ChannelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -216,6 +352,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetMeeting" OutputProperty="Meeting" Verb="Get" Noun="Meeting" PipelineParameter="MeetingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMessagingSessionEndpoint" OutputProperty="Endpoint" Verb="Get" Noun="MessagingSessionEndpoint" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -240,6 +380,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetRoom" OutputProperty="Room" Verb="Get" Noun="Room" PipelineParameter="RoomId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSipMediaApplication" OutputProperty="SipMediaApplication" Verb="Get" Noun="SipMediaApplication" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSipMediaApplicationLoggingConfiguration" OutputProperty="SipMediaApplicationLoggingConfiguration" Verb="Get" Noun="SipMediaApplicationLoggingConfiguration" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSipRule" OutputProperty="SipRule" Verb="Get" Noun="SipRule" PipelineParameter="SipRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -295,6 +447,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAppInstanceAdmins" OutputProperty="*" Verb="Get" Noun="AppInstanceAdminList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAppInstances" OutputProperty="AppInstances" Verb="Get" Noun="AppInstanceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAppInstanceUsers" OutputProperty="*" Verb="Get" Noun="AppInstanceUserList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAttendees" OutputProperty="Attendees" Verb="Get" Noun="AttendeeList" PipelineParameter="MeetingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -304,6 +468,34 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListBots" OutputProperty="Bots" Verb="Get" Noun="BotList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelBans" OutputProperty="*" Verb="Get" Noun="ChannelBanList" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelMemberships" OutputProperty="*" Verb="Get" Noun="ChannelMembershipList" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelMembershipsForAppInstanceUser" OutputProperty="ChannelMemberships" Verb="Get" Noun="ChannelMembershipsForAppInstanceUserList" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelMessages" OutputProperty="*" Verb="Get" Noun="ChannelMessageList" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelModerators" OutputProperty="*" Verb="Get" Noun="ChannelModeratorList" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelsModeratedByAppInstanceUser" OutputProperty="Channels" Verb="Get" Noun="ChannelsModeratedByAppInstanceUserList" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -335,6 +527,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSipMediaApplications" OutputProperty="SipMediaApplications" Verb="Get" Noun="SipMediaApplicationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSipRules" OutputProperty="SipRules" Verb="Get" Noun="SipRuleList" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -359,11 +559,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutAppInstanceRetentionSettings" OutputProperty="*" Verb="Write" Noun="AppInstanceRetentionSetting" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAppInstanceStreamingConfigurations" OutputProperty="AppInstanceStreamingConfigurations" Verb="Write" Noun="AppInstanceStreamingConfiguration" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutEventsConfiguration" OutputProperty="EventsConfiguration" Verb="Write" Noun="EventsConfiguration" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutRetentionSettings" OutputProperty="*" Verb="Write" Noun="RetentionSetting" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSipMediaApplicationLoggingConfiguration" OutputProperty="SipMediaApplicationLoggingConfiguration" Verb="Write" Noun="SipMediaApplicationLoggingConfiguration" ShouldProcessTarget="SipMediaApplicationId" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -397,6 +609,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RedactChannelMessage" OutputProperty="*" Verb="Hide" Noun="ChannelMessage" ShouldProcessTarget="MessageId" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RedactConversationMessage" Verb="Hide" Noun="ConversationMessage" ShouldProcessTarget="MessageId" PipelineParameter="MessageId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -418,6 +634,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchAvailablePhoneNumbers" OutputProperty="E164PhoneNumbers" Verb="Search" Noun="AvailablePhoneNumber" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendChannelMessage" OutputProperty="*" Verb="Send" Noun="ChannelMessage" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -453,7 +673,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAppInstance" OutputProperty="AppInstanceArn" Verb="Update" Noun="AppInstance" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAppInstanceUser" OutputProperty="AppInstanceUserArn" Verb="Update" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateBot" OutputProperty="Bot" Verb="Update" Noun="Bot" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChannel" OutputProperty="ChannelArn" Verb="Update" Noun="Channel" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChannelMessage" OutputProperty="*" Verb="Update" Noun="ChannelMessage" ShouldProcessTarget="MessageId" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChannelReadMarker" OutputProperty="ChannelArn" Verb="Update" Noun="ChannelReadMarker" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -478,6 +718,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRoomMembership" OutputProperty="RoomMembership" Verb="Update" Noun="RoomMembership" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSipMediaApplication" OutputProperty="SipMediaApplication" Verb="Update" Noun="SipMediaApplication" ShouldProcessTarget="SipMediaApplicationId" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSipRule" OutputProperty="SipRule" Verb="Update" Noun="SipRule" ShouldProcessTarget="SipRuleId" PipelineParameter="SipRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

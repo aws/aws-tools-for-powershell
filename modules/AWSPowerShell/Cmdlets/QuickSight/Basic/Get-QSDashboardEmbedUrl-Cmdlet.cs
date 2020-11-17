@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// </para></li><li><para>
     /// The resulting user session is valid for 10 hours.
     /// </para></li></ul><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding
-    /// Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i> .
+    /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded
+    /// Analytics</a> in the <i>Amazon QuickSight User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "QSDashboardEmbedUrl")]
@@ -59,6 +59,21 @@ namespace Amazon.PowerShell.Cmdlets.QS
     )]
     public partial class GetQSDashboardEmbedUrlCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
+        
+        #region Parameter AdditionalDashboardId
+        /// <summary>
+        /// <para>
+        /// <para>A list of one or more dashboard IDs that you want to add to a session that includes
+        /// anonymous users. The <code>IdentityType</code> parameter must be set to <code>ANONYMOUS</code>
+        /// for this to work, because other identity types authenticate as QuickSight or IAM users.
+        /// For example, if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3
+        /// identity-type ANONYMOUS</code>", the session can access all three dashboards. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdditionalDashboardIds")]
+        public System.String[] AdditionalDashboardId { get; set; }
+        #endregion
         
         #region Parameter AwsAccountId
         /// <summary>
@@ -80,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DashboardId
         /// <summary>
         /// <para>
-        /// <para>The ID for the dashboard, also added to the IAM policy.</para>
+        /// <para>The ID for the dashboard, also added to the AWS Identity and Access Management (IAM)
+        /// policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,8 +123,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.QuickSight.IdentityType")]
-        public Amazon.QuickSight.IdentityType IdentityType { get; set; }
+        [AWSConstantClassSource("Amazon.QuickSight.EmbeddingIdentityType")]
+        public Amazon.QuickSight.EmbeddingIdentityType IdentityType { get; set; }
+        #endregion
+        
+        #region Parameter Namespace
+        /// <summary>
+        /// <para>
+        /// <para>The QuickSight namespace that contains the dashboard IDs in this request. If you're
+        /// not using a custom namespace, set this to "<code>default</code>".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Namespace { get; set; }
         #endregion
         
         #region Parameter ResetDisabled
@@ -139,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>Adds persistence of state for the user session in an embedded dashboard. Persistence
         /// applies to the sheet and the parameter settings. These are control settings that the
         /// dashboard subscriber (QuickSight reader) chooses while viewing the dashboard. If this
-        /// is set to <code>TRUE</code>, the settings are the same when the the subscriber reopens
+        /// is set to <code>TRUE</code>, the settings are the same when the subscriber reopens
         /// the same dashboard URL. The state is stored in QuickSight, not in a browser cookie.
         /// If this is set to FALSE, the state of the user session is not persisted. The default
         /// is <code>FALSE</code>.</para>
@@ -218,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 context.Select = (response, cmdlet) => this.DashboardId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AdditionalDashboardId != null)
+            {
+                context.AdditionalDashboardId = new List<System.String>(this.AdditionalDashboardId);
+            }
             context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
             if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
@@ -239,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter IdentityType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Namespace = this.Namespace;
             context.ResetDisabled = this.ResetDisabled;
             context.SessionLifetimeInMinute = this.SessionLifetimeInMinute;
             context.StatePersistenceEnabled = this.StatePersistenceEnabled;
@@ -260,6 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             // create request
             var request = new Amazon.QuickSight.Model.GetDashboardEmbedUrlRequest();
             
+            if (cmdletContext.AdditionalDashboardId != null)
+            {
+                request.AdditionalDashboardIds = cmdletContext.AdditionalDashboardId;
+            }
             if (cmdletContext.AwsAccountId != null)
             {
                 request.AwsAccountId = cmdletContext.AwsAccountId;
@@ -271,6 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.IdentityType != null)
             {
                 request.IdentityType = cmdletContext.IdentityType;
+            }
+            if (cmdletContext.Namespace != null)
+            {
+                request.Namespace = cmdletContext.Namespace;
             }
             if (cmdletContext.ResetDisabled != null)
             {
@@ -353,9 +393,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AdditionalDashboardId { get; set; }
             public System.String AwsAccountId { get; set; }
             public System.String DashboardId { get; set; }
-            public Amazon.QuickSight.IdentityType IdentityType { get; set; }
+            public Amazon.QuickSight.EmbeddingIdentityType IdentityType { get; set; }
+            public System.String Namespace { get; set; }
             public System.Boolean? ResetDisabled { get; set; }
             public System.Int64? SessionLifetimeInMinute { get; set; }
             public System.Boolean? StatePersistenceEnabled { get; set; }

@@ -30,8 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <summary>
     /// Gets the names of the key policies that are attached to a customer master key (CMK).
     /// This operation is designed to get policy names that you can use in a <a>GetKeyPolicy</a>
-    /// operation. However, the only valid policy name is <code>default</code>. You cannot
-    /// perform this operation on a CMK in a different AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// operation. However, the only valid policy name is <code>default</code>. 
+    /// 
+    ///  
+    /// <para><b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different
+    /// AWS account.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListKeyPolicies</a>
+    /// (key policy)
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>GetKeyPolicy</a></para></li><li><para><a>PutKeyPolicy</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KMSKeyPolicyList")]
     [OutputType("System.String")]

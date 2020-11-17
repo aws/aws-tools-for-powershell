@@ -80,6 +80,13 @@ $BAT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Batch.AssignPublicIp
+        "Register-BATJobDefinition/ContainerProperties_NetworkConfiguration_AssignPublicIp"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Batch.CEState
         {
             ($_ -eq "New-BATComputeEnvironment/State") -Or
@@ -107,7 +114,7 @@ $BAT_Completers = {
         # Amazon.Batch.CRType
         "New-BATComputeEnvironment/ComputeResources_Type"
         {
-            $v = "EC2","SPOT"
+            $v = "EC2","FARGATE","FARGATE_SPOT","SPOT"
             break
         }
 
@@ -154,6 +161,7 @@ $BAT_map = @{
     "ComputeResources_AllocationStrategy"=@("New-BATComputeEnvironment")
     "ComputeResources_Type"=@("New-BATComputeEnvironment")
     "ContainerProperties_LogConfiguration_LogDriver"=@("Register-BATJobDefinition")
+    "ContainerProperties_NetworkConfiguration_AssignPublicIp"=@("Register-BATJobDefinition")
     "JobStatus"=@("Get-BATJobList")
     "State"=@("New-BATComputeEnvironment","New-BATJobQueue","Update-BATComputeEnvironment","Update-BATJobQueue")
     "Type"=@("New-BATComputeEnvironment","Register-BATJobDefinition")

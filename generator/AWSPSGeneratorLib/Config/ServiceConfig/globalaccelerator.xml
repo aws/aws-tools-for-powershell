@@ -14,17 +14,36 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AddCustomRoutingEndpoints" OutputProperty="*" Verb="Add" Noun="CustomRoutingEndpoint" ShouldProcessTarget="EndpointGroupArn" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AdvertiseByoipCidr" OutputProperty="ByoipCidr" Verb="Start" Noun="AdvertisingByoipCidr" ShouldProcessTarget="Cidr" PipelineParameter="Cidr" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AllowCustomRoutingTraffic" Verb="Enable" Noun="CustomRoutingTraffic" ShouldProcessTarget="EndpointId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAccelerator" OutputProperty="Accelerator" Verb="New" Noun="Accelerator" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomRoutingAccelerator" OutputProperty="Accelerator" Verb="New" Noun="CustomRoutingAccelerator" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomRoutingEndpointGroup" OutputProperty="EndpointGroup" Verb="New" Noun="CustomRoutingEndpointGroup" ShouldProcessTarget="ListenerArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomRoutingListener" OutputProperty="Listener" Verb="New" Noun="CustomRoutingListener" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -40,11 +59,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomRoutingAccelerator" Verb="Remove" Noun="CustomRoutingAccelerator" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomRoutingEndpointGroup" Verb="Remove" Noun="CustomRoutingEndpointGroup" ShouldProcessTarget="EndpointGroupArn" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomRoutingListener" Verb="Remove" Noun="CustomRoutingListener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEndpointGroup" Verb="Remove" Noun="EndpointGroup" ShouldProcessTarget="EndpointGroupArn" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteListener" Verb="Remove" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DenyCustomRoutingTraffic" Verb="Disable" Noun="CustomRoutingTraffic" ShouldProcessTarget="EndpointId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -57,6 +92,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAcceleratorAttributes" OutputProperty="AcceleratorAttributes" Verb="Get" Noun="AcceleratorAttribute" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCustomRoutingAccelerator" OutputProperty="Accelerator" Verb="Get" Noun="CustomRoutingAccelerator" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCustomRoutingAcceleratorAttributes" OutputProperty="AcceleratorAttributes" Verb="Get" Noun="CustomRoutingAcceleratorAttribute" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCustomRoutingEndpointGroup" OutputProperty="EndpointGroup" Verb="Get" Noun="CustomRoutingEndpointGroup" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCustomRoutingListener" OutputProperty="Listener" Verb="Get" Noun="CustomRoutingListener" PipelineParameter="ListenerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -76,6 +127,26 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomRoutingAccelerators" OutputProperty="Accelerators" Verb="Get" Noun="CustomRoutingAcceleratorList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomRoutingEndpointGroups" OutputProperty="EndpointGroups" Verb="Get" Noun="CustomRoutingEndpointGroupList" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomRoutingListeners" OutputProperty="Listeners" Verb="Get" Noun="CustomRoutingListenerList" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomRoutingPortMappings" OutputProperty="PortMappings" Verb="Get" Noun="CustomRoutingPortMappingList" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomRoutingPortMappingsByDestination" OutputProperty="DestinationPortMappings" Verb="Get" Noun="CustomRoutingPortMappingsByDestinationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEndpointGroups" OutputProperty="EndpointGroups" Verb="Get" Noun="EndpointGroupList" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -89,6 +160,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ProvisionByoipCidr" OutputProperty="ByoipCidr" Verb="Add" Noun="ByoipCidrProvision" ShouldProcessTarget="Cidr" PipelineParameter="Cidr" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveCustomRoutingEndpoints" Verb="Remove" Noun="CustomRoutingEndpoint" ShouldProcessTarget="EndpointGroupArn" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -108,6 +183,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCustomRoutingAccelerator" OutputProperty="Accelerator" Verb="Update" Noun="CustomRoutingAccelerator" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCustomRoutingAcceleratorAttributes" OutputProperty="AcceleratorAttributes" Verb="Update" Noun="CustomRoutingAcceleratorAttribute" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCustomRoutingListener" OutputProperty="Listener" Verb="Update" Noun="CustomRoutingListener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateEndpointGroup" OutputProperty="EndpointGroup" Verb="Update" Noun="EndpointGroup" ShouldProcessTarget="EndpointGroupArn" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -121,7 +208,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

@@ -138,6 +138,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribePortfolioShares" OutputProperty="PortfolioShareDetails" Verb="Get" Noun="PortfolioShare" PipelineParameter="PortfolioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribePortfolioShareStatus" OutputProperty="*" Verb="Get" Noun="PortfolioShareStatus" PipelineParameter="PortfolioShareToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -347,6 +351,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePortfolio" OutputProperty="*" Verb="Update" Noun="Portfolio" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePortfolioShare" OutputProperty="*" Verb="Update" Noun="PortfolioShare" ShouldProcessTarget="PortfolioId" PipelineParameter="PortfolioId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -31,6 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     /// Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member
     /// to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account
     /// as the principal that calls the action.
+    /// 
+    ///  
+    /// <para>
+    /// Applies only to Hyperledger Fabric.
+    /// </para>
     /// </summary>
     [Cmdlet("Send", "MBCProposalVote", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

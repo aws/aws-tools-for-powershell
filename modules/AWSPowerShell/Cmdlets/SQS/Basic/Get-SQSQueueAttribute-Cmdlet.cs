@@ -80,12 +80,23 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling
         /// AWS KMS again. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How
         /// Does the Data Key Reuse Period Work?</a>. </para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO
-        /// (first-in-first-out) queues</a>:</para><ul><li><para><code>FifoQueue</code> – Returns whether the queue is FIFO. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic">FIFO
+        /// (first-in-first-out) queues</a>:</para><ul><li><para><code>FifoQueue</code> – Returns information about whether the queue is FIFO. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic">FIFO
         /// Queue Logic</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para><note><para>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>,
         /// you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</para></note></li><li><para><code>ContentBasedDeduplication</code> – Returns whether content-based deduplication
         /// is enabled for the queue. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">Exactly-Once
-        /// Processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>. </para></li></ul>
+        /// Processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>. </para></li></ul><para><b>Preview: High throughput for FIFO queues</b></para><para><b>High throughput for Amazon SQS FIFO queues is in preview release and is subject
+        /// to change.</b> This feature provides a high number of transactions per second (TPS)
+        /// for messages in FIFO queues. For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas
+        /// related to messages</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para><para>This preview includes two new attributes:</para><ul><li><para><code>DeduplicationScope</code> – Specifies whether message deduplication occurs
+        /// at the message group or queue level. Valid values are <code>messageGroup</code> and
+        /// <code>queue</code>.</para></li><li><para><code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput quota
+        /// applies to the entire queue or per message group. Valid values are <code>perQueue</code>
+        /// and <code>perMessageGroupId</code>. The <code>perMessageGroupId</code> value is allowed
+        /// only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</para></li></ul><para>To enable high throughput for FIFO queues, do the following:</para><ul><li><para>Set <code>DeduplicationScope</code> to <code>messageGroup</code>.</para></li><li><para>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</para></li></ul><para>If you set these attributes to anything other than the values shown for enabling high
+        /// throughput, standard throughput is in effect and deduplication occurs as specified.</para><para>This preview is available in the following AWS Regions:</para><ul><li><para>US East (Ohio); us-east-2</para></li><li><para>US East (N. Virginia); us-east-1</para></li><li><para>US West (Oregon); us-west-2</para></li><li><para>Europe (Ireland); eu-west-1</para></li></ul><para>For more information about high throughput for FIFO queues, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">Preview:
+        /// High throughput for FIFO queues</a> in the <i>Amazon Simple Queue Service Developer
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

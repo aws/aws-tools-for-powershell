@@ -93,7 +93,7 @@ $MSK_Completers = {
             ($_ -eq "Update-MSKMonitoring/EnhancedMonitoring")
         }
         {
-            $v = "DEFAULT","PER_BROKER","PER_TOPIC_PER_BROKER"
+            $v = "DEFAULT","PER_BROKER","PER_TOPIC_PER_BROKER","PER_TOPIC_PER_PARTITION"
             break
         }
 

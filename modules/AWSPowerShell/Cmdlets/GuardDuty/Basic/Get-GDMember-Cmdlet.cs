@@ -28,8 +28,8 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Retrieves GuardDuty member accounts (to the current GuardDuty master account) specified
-    /// by the account IDs.
+    /// Retrieves GuardDuty member accounts (of the current GuardDuty administrator account)
+    /// specified by the account IDs.
     /// </summary>
     [Cmdlet("Get", "GDMember")]
     [OutputType("Amazon.GuardDuty.Model.GetMembersResponse")]

@@ -28,8 +28,7 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Add tags to an accelerator resource. To see an AWS CLI example of adding tags to an
-    /// accelerator, scroll down to <b>Example</b>.
+    /// Add tags to an accelerator resource. 
     /// 
     ///  
     /// <para>

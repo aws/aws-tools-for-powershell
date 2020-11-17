@@ -42,11 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.SMR
     /// outside those enumerated in the request syntax. 
     /// </para><para>
     /// Calls to <code>InvokeEndpoint</code> are authenticated by using AWS Signature Version
-    /// 4. For information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
+    /// 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
     /// Requests (AWS Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.
     /// </para><para>
     /// A customer's model containers must respond to requests within 60 seconds. The model
-    /// itself can have a maximum processing time of 60 seconds before responding to the /invocations.
+    /// itself can have a maximum processing time of 60 seconds before responding to invocations.
     /// If your model is going to take 50-60 seconds of processing time, the SDK socket timeout
     /// should be set to be 70 seconds.
     /// </para><note><para>
@@ -113,9 +113,12 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// can use to track a request or to provide other metadata that a service endpoint was
         /// programmed to process. The value must consist of no more than 1024 visible US-ASCII
         /// characters as specified in <a href="https://tools.ietf.org/html/rfc7230#section-3.2.6">Section
-        /// 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). This
-        /// feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python
-        /// SDK.</para>
+        /// 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </para><para>The code in your model is responsible for setting or updating any custom attributes
+        /// in the response. If your code does not set this value in the response, an empty value
+        /// is returned. For example, if a custom attribute represents the trace ID, your model
+        /// can prepend the custom attribute with <code>Trace ID:</code> in your post-processing
+        /// function.</para><para>This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker
+        /// Python SDK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,10 +145,22 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         public System.String EndpointName { get; set; }
         #endregion
         
+        #region Parameter InferenceId
+        /// <summary>
+        /// <para>
+        /// <para>If you provide a value, it is added to the captured data when you enable data capture
+        /// on the endpoint. For information about data capture, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html">Capture
+        /// Data</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InferenceId { get; set; }
+        #endregion
+        
         #region Parameter TargetModel
         /// <summary>
         /// <para>
-        /// <para>The model to request for inference when invoking a multi-model endpoint. </para>
+        /// <para>The model to request for inference when invoking a multi-model endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// <para>Specify the production variant to send the inference request to when invoking an endpoint
         /// that is running two or more variants. Note that this parameter overrides the default
         /// behavior for the endpoint, which is to distribute the invocation traffic based on
-        /// the variant weights.</para>
+        /// the variant weights.</para><para>For information about how to use variant targeting to perform a/b testing, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html">Test
+        /// models in production</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 WriteWarning("You are passing $null as a value for parameter EndpointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InferenceId = this.InferenceId;
             context.TargetModel = this.TargetModel;
             context.TargetVariant = this.TargetVariant;
             
@@ -285,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 if (cmdletContext.EndpointName != null)
                 {
                     request.EndpointName = cmdletContext.EndpointName;
+                }
+                if (cmdletContext.InferenceId != null)
+                {
+                    request.InferenceId = cmdletContext.InferenceId;
                 }
                 if (cmdletContext.TargetModel != null)
                 {
@@ -368,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             public System.String ContentType { get; set; }
             public System.String CustomAttribute { get; set; }
             public System.String EndpointName { get; set; }
+            public System.String InferenceId { get; set; }
             public System.String TargetModel { get; set; }
             public System.String TargetVariant { get; set; }
             public System.Func<Amazon.SageMakerRuntime.Model.InvokeEndpointResponse, InvokeSMREndpointCmdlet, object> Select { get; set; } =

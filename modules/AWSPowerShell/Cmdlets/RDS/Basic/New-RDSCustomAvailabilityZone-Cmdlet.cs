@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <para>
     /// A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.
     /// </para><para>
-    /// For more information about RDS on VMware, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html"><i>RDS on VMware User Guide.</i></a></para>
+    /// For more information about RDS on VMware, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
+    /// RDS on VMware User Guide.</a></para>
     /// </summary>
     [Cmdlet("New", "RDSCustomAvailabilityZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.CustomAvailabilityZone")]

@@ -48,6 +48,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class GetRDSDBInstanceAutomatedBackupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        #region Parameter DBInstanceAutomatedBackupsArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the replicated automated backups, for example, <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBInstanceAutomatedBackupsArn { get; set; }
+        #endregion
+        
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
@@ -74,12 +84,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies which resources to return based on status.</para><para>Supported filters are the following:</para><ul><li><para><code>status</code></para><ul><li><para><code>active</code> - automated backups for current instances</para></li><li><para><code>retained</code> - automated backups for deleted instances</para></li><li><para><code>creating</code> - automated backups that are waiting for the first automated
+        /// <para>A filter that specifies which resources to return based on status.</para><para>Supported filters are the following:</para><ul><li><para><code>status</code></para><ul><li><para><code>active</code> - automated backups for current instances</para></li><li><para><code>retained</code> - automated backups for deleted instances and after backup
+        /// replication is stopped</para></li><li><para><code>creating</code> - automated backups that are waiting for the first automated
         /// snapshot to be available</para></li></ul></li><li><para><code>db-instance-id</code> - Accepts DB instance identifiers and Amazon Resource
-        /// Names (ARNs) for DB instances. The results list includes only information about the
-        /// DB instance automated backupss identified by these ARNs.</para></li><li><para><code>dbi-resource-id</code> - Accepts DB instance resource identifiers and DB Amazon
-        /// Resource Names (ARNs) for DB instances. The results list includes only information
-        /// about the DB instance resources identified by these ARNs.</para></li></ul><para>Returns all resources by default. The status for each resource is specified in the
+        /// Names (ARNs). The results list includes only information about the DB instance automated
+        /// backups identified by these ARNs.</para></li><li><para><code>dbi-resource-id</code> - Accepts DB resource identifiers and Amazon Resource
+        /// Names (ARNs). The results list includes only information about the DB instance resources
+        /// identified by these ARNs.</para></li></ul><para>Returns all resources by default. The status for each resource is specified in the
         /// response.</para>
         /// </para>
         /// </summary>
@@ -177,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Select = (response, cmdlet) => this.DBInstanceIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DBInstanceAutomatedBackupsArn = this.DBInstanceAutomatedBackupsArn;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             context.DbiResourceId = this.DbiResourceId;
             if (this.Filter != null)
@@ -215,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request and set iteration invariants
             var request = new Amazon.RDS.Model.DescribeDBInstanceAutomatedBackupsRequest();
             
+            if (cmdletContext.DBInstanceAutomatedBackupsArn != null)
+            {
+                request.DBInstanceAutomatedBackupsArn = cmdletContext.DBInstanceAutomatedBackupsArn;
+            }
             if (cmdletContext.DBInstanceIdentifier != null)
             {
                 request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
@@ -286,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             
             // create request and set iteration invariants
             var request = new Amazon.RDS.Model.DescribeDBInstanceAutomatedBackupsRequest();
+            if (cmdletContext.DBInstanceAutomatedBackupsArn != null)
+            {
+                request.DBInstanceAutomatedBackupsArn = cmdletContext.DBInstanceAutomatedBackupsArn;
+            }
             if (cmdletContext.DBInstanceIdentifier != null)
             {
                 request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
@@ -410,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DBInstanceAutomatedBackupsArn { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DbiResourceId { get; set; }
             public List<Amazon.RDS.Model.Filter> Filter { get; set; }

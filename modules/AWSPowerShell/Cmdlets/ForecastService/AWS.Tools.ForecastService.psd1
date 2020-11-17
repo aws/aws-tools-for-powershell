@@ -99,6 +99,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-FRCForecastExportJobList', 
         'Get-FRCForecastList', 
         'Get-FRCPredictor', 
+        'Get-FRCPredictorBacktestExportJob', 
+        'Get-FRCPredictorBacktestExportJobList', 
         'Get-FRCPredictorList', 
         'Get-FRCResourceTag', 
         'New-FRCDataset', 
@@ -107,12 +109,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-FRCForecast', 
         'New-FRCForecastExportJob', 
         'New-FRCPredictor', 
+        'New-FRCPredictorBacktestExportJob', 
         'Remove-FRCDataset', 
         'Remove-FRCDatasetGroup', 
         'Remove-FRCDatasetImportJob', 
         'Remove-FRCForecast', 
         'Remove-FRCForecastExportJob', 
         'Remove-FRCPredictor', 
+        'Remove-FRCPredictorBacktestExportJob', 
         'Remove-FRCResourceTag', 
         'Update-FRCDatasetGroup')
 

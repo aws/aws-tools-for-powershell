@@ -67,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResolverDnssecConfig" OutputProperty="ResolverDNSSECConfig" Verb="Get" Noun="ResolverDnssecConfig" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="Get" Noun="ResolverEndpoint" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +96,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetResolverRulePolicy" OutputProperty="ResolverRulePolicy" Verb="Get" Noun="ResolverRulePolicy" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResolverDnssecConfigs" OutputProperty="ResolverDnssecConfigs" Verb="Get" Noun="ResolverDnssecConfigList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -136,6 +144,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResolverDnssecConfig" OutputProperty="ResolverDNSSECConfig" Verb="Update" Noun="ResolverDnssecConfig" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

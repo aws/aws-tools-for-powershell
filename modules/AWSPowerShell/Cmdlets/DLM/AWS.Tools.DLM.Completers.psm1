@@ -80,6 +80,26 @@ $DLM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DLM.EventSourceValues
+        {
+            ($_ -eq "New-DLMLifecyclePolicy/PolicyDetails_EventSource_Type") -Or
+            ($_ -eq "Update-DLMLifecyclePolicy/PolicyDetails_EventSource_Type")
+        }
+        {
+            $v = "MANAGED_CWE"
+            break
+        }
+
+        # Amazon.DLM.EventTypeValues
+        {
+            ($_ -eq "New-DLMLifecyclePolicy/PolicyDetails_EventSource_Parameters_EventType") -Or
+            ($_ -eq "Update-DLMLifecyclePolicy/PolicyDetails_EventSource_Parameters_EventType")
+        }
+        {
+            $v = "shareSnapshot"
+            break
+        }
+
         # Amazon.DLM.GettablePolicyStateValues
         "Get-DLMLifecyclePolicySummary/State"
         {
@@ -93,7 +113,7 @@ $DLM_Completers = {
             ($_ -eq "Update-DLMLifecyclePolicy/PolicyDetails_PolicyType")
         }
         {
-            $v = "EBS_SNAPSHOT_MANAGEMENT","IMAGE_MANAGEMENT"
+            $v = "EBS_SNAPSHOT_MANAGEMENT","EVENT_BASED_POLICY","IMAGE_MANAGEMENT"
             break
         }
 
@@ -116,6 +136,8 @@ $DLM_Completers = {
 }
 
 $DLM_map = @{
+    "PolicyDetails_EventSource_Parameters_EventType"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
+    "PolicyDetails_EventSource_Type"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
     "PolicyDetails_PolicyType"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
     "State"=@("Get-DLMLifecyclePolicySummary","New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
 }

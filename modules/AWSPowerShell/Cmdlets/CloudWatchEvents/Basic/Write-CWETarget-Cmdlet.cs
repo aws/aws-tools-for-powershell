@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter EventBusName
         /// <summary>
         /// <para>
-        /// <para>The name of the event bus associated with the rule. If you omit this, the default
+        /// <para>The name or ARN of the event bus associated with the rule. If you omit this, the default
         /// event bus is used.</para>
         /// </para>
         /// </summary>

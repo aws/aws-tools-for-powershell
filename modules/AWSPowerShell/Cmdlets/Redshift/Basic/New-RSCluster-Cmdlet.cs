@@ -99,6 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter AvailabilityZoneRelocation
+        /// <summary>
+        /// <para>
+        /// <para>The option to enable relocation for an Amazon Redshift cluster between Availability
+        /// Zones after the cluster is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AvailabilityZoneRelocation { get; set; }
+        #endregion
+        
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
@@ -339,8 +350,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
         /// Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
         /// </para><para>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> | <code>dc1.large</code>
-        /// | <code>dc1.8xlarge</code> | <code>dc2.large</code> | <code>dc2.8xlarge</code> | <code>ra3.4xlarge</code>
-        /// | <code>ra3.16xlarge</code></para>
+        /// | <code>dc1.8xlarge</code> | <code>dc2.large</code> | <code>dc2.8xlarge</code> | <code>ra3.xlplus</code>
+        /// | <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -500,6 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.AllowVersionUpgrade = this.AllowVersionUpgrade;
             context.AutomatedSnapshotRetentionPeriod = this.AutomatedSnapshotRetentionPeriod;
             context.AvailabilityZone = this.AvailabilityZone;
+            context.AvailabilityZoneRelocation = this.AvailabilityZoneRelocation;
             context.ClusterIdentifier = this.ClusterIdentifier;
             #if MODULAR
             if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
@@ -593,6 +605,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.AvailabilityZoneRelocation != null)
+            {
+                request.AvailabilityZoneRelocation = cmdletContext.AvailabilityZoneRelocation.Value;
             }
             if (cmdletContext.ClusterIdentifier != null)
             {
@@ -763,6 +779,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.Boolean? AllowVersionUpgrade { get; set; }
             public System.Int32? AutomatedSnapshotRetentionPeriod { get; set; }
             public System.String AvailabilityZone { get; set; }
+            public System.Boolean? AvailabilityZoneRelocation { get; set; }
             public System.String ClusterIdentifier { get; set; }
             public System.String ClusterParameterGroupName { get; set; }
             public List<System.String> ClusterSecurityGroup { get; set; }

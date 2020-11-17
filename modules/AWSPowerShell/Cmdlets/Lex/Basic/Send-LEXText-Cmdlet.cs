@@ -86,6 +86,19 @@ namespace Amazon.PowerShell.Cmdlets.LEX
     public partial class SendLEXTextCmdlet : AmazonLexClientCmdlet, IExecutor
     {
         
+        #region Parameter ActiveContext
+        /// <summary>
+        /// <para>
+        /// <para>A list of contexts active for the request. A context can be activated when a previous
+        /// intent is fulfilled, or by including the context in the request,</para><para>If you don't specify a list of contexts, Amazon Lex will use the current list of contexts
+        /// for the session. If you specify an empty list, all contexts for the session are cleared.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ActiveContexts")]
+        public Amazon.Lex.Model.ActiveContext[] ActiveContext { get; set; }
+        #endregion
+        
         #region Parameter BotAlias
         /// <summary>
         /// <para>
@@ -233,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.LEX
                 context.Select = (response, cmdlet) => this.InputText;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.ActiveContext != null)
+            {
+                context.ActiveContext = new List<Amazon.Lex.Model.ActiveContext>(this.ActiveContext);
+            }
             context.BotAlias = this.BotAlias;
             #if MODULAR
             if (this.BotAlias == null && ParameterWasBound(nameof(this.BotAlias)))
@@ -293,6 +310,10 @@ namespace Amazon.PowerShell.Cmdlets.LEX
             // create request
             var request = new Amazon.Lex.Model.PostTextRequest();
             
+            if (cmdletContext.ActiveContext != null)
+            {
+                request.ActiveContexts = cmdletContext.ActiveContext;
+            }
             if (cmdletContext.BotAlias != null)
             {
                 request.BotAlias = cmdletContext.BotAlias;
@@ -378,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Lex.Model.ActiveContext> ActiveContext { get; set; }
             public System.String BotAlias { get; set; }
             public System.String BotName { get; set; }
             public System.String InputText { get; set; }

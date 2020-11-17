@@ -28,7 +28,7 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// List the tags for an AWS Batch resource. AWS Batch resources that support tags are
+    /// Lists the tags for an AWS Batch resource. AWS Batch resources that support tags are
     /// compute environments, jobs, job definitions, and job queues. ARNs for child jobs of
     /// array and multi-node parallel (MNP) jobs are not supported.
     /// </summary>
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that identifies the resource for which to list the
-        /// tags. AWS Batch resources that support tags are compute environments, jobs, job definitions,
+        /// <para>The Amazon Resource Name (ARN) that identifies the resource that tags are listed for.
+        /// AWS Batch resources that support tags are compute environments, jobs, job definitions,
         /// and job queues. ARNs for child jobs of array and multi-node parallel (MNP) jobs are
         /// not supported.</para>
         /// </para>

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// version in the request. You can update to the latest AMI version of your cluster's
     /// current Kubernetes version by specifying your cluster's Kubernetes version in the
     /// request. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon
-    /// EKS-Optimized Linux AMI Versions</a> in the <i>Amazon EKS User Guide</i>.
+    /// EKS optimized Amazon Linux 2 AMI versions</a> in the <i>Amazon EKS User Guide</i>.
     /// </para><para>
     /// You cannot roll back a node group to an earlier Kubernetes version or AMI version.
     /// </para><para>
@@ -145,13 +145,13 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ReleaseVersion
         /// <summary>
         /// <para>
-        /// <para>The AMI version of the Amazon EKS-optimized AMI to use for the update. By default,
+        /// <para>The AMI version of the Amazon EKS optimized AMI to use for the update. By default,
         /// the latest available AMI version for the node group's Kubernetes version is used.
         /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon
-        /// EKS-Optimized Linux AMI Versions </a> in the <i>Amazon EKS User Guide</i>. If you
-        /// specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then
-        /// don't specify <code>releaseVersion</code>, or the node group update will fail. For
-        /// more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// EKS optimized Amazon Linux 2 AMI versions </a> in the <i>Amazon EKS User Guide</i>.
+        /// If you specify <code>launchTemplate</code>, and your launch template uses a custom
+        /// AMI, then don't specify <code>releaseVersion</code>, or the node group update will
+        /// fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the Amazon EKS User Guide.</para>
         /// </para>
         /// </summary>

@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// For Redis engine version 6.04 onwards: Deletes a ser group. The user group must first
+    /// For Redis engine version 6.x onwards: Deletes a ser group. The user group must first
     /// be disassociated from the replcation group before it can be deleted. For more information,
     /// see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using
     /// Role Based Access Control (RBAC)</a>.

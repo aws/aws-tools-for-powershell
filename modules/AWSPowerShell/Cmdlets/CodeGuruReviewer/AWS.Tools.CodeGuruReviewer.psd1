@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-CGRResourceTag', 
         'Get-CGRCodeReview', 
         'Get-CGRCodeReviewList', 
         'Get-CGRRecommendationFeedback', 
@@ -93,8 +94,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CGRRecommendationList', 
         'Get-CGRRepositoryAssociation', 
         'Get-CGRRepositoryAssociationList', 
+        'Get-CGRResourceTag', 
         'New-CGRCodeReview', 
         'Register-CGRRepository', 
+        'Remove-CGRResourceTag', 
         'Unregister-CGRRepository', 
         'Write-CGRRecommendationFeedback')
 

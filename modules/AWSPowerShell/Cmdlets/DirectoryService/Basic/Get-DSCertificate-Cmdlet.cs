@@ -28,7 +28,8 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Displays information about the certificate registered for a secured LDAP connection.
+    /// Displays information about the certificate registered for secure LDAP or client certificate
+    /// authentication.
     /// </summary>
     [Cmdlet("Get", "DSCertificate")]
     [OutputType("Amazon.DirectoryService.Model.Certificate")]

@@ -28,9 +28,10 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Gets information about a Resolver rule policy. A Resolver rule policy specifies the
-    /// Resolver operations and resources that you want to allow another AWS account to be
-    /// able to use.
+    /// Gets information about the Resolver rule policy for a specified rule. A Resolver rule
+    /// policy includes the rule that you want to share with another account, the account
+    /// that you want to share the rule with, and the Resolver operations that you want to
+    /// allow the account to use.
     /// </summary>
     [Cmdlet("Get", "R53RResolverRulePolicy")]
     [OutputType("System.String")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The ID of the Resolver rule policy that you want to get information about.</para>
+        /// <para>The ID of the Resolver rule that you want to get the Resolver rule policy for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

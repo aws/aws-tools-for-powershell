@@ -133,7 +133,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEnvironmentManagedActionHistory" OutputProperty="ManagedActionHistoryItems" Verb="Get" Noun="EnvironmentManagedActionHistory" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" ServicePageSize="1000" PageSizeIsRequired="true" />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" ServicePageSize="100" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEnvironmentManagedActions" OutputProperty="ManagedActions" Verb="Get" Noun="EnvironmentManagedAction" PipelineParameter="" NoPipelineParameter="true">

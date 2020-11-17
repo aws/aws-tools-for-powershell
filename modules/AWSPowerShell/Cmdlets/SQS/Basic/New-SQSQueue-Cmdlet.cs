@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// list with two elements looks like this:
     /// </para><para><code>&amp;AttributeName.1=first</code></para><para><code>&amp;AttributeName.2=second</code></para><note><para>
     /// Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
-    /// Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue
+    /// cross-account permissions to a role and a user name</a> in the <i>Amazon Simple Queue
     /// Service Developer Guide</i>.
     /// </para></note>
     /// </summary>
@@ -123,14 +123,15 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// (5 minutes). A shorter time period provides better security but results in more calls
         /// to KMS which might incur charges after Free Tier. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How
         /// Does the Data Key Reuse Period Work?</a>. </para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO
-        /// (first-in-first-out) queues</a>:</para><ul><li><para><code>FifoQueue</code> – Designates a queue as FIFO. Valid values: <code>true</code>,
-        /// <code>false</code>. If you don't specify the <code>FifoQueue</code> attribute, Amazon
-        /// SQS creates a standard queue. You can provide this attribute only during queue creation.
-        /// You can't change it for an existing queue. When you set this attribute, you must also
-        /// provide the <code>MessageGroupId</code> for your messages explicitly.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic">FIFO
+        /// (first-in-first-out) queues</a>:</para><ul><li><para><code>FifoQueue</code> – Designates a queue as FIFO. Valid values are <code>true</code>
+        /// and <code>false</code>. If you don't specify the <code>FifoQueue</code> attribute,
+        /// Amazon SQS creates a standard queue. You can provide this attribute only during queue
+        /// creation. You can't change it for an existing queue. When you set this attribute,
+        /// you must also provide the <code>MessageGroupId</code> for your messages explicitly.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic">FIFO
         /// Queue Logic</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para></li><li><para><code>ContentBasedDeduplication</code> – Enables content-based deduplication. Valid
-        /// values: <code>true</code>, <code>false</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">Exactly-Once
-        /// Processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>. </para><ul><li><para>Every message must have a unique <code>MessageDeduplicationId</code>,</para><ul><li><para>You may provide a <code>MessageDeduplicationId</code> explicitly.</para></li><li><para>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable
+        /// values are <code>true</code> and <code>false</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">Exactly-Once
+        /// Processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>. Note the
+        /// following: </para><ul><li><para>Every message must have a unique <code>MessageDeduplicationId</code>.</para><ul><li><para>You may provide a <code>MessageDeduplicationId</code> explicitly.</para></li><li><para>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable
         /// <code>ContentBasedDeduplication</code> for your queue, Amazon SQS uses a SHA-256 hash
         /// to generate the <code>MessageDeduplicationId</code> using the body of the message
         /// (but not the attributes of the message). </para></li><li><para>If you don't provide a <code>MessageDeduplicationId</code> and the queue doesn't have
@@ -140,7 +141,18 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// one copy of the message is delivered.</para></li><li><para>If you send one message with <code>ContentBasedDeduplication</code> enabled and then
         /// another message with a <code>MessageDeduplicationId</code> that is the same as the
         /// one generated for the first <code>MessageDeduplicationId</code>, the two messages
-        /// are treated as duplicates and only one copy of the message is delivered. </para></li></ul></li></ul>
+        /// are treated as duplicates and only one copy of the message is delivered. </para></li></ul></li></ul><para><b>Preview: High throughput for FIFO queues</b></para><para><b>High throughput for Amazon SQS FIFO queues is in preview release and is subject
+        /// to change.</b> This feature provides a high number of transactions per second (TPS)
+        /// for messages in FIFO queues. For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas
+        /// related to messages</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para><para>This preview includes two new attributes:</para><ul><li><para><code>DeduplicationScope</code> – Specifies whether message deduplication occurs
+        /// at the message group or queue level. Valid values are <code>messageGroup</code> and
+        /// <code>queue</code>.</para></li><li><para><code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput quota
+        /// applies to the entire queue or per message group. Valid values are <code>perQueue</code>
+        /// and <code>perMessageGroupId</code>. The <code>perMessageGroupId</code> value is allowed
+        /// only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</para></li></ul><para>To enable high throughput for FIFO queues, do the following:</para><ul><li><para>Set <code>DeduplicationScope</code> to <code>messageGroup</code>.</para></li><li><para>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</para></li></ul><para>If you set these attributes to anything other than the values shown for enabling high
+        /// throughput, standard throughput is in effect and deduplication occurs as specified.</para><para>This preview is available in the following AWS Regions:</para><ul><li><para>US East (Ohio); us-east-2</para></li><li><para>US East (N. Virginia); us-east-1</para></li><li><para>US West (Oregon); us-west-2</para></li><li><para>Europe (Ireland); eu-west-1</para></li></ul><para>For more information about high throughput for FIFO queues, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">Preview:
+        /// High throughput for FIFO queues</a> in the <i>Amazon Simple Queue Service Developer
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -173,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// tag.</para></li></ul><para>For a full list of tag restrictions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Limits
         /// Related to Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para><note><para>To be able to tag a queue on creation, you must have the <code>sqs:CreateQueue</code>
         /// and <code>sqs:TagQueue</code> permissions.</para><para>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
-        /// Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue
+        /// cross-account permissions to a role and a user name</a> in the <i>Amazon Simple Queue
         /// Service Developer Guide</i>.</para></note>
         /// </para>
         /// </summary>

@@ -166,8 +166,11 @@ $SQ_SelectMap = @{
                "Get-SQServiceQuotaIncreaseRequestsInTemplateList",
                "Get-SQServiceQuotaList",
                "Get-SQServiceList",
+               "Get-SQResourceTag",
                "Write-SQServiceQuotaIncreaseRequestIntoTemplate",
-               "Request-SQServiceQuotaIncrease")
+               "Request-SQServiceQuotaIncrease",
+               "Add-SQResourceTag",
+               "Remove-SQResourceTag")
 }
 
 _awsArgumentCompleterRegistration $SQ_SelectCompleters $SQ_SelectMap

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>connect-contact-lens</C2jFilename>
+    <AssemblyName>ConnectContactLens</AssemblyName>
+    <ServiceNounPrefix>CCL</ServiceNounPrefix>
+    <ServiceName>Amazon Connect Contact Lens</ServiceName>
+    <ServiceClientInterface>IAmazonConnectContactLens</ServiceClientInterface>
+    <ServiceClient>AmazonConnectContactLensClient</ServiceClient>
+    <ServiceModuleGuid>f8170b7f-b6af-4fa0-86ab-430ffaf2d177</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ListRealtimeContactAnalysisSegments" OutputProperty="Segments" Verb="Get" Noun="RealtimeContactAnalysisSegmentList" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

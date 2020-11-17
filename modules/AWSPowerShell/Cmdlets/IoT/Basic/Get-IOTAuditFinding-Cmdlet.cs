@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Gets information about a single audit finding. Properties include the reason for noncompliance,
-    /// the severity of the issue, and when the audit that returned the finding was started.
+    /// the severity of the issue, and the start time when the audit that returned the finding.
     /// </summary>
     [Cmdlet("Get", "IOTAuditFinding")]
     [OutputType("Amazon.IoT.Model.AuditFinding")]

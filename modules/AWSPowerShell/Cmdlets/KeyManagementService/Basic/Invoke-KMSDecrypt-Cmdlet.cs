@@ -45,25 +45,34 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// S3 client-side encryption</a>. These libraries return a ciphertext format that is
     /// incompatible with AWS KMS.
     /// </para><para>
-    /// If the ciphertext was encrypted under a symmetric CMK, you do not need to specify
-    /// the CMK or the encryption algorithm. AWS KMS can get this information from metadata
-    /// that it adds to the symmetric ciphertext blob. However, if you prefer, you can specify
-    /// the <code>KeyId</code> to ensure that a particular CMK is used to decrypt the ciphertext.
-    /// If you specify a different CMK than the one used to encrypt the ciphertext, the <code>Decrypt</code>
-    /// operation fails.
+    /// If the ciphertext was encrypted under a symmetric CMK, the <code>KeyId</code> parameter
+    /// is optional. AWS KMS can get this information from metadata that it adds to the symmetric
+    /// ciphertext blob. This feature adds durability to your implementation by ensuring that
+    /// authorized users can decrypt ciphertext decades after it was encrypted, even if they've
+    /// lost track of the CMK ID. However, specifying the CMK is always recommended as a best
+    /// practice. When you use the <code>KeyId</code> parameter to specify a CMK, AWS KMS
+    /// only uses the CMK you specify. If the ciphertext was encrypted under a different CMK,
+    /// the <code>Decrypt</code> operation fails. This practice ensures that you use the CMK
+    /// that you intend.
     /// </para><para>
-    /// Whenever possible, use key policies to give users permission to call the Decrypt operation
-    /// on a particular CMK, instead of using IAM policies. Otherwise, you might create an
-    /// IAM user policy that gives the user Decrypt permission on all CMKs. This user could
-    /// decrypt ciphertext that was encrypted by CMKs in other accounts if the key policy
-    /// for the cross-account CMK permits it. If you must use an IAM policy for <code>Decrypt</code>
-    /// permissions, limit the user to particular CMKs or particular trusted accounts.
+    /// Whenever possible, use key policies to give users permission to call the <code>Decrypt</code>
+    /// operation on a particular CMK, instead of using IAM policies. Otherwise, you might
+    /// create an IAM user policy that gives the user <code>Decrypt</code> permission on all
+    /// CMKs. This user could decrypt ciphertext that was encrypted by CMKs in other accounts
+    /// if the key policy for the cross-account CMK permits it. If you must use an IAM policy
+    /// for <code>Decrypt</code> permissions, limit the user to particular CMKs or particular
+    /// trusted accounts. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policies-best-practices">Best
+    /// practices for IAM policies</a> in the <i>AWS Key Management Service Developer Guide</i>.
     /// </para><para>
     /// The CMK that you use for this operation must be in a compatible key state. For details,
     /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
     /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
     /// Developer Guide</i>.
-    /// </para>
+    /// </para><para><b>Cross-account use</b>: Yes. You can decrypt a ciphertext using a CMK in a different
+    /// AWS account.
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Decrypt</a>
+    /// (key policy)
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>Encrypt</a></para></li><li><para><a>GenerateDataKey</a></para></li><li><para><a>GenerateDataKeyPair</a></para></li><li><para><a>ReEncrypt</a></para></li></ul>
     /// </summary>
     [Cmdlet("Invoke", "KMSDecrypt")]
     [OutputType("Amazon.KeyManagementService.Model.DecryptResponse")]
@@ -140,13 +149,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>Specifies the customer master key (CMK) that AWS KMS will use to decrypt the ciphertext.
-        /// Enter a key ID of the CMK that was used to encrypt the ciphertext.</para><para>If you specify a <code>KeyId</code> value, the <code>Decrypt</code> operation succeeds
-        /// only if the specified CMK was used to encrypt the ciphertext.</para><para>This parameter is required only when the ciphertext was encrypted under an asymmetric
-        /// CMK. Otherwise, AWS KMS uses the metadata that it adds to the ciphertext blob to determine
-        /// which CMK was used to encrypt the ciphertext. However, you can use this parameter
-        /// to ensure that a particular CMK (of any kind) is used to decrypt the ciphertext.</para><para>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias
-        /// ARN. When using an alias name, prefix it with <code>"alias/"</code>.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.
+        /// <para>Specifies the customer master key (CMK) that AWS KMS uses to decrypt the ciphertext.
+        /// Enter a key ID of the CMK that was used to encrypt the ciphertext.</para><para>This parameter is required only when the ciphertext was encrypted under an asymmetric
+        /// CMK. If you used a symmetric CMK, AWS KMS can get the CMK from metadata that it adds
+        /// to the symmetric ciphertext blob. However, it is always recommended as a best practice.
+        /// This practice ensures that you use the CMK that you intend.</para><para>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias
+        /// ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a
+        /// CMK in a different AWS account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>

@@ -136,6 +136,13 @@ $SSM_Completers = {
             break
         }
 
+        # Amazon.SimpleSystemsManagement.DocumentMetadataEnum
+        "Get-SSMDocumentMetadataHistory/Metadata"
+        {
+            $v = "DocumentReviews"
+            break
+        }
+
         # Amazon.SimpleSystemsManagement.DocumentPermissionType
         {
             ($_ -eq "Edit-SSMDocumentPermission/PermissionType") -Or
@@ -146,10 +153,17 @@ $SSM_Completers = {
             break
         }
 
+        # Amazon.SimpleSystemsManagement.DocumentReviewAction
+        "Update-SSMDocumentMetadata/DocumentReviews_Action"
+        {
+            $v = "Approve","Reject","SendForReview","UpdateReview"
+            break
+        }
+
         # Amazon.SimpleSystemsManagement.DocumentType
         "New-SSMDocument/DocumentType"
         {
-            $v = "ApplicationConfiguration","ApplicationConfigurationSchema","Automation","ChangeCalendar","Command","DeploymentStrategy","Package","Policy","Session"
+            $v = "ApplicationConfiguration","ApplicationConfigurationSchema","Automation","Automation.ChangeTemplate","ChangeCalendar","Command","DeploymentStrategy","Package","Policy","Session"
             break
         }
 
@@ -204,14 +218,14 @@ $SSM_Completers = {
             ($_ -eq "New-SSMPatchBaseline/OperatingSystem")
         }
         {
-            $v = "AMAZON_LINUX","AMAZON_LINUX_2","CENTOS","DEBIAN","ORACLE_LINUX","REDHAT_ENTERPRISE_LINUX","SUSE","UBUNTU","WINDOWS"
+            $v = "AMAZON_LINUX","AMAZON_LINUX_2","CENTOS","DEBIAN","MACOS","ORACLE_LINUX","REDHAT_ENTERPRISE_LINUX","SUSE","UBUNTU","WINDOWS"
             break
         }
 
         # Amazon.SimpleSystemsManagement.OpsItemStatus
         "Update-SSMOpsItem/Status"
         {
-            $v = "InProgress","Open","Resolved"
+            $v = "Approved","Cancelled","Cancelling","ChangeCalendarOverrideApproved","ChangeCalendarOverrideRejected","CompletedWithFailure","CompletedWithSuccess","Failed","InProgress","Open","Pending","PendingApproval","PendingChangeCalendarOverride","Rejected","Resolved","RunbookInProgress","Scheduled","TimedOut"
             break
         }
 
@@ -316,7 +330,9 @@ $SSM_map = @{
     "ComplianceSeverity"=@("New-SSMAssociation","Update-SSMAssociation")
     "DocumentFormat"=@("Get-SSMDocument","New-SSMDocument","Update-SSMDocument")
     "DocumentHashType"=@("Send-SSMCommand")
+    "DocumentReviews_Action"=@("Update-SSMDocumentMetadata")
     "DocumentType"=@("New-SSMDocument")
+    "Metadata"=@("Get-SSMDocumentMetadataHistory")
     "Mode"=@("Start-SSMAutomationExecution")
     "NotificationConfig_NotificationType"=@("Send-SSMCommand")
     "OperatingSystem"=@("Get-SSMDefaultPatchBaseline","Get-SSMPatchBaselineForPatchGroup","Get-SSMPatchProperty","New-SSMPatchBaseline")
@@ -398,6 +414,7 @@ $SSM_SelectMap = @{
                "New-SSMDocument",
                "New-SSMMaintenanceWindow",
                "New-SSMOpsItem",
+               "New-SSMOpsMetadata",
                "New-SSMPatchBaseline",
                "New-SSMResourceDataSync",
                "Remove-SSMActivation",
@@ -405,6 +422,7 @@ $SSM_SelectMap = @{
                "Remove-SSMDocument",
                "Remove-SSMInventory",
                "Remove-SSMMaintenanceWindow",
+               "Remove-SSMOpsMetadata",
                "Remove-SSMParameter",
                "Remove-SSMParameterCollection",
                "Remove-SSMPatchBaseline",
@@ -460,6 +478,7 @@ $SSM_SelectMap = @{
                "Get-SSMMaintenanceWindowExecutionTaskInvocation",
                "Get-SSMMaintenanceWindowTask",
                "Get-SSMOpsItem",
+               "Get-SSMOpsMetadata",
                "Get-SSMOpsSummary",
                "Get-SSMParameter",
                "Get-SSMParameterHistory",
@@ -475,9 +494,12 @@ $SSM_SelectMap = @{
                "Get-SSMCommand",
                "Get-SSMComplianceItemList",
                "Get-SSMComplianceSummaryList",
+               "Get-SSMDocumentMetadataHistory",
                "Get-SSMDocumentList",
                "Get-SSMDocumentVersionList",
                "Get-SSMInventoryEntryList",
+               "Get-SSMOpsItemEvent",
+               "Get-SSMOpsMetadataList",
                "Get-SSMResourceComplianceSummaryList",
                "Get-SSMResourceDataSync",
                "Get-SSMResourceTag",
@@ -496,6 +518,7 @@ $SSM_SelectMap = @{
                "Send-SSMCommand",
                "Start-SSMAssociationsOnce",
                "Start-SSMAutomationExecution",
+               "Start-SSMChangeRequestExecution",
                "Start-SSMSession",
                "Stop-SSMAutomationExecution",
                "Stop-SSMSession",
@@ -503,11 +526,13 @@ $SSM_SelectMap = @{
                "Update-SSMAssociationStatus",
                "Update-SSMDocument",
                "Update-SSMDocumentDefaultVersion",
+               "Update-SSMDocumentMetadata",
                "Update-SSMMaintenanceWindow",
                "Update-SSMMaintenanceWindowTarget",
                "Update-SSMMaintenanceWindowTask",
                "Update-SSMManagedInstanceRole",
                "Update-SSMOpsItem",
+               "Update-SSMOpsMetadata",
                "Update-SSMPatchBaseline",
                "Update-SSMResourceDataSync",
                "Update-SSMServiceSetting",

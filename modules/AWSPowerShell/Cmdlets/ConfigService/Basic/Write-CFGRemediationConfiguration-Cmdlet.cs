@@ -37,6 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     ///  <note><para>
     /// If you make backward incompatible changes to the SSM document, you must call this
     /// again to ensure the remediations can run.
+    /// </para><para>
+    /// This API does not support adding remediation configurations for service-linked AWS
+    /// Config Rules such as Organization Config rules, the rules deployed by conformance
+    /// packs, and rules deployed by AWS Security Hub.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGRemediationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

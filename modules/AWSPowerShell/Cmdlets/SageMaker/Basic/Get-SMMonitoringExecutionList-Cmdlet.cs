@@ -90,6 +90,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.DateTime? LastModifiedTimeBefore { get; set; }
         #endregion
         
+        #region Parameter MonitoringJobDefinitionName
+        /// <summary>
+        /// <para>
+        /// <para>Gets a list of the monitoring job runs of the specified monitoring job definitions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MonitoringJobDefinitionName { get; set; }
+        #endregion
+        
         #region Parameter MonitoringScheduleName
         /// <summary>
         /// <para>
@@ -98,6 +108,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MonitoringScheduleName { get; set; }
+        #endregion
+        
+        #region Parameter MonitoringTypeEqual
+        /// <summary>
+        /// <para>
+        /// <para>A filter that returns only the monitoring job runs of the specified monitoring type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MonitoringTypeEquals")]
+        [AWSConstantClassSource("Amazon.SageMaker.MonitoringType")]
+        public Amazon.SageMaker.MonitoringType MonitoringTypeEqual { get; set; }
         #endregion
         
         #region Parameter ScheduledTimeAfter
@@ -245,7 +267,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.MonitoringJobDefinitionName = this.MonitoringJobDefinitionName;
             context.MonitoringScheduleName = this.MonitoringScheduleName;
+            context.MonitoringTypeEqual = this.MonitoringTypeEqual;
             context.NextToken = this.NextToken;
             context.ScheduledTimeAfter = this.ScheduledTimeAfter;
             context.ScheduledTimeBefore = this.ScheduledTimeBefore;
@@ -295,9 +319,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
+            if (cmdletContext.MonitoringJobDefinitionName != null)
+            {
+                request.MonitoringJobDefinitionName = cmdletContext.MonitoringJobDefinitionName;
+            }
             if (cmdletContext.MonitoringScheduleName != null)
             {
                 request.MonitoringScheduleName = cmdletContext.MonitoringScheduleName;
+            }
+            if (cmdletContext.MonitoringTypeEqual != null)
+            {
+                request.MonitoringTypeEquals = cmdletContext.MonitoringTypeEqual;
             }
             if (cmdletContext.ScheduledTimeAfter != null)
             {
@@ -394,9 +426,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.LastModifiedTimeBefore = cmdletContext.LastModifiedTimeBefore.Value;
             }
+            if (cmdletContext.MonitoringJobDefinitionName != null)
+            {
+                request.MonitoringJobDefinitionName = cmdletContext.MonitoringJobDefinitionName;
+            }
             if (cmdletContext.MonitoringScheduleName != null)
             {
                 request.MonitoringScheduleName = cmdletContext.MonitoringScheduleName;
+            }
+            if (cmdletContext.MonitoringTypeEqual != null)
+            {
+                request.MonitoringTypeEquals = cmdletContext.MonitoringTypeEqual;
             }
             if (cmdletContext.ScheduledTimeAfter != null)
             {
@@ -547,7 +587,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.DateTime? LastModifiedTimeAfter { get; set; }
             public System.DateTime? LastModifiedTimeBefore { get; set; }
             public int? MaxResult { get; set; }
+            public System.String MonitoringJobDefinitionName { get; set; }
             public System.String MonitoringScheduleName { get; set; }
+            public Amazon.SageMaker.MonitoringType MonitoringTypeEqual { get; set; }
             public System.String NextToken { get; set; }
             public System.DateTime? ScheduledTimeAfter { get; set; }
             public System.DateTime? ScheduledTimeBefore { get; set; }

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// Cancels a pending step or steps in a running cluster. Available only in Amazon EMR
     /// versions 4.8.0 and later, excluding version 5.0.0. A maximum of 256 steps are allowed
     /// in each CancelSteps request. CancelSteps is idempotent but asynchronous; it does not
-    /// guarantee a step will be canceled, even if the request is successfully submitted.
+    /// guarantee that a step will be canceled, even if the request is successfully submitted.
     /// You can only cancel steps that are in a <code>PENDING</code> state.
     /// </summary>
     [Cmdlet("Stop", "EMRStep", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>The <code>ClusterID</code> for which specified steps will be canceled. Use <a>RunJobFlow</a>
+        /// <para>The <code>ClusterID</code> for the specified steps that will be canceled. Use <a>RunJobFlow</a>
         /// and <a>ListClusters</a> to get ClusterIDs. </para>
         /// </para>
         /// </summary>
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter StepCancellationOption
         /// <summary>
         /// <para>
-        /// <para>The option to choose for cancelling <code>RUNNING</code> steps. By default, the value
-        /// is <code>SEND_INTERRUPT</code>.</para>
+        /// <para>The option to choose to cancel <code>RUNNING</code> steps. By default, the value is
+        /// <code>SEND_INTERRUPT</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

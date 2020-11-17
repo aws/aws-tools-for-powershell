@@ -185,7 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter InviteMessageTemplate_EmailMessage
         /// <summary>
         /// <para>
-        /// <para>The message template for email messages.</para>
+        /// <para>The message template for email messages. EmailMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a>
+        /// is DEVELOPER. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,7 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter VerificationMessageTemplate_EmailMessage
         /// <summary>
         /// <para>
-        /// <para>The email message template.</para>
+        /// <para>The email message template. EmailMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">
+        /// EmailSendingAccount</a> is DEVELOPER. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,7 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter VerificationMessageTemplate_EmailMessageByLink
         /// <summary>
         /// <para>
-        /// <para>The email message template for sending a confirmation link to the user.</para>
+        /// <para>The email message template for sending a confirmation link to the user. EmailMessageByLink
+        /// is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">
+        /// EmailSendingAccount</a> is DEVELOPER.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// specify DEVELOPER to use your Amazon SES email configuration.</para><para>To look up the email delivery limit for the default option, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Limits
         /// in Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</para><para>The default FROM address is no-reply@verificationemail.com. To customize the FROM
         /// address, provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code>
-        /// parameter.</para></dd><dt>DEVELOPER</dt><dd><para>When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon
+        /// parameter.</para><para> If EmailSendingAccount is COGNITO_DEFAULT, the following parameters aren't allowed:</para><ul><li><para>EmailVerificationMessage</para></li><li><para>EmailVerificationSubject</para></li><li><para>InviteMessageTemplate.EmailMessage</para></li><li><para>InviteMessageTemplate.EmailSubject</para></li><li><para>VerificationMessageTemplate.EmailMessage</para></li><li><para>VerificationMessageTemplate.EmailMessageByLink</para></li><li><para>VerificationMessageTemplate.EmailSubject,</para></li><li><para>VerificationMessageTemplate.EmailSubjectByLink</para></li></ul><note><para>DEVELOPER EmailSendingAccount is required.</para></note></dd><dt>DEVELOPER</dt><dd><para>When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon
         /// Cognito calls Amazon SES on your behalf to send email from your verified email address.
         /// When you use this option, the email delivery limits are the same limits that apply
         /// to your Amazon SES verified email address in your AWS account.</para><para>If you use this option, you must provide the ARN of an Amazon SES verified email address
@@ -245,7 +249,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter InviteMessageTemplate_EmailSubject
         /// <summary>
         /// <para>
-        /// <para>The subject line for email messages.</para>
+        /// <para>The subject line for email messages. EmailSubject is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a>
+        /// is DEVELOPER. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,7 +261,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter VerificationMessageTemplate_EmailSubject
         /// <summary>
         /// <para>
-        /// <para>The subject line for the email message template.</para>
+        /// <para>The subject line for the email message template. EmailSubject is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a>
+        /// is DEVELOPER. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,7 +273,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The subject line for the email message template for sending a confirmation link to
-        /// the user.</para>
+        /// the user. EmailSubjectByLink is allowed only <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">
+        /// EmailSendingAccount</a> is DEVELOPER.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +284,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailVerificationMessage
         /// <summary>
         /// <para>
-        /// <para>A string representing the email verification message.</para>
+        /// <para>A string representing the email verification message. EmailVerificationMessage is
+        /// allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a>
+        /// is DEVELOPER. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +296,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailVerificationSubject
         /// <summary>
         /// <para>
-        /// <para>A string representing the email verification subject.</para>
+        /// <para>A string representing the email verification subject. EmailVerificationSubject is
+        /// allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a>
+        /// is DEVELOPER. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -320,6 +331,70 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EmailConfiguration_From { get; set; }
+        #endregion
+        
+        #region Parameter LambdaConfig_KMSKeyID
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name of Key Management Service <a href="/kms/latest/developerguide/concepts.html#master_keys">Customer
+        /// master keys</a> . Amazon Cognito uses the key to encrypt codes and temporary passwords
+        /// sent to <code>CustomEmailSender</code> and <code>CustomSMSSender</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LambdaConfig_KMSKeyID { get; set; }
+        #endregion
+        
+        #region Parameter CustomEmailSender_LambdaArn
+        /// <summary>
+        /// <para>
+        /// <para>The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers
+        /// to send email notifications to users.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LambdaConfig_CustomEmailSender_LambdaArn")]
+        public System.String CustomEmailSender_LambdaArn { get; set; }
+        #endregion
+        
+        #region Parameter CustomSMSSender_LambdaArn
+        /// <summary>
+        /// <para>
+        /// <para>The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers
+        /// to send SMS notifications to users.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LambdaConfig_CustomSMSSender_LambdaArn")]
+        public System.String CustomSMSSender_LambdaArn { get; set; }
+        #endregion
+        
+        #region Parameter CustomEmailSender_LambdaVersion
+        /// <summary>
+        /// <para>
+        /// <para>The Lambda version represents the signature of the "request" attribute in the "event"
+        /// information Amazon Cognito passes to your custom email Lambda function. The only supported
+        /// value is <code>V1_0</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LambdaConfig_CustomEmailSender_LambdaVersion")]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.CustomEmailSenderLambdaVersionType")]
+        public Amazon.CognitoIdentityProvider.CustomEmailSenderLambdaVersionType CustomEmailSender_LambdaVersion { get; set; }
+        #endregion
+        
+        #region Parameter CustomSMSSender_LambdaVersion
+        /// <summary>
+        /// <para>
+        /// <para>The Lambda version represents the signature of the "request" attribute in the "event"
+        /// information Amazon Cognito passes to your custom SMS Lambda function. The only supported
+        /// value is <code>V1_0</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LambdaConfig_CustomSMSSender_LambdaVersion")]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.CustomSMSSenderLambdaVersionType")]
+        public Amazon.CognitoIdentityProvider.CustomSMSSenderLambdaVersionType CustomSMSSender_LambdaVersion { get; set; }
         #endregion
         
         #region Parameter MfaConfiguration
@@ -537,7 +612,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.
         /// This is the ARN of the IAM role in your AWS account which Cognito will use to send
-        /// SMS messages.</para>
+        /// SMS messages. SMS messages are subject to a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html">spending
+        /// limit</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -722,8 +798,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.EmailVerificationMessage = this.EmailVerificationMessage;
             context.EmailVerificationSubject = this.EmailVerificationSubject;
             context.LambdaConfig_CreateAuthChallenge = this.LambdaConfig_CreateAuthChallenge;
+            context.CustomEmailSender_LambdaArn = this.CustomEmailSender_LambdaArn;
+            context.CustomEmailSender_LambdaVersion = this.CustomEmailSender_LambdaVersion;
             context.LambdaConfig_CustomMessage = this.LambdaConfig_CustomMessage;
+            context.CustomSMSSender_LambdaArn = this.CustomSMSSender_LambdaArn;
+            context.CustomSMSSender_LambdaVersion = this.CustomSMSSender_LambdaVersion;
             context.LambdaConfig_DefineAuthChallenge = this.LambdaConfig_DefineAuthChallenge;
+            context.LambdaConfig_KMSKeyID = this.LambdaConfig_KMSKeyID;
             context.LambdaConfig_PostAuthentication = this.LambdaConfig_PostAuthentication;
             context.LambdaConfig_PostConfirmation = this.LambdaConfig_PostConfirmation;
             context.LambdaConfig_PreAuthentication = this.LambdaConfig_PreAuthentication;
@@ -1020,6 +1101,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 request.LambdaConfig.DefineAuthChallenge = requestLambdaConfig_lambdaConfig_DefineAuthChallenge;
                 requestLambdaConfigIsNull = false;
             }
+            System.String requestLambdaConfig_lambdaConfig_KMSKeyID = null;
+            if (cmdletContext.LambdaConfig_KMSKeyID != null)
+            {
+                requestLambdaConfig_lambdaConfig_KMSKeyID = cmdletContext.LambdaConfig_KMSKeyID;
+            }
+            if (requestLambdaConfig_lambdaConfig_KMSKeyID != null)
+            {
+                request.LambdaConfig.KMSKeyID = requestLambdaConfig_lambdaConfig_KMSKeyID;
+                requestLambdaConfigIsNull = false;
+            }
             System.String requestLambdaConfig_lambdaConfig_PostAuthentication = null;
             if (cmdletContext.LambdaConfig_PostAuthentication != null)
             {
@@ -1088,6 +1179,76 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestLambdaConfig_lambdaConfig_VerifyAuthChallengeResponse != null)
             {
                 request.LambdaConfig.VerifyAuthChallengeResponse = requestLambdaConfig_lambdaConfig_VerifyAuthChallengeResponse;
+                requestLambdaConfigIsNull = false;
+            }
+            Amazon.CognitoIdentityProvider.Model.CustomEmailLambdaVersionConfigType requestLambdaConfig_lambdaConfig_CustomEmailSender = null;
+            
+             // populate CustomEmailSender
+            var requestLambdaConfig_lambdaConfig_CustomEmailSenderIsNull = true;
+            requestLambdaConfig_lambdaConfig_CustomEmailSender = new Amazon.CognitoIdentityProvider.Model.CustomEmailLambdaVersionConfigType();
+            System.String requestLambdaConfig_lambdaConfig_CustomEmailSender_customEmailSender_LambdaArn = null;
+            if (cmdletContext.CustomEmailSender_LambdaArn != null)
+            {
+                requestLambdaConfig_lambdaConfig_CustomEmailSender_customEmailSender_LambdaArn = cmdletContext.CustomEmailSender_LambdaArn;
+            }
+            if (requestLambdaConfig_lambdaConfig_CustomEmailSender_customEmailSender_LambdaArn != null)
+            {
+                requestLambdaConfig_lambdaConfig_CustomEmailSender.LambdaArn = requestLambdaConfig_lambdaConfig_CustomEmailSender_customEmailSender_LambdaArn;
+                requestLambdaConfig_lambdaConfig_CustomEmailSenderIsNull = false;
+            }
+            Amazon.CognitoIdentityProvider.CustomEmailSenderLambdaVersionType requestLambdaConfig_lambdaConfig_CustomEmailSender_customEmailSender_LambdaVersion = null;
+            if (cmdletContext.CustomEmailSender_LambdaVersion != null)
+            {
+                requestLambdaConfig_lambdaConfig_CustomEmailSender_customEmailSender_LambdaVersion = cmdletContext.CustomEmailSender_LambdaVersion;
+            }
+            if (requestLambdaConfig_lambdaConfig_CustomEmailSender_customEmailSender_LambdaVersion != null)
+            {
+                requestLambdaConfig_lambdaConfig_CustomEmailSender.LambdaVersion = requestLambdaConfig_lambdaConfig_CustomEmailSender_customEmailSender_LambdaVersion;
+                requestLambdaConfig_lambdaConfig_CustomEmailSenderIsNull = false;
+            }
+             // determine if requestLambdaConfig_lambdaConfig_CustomEmailSender should be set to null
+            if (requestLambdaConfig_lambdaConfig_CustomEmailSenderIsNull)
+            {
+                requestLambdaConfig_lambdaConfig_CustomEmailSender = null;
+            }
+            if (requestLambdaConfig_lambdaConfig_CustomEmailSender != null)
+            {
+                request.LambdaConfig.CustomEmailSender = requestLambdaConfig_lambdaConfig_CustomEmailSender;
+                requestLambdaConfigIsNull = false;
+            }
+            Amazon.CognitoIdentityProvider.Model.CustomSMSLambdaVersionConfigType requestLambdaConfig_lambdaConfig_CustomSMSSender = null;
+            
+             // populate CustomSMSSender
+            var requestLambdaConfig_lambdaConfig_CustomSMSSenderIsNull = true;
+            requestLambdaConfig_lambdaConfig_CustomSMSSender = new Amazon.CognitoIdentityProvider.Model.CustomSMSLambdaVersionConfigType();
+            System.String requestLambdaConfig_lambdaConfig_CustomSMSSender_customSMSSender_LambdaArn = null;
+            if (cmdletContext.CustomSMSSender_LambdaArn != null)
+            {
+                requestLambdaConfig_lambdaConfig_CustomSMSSender_customSMSSender_LambdaArn = cmdletContext.CustomSMSSender_LambdaArn;
+            }
+            if (requestLambdaConfig_lambdaConfig_CustomSMSSender_customSMSSender_LambdaArn != null)
+            {
+                requestLambdaConfig_lambdaConfig_CustomSMSSender.LambdaArn = requestLambdaConfig_lambdaConfig_CustomSMSSender_customSMSSender_LambdaArn;
+                requestLambdaConfig_lambdaConfig_CustomSMSSenderIsNull = false;
+            }
+            Amazon.CognitoIdentityProvider.CustomSMSSenderLambdaVersionType requestLambdaConfig_lambdaConfig_CustomSMSSender_customSMSSender_LambdaVersion = null;
+            if (cmdletContext.CustomSMSSender_LambdaVersion != null)
+            {
+                requestLambdaConfig_lambdaConfig_CustomSMSSender_customSMSSender_LambdaVersion = cmdletContext.CustomSMSSender_LambdaVersion;
+            }
+            if (requestLambdaConfig_lambdaConfig_CustomSMSSender_customSMSSender_LambdaVersion != null)
+            {
+                requestLambdaConfig_lambdaConfig_CustomSMSSender.LambdaVersion = requestLambdaConfig_lambdaConfig_CustomSMSSender_customSMSSender_LambdaVersion;
+                requestLambdaConfig_lambdaConfig_CustomSMSSenderIsNull = false;
+            }
+             // determine if requestLambdaConfig_lambdaConfig_CustomSMSSender should be set to null
+            if (requestLambdaConfig_lambdaConfig_CustomSMSSenderIsNull)
+            {
+                requestLambdaConfig_lambdaConfig_CustomSMSSender = null;
+            }
+            if (requestLambdaConfig_lambdaConfig_CustomSMSSender != null)
+            {
+                request.LambdaConfig.CustomSMSSender = requestLambdaConfig_lambdaConfig_CustomSMSSender;
                 requestLambdaConfigIsNull = false;
             }
              // determine if request.LambdaConfig should be set to null
@@ -1422,8 +1583,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String EmailVerificationMessage { get; set; }
             public System.String EmailVerificationSubject { get; set; }
             public System.String LambdaConfig_CreateAuthChallenge { get; set; }
+            public System.String CustomEmailSender_LambdaArn { get; set; }
+            public Amazon.CognitoIdentityProvider.CustomEmailSenderLambdaVersionType CustomEmailSender_LambdaVersion { get; set; }
             public System.String LambdaConfig_CustomMessage { get; set; }
+            public System.String CustomSMSSender_LambdaArn { get; set; }
+            public Amazon.CognitoIdentityProvider.CustomSMSSenderLambdaVersionType CustomSMSSender_LambdaVersion { get; set; }
             public System.String LambdaConfig_DefineAuthChallenge { get; set; }
+            public System.String LambdaConfig_KMSKeyID { get; set; }
             public System.String LambdaConfig_PostAuthentication { get; set; }
             public System.String LambdaConfig_PostConfirmation { get; set; }
             public System.String LambdaConfig_PreAuthentication { get; set; }

@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     public partial class GetEC2IBComponentListCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
+        #region Parameter ByName
+        /// <summary>
+        /// <para>
+        /// <para>Returns the list of component build versions for the specified semantic version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ByName { get; set; }
+        #endregion
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
@@ -126,6 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 context.Select = CreateSelectDelegate<Amazon.Imagebuilder.Model.ListComponentsResponse, GetEC2IBComponentListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ByName = this.ByName;
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.Imagebuilder.Model.Filter>(this.Filter);
@@ -151,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             // create request and set iteration invariants
             var request = new Amazon.Imagebuilder.Model.ListComponentsRequest();
             
+            if (cmdletContext.ByName != null)
+            {
+                request.ByName = cmdletContext.ByName.Value;
+            }
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
@@ -248,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ByName { get; set; }
             public List<Amazon.Imagebuilder.Model.Filter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// that you want the request to return. You can also filter and group your data by various
     /// dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range.
     /// For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
-    /// operation. Master account in an organization in AWS Organizations have access to all
-    /// member accounts. This API is currently available for the Amazon Elastic Compute Cloud
-    /// – Compute service only.
+    /// operation. Management account in an organization in AWS Organizations have access
+    /// to all member accounts. This API is currently available for the Amazon Elastic Compute
+    /// Cloud – Compute service only.
     /// 
     ///  <note><para>
     /// This is an opt-in only feature. You can enable this feature from the Cost Explorer
