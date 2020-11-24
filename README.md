@@ -27,6 +27,13 @@ The change log for AWS Tools for PowerShell can be found in the [CHANGELOG.md](h
 
 The AWS Tools for PowerShell depends on the [AWS SDK for .NET](https://github.com/aws/aws-sdk-net), you can find the AWS SDK's changelog [here](https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md).
 
+## Maintenance and support for major versions
+
+For information about maintenance and support for major versions and their underlying dependencies, see the following in the AWS SDKs and Tools Shared Configuration and Credentials Reference Guide:
+
+* [AWS SDKs and Tools Maintenance Policy](https://docs.aws.amazon.com/credref/latest/refdocs/maint-policy.html)
+* [AWS SDKs and Tools Version Support Matrix](https://docs.aws.amazon.com/credref/latest/refdocs/version-support-matrix.html)
+
 ## Additional Resources
 
 [AWS Tools for PowerShell User Guide](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-welcome.html)
