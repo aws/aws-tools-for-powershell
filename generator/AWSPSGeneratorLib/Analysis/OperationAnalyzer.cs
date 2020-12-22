@@ -470,6 +470,7 @@ namespace AWSPowerShellGenerator.Analysis
                 // and (of course) the request object property. It would affect help though.
                 // Note that some services also employ List<List<T>>, so we have to detect inner
                 // case too.
+                // Note services started using List<List<List<T>>>.
                 if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("List`"))
                 {
                     genericCollectionTypes = property.PropertyType.GetGenericArguments();
@@ -480,8 +481,20 @@ namespace AWSPowerShellGenerator.Analysis
                     }
                     else if (genericCollectionTypes[0].Name.StartsWith("List`"))
                     {
-                        genericCollectionTypes = genericCollectionTypes[0].GetGenericArguments();
-                        collectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericList;
+                        if (genericCollectionTypes[0].GenericTypeArguments[0].Name.StartsWith("List`"))
+                        {
+                            if (genericCollectionTypes[0].GenericTypeArguments[0].GenericTypeArguments[0].Name.StartsWith("List`"))
+                            {
+                                throw new UnexpectedPropertyTypeException($"Only three levels of List<T> are supported, detected four or more for property {property.Name}");
+                            }
+                            genericCollectionTypes = genericCollectionTypes[0].GenericTypeArguments[0].GetGenericArguments();
+                            collectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericListOfGenericList;
+                        }
+                        else
+                        {
+                            genericCollectionTypes = genericCollectionTypes[0].GetGenericArguments();
+                            collectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericList;
+                        }
                     }
                     else
                     {
@@ -1327,7 +1340,23 @@ namespace AWSPowerShellGenerator.Analysis
                     var innerCollectionType = property.PropertyType.GetGenericArguments();
                     if (innerCollectionType[0].Name.StartsWith("List`", StringComparison.Ordinal))
                     {
-                        singleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericList;
+                        var additionalNested = innerCollectionType[0].GenericTypeArguments[0];
+
+                        if (additionalNested.IsNested)
+                        {
+                            if (additionalNested.GenericTypeArguments[0].IsNested)
+                            {
+                                throw new UnexpectedPropertyTypeException($"Only three levels of List<T> are supported, detected four or more for property {property.Name}");
+                            }
+                            singleResultProperty.GenericCollectionTypes = new[] { additionalNested};
+
+                            singleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType
+                                .IsGenericListOfGenericListOfGenericList;
+                        }
+                        else
+                        {
+                            singleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericList;
+                        }
                     }
                     else if (innerCollectionType[0].Name.StartsWith("Dictionary`", StringComparison.Ordinal))
                     {

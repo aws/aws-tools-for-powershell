@@ -227,7 +227,7 @@ namespace AWSPowerShellGenerator.Analysis
 
         public static void ExceptionWhileWritingCmdletCode(ConfigModel service, ServiceOperation operation, Exception exception)
         {
-            new AnalysisError(service, operation, $"Overrides for this service were ignored because they are marked with a different FileVersion number.");
+            new AnalysisError(service, operation, $"Error writing Cmdlet: {exception}");
         }
 
         public static void WrongFileVersionNumber(ConfigModel service)

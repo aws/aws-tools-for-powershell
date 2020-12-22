@@ -664,6 +664,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             writer.WriteLine($"public {property.GenericCollectionTypes[0].FullName}[][] {property.CmdletParameterName} {{ get; set; }}");
                         }
                         break;
+                    case SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericListOfGenericList:
+                        {
+                            writer.WriteLine($"public {property.GenericCollectionTypes[0].FullName}[][][] {property.CmdletParameterName} {{ get; set; }}");
+                        }
+                        break;
                     case SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericDictionary:
                         {
                             writer.WriteLine($"public System.Collections.Hashtable[] {property.CmdletParameterName} {{ get; set; }}");
@@ -949,6 +954,49 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                         writer.OpenRegion();
                                         {
                                             writer.WriteLine($"context.{property.CmdletParameterName}.Add(new List<{innerDictionaryTypes[0].FullName}>(innerList));");
+                                        }
+                                        writer.CloseRegion();
+                                    }
+                                    writer.CloseRegion();
+                                }
+                                break;
+
+                            case SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericListOfGenericList:
+                                {
+                                    /* generates code pattern of:
+                                        context.PROPERTY = new List<List<List<T>>>();
+                                        foreach (var innerList in this.PROPERTY)
+                                        {
+                                            var innerListCopy = new List<List<T>();
+                                            context.PROPERTY.Add(innerListCopy);
+
+                                            foreach (var innermostList in innerList)
+                                            {
+                                                var innermostListCopy = new List<T>(innermostList);
+                                                innerListCopy.Add(innermostListCopy);
+                                            }
+                                        }
+                                    */
+                                    writer.WriteLine($"if (this.{property.CmdletParameterName} != null)");
+                                    writer.OpenRegion();
+                                    {
+                                        // simple property info ctor has already dived down to get the inner types for us
+                                        var innerDictionaryTypes = property.GenericCollectionTypes;
+
+                                        writer.WriteLine($"context.{property.CmdletParameterName} = new {property.PropertyTypeName}();");
+                                        writer.WriteLine($"foreach (var innerList in this.{property.CmdletParameterName})");
+                                        writer.OpenRegion();
+                                        {
+                                            writer.WriteLine($"var innerListCopy = new List<List<{innerDictionaryTypes[0].FullName}>>();");
+                                            writer.WriteLine($"context.{property.CmdletParameterName}.Add(innerListCopy);");
+
+                                            writer.WriteLine("foreach (var innermostList in innerList)");
+                                            writer.OpenRegion();
+                                            {
+                                                writer.WriteLine($"var innermostListCopy = new List<{innerDictionaryTypes[0].FullName}>(innermostList);");
+                                                writer.WriteLine("innerListCopy.Add(innermostListCopy);");
+                                            }
+                                            writer.CloseRegion();
                                         }
                                         writer.CloseRegion();
                                     }
