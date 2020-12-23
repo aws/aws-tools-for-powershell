@@ -28,7 +28,7 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Creates a datastore that can ingest and export FHIR data.
+    /// Creates a Data Store that can ingest and export FHIR formatted data.
     /// </summary>
     [Cmdlet("New", "AHLFHIRDatastore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.HealthLake.Model.CreateFHIRDatastoreResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreName
         /// <summary>
         /// <para>
-        /// <para>The user generated name for the datastore.</para>
+        /// <para>The user generated name for the Data Store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreTypeVersion
         /// <summary>
         /// <para>
-        /// <para>The FHIR version of the datastore. The only supported version is R4.</para>
+        /// <para>The FHIR version of the Data Store. The only supported version is R4.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

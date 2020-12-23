@@ -2092,6 +2092,38 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String SybaseSettings_SecretsManagerAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter OracleSettings_SecretsManagerOracleAsmAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Required only if your Oracle endpoint uses Advanced Storage Manager (ASM). The full
+        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and grants the required
+        /// permissions to access the <code>SecretsManagerOracleAsmSecret</code>. This <code>SecretsManagerOracleAsmSecret</code>
+        /// has the secret value that allows access to the Oracle ASM of the endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <code>SecretsManagerOracleAsmSecretId</code>. Or you can
+        /// specify clear-text values for <code>AsmUserName</code>, <code>AsmPassword</code>,
+        /// and <code>AsmServerName</code>. You can't specify both. For more information on creating
+        /// this <code>SecretsManagerOracleAsmSecret</code> and the <code>SecretsManagerOracleAsmAccessRoleArn</code>
+        /// and <code>SecretsManagerOracleAsmSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// secrets to access AWS Database Migration Service resources</a> in the <i>AWS Database
+        /// Migration Service User Guide</i>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_SecretsManagerOracleAsmAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_SecretsManagerOracleAsmSecretId
+        /// <summary>
+        /// <para>
+        /// <para>Required only if your Oracle endpoint uses Advanced Storage Manager (ASM). The full
+        /// ARN, partial ARN, or friendly name of the <code>SecretsManagerOracleAsmSecret</code>
+        /// that contains the Oracle ASM connection details for the Oracle endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_SecretsManagerOracleAsmSecretId { get; set; }
+        #endregion
+        
         #region Parameter DocDbSettings_SecretsManagerSecretId
         /// <summary>
         /// <para>
@@ -2928,6 +2960,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.OracleSettings_ReplacePathPrefix = this.OracleSettings_ReplacePathPrefix;
             context.OracleSettings_RetryInterval = this.OracleSettings_RetryInterval;
             context.OracleSettings_SecretsManagerAccessRoleArn = this.OracleSettings_SecretsManagerAccessRoleArn;
+            context.OracleSettings_SecretsManagerOracleAsmAccessRoleArn = this.OracleSettings_SecretsManagerOracleAsmAccessRoleArn;
+            context.OracleSettings_SecretsManagerOracleAsmSecretId = this.OracleSettings_SecretsManagerOracleAsmSecretId;
             context.OracleSettings_SecretsManagerSecretId = this.OracleSettings_SecretsManagerSecretId;
             context.OracleSettings_SecurityDbEncryption = this.OracleSettings_SecurityDbEncryption;
             context.OracleSettings_SecurityDbEncryptionName = this.OracleSettings_SecurityDbEncryptionName;
@@ -4351,6 +4385,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.OracleSettings.SecretsManagerAccessRoleArn = requestOracleSettings_oracleSettings_SecretsManagerAccessRoleArn;
                 requestOracleSettingsIsNull = false;
             }
+            System.String requestOracleSettings_oracleSettings_SecretsManagerOracleAsmAccessRoleArn = null;
+            if (cmdletContext.OracleSettings_SecretsManagerOracleAsmAccessRoleArn != null)
+            {
+                requestOracleSettings_oracleSettings_SecretsManagerOracleAsmAccessRoleArn = cmdletContext.OracleSettings_SecretsManagerOracleAsmAccessRoleArn;
+            }
+            if (requestOracleSettings_oracleSettings_SecretsManagerOracleAsmAccessRoleArn != null)
+            {
+                request.OracleSettings.SecretsManagerOracleAsmAccessRoleArn = requestOracleSettings_oracleSettings_SecretsManagerOracleAsmAccessRoleArn;
+                requestOracleSettingsIsNull = false;
+            }
+            System.String requestOracleSettings_oracleSettings_SecretsManagerOracleAsmSecretId = null;
+            if (cmdletContext.OracleSettings_SecretsManagerOracleAsmSecretId != null)
+            {
+                requestOracleSettings_oracleSettings_SecretsManagerOracleAsmSecretId = cmdletContext.OracleSettings_SecretsManagerOracleAsmSecretId;
+            }
+            if (requestOracleSettings_oracleSettings_SecretsManagerOracleAsmSecretId != null)
+            {
+                request.OracleSettings.SecretsManagerOracleAsmSecretId = requestOracleSettings_oracleSettings_SecretsManagerOracleAsmSecretId;
+                requestOracleSettingsIsNull = false;
+            }
             System.String requestOracleSettings_oracleSettings_SecretsManagerSecretId = null;
             if (cmdletContext.OracleSettings_SecretsManagerSecretId != null)
             {
@@ -5463,6 +5517,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Boolean? OracleSettings_ReplacePathPrefix { get; set; }
             public System.Int32? OracleSettings_RetryInterval { get; set; }
             public System.String OracleSettings_SecretsManagerAccessRoleArn { get; set; }
+            public System.String OracleSettings_SecretsManagerOracleAsmAccessRoleArn { get; set; }
+            public System.String OracleSettings_SecretsManagerOracleAsmSecretId { get; set; }
             public System.String OracleSettings_SecretsManagerSecretId { get; set; }
             public System.String OracleSettings_SecurityDbEncryption { get; set; }
             public System.String OracleSettings_SecurityDbEncryptionName { get; set; }

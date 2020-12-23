@@ -93,7 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>The maximum value that you plan to scale out to. When a scaling policy is in effect,
         /// Application Auto Scaling can scale out (expand) as needed to the maximum capacity
-        /// limit in response to changing demand. </para><para>This parameter is required if you are registering a scalable target.</para><para>Although you can specify a large maximum capacity, note that service quotas may impose
+        /// limit in response to changing demand. This property is required when registering a
+        /// new scalable target.</para><para>Although you can specify a large maximum capacity, note that service quotas may impose
         /// lower limits. Each service has its own default quotas for the maximum capacity of
         /// the resource. If you want to specify a higher limit, you can request an increase.
         /// For more information, consult the documentation for that service. For information
@@ -110,10 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>The minimum value that you plan to scale in to. When a scaling policy is in effect,
         /// Application Auto Scaling can scale in (contract) as needed to the minimum capacity
-        /// limit in response to changing demand. </para><para>This parameter is required if you are registering a scalable target. For certain resources,
-        /// the minimum value allowed is 0. This includes Lambda provisioned concurrency, Spot
-        /// Fleet, ECS services, Aurora DB clusters, EMR clusters, and custom resources. For all
-        /// other resources, the minimum value allowed is 1.</para>
+        /// limit in response to changing demand. This property is required when registering a
+        /// new scalable target.</para><para>For certain resources, the minimum value allowed is 0. This includes Lambda provisioned
+        /// concurrency, Spot Fleet, ECS services, Aurora DB clusters, EMR clusters, and custom
+        /// resources. For all other resources, the minimum value allowed is 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

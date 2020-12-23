@@ -28,7 +28,12 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Returns a list of existing resource groups in your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of existing resource groups in your account.
+    /// 
+    ///  
+    /// <para><b>Minimum permissions</b></para><para>
+    /// To run this command, you must have the following permissions:
+    /// </para><ul><li><para><code>resource-groups:ListGroups</code></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RGGroupList")]
     [OutputType("Amazon.ResourceGroups.Model.GroupIdentifier")]
@@ -47,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// operation.</para><ul><li><para><code>resource-type</code> - Filter the results to include only those of the specified
         /// resource types. Specify up to five resource types in the format <code>AWS::<i>ServiceCode</i>::<i>ResourceType</i></code>. For example, <code>AWS::EC2::Instance</code>, or <code>AWS::S3::Bucket</code>.</para></li><li><para><code>configuration-type</code> - Filter the results to include only those groups
         /// that have the specified configuration types attached. The current supported values
-        /// are:</para><ul><li><para>AWS:EC2::CapacityReservationPool</para></li></ul></li></ul>
+        /// are:</para><ul><li><para><code>AWS:EC2::CapacityReservationPool</code></para></li><li><para><code>AWS:EC2::HostManagement</code></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

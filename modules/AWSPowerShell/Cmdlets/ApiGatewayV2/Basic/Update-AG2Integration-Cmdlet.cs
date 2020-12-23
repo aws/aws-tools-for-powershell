@@ -227,13 +227,19 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// name and the associated value is a method request parameter value or static value
         /// that must be enclosed within single quotes and pre-encoded as required by the backend.
         /// The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
-        ///              , where  <replaceable>{location}</replaceable>  is querystring, path,
-        /// or header; and <replaceable>{name}</replaceable> must be a valid and unique method
-        /// request parameter name.</para><para>For HTTP APIs, request parameters are a key-value map specifying parameters that are
-        /// passed to AWS_PROXY integrations with a specified integrationSubtype. You can provide
-        /// static values, or map request data, stage variables, or context variables that are
-        /// evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working
-        /// with AWS service integrations for HTTP APIs</a>.</para>
+        ///          , where             <replaceable>{location}</replaceable>           is querystring,
+        /// path, or header; and             <replaceable>{name}</replaceable>           must
+        /// be a valid and unique method request parameter name.</para><para>For HTTP API integrations with a specified integrationSubtype, request parameters
+        /// are a key-value map specifying parameters that are passed to AWS_PROXY integrations.
+        /// You can provide static values, or map request data, stage variables, or context variables
+        /// that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working
+        /// with AWS service integrations for HTTP APIs</a>.</para><para>For HTTP API integrations, without a specified integrationSubtype request parameters
+        /// are a key-value map specifying how to transform HTTP requests before sending them
+        /// to the backend. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt;
+        /// where action can be append, overwrite or remove. For values, you can provide static
+        /// values, or map request data, stage variables, or context variables that are evaluated
+        /// at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.">Transforming
+        /// API requests and responses</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,6 +259,25 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RequestTemplates")]
         public System.Collections.Hashtable RequestTemplate { get; set; }
+        #endregion
+        
+        #region Parameter ResponseParameter
+        /// <summary>
+        /// <para>
+        /// <para>Supported only for HTTP APIs. You use response parameters to transform the HTTP response
+        /// from a backend integration before returning the response to clients. Specify a key-value
+        /// map from a selection key to response parameters. The selection key must be a valid
+        /// HTTP status code within the range of 200-599. Response parameters are a key-value
+        /// map. The key must match pattern &lt;action&gt;:&lt;header&gt;.&lt;location&gt; or
+        /// overwrite.statuscode. The action can be append, overwrite or remove. The value can
+        /// be a static value, or map to response data, stage variables, or context variables
+        /// that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming
+        /// API requests and responses</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResponseParameters")]
+        public System.Collections.Hashtable ResponseParameter { get; set; }
         #endregion
         
         #region Parameter TlsConfig_ServerNameToVerify
@@ -392,6 +417,14 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                     context.RequestTemplate.Add((String)hashKey, (String)(this.RequestTemplate[hashKey]));
                 }
             }
+            if (this.ResponseParameter != null)
+            {
+                context.ResponseParameter = new Dictionary<System.String, Dictionary<System.String, System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ResponseParameter.Keys)
+                {
+                    context.ResponseParameter.Add((String)hashKey, (Dictionary<String,String>)(this.ResponseParameter[hashKey]));
+                }
+            }
             context.TemplateSelectionExpression = this.TemplateSelectionExpression;
             context.TimeoutInMilli = this.TimeoutInMilli;
             context.TlsConfig_ServerNameToVerify = this.TlsConfig_ServerNameToVerify;
@@ -470,6 +503,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             if (cmdletContext.RequestTemplate != null)
             {
                 request.RequestTemplates = cmdletContext.RequestTemplate;
+            }
+            if (cmdletContext.ResponseParameter != null)
+            {
+                request.ResponseParameters = cmdletContext.ResponseParameter;
             }
             if (cmdletContext.TemplateSelectionExpression != null)
             {
@@ -574,6 +611,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             public System.String PayloadFormatVersion { get; set; }
             public Dictionary<System.String, System.String> RequestParameter { get; set; }
             public Dictionary<System.String, System.String> RequestTemplate { get; set; }
+            public Dictionary<System.String, Dictionary<System.String, System.String>> ResponseParameter { get; set; }
             public System.String TemplateSelectionExpression { get; set; }
             public System.Int32? TimeoutInMilli { get; set; }
             public System.String TlsConfig_ServerNameToVerify { get; set; }

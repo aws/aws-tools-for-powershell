@@ -67,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCostCategories" OutputProperty="*" Verb="Get" Noun="CostCategory" PipelineParameter="TimePeriod" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCostForecast" OutputProperty="*" Verb="Get" Noun="CostForecast" PipelineParameter="TimePeriod" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -28,7 +28,14 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Retrieves the resource query associated with the specified resource group.
+    /// Retrieves the resource query associated with the specified resource group. For more
+    /// information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
+    /// a tag-based group in Resource Groups</a>.
+    /// 
+    ///  
+    /// <para><b>Minimum permissions</b></para><para>
+    /// To run this command, you must have the following permissions:
+    /// </para><ul><li><para><code>resource-groups:GetGroupQuery</code></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "RGGroupQuery")]
     [OutputType("Amazon.ResourceGroups.Model.GroupQuery")]

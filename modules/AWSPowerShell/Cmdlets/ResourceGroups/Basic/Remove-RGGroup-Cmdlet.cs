@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
     /// <summary>
     /// Deletes the specified resource group. Deleting a resource group does not delete any
     /// resources that are members of the group; it only deletes the group structure.
+    /// 
+    ///  
+    /// <para><b>Minimum permissions</b></para><para>
+    /// To run this command, you must have the following permissions:
+    /// </para><ul><li><para><code>resource-groups:DeleteGroup</code></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "RGGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ResourceGroups.Model.Group")]
@@ -54,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>Don't use this parameter. Use <code>Group</code> instead.</para>
+        /// <para>Deprecated - don't use this parameter. Use <code>Group</code> instead.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

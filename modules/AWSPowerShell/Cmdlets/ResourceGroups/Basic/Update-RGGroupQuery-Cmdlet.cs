@@ -28,7 +28,14 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Updates the resource query of a group.
+    /// Updates the resource query of a group. For more information about resource queries,
+    /// see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
+    /// a tag-based group in Resource Groups</a>.
+    /// 
+    ///  
+    /// <para><b>Minimum permissions</b></para><para>
+    /// To run this command, you must have the following permissions:
+    /// </para><ul><li><para><code>resource-groups:UpdateGroupQuery</code></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "RGGroupQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResourceGroups.Model.GroupQuery")]
@@ -53,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter ResourceQuery
         /// <summary>
         /// <para>
-        /// <para>The resource query to determine which AWS resources are members of this resource group.</para>
+        /// <para>The resource query to determine which AWS resources are members of this resource group.</para><note><para>A resource group can contain either a <code>Configuration</code> or a <code>ResourceQuery</code>,
+        /// but not both.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

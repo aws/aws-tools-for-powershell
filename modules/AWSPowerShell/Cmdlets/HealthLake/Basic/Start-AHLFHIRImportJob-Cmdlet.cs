@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para>The AWS-generated datastore ID.</para>
+        /// <para>The AWS-generated Data Store ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

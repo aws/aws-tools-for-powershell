@@ -168,8 +168,10 @@ $AHL_SelectMap = @{
     "Select"=@("New-AHLFHIRDatastore",
                "Remove-AHLFHIRDatastore",
                "Get-AHLFHIRDatastore",
+               "Get-AHLFHIRExportJob",
                "Get-AHLFHIRImportJob",
                "Get-AHLFHIRDatastoreList",
+               "Start-AHLFHIRExportJob",
                "Start-AHLFHIRImportJob")
 }
 

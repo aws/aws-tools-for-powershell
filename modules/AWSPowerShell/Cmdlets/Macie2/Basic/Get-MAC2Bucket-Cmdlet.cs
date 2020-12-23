@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter SortCriteria_AttributeName
         /// <summary>
         /// <para>
-        /// <para>The name of the attribute to sort the results by. This value can be the name of any
+        /// <para>The name of the property to sort the results by. This value can be the name of any
         /// property that Amazon Macie defines as bucket metadata, such as bucketName or accountId.</para>
         /// </para>
         /// </summary>

@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
     /// Returns information about a specified resource group.
+    /// 
+    ///  
+    /// <para><b>Minimum permissions</b></para><para>
+    /// To run this command, you must have the following permissions:
+    /// </para><ul><li><para><code>resource-groups:GetGroup</code></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "RGGroup")]
     [OutputType("Amazon.ResourceGroups.Model.Group")]
@@ -53,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>Don't use this parameter. Use <code>Group</code> instead.</para>
+        /// <para>Deprecated - don't use this parameter. Use <code>Group</code> instead.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

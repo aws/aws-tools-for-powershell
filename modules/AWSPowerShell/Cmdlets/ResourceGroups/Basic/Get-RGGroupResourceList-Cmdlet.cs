@@ -28,7 +28,12 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Returns a list of ARNs of the resources that are members of a specified resource group.<br/><br/>In the AWS.Tools.ResourceGroups module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of ARNs of the resources that are members of a specified resource group.
+    /// 
+    ///  
+    /// <para><b>Minimum permissions</b></para><para>
+    /// To run this command, you must have the following permissions:
+    /// </para><ul><li><para><code>resource-groups:ListGroupResources</code></para></li></ul><br/><br/>In the AWS.Tools.ResourceGroups module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RGGroupResourceList")]
     [OutputType("Amazon.ResourceGroups.Model.ListGroupResourcesResponse")]
@@ -76,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>Don't use this parameter. Use <code>Group</code> instead.</para>
+        /// <important><para><i><b>Deprecated - don't use this parameter. Use the <code>Group</code> request
+        /// field instead.</b></i></para></important>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
     /// <summary>
     /// Updates the description for an existing group. You cannot update the name of a resource
     /// group.
+    /// 
+    ///  
+    /// <para><b>Minimum permissions</b></para><para>
+    /// To run this command, you must have the following permissions:
+    /// </para><ul><li><para><code>resource-groups:UpdateGroup</code></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "RGGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResourceGroups.Model.Group")]

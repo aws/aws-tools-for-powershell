@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter FindingCriteria_Criterion
         /// <summary>
         /// <para>
-        /// <para>A condition that specifies the property, operator, and value to use to filter the
-        /// results.</para>
+        /// <para>A condition that specifies the property, operator, and one or more values to use to
+        /// filter the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

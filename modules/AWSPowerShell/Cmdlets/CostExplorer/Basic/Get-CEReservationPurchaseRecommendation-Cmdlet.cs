@@ -83,6 +83,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public Amazon.CostExplorer.AccountScope AccountScope { get; set; }
         #endregion
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CostExplorer.Model.Expression Filter { get; set; }
+        #endregion
+        
         #region Parameter LookbackPeriodInDay
         /// <summary>
         /// <para>
@@ -232,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccountId = this.AccountId;
             context.AccountScope = this.AccountScope;
+            context.Filter = this.Filter;
             context.LookbackPeriodInDay = this.LookbackPeriodInDay;
             context.NextPageToken = this.NextPageToken;
             context.PageSize = this.PageSize;
@@ -273,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (cmdletContext.AccountScope != null)
             {
                 request.AccountScope = cmdletContext.AccountScope;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filter = cmdletContext.Filter;
             }
             if (cmdletContext.LookbackPeriodInDay != null)
             {
@@ -389,6 +404,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (cmdletContext.AccountScope != null)
             {
                 request.AccountScope = cmdletContext.AccountScope;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filter = cmdletContext.Filter;
             }
             if (cmdletContext.LookbackPeriodInDay != null)
             {
@@ -512,6 +531,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         {
             public System.String AccountId { get; set; }
             public Amazon.CostExplorer.AccountScope AccountScope { get; set; }
+            public Amazon.CostExplorer.Model.Expression Filter { get; set; }
             public Amazon.CostExplorer.LookbackPeriodInDays LookbackPeriodInDay { get; set; }
             public System.String NextPageToken { get; set; }
             public System.Int32? PageSize { get; set; }

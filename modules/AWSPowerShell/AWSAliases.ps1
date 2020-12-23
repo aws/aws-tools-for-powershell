@@ -1673,6 +1673,8 @@ Set-Alias -Name CE-GetAnomalySubscriptions -Value Get-CEAnomalySubscription
 Set-Alias -Name CE-GetCostAndUsage -Value Get-CECostAndUsage
 Set-Alias -Name Get-CECostAndUsageWithResources -Value Get-CECostAndUsageWithResource
 Set-Alias -Name CE-GetCostAndUsageWithResources -Value Get-CECostAndUsageWithResource
+Set-Alias -Name Get-CECostCategories -Value Get-CECostCategory
+Set-Alias -Name CE-GetCostCategories -Value Get-CECostCategory
 Set-Alias -Name CE-GetCostForecast -Value Get-CECostForecast
 Set-Alias -Name Get-CEDimensionValues -Value Get-CEDimensionValue
 Set-Alias -Name CE-GetDimensionValues -Value Get-CEDimensionValue
@@ -3735,6 +3737,8 @@ Set-Alias -Name CO-GetEC2InstanceRecommendations -Value Get-COEC2InstanceRecomme
 Set-Alias -Name Get-COEC2RecommendationProjectedMetrics -Value Get-COEC2RecommendationProjectedMetric
 Set-Alias -Name CO-GetEC2RecommendationProjectedMetrics -Value Get-COEC2RecommendationProjectedMetric
 Set-Alias -Name CO-GetEnrollmentStatus -Value Get-COEnrollmentStatus
+Set-Alias -Name Get-COLambdaFunctionRecommendations -Value Get-COLambdaFunctionRecommendation
+Set-Alias -Name CO-GetLambdaFunctionRecommendations -Value Get-COLambdaFunctionRecommendation
 Set-Alias -Name Get-CORecommendationSummaries -Value Get-CORecommendationSummary
 Set-Alias -Name CO-GetRecommendationSummaries -Value Get-CORecommendationSummary
 Set-Alias -Name CO-UpdateEnrollmentStatus -Value Update-COEnrollmentStatus
@@ -8699,11 +8703,14 @@ Set-Alias -Name Delete-AHLFHIRDatastore -Value Remove-AHLFHIRDatastore
 Set-Alias -Name AHL-DeleteFHIRDatastore -Value Remove-AHLFHIRDatastore
 Set-Alias -Name Describe-AHLFHIRDatastore -Value Get-AHLFHIRDatastore
 Set-Alias -Name AHL-DescribeFHIRDatastore -Value Get-AHLFHIRDatastore
+Set-Alias -Name Describe-AHLFHIRExportJob -Value Get-AHLFHIRExportJob
+Set-Alias -Name AHL-DescribeFHIRExportJob -Value Get-AHLFHIRExportJob
 Set-Alias -Name Describe-AHLFHIRImportJob -Value Get-AHLFHIRImportJob
 Set-Alias -Name AHL-DescribeFHIRImportJob -Value Get-AHLFHIRImportJob
 Set-Alias -Name List-AHLFHIRDatastores -Value Get-AHLFHIRDatastoreList
 Set-Alias -Name List-AHLFHIRDatastoreList -Value Get-AHLFHIRDatastoreList
 Set-Alias -Name AHL-ListFHIRDatastores -Value Get-AHLFHIRDatastoreList
+Set-Alias -Name AHL-StartFHIRExportJob -Value Start-AHLFHIRExportJob
 Set-Alias -Name AHL-StartFHIRImportJob -Value Start-AHLFHIRImportJob
 Set-Alias -Name IAM-AddClientIDToOpenIDConnectProvider -Value Add-IAMClientIDToOpenIDConnectProvider
 Set-Alias -Name IAM-AddRoleToInstanceProfile -Value Add-IAMRoleToInstanceProfile
@@ -13761,6 +13768,8 @@ Set-Alias -Name RG-ListGroupResources -Value Get-RGGroupResourceList
 Set-Alias -Name List-RGGroups -Value Get-RGGroupList
 Set-Alias -Name List-RGGroupList -Value Get-RGGroupList
 Set-Alias -Name RG-ListGroups -Value Get-RGGroupList
+Set-Alias -Name Put-RGGroupConfiguration -Value Write-RGGroupConfiguration
+Set-Alias -Name RG-PutGroupConfiguration -Value Write-RGGroupConfiguration
 Set-Alias -Name Search-RGResources -Value Find-RGResource
 Set-Alias -Name Search-RGResource -Value Find-RGResource
 Set-Alias -Name RG-SearchResources -Value Find-RGResource

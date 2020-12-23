@@ -166,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter StageName
         /// <summary>
         /// <para>
-        /// <para>The stage name. Stage names can only contain alphanumeric characters, hyphens, and
-        /// underscores. Maximum length is 128 characters.</para>
+        /// <para>The stage name. Stage names can contain only alphanumeric characters, hyphens, and
+        /// underscores, or be $default. Maximum length is 128 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

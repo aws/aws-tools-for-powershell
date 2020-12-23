@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
     /// <summary>
     /// Returns a list of tags that are associated with a resource group, specified by an
     /// ARN.
+    /// 
+    ///  
+    /// <para><b>Minimum permissions</b></para><para>
+    /// To run this command, you must have the following permissions:
+    /// </para><ul><li><para><code>resource-groups:GetTags</code></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "RGResourceTag")]
     [OutputType("System.String")]

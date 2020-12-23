@@ -31,11 +31,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFHIRExportJob" OutputProperty="ExportJobProperties" Verb="Get" Noun="FHIRExportJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeFHIRImportJob" OutputProperty="ImportJobProperties" Verb="Get" Noun="FHIRImportJob" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFHIRDatastores" OutputProperty="DatastorePropertiesList" Verb="Get" Noun="FHIRDatastoreList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartFHIRExportJob" OutputProperty="*" Verb="Start" Noun="FHIRExportJob" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

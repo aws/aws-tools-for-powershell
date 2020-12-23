@@ -35,7 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.RG
     /// Do not store personally identifiable information (PII) or other confidential or sensitive
     /// information in tags. We use tags to provide you with billing and administration services.
     /// Tags are not intended to be used for private or sensitive data.
-    /// </para></important>
+    /// </para></important><para><b>Minimum permissions</b></para><para>
+    /// To run this command, you must have the following permissions:
+    /// </para><ul><li><para><code>resource-groups:Tag</code></para></li></ul>
     /// </summary>
     [Cmdlet("Add", "RGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResourceGroups.Model.TagResponse")]

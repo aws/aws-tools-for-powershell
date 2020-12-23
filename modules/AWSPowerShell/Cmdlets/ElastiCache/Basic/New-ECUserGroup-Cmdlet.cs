@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>Must be Redis. </para>
+        /// <para>The current supported value is Redis. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

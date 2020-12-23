@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>The schedule for this action. The following formats are supported:</para><ul><li><para>At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"</para></li><li><para>Rate expressions - "<code>rate(<i>value</i><i>unit</i>)</code>"</para></li><li><para>Cron expressions - "<code>cron(<i>fields</i>)</code>"</para></li></ul><para>At expressions are useful for one-time schedules. Specify the time in UTC.</para><para>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is <code>minute</code>
         /// | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code>
-        /// | <code>days</code>.</para><para>For more information about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
-        /// Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</para><para>For examples of using these expressions, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled
+        /// | <code>days</code>.</para><para>For cron expressions, <i>fields</i> is a cron expression. The supported cron format
+        /// consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month]
+        /// [Month] [Day_of_Week] [Year].</para><para>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled
         /// Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>

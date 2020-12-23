@@ -130,7 +130,7 @@ $CE_Completers = {
         # Amazon.CostExplorer.Dimension
         "Get-CEDimensionValue/Dimension"
         {
-            $v = "AZ","BILLING_ENTITY","CACHE_ENGINE","DATABASE_ENGINE","DEPLOYMENT_OPTION","INSTANCE_TYPE","INSTANCE_TYPE_FAMILY","LEGAL_ENTITY_NAME","LINKED_ACCOUNT","LINKED_ACCOUNT_NAME","OPERATING_SYSTEM","OPERATION","PAYMENT_OPTION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","RESERVATION_ID","RESOURCE_ID","RIGHTSIZING_TYPE","SAVINGS_PLANS_TYPE","SAVINGS_PLAN_ARN","SCOPE","SERVICE","SERVICE_CODE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
+            $v = "AGREEMENT_END_DATE_TIME_AFTER","AGREEMENT_END_DATE_TIME_BEFORE","AZ","BILLING_ENTITY","CACHE_ENGINE","DATABASE_ENGINE","DEPLOYMENT_OPTION","INSTANCE_TYPE","INSTANCE_TYPE_FAMILY","LEGAL_ENTITY_NAME","LINKED_ACCOUNT","LINKED_ACCOUNT_NAME","OPERATING_SYSTEM","OPERATION","PAYMENT_OPTION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","RESERVATION_ID","RESOURCE_ID","RIGHTSIZING_TYPE","SAVINGS_PLANS_TYPE","SAVINGS_PLAN_ARN","SCOPE","SERVICE","SERVICE_CODE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
             break
         }
 
@@ -215,6 +215,19 @@ $CE_Completers = {
             break
         }
 
+        # Amazon.CostExplorer.SortOrder
+        {
+            ($_ -eq "Get-CEReservationCoverage/SortBy_SortOrder") -Or
+            ($_ -eq "Get-CEReservationUtilization/SortBy_SortOrder") -Or
+            ($_ -eq "Get-CESavingsPlansCoverage/SortBy_SortOrder") -Or
+            ($_ -eq "Get-CESavingsPlansUtilization/SortBy_SortOrder") -Or
+            ($_ -eq "Get-CESavingsPlansUtilizationDetail/SortBy_SortOrder")
+        }
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
         # Amazon.CostExplorer.SupportedSavingsPlansType
         "Get-CESavingsPlansPurchaseRecommendation/SavingsPlansType"
         {
@@ -257,6 +270,7 @@ $CE_map = @{
     "RuleVersion"=@("New-CECostCategoryDefinition","Update-CECostCategoryDefinition")
     "SavingsPlansType"=@("Get-CESavingsPlansPurchaseRecommendation")
     "ServiceSpecification_EC2Specification_OfferingClass"=@("Get-CEReservationPurchaseRecommendation")
+    "SortBy_SortOrder"=@("Get-CEReservationCoverage","Get-CEReservationUtilization","Get-CESavingsPlansCoverage","Get-CESavingsPlansUtilization","Get-CESavingsPlansUtilizationDetail")
     "TermInYears"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
     "TotalImpact_NumericOperator"=@("Get-CEAnomaly")
 }
@@ -323,6 +337,7 @@ $CE_SelectMap = @{
                "Get-CEAnomalySubscription",
                "Get-CECostAndUsage",
                "Get-CECostAndUsageWithResource",
+               "Get-CECostCategory",
                "Get-CECostForecast",
                "Get-CEDimensionValue",
                "Get-CEReservationCoverage",

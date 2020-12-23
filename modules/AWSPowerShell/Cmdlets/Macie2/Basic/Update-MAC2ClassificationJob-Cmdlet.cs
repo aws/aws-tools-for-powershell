@@ -60,15 +60,19 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter JobStatus
         /// <summary>
         /// <para>
-        /// <para>The new status for the job. Valid values are:</para><ul><li><para>CANCELLED - Stops the job permanently and cancels it. You can't resume a job after
-        /// you cancel it. This value is valid only if the job's current status is IDLE, PAUSED,
-        /// RUNNING, or USER_PAUSED.</para></li><li><para>RUNNING - Resumes the job. This value is valid only if the job's current status is
-        /// USER_PAUSED. If you specify this value, Amazon Macie immediately resumes processing
-        /// from the point where you paused the job. Otherwise, Macie resumes the job according
-        /// to the schedule and other configuration settings for the job.</para></li><li><para>USER_PAUSED - Pauses the job. This value is valid only if the job's current status
-        /// is IDLE or RUNNING. If you specify this value and the job's current status is RUNNING,
-        /// Macie immediately begins to pause all processing tasks for the job.</para><para>If you pause a job when its status is RUNNING and you don't resume the job within
-        /// 30 days, the job expires and Macie cancels it. You can't resume a job after it's cancelled.</para></li></ul>
+        /// <para>The new status for the job. Valid values are:</para><ul><li><para>CANCELLED - Stops the job permanently and cancels it. This value is valid only if
+        /// the job's current status is IDLE, PAUSED, RUNNING, or USER_PAUSED.</para><para>If you specify this value and the job's current status is RUNNING, Amazon Macie immediately
+        /// begins to stop all processing tasks for the job. You can't resume or restart a job
+        /// after you cancel it.</para></li><li><para>RUNNING - Resumes the job. This value is valid only if the job's current status is
+        /// USER_PAUSED.</para><para>If you paused the job while it was actively running and you specify this value less
+        /// than 30 days after you paused the job, Macie immediately resumes processing from the
+        /// point where you paused the job. Otherwise, Macie resumes the job according to the
+        /// schedule and other settings for the job.</para></li><li><para>USER_PAUSED - Pauses the job temporarily. This value is valid only if the job's current
+        /// status is IDLE or RUNNING. If you specify this value and the job's current status
+        /// is RUNNING, Macie immediately begins to pause all processing tasks for the job.</para><para>If you pause a one-time job and you don't resume it within 30 days, the job expires
+        /// and Macie cancels the job. If you pause a recurring job when its status is RUNNING
+        /// and you don't resume it within 30 days, the job run expires and Macie cancels the
+        /// run. To check the expiration date, refer to the UserPausedDetails.jobExpiresAt property.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

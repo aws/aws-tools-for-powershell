@@ -1,4 +1,21 @@
-﻿### 4.1.6.0 (2020-12-22)
+﻿### 4.1.7.0 (2021-01-05)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.84.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Use ECSTaskCredentials when either AWS_CONTAINER_CREDENTIALS_RELATIVE_URI or AWS_CONTAINER_CREDENTIALS_FULL_URI set
+  * Amazon API Gateway V2
+    * Modified cmdlet New-AG2Integration: added parameter ResponseParameter.
+    * Modified cmdlet Update-AG2Integration: added parameter ResponseParameter.
+  * Amazon Compute Optimizer
+    * Added cmdlet Get-COLambdaFunctionRecommendation leveraging the GetLambdaFunctionRecommendations service API.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSEndpoint: added parameters OracleSettings_SecretsManagerOracleAsmAccessRoleArn and OracleSettings_SecretsManagerOracleAsmSecretId.
+    * Modified cmdlet New-DMSEndpoint: added parameters OracleSettings_SecretsManagerOracleAsmAccessRoleArn and OracleSettings_SecretsManagerOracleAsmSecretId.
+  * Amazon HealthLake
+    * Added cmdlet Get-AHLFHIRExportJob leveraging the DescribeFHIRExportJob service API.
+    * Added cmdlet Start-AHLFHIRExportJob leveraging the StartFHIRExportJob service API.
+  * Amazon Resource Groups
+    * Added cmdlet Write-RGGroupConfiguration leveraging the PutGroupConfiguration service API.
+
+### 4.1.6.0 (2020-12-22)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.5.79.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AmazonMWAA. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MWAA and can be listed using the command 'Get-AWSCmdletName -Service MWAA'.
   * Amazon Amplify Backend. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AMPB and can be listed using the command 'Get-AWSCmdletName -Service AMPB'.
@@ -632,7 +649,7 @@
   * Amazon FSx
     * Added cmdlet Get-FSXFileSystemAlias leveraging the DescribeFileSystemAliases service API.
     * Added cmdlet Register-FSXFileSystemAlias leveraging the AssociateFileSystemAliases service API.
-    * Added cmdlet Unregister-FSXFileSystemAlias leveraging the DisassociateFileSystemAliases service API.  
+    * Added cmdlet Unregister-FSXFileSystemAlias leveraging the DisassociateFileSystemAliases service API.
   * Amazon IoT
     * Modified cmdlet New-IOTTopicRule: added parameters Firehose_BatchMode, IotAnalytics_BatchMode and IotEvents_BatchMode.
     * Modified cmdlet Set-IOTTopicRule: added parameters Firehose_BatchMode, IotAnalytics_BatchMode and IotEvents_BatchMode.
@@ -1127,7 +1144,7 @@
   * Amazon Simple Storage Service (S3)
     * Added cmdlet Get-S3BucketOwnershipControl leveraging the GetBucketOwnershipControls service API.
     * Added cmdlet Remove-S3BucketOwnershipControl leveraging the DeleteBucketOwnershipControls service API.
-    * Added cmdlet Write-S3BucketOwnershipControl leveraging the PutBucketOwnershipControls service API.  
+    * Added cmdlet Write-S3BucketOwnershipControl leveraging the PutBucketOwnershipControls service API.
 
 ### 4.1.1.0 (2020-09-30)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.5.27.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
@@ -1439,7 +1456,7 @@
 
 ### 4.1.0.0 (2020-08-18)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.3.800.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
-  * Changing AWSPowerShell module to target .NET Framework 4.5 and PowerShell 3.0. 
+  * Changing AWSPowerShell module to target .NET Framework 4.5 and PowerShell 3.0.
   * Allowing full build on Linux.
   * Amazon Alexa For Business
     * Modified cmdlet New-ALXBBusinessReportSchedule: added parameter Tag.
@@ -1940,7 +1957,7 @@
     * Added cmdlet Get-WKSWorkspaceImagePermission leveraging the DescribeWorkspaceImagePermissions service API.
     * Added cmdlet Update-WKSWorkspaceImagePermission leveraging the UpdateWorkspaceImagePermission service API.
     * Modified cmdlet Edit-WKSWorkspaceCreationProperty: added parameter WorkspaceCreationProperties_EnableWorkDoc.
-    * Modified cmdlet Get-WKSWorkspaceImage: added parameter ImageType.	  
+    * Modified cmdlet Get-WKSWorkspaceImage: added parameter ImageType.
 
 ### 4.0.6.0 (2020-06-10)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.3.758.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
@@ -4992,7 +5009,7 @@
     * Added and updated cmdlets.
       * This release of Amazon Elastic Container Service (Amazon ECS) introduces support for additional Docker flags as Task Definition parameters. Customers can now configure their ECS Tasks to use pidMode (pid) and ipcMode (ipc) Docker flags.
       * ECS now supports integration with Systems Manager Parameter Store for injecting runtime secrets.
-      * ECS introduces support for resources tagging. 
+      * ECS introduces support for resources tagging.
       * ECS introduces a new ARN and ID Format for its resources, and provides new APIs for opt-in to the new formats.
       * ECS introduces support for blue/green deployment feature
   * Amazon ResourceGroups
@@ -5109,7 +5126,7 @@
   * Amazon RDS
     * Added cmdlet Remove-RDSDBInstanceAutomatedBackup and updated cmdlet Remove-RDSDBInstance introducing DB Instance Automated Backups for the MySQL, MariaDB, PostgreSQL, Oracle and Microsoft SQL Server database engines. You can now retain Amazon RDS automated backups (system snapshots and transaction logs) when you delete a database instance. This allows you to restore a deleted database instance to a specified point in time within the backup retention period even after it has been deleted, protecting you against accidental deletion of data.
     * Updated cmdlet New-RDSDBInstanceReadReplica, Restore-RDSDBInstanceFromDBSnapshot and Restore-RDSDBInstanceToPointInTime allowing to specify VPC security groups.
-    * Added cmdlets Edit-RDSDBClusterEndpoint, Get-RDSDBClusterEndpoint, New-RDSDBClusterEndpoint and Remove-RDSDBClusterEndpoint enabling Custom Endpoints, a new feature compatible with Aurora Mysql, Aurora PostgreSQL and Neptune that allows users to configure a customizable endpoint that will provide access to their instances in a cluster. 
+    * Added cmdlets Edit-RDSDBClusterEndpoint, Get-RDSDBClusterEndpoint, New-RDSDBClusterEndpoint and Remove-RDSDBClusterEndpoint enabling Custom Endpoints, a new feature compatible with Aurora Mysql, Aurora PostgreSQL and Neptune that allows users to configure a customizable endpoint that will provide access to their instances in a cluster.
     * Added cmddlets New-RDSGlobalCluster, Get-RDSGlobalCluster, Edit-RDSGlobalCluster, Remove-RDSGlobalCluster and Remove-RDSFromGlobalCluster to support Amazon Aurora Global Database, a feature that allows a single Amazon Aurora database to span multiple AWS regions. Customers can use the feature to replicate data with no impact on database performance, enable fast local reads with low latency in each region, and improve disaster recovery from region-wide outages.
   * Amazon Redshift
     * Added and updated cmdlets. With this release, Redshift is providing API's for better snapshot management by supporting user defined automated snapshot schedules, retention periods for manual snapshots, and aggregate snapshot actions including batch deleting user snapshots, viewing account level snapshot storage metrics, and better filtering and sorting on the describe-cluster-snapshots API. Automated snapshots can be scheduled to be taken at a custom interval and the schedule created can be reused across clusters. Manual snapshot retention periods can be set at the cluster, snapshot, and cross-region-copy level. The retention period set on a manual snapshot indicates how many days the snapshot will be retained before being automatically deleted.
@@ -5122,17 +5139,17 @@
     * Add support for new S3 Block Public Access account-level APIs. The Block Public Access settings allow account owners to prevent public access to S3 data via bucket/object ACLs or bucket policies.
   * Amazon SageMaker
     * Added and updated cmdlets.
-      * Amazon SageMaker now has Algorithm and Model Package entities that can be used to create Training Jobs, Hyperparameter Tuning Jobs and hosted Models. 
-      *. Subscribed Marketplace products can be used on SageMaker to create Training Jobs, Hyperparameter Tuning Jobs and Models. Notebook Instances and Endpoints can leverage Elastic Inference accelerator types for on-demand GPU computing. 
-      * Model optimizations can be performed with Compilation Jobs. Labeling Jobs can be created and supported by a Workforce. Models can now contain up to 5 containers allowing for inference pipelines within Endpoints. 
-      * Code Repositories (such as Git) can be linked with SageMaker and loaded into Notebook Instances. 
-      * Network isolation is now possible on Models, Training Jobs, and Hyperparameter Tuning Jobs, which restricts inbound/outbound network calls for the container. However, containers can talk to their peers in distributed training mode within the same security group. 
+      * Amazon SageMaker now has Algorithm and Model Package entities that can be used to create Training Jobs, Hyperparameter Tuning Jobs and hosted Models.
+      *. Subscribed Marketplace products can be used on SageMaker to create Training Jobs, Hyperparameter Tuning Jobs and Models. Notebook Instances and Endpoints can leverage Elastic Inference accelerator types for on-demand GPU computing.
+      * Model optimizations can be performed with Compilation Jobs. Labeling Jobs can be created and supported by a Workforce. Models can now contain up to 5 containers allowing for inference pipelines within Endpoints.
+      * Code Repositories (such as Git) can be linked with SageMaker and loaded into Notebook Instances.
+      * Network isolation is now possible on Models, Training Jobs, and Hyperparameter Tuning Jobs, which restricts inbound/outbound network calls for the container. However, containers can talk to their peers in distributed training mode within the same security group.
       * A Public Beta Search API was added that currently supports Training Jobs.
   * Amazon ServerMigrationService
     * Added and updated cmdlets supporting multi-server migration to simplify the application migration process. Customers can migrate all their application-specific servers together as a single unit as opposed to moving individual server one at a time.
   * Amazon Service Discovery
     * Added and updated cmlets.
-      * Service Discovery now allows friendly names for your cloud resources so that your applications can quickly and dynamically discover them. 
+      * Service Discovery now allows friendly names for your cloud resources so that your applications can quickly and dynamically discover them.
       * When a resource becomes available (for example, an Amazon EC2 instance running a web server), you can register a Service Discovery service instance. Then your application can discover service instances by submitting DNS queries or API calls.
   * Amazon SimpleSystemsManagement
     * Updated cmdlets Get-SSMDocument, Get-SSMDocumentDescription, New-SSMDocument, Start-SSMAutomationExecution and Update-SSMDocument.
@@ -5167,7 +5184,7 @@
     * Added and updated cmdlets.
     * Added new APIs to Modify and Describe WorkSpaces client properties for users in a directory. With the new APIs, you can enable/disable remember me option in WorkSpaces client for users in a directory.
     * Added new Bring Your Own License (BYOL) automation APIs. With the new APIs, you can list available management CIDR ranges for dedicated tenancy, enable your account for BYOL, describe BYOL status of your account, and import BYOL images.
-    * Added new APIs to describe and delete WorkSpaces images. 
+    * Added new APIs to describe and delete WorkSpaces images.
   * Amazon XRay
     * Added and updated cmdlets. Groups build upon X-Ray filter expressions to allow for fine tuning trace summaries and service graph results. You can configure groups by using the AWS X-Ray console or by using the New-XRGroup cmdlet. The addition of groups has extended the available request fields to the Get-XRServiceGraph cmdlet. You can now specify a group name or group ARN to retrieve its service graph.
 
@@ -5217,7 +5234,7 @@
   * Amazon MQ
     * Updated cmdlet Update-MQBroker with new parameters AutoMinorVersionUpgrade and EngineVersion to support ActiveMQ 5.15.6, in addition to 5.15.0.
   * Amazon OpsWorksCM
-    * Added cmdlet Export-OWCMServerEngineAttribute allowing to export engine specific attributes like the UserData script used for unattended bootstrapping of new nodes that connect to the server. 
+    * Added cmdlet Export-OWCMServerEngineAttribute allowing to export engine specific attributes like the UserData script used for unattended bootstrapping of new nodes that connect to the server.
   * Amazon RDS
     * DateTime parameters of Get-RDSEvent, Reset-RDSDBCluster, Restore-RDSDBClusterToPointInTime and Restore-RDSDBInstanceToPointInTime were marked as obsolete as they may result in the wrong timestamp being passed to the service, please use the new parameters marked with the "Utc" prefix.
     * Updated cmdlets to support Deletion Protection for RDS databases.
@@ -5235,7 +5252,7 @@
   * Amazon StorageGateway
     * Updated cmdlet Invoke-SGCacheRefresh allowing to specify folders and subfolders.
   * Amazon  TranscribeService
-    * Added cmdlet Remove-TRSTranscriptionJob allowing to delete completed transcription jobs. 
+    * Added cmdlet Remove-TRSTranscriptionJob allowing to delete completed transcription jobs.
   * Amazon WorkDocs
     * DateTime parameters of Get-WDActivity were marked as obsolete as they may result in the wrong timestamp being passed to the service, please use the new parameters marked with the "Utc" prefix.
 
@@ -5243,7 +5260,7 @@
   * Get-AWSPublicIpAddressRange has been changed to honor proxy configurations provided through Set-AWSProxy.
   * Amazon Firewall Management Service
     * [Breaking Change] The response data from the service's GetAdminAccount API has been extended to emit both the administrator account and the status of the account. The output from the corresponding Get-FMSAdminAccount cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Get-FMSAdminAccount).AdminAccount_ in place of _Get-FMSAdminAccount_.
-    * Added cmdlet Get-FMSMemberAccountList which allows to get all the member accounts belonging to a certain Fire Wall Manager admin account. 
+    * Added cmdlet Get-FMSMemberAccountList which allows to get all the member accounts belonging to a certain Fire Wall Manager admin account.
   * Amazon IOT
     * [Breaking Change] The response data from the service's GetIndexingConfiguration API has been extended to emit both the index configuration and the thing indexing configuration. The output from the corresponding Get-IOTIndexingConfiguration cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Get-IOTIndexingConfiguration).ThingIndexingConfiguration_ in place of _Get-IOTIndexingConfiguration_.
     * [Breaking Change] The response data from the service's SearchIndex API has been extended to emit both the things and the thing groups that match the search query. The output from the corresponding Search-IOTIndex cmdlet has therefore been changed to emit the service

@@ -132,6 +132,7 @@ $RG_SelectMap = @{
                "Add-RGResource",
                "Get-RGGroupResourceList",
                "Get-RGGroupList",
+               "Write-RGGroupConfiguration",
                "Find-RGResource",
                "Add-RGResourceTag",
                "Remove-RGResource",

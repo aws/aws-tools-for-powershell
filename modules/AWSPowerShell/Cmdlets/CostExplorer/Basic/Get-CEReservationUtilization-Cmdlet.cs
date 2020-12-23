@@ -80,6 +80,27 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public Amazon.CostExplorer.Model.GroupDefinition[] GroupBy { get; set; }
         #endregion
         
+        #region Parameter SortBy_Key
+        /// <summary>
+        /// <para>
+        /// <para>The key by which to sort the data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SortBy_Key { get; set; }
+        #endregion
+        
+        #region Parameter SortBy_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The order in which to sort the data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CostExplorer.SortOrder")]
+        public Amazon.CostExplorer.SortOrder SortBy_SortOrder { get; set; }
+        #endregion
+        
         #region Parameter TimePeriod
         /// <summary>
         /// <para>
@@ -98,6 +119,19 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of objects that you returned for this request. If more objects
+        /// are available, in the response, AWS provides a NextPageToken value that you can use
+        /// in a subsequent call to get the next batch of objects.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextPageToken
@@ -179,7 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             {
                 context.GroupBy = new List<Amazon.CostExplorer.Model.GroupDefinition>(this.GroupBy);
             }
+            context.MaxResult = this.MaxResult;
             context.NextPageToken = this.NextPageToken;
+            context.SortBy_Key = this.SortBy_Key;
+            context.SortBy_SortOrder = this.SortBy_SortOrder;
             context.TimePeriod = this.TimePeriod;
             #if MODULAR
             if (this.TimePeriod == null && ParameterWasBound(nameof(this.TimePeriod)))
@@ -219,6 +256,39 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (cmdletContext.GroupBy != null)
             {
                 request.GroupBy = cmdletContext.GroupBy;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            
+             // populate SortBy
+            var requestSortByIsNull = true;
+            request.SortBy = new Amazon.CostExplorer.Model.SortDefinition();
+            System.String requestSortBy_sortBy_Key = null;
+            if (cmdletContext.SortBy_Key != null)
+            {
+                requestSortBy_sortBy_Key = cmdletContext.SortBy_Key;
+            }
+            if (requestSortBy_sortBy_Key != null)
+            {
+                request.SortBy.Key = requestSortBy_sortBy_Key;
+                requestSortByIsNull = false;
+            }
+            Amazon.CostExplorer.SortOrder requestSortBy_sortBy_SortOrder = null;
+            if (cmdletContext.SortBy_SortOrder != null)
+            {
+                requestSortBy_sortBy_SortOrder = cmdletContext.SortBy_SortOrder;
+            }
+            if (requestSortBy_sortBy_SortOrder != null)
+            {
+                request.SortBy.SortOrder = requestSortBy_sortBy_SortOrder;
+                requestSortByIsNull = false;
+            }
+             // determine if request.SortBy should be set to null
+            if (requestSortByIsNull)
+            {
+                request.SortBy = null;
             }
             if (cmdletContext.TimePeriod != null)
             {
@@ -290,9 +360,42 @@ namespace Amazon.PowerShell.Cmdlets.CE
             {
                 request.GroupBy = cmdletContext.GroupBy;
             }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
             if (cmdletContext.NextPageToken != null)
             {
                 request.NextPageToken = cmdletContext.NextPageToken;
+            }
+            
+             // populate SortBy
+            var requestSortByIsNull = true;
+            request.SortBy = new Amazon.CostExplorer.Model.SortDefinition();
+            System.String requestSortBy_sortBy_Key = null;
+            if (cmdletContext.SortBy_Key != null)
+            {
+                requestSortBy_sortBy_Key = cmdletContext.SortBy_Key;
+            }
+            if (requestSortBy_sortBy_Key != null)
+            {
+                request.SortBy.Key = requestSortBy_sortBy_Key;
+                requestSortByIsNull = false;
+            }
+            Amazon.CostExplorer.SortOrder requestSortBy_sortBy_SortOrder = null;
+            if (cmdletContext.SortBy_SortOrder != null)
+            {
+                requestSortBy_sortBy_SortOrder = cmdletContext.SortBy_SortOrder;
+            }
+            if (requestSortBy_sortBy_SortOrder != null)
+            {
+                request.SortBy.SortOrder = requestSortBy_sortBy_SortOrder;
+                requestSortByIsNull = false;
+            }
+             // determine if request.SortBy should be set to null
+            if (requestSortByIsNull)
+            {
+                request.SortBy = null;
             }
             if (cmdletContext.TimePeriod != null)
             {
@@ -363,7 +466,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             public Amazon.CostExplorer.Model.Expression Filter { get; set; }
             public Amazon.CostExplorer.Granularity Granularity { get; set; }
             public List<Amazon.CostExplorer.Model.GroupDefinition> GroupBy { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextPageToken { get; set; }
+            public System.String SortBy_Key { get; set; }
+            public Amazon.CostExplorer.SortOrder SortBy_SortOrder { get; set; }
             public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
             public System.Func<Amazon.CostExplorer.Model.GetReservationUtilizationResponse, GetCEReservationUtilizationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

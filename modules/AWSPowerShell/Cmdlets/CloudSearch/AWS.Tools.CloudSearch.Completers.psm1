@@ -104,7 +104,7 @@ $CS_Completers = {
         # Amazon.CloudSearch.PartitionInstanceType
         "Update-CSScalingParameter/ScalingParameters_DesiredInstanceType"
         {
-            $v = "search.m1.large","search.m1.small","search.m2.2xlarge","search.m2.xlarge","search.m3.2xlarge","search.m3.large","search.m3.medium","search.m3.xlarge"
+            $v = "search.2xlarge","search.large","search.m1.large","search.m1.small","search.m2.2xlarge","search.m2.xlarge","search.m3.2xlarge","search.m3.large","search.m3.medium","search.m3.xlarge","search.medium","search.small","search.xlarge"
             break
         }
 

@@ -28,9 +28,9 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Gets the properties associated with the FHIR datastore, including the datastore ID,
-    /// datastore ARN, datastore name, datastore status, created at, datastore type version,
-    /// and datastore endpoint.
+    /// Gets the properties associated with the FHIR Data Store, including the Data Store
+    /// ID, Data Store ARN, Data Store name, Data Store status, created at, Data Store type
+    /// version, and Data Store endpoint.
     /// </summary>
     [Cmdlet("Get", "AHLFHIRDatastore")]
     [OutputType("Amazon.HealthLake.Model.DatastoreProperties")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para>The AWS-generated datastore id. This is part of the ‘CreateFHIRDatastore’ output.</para>
+        /// <para>The AWS-generated Data Store id. This is part of the ‘CreateFHIRDatastore’ output.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

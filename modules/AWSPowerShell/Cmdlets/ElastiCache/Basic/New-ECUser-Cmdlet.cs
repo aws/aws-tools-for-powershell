@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AccessString
         /// <summary>
         /// <para>
-        /// <para>Access permissions string used for this user account.</para>
+        /// <para>Access permissions string used for this user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>Must be Redis. </para>
+        /// <para>The current supported value is Redis. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NoPasswordRequired
         /// <summary>
         /// <para>
-        /// <para>Indicates a password is not required for this user account.</para>
+        /// <para>Indicates a password is not required for this user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,8 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>Passwords used for this user account. You can create up to two passwords for each
-        /// user.</para>
+        /// <para>Passwords used for this user. You can create up to two passwords for each user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

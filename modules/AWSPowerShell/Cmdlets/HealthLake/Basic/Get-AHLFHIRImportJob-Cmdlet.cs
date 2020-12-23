@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
     /// Displays the properties of a FHIR import job, including the ID, ARN, name, and the
-    /// status of the datastore.
+    /// status of the job.
     /// </summary>
     [Cmdlet("Get", "AHLFHIRImportJob")]
     [OutputType("Amazon.HealthLake.Model.ImportJobProperties")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para>The AWS-generated ID of the datastore.</para>
+        /// <para>The AWS-generated ID of the Data Store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

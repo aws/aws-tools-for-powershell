@@ -63,6 +63,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutGroupConfiguration" Verb="Write" Noun="GroupConfiguration" ShouldProcessTarget="Group" PipelineParameter="Group" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchResources" OutputProperty="*" Verb="Find" Noun="Resource" PipelineParameter="ResourceQuery" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />

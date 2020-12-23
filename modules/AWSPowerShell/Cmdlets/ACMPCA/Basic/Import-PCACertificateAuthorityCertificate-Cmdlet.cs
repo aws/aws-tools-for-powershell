@@ -45,18 +45,27 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// Create a certificate chain and copy the signed certificate and the certificate chain
     /// to your working directory.
     /// </para></li></ol><para>
-    /// The following requirements apply when you import a CA certificate.
+    /// ACM Private CA supports three scenarios for installing a CA certificate:
     /// </para><ul><li><para>
-    /// You cannot import a non-self-signed certificate for use as a root CA.
+    /// Installing a certificate for a root CA hosted by ACM Private CA.
     /// </para></li><li><para>
-    /// You cannot import a self-signed certificate for use as a subordinate CA.
+    /// Installing a subordinate CA certificate whose parent authority is hosted by ACM Private
+    /// CA.
+    /// </para></li><li><para>
+    /// Installing a subordinate CA certificate whose parent authority is externally hosted.
+    /// </para></li></ul><para>
+    /// The following addtitional requirements apply when you import a CA certificate.
+    /// </para><ul><li><para>
+    /// Only a self-signed certificate can be imported as a root CA.
+    /// </para></li><li><para>
+    /// A self-signed certificate cannot be imported as a subordinate CA.
     /// </para></li><li><para>
     /// Your certificate chain must not include the private CA certificate that you are importing.
     /// </para></li><li><para>
-    /// Your ACM Private CA-hosted or on-premises CA certificate must be the last certificate
-    /// in your chain. The subordinate certificate, if any, that your root CA signed must
-    /// be next to last. The subordinate certificate signed by the preceding subordinate CA
-    /// must come next, and so on until your chain is built. 
+    /// Your root CA must be the last certificate in your chain. The subordinate certificate,
+    /// if any, that your root CA signed must be next to last. The subordinate certificate
+    /// signed by the preceding subordinate CA must come next, and so on until your chain
+    /// is built. 
     /// </para></li><li><para>
     /// The chain must be PEM-encoded.
     /// </para></li><li><para>

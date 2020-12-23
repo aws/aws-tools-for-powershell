@@ -90,6 +90,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public Amazon.CostExplorer.Dimension Dimension { get; set; }
         #endregion
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CostExplorer.Model.Expression Filter { get; set; }
+        #endregion
+        
         #region Parameter SearchString
         /// <summary>
         /// <para>
@@ -98,6 +108,18 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SearchString { get; set; }
+        #endregion
+        
+        #region Parameter SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The value by which you want to sort the data.</para><para>The key represents cost and usage metrics. The following values are supported:</para><ul><li><para><code>BlendedCost</code></para></li><li><para><code>UnblendedCost</code></para></li><li><para><code>AmortizedCost</code></para></li><li><para><code>NetAmortizedCost</code></para></li><li><para><code>NetUnblendedCost</code></para></li><li><para><code>UsageQuantity</code></para></li><li><para><code>NormalizedUsageAmount</code></para></li></ul><para>Supported values for <code>SortOrder</code> are <code>ASCENDING</code> or <code>DESCENDING</code>.</para><para>When you specify a <code>SortBy</code> paramater, the context must be <code>COST_AND_USAGE</code>.
+        /// Further, when using <code>SortBy</code>, <code>NextPageToken</code> and <code>SearchString</code>
+        /// are not supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CostExplorer.Model.SortDefinition[] SortBy { get; set; }
         #endregion
         
         #region Parameter TimePeriod
@@ -118,6 +140,19 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>This field is only used when SortBy is provided in the request. The maximum number
+        /// of objects that to be returned for this request. If MaxResults is not specified with
+        /// SortBy, the request will return 1000 results as the default value for this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextPageToken
@@ -201,8 +236,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 WriteWarning("You are passing $null as a value for parameter Dimension which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Filter = this.Filter;
+            context.MaxResult = this.MaxResult;
             context.NextPageToken = this.NextPageToken;
             context.SearchString = this.SearchString;
+            if (this.SortBy != null)
+            {
+                context.SortBy = new List<Amazon.CostExplorer.Model.SortDefinition>(this.SortBy);
+            }
             context.TimePeriod = this.TimePeriod;
             #if MODULAR
             if (this.TimePeriod == null && ParameterWasBound(nameof(this.TimePeriod)))
@@ -239,9 +280,21 @@ namespace Amazon.PowerShell.Cmdlets.CE
             {
                 request.Dimension = cmdletContext.Dimension;
             }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filter = cmdletContext.Filter;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
             if (cmdletContext.SearchString != null)
             {
                 request.SearchString = cmdletContext.SearchString;
+            }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
             }
             if (cmdletContext.TimePeriod != null)
             {
@@ -309,6 +362,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
             {
                 request.Dimension = cmdletContext.Dimension;
             }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filter = cmdletContext.Filter;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
             if (cmdletContext.NextPageToken != null)
             {
                 request.NextPageToken = cmdletContext.NextPageToken;
@@ -316,6 +377,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (cmdletContext.SearchString != null)
             {
                 request.SearchString = cmdletContext.SearchString;
+            }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
             }
             if (cmdletContext.TimePeriod != null)
             {
@@ -385,8 +450,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         {
             public Amazon.CostExplorer.Context Context { get; set; }
             public Amazon.CostExplorer.Dimension Dimension { get; set; }
+            public Amazon.CostExplorer.Model.Expression Filter { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextPageToken { get; set; }
             public System.String SearchString { get; set; }
+            public List<Amazon.CostExplorer.Model.SortDefinition> SortBy { get; set; }
             public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
             public System.Func<Amazon.CostExplorer.Model.GetDimensionValuesResponse, GetCEDimensionValueCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

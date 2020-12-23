@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
     /// Adds the specified resources to the specified group.
+    /// 
+    ///  
+    /// <para><b>Minimum permissions</b></para><para>
+    /// To run this command, you must have the following permissions:
+    /// </para><ul><li><para><code>resource-groups:GroupResources</code></para></li></ul>
     /// </summary>
     [Cmdlet("Add", "RGResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResourceGroups.Model.GroupResourcesResponse")]

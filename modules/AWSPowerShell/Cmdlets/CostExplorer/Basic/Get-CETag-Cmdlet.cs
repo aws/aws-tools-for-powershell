@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class GetCETagCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CostExplorer.Model.Expression Filter { get; set; }
+        #endregion
+        
         #region Parameter SearchString
         /// <summary>
         /// <para>
@@ -48,6 +58,17 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SearchString { get; set; }
+        #endregion
+        
+        #region Parameter SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The value by which you want to sort the data.</para><para>The key represents cost and usage metrics. The following values are supported:</para><ul><li><para><code>BlendedCost</code></para></li><li><para><code>UnblendedCost</code></para></li><li><para><code>AmortizedCost</code></para></li><li><para><code>NetAmortizedCost</code></para></li><li><para><code>NetUnblendedCost</code></para></li><li><para><code>UsageQuantity</code></para></li><li><para><code>NormalizedUsageAmount</code></para></li></ul><para>Supported values for <code>SortOrder</code> are <code>ASCENDING</code> or <code>DESCENDING</code>.</para><para>When using <code>SortBy</code>, <code>NextPageToken</code> and <code>SearchString</code>
+        /// are not supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CostExplorer.Model.SortDefinition[] SortBy { get; set; }
         #endregion
         
         #region Parameter TagKey
@@ -78,6 +99,19 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>This field is only used when SortBy is provided in the request. The maximum number
+        /// of objects that to be returned for this request. If MaxResults is not specified with
+        /// SortBy, the request will return 1000 results as the default value for this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextPageToken
@@ -153,8 +187,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 context.Select = (response, cmdlet) => this.TimePeriod;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Filter = this.Filter;
+            context.MaxResult = this.MaxResult;
             context.NextPageToken = this.NextPageToken;
             context.SearchString = this.SearchString;
+            if (this.SortBy != null)
+            {
+                context.SortBy = new List<Amazon.CostExplorer.Model.SortDefinition>(this.SortBy);
+            }
             context.TagKey = this.TagKey;
             context.TimePeriod = this.TimePeriod;
             #if MODULAR
@@ -184,9 +224,21 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // create request and set iteration invariants
             var request = new Amazon.CostExplorer.Model.GetTagsRequest();
             
+            if (cmdletContext.Filter != null)
+            {
+                request.Filter = cmdletContext.Filter;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
             if (cmdletContext.SearchString != null)
             {
                 request.SearchString = cmdletContext.SearchString;
+            }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
             }
             if (cmdletContext.TagKey != null)
             {
@@ -250,6 +302,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // create request
             var request = new Amazon.CostExplorer.Model.GetTagsRequest();
             
+            if (cmdletContext.Filter != null)
+            {
+                request.Filter = cmdletContext.Filter;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
             if (cmdletContext.NextPageToken != null)
             {
                 request.NextPageToken = cmdletContext.NextPageToken;
@@ -257,6 +317,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (cmdletContext.SearchString != null)
             {
                 request.SearchString = cmdletContext.SearchString;
+            }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
             }
             if (cmdletContext.TagKey != null)
             {
@@ -328,8 +392,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.CostExplorer.Model.Expression Filter { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextPageToken { get; set; }
             public System.String SearchString { get; set; }
+            public List<Amazon.CostExplorer.Model.SortDefinition> SortBy { get; set; }
             public System.String TagKey { get; set; }
             public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
             public System.Func<Amazon.CostExplorer.Model.GetTagsResponse, GetCETagCmdlet, object> Select { get; set; } =

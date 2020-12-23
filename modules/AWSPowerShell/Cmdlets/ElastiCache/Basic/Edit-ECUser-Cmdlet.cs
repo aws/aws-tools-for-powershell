@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AccessString
         /// <summary>
         /// <para>
-        /// <para>Access permissions string used for this user account.</para>
+        /// <para>Access permissions string used for this user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NoPasswordRequired
         /// <summary>
         /// <para>
-        /// <para>Indicates no password is required for the user account.</para>
+        /// <para>Indicates no password is required for the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>The passwords belonging to the user account. You are allowed up to two.</para>
+        /// <para>The passwords belonging to the user. You are allowed up to two.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

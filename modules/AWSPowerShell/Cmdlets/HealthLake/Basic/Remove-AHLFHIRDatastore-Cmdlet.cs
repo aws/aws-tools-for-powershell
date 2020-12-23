@@ -28,7 +28,7 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Deletes a datastore.
+    /// Deletes a Data Store.
     /// </summary>
     [Cmdlet("Remove", "AHLFHIRDatastore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.HealthLake.Model.DeleteFHIRDatastoreResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para> The AWS-generated ID for the datastore to be deleted.</para>
+        /// <para> The AWS-generated ID for the Data Store to be deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

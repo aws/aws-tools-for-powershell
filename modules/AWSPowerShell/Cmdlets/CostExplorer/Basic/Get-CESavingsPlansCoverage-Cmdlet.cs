@@ -86,6 +86,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public Amazon.CostExplorer.Model.GroupDefinition[] GroupBy { get; set; }
         #endregion
         
+        #region Parameter SortBy_Key
+        /// <summary>
+        /// <para>
+        /// <para>The key by which to sort the data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SortBy_Key { get; set; }
+        #endregion
+        
         #region Parameter Metric
         /// <summary>
         /// <para>
@@ -96,6 +106,17 @@ namespace Amazon.PowerShell.Cmdlets.CE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Metrics")]
         public System.String[] Metric { get; set; }
+        #endregion
+        
+        #region Parameter SortBy_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The order in which to sort the data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CostExplorer.SortOrder")]
+        public Amazon.CostExplorer.SortOrder SortBy_SortOrder { get; set; }
         #endregion
         
         #region Parameter TimePeriod
@@ -225,6 +246,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 context.Metric = new List<System.String>(this.Metric);
             }
             context.NextToken = this.NextToken;
+            context.SortBy_Key = this.SortBy_Key;
+            context.SortBy_SortOrder = this.SortBy_SortOrder;
             context.TimePeriod = this.TimePeriod;
             #if MODULAR
             if (this.TimePeriod == null && ParameterWasBound(nameof(this.TimePeriod)))
@@ -272,6 +295,35 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (cmdletContext.Metric != null)
             {
                 request.Metrics = cmdletContext.Metric;
+            }
+            
+             // populate SortBy
+            var requestSortByIsNull = true;
+            request.SortBy = new Amazon.CostExplorer.Model.SortDefinition();
+            System.String requestSortBy_sortBy_Key = null;
+            if (cmdletContext.SortBy_Key != null)
+            {
+                requestSortBy_sortBy_Key = cmdletContext.SortBy_Key;
+            }
+            if (requestSortBy_sortBy_Key != null)
+            {
+                request.SortBy.Key = requestSortBy_sortBy_Key;
+                requestSortByIsNull = false;
+            }
+            Amazon.CostExplorer.SortOrder requestSortBy_sortBy_SortOrder = null;
+            if (cmdletContext.SortBy_SortOrder != null)
+            {
+                requestSortBy_sortBy_SortOrder = cmdletContext.SortBy_SortOrder;
+            }
+            if (requestSortBy_sortBy_SortOrder != null)
+            {
+                request.SortBy.SortOrder = requestSortBy_sortBy_SortOrder;
+                requestSortByIsNull = false;
+            }
+             // determine if request.SortBy should be set to null
+            if (requestSortByIsNull)
+            {
+                request.SortBy = null;
             }
             if (cmdletContext.TimePeriod != null)
             {
@@ -347,6 +399,35 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (cmdletContext.Metric != null)
             {
                 request.Metrics = cmdletContext.Metric;
+            }
+            
+             // populate SortBy
+            var requestSortByIsNull = true;
+            request.SortBy = new Amazon.CostExplorer.Model.SortDefinition();
+            System.String requestSortBy_sortBy_Key = null;
+            if (cmdletContext.SortBy_Key != null)
+            {
+                requestSortBy_sortBy_Key = cmdletContext.SortBy_Key;
+            }
+            if (requestSortBy_sortBy_Key != null)
+            {
+                request.SortBy.Key = requestSortBy_sortBy_Key;
+                requestSortByIsNull = false;
+            }
+            Amazon.CostExplorer.SortOrder requestSortBy_sortBy_SortOrder = null;
+            if (cmdletContext.SortBy_SortOrder != null)
+            {
+                requestSortBy_sortBy_SortOrder = cmdletContext.SortBy_SortOrder;
+            }
+            if (requestSortBy_sortBy_SortOrder != null)
+            {
+                request.SortBy.SortOrder = requestSortBy_sortBy_SortOrder;
+                requestSortByIsNull = false;
+            }
+             // determine if request.SortBy should be set to null
+            if (requestSortByIsNull)
+            {
+                request.SortBy = null;
             }
             if (cmdletContext.TimePeriod != null)
             {
@@ -470,6 +551,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
             public int? MaxResult { get; set; }
             public List<System.String> Metric { get; set; }
             public System.String NextToken { get; set; }
+            public System.String SortBy_Key { get; set; }
+            public Amazon.CostExplorer.SortOrder SortBy_SortOrder { get; set; }
             public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
             public System.Func<Amazon.CostExplorer.Model.GetSavingsPlansCoverageResponse, GetCESavingsPlansCoverageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SavingsPlansCoverages;
