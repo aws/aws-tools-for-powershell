@@ -209,8 +209,10 @@ namespace Amazon.PowerShell.Common
                 // or EC2 Instance Profile as a last resort
                 try
                 {
-                    string uri = System.Environment.GetEnvironmentVariable(ECSTaskCredentials.ContainerCredentialsURIEnvVariable);
-                    if (!string.IsNullOrEmpty(uri))
+                    string relativeUri = System.Environment.GetEnvironmentVariable(ECSTaskCredentials.ContainerCredentialsURIEnvVariable);
+                    string fullUri = System.Environment.GetEnvironmentVariable(ECSTaskCredentials.ContainerCredentialsFullURIEnvVariable);
+
+                    if (!string.IsNullOrEmpty(relativeUri) || !string.IsNullOrEmpty(fullUri))
                     {
                         innerCredentials = new ECSTaskCredentials();
                         source = CredentialsSource.Container;
