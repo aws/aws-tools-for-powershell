@@ -9,6 +9,7 @@ using AWSPowerShellGenerator.ServiceConfig;
 using AWSPowerShellGenerator.Generators;
 using AWSPowerShellGenerator.Generators.ParamEmitters;
 using System.Web;
+using AWSPowerShellGenerator.Utils;
 
 namespace AWSPowerShellGenerator.Writers.SourceCode
 {
@@ -80,8 +81,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.WriteLine(commentedTypeDocumentation);
                 writer.WriteLine($"[Cmdlet(\"{Operation.SelectedVerb}\", \"{Operation.SelectedNoun}\"{(MethodAnalysis.RequiresShouldProcessPromt ? $", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.{MethodAnalysis.ConfirmImpactSetting}" : "")}{(Operation.DefaultParameterSet != null ? $", DefaultParameterSetName=\"{Operation.DefaultParameterSet}\"" : "")})]");
 
-                // Define the output type so that running Get-Command on the cmdlet has a populated OutputType 
-                // value (this is independant of help). Use the string format of the attr so we don't risk 
+                // Define the output type so that running Get-Command on the cmdlet has a populated OutputType
+                // value (this is independant of help). Use the string format of the attr so we don't risk
                 // namespace collisions on collection members (eg EMR and PowerShell both have 'Job' classes)
                 if (analyzedResult.ReturnType != null)
                 {
@@ -125,7 +126,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         {
                             customParamEmitters.Add(p);
                             p.WriteParams(writer, MethodAnalysis, property, paramCustomization);
-                        }                        
+                        }
                         writer.WriteLine("#endregion");
                     }
 
@@ -260,11 +261,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("#elif CORECLR");
 
                     writer.WriteLine($"return client.{Operation.MethodName}Async(request).GetAwaiter().GetResult();");
-            
+
                     writer.WriteLine("#else");
-            
+
                     writer.WriteLine("        #error \"Unknown build edition\"");
-            
+
                     writer.WriteLine("#endif");
             writer.CloseRegion();
                 writer.WriteLine("catch (AmazonServiceException exc)");
@@ -550,7 +551,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
         /// <summary>
         /// For cmdlets that have no output but can have a value piped to them,
-        /// adds a -PassThru switch so that the pipelined object gets echoed to the 
+        /// adds a -PassThru switch so that the pipelined object gets echoed to the
         /// output. This allows pipelines to be constructed that don't abruptly
         /// terminate because a cmdlet lacks output.
         /// </summary>
@@ -600,7 +601,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 return;
             }
 
-            // not the same semantics as the 'Anonymous' attribute - this adds a specific parameter the 
+            // not the same semantics as the 'Anonymous' attribute - this adds a specific parameter the
             // user can employ to force anonymous auth on cmdlets that support both modes. The Anonymous
             // attribute is used to mark cmdlets that are always anonymous.
 
@@ -633,7 +634,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             if (property.IsConstrainedToSet)
             {
                 // apply our marker attribute so that if the cmdlet ever becomes hand-maintained the
-                // generator can detect and update the argument completer for the set members by simple 
+                // generator can detect and update the argument completer for the set members by simple
                 // text parsing
                 writer.WriteLine($"[{AWSConstantClassSourceAttributeName}(\"{property.PropertyTypeName}\")]");
             }
@@ -689,7 +690,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         internal static void WriteParamAliases(IndentedTextWriter writer, OperationAnalyzer methodAnalysis, SimplePropertyInfo property)
         {
             var aliases = methodAnalysis.GetAllParameterAliases(property);
-            
+
             if (aliases.Count > 0)
             {
                 // sort the aliases into ascending order so that it's easier to spot
@@ -895,11 +896,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                         writer.OpenRegion();
                                         {
                                             // this handles List<T> where T is a simple type. List<T> where T is a generic dictionary
-                                            // is handled in the IsGenericListOfGenericDictionary switch case. We must hope the Hashtable 
+                                            // is handled in the IsGenericListOfGenericDictionary switch case. We must hope the Hashtable
                                             // value is enumerable
                                             if (!property.GenericCollectionTypes[1].Name.StartsWith("List`", StringComparison.Ordinal))
                                             {
-                                                writer.WriteLine($"context.{property.CmdletParameterName}.Add(({property.GenericCollectionTypes[0].Name})hashKey, ({property.GenericCollectionTypes[1].Name})(this.{property.CmdletParameterName}[hashKey]));");
+                                                writer.WriteLine($"context.{property.CmdletParameterName}.Add(({property.GenericCollectionTypes[0].Name})hashKey, ({property.GenericCollectionTypes[1].GetTypeFullCodeName()})(this.{property.CmdletParameterName}[hashKey]));");
                                             }
                                             else
                                             {
@@ -1746,7 +1747,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         IParamEmitter FindCustomEmitterForParam(SimplePropertyInfo property)
         {
             // first stage lookup, for precise type and parameter naming (allows us
-            // to handle custom emitters for properties like 'string BucketName'); 
+            // to handle custom emitters for properties like 'string BucketName');
             // we do need to drop the assembly info though for types
             string k = ConstructCustomParamEmitterKey(property);
             if (ServiceConfig.TypeSpecificParamEmitters.ContainsKey(k))

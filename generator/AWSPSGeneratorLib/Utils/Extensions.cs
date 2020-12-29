@@ -29,5 +29,19 @@ namespace AWSPowerShellGenerator.Utils
                 return writer.ToString();
             }
         }
+
+        public static string GetTypeFullCodeName(this Type t)
+        {
+            if (!t.IsGenericType)
+            {
+                return t.Name;
+            }
+            string typeName = t.GetGenericTypeDefinition().Name;
+
+            typeName = typeName.Substring(0, typeName.IndexOf('`'));
+            string args = string.Join(",", t.GetGenericArguments().Select(ta => GetTypeFullCodeName(ta)).ToArray());
+
+            return typeName + "<" + args + ">";
+        }
     }
 }
