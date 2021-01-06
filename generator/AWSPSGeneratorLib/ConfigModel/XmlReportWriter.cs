@@ -51,7 +51,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
 
                     if (errorMessage != null)
                     {
-                        writer.WriteComment(errorMessage);
+                        writer.WriteComment($"ERROR - {errorMessage}");
                     }
 
                     foreach (var configModel in configModelsToOutput)
@@ -184,6 +184,11 @@ namespace AWSPowerShellGenerator.ServiceConfig
             catch (Exception e)
             {
                 throw new IOException("Unable to serialize report to " + filename, e);
+            }
+
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                throw new Exception(errorMessage);
             }
         }
         private static string GetReturnTypeComment(OperationAnalyzer operationAnalyzer)

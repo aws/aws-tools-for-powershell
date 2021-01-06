@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Xml;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 
 namespace AWSPowerShellGenerator.ServiceConfig
@@ -150,15 +152,28 @@ namespace AWSPowerShellGenerator.ServiceConfig
 
             var schemaFileName = Path.Combine(folderPath, "XmlSchemas", "ConfigurationOverrides", "overrides.xsd");
 
+            var validationMessages = new StringBuilder();
+            bool hasErrors = false;
             try
             {
                 var settings = new XmlReaderSettings();
                 settings.Schemas.Add(null, schemaFileName);
-                settings.ValidationType = ValidationType.Schema;
+                settings.ValidationType = ValidationType.Schema;                
+                settings.ValidationEventHandler += new ValidationEventHandler((sender, e) =>
+                {
+                    hasErrors = hasErrors || e.Severity == XmlSeverityType.Error;
+                    validationMessages.AppendLine($"{e.Severity}: {e.Message}");                    
+                });
 
                 var reader = XmlReader.Create(fileName, settings);
                 var document = new XmlDocument();
                 document.Load(reader);
+                                
+                if (hasErrors)
+                {                    
+                    errorMessage = $"Override file schema validation failed. The following errors need to be corrected:{Environment.NewLine}{validationMessages}";
+                    return new Dictionary<string, XmlElement>();
+                }
 
                 return document.DocumentElement.ChildNodes
                     .OfType<XmlElement>()
@@ -166,7 +181,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
             }
             catch (Exception e)
             {
-                errorMessage = "Error deserializing the provided override file";
+                errorMessage = $"Error deserializing the provided override file. {e.Message}";
                 return new Dictionary<string, XmlElement>();
             }
         }
