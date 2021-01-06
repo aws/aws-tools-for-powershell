@@ -359,8 +359,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// unless the <code>ApplyImmediately</code> parameter is enabled for this request. </para><para>For major version upgrades, if a nondefault DB parameter group is currently in use,
         /// a new DB parameter group in the DB parameter group family for the new engine version
         /// must be specified. The new DB parameter group can be the default for that DB parameter
-        /// group family.</para><para>For information about valid engine versions, see <code>CreateDBInstance</code>, or
-        /// call <code>DescribeDBEngineVersions</code>.</para>
+        /// group family.</para><para>If you specify only a major version, Amazon RDS will update the DB instance to the
+        /// default minor version if the current minor version is lower. For information about
+        /// valid engine versions, see <code>CreateDBInstance</code>, or call <code>DescribeDBEngineVersions</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -426,7 +427,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The upper limit to which Amazon RDS can automatically scale the storage of the DB
-        /// instance.</para>
+        /// instance.</para><para>For more information about this setting, including limitations that apply to it, see
+        /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
+        /// Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon
+        /// RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -490,9 +494,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para> Indicates that the DB instance should be associated with the specified option group.
-        /// Changing this parameter doesn't result in an outage except in the following case and
-        /// the change is applied during the next maintenance window unless the <code>ApplyImmediately</code>
+        /// <para> A value that indicates the DB instance should be associated with the specified option
+        /// group. Changing this parameter doesn't result in an outage except in the following
+        /// case and the change is applied during the next maintenance window unless the <code>ApplyImmediately</code>
         /// parameter is enabled for this request. If the parameter change results in an option
         /// group that enables OEM, this change can cause a brief (sub-second) period during which
         /// new connections are rejected but existing connections are not interrupted. </para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't

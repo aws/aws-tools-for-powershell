@@ -72,8 +72,12 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter CampaignConfig_ItemExplorationConfig
         /// <summary>
         /// <para>
-        /// <para>A string to string map specifying the inference hyperparameters you wish to use for
-        /// hyperparameter optimization. See <a>customizing-solution-config-hpo</a>.</para>
+        /// <para>A string to string map specifying the exploration configuration hyperparameters, including
+        /// <code>explorationWeight</code> and <code>explorationItemAgeCutOff</code>, you want
+        /// to use to configure the amount of item exploration Amazon Personalize uses when recommending
+        /// items. Provide <code>itemExplorationConfig</code> data only if your solution uses
+        /// the <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>
+        /// recipe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

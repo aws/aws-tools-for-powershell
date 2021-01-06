@@ -49,10 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group.
         /// For information about creating an ARN, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-        /// Constructing an ARN for Amazon RDS</a> in the <i>Amazon Aurora User Guide</i>. </para><para>Constraints:</para><ul><li><para>Must specify a valid DB cluster parameter group.</para></li><li><para>If the source DB cluster parameter group is in the same AWS Region as the copy, specify
-        /// a valid DB parameter group identifier, for example <code>my-db-cluster-param-group</code>,
-        /// or a valid ARN.</para></li><li><para>If the source DB parameter group is in a different AWS Region than the copy, specify
-        /// a valid DB cluster parameter group ARN, for example <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</para></li></ul>
+        /// Constructing an ARN for Amazon RDS</a> in the <i>Amazon Aurora User Guide</i>. </para><para>Constraints:</para><ul><li><para>Must specify a valid DB cluster parameter group.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

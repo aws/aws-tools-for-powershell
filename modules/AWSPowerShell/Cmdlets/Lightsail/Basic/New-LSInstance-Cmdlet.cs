@@ -138,6 +138,18 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String[] InstanceName { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the instance.</para><para>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code>
+        /// for IPv4 and IPv6.</para><para>The default value is <code>dualstack</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lightsail.IpAddressType")]
+        public Amazon.Lightsail.IpAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter KeyPairName
         /// <summary>
         /// <para>
@@ -285,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 WriteWarning("You are passing $null as a value for parameter InstanceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IpAddressType = this.IpAddressType;
             context.KeyPairName = this.KeyPairName;
             if (this.Tag != null)
             {
@@ -332,6 +345,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.InstanceName != null)
             {
                 request.InstanceNames = cmdletContext.InstanceName;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             if (cmdletContext.KeyPairName != null)
             {
@@ -413,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             [System.ObsoleteAttribute]
             public System.String CustomImageName { get; set; }
             public List<System.String> InstanceName { get; set; }
+            public Amazon.Lightsail.IpAddressType IpAddressType { get; set; }
             public System.String KeyPairName { get; set; }
             public List<Amazon.Lightsail.Model.Tag> Tag { get; set; }
             public System.String UserData { get; set; }

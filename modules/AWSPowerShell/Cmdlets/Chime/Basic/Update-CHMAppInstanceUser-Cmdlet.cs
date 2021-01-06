@@ -28,8 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Updates the details for an <code>AppInstanceUser</code>. You can update names and
-    /// metadata.
+    /// Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.
     /// </summary>
     [Cmdlet("Update", "CHMAppInstanceUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the app instance user.</para>
+        /// <para>The ARN of the <code>AppInstanceUser</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Metadata
         /// <summary>
         /// <para>
-        /// <para>The metadata of the app instance user.</para>
+        /// <para>The metadata of the <code>AppInstanceUser</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the app instance user.</para>
+        /// <para>The name of the <code>AppInstanceUser</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

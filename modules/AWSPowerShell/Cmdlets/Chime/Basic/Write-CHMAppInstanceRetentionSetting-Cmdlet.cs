@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Sets the amount of time in days that a given app instance retains data.
+    /// Sets the amount of time in days that a given <code>AppInstance</code> retains data.
     /// </summary>
     [Cmdlet("Write", "CHMAppInstanceRetentionSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.PutAppInstanceRetentionSettingsResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the app instance.</para>
+        /// <para>The ARN of the <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ChannelRetentionSettings_RetentionDay
         /// <summary>
         /// <para>
-        /// <para>The time in days to retain a channel.</para>
+        /// <para>The time in days to retain the messages in a channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

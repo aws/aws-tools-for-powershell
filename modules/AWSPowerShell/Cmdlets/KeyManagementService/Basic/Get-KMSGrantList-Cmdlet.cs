@@ -28,9 +28,13 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Gets a list of all grants for the specified customer master key (CMK).
+    /// Gets a list of all grants for the specified customer master key (CMK). 
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// You must specify the CMK in all requests. You can filter the grant list by grant ID
+    /// or grantee principal.
+    /// </para><note><para>
     /// The <code>GranteePrincipal</code> field in the <code>ListGrants</code> response usually
     /// contains the user or role designated as the grantee principal in the grant. However,
     /// when the grantee principal in the grant is an AWS service, the <code>GranteePrincipal</code>
@@ -52,10 +56,33 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class GetKMSGrantListCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter GranteePrincipal
+        /// <summary>
+        /// <para>
+        /// <para>Returns only grants where the specified principal is the grantee principal for the
+        /// grant.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GranteePrincipal { get; set; }
+        #endregion
+        
+        #region Parameter GrantId
+        /// <summary>
+        /// <para>
+        /// <para>Returns only the grant with the specified grant ID. The grant ID uniquely identifies
+        /// the grant. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GrantId { get; set; }
+        #endregion
+        
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key (CMK).</para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK
+        /// <para>Returns only grants for the specified customer master key (CMK). This parameter is
+        /// required.</para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK
         /// in a different AWS account, you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
@@ -161,6 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.Select = (response, cmdlet) => this.KeyId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.GranteePrincipal = this.GranteePrincipal;
+            context.GrantId = this.GrantId;
             context.KeyId = this.KeyId;
             #if MODULAR
             if (this.KeyId == null && ParameterWasBound(nameof(this.KeyId)))
@@ -200,6 +229,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             // create request and set iteration invariants
             var request = new Amazon.KeyManagementService.Model.ListGrantsRequest();
             
+            if (cmdletContext.GranteePrincipal != null)
+            {
+                request.GranteePrincipal = cmdletContext.GranteePrincipal;
+            }
+            if (cmdletContext.GrantId != null)
+            {
+                request.GrantId = cmdletContext.GrantId;
+            }
             if (cmdletContext.KeyId != null)
             {
                 request.KeyId = cmdletContext.KeyId;
@@ -263,6 +300,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             
             // create request and set iteration invariants
             var request = new Amazon.KeyManagementService.Model.ListGrantsRequest();
+            if (cmdletContext.GranteePrincipal != null)
+            {
+                request.GranteePrincipal = cmdletContext.GranteePrincipal;
+            }
+            if (cmdletContext.GrantId != null)
+            {
+                request.GrantId = cmdletContext.GrantId;
+            }
             if (cmdletContext.KeyId != null)
             {
                 request.KeyId = cmdletContext.KeyId;
@@ -386,6 +431,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String GranteePrincipal { get; set; }
+            public System.String GrantId { get; set; }
             public System.String KeyId { get; set; }
             public int? Limit { get; set; }
             public System.String Marker { get; set; }

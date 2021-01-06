@@ -181,6 +181,19 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.IpAddressType
+        {
+            ($_ -eq "New-LSDistribution/IpAddressType") -Or
+            ($_ -eq "New-LSInstance/IpAddressType") -Or
+            ($_ -eq "New-LSInstancesFromSnapshot/IpAddressType") -Or
+            ($_ -eq "New-LSLoadBalancer/IpAddressType") -Or
+            ($_ -eq "Set-LSIpAddressType/IpAddressType")
+        }
+        {
+            $v = "dualstack","ipv4"
+            break
+        }
+
         # Amazon.Lightsail.LoadBalancerAttributeName
         "Update-LSLoadBalancerAttribute/AttributeName"
         {
@@ -259,6 +272,13 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.ResourceType
+        "Set-LSIpAddressType/ResourceType"
+        {
+            $v = "Alarm","Certificate","CloudFormationStackRecord","ContactMethod","ContainerService","Disk","DiskSnapshot","Distribution","Domain","ExportSnapshotRecord","Instance","InstanceSnapshot","KeyPair","LoadBalancer","LoadBalancerTlsCertificate","PeeredVpc","RelationalDatabase","RelationalDatabaseSnapshot","StaticIp"
+            break
+        }
+
         # Amazon.Lightsail.TreatMissingData
         "Add-LSAlarm/TreatMissingData"
         {
@@ -282,6 +302,7 @@ $LS_map = @{
     "CacheBehaviorSettings_ForwardedHeaders_Option"=@("New-LSDistribution","Update-LSDistribution")
     "ComparisonOperator"=@("Add-LSAlarm")
     "DefaultCacheBehavior_Behavior"=@("New-LSDistribution","Update-LSDistribution")
+    "IpAddressType"=@("New-LSDistribution","New-LSInstance","New-LSInstancesFromSnapshot","New-LSLoadBalancer","Set-LSIpAddressType")
     "MetricName"=@("Add-LSAlarm","Get-LSContainerServiceMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
     "Origin_ProtocolPolicy"=@("New-LSDistribution","Update-LSDistribution")
     "Origin_RegionName"=@("New-LSDistribution","Update-LSDistribution")
@@ -289,6 +310,7 @@ $LS_map = @{
     "PortInfo_Protocol"=@("Close-LSInstancePublicPort","Open-LSInstancePublicPort")
     "Power"=@("New-LSContainerService","Update-LSContainerService")
     "Protocol"=@("Get-LSInstanceAccessDetail","New-LSContactMethod","Remove-LSContactMethod","Send-LSContactMethodVerification")
+    "ResourceType"=@("Set-LSIpAddressType")
     "SourceRegion"=@("Copy-LSSnapshot")
     "State"=@("Test-LSAlarm")
     "TreatMissingData"=@("Add-LSAlarm")
@@ -471,6 +493,7 @@ $LS_SelectMap = @{
                "Remove-LSStaticIp",
                "Reset-LSDistributionCache",
                "Send-LSContactMethodVerification",
+               "Set-LSIpAddressType",
                "Start-LSInstance",
                "Start-LSRelationalDatabase",
                "Stop-LSInstance",

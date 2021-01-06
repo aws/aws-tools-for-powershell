@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The identifier or ARN for the source DB parameter group. For information about creating
         /// an ARN, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-        /// Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </para><para>Constraints:</para><ul><li><para>Must specify a valid DB parameter group.</para></li><li><para>Must specify a valid DB parameter group identifier, for example <code>my-db-param-group</code>,
-        /// or a valid ARN.</para></li></ul>
+        /// Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </para><para>Constraints:</para><ul><li><para>Must specify a valid DB parameter group.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

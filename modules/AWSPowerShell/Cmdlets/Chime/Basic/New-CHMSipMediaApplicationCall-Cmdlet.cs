@@ -47,7 +47,14 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         /// <para>The phone number that a user calls from.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String FromPhoneNumber { get; set; }
         #endregion
         
@@ -71,10 +78,17 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ToPhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The phone number that the user dials in order to connect to a meeting</para>
+        /// <para>The phone number that the user dials in order to connect to a meeting.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ToPhoneNumber { get; set; }
         #endregion
         
@@ -140,6 +154,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.FromPhoneNumber = this.FromPhoneNumber;
+            #if MODULAR
+            if (this.FromPhoneNumber == null && ParameterWasBound(nameof(this.FromPhoneNumber)))
+            {
+                WriteWarning("You are passing $null as a value for parameter FromPhoneNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.SipMediaApplicationId = this.SipMediaApplicationId;
             #if MODULAR
             if (this.SipMediaApplicationId == null && ParameterWasBound(nameof(this.SipMediaApplicationId)))
@@ -148,6 +168,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             #endif
             context.ToPhoneNumber = this.ToPhoneNumber;
+            #if MODULAR
+            if (this.ToPhoneNumber == null && ParameterWasBound(nameof(this.ToPhoneNumber)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ToPhoneNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

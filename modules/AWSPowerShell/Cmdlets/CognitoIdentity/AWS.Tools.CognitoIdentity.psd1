@@ -94,11 +94,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CGIIdentityPool', 
         'Get-CGIIdentityPoolList', 
         'Get-CGIIdentityPoolRole', 
+        'Get-CGIPrincipalTagAttributeMap', 
         'Get-CGIResourceTag', 
         'New-CGIIdentityPool', 
         'Remove-CGIIdentityPool', 
         'Remove-CGIResourceTag', 
         'Set-CGIIdentityPoolRole', 
+        'Set-CGIPrincipalTagAttributeMap', 
         'Update-CGIIdentityPool')
 
     # Variables to export from this module

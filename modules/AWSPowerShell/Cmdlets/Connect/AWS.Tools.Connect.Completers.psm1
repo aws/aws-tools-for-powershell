@@ -136,6 +136,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.QueueStatus
+        "Update-CONNQueueStatus/Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Connect.QuickConnectType
         {
             ($_ -eq "New-CONNQuickConnect/QuickConnectConfig_QuickConnectType") -Or
@@ -192,6 +199,7 @@ $CONN_map = @{
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "SourceType"=@("New-CONNIntegrationAssociation")
+    "Status"=@("Update-CONNQueueStatus")
     "StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_S3Config_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
@@ -254,11 +262,13 @@ $CONN_SelectMap = @{
                "Add-CONNInstanceStorageConfig",
                "Add-CONNLambdaFunction",
                "Add-CONNLexBot",
+               "Add-CONNQueueQuickConnect",
                "Join-CONNRoutingProfileQueue",
                "Add-CONNSecurityKey",
                "New-CONNContactFlow",
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
+               "New-CONNQueue",
                "New-CONNQuickConnect",
                "New-CONNRoutingProfile",
                "New-CONNUseCase",
@@ -271,9 +281,11 @@ $CONN_SelectMap = @{
                "Remove-CONNUser",
                "Remove-CONNUserHierarchyGroup",
                "Get-CONNContactFlow",
+               "Get-CONNHoursOfOperation",
                "Get-CONNInstance",
                "Get-CONNInstanceAttribute",
                "Get-CONNInstanceStorageConfig",
+               "Get-CONNQueue",
                "Get-CONNQuickConnect",
                "Get-CONNRoutingProfile",
                "Get-CONNUser",
@@ -283,6 +295,7 @@ $CONN_SelectMap = @{
                "Remove-CONNInstanceStorageConfig",
                "Remove-CONNLambdaFunction",
                "Remove-CONNLexBot",
+               "Remove-CONNQueueQuickConnect",
                "Disconnect-CONNRoutingProfileQueue",
                "Remove-CONNSecurityKey",
                "Get-CONNContactAttribute",
@@ -300,6 +313,7 @@ $CONN_SelectMap = @{
                "Get-CONNLexBotList",
                "Get-CONNPhoneNumberList",
                "Get-CONNPromptList",
+               "Get-CONNQueueQuickConnectList",
                "Get-CONNQueueList",
                "Get-CONNQuickConnectList",
                "Get-CONNRoutingProfileQueueList",
@@ -325,6 +339,11 @@ $CONN_SelectMap = @{
                "Update-CONNContactFlowName",
                "Update-CONNInstanceAttribute",
                "Update-CONNInstanceStorageConfig",
+               "Update-CONNQueueHoursOfOperation",
+               "Update-CONNQueueMaxContact",
+               "Update-CONNQueueName",
+               "Update-CONNQueueOutboundCallerConfig",
+               "Update-CONNQueueStatus",
                "Update-CONNQuickConnectConfig",
                "Update-CONNQuickConnectName",
                "Update-CONNRoutingProfileConcurrency",

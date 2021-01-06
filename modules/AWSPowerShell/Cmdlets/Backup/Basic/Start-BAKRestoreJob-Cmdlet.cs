@@ -84,9 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// file system. You can specify a key from another AWS account provided that key it is
         /// properly shared with your account via AWS KMS.</para></li><li><para><code>PerformanceMode</code>: Specifies the throughput mode of the file system.</para></li><li><para><code>CreationToken</code>: A user-supplied value that ensures the uniqueness (idempotency)
         /// of the request.</para></li><li><para><code>newFileSystem</code>: A Boolean value that, if true, specifies that the recovery
-        /// point is restored to a new Amazon EFS file system.</para></li><li><para><code>ItemsToRestore </code>: A serialized list of up to five strings where each
-        /// string is a file path. Use <code>ItemsToRestore</code> to restore specific files or
-        /// directories rather than the entire file system. This parameter is optional.</para></li></ul>
+        /// point is restored to a new Amazon EFS file system.</para></li><li><para><code>ItemsToRestore </code>: An array of one to five strings where each string is
+        /// a file path. Use <code>ItemsToRestore</code> to restore specific files or directories
+        /// rather than the entire file system. This parameter is optional. For example, <code>"itemsToRestore":"[\"/my.test\"]"</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>Starts a job to restore a recovery point for one of the following resources:</para><ul><li><para><code>DynamoDB</code> for Amazon DynamoDB</para></li><li><para><code>EBS</code> for Amazon Elastic Block Store</para></li><li><para><code>EC2</code> for Amazon Elastic Compute Cloud</para></li><li><para><code>EFS</code> for Amazon Elastic File System</para></li><li><para><code>RDS</code> for Amazon Relational Database Service</para></li><li><para><code>Storage Gateway</code> for AWS Storage Gateway</para></li></ul>
+        /// <para>Starts a job to restore a recovery point for one of the following resources:</para><ul><li><para><code>DynamoDB</code> for Amazon DynamoDB</para></li><li><para><code>EBS</code> for Amazon Elastic Block Store</para></li><li><para><code>EC2</code> for Amazon Elastic Compute Cloud</para></li><li><para><code>EFS</code> for Amazon Elastic File System</para></li><li><para><code>RDS</code> for Amazon Relational Database Service</para></li><li><para><code>Aurora</code> for Amazon Aurora</para></li><li><para><code>Storage Gateway</code> for AWS Storage Gateway</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

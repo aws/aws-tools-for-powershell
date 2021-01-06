@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Updates the details for the specified SIP media application.
+    /// Updates the details of the specified SIP media application.
     /// </summary>
     [Cmdlet("Update", "CHMSipMediaApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.SipMediaApplication")]

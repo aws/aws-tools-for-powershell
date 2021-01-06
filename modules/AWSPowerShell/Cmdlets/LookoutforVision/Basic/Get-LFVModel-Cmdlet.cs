@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.LFV
 {
     /// <summary>
     /// Describes a version of an Amazon Lookout for Vision model.
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permissions to perform the <code>lookoutvision:DescribeModel</code>
+    /// operation.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "LFVModel")]
     [OutputType("Amazon.LookoutforVision.Model.ModelDescription")]

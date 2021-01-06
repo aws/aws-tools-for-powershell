@@ -28,9 +28,8 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Gets the pre-signed URL to a component artifact in an S3 bucket. Core devices can
-    /// call this operation to identify the URL that they can use to download an artifact
-    /// to install.
+    /// Gets the pre-signed URL to download a public component artifact. Core devices call
+    /// this operation to identify the URL that they can use to download an artifact to install.
     /// </summary>
     [Cmdlet("Get", "GGV2ComponentVersionArtifact")]
     [OutputType("System.String")]
@@ -46,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
-        /// of the component version.</para>
+        /// of the component version. Specify the ARN of a public component version.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter ArtifactName
         /// <summary>
         /// <para>
-        /// <para>The name of the artifact.</para>
+        /// <para>The name of the artifact.</para><para>You can use the <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetComponent.html">GetComponent</a>
+        /// operation to download the component recipe, which includes the URI of the artifact.
+        /// The artifact name is the section of the URI after the scheme. For example, in the
+        /// artifact URI <code>greengrass:SomeArtifact.zip</code>, the artifact name is <code>SomeArtifact.zip</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

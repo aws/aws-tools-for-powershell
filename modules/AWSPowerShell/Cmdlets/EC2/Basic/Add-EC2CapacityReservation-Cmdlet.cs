@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// that usage. By creating Capacity Reservations, you ensure that you always have access
     /// to Amazon EC2 capacity when you need it, for as long as you need it. For more information,
     /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">Capacity
-    /// Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Reservations</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
     /// Your request to create a Capacity Reservation could fail if Amazon EC2 does not have
     /// sufficient capacity to fulfill the request. If your request fails due to Amazon EC2
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// limit for the selected instance type. If your request fails due to limit constraints,
     /// increase your On-Demand Instance limit for the required instance type and try again.
     /// For more information about increasing your instance limits, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
-    /// EC2 Service Limits</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// EC2 Service Quotas</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "EC2CapacityReservation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The instance type for which to reserve capacity. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
-        /// Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// types</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -240,8 +240,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a>.</para>
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure
+        /// Idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

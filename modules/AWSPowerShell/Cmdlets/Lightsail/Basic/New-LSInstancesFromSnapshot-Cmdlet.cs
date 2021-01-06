@@ -139,6 +139,18 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String InstanceSnapshotName { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the instance.</para><para>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code>
+        /// for IPv4 and IPv6.</para><para>The default value is <code>dualstack</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lightsail.IpAddressType")]
+        public Amazon.Lightsail.IpAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter KeyPairName
         /// <summary>
         /// <para>
@@ -327,6 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             #endif
             context.InstanceSnapshotName = this.InstanceSnapshotName;
+            context.IpAddressType = this.IpAddressType;
             context.KeyPairName = this.KeyPairName;
             context.RestoreDate = this.RestoreDate;
             context.SourceInstanceName = this.SourceInstanceName;
@@ -375,6 +388,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.InstanceSnapshotName != null)
             {
                 request.InstanceSnapshotName = cmdletContext.InstanceSnapshotName;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             if (cmdletContext.KeyPairName != null)
             {
@@ -467,6 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.String BundleId { get; set; }
             public List<System.String> InstanceName { get; set; }
             public System.String InstanceSnapshotName { get; set; }
+            public Amazon.Lightsail.IpAddressType IpAddressType { get; set; }
             public System.String KeyPairName { get; set; }
             public System.String RestoreDate { get; set; }
             public System.String SourceInstanceName { get; set; }

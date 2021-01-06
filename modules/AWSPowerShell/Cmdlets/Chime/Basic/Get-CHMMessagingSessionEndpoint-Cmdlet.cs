@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// The endpoint for the messaging session.
+    /// The details of the endpoint for the messaging session.
     /// </summary>
     [Cmdlet("Get", "CHMMessagingSessionEndpoint")]
     [OutputType("Amazon.Chime.Model.MessagingSessionEndpoint")]

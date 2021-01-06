@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Disables DNSSEC signing in a specific hosted zone. This action does not deactivate
-    /// any key signing keys (KSKs) that are active in the hosted zone.
+    /// any key-signing keys (KSKs) that are active in the hosted zone.
     /// </summary>
     [Cmdlet("Disable", "R53HostedZoneDNSSEC", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]

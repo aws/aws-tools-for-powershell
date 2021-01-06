@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
     /// Deletes the specified cache parameter group. You cannot delete a cache parameter group
-    /// if it is associated with any cache clusters.
+    /// if it is associated with any cache clusters. You cannot delete the default cache parameter
+    /// groups in your account.
     /// </summary>
     [Cmdlet("Remove", "ECCacheParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

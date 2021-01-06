@@ -28,7 +28,7 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Deactivates a key signing key (KSK) so that it will not be used for signing by DNSSEC.
+    /// Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC.
     /// This operation changes the KSK status to <code>INACTIVE</code>.
     /// </summary>
     [Cmdlet("Disable", "R53KeySigningKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>An alphanumeric string used to identify a key signing key (KSK).</para>
+        /// <para>A string used to identify a key-signing key (KSK).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

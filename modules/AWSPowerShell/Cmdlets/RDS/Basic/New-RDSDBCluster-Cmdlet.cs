@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineMode
         /// <summary>
         /// <para>
-        /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code><code>serverless</code>,
+        /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
         /// <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</para><para>The <code>parallelquery</code> engine mode isn't required for Aurora MySQL version
         /// 1.23 and higher 1.x versions, and version 2.09 and higher 2.x versions.</para><para>The <code>global</code> engine mode isn't required for Aurora MySQL version 1.22 and
         /// higher 1.x versions, and <code>global</code> engine mode isn't required for any 2.x

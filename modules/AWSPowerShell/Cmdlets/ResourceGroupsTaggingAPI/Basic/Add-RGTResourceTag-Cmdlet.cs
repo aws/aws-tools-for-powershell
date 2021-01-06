@@ -31,18 +31,18 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     /// Applies one or more tags to the specified resources. Note the following:
     /// 
     ///  <ul><li><para>
-    /// Not all resources can have tags. For a list of services that support tagging, see
-    /// <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html">this
-    /// list</a>.
+    /// Not all resources can have tags. For a list of services with resources that support
+    /// tagging using this operation, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services
+    /// that support the Resource Groups Tagging API</a>.
     /// </para></li><li><para>
-    /// Each resource can have up to 50 tags. For other limits, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag
+    /// Each resource can have up to 50 tags. For other limits, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag
     /// Naming and Usage Conventions</a> in the <i>AWS General Reference.</i></para></li><li><para>
-    /// You can only tag resources that are located in the specified Region for the AWS account.
+    /// You can only tag resources that are located in the specified AWS Region for the AWS
+    /// account.
     /// </para></li><li><para>
     /// To add tags to a resource, you need the necessary permissions for the service that
     /// the resource belongs to as well as permissions for adding tags. For more information,
-    /// see <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html">this
-    /// list</a>.
+    /// see the documentation for each service.
     /// </para></li></ul><important><para>
     /// Do not store personally identifiable information (PII) or other confidential or sensitive
     /// information in tags. We use tags to provide you with billing and administration services.
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter ResourceARNList
         /// <summary>
         /// <para>
-        /// <para>A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For
-        /// more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// <para>Specifies the list of ARNs of the resources that you want to apply tags to.</para><para>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information,
+        /// see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags that you want to add to the specified resources. A tag consists of a key
-        /// and a value that you define.</para>
+        /// <para>Specifies a list of tags that you want to add to the specified resources. A tag consists
+        /// of a key and a value that you define.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

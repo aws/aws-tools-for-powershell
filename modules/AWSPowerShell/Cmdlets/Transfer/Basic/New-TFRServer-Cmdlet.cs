@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String Certificate { get; set; }
         #endregion
         
+        #region Parameter Domain
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.Domain")]
+        public Amazon.Transfer.Domain Domain { get; set; }
+        #endregion
+        
         #region Parameter EndpointType
         /// <summary>
         /// <para>
@@ -276,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Certificate = this.Certificate;
+            context.Domain = this.Domain;
             if (this.EndpointDetails_AddressAllocationId != null)
             {
                 context.EndpointDetails_AddressAllocationId = new List<System.String>(this.EndpointDetails_AddressAllocationId);
@@ -324,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (cmdletContext.Certificate != null)
             {
                 request.Certificate = cmdletContext.Certificate;
+            }
+            if (cmdletContext.Domain != null)
+            {
+                request.Domain = cmdletContext.Domain;
             }
             
              // populate EndpointDetails
@@ -503,6 +519,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Certificate { get; set; }
+            public Amazon.Transfer.Domain Domain { get; set; }
             public List<System.String> EndpointDetails_AddressAllocationId { get; set; }
             public List<System.String> EndpointDetails_SecurityGroupId { get; set; }
             public List<System.String> EndpointDetails_SubnetId { get; set; }

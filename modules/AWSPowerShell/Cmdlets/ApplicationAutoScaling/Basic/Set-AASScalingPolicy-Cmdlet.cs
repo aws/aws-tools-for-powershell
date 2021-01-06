@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// target to scale out again. 
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
-    /// Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step
-    /// Scaling Policies</a> in the <i>Application Auto Scaling User Guide</i>.
+    /// tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step
+    /// scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.
     /// </para><note><para>
     /// If a scalable target is deregistered, the scalable target is no longer available to
     /// execute scaling policies. Any scaling policies that were specified for the scalable
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// the cooldown period after a scale-in activity, Application Auto Scaling scales out
         /// the target immediately. In this case, the cooldown period for the scale-in activity
         /// stops and doesn't complete.</para><para>Application Auto Scaling provides a default value of 300 for the following scalable
-        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK cluster storage</para></li></ul>
+        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK broker storage</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,8 +212,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>The policy type. This parameter is required if you are creating a scaling policy.</para><para>The following policy types are supported: </para><para><code>TargetTrackingScaling</code>—Not supported for Amazon EMR</para><para><code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon
         /// Keyspaces (for Apache Cassandra), or Amazon MSK.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
-        /// Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step
-        /// Scaling Policies</a> in the <i>Application Auto Scaling User Guide</i>.</para>
+        /// tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step
+        /// scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -335,7 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// the cooldown period has expired. However, if another alarm triggers a scale-out activity
         /// during the scale-in cooldown period, Application Auto Scaling scales out the target
         /// immediately. In this case, the scale-in cooldown period stops and doesn't complete.</para><para>Application Auto Scaling provides a default value of 300 for the following scalable
-        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK cluster storage</para></li></ul>
+        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK broker storage</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -353,7 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// is triggered or the cooldown period ends. While the cooldown period is in effect,
         /// the capacity added by the initiating scale-out activity is calculated as part of the
         /// desired capacity for the next scale-out activity.</para><para>Application Auto Scaling provides a default value of 300 for the following scalable
-        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK cluster storage</para></li></ul>
+        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK broker storage</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

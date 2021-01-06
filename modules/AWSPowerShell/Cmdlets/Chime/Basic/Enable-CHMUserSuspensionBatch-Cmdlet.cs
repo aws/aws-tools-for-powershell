@@ -34,17 +34,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// 
     ///  
     /// <para>
-    /// Users suspended from a <code>Team</code> account are disassociated from the account,
-    /// but they can continue to use Amazon Chime as free users. To remove the suspension
-    /// from suspended <code>Team</code> account users, invite them to the <code>Team</code>
-    /// account again. You can use the <a>InviteUsers</a> action to do so.
+    /// Users suspended from a <code>Team</code> account are disassociated from the account,but
+    /// they can continue to use Amazon Chime as free users. To remove the suspension from
+    /// suspended <code>Team</code> account users, invite them to the <code>Team</code> account
+    /// again. You can use the <a>InviteUsers</a> action to do so.
     /// </para><para>
     /// Users suspended from an <code>EnterpriseLWA</code> account are immediately signed
     /// out of Amazon Chime and can no longer sign in. To remove the suspension from suspended
     /// <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a> action.
-    /// 
     /// </para><para>
-    /// To sign out users without suspending them, use the <a>LogoutUser</a> action.
+    ///  To sign out users without suspending them, use the <a>LogoutUser</a> action. 
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "CHMUserSuspensionBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

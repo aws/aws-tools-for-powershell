@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter QueueConfig_QueueId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the queue.</para>
+        /// <para>The identifier for the queue.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -214,6 +214,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Restart-LSRelationalDatabase', 
         'Send-LSContactMethodVerification', 
         'Set-LSInstancePublicPort', 
+        'Set-LSIpAddressType', 
         'Start-LSInstance', 
         'Start-LSRelationalDatabase', 
         'Stop-LSInstance', 

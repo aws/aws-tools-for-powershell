@@ -40,7 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// Redact messages in the channel.
     /// </para></li><li><para>
     /// List messages in the channel.
-    /// </para></li></ul>
+    /// </para></li></ul><note><para>
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// of the user that makes the API call as the value in the header.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "CHMChannelModerator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.CreateChannelModeratorResponse")]
@@ -83,6 +86,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ChannelModeratorArn { get; set; }
+        #endregion
+        
+        #region Parameter ChimeBearer
+        /// <summary>
+        /// <para>
+        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChimeBearer { get; set; }
         #endregion
         
         #region Parameter Select
@@ -160,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter ChannelModeratorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ChimeBearer = this.ChimeBearer;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -183,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.ChannelModeratorArn != null)
             {
                 request.ChannelModeratorArn = cmdletContext.ChannelModeratorArn;
+            }
+            if (cmdletContext.ChimeBearer != null)
+            {
+                request.ChimeBearer = cmdletContext.ChimeBearer;
             }
             
             CmdletOutput output;
@@ -247,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         {
             public System.String ChannelArn { get; set; }
             public System.String ChannelModeratorArn { get; set; }
+            public System.String ChimeBearer { get; set; }
             public System.Func<Amazon.Chime.Model.CreateChannelModeratorResponse, NewCHMChannelModeratorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

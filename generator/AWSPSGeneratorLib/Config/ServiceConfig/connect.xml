@@ -40,6 +40,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateQueueQuickConnects" Verb="Add" Noun="QueueQuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateRoutingProfileQueues" Verb="Join" Noun="RoutingProfileQueue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -57,6 +61,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIntegrationAssociation" OutputProperty="*" Verb="New" Noun="IntegrationAssociation" ShouldProcessTarget="SourceApplicationName" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateQueue" OutputProperty="*" Verb="New" Noun="Queue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -108,6 +116,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHoursOfOperation" OutputProperty="HoursOfOperation" Verb="Get" Noun="HoursOfOperation" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstance" OutputProperty="Instance" Verb="Get" Noun="Instance" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -117,6 +129,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstanceStorageConfig" OutputProperty="StorageConfig" Verb="Get" Noun="InstanceStorageConfig" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeQueue" OutputProperty="Queue" Verb="Get" Noun="Queue" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -153,6 +169,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateLexBot" Verb="Remove" Noun="LexBot" ShouldProcessTarget="BotName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateQueueQuickConnects" Verb="Remove" Noun="QueueQuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -221,6 +241,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPrompts" OutputProperty="PromptSummaryList" Verb="Get" Noun="PromptList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQueueQuickConnects" OutputProperty="QuickConnectSummaryList" Verb="Get" Noun="QueueQuickConnectList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -327,6 +351,26 @@
                 <Param Name="StorageConfig_S3Config_EncryptionConfig_EncryptionType" NewName="StorageConfigS3ConfigEncryptionConfigEncryptionType" />
                 <Param Name="StorageConfig_S3Config_EncryptionConfig_KeyId" NewName="StorageConfigS3ConfigEncryptionConfigKeyId" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQueueHoursOfOperation" Verb="Update" Noun="QueueHoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQueueMaxContacts" Verb="Update" Noun="QueueMaxContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQueueName" Verb="Update" Noun="QueueName" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQueueOutboundCallerConfig" Verb="Update" Noun="QueueOutboundCallerConfig" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQueueStatus" Verb="Update" Noun="QueueStatus" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateQuickConnectConfig" Verb="Update" Noun="QuickConnectConfig" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">

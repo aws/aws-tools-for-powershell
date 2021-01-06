@@ -28,10 +28,10 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
+    /// <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure
+    /// full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b><para>
     /// Updates the configuration for the specified Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To update an Auto Scaling group, specify the name of the group and the parameter that
     /// you want to change. Any parameters that you don't specify are not changed by this
     /// update request. The new settings take effect on any scaling activities after this

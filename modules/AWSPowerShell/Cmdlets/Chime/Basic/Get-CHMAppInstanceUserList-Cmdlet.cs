@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// List all <code>AppInstanceUsers</code> created under a single app instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List all <code>AppInstanceUsers</code> created under a single <code>AppInstance</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CHMAppInstanceUserList")]
     [OutputType("Amazon.Chime.Model.ListAppInstanceUsersResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the app instance.</para>
+        /// <para>The ARN of the <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

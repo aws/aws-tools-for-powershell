@@ -28,8 +28,7 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Creates a recommendation filter. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filters.html">Using
-    /// Filters with Amazon Personalize</a>.
+    /// Creates a recommendation filter. For more information, see <a>filter</a>.
     /// </summary>
     [Cmdlet("New", "PERSFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -61,11 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter FilterExpression
         /// <summary>
         /// <para>
-        /// <para>The filter expression that designates the interaction types that the filter will filter
-        /// out. A filter expression must follow the following format:</para><para><code>EXCLUDE itemId WHERE INTERACTIONS.event_type in ("EVENT_TYPE")</code></para><para>Where "EVENT_TYPE" is the type of event to filter out. To filter out all items with
-        /// any interactions history, set <code>"*"</code> as the EVENT_TYPE. For more information,
-        /// see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filters.html">Using
-        /// Filters with Amazon Personalize</a>.</para>
+        /// <para>The filter expression defines which items are included or excluded from recommendations.
+        /// Filter expression must follow specific format rules. For information about filter
+        /// expression structure and syntax, see <a>filter-expressions</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,13 @@ using Amazon.LookoutforVision.Model;
 namespace Amazon.PowerShell.Cmdlets.LFV
 {
     /// <summary>
-    /// Lists the versions of a model in an Amazon Lookout for Vision project.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the versions of a model in an Amazon Lookout for Vision project.
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permissions to perform the <code>lookoutvision:ListModels</code>
+    /// operation.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LFVModelList")]
     [OutputType("Amazon.LookoutforVision.Model.ModelMetadata")]

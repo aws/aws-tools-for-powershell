@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
     /// enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
-    /// your instances and volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// your instances and volumes</a> in the <i>Amazon EC2 User Guide</i>.
     /// 
     ///  
     /// <para>

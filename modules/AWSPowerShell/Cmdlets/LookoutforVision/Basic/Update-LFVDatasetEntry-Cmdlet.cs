@@ -36,6 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// <para>
     /// Updating a dataset might take a while to complete. To check the current status, call
     /// <a>DescribeDataset</a> and check the <code>Status</code> field in the response.
+    /// </para><para>
+    /// This operation requires permissions to perform the <code>lookoutvision:UpdateDatasetEntries</code>
+    /// operation.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LFVDatasetEntry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

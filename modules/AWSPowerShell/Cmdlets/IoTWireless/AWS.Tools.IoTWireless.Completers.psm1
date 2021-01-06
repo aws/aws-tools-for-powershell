@@ -86,7 +86,7 @@ $IOTW_Completers = {
             ($_ -eq "Update-IOTWDestination/ExpressionType")
         }
         {
-            $v = "RuleName"
+            $v = "MqttTopic","RuleName"
             break
         }
 

@@ -37,7 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// </para><note><para>
     /// You are charged for the amount of time that the model is running. To stop a running
     /// model, call <a>StopModel</a>.
-    /// </para></note>
+    /// </para></note><para>
+    /// This operation requires permissions to perform the <code>lookoutvision:StartModel</code>
+    /// operation.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "LFVModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LookoutforVision.ModelHostingStatus")]

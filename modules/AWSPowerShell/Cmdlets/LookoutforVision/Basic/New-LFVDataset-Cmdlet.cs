@@ -39,7 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// To have a project with separate training and test datasets, call <code>CreateDataset</code>
     /// twice. On the first call, specify <code>train</code> for the value of <code>DatasetType</code>.
     /// On the second call, specify <code>test</code> for the value of <code>DatasetType</code>.
-    /// of dataset with 
+    /// 
+    /// </para><para>
+    /// This operation requires permissions to perform the <code>lookoutvision:CreateDataset</code>
+    /// operation.
     /// </para>
     /// </summary>
     [Cmdlet("New", "LFVDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

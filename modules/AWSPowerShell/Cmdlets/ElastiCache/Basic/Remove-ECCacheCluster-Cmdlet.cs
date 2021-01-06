@@ -39,7 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </para><ul><li><para>
     /// Redis (cluster mode enabled) clusters
     /// </para></li><li><para>
+    /// Redis (cluster mode disabled) clusters
+    /// </para></li><li><para>
     /// A cluster that is the last read replica of a replication group
+    /// </para></li><li><para>
+    /// A cluster that is the primary node of a replication group
     /// </para></li><li><para>
     /// A node group (shard) that has Multi-AZ mode enabled
     /// </para></li><li><para>

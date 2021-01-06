@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// 
     ///  <ol><li><para>
     /// In ACM Private CA, call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>
-    /// action to create the private CA that that you plan to back with the imported certificate.
+    /// action to create the private CA that you plan to back with the imported certificate.
     /// </para></li><li><para>
     /// Call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificateAuthorityCsr.html">GetCertificateAuthorityCsr</a>
     /// action to generate a certificate signing request (CSR).
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// </para></li><li><para>
     /// Installing a subordinate CA certificate whose parent authority is externally hosted.
     /// </para></li></ul><para>
-    /// The following addtitional requirements apply when you import a CA certificate.
+    /// The following additional requirements apply when you import a CA certificate.
     /// </para><ul><li><para>
     /// Only a self-signed certificate can be imported as a root CA.
     /// </para></li><li><para>

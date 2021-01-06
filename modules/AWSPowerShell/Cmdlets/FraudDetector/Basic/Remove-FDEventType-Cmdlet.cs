@@ -35,8 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     /// You cannot delete an event type that is used in a detector or a model.
     /// </para><para>
     /// When you delete an entity type, Amazon Fraud Detector permanently deletes that entity
-    /// type from the evaluation history, and the data is no longer stored in Amazon Fraud
-    /// Detector.
+    /// type and the data is no longer stored in Amazon Fraud Detector.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "FDEventType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

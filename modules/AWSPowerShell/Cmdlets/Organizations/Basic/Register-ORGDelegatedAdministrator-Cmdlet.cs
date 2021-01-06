@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// <para>
     /// You can run this action only for AWS services that support this feature. For a current
     /// list of services that support it, see the column <i>Supports Delegated Administrator</i>
-    /// in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html">AWS
+    /// in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS
     /// Services that you can use with AWS Organizations</a> in the <i>AWS Organizations User
     /// Guide.</i></para><para>
     /// This operation can be called only from the organization's management account.

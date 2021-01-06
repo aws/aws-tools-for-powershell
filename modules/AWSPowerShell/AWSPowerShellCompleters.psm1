@@ -288,7 +288,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.ResourceType
         "Get-IAMAAAnalyzedResourceList/ResourceType"
         {
-            $v = "AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::S3::Bucket","AWS::SQS::Queue"
+            $v = "AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::S3::Bucket","AWS::SecretsManager::Secret","AWS::SQS::Queue"
             break
         }
 
@@ -8258,9 +8258,11 @@ $CGI_SelectMap = @{
                "Remove-CGIIdentityPool",
                "Get-CGIIdentityPool",
                "Get-CGIIdentityPoolRole",
+               "Get-CGIPrincipalTagAttributeMap",
                "Get-CGIIdentityPoolList",
                "Get-CGIResourceTag",
                "Set-CGIIdentityPoolRole",
+               "Set-CGIPrincipalTagAttributeMap",
                "Add-CGIResourceTag",
                "Remove-CGIResourceTag",
                "Update-CGIIdentityPool")
@@ -9505,6 +9507,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.QueueStatus
+        "Update-CONNQueueStatus/Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Connect.QuickConnectType
         {
             ($_ -eq "New-CONNQuickConnect/QuickConnectConfig_QuickConnectType") -Or
@@ -9561,6 +9570,7 @@ $CONN_map = @{
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "SourceType"=@("New-CONNIntegrationAssociation")
+    "Status"=@("Update-CONNQueueStatus")
     "StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_S3Config_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
@@ -9623,11 +9633,13 @@ $CONN_SelectMap = @{
                "Add-CONNInstanceStorageConfig",
                "Add-CONNLambdaFunction",
                "Add-CONNLexBot",
+               "Add-CONNQueueQuickConnect",
                "Join-CONNRoutingProfileQueue",
                "Add-CONNSecurityKey",
                "New-CONNContactFlow",
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
+               "New-CONNQueue",
                "New-CONNQuickConnect",
                "New-CONNRoutingProfile",
                "New-CONNUseCase",
@@ -9640,9 +9652,11 @@ $CONN_SelectMap = @{
                "Remove-CONNUser",
                "Remove-CONNUserHierarchyGroup",
                "Get-CONNContactFlow",
+               "Get-CONNHoursOfOperation",
                "Get-CONNInstance",
                "Get-CONNInstanceAttribute",
                "Get-CONNInstanceStorageConfig",
+               "Get-CONNQueue",
                "Get-CONNQuickConnect",
                "Get-CONNRoutingProfile",
                "Get-CONNUser",
@@ -9652,6 +9666,7 @@ $CONN_SelectMap = @{
                "Remove-CONNInstanceStorageConfig",
                "Remove-CONNLambdaFunction",
                "Remove-CONNLexBot",
+               "Remove-CONNQueueQuickConnect",
                "Disconnect-CONNRoutingProfileQueue",
                "Remove-CONNSecurityKey",
                "Get-CONNContactAttribute",
@@ -9669,6 +9684,7 @@ $CONN_SelectMap = @{
                "Get-CONNLexBotList",
                "Get-CONNPhoneNumberList",
                "Get-CONNPromptList",
+               "Get-CONNQueueQuickConnectList",
                "Get-CONNQueueList",
                "Get-CONNQuickConnectList",
                "Get-CONNRoutingProfileQueueList",
@@ -9694,6 +9710,11 @@ $CONN_SelectMap = @{
                "Update-CONNContactFlowName",
                "Update-CONNInstanceAttribute",
                "Update-CONNInstanceStorageConfig",
+               "Update-CONNQueueHoursOfOperation",
+               "Update-CONNQueueMaxContact",
+               "Update-CONNQueueName",
+               "Update-CONNQueueOutboundCallerConfig",
+               "Update-CONNQueueStatus",
                "Update-CONNQuickConnectConfig",
                "Update-CONNQuickConnectName",
                "Update-CONNRoutingProfileConcurrency",
@@ -16848,7 +16869,7 @@ $FD_Completers = {
         # Amazon.FraudDetector.ModelVersionStatus
         "Update-FDModelVersionStatus/Status"
         {
-            $v = "ACTIVE","INACTIVE"
+            $v = "ACTIVE","INACTIVE","TRAINING_CANCELLED"
             break
         }
 
@@ -21316,7 +21337,7 @@ $IOTW_Completers = {
             ($_ -eq "Update-IOTWDestination/ExpressionType")
         }
         {
-            $v = "RuleName"
+            $v = "MqttTopic","RuleName"
             break
         }
 
@@ -21720,6 +21741,7 @@ $MSK_SelectMap = @{
                "Remove-MSKResourceTag",
                "Update-MSKBrokerCount",
                "Update-MSKBrokerStorage",
+               "Update-MSKBrokerType",
                "Update-MSKClusterConfiguration",
                "Update-MSKClusterKafkaVersion",
                "Update-MSKConfiguration",
@@ -23503,6 +23525,19 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.IpAddressType
+        {
+            ($_ -eq "New-LSDistribution/IpAddressType") -Or
+            ($_ -eq "New-LSInstance/IpAddressType") -Or
+            ($_ -eq "New-LSInstancesFromSnapshot/IpAddressType") -Or
+            ($_ -eq "New-LSLoadBalancer/IpAddressType") -Or
+            ($_ -eq "Set-LSIpAddressType/IpAddressType")
+        }
+        {
+            $v = "dualstack","ipv4"
+            break
+        }
+
         # Amazon.Lightsail.LoadBalancerAttributeName
         "Update-LSLoadBalancerAttribute/AttributeName"
         {
@@ -23581,6 +23616,13 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.ResourceType
+        "Set-LSIpAddressType/ResourceType"
+        {
+            $v = "Alarm","Certificate","CloudFormationStackRecord","ContactMethod","ContainerService","Disk","DiskSnapshot","Distribution","Domain","ExportSnapshotRecord","Instance","InstanceSnapshot","KeyPair","LoadBalancer","LoadBalancerTlsCertificate","PeeredVpc","RelationalDatabase","RelationalDatabaseSnapshot","StaticIp"
+            break
+        }
+
         # Amazon.Lightsail.TreatMissingData
         "Add-LSAlarm/TreatMissingData"
         {
@@ -23604,6 +23646,7 @@ $LS_map = @{
     "CacheBehaviorSettings_ForwardedHeaders_Option"=@("New-LSDistribution","Update-LSDistribution")
     "ComparisonOperator"=@("Add-LSAlarm")
     "DefaultCacheBehavior_Behavior"=@("New-LSDistribution","Update-LSDistribution")
+    "IpAddressType"=@("New-LSDistribution","New-LSInstance","New-LSInstancesFromSnapshot","New-LSLoadBalancer","Set-LSIpAddressType")
     "MetricName"=@("Add-LSAlarm","Get-LSContainerServiceMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
     "Origin_ProtocolPolicy"=@("New-LSDistribution","Update-LSDistribution")
     "Origin_RegionName"=@("New-LSDistribution","Update-LSDistribution")
@@ -23611,6 +23654,7 @@ $LS_map = @{
     "PortInfo_Protocol"=@("Close-LSInstancePublicPort","Open-LSInstancePublicPort")
     "Power"=@("New-LSContainerService","Update-LSContainerService")
     "Protocol"=@("Get-LSInstanceAccessDetail","New-LSContactMethod","Remove-LSContactMethod","Send-LSContactMethodVerification")
+    "ResourceType"=@("Set-LSIpAddressType")
     "SourceRegion"=@("Copy-LSSnapshot")
     "State"=@("Test-LSAlarm")
     "TreatMissingData"=@("Add-LSAlarm")
@@ -23793,6 +23837,7 @@ $LS_SelectMap = @{
                "Remove-LSStaticIp",
                "Reset-LSDistributionCache",
                "Send-LSContactMethodVerification",
+               "Set-LSIpAddressType",
                "Start-LSInstance",
                "Start-LSRelationalDatabase",
                "Stop-LSInstance",
@@ -24088,32 +24133,6 @@ _awsArgumentCompleterRegistration $CWL_SelectCompleters $CWL_SelectMap
 # Argument completions for service Amazon Lookout for Vision
 
 
-$LFV_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.LookoutforVision.ModelStatus
-        "New-LFVModel/Description_Status"
-        {
-            $v = "DELETING","HOSTED","HOSTING_FAILED","STARTING_HOSTING","STOPPING_HOSTING","SYSTEM_UPDATING","TRAINED","TRAINING","TRAINING_FAILED"
-            break
-        }
-
-
-    }
-
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$LFV_map = @{
-    "Description_Status"=@("New-LFVModel")
-}
-
-_awsArgumentCompleterRegistration $LFV_Completers $LFV_map
-
 $LFV_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -24175,8 +24194,11 @@ $LFV_SelectMap = @{
                "Get-LFVDatasetEntryList",
                "Get-LFVModelList",
                "Get-LFVProjectList",
+               "Get-LFVResourceTag",
                "Start-LFVModel",
                "Stop-LFVModel",
+               "Add-LFVResourceTag",
+               "Remove-LFVResourceTag",
                "Update-LFVDatasetEntry")
 }
 
@@ -24782,7 +24804,10 @@ $MBC_SelectMap = @{
                "Get-MBCNodeList",
                "Get-MBCProposalList",
                "Get-MBCProposalVoteList",
+               "Get-MBCResourceTag",
                "Deny-MBCInvitation",
+               "Add-MBCResourceTag",
+               "Remove-MBCResourceTag",
                "Update-MBCMember",
                "Update-MBCNode",
                "Send-MBCProposalVote")
@@ -26253,6 +26278,225 @@ $MOBL_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $MOBL_SelectCompleters $MOBL_SelectMap
+# Argument completions for service Amazon Lex Model Building V2
+
+
+$LMBV2_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.LexModelsV2.BotLocaleSortAttribute
+        "Get-LMBV2BotLocaleList/SortBy_Attribute"
+        {
+            $v = "BotLocaleName"
+            break
+        }
+
+        # Amazon.LexModelsV2.BotSortAttribute
+        "Get-LMBV2BotList/SortBy_Attribute"
+        {
+            $v = "BotName"
+            break
+        }
+
+        # Amazon.LexModelsV2.BotVersionSortAttribute
+        "Get-LMBV2BotVersionList/SortBy_Attribute"
+        {
+            $v = "BotVersion"
+            break
+        }
+
+        # Amazon.LexModelsV2.BuiltInIntentSortAttribute
+        "Get-LMBV2BuiltInIntentList/SortBy_Attribute"
+        {
+            $v = "IntentSignature"
+            break
+        }
+
+        # Amazon.LexModelsV2.BuiltInSlotTypeSortAttribute
+        "Get-LMBV2BuiltInSlotTypeList/SortBy_Attribute"
+        {
+            $v = "SlotTypeSignature"
+            break
+        }
+
+        # Amazon.LexModelsV2.IntentSortAttribute
+        "Get-LMBV2IntentList/SortBy_Attribute"
+        {
+            $v = "IntentName","LastUpdatedDateTime"
+            break
+        }
+
+        # Amazon.LexModelsV2.ObfuscationSettingType
+        {
+            ($_ -eq "New-LMBV2Slot/ObfuscationSetting_ObfuscationSettingType") -Or
+            ($_ -eq "Update-LMBV2Slot/ObfuscationSetting_ObfuscationSettingType")
+        }
+        {
+            $v = "DefaultObfuscation","None"
+            break
+        }
+
+        # Amazon.LexModelsV2.SlotConstraint
+        {
+            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_SlotConstraint") -Or
+            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_SlotConstraint")
+        }
+        {
+            $v = "Optional","Required"
+            break
+        }
+
+        # Amazon.LexModelsV2.SlotSortAttribute
+        "Get-LMBV2SlotList/SortBy_Attribute"
+        {
+            $v = "LastUpdatedDateTime","SlotName"
+            break
+        }
+
+        # Amazon.LexModelsV2.SlotTypeSortAttribute
+        "Get-LMBV2SlotTypeList/SortBy_Attribute"
+        {
+            $v = "LastUpdatedDateTime","SlotTypeName"
+            break
+        }
+
+        # Amazon.LexModelsV2.SlotValueResolutionStrategy
+        {
+            ($_ -eq "New-LMBV2SlotType/ValueSelectionSetting_ResolutionStrategy") -Or
+            ($_ -eq "Update-LMBV2SlotType/ValueSelectionSetting_ResolutionStrategy")
+        }
+        {
+            $v = "OriginalValue","TopResolution"
+            break
+        }
+
+        # Amazon.LexModelsV2.SortOrder
+        {
+            ($_ -eq "Get-LMBV2BotList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2BotLocaleList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2BotVersionList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2BuiltInIntentList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2BuiltInSlotTypeList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2IntentList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2SlotList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2SlotTypeList/SortBy_Order")
+        }
+        {
+            $v = "Ascending","Descending"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LMBV2_map = @{
+    "ObfuscationSetting_ObfuscationSettingType"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "SortBy_Attribute"=@("Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
+    "SortBy_Order"=@("Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
+    "ValueElicitationSetting_SlotConstraint"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "ValueSelectionSetting_ResolutionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
+}
+
+_awsArgumentCompleterRegistration $LMBV2_Completers $LMBV2_map
+
+$LMBV2_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.LMBV2.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LMBV2_SelectMap = @{
+    "Select"=@("Build-LMBV2BotLocale",
+               "New-LMBV2Bot",
+               "New-LMBV2BotAlias",
+               "New-LMBV2BotLocale",
+               "New-LMBV2BotVersion",
+               "New-LMBV2Intent",
+               "New-LMBV2Slot",
+               "New-LMBV2SlotType",
+               "Remove-LMBV2Bot",
+               "Remove-LMBV2BotAlias",
+               "Remove-LMBV2BotLocale",
+               "Remove-LMBV2BotVersion",
+               "Remove-LMBV2Intent",
+               "Remove-LMBV2Slot",
+               "Remove-LMBV2SlotType",
+               "Get-LMBV2Bot",
+               "Get-LMBV2BotAlias",
+               "Get-LMBV2BotLocale",
+               "Get-LMBV2BotVersion",
+               "Get-LMBV2Intent",
+               "Get-LMBV2Slot",
+               "Get-LMBV2SlotType",
+               "Get-LMBV2BotAliasList",
+               "Get-LMBV2BotLocaleList",
+               "Get-LMBV2BotList",
+               "Get-LMBV2BotVersionList",
+               "Get-LMBV2BuiltInIntentList",
+               "Get-LMBV2BuiltInSlotTypeList",
+               "Get-LMBV2IntentList",
+               "Get-LMBV2SlotList",
+               "Get-LMBV2SlotTypeList",
+               "Get-LMBV2ResourceTag",
+               "Add-LMBV2ResourceTag",
+               "Remove-LMBV2ResourceTag",
+               "Update-LMBV2Bot",
+               "Update-LMBV2BotAlias",
+               "Update-LMBV2BotLocale",
+               "Update-LMBV2Intent",
+               "Update-LMBV2Slot",
+               "Update-LMBV2SlotType")
+}
+
+_awsArgumentCompleterRegistration $LMBV2_SelectCompleters $LMBV2_SelectMap
 # Argument completions for service Amazon CloudWatch
 
 
@@ -30999,6 +31243,116 @@ $R53R_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $R53R_SelectCompleters $R53R_SelectMap
+# Argument completions for service Amazon Lex Runtime V2
+
+
+$LRSV2_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.LexRuntimeV2.ConfirmationState
+        {
+            ($_ -eq "Send-LRSV2Text/SessionStateValue_Intent_ConfirmationState") -Or
+            ($_ -eq "Write-LRSV2Session/SessionStateValue_Intent_ConfirmationState")
+        }
+        {
+            $v = "Confirmed","Denied","None"
+            break
+        }
+
+        # Amazon.LexRuntimeV2.DialogActionType
+        {
+            ($_ -eq "Send-LRSV2Text/SessionStateValue_DialogAction_Type") -Or
+            ($_ -eq "Write-LRSV2Session/SessionStateValue_DialogAction_Type")
+        }
+        {
+            $v = "Close","ConfirmIntent","Delegate","ElicitIntent","ElicitSlot"
+            break
+        }
+
+        # Amazon.LexRuntimeV2.IntentState
+        {
+            ($_ -eq "Send-LRSV2Text/SessionStateValue_Intent_State") -Or
+            ($_ -eq "Write-LRSV2Session/SessionStateValue_Intent_State")
+        }
+        {
+            $v = "Failed","Fulfilled","InProgress","ReadyForFulfillment","Waiting"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LRSV2_map = @{
+    "SessionStateValue_DialogAction_Type"=@("Send-LRSV2Text","Write-LRSV2Session")
+    "SessionStateValue_Intent_ConfirmationState"=@("Send-LRSV2Text","Write-LRSV2Session")
+    "SessionStateValue_Intent_State"=@("Send-LRSV2Text","Write-LRSV2Session")
+}
+
+_awsArgumentCompleterRegistration $LRSV2_Completers $LRSV2_map
+
+$LRSV2_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.LRSV2.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LRSV2_SelectMap = @{
+    "Select"=@("Remove-LRSV2Session",
+               "Get-LRSV2Session",
+               "Write-LRSV2Session",
+               "Send-LRSV2Text",
+               "Send-LRSV2Utterance")
+}
+
+_awsArgumentCompleterRegistration $LRSV2_SelectCompleters $LRSV2_SelectMap
 # Argument completions for service Amazon Lex
 
 
@@ -34483,6 +34837,7 @@ $SES2_SelectMap = @{
                "Write-SES2DedicatedIpInPool",
                "Write-SES2DedicatedIpWarmupAttribute",
                "Write-SES2DeliverabilityDashboardOption",
+               "Write-SES2EmailIdentityConfigurationSetAttribute",
                "Write-SES2EmailIdentityDkimAttribute",
                "Write-SES2EmailIdentityDkimSigningAttribute",
                "Write-SES2EmailIdentityFeedbackAttribute",
@@ -36771,6 +37126,13 @@ $TFR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Transfer.Domain
+        "New-TFRServer/Domain"
+        {
+            $v = "EFS","S3"
+            break
+        }
+
         # Amazon.Transfer.EndpointType
         {
             ($_ -eq "New-TFRServer/EndpointType") -Or
@@ -36814,6 +37176,7 @@ $TFR_Completers = {
 }
 
 $TFR_map = @{
+    "Domain"=@("New-TFRServer")
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
     "HomeDirectoryType"=@("New-TFRUser","Update-TFRUser")
     "IdentityProviderType"=@("New-TFRServer")

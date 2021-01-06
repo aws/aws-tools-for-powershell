@@ -28,7 +28,7 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Creates a new key signing key (KSK) associated with a hosted zone. You can only have
+    /// Creates a new key-signing key (KSK) associated with a hosted zone. You can only have
     /// two KSKs per hosted zone.
     /// </summary>
     [Cmdlet("New", "R53KeySigningKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -77,12 +77,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter KeyManagementServiceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management
-        /// Service (KMS). The <code>KeyManagementServiceArn</code> must be unique for each key
-        /// signing key (KSK) in a single hosted zone. To see an example of <code>KeyManagementServiceArn</code>
-        /// that grants the correct permissions for DNSSEC, scroll down to <b>Example</b>. </para><para>You must configure the CMK as follows:</para><dl><dt>Status</dt><dd><para>Enabled</para></dd><dt>Key spec</dt><dd><para>ECC_NIST_P256</para></dd><dt>Key usage</dt><dd><para>Sign and verify</para></dd><dt>Key policy</dt><dd><para>The key policy must give permission for the following actions:</para><ul><li><para>DescribeKey</para></li><li><para>GetPublicKey</para></li><li><para>Sign</para></li></ul><para>The key policy must also include the Amazon Route 53 service in the principal for
-        /// your account. Specify the following:</para><ul><li><para><code>"Service": "api-service.dnssec.route53.aws.internal"</code></para></li></ul></dd></dl><para>For more information about working with CMK in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS
-        /// Key Management Service concepts</a>.</para>
+        /// <para>The Amazon resource name (ARN) for a customer managed customer master key (CMK) in
+        /// AWS Key Management Service (AWS KMS). The <code>KeyManagementServiceArn</code> must
+        /// be unique for each key-signing key (KSK) in a single hosted zone. To see an example
+        /// of <code>KeyManagementServiceArn</code> that grants the correct permissions for DNSSEC,
+        /// scroll down to <b>Example</b>. </para><para>You must configure the customer managed CMK as follows:</para><dl><dt>Status</dt><dd><para>Enabled</para></dd><dt>Key spec</dt><dd><para>ECC_NIST_P256</para></dd><dt>Key usage</dt><dd><para>Sign and verify</para></dd><dt>Key policy</dt><dd><para>The key policy must give permission for the following actions:</para><ul><li><para>DescribeKey</para></li><li><para>GetPublicKey</para></li><li><para>Sign</para></li></ul><para>The key policy must also include the Amazon Route 53 service in the principal for
+        /// your account. Specify the following:</para><ul><li><para><code>"Service": "api-service.dnssec.route53.aws.internal"</code></para></li></ul></dd></dl><para>For more information about working with a customer managed CMK in AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS Key
+        /// Management Service concepts</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,8 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>An alphanumeric string used to identify a key signing key (KSK). <code>Name</code>
-        /// must be unique for each key signing key in the same hosted zone.</para>
+        /// <para>A string used to identify a key-signing key (KSK). <code>Name</code> can include numbers,
+        /// letters, and underscores (_). <code>Name</code> must be unique for each key-signing
+        /// key in the same hosted zone.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -117,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>A string specifying the initial status of the key signing key (KSK). You can set the
+        /// <para>A string specifying the initial status of the key-signing key (KSK). You can set the
         /// value to <code>ACTIVE</code> or <code>INACTIVE</code>.</para>
         /// </para>
         /// </summary>

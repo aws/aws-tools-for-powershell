@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Gets the retention settings for an app instance.
+    /// Gets the retention settings for an <code>AppInstance</code>.
     /// </summary>
     [Cmdlet("Get", "CHMAppInstanceRetentionSetting")]
     [OutputType("Amazon.Chime.Model.GetAppInstanceRetentionSettingsResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the app instance.</para>
+        /// <para>The ARN of the <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

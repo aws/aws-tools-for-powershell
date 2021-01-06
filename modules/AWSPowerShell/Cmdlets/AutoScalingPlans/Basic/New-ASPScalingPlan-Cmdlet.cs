@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.ASP
         #region Parameter ScalingInstruction
         /// <summary>
         /// <para>
-        /// <para>The scaling instructions.</para>
+        /// <para>The scaling instructions.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html">ScalingInstruction</a>
+        /// in the <i>AWS Auto Scaling API Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

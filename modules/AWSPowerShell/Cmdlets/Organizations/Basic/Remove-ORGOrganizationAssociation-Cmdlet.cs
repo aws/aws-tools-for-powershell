@@ -60,6 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
     /// To leave an organization when all required account information has not yet been provided</a>
     /// in the <i>AWS Organizations User Guide.</i></para></li><li><para>
+    /// The account that you want to leave must not be a delegated administrator account for
+    /// any AWS service enabled for your organization. If the account is a delegated administrator,
+    /// you must first change the delegated administrator account to another account that
+    /// is remaining in the organization.
+    /// </para></li><li><para>
     /// You can leave an organization only after you enable IAM user access to billing in
     /// your account. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
     /// Access to the Billing and Cost Management Console</a> in the <i>AWS Billing and Cost

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     /// output variables when you delete the model. You can't delete these variables manually.
     /// </para><para>
     /// When you delete a variable, Amazon Fraud Detector permanently deletes that variable
-    /// from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.
+    /// and the data is no longer stored in Amazon Fraud Detector.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "FDVariable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

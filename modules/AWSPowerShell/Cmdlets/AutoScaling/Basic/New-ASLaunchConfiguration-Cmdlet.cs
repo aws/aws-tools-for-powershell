@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The desired HTTP PUT response hop limit for instance metadata requests. The larger
-        /// the number, the further instance metadata requests can travel.</para><para>Default: 1</para><para>Possible values: Integers from 1 to 64</para>
+        /// the number, the further instance metadata requests can travel.</para><para>Default: 1</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>Specifies the instance type of the EC2 instance.</para><para>For information about available instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
-        /// Instance Types</a> in the <i>Amazon EC2 User Guide for Linux Instances.</i></para><para>If you do not specify <code>InstanceId</code>, you must specify <code>InstanceType</code>.</para>
+        /// Instance Types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you do not specify <code>InstanceId</code>, you must specify <code>InstanceType</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,9 +329,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter UserData
         /// <summary>
         /// <para>
-        /// <para>The Base64-encoded user data to make available to the launched EC2 instances. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
-        /// metadata and user data</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
+        /// <para>The user data to make available to the launched EC2 instances. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+        /// metadata and user data</a> (Linux) and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html">Instance
+        /// metadata and user data</a> (Windows). If you are using a command line tool, base64-encoding
+        /// is performed for you, and you can load the text from a file. Otherwise, you must provide
+        /// base64-encoded text. User data is limited to 16 KB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

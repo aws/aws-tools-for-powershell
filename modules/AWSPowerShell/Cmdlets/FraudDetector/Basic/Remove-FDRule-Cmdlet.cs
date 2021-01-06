@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
     /// 
     ///  
     /// <para>
-    /// When you delete a rule, Amazon Fraud Detector permanently deletes that rule from the
-    /// evaluation history, and the data is no longer stored in Amazon Fraud Detector.
+    /// When you delete a rule, Amazon Fraud Detector permanently deletes that rule and the
+    /// data is no longer stored in Amazon Fraud Detector.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "FDRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

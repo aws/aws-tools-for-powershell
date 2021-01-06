@@ -487,6 +487,12 @@
     <Reference Include="AWSSDK.LexModelBuildingService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LexModelBuildingService.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.LexModelsV2">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LexModelsV2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LexRuntimeV2">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LexRuntimeV2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.LicenseManager">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LicenseManager.dll</HintPath>
     </Reference>
@@ -1217,6 +1223,12 @@
     </Reference>
     <Reference Include="AWSSDK.LexModelBuildingService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LexModelBuildingService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LexModelsV2">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LexModelsV2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LexRuntimeV2">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LexRuntimeV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LicenseManager">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LicenseManager.dll</HintPath>

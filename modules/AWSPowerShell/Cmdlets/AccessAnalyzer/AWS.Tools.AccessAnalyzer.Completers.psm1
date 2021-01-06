@@ -97,7 +97,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.ResourceType
         "Get-IAMAAAnalyzedResourceList/ResourceType"
         {
-            $v = "AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::S3::Bucket","AWS::SQS::Queue"
+            $v = "AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::S3::Bucket","AWS::SecretsManager::Secret","AWS::SQS::Queue"
             break
         }
 

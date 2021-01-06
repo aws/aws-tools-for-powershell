@@ -40,11 +40,23 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// one of the clusters is a read/write primary and the others are read-only replicas.
     /// Writes to the primary are asynchronously propagated to the replicas.
     /// </para><para>
-    /// A Redis (cluster mode enabled) replication group is a collection of 1 to 90 node groups
-    /// (shards). Each node group (shard) has one read/write primary node and up to 5 read-only
-    /// replica nodes. Writes to the primary are asynchronously propagated to the replicas.
-    /// Redis (cluster mode enabled) replication groups partition the data across node groups
-    /// (shards).
+    /// A Redis cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI:
+    /// node groups). Each shard has a primary node and up to 5 read-only replica nodes. The
+    /// configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas,
+    /// which is the maximum number or replicas allowed. 
+    /// </para><para>
+    /// The node or shard limit can be increased to a maximum of 500 per cluster if the Redis
+    /// engine version is 5.0.6 or higher. For example, you can choose to configure a 500
+    /// node cluster that ranges between 83 shards (one primary and 5 replicas per shard)
+    /// and 500 shards (single primary and no replicas). Make sure there are enough available
+    /// IP addresses to accommodate the increase. Common pitfalls include the subnets in the
+    /// subnet group have too small a CIDR range or the subnets are shared and heavily used
+    /// by other clusters. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html">Creating
+    /// a Subnet Group</a>. For versions below 5.0.6, the limit is 250 per cluster.
+    /// </para><para>
+    /// To request a limit increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS
+    /// Service Limits</a> and choose the limit type <b>Nodes per cluster per instance type</b>.
+    /// 
     /// </para><para>
     /// When a Redis (cluster mode disabled) replication group has been successfully created,
     /// you can add one or more read replicas to it, up to a total of 5 read replicas. If
@@ -123,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// to their equivalent previous generation counterparts.</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: </para><para><b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for
         /// Memcached engine version 1.5.16 onward).</para><para><code>cache.m6g.large</code>, <code>cache.m6g.xlarge</code>, <code>cache.m6g.2xlarge</code>,
         /// <code>cache.m6g.4xlarge</code>, <code>cache.m6g.8xlarge</code>, <code>cache.m6g.12xlarge</code>,
-        /// <code>cache.m6g.16xlarge</code></para><note><para>At this time, M6g node types are available in the following regions: us-east-1, us-west-2,
-        /// us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</para></note><para><b>M5 node types:</b><code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
+        /// <code>cache.m6g.16xlarge</code></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
+        /// Node Types</a></para></note><para><b>M5 node types:</b><code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
         /// <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>, <code>cache.m5.12xlarge</code>,
         /// <code>cache.m5.24xlarge</code></para><para><b>M4 node types:</b><code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
         /// <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>, <code>cache.m4.10xlarge</code></para><para><b>T3 node types:</b><code>cache.t3.micro</code>, <code>cache.t3.small</code>, <code>cache.t3.medium</code></para><para><b>T2 node types:</b><code>cache.t2.micro</code>, <code>cache.t2.small</code>, <code>cache.t2.medium</code></para></li><li><para>Previous generation: (not recommended)</para><para><b>T1 node types:</b><code>cache.t1.micro</code></para><para><b>M1 node types:</b><code>cache.m1.small</code>, <code>cache.m1.medium</code>,
@@ -132,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for
         /// Memcached engine version 1.5.16 onward).</para><para><code>cache.r6g.large</code>, <code>cache.r6g.xlarge</code>, <code>cache.r6g.2xlarge</code>,
         /// <code>cache.r6g.4xlarge</code>, <code>cache.r6g.8xlarge</code>, <code>cache.r6g.12xlarge</code>,
-        /// <code>cache.r6g.16xlarge</code></para><note><para>At this time, R6g node types are available in the following regions: us-east-1, us-west-2,
-        /// us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</para></note><para><b>R5 node types:</b><code>cache.r5.large</code>, <code>cache.r5.xlarge</code>,
+        /// <code>cache.r6g.16xlarge</code></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
+        /// Node Types</a></para></note><para><b>R5 node types:</b><code>cache.r5.large</code>, <code>cache.r5.xlarge</code>,
         /// <code>cache.r5.2xlarge</code>, <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
         /// <code>cache.r5.24xlarge</code></para><para><b>R4 node types:</b><code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
         /// <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>, <code>cache.r4.8xlarge</code>,
@@ -152,8 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of the parameter group to associate with this replication group. If this
         /// argument is omitted, the default cache parameter group for the specified engine is
-        /// used.</para><note><para>If you are restoring to an engine version that is different than the original, you
-        /// must specify the default version of that version. For example, <code>CacheParameterGroupName=default.redis4.0</code>.</para></note><para>If you are running Redis version 3.2.4 or later, only one node group (shard), and
+        /// used.</para><para>If you are running Redis version 3.2.4 or later, only one node group (shard), and
         /// want to use a default parameter group, we recommend that you specify the parameter
         /// group by name. </para><ul><li><para>To create a Redis (cluster mode disabled) replication group, use <code>CacheParameterGroupName=default.redis3.2</code>.</para></li><li><para>To create a Redis (cluster mode enabled) replication group, use <code>CacheParameterGroupName=default.redis3.2.cluster.on</code>.</para></li></ul>
         /// </para>

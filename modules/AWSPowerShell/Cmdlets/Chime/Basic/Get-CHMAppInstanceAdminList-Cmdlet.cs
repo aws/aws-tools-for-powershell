@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Returns a list of the administrators in the app instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of the administrators in the <code>AppInstance</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CHMAppInstanceAdminList")]
     [OutputType("Amazon.Chime.Model.ListAppInstanceAdminsResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the app instance.</para>
+        /// <para>The ARN of the <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -79,6 +79,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String CacheNodeType { get; set; }
         #endregion
         
+        #region Parameter CacheParameterGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the cache parameter group to use with the Global datastore. It must be
+        /// compatible with the major engine version used by the Global datastore.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CacheParameterGroupName { get; set; }
+        #endregion
+        
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
@@ -187,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             #endif
             context.AutomaticFailoverEnabled = this.AutomaticFailoverEnabled;
             context.CacheNodeType = this.CacheNodeType;
+            context.CacheParameterGroupName = this.CacheParameterGroupName;
             context.EngineVersion = this.EngineVersion;
             context.GlobalReplicationGroupDescription = this.GlobalReplicationGroupDescription;
             context.GlobalReplicationGroupId = this.GlobalReplicationGroupId;
@@ -223,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.CacheNodeType != null)
             {
                 request.CacheNodeType = cmdletContext.CacheNodeType;
+            }
+            if (cmdletContext.CacheParameterGroupName != null)
+            {
+                request.CacheParameterGroupName = cmdletContext.CacheParameterGroupName;
             }
             if (cmdletContext.EngineVersion != null)
             {
@@ -300,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.Boolean? ApplyImmediately { get; set; }
             public System.Boolean? AutomaticFailoverEnabled { get; set; }
             public System.String CacheNodeType { get; set; }
+            public System.String CacheParameterGroupName { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String GlobalReplicationGroupDescription { get; set; }
             public System.String GlobalReplicationGroupId { get; set; }

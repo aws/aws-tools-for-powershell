@@ -62,7 +62,14 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         /// <para>The URI of the S3 bucket or any other type of data source.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Uri { get; set; }
         #endregion
         
@@ -119,6 +126,12 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             }
             #endif
             context.Uri = this.Uri;
+            #if MODULAR
+            if (this.Uri == null && ParameterWasBound(nameof(this.Uri)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Uri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

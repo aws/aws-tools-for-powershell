@@ -101,8 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>An object representing the parameters to update for the Auto Scaling group capacity
-        /// provider.</para>
+        /// <para>The name of the capacity provider to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

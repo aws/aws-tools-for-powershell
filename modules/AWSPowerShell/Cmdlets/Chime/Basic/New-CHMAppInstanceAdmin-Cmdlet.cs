@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The
     /// promoted user can perform the following actions. 
     /// 
-    ///  <ul><li><para><code>ChannelModerator</code> actions across all channels in the app instance.
+    ///  <ul><li><para><code>ChannelModerator</code> actions across all channels in the <code>AppInstance</code>.
     /// </para></li><li><para><code>DeleteChannelMessage</code> actions.
     /// </para></li></ul><para>
     /// Only an <code>AppInstanceUser</code> can be promoted to an <code>AppInstanceAdmin</code>
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceAdminArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the administrator of the current app instance.</para>
+        /// <para>The ARN of the administrator of the current <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the app instance.</para>
+        /// <para>The ARN of the <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

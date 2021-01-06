@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// </para><para>
     /// This API does not create a resource that doesn't exist. It only associates it to the
     /// instance. Ensure that the resource being specified in the storage configuration, like
-    /// an Amazon S3 bucket, exists when being used for association.
+    /// an S3 bucket, exists when being used for association.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "CONNInstanceStorageConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

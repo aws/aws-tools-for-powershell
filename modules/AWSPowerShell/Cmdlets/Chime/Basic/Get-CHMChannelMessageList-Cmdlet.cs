@@ -29,12 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>.
-    /// Sorted in descending order by default, based on the creation timestamp.
+    /// By default, sorted by creation timestamp in descending order .
     /// 
     ///  <note><para>
     /// Redacted messages appear in the results as empty, since they are only redacted, not
     /// deleted. Deleted messages do not appear in the results. This action always returns
     /// the latest version of an edited message.
+    /// </para><para>
+    /// Also, the x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// of the user that makes the API call as the value in the header.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CHMChannelMessageList")]
@@ -63,6 +66,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         public System.String ChannelArn { get; set; }
         #endregion
         
+        #region Parameter ChimeBearer
+        /// <summary>
+        /// <para>
+        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChimeBearer { get; set; }
+        #endregion
+        
         #region Parameter NotAfter
         /// <summary>
         /// <para>
@@ -76,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter NotBefore
         /// <summary>
         /// <para>
-        /// <para>The initial or starting time stamp for your requested messages. </para>
+        /// <para>The initial or starting time stamp for your requested messages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ChimeBearer = this.ChimeBearer;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.NotAfter = this.NotAfter;
@@ -210,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.ChannelArn != null)
             {
                 request.ChannelArn = cmdletContext.ChannelArn;
+            }
+            if (cmdletContext.ChimeBearer != null)
+            {
+                request.ChimeBearer = cmdletContext.ChimeBearer;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -313,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ChannelArn { get; set; }
+            public System.String ChimeBearer { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.DateTime? NotAfter { get; set; }

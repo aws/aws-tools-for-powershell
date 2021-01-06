@@ -317,9 +317,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>For the CloudWatch alarm that you want Route 53 health checkers to use to determine
-        /// whether this health check is healthy, the region that the alarm was created in.</para><para>For the current list of CloudWatch regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region">Amazon
-        /// CloudWatch</a> in the <i>AWS Service Endpoints</i> chapter of the <i>Amazon Web Services
-        /// General Reference</i>.</para>
+        /// whether this health check is healthy, the region that the alarm was created in.</para><para>For the current list of CloudWatch regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/cw_region.html">Amazon
+        /// CloudWatch endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

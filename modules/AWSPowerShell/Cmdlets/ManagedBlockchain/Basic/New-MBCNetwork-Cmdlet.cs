@@ -211,6 +211,35 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         public System.Int32? ApprovalThresholdPolicy_ProposalDurationInHour { get; set; }
         #endregion
         
+        #region Parameter MemberConfiguration_Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags assigned to the member. Tags consist of a key and optional value. For more information
+        /// about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</para><para>When specifying tags during creation, you can specify multiple key-value pairs in
+        /// a single request, with an overall maximum of 50 added to each resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MemberConfiguration_Tags")]
+        public System.Collections.Hashtable MemberConfiguration_Tag { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to assign to the network. Each tag consists of a key and optional value.</para><para>When specifying tags during creation, you can specify multiple key-value pairs in
+        /// a single request, with an overall maximum of 50 added to each resource.</para><para>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or
+        /// <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter ApprovalThresholdPolicy_ThresholdComparator
         /// <summary>
         /// <para>
@@ -329,6 +358,14 @@ namespace Amazon.PowerShell.Cmdlets.MBC
                 WriteWarning("You are passing $null as a value for parameter MemberConfiguration_Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.MemberConfiguration_Tag != null)
+            {
+                context.MemberConfiguration_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.MemberConfiguration_Tag.Keys)
+                {
+                    context.MemberConfiguration_Tag.Add((String)hashKey, (String)(this.MemberConfiguration_Tag[hashKey]));
+                }
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -336,6 +373,14 @@ namespace Amazon.PowerShell.Cmdlets.MBC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.ApprovalThresholdPolicy_ProposalDurationInHour = this.ApprovalThresholdPolicy_ProposalDurationInHour;
             context.ApprovalThresholdPolicy_ThresholdComparator = this.ApprovalThresholdPolicy_ThresholdComparator;
             context.ApprovalThresholdPolicy_ThresholdPercentage = this.ApprovalThresholdPolicy_ThresholdPercentage;
@@ -427,6 +472,16 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             if (requestMemberConfiguration_memberConfiguration_Name != null)
             {
                 request.MemberConfiguration.Name = requestMemberConfiguration_memberConfiguration_Name;
+                requestMemberConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestMemberConfiguration_memberConfiguration_Tag = null;
+            if (cmdletContext.MemberConfiguration_Tag != null)
+            {
+                requestMemberConfiguration_memberConfiguration_Tag = cmdletContext.MemberConfiguration_Tag;
+            }
+            if (requestMemberConfiguration_memberConfiguration_Tag != null)
+            {
+                request.MemberConfiguration.Tags = requestMemberConfiguration_memberConfiguration_Tag;
                 requestMemberConfigurationIsNull = false;
             }
             Amazon.ManagedBlockchain.Model.MemberFrameworkConfiguration requestMemberConfiguration_memberConfiguration_FrameworkConfiguration = null;
@@ -558,6 +613,10 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
              // populate VotingPolicy
             var requestVotingPolicyIsNull = true;
@@ -683,7 +742,9 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             public System.String Fabric_AdminUsername { get; set; }
             public System.Boolean? Cloudwatch_Enabled { get; set; }
             public System.String MemberConfiguration_Name { get; set; }
+            public Dictionary<System.String, System.String> MemberConfiguration_Tag { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Int32? ApprovalThresholdPolicy_ProposalDurationInHour { get; set; }
             public Amazon.ManagedBlockchain.ThresholdComparator ApprovalThresholdPolicy_ThresholdComparator { get; set; }
             public System.Int32? ApprovalThresholdPolicy_ThresholdPercentage { get; set; }

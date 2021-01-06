@@ -28,7 +28,7 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Deletes a key signing key (KSK). Before you can delete a KSK, you must deactivate
+    /// Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate
     /// it. The KSK must be deactived before you can delete it regardless of whether the hosted
     /// zone is enabled for DNSSEC signing.
     /// </summary>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>An alphanumeric string used to identify a key signing key (KSK).</para>
+        /// <para>A string used to identify a key-signing key (KSK).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

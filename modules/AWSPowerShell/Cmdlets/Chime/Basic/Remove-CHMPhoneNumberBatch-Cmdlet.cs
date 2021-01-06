@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Moves phone numbers into the <b>Deletion queue</b>. Phone numbers must be disassociated
-    /// from any users or Amazon Chime Voice Connectors before they can be deleted.
+    /// from any users or Amazon Chime Voice Connectors before they can be deleted. 
     /// 
     ///  
     /// <para>
-    /// Phone numbers remain in the <b>Deletion queue</b> for 7 days before they are deleted
-    /// permanently.
+    ///  Phone numbers remain in the <b>Deletion queue</b> for 7 days before they are deleted
+    /// permanently. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CHMPhoneNumberBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

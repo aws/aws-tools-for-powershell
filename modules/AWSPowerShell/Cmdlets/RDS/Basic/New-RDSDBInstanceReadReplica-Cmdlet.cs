@@ -257,7 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The upper limit to which Amazon RDS can automatically scale the storage of the DB
-        /// instance.</para>
+        /// instance.</para><para>For more information about this setting, including limitations that apply to it, see
+        /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
+        /// Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon
+        /// RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

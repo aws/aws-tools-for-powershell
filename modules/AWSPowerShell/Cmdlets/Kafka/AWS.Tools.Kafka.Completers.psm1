@@ -185,6 +185,7 @@ $MSK_SelectMap = @{
                "Remove-MSKResourceTag",
                "Update-MSKBrokerCount",
                "Update-MSKBrokerStorage",
+               "Update-MSKBrokerType",
                "Update-MSKClusterConfiguration",
                "Update-MSKClusterKafkaVersion",
                "Update-MSKConfiguration",

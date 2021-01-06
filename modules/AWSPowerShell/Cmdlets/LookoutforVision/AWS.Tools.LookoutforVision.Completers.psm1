@@ -75,32 +75,6 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Lookout for Vision
 
 
-$LFV_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.LookoutforVision.ModelStatus
-        "New-LFVModel/Description_Status"
-        {
-            $v = "DELETING","HOSTED","HOSTING_FAILED","STARTING_HOSTING","STOPPING_HOSTING","SYSTEM_UPDATING","TRAINED","TRAINING","TRAINING_FAILED"
-            break
-        }
-
-
-    }
-
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$LFV_map = @{
-    "Description_Status"=@("New-LFVModel")
-}
-
-_awsArgumentCompleterRegistration $LFV_Completers $LFV_map
-
 $LFV_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -162,8 +136,11 @@ $LFV_SelectMap = @{
                "Get-LFVDatasetEntryList",
                "Get-LFVModelList",
                "Get-LFVProjectList",
+               "Get-LFVResourceTag",
                "Start-LFVModel",
                "Stop-LFVModel",
+               "Add-LFVResourceTag",
+               "Remove-LFVResourceTag",
                "Update-LFVDatasetEntry")
 }
 

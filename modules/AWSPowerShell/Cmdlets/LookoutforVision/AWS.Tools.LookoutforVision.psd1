@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-LFVResourceTag', 
         'Find-LFVAnomaly', 
         'Get-LFVDataset', 
         'Get-LFVDatasetEntryList', 
@@ -93,12 +94,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LFVModelList', 
         'Get-LFVProject', 
         'Get-LFVProjectList', 
+        'Get-LFVResourceTag', 
         'New-LFVDataset', 
         'New-LFVModel', 
         'New-LFVProject', 
         'Remove-LFVDataset', 
         'Remove-LFVModel', 
         'Remove-LFVProject', 
+        'Remove-LFVResourceTag', 
         'Start-LFVModel', 
         'Stop-LFVModel', 
         'Update-LFVDatasetEntry')

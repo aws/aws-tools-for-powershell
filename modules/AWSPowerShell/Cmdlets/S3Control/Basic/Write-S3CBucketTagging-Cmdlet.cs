@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Allocation and Tagging</a>.
     /// </para><note><para>
     /// Within a bucket, if you add a tag that has the same key as an existing tag, the new
-    /// value overwrites the old value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html">Using
-    /// Cost Allocation in Amazon S3 Bucket Tags</a>.
+    /// value overwrites the old value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html">
+    /// Using Cost Allocation in Amazon S3 Bucket Tags</a>.
     /// </para></note><para>
     /// To use this operation, you must have permissions to perform the <code>s3-outposts:PutBucketTagging</code>
     /// action. The Outposts bucket owner has this permission by default and can grant this

@@ -28,7 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Updates the current global settings for the AWS Account. Use the <code>DescribeGlobalSettings</code>
+    /// Updates the current global settings for the AWS account. Use the <code>DescribeGlobalSettings</code>
     /// API to determine the current settings.
     /// </summary>
     [Cmdlet("Update", "BAKGlobalSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
     /// 
     ///  
     /// <para>
-    /// When you delete an event, Amazon Fraud Detector permanently deletes that event from
-    /// the evaluation history, and the event data is no longer stored in Amazon Fraud Detector.
+    /// When you delete an event, Amazon Fraud Detector permanently deletes that event and
+    /// the event data is no longer stored in Amazon Fraud Detector.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "FDEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

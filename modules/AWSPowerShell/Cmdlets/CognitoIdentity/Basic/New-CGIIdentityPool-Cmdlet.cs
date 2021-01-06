@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         #region Parameter OpenIdConnectProviderARNs
         /// <summary>
         /// <para>
-        /// <para>A list of OpendID Connect provider ARNs.</para>
+        /// <para>The Amazon Resource Names (ARN) of the OpenID Connect providers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

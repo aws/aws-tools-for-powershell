@@ -117,6 +117,18 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.Int32? InstancePort { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the load balancer.</para><para>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code>
+        /// for IPv4 and IPv6.</para><para>The default value is <code>dualstack</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lightsail.IpAddressType")]
+        public Amazon.Lightsail.IpAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
@@ -220,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 WriteWarning("You are passing $null as a value for parameter InstancePort which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IpAddressType = this.IpAddressType;
             context.LoadBalancerName = this.LoadBalancerName;
             #if MODULAR
             if (this.LoadBalancerName == null && ParameterWasBound(nameof(this.LoadBalancerName)))
@@ -266,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.InstancePort != null)
             {
                 request.InstancePort = cmdletContext.InstancePort.Value;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             if (cmdletContext.LoadBalancerName != null)
             {
@@ -341,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.String CertificateName { get; set; }
             public System.String HealthCheckPath { get; set; }
             public System.Int32? InstancePort { get; set; }
+            public Amazon.Lightsail.IpAddressType IpAddressType { get; set; }
             public System.String LoadBalancerName { get; set; }
             public List<Amazon.Lightsail.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Lightsail.Model.CreateLoadBalancerResponse, NewLSLoadBalancerCmdlet, object> Select { get; set; } =

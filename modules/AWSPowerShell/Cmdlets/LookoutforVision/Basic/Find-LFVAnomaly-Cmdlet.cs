@@ -40,7 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// that a model runs and for the number of anomaly detection units that your model uses.
     /// If you are not using a model, use the <a>StopModel</a> operation to stop your model.
     /// 
-    /// </para></note>
+    /// </para></note><para>
+    /// This operation requires permissions to perform the <code>lookoutvision:DetectAnomalies</code>
+    /// operation.
+    /// </para>
     /// </summary>
     [Cmdlet("Find", "LFVAnomaly")]
     [OutputType("Amazon.LookoutforVision.Model.DetectAnomalyResult")]

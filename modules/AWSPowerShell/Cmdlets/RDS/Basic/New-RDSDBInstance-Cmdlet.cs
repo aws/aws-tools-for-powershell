@@ -172,11 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// (0-9).</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>MariaDB</b></para><para>The name of the database to create when the DB instance is created. If this parameter
         /// isn't specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
         /// (0-9).</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>PostgreSQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
-        /// isn't specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 63 letters, numbers, or underscores.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
+        /// isn't specified, a database named <code>postgres</code> is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 63 letters, numbers, or underscores.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
         /// (0-9).</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>Oracle</b></para><para>The Oracle System ID (SID) of the created DB instance. If you specify <code>null</code>,
         /// the default value <code>ORCL</code> is used. You can't specify the string NULL, or
-        /// any other reserved word, for <code>DBName</code>. </para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li><para>Can't be longer than 8 characters</para></li></ul><para><b>SQL Server</b></para><para>Not applicable. Must be null.</para><para><b>Amazon Aurora</b></para><para>The name of the database to create when the primary instance of the DB cluster is
-        /// created. If this parameter isn't specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul>
+        /// any other reserved word, for <code>DBName</code>. </para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li><para>Can't be longer than 8 characters</para></li></ul><para><b>SQL Server</b></para><para>Not applicable. Must be null.</para><para><b>Amazon Aurora MySQL</b></para><para>The name of the database to create when the primary DB instance of the Aurora MySQL
+        /// DB cluster is created. If this parameter isn't specified for an Aurora MySQL DB cluster,
+        /// no database is created in the DB cluster.</para><para>Constraints:</para><ul><li><para>It must contain 1 to 64 alphanumeric characters.</para></li><li><para>It can't be a word reserved by the database engine.</para></li></ul><para><b>Amazon Aurora PostgreSQL</b></para><para>The name of the database to create when the primary DB instance of the Aurora PostgreSQL
+        /// DB cluster is created. If this parameter isn't specified for an Aurora PostgreSQL
+        /// DB cluster, a database named <code>postgres</code> is created in the DB cluster.</para><para>Constraints:</para><ul><li><para>It must contain 1 to 63 alphanumeric characters.</para></li><li><para>It must begin with a letter or an underscore. Subsequent characters can be letters,
+        /// underscores, or digits (0 to 9).</para></li><li><para>It can't be a word reserved by the database engine.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -264,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Service User Guide</i>.</para><para><b>Amazon Aurora</b></para><para>Not applicable. CloudWatch Logs exports are managed by the DB cluster. </para><para><b>MariaDB</b></para><para>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
         /// and <code>slowquery</code>. </para><para><b>Microsoft SQL Server</b></para><para>Possible values are <code>agent</code> and <code>error</code>. </para><para><b>MySQL</b></para><para>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
         /// and <code>slowquery</code>. </para><para><b>Oracle</b></para><para>Possible values are <code>alert</code>, <code>audit</code>, <code>listener</code>,
-        /// and <code>trace</code>. </para><para><b>PostgreSQL</b></para><para>Possible values are <code>postgresql</code> and <code>upgrade</code>. </para>
+        /// <code>trace</code>, and <code>oemagent</code>. </para><para><b>PostgreSQL</b></para><para>Possible values are <code>postgresql</code> and <code>upgrade</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -344,8 +348,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i></para><para><b>Microsoft SQL Server</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport">Microsoft
         /// SQL Server Versions on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para><para><b>MySQL</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL
         /// on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i></para><para><b>Oracle</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html">Oracle
-        /// Database Engine Release Notes</a> in the <i>Amazon RDS User Guide.</i></para><para><b>PostgreSQL</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions">Supported
-        /// PostgreSQL Database Versions</a> in the <i>Amazon RDS User Guide.</i></para>
+        /// Database Engine Release Notes</a> in the <i>Amazon RDS User Guide.</i></para><para><b>PostgreSQL</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon
+        /// RDS for PostgreSQL versions and extensions</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -419,7 +423,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The upper limit to which Amazon RDS can automatically scale the storage of the DB
-        /// instance.</para>
+        /// instance.</para><para>For more information about this setting, including limitations that apply to it, see
+        /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
+        /// Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon
+        /// RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -477,7 +484,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>Indicates that the DB instance should be associated with the specified option group.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't
+        /// <para>A value that indicates that the DB instance should be associated with the specified
+        /// option group.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't
         /// be removed from an option group. Also, that option group can't be removed from a DB
         /// instance once it is associated with a DB instance</para>
         /// </para>

@@ -65,8 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PortInfo_Cidr
         /// <summary>
         /// <para>
-        /// <para>The IP address, or range of IP addresses in CIDR notation, that are allowed to connect
-        /// to an instance through the ports, and the protocol. Lightsail supports IPv4 addresses.</para><para>Examples:</para><ul><li><para>To allow the IP address <code>192.0.2.44</code>, specify <code>192.0.2.44</code> or
+        /// <para>The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to
+        /// connect to an instance through the ports, and the protocol.</para><note><para>The <code>ipv6Cidrs</code> parameter lists the IPv6 addresses that are allowed to
+        /// connect to an instance.</para></note><para>Examples:</para><ul><li><para>To allow the IP address <code>192.0.2.44</code>, specify <code>192.0.2.44</code> or
         /// <code>192.0.2.44/32</code>. </para></li><li><para>To allow the IP addresses <code>192.0.2.0</code> to <code>192.0.2.255</code>, specify
         /// <code>192.0.2.0/24</code>.</para></li></ul><para>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
         /// Inter-Domain Routing</a> on <i>Wikipedia</i>.</para>
@@ -80,10 +81,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PortInfo_FromPort
         /// <summary>
         /// <para>
-        /// <para>The first port in a range of open ports on an instance.</para><para>Allowed ports:</para><ul><li><para>TCP and UDP - <code>0</code> to <code>65535</code></para></li><li><para>ICMP - The ICMP type. For example, specify <code>8</code> as the <code>fromPort</code>
-        /// (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable
-        /// ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control
-        /// Messages</a> on <i>Wikipedia</i>.</para></li></ul>
+        /// <para>The first port in a range of open ports on an instance.</para><para>Allowed ports:</para><ul><li><para>TCP and UDP - <code>0</code> to <code>65535</code></para></li><li><para>ICMP - The ICMP type for IPv4 addresses. For example, specify <code>8</code> as the
+        /// <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code>
+        /// (ICMP code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control
+        /// Messages</a> on <i>Wikipedia</i>.</para></li><li><para>ICMPv6 - The ICMP type for IPv6 addresses. For example, specify <code>128</code> as
+        /// the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code>
+        /// (ICMPv6 code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+        /// Control Message Protocol for IPv6</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,6 +109,21 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceName { get; set; }
+        #endregion
+        
+        #region Parameter PortInfo_Ipv6Cidr
+        /// <summary>
+        /// <para>
+        /// <para>The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to
+        /// connect to an instance through the ports, and the protocol. Only devices with an IPv6
+        /// address can connect to an instance through IPv6; otherwise, IPv4 should be used.</para><note><para>The <code>cidrs</code> parameter lists the IPv4 addresses that are allowed to connect
+        /// to an instance.</para></note><para>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+        /// Inter-Domain Routing</a> on <i>Wikipedia</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PortInfo_Ipv6Cidrs")]
+        public System.String[] PortInfo_Ipv6Cidr { get; set; }
         #endregion
         
         #region Parameter PortInfo_Protocol
@@ -136,10 +155,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PortInfo_ToPort
         /// <summary>
         /// <para>
-        /// <para>The last port in a range of open ports on an instance.</para><para>Allowed ports:</para><ul><li><para>TCP and UDP - <code>0</code> to <code>65535</code></para></li><li><para>ICMP - The ICMP code. For example, specify <code>8</code> as the <code>fromPort</code>
-        /// (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable
-        /// ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control
-        /// Messages</a> on <i>Wikipedia</i>.</para></li></ul>
+        /// <para>The last port in a range of open ports on an instance.</para><para>Allowed ports:</para><ul><li><para>TCP and UDP - <code>0</code> to <code>65535</code></para></li><li><para>ICMP - The ICMP code for IPv4 addresses. For example, specify <code>8</code> as the
+        /// <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code>
+        /// (ICMP code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control
+        /// Messages</a> on <i>Wikipedia</i>.</para></li><li><para>ICMPv6 - The ICMP code for IPv6 addresses. For example, specify <code>128</code> as
+        /// the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code>
+        /// (ICMPv6 code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+        /// Control Message Protocol for IPv6</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 context.PortInfo_Cidr = new List<System.String>(this.PortInfo_Cidr);
             }
             context.PortInfo_FromPort = this.PortInfo_FromPort;
+            if (this.PortInfo_Ipv6Cidr != null)
+            {
+                context.PortInfo_Ipv6Cidr = new List<System.String>(this.PortInfo_Ipv6Cidr);
+            }
             context.PortInfo_Protocol = this.PortInfo_Protocol;
             context.PortInfo_ToPort = this.PortInfo_ToPort;
             
@@ -277,6 +303,16 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestPortInfo_portInfo_FromPort != null)
             {
                 request.PortInfo.FromPort = requestPortInfo_portInfo_FromPort.Value;
+                requestPortInfoIsNull = false;
+            }
+            List<System.String> requestPortInfo_portInfo_Ipv6Cidr = null;
+            if (cmdletContext.PortInfo_Ipv6Cidr != null)
+            {
+                requestPortInfo_portInfo_Ipv6Cidr = cmdletContext.PortInfo_Ipv6Cidr;
+            }
+            if (requestPortInfo_portInfo_Ipv6Cidr != null)
+            {
+                request.PortInfo.Ipv6Cidrs = requestPortInfo_portInfo_Ipv6Cidr;
                 requestPortInfoIsNull = false;
             }
             Amazon.Lightsail.NetworkProtocol requestPortInfo_portInfo_Protocol = null;
@@ -369,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public List<System.String> PortInfo_CidrListAlias { get; set; }
             public List<System.String> PortInfo_Cidr { get; set; }
             public System.Int32? PortInfo_FromPort { get; set; }
+            public List<System.String> PortInfo_Ipv6Cidr { get; set; }
             public Amazon.Lightsail.NetworkProtocol PortInfo_Protocol { get; set; }
             public System.Int32? PortInfo_ToPort { get; set; }
             public System.Func<Amazon.Lightsail.Model.OpenInstancePublicPortsResponse, OpenLSInstancePublicPortCmdlet, object> Select { get; set; } =

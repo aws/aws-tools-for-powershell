@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// from the AWS Cloud.
     /// </para><important><para>
     /// To use this operation, you must use the data plane API endpoint and authenticate with
-    /// an AWS IoT device certificate. For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/general/latest/gr/greengrass.html">AWS
+    /// an AWS IoT device certificate. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/greengrass.html">AWS
     /// IoT Greengrass endpoints and quotas</a>.
     /// </para></important>
     /// </summary>

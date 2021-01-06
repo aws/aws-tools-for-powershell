@@ -35,8 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// To delete a project, you must first delete each version of the model associated with
     /// the project. To delete a model use the <a>DeleteModel</a> operation.
     /// </para><para>
-    /// The training and test datasets are deleted automatically for you. The images referenced
-    /// by the training and test datasets aren't deleted. 
+    /// You also have to delete the dataset(s) associated with the model. For more information,
+    /// see <a>DeleteDataset</a>. The images referenced by the training and test datasets
+    /// aren't deleted. 
+    /// </para><para>
+    /// This operation requires permissions to perform the <code>lookoutvision:DeleteProject</code>
+    /// operation.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LFVProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Returns the full details of an <code>AppInstanceUser</code>.
+    /// Returns the full details of an <code>AppInstanceUser</code> .
     /// </summary>
     [Cmdlet("Get", "CHMAppInstanceUser")]
     [OutputType("Amazon.Chime.Model.AppInstanceUser")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the app instance user.</para>
+        /// <para>The ARN of the <code>AppInstanceUser</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter SipMediaApplicationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the specified SIP media application</para>
+        /// <para>The SIP media application ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

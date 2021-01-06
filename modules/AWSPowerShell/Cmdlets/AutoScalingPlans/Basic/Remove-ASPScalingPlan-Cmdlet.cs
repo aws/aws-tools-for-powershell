@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ASP
         #region Parameter ScalingPlanVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the scaling plan.</para>
+        /// <para>The version number of the scaling plan. Currently, the only valid value is <code>1</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// as Amazon EMR), and it must specify the ARN of an IAM role that allows Application
         /// Auto Scaling to modify the scalable target on your behalf. </para><para>If the service supports service-linked roles, Application Auto Scaling uses a service-linked
         /// role, which it creates if it does not yet exist. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles">Application
-        /// Auto Scaling IAM Roles</a>.</para>
+        /// Auto Scaling IAM roles</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,122 @@
-﻿### 4.1.7.0 (2021-01-05)
+﻿### 4.1.8.0 (2021-02-02)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.101.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon App Mesh
+    * Modified cmdlet New-AMSHVirtualGateway: added parameters File_PrivateKey, Match_Exact, Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain, Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName and Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName.
+    * Modified cmdlet New-AMSHVirtualNode: added parameters File_PrivateKey, Match_Exact, Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain, Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName and Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName.
+    * Modified cmdlet Update-AMSHVirtualGateway: added parameters File_PrivateKey, Match_Exact, Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain, Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName and Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName.
+    * Modified cmdlet Update-AMSHVirtualNode: added parameters File_PrivateKey, Match_Exact, Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain, Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName and Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName.
+  * Amazon Application Auto Scaling
+    * Modified cmdlet Set-AASScheduledAction: added parameter Timezone.
+  * Amazon Audit Manager
+    * Modified cmdlet New-AUDMAssessmentFramework: added parameter Tag.
+  * Amazon Certificate Manager Private Certificate Authority
+    * Modified cmdlet New-PCACertificate: added parameters Extensions_CertificatePolicy, Extensions_ExtendedKeyUsage, Extensions_SubjectAlternativeName, KeyUsage_CRLSign, KeyUsage_DataEncipherment, KeyUsage_DecipherOnly, KeyUsage_DigitalSignature, KeyUsage_EncipherOnly, KeyUsage_KeyAgreement, KeyUsage_KeyCertSign, KeyUsage_KeyEncipherment, KeyUsage_NonRepudiation, Subject_CommonName, Subject_Country, Subject_DistinguishedNameQualifier, Subject_GenerationQualifier, Subject_GivenName, Subject_Initial, Subject_Locality, Subject_Organization, Subject_OrganizationalUnit, Subject_Pseudonym, Subject_SerialNumber, Subject_State, Subject_Surname, Subject_Title and ValidityNotBefore.
+  * Amazon Chime
+    * Modified cmdlet Get-CHMChannel: added parameter ChimeBearer.
+    * Modified cmdlet Get-CHMChannelBan: added parameter ChimeBearer.
+    * Modified cmdlet Get-CHMChannelBanList: added parameter ChimeBearer.
+    * Modified cmdlet Get-CHMChannelList: added parameter ChimeBearer.
+    * Modified cmdlet Get-CHMChannelMembership: added parameter ChimeBearer.
+    * Modified cmdlet Get-CHMChannelMembershipForAppInstanceUser: added parameter ChimeBearer.
+    * Modified cmdlet Get-CHMChannelMembershipList: added parameter ChimeBearer.
+    * Modified cmdlet Get-CHMChannelMembershipsForAppInstanceUserList: added parameter ChimeBearer.
+    * Modified cmdlet Get-CHMChannelMessage: added parameter ChimeBearer.
+    * Modified cmdlet Get-CHMChannelMessageList: added parameter ChimeBearer.
+    * Modified cmdlet Get-CHMChannelModeratedByAppInstanceUser: added parameter ChimeBearer.
+    * Modified cmdlet Get-CHMChannelModerator: added parameter ChimeBearer.
+    * Modified cmdlet Get-CHMChannelModeratorList: added parameter ChimeBearer.
+    * Modified cmdlet Get-CHMChannelsModeratedByAppInstanceUserList: added parameter ChimeBearer.
+    * Modified cmdlet Hide-CHMChannelMessage: added parameter ChimeBearer.
+    * Modified cmdlet New-CHMAppInstance: added parameter Tag.
+    * Modified cmdlet New-CHMAppInstanceUser: added parameter Tag.
+    * Modified cmdlet New-CHMChannel: added parameter ChimeBearer.
+    * Modified cmdlet New-CHMChannelBan: added parameter ChimeBearer.
+    * Modified cmdlet New-CHMChannelMembership: added parameter ChimeBearer.
+    * Modified cmdlet New-CHMChannelModerator: added parameter ChimeBearer.
+    * Modified cmdlet Remove-CHMChannel: added parameter ChimeBearer.
+    * Modified cmdlet Remove-CHMChannelBan: added parameter ChimeBearer.
+    * Modified cmdlet Remove-CHMChannelMembership: added parameter ChimeBearer.
+    * Modified cmdlet Remove-CHMChannelMessage: added parameter ChimeBearer.
+    * Modified cmdlet Remove-CHMChannelModerator: added parameter ChimeBearer.
+    * Modified cmdlet Send-CHMChannelMessage: added parameter ChimeBearer.
+    * Modified cmdlet Update-CHMChannel: added parameter ChimeBearer.
+    * Modified cmdlet Update-CHMChannelMessage: added parameter ChimeBearer.
+    * Modified cmdlet Update-CHMChannelReadMarker: added parameter ChimeBearer.
+  * Amazon CloudWatch
+    * Modified cmdlet Get-CWMetricData: added parameter LabelOptions_Timezone.
+  * Amazon Cognito Identity
+    * Added cmdlet Get-CGIPrincipalTagAttributeMap leveraging the GetPrincipalTagAttributeMap service API.
+    * Added cmdlet Set-CGIPrincipalTagAttributeMap leveraging the SetPrincipalTagAttributeMap service API.
+  * Amazon Connect Service
+    * Added cmdlet Add-CONNQueueQuickConnect leveraging the AssociateQueueQuickConnects service API.
+    * Added cmdlet Get-CONNHoursOfOperation leveraging the DescribeHoursOfOperation service API.
+    * Added cmdlet Get-CONNQueue leveraging the DescribeQueue service API.
+    * Added cmdlet Get-CONNQueueQuickConnectList leveraging the ListQueueQuickConnects service API.
+    * Added cmdlet New-CONNQueue leveraging the CreateQueue service API.
+    * Added cmdlet Remove-CONNQueueQuickConnect leveraging the DisassociateQueueQuickConnects service API.
+    * Added cmdlet Update-CONNQueueHoursOfOperation leveraging the UpdateQueueHoursOfOperation service API.
+    * Added cmdlet Update-CONNQueueMaxContact leveraging the UpdateQueueMaxContacts service API.
+    * Added cmdlet Update-CONNQueueName leveraging the UpdateQueueName service API.
+    * Added cmdlet Update-CONNQueueOutboundCallerConfig leveraging the UpdateQueueOutboundCallerConfig service API.
+    * Added cmdlet Update-CONNQueueStatus leveraging the UpdateQueueStatus service API.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Modified cmdlet Copy-DOCDBClusterSnapshot: added parameter SourceRegion.
+    * Modified cmdlet New-DOCDBCluster: added parameter SourceRegion.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2CapacityReservation: added parameter Accept.
+  * Amazon ElastiCache
+    * Modified cmdlet Edit-ECGlobalReplicationGroup: added parameter CacheParameterGroupName.
+  * Amazon Elasticsearch
+    * Modified cmdlet Update-ESDomainConfig: added parameters EncryptionAtRestOption and NodeToNodeEncryptionOptions_Enabled.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLChannel: added parameters Vpc_PublicAddressAllocationId, Vpc_SecurityGroupId and Vpc_SubnetId.
+  * Amazon Key Management Service
+    * Modified cmdlet Get-KMSGrantList: added parameters GranteePrincipal and GrantId.
+  * Amazon Lex Model Building V2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix LMBV2 and can be listed using the command 'Get-AWSCmdletName -Service LMBV2'.
+  * Amazon Lex Runtime V2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix LRSV2 and can be listed using the command 'Get-AWSCmdletName -Service LRSV2'.
+  * Amazon Lightsail
+    * Added cmdlet Set-LSIpAddressType leveraging the SetIpAddressType service API.
+    * Modified cmdlet Close-LSInstancePublicPort: added parameter PortInfo_Ipv6Cidr.
+    * Modified cmdlet New-LSDistribution: added parameter IpAddressType.
+    * Modified cmdlet New-LSInstance: added parameter IpAddressType.
+    * Modified cmdlet New-LSInstancesFromSnapshot: added parameter IpAddressType.
+    * Modified cmdlet New-LSLoadBalancer: added parameter IpAddressType.
+    * Modified cmdlet Open-LSInstancePublicPort: added parameter PortInfo_Ipv6Cidr.
+  * Amazon Lookout for Vision
+    * Added cmdlet Add-LFVResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-LFVResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-LFVResourceTag leveraging the UntagResource service API.
+    * [Breaking Change] Modified cmdlet New-LFVModel: removed parameters Description_CreationTimestamp, Description_Description, Description_EvaluationEndTimestamp, Description_KmsKeyId, Description_ModelArn, Description_ModelVersion, Description_Status, Description_StatusMessage, EvaluationManifest_Bucket, EvaluationManifest_Key, EvaluationResult_Bucket, EvaluationResult_Key, Performance_F1Score, Performance_Precision, Performance_Recall, S3Location_Bucket and S3Location_Prefix; added parameters Description and Tag.
+  * Amazon Managed Blockchain
+    * Added cmdlet Add-MBCResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-MBCResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-MBCResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-MBCMember: added parameter MemberConfiguration_Tag.
+    * Modified cmdlet New-MBCNetwork: added parameters MemberConfiguration_Tag and Tag.
+    * Modified cmdlet New-MBCNode: added parameter Tag.
+    * Modified cmdlet New-MBCProposal: added parameter Tag.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Added cmdlet Update-MSKBrokerType leveraging the UpdateBrokerType service API.
+  * Amazon Neptune
+    * Modified cmdlet Copy-NPTDBClusterSnapshot: added parameter SourceRegion.
+    * Modified cmdlet New-NPTDBCluster: added parameter SourceRegion.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSGlobalCluster: added parameters AllowMajorVersionUpgrade and EngineVersion.
+  * Amazon Resource Groups Tagging API
+    * Modified cmdlet Get-RGTResource: added parameter ResourceARNList.
+  * Amazon S3 Control
+    * Modified cmdlet New-S3CJob: added parameter Operation_S3DeleteObjectTagging.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Write-SES2EmailIdentityConfigurationSetAttribute leveraging the PutEmailIdentityConfigurationSetAttributes service API.
+    * Modified cmdlet New-SES2EmailIdentity: added parameter ConfigurationSetName.
+  * Amazon Systems Manager
+    * Modified cmdlet Get-SSMDocumentPermission: added parameters MaxResult, NextToken and NoAutoIteration.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRServer: added parameter Domain.
+    * Modified cmdlet New-TFRUser: added parameters PosixProfile_Gid, PosixProfile_SecondaryGid and PosixProfile_Uid.
+    * Modified cmdlet Update-TFRUser: added parameters PosixProfile_Gid, PosixProfile_SecondaryGid and PosixProfile_Uid.
+
+### 4.1.7.0 (2021-01-05)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.5.84.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Use ECSTaskCredentials when either AWS_CONTAINER_CREDENTIALS_RELATIVE_URI or AWS_CONTAINER_CREDENTIALS_FULL_URI set
   * Amazon API Gateway V2

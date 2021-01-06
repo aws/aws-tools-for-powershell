@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AwsRegion
         /// <summary>
         /// <para>
-        /// <para>AWS Region assigned to the SIP media application.</para>
+        /// <para>The AWS Region assigned to the SIP media application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,14 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         /// <para>The SIP media application name.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
         #endregion
         
@@ -165,6 +172,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             #endif
             context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

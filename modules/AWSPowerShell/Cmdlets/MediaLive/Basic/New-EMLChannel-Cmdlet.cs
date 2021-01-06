@@ -128,6 +128,19 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Vpc_PublicAddressAllocationId
+        /// <summary>
+        /// <para>
+        /// List of public address allocation
+        /// ids to associate with ENIs that will be created in Output VPC.Must specify one for
+        /// SINGLE_PIPELINE, two for STANDARD channels
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Vpc_PublicAddressAllocationIds")]
+        public System.String[] Vpc_PublicAddressAllocationId { get; set; }
+        #endregion
+        
         #region Parameter RequestId
         /// <summary>
         /// <para>
@@ -170,6 +183,31 @@ namespace Amazon.PowerShell.Cmdlets.EML
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Vpc_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// A list of up to 5 EC2 VPC security group
+        /// IDs to attach to the Output VPC network interfaces.If none are specified then the
+        /// VPC default security group will be used
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Vpc_SecurityGroupIds")]
+        public System.String[] Vpc_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter Vpc_SubnetId
+        /// <summary>
+        /// <para>
+        /// A list of VPC subnet IDs from the same VPC.If
+        /// STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Vpc_SubnetIds")]
+        public System.String[] Vpc_SubnetId { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -285,6 +323,18 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 {
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
+            }
+            if (this.Vpc_PublicAddressAllocationId != null)
+            {
+                context.Vpc_PublicAddressAllocationId = new List<System.String>(this.Vpc_PublicAddressAllocationId);
+            }
+            if (this.Vpc_SecurityGroupId != null)
+            {
+                context.Vpc_SecurityGroupId = new List<System.String>(this.Vpc_SecurityGroupId);
+            }
+            if (this.Vpc_SubnetId != null)
+            {
+                context.Vpc_SubnetId = new List<System.String>(this.Vpc_SubnetId);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -403,6 +453,45 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 request.Tags = cmdletContext.Tag;
             }
             
+             // populate Vpc
+            var requestVpcIsNull = true;
+            request.Vpc = new Amazon.MediaLive.Model.VpcOutputSettings();
+            List<System.String> requestVpc_vpc_PublicAddressAllocationId = null;
+            if (cmdletContext.Vpc_PublicAddressAllocationId != null)
+            {
+                requestVpc_vpc_PublicAddressAllocationId = cmdletContext.Vpc_PublicAddressAllocationId;
+            }
+            if (requestVpc_vpc_PublicAddressAllocationId != null)
+            {
+                request.Vpc.PublicAddressAllocationIds = requestVpc_vpc_PublicAddressAllocationId;
+                requestVpcIsNull = false;
+            }
+            List<System.String> requestVpc_vpc_SecurityGroupId = null;
+            if (cmdletContext.Vpc_SecurityGroupId != null)
+            {
+                requestVpc_vpc_SecurityGroupId = cmdletContext.Vpc_SecurityGroupId;
+            }
+            if (requestVpc_vpc_SecurityGroupId != null)
+            {
+                request.Vpc.SecurityGroupIds = requestVpc_vpc_SecurityGroupId;
+                requestVpcIsNull = false;
+            }
+            List<System.String> requestVpc_vpc_SubnetId = null;
+            if (cmdletContext.Vpc_SubnetId != null)
+            {
+                requestVpc_vpc_SubnetId = cmdletContext.Vpc_SubnetId;
+            }
+            if (requestVpc_vpc_SubnetId != null)
+            {
+                request.Vpc.SubnetIds = requestVpc_vpc_SubnetId;
+                requestVpcIsNull = false;
+            }
+             // determine if request.Vpc should be set to null
+            if (requestVpcIsNull)
+            {
+                request.Vpc = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -478,6 +567,9 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String Reserved { get; set; }
             public System.String RoleArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public List<System.String> Vpc_PublicAddressAllocationId { get; set; }
+            public List<System.String> Vpc_SecurityGroupId { get; set; }
+            public List<System.String> Vpc_SubnetId { get; set; }
             public System.Func<Amazon.MediaLive.Model.CreateChannelResponse, NewEMLChannelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Channel;
         }

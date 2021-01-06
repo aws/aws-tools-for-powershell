@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the app instance.</para>
+        /// <para>The ARN of the <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,12 +57,22 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         public System.String AppInstanceArn { get; set; }
         #endregion
         
+        #region Parameter ChimeBearer
+        /// <summary>
+        /// <para>
+        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChimeBearer { get; set; }
+        #endregion
+        
         #region Parameter Privacy
         /// <summary>
         /// <para>
-        /// <para>The privacy setting. <code>PUBLIC</code> retrieves all the public channels. <code>PRIVATE</code>
-        /// retrieves private channels. Only an app instance administrator can retrieve private
-        /// channels.</para>
+        /// <para> The privacy setting. <code>PUBLIC</code> retrieves all the public channels. <code>PRIVATE</code>
+        /// retrieves private channels. Only an <code>AppInstanceAdmin</code> can retrieve private
+        /// channels. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter AppInstanceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ChimeBearer = this.ChimeBearer;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.Privacy = this.Privacy;
@@ -183,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.AppInstanceArn != null)
             {
                 request.AppInstanceArn = cmdletContext.AppInstanceArn;
+            }
+            if (cmdletContext.ChimeBearer != null)
+            {
+                request.ChimeBearer = cmdletContext.ChimeBearer;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -278,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppInstanceArn { get; set; }
+            public System.String ChimeBearer { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.Chime.ChannelPrivacy Privacy { get; set; }

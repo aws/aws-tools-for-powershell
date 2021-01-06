@@ -38,13 +38,15 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     /// includes all tags that are associated with the requested resources.
     /// </para></li><li><para>
     /// Information about compliance with the account's effective tag policy. For more information
-    /// on tag policies, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag
-    /// Policies</a> in the <i>AWS Organizations User Guide.</i></para></li></ul><note><para>
-    /// You can check the <code>PaginationToken</code> response parameter to determine if
-    /// a query is complete. Queries occasionally return fewer results on a page than allowed.
-    /// The <code>PaginationToken</code> response parameter value is <code>null</code><i>only</i>
-    /// when there are no more results to display. 
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// on tag policies, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag
+    /// Policies</a> in the <i>AWS Organizations User Guide.</i></para></li></ul><para>
+    /// This operation supports pagination, where the response can be sent in multiple pages.
+    /// You should check the <code>PaginationToken</code> response parameter to determine
+    /// if there are additional results available to return. Repeat the query, passing the
+    /// <code>PaginationToken</code> response parameter value as an input to the next request
+    /// until you recieve a <code>null</code> value. A null value for <code>PaginationToken</code>
+    /// indicates that there are no more results waiting to be returned.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RGTResource")]
     [OutputType("Amazon.ResourceGroupsTaggingAPI.Model.ResourceTagMapping")]
@@ -83,12 +85,29 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         public System.Boolean? IncludeComplianceDetail { get; set; }
         #endregion
         
+        #region Parameter ResourceARNList
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a list of ARNs of resources for which you want to retrieve tag data. You
+        /// can't specify both this parameter and any of the pagination parameters (<code>ResourcesPerPage</code>,
+        /// <code>TagsPerPage</code>, <code>PaginationToken</code>) in the same request. If you
+        /// specify both, you get an <code>Invalid Parameter</code> exception.</para><para>If a resource specified by this parameter doesn't exist, it doesn't generate an error;
+        /// it simply isn't included in the response.</para><para>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information,
+        /// see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ResourceARNList { get; set; }
+        #endregion
+        
         #region Parameter ResourcesPerPage
         /// <summary>
         /// <para>
-        /// <para>A limit that restricts the number of resources returned by GetResources in paginated
-        /// output. You can set ResourcesPerPage to a minimum of 1 item and the maximum of 100
-        /// items. </para>
+        /// <para>Specifies the maximum number of results to be returned in each page. A query can return
+        /// fewer than this maximum, even if there are more results still to return. You should
+        /// always check the <code>PaginationToken</code> response value to see if there are more
+        /// results. You can specify a minimum of 1 and a maximum value of 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,16 +117,14 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter ResourceTypeFilter
         /// <summary>
         /// <para>
-        /// <para>The constraints on the resources that you want returned. The format of each resource
-        /// type is <code>service[:resourceType]</code>. For example, specifying a resource type
-        /// of <code>ec2</code> returns all Amazon EC2 resources (which includes EC2 instances).
-        /// Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances.
-        /// </para><para>The string for each service name and resource type is the same as that embedded in
+        /// <para>Specifies the resource types that you want included in the response. The format of
+        /// each resource type is <code>service[:resourceType]</code>. For example, specifying
+        /// a resource type of <code>ec2</code> returns all Amazon EC2 resources (which includes
+        /// EC2 instances). Specifying a resource type of <code>ec2:instance</code> returns only
+        /// EC2 instances. </para><para>The string for each service name and resource type is the same as that embedded in
         /// a resource's Amazon Resource Name (ARN). Consult the <i>AWS General Reference</i>
-        /// for the following:</para><ul><li><para>For a list of service name strings, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
-        /// Service Namespaces</a>.</para></li><li><para>For resource type strings, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax">Example
-        /// ARNs</a>.</para></li><li><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para></li></ul><para>You can specify multiple resource types by using an array. The array can include up
+        /// for the following:</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para><para>You can specify multiple resource types by using an array. The array can include up
         /// to 100 items. Note that the length constraint requirement applies to each resource
         /// type filter. </para>
         /// </para>
@@ -120,19 +137,20 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter TagFilter
         /// <summary>
         /// <para>
-        /// <para>A list of TagFilters (keys and values). Each TagFilter specified must contain a key
-        /// with values as optional. A request can include up to 50 keys, and each key can include
-        /// up to 20 values. </para><para>Note the following when deciding how to use TagFilters:</para><ul><li><para>If you <i>do</i> specify a TagFilter, the response returns only those resources that
-        /// are currently associated with the specified tag. </para></li><li><para>If you <i>don't</i> specify a TagFilter, the response includes all resources that
-        /// were ever associated with tags. Resources that currently don't have associated tags
+        /// <para>Specifies a list of TagFilters (keys and values) to restrict the output to only those
+        /// resources that have the specified tag and, if included, the specified value. Each
+        /// <code>TagFilter</code> must contain a key with values optional. A request can include
+        /// up to 50 keys, and each key can include up to 20 values. </para><para>Note the following when deciding how to use TagFilters:</para><ul><li><para>If you <i>don't</i> specify a <code>TagFilter</code>, the response includes all resources
+        /// that are currently tagged or ever had a tag. Resources that currently don't have tags
         /// are shown with an empty tag set, like this: <code>"Tags": []</code>.</para></li><li><para>If you specify more than one filter in a single request, the response returns only
-        /// those resources that satisfy all specified filters.</para></li><li><para>If you specify a filter that contains more than one value for a key, the response
+        /// those resources that satisfy all filters.</para></li><li><para>If you specify a filter that contains more than one value for a key, the response
         /// returns resources that match any of the specified values for that key.</para></li><li><para>If you don't specify any values for a key, the response returns resources that are
-        /// tagged with that key irrespective of the value.</para><para>For example, for filters: filter1 = {key1, {value1}}, filter2 = {key2, {value2,value3,value4}}
-        /// , filter3 = {key3}:</para><ul><li><para>GetResources( {filter1} ) returns resources tagged with key1=value1</para></li><li><para>GetResources( {filter2} ) returns resources tagged with key2=value2 or key2=value3
-        /// or key2=value4</para></li><li><para>GetResources( {filter3} ) returns resources tagged with any tag containing key3 as
-        /// its tag key, irrespective of its value</para></li><li><para>GetResources( {filter1,filter2,filter3} ) returns resources tagged with ( key1=value1)
-        /// and ( key2=value2 or key2=value3 or key2=value4) and (key3, irrespective of the value)</para></li></ul></li></ul>
+        /// tagged with that key and any or no value.</para><para>For example, for the following filters: <code>filter1= {keyA,{value1}}</code>, <code>filter2={keyB,{value2,value3,value4}}</code>,
+        /// <code>filter3= {keyC}</code>:</para><ul><li><para><code>GetResources({filter1})</code> returns resources tagged with <code>key1=value1</code></para></li><li><para><code>GetResources({filter2})</code> returns resources tagged with <code>key2=value2</code>
+        /// or <code>key2=value3</code> or <code>key2=value4</code></para></li><li><para><code>GetResources({filter3})</code> returns resources tagged with any tag with the
+        /// key <code>key3</code>, and with any or no value</para></li><li><para><code>GetResources({filter1,filter2,filter3})</code> returns resources tagged with
+        /// <code>(key1=value1) and (key2=value2 or key2=value3 or key2=value4) and (key3, any
+        /// or no value)</code></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter TagsPerPage
         /// <summary>
         /// <para>
-        /// <para>AWS recommends using <code>ResourcesPerPage</code> instead of this parameter.</para><para>A limit that restricts the number of tags (key and value pairs) returned by GetResources
+        /// <para>AWS recommends using <code>ResourcesPerPage</code> instead of this parameter.</para><para>A limit that restricts the number of tags (key and value pairs) returned by <code>GetResources</code>
         /// in paginated output. A resource with no tags is counted as having one tag (one key
         /// and value pair).</para><para><code>GetResources</code> does not split a resource and its associated tags across
         /// pages. If the specified <code>TagsPerPage</code> would cause such a break, a <code>PaginationToken</code>
@@ -153,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// each resource has 10 key and value pairs), the output will consist of three pages.
         /// The first page displays the first 10 resources, each with its 10 tags. The second
         /// page displays the next 10 resources, each with its 10 tags. The third page displays
-        /// the remaining 2 resources, each with its 10 tags.</para><para>You can set <code>TagsPerPage</code> to a minimum of 100 items and the maximum of
+        /// the remaining 2 resources, each with its 10 tags.</para><para>You can set <code>TagsPerPage</code> to a minimum of 100 items up to a maximum of
         /// 500 items.</para>
         /// </para>
         /// </summary>
@@ -165,9 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter PaginationToken
         /// <summary>
         /// <para>
-        /// <para>A string that indicates that additional data is available. Leave this value empty
-        /// for your initial request. If the response includes a <code>PaginationToken</code>,
-        /// use that string for this value to request an additional page of data.</para>
+        /// <para>Specifies a <code>PaginationToken</code> response value from a previous request to
+        /// indicate that you want the next page of results. Leave this parameter empty in your
+        /// initial request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -237,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.RGT
             context.ExcludeCompliantResource = this.ExcludeCompliantResource;
             context.IncludeComplianceDetail = this.IncludeComplianceDetail;
             context.PaginationToken = this.PaginationToken;
+            if (this.ResourceARNList != null)
+            {
+                context.ResourceARNList = new List<System.String>(this.ResourceARNList);
+            }
             context.ResourcesPerPage = this.ResourcesPerPage;
             if (this.ResourceTypeFilter != null)
             {
@@ -274,6 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.RGT
             if (cmdletContext.IncludeComplianceDetail != null)
             {
                 request.IncludeComplianceDetails = cmdletContext.IncludeComplianceDetail.Value;
+            }
+            if (cmdletContext.ResourceARNList != null)
+            {
+                request.ResourceARNList = cmdletContext.ResourceARNList;
             }
             if (cmdletContext.ResourcesPerPage != null)
             {
@@ -379,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
             public System.Boolean? ExcludeCompliantResource { get; set; }
             public System.Boolean? IncludeComplianceDetail { get; set; }
             public System.String PaginationToken { get; set; }
+            public List<System.String> ResourceARNList { get; set; }
             public System.Int32? ResourcesPerPage { get; set; }
             public List<System.String> ResourceTypeFilter { get; set; }
             public List<Amazon.ResourceGroupsTaggingAPI.Model.TagFilter> TagFilter { get; set; }

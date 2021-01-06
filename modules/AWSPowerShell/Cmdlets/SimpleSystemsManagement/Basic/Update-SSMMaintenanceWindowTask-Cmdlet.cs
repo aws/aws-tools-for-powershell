@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// One or more targets must be specified for maintenance window Run Command-type tasks.
     /// Depending on the task, targets are optional for other maintenance window task types
     /// (Automation, AWS Lambda, and AWS Step Functions). For more information about running
-    /// tasks that do not specify targets, see see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
+    /// tasks that do not specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
     /// maintenance window tasks without targets</a> in the <i>AWS Systems Manager User Guide</i>.
     /// </para></note><para>
     /// If the value for a parameter in <code>UpdateMaintenanceWindowTask</code> is null,
@@ -453,7 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// Tags are specified using Key=tag_name,Values=tag_value. </para><note><para>One or more targets must be specified for maintenance window Run Command-type tasks.
         /// Depending on the task, targets are optional for other maintenance window task types
         /// (Automation, AWS Lambda, and AWS Step Functions). For more information about running
-        /// tasks that do not specify targets, see see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
+        /// tasks that do not specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
         /// maintenance window tasks without targets</a> in the <i>AWS Systems Manager User Guide</i>.</para></note>
         /// </para>
         /// </summary>

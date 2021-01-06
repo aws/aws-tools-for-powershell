@@ -33,9 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// 
     ///  
     /// <para>
-    /// Enabling <a>CreateVoiceConnectorRequest$RequireEncryption</a> configures your Amazon
+    ///  Enabling <a>CreateVoiceConnectorRequest$RequireEncryption</a> configures your Amazon
     /// Chime Voice Connector to use TLS transport for SIP signaling and Secure RTP (SRTP)
     /// for media. Inbound calls use TLS transport, and unencrypted outbound calls are blocked.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("New", "CHMVoiceConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AwsRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS Region in which the Amazon Chime Voice Connector is created. Default value:
-        /// <code>us-east-1</code>.</para>
+        /// <para> The AWS Region in which the Amazon Chime Voice Connector is created. Default value:
+        /// <code>us-east-1</code> . </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

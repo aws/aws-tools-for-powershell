@@ -28,8 +28,8 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,
-    /// name, outbound host, and encryption requirements.
+    /// Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,name,
+    /// outbound host, and encryption requirements.
     /// </summary>
     [Cmdlet("Get", "CHMVoiceConnector")]
     [OutputType("Amazon.Chime.Model.VoiceConnector")]

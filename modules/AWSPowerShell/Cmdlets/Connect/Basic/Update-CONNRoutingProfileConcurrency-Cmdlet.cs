@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter MediaConcurrency
         /// <summary>
         /// <para>
-        /// <para>The channels agents can handle in the Contact Control Panel (CCP).</para>
+        /// <para>The channels that agents can handle in the Contact Control Panel (CCP).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// of 90 days. Therefore, the “expire after days” setting must be 90 days greater than
     /// the “transition to cold after days” setting. The “transition to cold after days” setting
     /// cannot be changed after a backup has been transitioned to cold. 
+    /// </para><para>
+    /// Only Amazon EFS file system backups can be transitioned to cold storage.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "BAKRecoveryPointLifecycle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

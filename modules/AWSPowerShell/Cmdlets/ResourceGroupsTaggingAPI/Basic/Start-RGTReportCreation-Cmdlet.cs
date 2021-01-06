@@ -28,16 +28,16 @@ using Amazon.ResourceGroupsTaggingAPI.Model;
 namespace Amazon.PowerShell.Cmdlets.RGT
 {
     /// <summary>
-    /// Generates a report that lists all tagged resources in accounts across your organization
+    /// Generates a report that lists all tagged resources in the accounts across your organization
     /// and tells whether each resource is compliant with the effective tag policy. Compliance
-    /// data is refreshed daily. 
+    /// data is refreshed daily. The report is generated asynchronously.
     /// 
     ///  
     /// <para>
     /// The generated report is saved to the following location:
     /// </para><para><code>s3://example-bucket/AwsTagPolicies/o-exampleorgid/YYYY-MM-ddTHH:mm:ssZ/report.csv</code></para><para>
-    /// You can call this operation only from the organization's master account and from the
-    /// us-east-1 Region.
+    /// You can call this operation only from the organization's management account and from
+    /// the us-east-1 Region.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "RGTReportCreation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

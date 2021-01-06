@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// deployment. This operation returns the revision number of the new deployment when
     /// you create it.
     /// </para><para>
-    /// For more information, see the <a href="https://docs.aws.amazon.com/greengrass/v2/latest/developerguide/create-deployments.html">Create
+    /// For more information, see the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create
     /// deployments</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// stops and updates that component. Components can use the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetocomponentupdates">SubscribeToComponentUpdates</a>
         /// IPC operation to receive these notifications. Then, components can respond with the
         /// <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate">DeferComponentUpdate</a>
-        /// IPC operation. For more information, see the <a href="https://docs.aws.amazon.com/greengrass/v2/latest/developerguide/create-deployments.html">Create
+        /// IPC operation. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create
         /// deployments</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</para></li><li><para><code>SKIP_NOTIFY_COMPONENTS</code> – The deployment doesn't notify components or
         /// wait for them to be safe to update.</para></li></ul><para>Default: <code>NOTIFY_COMPONENTS</code></para>
         /// </para>
@@ -200,8 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>A list of key-value pairs that contain metadata for the resource. For more information,
-        /// see <a href="https://docs.aws.amazon.com/greengrass/v2/tag-resources.html">Tag your
-        /// resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</para>
+        /// see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag
+        /// your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

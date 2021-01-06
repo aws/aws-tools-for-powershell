@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// <summary>
     /// Redacts message content, but not metadata. The message exists in the back end, but
     /// the action returns null content, and the state shows as redacted.
+    /// 
+    ///  <note><para>
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// of the user that makes the API call as the value in the header.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Hide", "CHMChannelMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.RedactChannelMessageResponse")]
@@ -55,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ChannelArn { get; set; }
+        #endregion
+        
+        #region Parameter ChimeBearer
+        /// <summary>
+        /// <para>
+        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChimeBearer { get; set; }
         #endregion
         
         #region Parameter MessageId
@@ -142,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ChimeBearer = this.ChimeBearer;
             context.MessageId = this.MessageId;
             #if MODULAR
             if (this.MessageId == null && ParameterWasBound(nameof(this.MessageId)))
@@ -168,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.ChannelArn != null)
             {
                 request.ChannelArn = cmdletContext.ChannelArn;
+            }
+            if (cmdletContext.ChimeBearer != null)
+            {
+                request.ChimeBearer = cmdletContext.ChimeBearer;
             }
             if (cmdletContext.MessageId != null)
             {
@@ -235,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ChannelArn { get; set; }
+            public System.String ChimeBearer { get; set; }
             public System.String MessageId { get; set; }
             public System.Func<Amazon.Chime.Model.RedactChannelMessageResponse, HideCHMChannelMessageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -127,9 +127,11 @@ $CGI_SelectMap = @{
                "Remove-CGIIdentityPool",
                "Get-CGIIdentityPool",
                "Get-CGIIdentityPoolRole",
+               "Get-CGIPrincipalTagAttributeMap",
                "Get-CGIIdentityPoolList",
                "Get-CGIResourceTag",
                "Set-CGIIdentityPoolRole",
+               "Set-CGIPrincipalTagAttributeMap",
                "Add-CGIResourceTag",
                "Remove-CGIResourceTag",
                "Update-CGIIdentityPool")

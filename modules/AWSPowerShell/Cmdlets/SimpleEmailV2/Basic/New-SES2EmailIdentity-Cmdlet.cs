@@ -52,6 +52,15 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// the <code>DkimSigningAttributes</code> object. When you specify this object, you provide
     /// a selector (a component of the DNS record name that identifies the public key that
     /// you want to use for DKIM authentication) and a private key.
+    /// </para><para>
+    /// When you verify a domain, this operation provides a set of DKIM tokens, which you
+    /// can convert into CNAME tokens. You add these CNAME tokens to the DNS configuration
+    /// for your domain. Your domain is verified when Amazon SES detects these records in
+    /// the DNS configuration for your domain. For some DNS providers, it can take 72 hours
+    /// or more to complete the domain verification process.
+    /// </para><para>
+    /// Additionally, you can associate an existing configuration set with the email identity
+    /// that you're verifying.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SES2EmailIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     )]
     public partial class NewSES2EmailIdentityCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConfigurationSetName
+        /// <summary>
+        /// <para>
+        /// <para>The configuration set to use by default when sending from this identity. Note that
+        /// any configuration set defined in the email sending request takes precedence. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConfigurationSetName { get; set; }
+        #endregion
         
         #region Parameter DkimSigningAttributes_DomainSigningPrivateKey
         /// <summary>
@@ -174,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.Select = (response, cmdlet) => this.EmailIdentity;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ConfigurationSetName = this.ConfigurationSetName;
             context.DkimSigningAttributes_DomainSigningPrivateKey = this.DkimSigningAttributes_DomainSigningPrivateKey;
             context.DkimSigningAttributes_DomainSigningSelector = this.DkimSigningAttributes_DomainSigningSelector;
             context.EmailIdentity = this.EmailIdentity;
@@ -203,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             // create request
             var request = new Amazon.SimpleEmailV2.Model.CreateEmailIdentityRequest();
             
+            if (cmdletContext.ConfigurationSetName != null)
+            {
+                request.ConfigurationSetName = cmdletContext.ConfigurationSetName;
+            }
             
              // populate DkimSigningAttributes
             var requestDkimSigningAttributesIsNull = true;
@@ -301,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ConfigurationSetName { get; set; }
             public System.String DkimSigningAttributes_DomainSigningPrivateKey { get; set; }
             public System.String DkimSigningAttributes_DomainSigningSelector { get; set; }
             public System.String EmailIdentity { get; set; }

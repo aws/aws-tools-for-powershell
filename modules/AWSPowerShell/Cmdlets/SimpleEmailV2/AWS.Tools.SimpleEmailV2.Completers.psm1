@@ -296,6 +296,7 @@ $SES2_SelectMap = @{
                "Write-SES2DedicatedIpInPool",
                "Write-SES2DedicatedIpWarmupAttribute",
                "Write-SES2DeliverabilityDashboardOption",
+               "Write-SES2EmailIdentityConfigurationSetAttribute",
                "Write-SES2EmailIdentityDkimAttribute",
                "Write-SES2EmailIdentityDkimSigningAttribute",
                "Write-SES2EmailIdentityFeedbackAttribute",

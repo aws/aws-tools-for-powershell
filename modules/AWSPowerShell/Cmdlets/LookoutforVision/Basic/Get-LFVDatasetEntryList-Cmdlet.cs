@@ -30,7 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// <summary>
     /// Lists the JSON Lines within a dataset. An Amazon Lookout for Vision JSON Line contains
     /// the anomaly information for a single image, including the image location and the assigned
-    /// label.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// label.
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permissions to perform the <code>lookoutvision:ListDatasetEntries</code>
+    /// operation.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LFVDatasetEntryList")]
     [OutputType("System.String")]

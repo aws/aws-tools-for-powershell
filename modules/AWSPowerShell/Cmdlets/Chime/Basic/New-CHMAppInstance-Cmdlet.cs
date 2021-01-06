@@ -28,9 +28,9 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Creates an Amazon Chime Messaging SDK <code>AppInstance</code> under an AWS Account.
-    /// Only Messaging SDK customers use this API. <code>CreateAppInstance</code> supports
-    /// <code>idempotency</code> behavior as described in the AWS API Standard.
+    /// Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account.
+    /// Only SDK messaging customers use this API. <code>CreateAppInstance</code> supports
+    /// idempotency behavior as described in the AWS API Standard.
     /// </summary>
     [Cmdlet("New", "CHMAppInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The <code>ClientRequestToken</code> of the app instance.</para>
+        /// <para>The <code>ClientRequestToken</code> of the <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Metadata
         /// <summary>
         /// <para>
-        /// <para>The metadata of the app instance. Limited to a 1KB string in UTF-8.</para>
+        /// <para>The metadata of the <code>AppInstance</code>. Limited to a 1KB string in UTF-8.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the app instance.</para>
+        /// <para>The name of the <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags assigned to the <code>AppInstanceUser</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Chime.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -149,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Chime.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -241,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             public System.String ClientRequestToken { get; set; }
             public System.String Metadata { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.Chime.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Chime.Model.CreateAppInstanceResponse, NewCHMAppInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AppInstanceArn;
         }

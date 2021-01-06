@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Deletes the specified Amazon Chime account. You must suspend all users before deleting
-    /// a <code>Team</code> account. You can use the <a>BatchSuspendUser</a> action to do
-    /// so.
+    /// <code>Team</code> account. You can use the <a>BatchSuspendUser</a> action to dodo.
     /// 
     ///  
     /// <para>
@@ -39,11 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// release the domain, all users under that account are suspended.
     /// </para><para>
     /// Deleted accounts appear in your <code>Disabled</code> accounts list for 90 days. To
-    /// restore a deleted account from your <code>Disabled</code> accounts list, you must
-    /// contact AWS Support.
+    /// restore deleted account from your <code>Disabled</code> accounts list, you must contact
+    /// AWS Support.
     /// </para><para>
-    /// After 90 days, deleted accounts are permanently removed from your <code>Disabled</code>
-    /// accounts list.
+    ///  After 90 days, deleted accounts are permanently removed from your <code>Disabled</code>
+    /// accounts list. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CHMAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -28,7 +28,8 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// The current feature settings for the AWS Account.
+    /// Describes the global settings of the AWS account, including whether it is opted in
+    /// to cross-account backup.
     /// </summary>
     [Cmdlet("Get", "BAKGlobalSetting")]
     [OutputType("Amazon.Backup.Model.DescribeGlobalSettingsResponse")]

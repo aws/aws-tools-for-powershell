@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  
     /// <para>
-    /// Returns a paginated list of all the Lambda functions that show up in the drop-down
-    /// options in the relevant contact flow blocks.
+    /// Returns a paginated list of all Lambda functions that display in the dropdown options
+    /// in the relevant contact flow blocks.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNLambdaFunctionList")]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximimum number of results to return per page.</para>
+        /// <para>The maximum number of results to return per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

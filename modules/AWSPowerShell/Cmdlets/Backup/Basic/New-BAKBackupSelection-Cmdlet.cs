@@ -105,7 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>An array of conditions used to specify a set of resources to assign to a backup plan;
-        /// for example, <code>"StringEquals": {"ec2:ResourceTag/Department": "accounting"</code>.</para>
+        /// for example, <code>"StringEquals": {"ec2:ResourceTag/Department": "accounting"</code>.
+        /// Assigns the backup plan to every resource with at least one matching tag.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter MediaConcurrency
         /// <summary>
         /// <para>
-        /// <para>The channels agents can handle in the Contact Control Panel (CCP) for this routing
+        /// <para>The channels that agents can handle in the Contact Control Panel (CCP) for this routing
         /// profile.</para>
         /// </para>
         /// </summary>
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The inbound queues associated with the routing profile. If no queue is added, the
-        /// agent can only make outbound calls.</para>
+        /// agent can make only outbound calls.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

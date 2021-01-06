@@ -33,6 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
+    /// Route 53 does not perform authorization for this API because it retrieves information
+    /// that is already available to the public.
+    /// </para><para>
     /// Use the following syntax to determine whether a continent is supported for geolocation:
     /// </para><para><code>GET /2013-04-01/geolocation?continentcode=<i>two-letter abbreviation for a
     /// continent</i></code></para><para>
@@ -78,11 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter SubdivisionCode
         /// <summary>
         /// <para>
-        /// <para>For <code>SubdivisionCode</code>, Amazon Route 53 supports only states of the United
-        /// States. For a list of state abbreviations, see <a href="https://pe.usps.com/text/pub28/28apb.htm">Appendix
+        /// <para>The code for the subdivision, such as a particular state within the United States.
+        /// For a list of US state abbreviations, see <a href="https://pe.usps.com/text/pub28/28apb.htm">Appendix
         /// B: Two–Letter State and Possession Abbreviations</a> on the United States Postal Service
-        /// website. </para><para>If you specify <code>subdivisioncode</code>, you must also specify <code>US</code>
-        /// for <code>CountryCode</code>. </para>
+        /// website. For a list of all supported subdivision codes, use the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html">ListGeoLocations</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

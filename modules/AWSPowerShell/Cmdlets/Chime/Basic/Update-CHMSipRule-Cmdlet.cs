@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Updates the details for the specified SIP rule.
+    /// Updates the details of the specified SIP rule.
     /// </summary>
     [Cmdlet("Update", "CHMSipRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.SipRule")]

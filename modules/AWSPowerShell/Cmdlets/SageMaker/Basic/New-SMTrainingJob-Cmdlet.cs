@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// models by up to 80% by using Amazon EC2 Spot instances. For more information, see
     /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html">Managed
     /// Spot Training</a>. 
-    /// </para></li><li><para><code>RoleArn</code> - The Amazon Resource Number (ARN) that Amazon SageMaker assumes
+    /// </para></li><li><para><code>RoleArn</code> - The Amazon Resource Name (ARN) that Amazon SageMaker assumes
     /// to perform tasks on your behalf during model training. You must grant this role the
     /// necessary permissions so that Amazon SageMaker can successfully complete model training.
     /// 

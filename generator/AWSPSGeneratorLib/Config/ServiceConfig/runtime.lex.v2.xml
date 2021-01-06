@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>runtime.lex.v2</C2jFilename>
+    <AssemblyName>LexRuntimeV2</AssemblyName>
+    <ServiceNounPrefix>LRSV2</ServiceNounPrefix>
+    <ServiceName>Amazon Lex Runtime V2</ServiceName>
+    <ServiceClientInterface>IAmazonLexRuntimeV2</ServiceClientInterface>
+    <ServiceClient>AmazonLexRuntimeV2Client</ServiceClient>
+    <ServiceModuleGuid>8a05132e-7a32-47cb-b0e6-6fbf015399b6</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteSession" OutputProperty="*" Verb="Remove" Noun="Session" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSession" OutputProperty="*" Verb="Get" Noun="Session" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSession" OutputProperty="*" Verb="Write" Noun="Session" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RecognizeText" OutputProperty="*" Verb="Send" Noun="Text" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RecognizeUtterance" OutputProperty="*" Verb="Send" Noun="Utterance" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

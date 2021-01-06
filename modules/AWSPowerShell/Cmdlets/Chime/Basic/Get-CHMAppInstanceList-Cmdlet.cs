@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Lists all Amazon Chime app instances created under a single AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CHMAppInstanceList")]
     [OutputType("Amazon.Chime.Model.AppInstanceSummary")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of app instances that you want to return.</para>
+        /// <para>The maximum number of <code>AppInstance</code>s that you want to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token passed by previous API requests until you reach the maximum number of app
-        /// instances.</para>
+        /// <para>The token passed by previous API requests until you reach the maximum number of <code>AppInstance</code>s.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

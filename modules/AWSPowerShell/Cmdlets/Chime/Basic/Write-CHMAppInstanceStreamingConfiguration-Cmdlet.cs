@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// The data streaming configurations of an app instance.
+    /// The data streaming configurations of an <code>AppInstance</code>.
     /// </summary>
     [Cmdlet("Write", "CHMAppInstanceStreamingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.AppInstanceStreamingConfiguration")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the app instance.</para>
+        /// <para>The ARN of the <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceStreamingConfiguration
         /// <summary>
         /// <para>
-        /// <para>The streaming configurations set for an app instance.</para>
+        /// <para>The streaming configurations set for an <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

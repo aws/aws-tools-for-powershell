@@ -47,6 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class UpdateTFRUserCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        #region Parameter PosixProfile_Gid
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? PosixProfile_Gid { get; set; }
+        #endregion
+        
         #region Parameter HomeDirectory
         /// <summary>
         /// <para>
@@ -128,6 +138,17 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String Role { get; set; }
         #endregion
         
+        #region Parameter PosixProfile_SecondaryGid
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PosixProfile_SecondaryGids")]
+        public System.Int64[] PosixProfile_SecondaryGid { get; set; }
+        #endregion
+        
         #region Parameter ServerId
         /// <summary>
         /// <para>
@@ -144,6 +165,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ServerId { get; set; }
+        #endregion
+        
+        #region Parameter PosixProfile_Uid
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? PosixProfile_Uid { get; set; }
         #endregion
         
         #region Parameter UserName
@@ -235,6 +266,12 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             }
             context.HomeDirectoryType = this.HomeDirectoryType;
             context.Policy = this.Policy;
+            context.PosixProfile_Gid = this.PosixProfile_Gid;
+            if (this.PosixProfile_SecondaryGid != null)
+            {
+                context.PosixProfile_SecondaryGid = new List<System.Int64>(this.PosixProfile_SecondaryGid);
+            }
+            context.PosixProfile_Uid = this.PosixProfile_Uid;
             context.Role = this.Role;
             context.ServerId = this.ServerId;
             #if MODULAR
@@ -281,6 +318,45 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (cmdletContext.Policy != null)
             {
                 request.Policy = cmdletContext.Policy;
+            }
+            
+             // populate PosixProfile
+            var requestPosixProfileIsNull = true;
+            request.PosixProfile = new Amazon.Transfer.Model.PosixProfile();
+            System.Int64? requestPosixProfile_posixProfile_Gid = null;
+            if (cmdletContext.PosixProfile_Gid != null)
+            {
+                requestPosixProfile_posixProfile_Gid = cmdletContext.PosixProfile_Gid.Value;
+            }
+            if (requestPosixProfile_posixProfile_Gid != null)
+            {
+                request.PosixProfile.Gid = requestPosixProfile_posixProfile_Gid.Value;
+                requestPosixProfileIsNull = false;
+            }
+            List<System.Int64> requestPosixProfile_posixProfile_SecondaryGid = null;
+            if (cmdletContext.PosixProfile_SecondaryGid != null)
+            {
+                requestPosixProfile_posixProfile_SecondaryGid = cmdletContext.PosixProfile_SecondaryGid;
+            }
+            if (requestPosixProfile_posixProfile_SecondaryGid != null)
+            {
+                request.PosixProfile.SecondaryGids = requestPosixProfile_posixProfile_SecondaryGid;
+                requestPosixProfileIsNull = false;
+            }
+            System.Int64? requestPosixProfile_posixProfile_Uid = null;
+            if (cmdletContext.PosixProfile_Uid != null)
+            {
+                requestPosixProfile_posixProfile_Uid = cmdletContext.PosixProfile_Uid.Value;
+            }
+            if (requestPosixProfile_posixProfile_Uid != null)
+            {
+                request.PosixProfile.Uid = requestPosixProfile_posixProfile_Uid.Value;
+                requestPosixProfileIsNull = false;
+            }
+             // determine if request.PosixProfile should be set to null
+            if (requestPosixProfileIsNull)
+            {
+                request.PosixProfile = null;
             }
             if (cmdletContext.Role != null)
             {
@@ -359,6 +435,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public List<Amazon.Transfer.Model.HomeDirectoryMapEntry> HomeDirectoryMapping { get; set; }
             public Amazon.Transfer.HomeDirectoryType HomeDirectoryType { get; set; }
             public System.String Policy { get; set; }
+            public System.Int64? PosixProfile_Gid { get; set; }
+            public List<System.Int64> PosixProfile_SecondaryGid { get; set; }
+            public System.Int64? PosixProfile_Uid { get; set; }
             public System.String Role { get; set; }
             public System.String ServerId { get; set; }
             public System.String UserName { get; set; }

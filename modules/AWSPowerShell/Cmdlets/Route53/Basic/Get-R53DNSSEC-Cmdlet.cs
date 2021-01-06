@@ -28,8 +28,8 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Returns information about DNSSEC for a specific hosted zone, including the key signing
-    /// keys (KSKs) and zone signing keys (ZSKs) in the hosted zone.
+    /// Returns information about DNSSEC for a specific hosted zone, including the key-signing
+    /// keys (KSKs) in the hosted zone.
     /// </summary>
     [Cmdlet("Get", "R53DNSSEC")]
     [OutputType("Amazon.Route53.Model.GetDNSSECResponse")]

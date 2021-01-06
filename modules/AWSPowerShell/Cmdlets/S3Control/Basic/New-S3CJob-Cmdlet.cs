@@ -28,17 +28,17 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// S3 Batch Operations performs large-scale Batch Operations on Amazon S3 objects. Batch
-    /// Operations can run a single operation or action on lists of Amazon S3 objects that
-    /// you specify. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3
+    /// You can use S3 Batch Operations to perform large-scale batch operations on Amazon
+    /// S3 objects. Batch Operations can run a single operation on lists of Amazon S3 objects
+    /// that you specify. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3
     /// Batch Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
     /// 
     ///  
     /// <para>
-    /// This operation creates an S3 Batch Operations job.
+    /// This operation creates a S3 Batch Operations job.
     /// </para><para>
     /// Related actions include:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_JobOperation.html">JobOperation</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "S3CJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -283,7 +283,17 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3InitiateRestoreObject_ExpirationInDay
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>This argument specifies how long the S3 Glacier or S3 Glacier Deep Archive object
+        /// remains available in Amazon S3. S3 Initiate Restore Object jobs that target S3 Glacier
+        /// and S3 Glacier Deep Archive objects require <code>ExpirationInDays</code> set to 1
+        /// or greater.</para><para>Conversely, do <i>not</i> set <code>ExpirationInDays</code> when creating S3 Initiate
+        /// Restore Object jobs that target S3 Intelligent-Tiering Archive Access and Deep Archive
+        /// Access tier objects. Objects in S3 Intelligent-Tiering archive access tiers are not
+        /// subject to restore expiry, so specifying <code>ExpirationInDays</code> results in
+        /// restore request failure.</para><para>S3 Batch Operations jobs can operate either on S3 Glacier and S3 Glacier Deep Archive
+        /// storage class objects or on S3 Intelligent-Tiering Archive Access and Deep Archive
+        /// Access storage tier objects, but not both types in the same job. If you need to restore
+        /// objects of both types you <i>must</i> create separate Batch Operations jobs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -336,7 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the AWS Lambda function that the specified job
-        /// will invoke for each object in the manifest.</para>
+        /// will invoke on every object in the manifest.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -347,7 +357,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3InitiateRestoreObject_GlacierJobTier
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>S3 Batch Operations supports <code>STANDARD</code> and <code>BULK</code> retrieval
+        /// tiers, but not the <code>EXPEDITED</code> retrieval tier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -439,7 +450,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Location_ObjectArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for a manifest object.</para>
+        /// <para>The Amazon Resource Name (ARN) for a manifest object.</para><important><para>Replacement must be made for object keys containing special characters (such as carriage
+        /// returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
+        /// XML related object key constraints</a>.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -590,7 +603,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role
-        /// that Batch Operations will use to run this job's operation on each object in the manifest.</para>
+        /// that Batch Operations will use to run this job's operation on every object in the
+        /// manifest.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -602,6 +616,17 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Operation_S3DeleteObjectTagging
+        /// <summary>
+        /// <para>
+        /// <para>Directs the specified job to execute a DELETE Object tagging call on every object
+        /// in the manifest.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.S3Control.Model.S3DeleteObjectTaggingOperation Operation_S3DeleteObjectTagging { get; set; }
         #endregion
         
         #region Parameter NewObjectMetadata_SSEAlgorithm
@@ -820,6 +845,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             }
             #endif
             context.LambdaInvoke_FunctionArn = this.LambdaInvoke_FunctionArn;
+            context.Operation_S3DeleteObjectTagging = this.Operation_S3DeleteObjectTagging;
             context.S3InitiateRestoreObject_ExpirationInDay = this.S3InitiateRestoreObject_ExpirationInDay;
             context.S3InitiateRestoreObject_GlacierJobTier = this.S3InitiateRestoreObject_GlacierJobTier;
             if (this.AccessControlList_Grant != null)
@@ -1030,6 +1056,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
              // populate Operation
             var requestOperationIsNull = true;
             request.Operation = new Amazon.S3Control.Model.JobOperation();
+            Amazon.S3Control.Model.S3DeleteObjectTaggingOperation requestOperation_operation_S3DeleteObjectTagging = null;
+            if (cmdletContext.Operation_S3DeleteObjectTagging != null)
+            {
+                requestOperation_operation_S3DeleteObjectTagging = cmdletContext.Operation_S3DeleteObjectTagging;
+            }
+            if (requestOperation_operation_S3DeleteObjectTagging != null)
+            {
+                request.Operation.S3DeleteObjectTagging = requestOperation_operation_S3DeleteObjectTagging;
+                requestOperationIsNull = false;
+            }
             Amazon.S3Control.Model.LambdaInvokeOperation requestOperation_operation_LambdaInvoke = null;
             
              // populate LambdaInvoke
@@ -1752,6 +1788,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public List<System.String> Spec_Field { get; set; }
             public Amazon.S3Control.JobManifestFormat Spec_Format { get; set; }
             public System.String LambdaInvoke_FunctionArn { get; set; }
+            public Amazon.S3Control.Model.S3DeleteObjectTaggingOperation Operation_S3DeleteObjectTagging { get; set; }
             public System.Int32? S3InitiateRestoreObject_ExpirationInDay { get; set; }
             public Amazon.S3Control.S3GlacierJobTier S3InitiateRestoreObject_GlacierJobTier { get; set; }
             public List<Amazon.S3Control.Model.S3Grant> AccessControlList_Grant { get; set; }

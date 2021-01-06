@@ -28,9 +28,9 @@ using Amazon.CognitoIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
-    /// Assigns a set of tags to an Amazon Cognito identity pool. A tag is a label that you
-    /// can use to categorize and manage identity pools in different ways, such as by purpose,
-    /// owner, environment, or other criteria.
+    /// Assigns a set of tags to the specified Amazon Cognito identity pool. A tag is a label
+    /// that you can use to categorize and manage identity pools in different ways, such as
+    /// by purpose, owner, environment, or other criteria.
     /// 
     ///  
     /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the identity pool to assign the tags to.</para>
+        /// <para>The Amazon Resource Name (ARN) of the identity pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

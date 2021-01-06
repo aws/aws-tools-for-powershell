@@ -208,6 +208,27 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Boolean? CognitoOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter NodeToNodeEncryptionOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specify true to enable node-to-node encryption.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? NodeToNodeEncryptionOptions_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionAtRestOption
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Encryption At Rest Options.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EncryptionAtRestOptions")]
+        public Amazon.Elasticsearch.Model.EncryptionAtRestOptions EncryptionAtRestOption { get; set; }
+        #endregion
+        
         #region Parameter DomainEndpointOptions_EnforceHTTPS
         /// <summary>
         /// <para>
@@ -608,6 +629,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             context.ElasticsearchClusterConfig_WarmType = this.ElasticsearchClusterConfig_WarmType;
             context.ZoneAwarenessConfig_AvailabilityZoneCount = this.ZoneAwarenessConfig_AvailabilityZoneCount;
             context.ElasticsearchClusterConfig_ZoneAwarenessEnabled = this.ElasticsearchClusterConfig_ZoneAwarenessEnabled;
+            context.EncryptionAtRestOption = this.EncryptionAtRestOption;
             if (this.LogPublishingOption != null)
             {
                 context.LogPublishingOption = new Dictionary<System.String, Amazon.Elasticsearch.Model.LogPublishingOption>(StringComparer.Ordinal);
@@ -616,6 +638,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                     context.LogPublishingOption.Add((String)hashKey, (LogPublishingOption)(this.LogPublishingOption[hashKey]));
                 }
             }
+            context.NodeToNodeEncryptionOptions_Enabled = this.NodeToNodeEncryptionOptions_Enabled;
             context.SnapshotOptions_AutomatedSnapshotStartHour = this.SnapshotOptions_AutomatedSnapshotStartHour;
             if (this.VPCOptions_SecurityGroupId != null)
             {
@@ -1118,9 +1141,32 @@ namespace Amazon.PowerShell.Cmdlets.ES
             {
                 request.ElasticsearchClusterConfig = null;
             }
+            if (cmdletContext.EncryptionAtRestOption != null)
+            {
+                request.EncryptionAtRestOptions = cmdletContext.EncryptionAtRestOption;
+            }
             if (cmdletContext.LogPublishingOption != null)
             {
                 request.LogPublishingOptions = cmdletContext.LogPublishingOption;
+            }
+            
+             // populate NodeToNodeEncryptionOptions
+            var requestNodeToNodeEncryptionOptionsIsNull = true;
+            request.NodeToNodeEncryptionOptions = new Amazon.Elasticsearch.Model.NodeToNodeEncryptionOptions();
+            System.Boolean? requestNodeToNodeEncryptionOptions_nodeToNodeEncryptionOptions_Enabled = null;
+            if (cmdletContext.NodeToNodeEncryptionOptions_Enabled != null)
+            {
+                requestNodeToNodeEncryptionOptions_nodeToNodeEncryptionOptions_Enabled = cmdletContext.NodeToNodeEncryptionOptions_Enabled.Value;
+            }
+            if (requestNodeToNodeEncryptionOptions_nodeToNodeEncryptionOptions_Enabled != null)
+            {
+                request.NodeToNodeEncryptionOptions.Enabled = requestNodeToNodeEncryptionOptions_nodeToNodeEncryptionOptions_Enabled.Value;
+                requestNodeToNodeEncryptionOptionsIsNull = false;
+            }
+             // determine if request.NodeToNodeEncryptionOptions should be set to null
+            if (requestNodeToNodeEncryptionOptionsIsNull)
+            {
+                request.NodeToNodeEncryptionOptions = null;
             }
             
              // populate SnapshotOptions
@@ -1270,7 +1316,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public Amazon.Elasticsearch.ESWarmPartitionInstanceType ElasticsearchClusterConfig_WarmType { get; set; }
             public System.Int32? ZoneAwarenessConfig_AvailabilityZoneCount { get; set; }
             public System.Boolean? ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
+            public Amazon.Elasticsearch.Model.EncryptionAtRestOptions EncryptionAtRestOption { get; set; }
             public Dictionary<System.String, Amazon.Elasticsearch.Model.LogPublishingOption> LogPublishingOption { get; set; }
+            public System.Boolean? NodeToNodeEncryptionOptions_Enabled { get; set; }
             public System.Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
             public List<System.String> VPCOptions_SecurityGroupId { get; set; }
             public List<System.String> VPCOptions_SubnetId { get; set; }

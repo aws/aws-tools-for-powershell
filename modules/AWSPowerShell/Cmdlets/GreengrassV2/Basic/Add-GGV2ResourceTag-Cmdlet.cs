@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>A list of key-value pairs that contain metadata for the resource. For more information,
-        /// see <a href="https://docs.aws.amazon.com/greengrass/v2/tag-resources.html">Tag your
-        /// resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</para>
+        /// see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag
+        /// your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

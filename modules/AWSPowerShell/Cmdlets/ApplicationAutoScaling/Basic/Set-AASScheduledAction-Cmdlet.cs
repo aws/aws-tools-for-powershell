@@ -30,6 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// <summary>
     /// Creates or updates a scheduled action for an Application Auto Scaling scalable target.
     /// 
+    /// 
     ///  
     /// <para>
     /// Each scalable target is identified by a service namespace, resource ID, and scalable
@@ -38,13 +39,13 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// as a scalable target.
     /// </para><para>
     /// When start and end times are specified with a recurring schedule using a cron expression
-    /// or rates, they form the boundaries of when the recurring action starts and stops.
+    /// or rates, they form the boundaries for when the recurring action starts and stops.
     /// </para><para>
     /// To update a scheduled action, specify the parameters that you want to change. If you
     /// don't specify start and end times, the old values are deleted.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled
-    /// Scaling</a> in the <i>Application Auto Scaling User Guide</i>.
+    /// scaling</a> in the <i>Application Auto Scaling User Guide</i>.
     /// </para><note><para>
     /// If a scalable target is deregistered, the scalable target is no longer available to
     /// run scheduled actions. Any scheduled actions that were specified for the scalable
@@ -64,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The date and time for the recurring schedule to end.</para>
+        /// <para>The date and time for the recurring schedule to end, in UTC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,12 +174,14 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter Schedule
         /// <summary>
         /// <para>
-        /// <para>The schedule for this action. The following formats are supported:</para><ul><li><para>At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"</para></li><li><para>Rate expressions - "<code>rate(<i>value</i><i>unit</i>)</code>"</para></li><li><para>Cron expressions - "<code>cron(<i>fields</i>)</code>"</para></li></ul><para>At expressions are useful for one-time schedules. Specify the time in UTC.</para><para>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is <code>minute</code>
+        /// <para>The schedule for this action. The following formats are supported:</para><ul><li><para>At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"</para></li><li><para>Rate expressions - "<code>rate(<i>value</i><i>unit</i>)</code>"</para></li><li><para>Cron expressions - "<code>cron(<i>fields</i>)</code>"</para></li></ul><para>At expressions are useful for one-time schedules. Cron expressions are useful for
+        /// scheduled actions that run periodically at a specified date and time, and rate expressions
+        /// are useful for scheduled actions that run at a regular interval.</para><para>At and cron expressions use Universal Coordinated Time (UTC) by default.</para><para>The cron format consists of six fields separated by white spaces: [Minutes] [Hours]
+        /// [Day_of_Month] [Month] [Day_of_Week] [Year].</para><para>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is <code>minute</code>
         /// | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code>
-        /// | <code>days</code>.</para><para>For cron expressions, <i>fields</i> is a cron expression. The supported cron format
-        /// consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month]
-        /// [Month] [Day_of_Week] [Year].</para><para>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled
-        /// Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</para>
+        /// | <code>days</code>.</para><para>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html">Example
+        /// scheduled actions for Application Auto Scaling</a> in the <i>Application Auto Scaling
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,11 +227,24 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The date and time for this scheduled action to start.</para>
+        /// <para>The date and time for this scheduled action to start, in UTC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? StartTime { get; set; }
+        #endregion
+        
+        #region Parameter Timezone
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the time zone used when setting a scheduled action by using an at or cron
+        /// expression. If a time zone is not provided, UTC is used by default.</para><para>Valid values are the canonical names of the IANA time zones supported by Joda-Time
+        /// (such as <code>Etc/GMT+9</code> or <code>Pacific/Tahiti</code>). For more information,
+        /// see <a href="https://www.joda.org/joda-time/timezones.html">https://www.joda.org/joda-time/timezones.html</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Timezone { get; set; }
         #endregion
         
         #region Parameter Select
@@ -324,6 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             }
             #endif
             context.StartTime = this.StartTime;
+            context.Timezone = this.Timezone;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -397,6 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             {
                 request.StartTime = cmdletContext.StartTime.Value;
             }
+            if (cmdletContext.Timezone != null)
+            {
+                request.Timezone = cmdletContext.Timezone;
+            }
             
             CmdletOutput output;
             
@@ -467,6 +488,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             public System.String ScheduledActionName { get; set; }
             public Amazon.ApplicationAutoScaling.ServiceNamespace ServiceNamespace { get; set; }
             public System.DateTime? StartTime { get; set; }
+            public System.String Timezone { get; set; }
             public System.Func<Amazon.ApplicationAutoScaling.Model.PutScheduledActionResponse, SetAASScheduledActionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

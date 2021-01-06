@@ -44,6 +44,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2CapacityReservationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter Accept
+        /// <summary>
+        /// <para>
+        /// <para>Reserved. Capacity Reservations you have created are accepted by default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Accept { get; set; }
+        #endregion
+        
         #region Parameter CapacityReservationId
         /// <summary>
         /// <para>
@@ -164,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.CapacityReservationId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Accept = this.Accept;
             context.CapacityReservationId = this.CapacityReservationId;
             #if MODULAR
             if (this.CapacityReservationId == null && ParameterWasBound(nameof(this.CapacityReservationId)))
@@ -190,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.ModifyCapacityReservationRequest();
             
+            if (cmdletContext.Accept != null)
+            {
+                request.Accept = cmdletContext.Accept.Value;
+            }
             if (cmdletContext.CapacityReservationId != null)
             {
                 request.CapacityReservationId = cmdletContext.CapacityReservationId;
@@ -267,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Accept { get; set; }
             public System.String CapacityReservationId { get; set; }
             public System.DateTime? EndDate { get; set; }
             public Amazon.EC2.EndDateType EndDateType { get; set; }

@@ -156,6 +156,20 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         public System.String NetworkId { get; set; }
         #endregion
         
+        #region Parameter MemberConfiguration_Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags assigned to the member. Tags consist of a key and optional value. For more information
+        /// about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</para><para>When specifying tags during creation, you can specify multiple key-value pairs in
+        /// a single request, with an overall maximum of 50 added to each resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MemberConfiguration_Tags")]
+        public System.Collections.Hashtable MemberConfiguration_Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'MemberId'.
@@ -236,6 +250,14 @@ namespace Amazon.PowerShell.Cmdlets.MBC
                 WriteWarning("You are passing $null as a value for parameter MemberConfiguration_Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.MemberConfiguration_Tag != null)
+            {
+                context.MemberConfiguration_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.MemberConfiguration_Tag.Keys)
+                {
+                    context.MemberConfiguration_Tag.Add((String)hashKey, (String)(this.MemberConfiguration_Tag[hashKey]));
+                }
+            }
             context.NetworkId = this.NetworkId;
             #if MODULAR
             if (this.NetworkId == null && ParameterWasBound(nameof(this.NetworkId)))
@@ -289,6 +311,16 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             if (requestMemberConfiguration_memberConfiguration_Name != null)
             {
                 request.MemberConfiguration.Name = requestMemberConfiguration_memberConfiguration_Name;
+                requestMemberConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestMemberConfiguration_memberConfiguration_Tag = null;
+            if (cmdletContext.MemberConfiguration_Tag != null)
+            {
+                requestMemberConfiguration_memberConfiguration_Tag = cmdletContext.MemberConfiguration_Tag;
+            }
+            if (requestMemberConfiguration_memberConfiguration_Tag != null)
+            {
+                request.MemberConfiguration.Tags = requestMemberConfiguration_memberConfiguration_Tag;
                 requestMemberConfigurationIsNull = false;
             }
             Amazon.ManagedBlockchain.Model.MemberFrameworkConfiguration requestMemberConfiguration_memberConfiguration_FrameworkConfiguration = null;
@@ -488,6 +520,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             public System.String Fabric_AdminUsername { get; set; }
             public System.Boolean? Cloudwatch_Enabled { get; set; }
             public System.String MemberConfiguration_Name { get; set; }
+            public Dictionary<System.String, System.String> MemberConfiguration_Tag { get; set; }
             public System.String NetworkId { get; set; }
             public System.Func<Amazon.ManagedBlockchain.Model.CreateMemberResponse, NewMBCMemberCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MemberId;

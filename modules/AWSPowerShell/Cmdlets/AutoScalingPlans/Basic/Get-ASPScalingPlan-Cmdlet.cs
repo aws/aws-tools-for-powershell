@@ -67,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ASP
         #region Parameter ScalingPlanVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the scaling plan. If you specify a scaling plan version, you
-        /// must also specify a scaling plan name.</para>
+        /// <para>The version number of the scaling plan. Currently, the only valid value is <code>1</code>.</para><note><para>If you specify a scaling plan version, you must also specify a scaling plan name.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

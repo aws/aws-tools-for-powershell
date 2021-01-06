@@ -111,6 +111,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Unregister-MSKDisassociateScramSecret', 
         'Update-MSKBrokerCount', 
         'Update-MSKBrokerStorage', 
+        'Update-MSKBrokerType', 
         'Update-MSKClusterConfiguration', 
         'Update-MSKClusterKafkaVersion', 
         'Update-MSKConfiguration', 

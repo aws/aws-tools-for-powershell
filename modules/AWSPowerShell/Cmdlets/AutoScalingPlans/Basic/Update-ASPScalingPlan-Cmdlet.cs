@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.ASP
         #region Parameter ScalingInstruction
         /// <summary>
         /// <para>
-        /// <para>The scaling instructions.</para>
+        /// <para>The scaling instructions.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html">ScalingInstruction</a>
+        /// in the <i>AWS Auto Scaling API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.ASP
         #region Parameter ScalingPlanVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the scaling plan.</para>
+        /// <para>The version number of the scaling plan. The only valid value is <code>1</code>. Currently,
+        /// you cannot have multiple scaling plan versions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

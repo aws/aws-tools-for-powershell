@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
     /// You cannot delete a label assigned to an event ID. You must first delete the relevant
     /// event ID.
     /// </para><para>
-    /// When you delete a label, Amazon Fraud Detector permanently deletes that label from
-    /// the evaluation history, and the data is no longer stored in Amazon Fraud Detector.
+    /// When you delete a label, Amazon Fraud Detector permanently deletes that label and
+    /// the data is no longer stored in Amazon Fraud Detector.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "FDLabel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

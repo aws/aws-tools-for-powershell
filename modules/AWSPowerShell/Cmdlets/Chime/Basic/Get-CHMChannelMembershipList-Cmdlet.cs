@@ -28,7 +28,12 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Lists all channel memberships in a channel.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all channel memberships in a channel.
+    /// 
+    ///  <note><para>
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// of the user that makes the API call as the value in the header.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CHMChannelMembershipList")]
     [OutputType("Amazon.Chime.Model.ListChannelMembershipsResponse")]
@@ -54,6 +59,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ChannelArn { get; set; }
+        #endregion
+        
+        #region Parameter ChimeBearer
+        /// <summary>
+        /// <para>
+        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChimeBearer { get; set; }
         #endregion
         
         #region Parameter Type
@@ -85,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         /// <summary>
         /// <para>
         /// <para>The token passed by previous API calls until all requested channel memberships are
-        /// returned..</para>
+        /// returned.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -158,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ChimeBearer = this.ChimeBearer;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.Type = this.Type;
@@ -184,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.ChannelArn != null)
             {
                 request.ChannelArn = cmdletContext.ChannelArn;
+            }
+            if (cmdletContext.ChimeBearer != null)
+            {
+                request.ChimeBearer = cmdletContext.ChimeBearer;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -279,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ChannelArn { get; set; }
+            public System.String ChimeBearer { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.Chime.ChannelMembershipType Type { get; set; }

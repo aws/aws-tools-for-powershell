@@ -32,7 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// 
     ///  
     /// <para><b>Restriction</b>: You can't change a channel's privacy.
-    /// </para>
+    /// </para><note><para>
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// of the user that makes the API call as the value in the header.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "CHMChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -59,6 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AppInstanceArn { get; set; }
+        #endregion
+        
+        #region Parameter ChimeBearer
+        /// <summary>
+        /// <para>
+        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChimeBearer { get; set; }
         #endregion
         
         #region Parameter ClientRequestToken
@@ -116,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         /// <para>
         /// <para>The channel's privacy level: <code>PUBLIC</code> or <code>PRIVATE</code>. Private
         /// channels aren't discoverable by users outside the channel. Public channels are discoverable
-        /// by anyone in the app instance.</para>
+        /// by anyone in the <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The tags for the creation request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter AppInstanceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ChimeBearer = this.ChimeBearer;
             context.ClientRequestToken = this.ClientRequestToken;
             context.Metadata = this.Metadata;
             context.Mode = this.Mode;
@@ -237,6 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.AppInstanceArn != null)
             {
                 request.AppInstanceArn = cmdletContext.AppInstanceArn;
+            }
+            if (cmdletContext.ChimeBearer != null)
+            {
+                request.ChimeBearer = cmdletContext.ChimeBearer;
             }
             if (cmdletContext.ClientRequestToken != null)
             {
@@ -324,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppInstanceArn { get; set; }
+            public System.String ChimeBearer { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String Metadata { get; set; }
             public Amazon.Chime.ChannelMode Mode { get; set; }

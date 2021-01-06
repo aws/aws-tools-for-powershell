@@ -30,7 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// <summary>
     /// Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only
     /// an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their
-    /// own.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// own. 
+    /// 
+    ///  <note><para>
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// of the user that makes the API call as the value in the header.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CHMChannelMembershipsForAppInstanceUserList")]
     [OutputType("Amazon.Chime.Model.ChannelMembershipForAppInstanceUserSummary")]
@@ -45,17 +50,27 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the app instance users</para>
+        /// <para>The ARN of the <code>AppInstanceUser</code>s</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AppInstanceUserArn { get; set; }
         #endregion
         
+        #region Parameter ChimeBearer
+        /// <summary>
+        /// <para>
+        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChimeBearer { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of users that you want returned. </para>
+        /// <para>The maximum number of users that you want returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AppInstanceUserArn = this.AppInstanceUserArn;
+            context.ChimeBearer = this.ChimeBearer;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -159,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.AppInstanceUserArn != null)
             {
                 request.AppInstanceUserArn = cmdletContext.AppInstanceUserArn;
+            }
+            if (cmdletContext.ChimeBearer != null)
+            {
+                request.ChimeBearer = cmdletContext.ChimeBearer;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -250,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppInstanceUserArn { get; set; }
+            public System.String ChimeBearer { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.Chime.Model.ListChannelMembershipsForAppInstanceUserResponse, GetCHMChannelMembershipsForAppInstanceUserListCmdlet, object> Select { get; set; } =

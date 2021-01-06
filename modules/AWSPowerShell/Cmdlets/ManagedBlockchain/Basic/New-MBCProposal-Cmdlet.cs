@@ -132,6 +132,22 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         public Amazon.ManagedBlockchain.Model.RemoveAction[] Actions_Removal { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to assign to the proposal. Each tag consists of a key and optional value.</para><para>When specifying tags during creation, you can specify multiple key-value pairs in
+        /// a single request, with an overall maximum of 50 added to each resource. If the proposal
+        /// is for a network invitation, the invitation inherits the tags added to the proposal.</para><para>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or
+        /// <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ProposalId'.
@@ -217,6 +233,14 @@ namespace Amazon.PowerShell.Cmdlets.MBC
                 WriteWarning("You are passing $null as a value for parameter NetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -277,6 +301,10 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             if (cmdletContext.NetworkId != null)
             {
                 request.NetworkId = cmdletContext.NetworkId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -345,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             public System.String Description { get; set; }
             public System.String MemberId { get; set; }
             public System.String NetworkId { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.ManagedBlockchain.Model.CreateProposalResponse, NewMBCProposalCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ProposalId;
         }

@@ -28,16 +28,16 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API places an outbound call to a contact, and then initiates the contact flow.
-    /// It performs the actions in the contact flow that's specified (in <code>ContactFlowId</code>).
+    /// Places an outbound call to a contact, and then initiates the contact flow. It performs
+    /// the actions in the contact flow that's specified (in <code>ContactFlowId</code>).
     /// 
     ///  
     /// <para>
-    /// Agents are not involved in initiating the outbound API (that is, dialing the contact).
+    /// Agents do not initiate the outbound API, which means that they do not dial the contact.
     /// If the contact flow places an outbound call to a contact, and then puts the contact
-    /// in queue, that's when the call is routed to the agent, like any other inbound case.
+    /// in queue, the call is then routed to the agent, like any other inbound case.
     /// </para><para>
-    /// There is a 60 second dialing timeout for this operation. If the call is not connected
+    /// There is a 60-second dialing timeout for this operation. If the call is not connected
     /// after 60 seconds, it fails.
     /// </para><note><para>
     /// UK numbers with a 447 prefix are not allowed by default. Before you can dial these

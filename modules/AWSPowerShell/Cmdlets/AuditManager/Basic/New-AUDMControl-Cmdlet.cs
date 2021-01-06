@@ -64,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ControlMappingSource
         /// <summary>
         /// <para>
-        /// <para> The data source that determines from where AWS Audit Manager collects evidence for
-        /// the control. </para>
+        /// <para> The data mapping sources for the specified control. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

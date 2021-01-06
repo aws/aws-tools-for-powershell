@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     /// You cannot delete an outcome that is used in a rule version.
     /// </para><para>
     /// When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome
-    /// from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.
+    /// and the data is no longer stored in Amazon Fraud Detector.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "FDOutcome", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

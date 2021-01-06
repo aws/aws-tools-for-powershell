@@ -160,7 +160,7 @@ $FD_Completers = {
         # Amazon.FraudDetector.ModelVersionStatus
         "Update-FDModelVersionStatus/Status"
         {
-            $v = "ACTIVE","INACTIVE"
+            $v = "ACTIVE","INACTIVE","TRAINING_CANCELLED"
             break
         }
 

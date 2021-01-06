@@ -33,8 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     ///  
     /// <para>
     /// Initiates an Amazon Connect instance with all the supported channels enabled. It does
-    /// not attach any storage (such as Amazon S3, or Kinesis) or allow for any configurations
-    /// on features such as Contact Lens for Amazon Connect. 
+    /// not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon
+    /// Kinesis. It also does not allow for any configurations on features, such as Contact
+    /// Lens for Amazon Connect. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "CONNInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -76,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InboundCallsEnabled
         /// <summary>
         /// <para>
-        /// <para>Whether your contact center handles incoming contacts.</para>
+        /// <para>Your contact center handles incoming contacts.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter OutboundCallsEnabled
         /// <summary>
         /// <para>
-        /// <para>Whether your contact center allows outbound calls.</para>
+        /// <para>Your contact center allows outbound calls.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

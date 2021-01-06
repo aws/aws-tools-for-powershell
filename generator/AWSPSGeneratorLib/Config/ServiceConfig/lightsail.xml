@@ -527,6 +527,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SetIpAddressType" OutputProperty="Operations" Verb="Set" Noun="IpAddressType" ShouldProcessTarget="ResourceName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartInstance" OutputProperty="Operations" Verb="Start" Noun="Instance" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

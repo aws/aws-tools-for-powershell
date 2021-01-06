@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// <summary>
     /// Creates an empty Amazon Lookout for Vision project. After you create the project,
     /// add a dataset by calling <a>CreateDataset</a>.
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permissions to perform the <code>lookoutvision:CreateProject</code>
+    /// operation.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "LFVProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LookoutforVision.Model.ProjectMetadata")]
@@ -44,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter ProjectName
         /// <summary>
         /// <para>
-        /// <para>S nsme for the project.</para>
+        /// <para>The name for the project.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -82,11 +82,21 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVirtualGateway" OutputProperty="VirtualGateway" Verb="New" Noun="VirtualGateway" ShouldProcessTarget="VirtualGatewayName" PipelineParameter="VirtualGatewayName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File_CertificateChain" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File_CertificateChain" Alias="File_CertificateChain" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" Alias="Sds_SecretName" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVirtualNode" OutputProperty="VirtualNode" Verb="New" Noun="VirtualNode" ShouldProcessTarget="VirtualNodeName" PipelineParameter="VirtualNodeName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File_CertificateChain" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File_CertificateChain" Alias="File_CertificateChain" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" Alias="Sds_SecretName" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVirtualRouter" OutputProperty="VirtualRouter" Verb="New" Noun="VirtualRouter" ShouldProcessTarget="VirtualRouterName" PipelineParameter="VirtualRouterName" NoPipelineParameter="false">
@@ -256,11 +266,21 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVirtualGateway" OutputProperty="VirtualGateway" Verb="Update" Noun="VirtualGateway" ShouldProcessTarget="VirtualGatewayName" PipelineParameter="VirtualGatewayName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File_CertificateChain" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File_CertificateChain" Alias="File_CertificateChain" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" Alias="Sds_SecretName" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVirtualNode" OutputProperty="VirtualNode" Verb="Update" Noun="VirtualNode" ShouldProcessTarget="VirtualNodeName" PipelineParameter="VirtualNodeName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File_CertificateChain" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File_CertificateChain" Alias="File_CertificateChain" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_File_CertificateChain" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName" Alias="Sds_SecretName" />
+                <Param Name="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" NewName="Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Sds_SecretName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVirtualRouter" OutputProperty="VirtualRouter" Verb="Update" Noun="VirtualRouter" ShouldProcessTarget="VirtualRouterName" PipelineParameter="VirtualRouterName" NoPipelineParameter="false">

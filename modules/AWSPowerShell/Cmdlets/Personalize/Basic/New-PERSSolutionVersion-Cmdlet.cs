@@ -67,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// in comparison to the input solution. Choose <code>UPDATE</code> when you want to incrementally
         /// update your solution version instead of creating an entirely new one.</para><important><para>The <code>UPDATE</code> option can only be used when you already have an active solution
         /// version created from the input solution using the <code>FULL</code> option and the
-        /// input solution was trained with the <a>native-recipe-hrnn-coldstart</a> recipe.</para></important>
+        /// input solution was trained with the <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>
+        /// recipe or the <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a>
+        /// recipe.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

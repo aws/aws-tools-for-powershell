@@ -36,10 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     ///  <ul><li><para>
     /// To remove tags from a resource, you need the necessary permissions for the service
     /// that the resource belongs to as well as permissions for removing tags. For more information,
-    /// see <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html">this
-    /// list</a>.
+    /// see the documentation for the service whose resource you want to untag.
     /// </para></li><li><para>
-    /// You can only tag resources that are located in the specified Region for the AWS account.
+    /// You can only tag resources that are located in the specified AWS Region for the calling
+    /// AWS account.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "RGTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter ResourceARNList
         /// <summary>
         /// <para>
-        /// <para>A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For
-        /// more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// <para>Specifies a list of ARNs of the resources that you want to remove tags from.</para><para>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information,
+        /// see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>A list of the tag keys that you want to remove from the specified resources.</para>
+        /// <para>Specifies a list of tag keys that you want to remove from the specified resources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

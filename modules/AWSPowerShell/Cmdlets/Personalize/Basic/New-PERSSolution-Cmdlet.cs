@@ -95,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <para>
         /// <para>When your have multiple event types (using an <code>EVENT_TYPE</code> schema field),
         /// this parameter specifies which event type (for example, 'click' or 'like') is used
-        /// for training the model.</para>
+        /// for training the model.</para><para>If you do not provide an <code>eventType</code>, Amazon Personalize will use all interactions
+        /// for training with equal weight regardless of type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

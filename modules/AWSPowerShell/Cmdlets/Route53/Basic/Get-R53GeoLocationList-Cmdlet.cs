@@ -37,6 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// that country are listed in alphabetical order immediately after the corresponding
     /// country.
     /// </para><para>
+    /// Route 53 does not perform authorization for this API because it retrieves information
+    /// that is already available to the public.
+    /// </para><para>
     /// For a list of supported geolocation codes, see the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html">GeoLocation</a>
     /// data type.
     /// </para>

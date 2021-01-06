@@ -36,8 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     /// are not associated with a detector version.
     /// </para><para>
     ///  When you delete a model version, Amazon Fraud Detector permanently deletes that model
-    /// version from the evaluation history, and the data is no longer stored in Amazon Fraud
-    /// Detector.
+    /// version and the data is no longer stored in Amazon Fraud Detector.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "FDModelVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

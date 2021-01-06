@@ -30,8 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// <summary>
     /// Sends a message to a particular channel that the member is a part of.
     /// 
-    ///  <note><para><code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code>
-    /// messages can contain 30 bytes of data and no metadata.
+    ///  <note><para>
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// of the user that makes the API call as the value in the header.
+    /// </para><para>
+    /// Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.
+    /// <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.
     /// </para></note>
     /// </summary>
     [Cmdlet("Send", "CHMChannelMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,6 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ChannelArn { get; set; }
+        #endregion
+        
+        #region Parameter ChimeBearer
+        /// <summary>
+        /// <para>
+        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChimeBearer { get; set; }
         #endregion
         
         #region Parameter ClientRequestToken
@@ -90,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Metadata
         /// <summary>
         /// <para>
-        /// <para>The optional metadata for each message. </para>
+        /// <para>The optional metadata for each message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ChimeBearer = this.ChimeBearer;
             context.ClientRequestToken = this.ClientRequestToken;
             context.Content = this.Content;
             #if MODULAR
@@ -241,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.ChannelArn != null)
             {
                 request.ChannelArn = cmdletContext.ChannelArn;
+            }
+            if (cmdletContext.ChimeBearer != null)
+            {
+                request.ChimeBearer = cmdletContext.ChimeBearer;
             }
             if (cmdletContext.ClientRequestToken != null)
             {
@@ -324,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ChannelArn { get; set; }
+            public System.String ChimeBearer { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String Content { get; set; }
             public System.String Metadata { get; set; }

@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Returns the full details of a user's channel membership.
+    /// 
+    ///  <note><para>
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// of the user that makes the API call as the value in the header.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CHMChannelMembership")]
     [OutputType("Amazon.Chime.Model.ChannelMembership")]
@@ -55,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ChannelArn { get; set; }
+        #endregion
+        
+        #region Parameter ChimeBearer
+        /// <summary>
+        /// <para>
+        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChimeBearer { get; set; }
         #endregion
         
         #region Parameter MemberArn
@@ -126,6 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ChimeBearer = this.ChimeBearer;
             context.MemberArn = this.MemberArn;
             #if MODULAR
             if (this.MemberArn == null && ParameterWasBound(nameof(this.MemberArn)))
@@ -152,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.ChannelArn != null)
             {
                 request.ChannelArn = cmdletContext.ChannelArn;
+            }
+            if (cmdletContext.ChimeBearer != null)
+            {
+                request.ChimeBearer = cmdletContext.ChimeBearer;
             }
             if (cmdletContext.MemberArn != null)
             {
@@ -219,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ChannelArn { get; set; }
+            public System.String ChimeBearer { get; set; }
             public System.String MemberArn { get; set; }
             public System.Func<Amazon.Chime.Model.DescribeChannelMembershipResponse, GetCHMChannelMembershipCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ChannelMembership;

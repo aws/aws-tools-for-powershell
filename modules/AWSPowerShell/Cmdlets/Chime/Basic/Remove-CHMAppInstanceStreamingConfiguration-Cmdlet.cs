@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Deletes the streaming configurations of an app instance.
+    /// Deletes the streaming configurations of an <code>AppInstance</code>.
     /// </summary>
     [Cmdlet("Remove", "CHMAppInstanceStreamingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

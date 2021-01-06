@@ -31,13 +31,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// Permanently bans a member from a channel. Moderators can't add banned members to a
     /// channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then
     /// <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or
-    /// channels. 
+    /// channels.
     /// 
     ///  
     /// <para>
     /// If you ban a user who is already part of a channel, that user is automatically kicked
     /// from the channel.
-    /// </para>
+    /// </para><note><para>
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// of the user that makes the API call as the value in the header.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "CHMChannelBan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.CreateChannelBanResponse")]
@@ -63,6 +66,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ChannelArn { get; set; }
+        #endregion
+        
+        #region Parameter ChimeBearer
+        /// <summary>
+        /// <para>
+        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChimeBearer { get; set; }
         #endregion
         
         #region Parameter MemberArn
@@ -150,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ChimeBearer = this.ChimeBearer;
             context.MemberArn = this.MemberArn;
             #if MODULAR
             if (this.MemberArn == null && ParameterWasBound(nameof(this.MemberArn)))
@@ -176,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.ChannelArn != null)
             {
                 request.ChannelArn = cmdletContext.ChannelArn;
+            }
+            if (cmdletContext.ChimeBearer != null)
+            {
+                request.ChimeBearer = cmdletContext.ChimeBearer;
             }
             if (cmdletContext.MemberArn != null)
             {
@@ -243,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ChannelArn { get; set; }
+            public System.String ChimeBearer { get; set; }
             public System.String MemberArn { get; set; }
             public System.Func<Amazon.Chime.Model.CreateChannelBanResponse, NewCHMChannelBanCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

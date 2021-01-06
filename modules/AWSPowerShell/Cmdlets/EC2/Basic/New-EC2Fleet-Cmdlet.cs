@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// vary by instance type, AMI, Availability Zone, or subnet.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching
-    /// an EC2 Fleet</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// an EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Fleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -323,14 +323,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of request. The default value is <code>maintain</code>.</para><ul><li><para><code>maintain</code> - The EC2 Fleet plaees an asynchronous request for your desired
+        /// <para>The type of request. The default value is <code>maintain</code>.</para><ul><li><para><code>maintain</code> - The EC2 Fleet places an asynchronous request for your desired
         /// capacity, and continues to maintain your desired Spot capacity by replenishing interrupted
         /// Spot Instances.</para></li><li><para><code>request</code> - The EC2 Fleet places an asynchronous one-time request for
         /// your desired capacity, but does submit Spot requests in alternative capacity pools
         /// if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances
         /// are interrupted.</para></li><li><para><code>instant</code> - The EC2 Fleet places a synchronous one-time request for your
         /// desired capacity, and returns errors for any instances that could not be launched.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type">EC2
-        /// Fleet request types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// Fleet request types</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

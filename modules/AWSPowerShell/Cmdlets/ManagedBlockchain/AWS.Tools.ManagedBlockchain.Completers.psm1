@@ -222,7 +222,10 @@ $MBC_SelectMap = @{
                "Get-MBCNodeList",
                "Get-MBCProposalList",
                "Get-MBCProposalVoteList",
+               "Get-MBCResourceTag",
                "Deny-MBCInvitation",
+               "Add-MBCResourceTag",
+               "Remove-MBCResourceTag",
                "Update-MBCMember",
                "Update-MBCNode",
                "Send-MBCProposalVote")

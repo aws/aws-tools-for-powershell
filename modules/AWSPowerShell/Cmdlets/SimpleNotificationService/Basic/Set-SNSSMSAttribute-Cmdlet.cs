@@ -37,7 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// action with the <code>MessageAttributes.entry.N</code> parameter. For more information,
     /// see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing
     /// to a mobile phone</a> in the <i>Amazon SNS Developer Guide</i>.
-    /// </para>
+    /// </para><note><para>
+    /// To use this operation, you must grant the Amazon SNS service principal (<code>sns.amazonaws.com</code>)
+    /// permission to perform the <code>s3:ListBucket</code> action. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Set", "SNSSMSAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

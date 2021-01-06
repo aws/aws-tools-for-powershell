@@ -28,8 +28,8 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Retrieves details for the specified phone number order, such as order creation timestamp,
-    /// phone numbers in E.164 format, product type, and order status.
+    /// Retrieves details for the specified phone number order, such as the order creation
+    /// timestamp, phone numbers in E.164 format, product type, and order status.
     /// </summary>
     [Cmdlet("Get", "CHMPhoneNumberOrder")]
     [OutputType("Amazon.Chime.Model.PhoneNumberOrder")]

@@ -178,6 +178,20 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.DateTime? UtcStartTime { get; set; }
         #endregion
         
+        #region Parameter LabelOptions_Timezone
+        /// <summary>
+        /// <para>
+        /// <para>The time zone to use for metric data return in this operation. The format is <code>+</code>
+        /// or <code>-</code> followed by four digits. The first two digits indicate the number
+        /// of hours ahead or behind of UTC, and the final two digits are the number of minutes.
+        /// For example, +0130 indicates a time zone that is 1 hour and 30 minutes ahead of UTC.
+        /// The default is +0000. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LabelOptions_Timezone { get; set; }
+        #endregion
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>
@@ -290,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 WriteWarning("You are passing $null as a value for parameter UtcEndTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LabelOptions_Timezone = this.LabelOptions_Timezone;
             context.MaxDatapoint = this.MaxDatapoint;
             if (this.MetricDataQuery != null)
             {
@@ -338,6 +353,25 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.UtcEndTime != null)
             {
                 request.EndTimeUtc = cmdletContext.UtcEndTime.Value;
+            }
+            
+             // populate LabelOptions
+            var requestLabelOptionsIsNull = true;
+            request.LabelOptions = new Amazon.CloudWatch.Model.LabelOptions();
+            System.String requestLabelOptions_labelOptions_Timezone = null;
+            if (cmdletContext.LabelOptions_Timezone != null)
+            {
+                requestLabelOptions_labelOptions_Timezone = cmdletContext.LabelOptions_Timezone;
+            }
+            if (requestLabelOptions_labelOptions_Timezone != null)
+            {
+                request.LabelOptions.Timezone = requestLabelOptions_labelOptions_Timezone;
+                requestLabelOptionsIsNull = false;
+            }
+             // determine if request.LabelOptions should be set to null
+            if (requestLabelOptionsIsNull)
+            {
+                request.LabelOptions = null;
             }
             if (cmdletContext.MaxDatapoint != null)
             {
@@ -432,6 +466,25 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.UtcEndTime != null)
             {
                 request.EndTimeUtc = cmdletContext.UtcEndTime.Value;
+            }
+            
+             // populate LabelOptions
+            var requestLabelOptionsIsNull = true;
+            request.LabelOptions = new Amazon.CloudWatch.Model.LabelOptions();
+            System.String requestLabelOptions_labelOptions_Timezone = null;
+            if (cmdletContext.LabelOptions_Timezone != null)
+            {
+                requestLabelOptions_labelOptions_Timezone = cmdletContext.LabelOptions_Timezone;
+            }
+            if (requestLabelOptions_labelOptions_Timezone != null)
+            {
+                request.LabelOptions.Timezone = requestLabelOptions_labelOptions_Timezone;
+                requestLabelOptionsIsNull = false;
+            }
+             // determine if request.LabelOptions should be set to null
+            if (requestLabelOptionsIsNull)
+            {
+                request.LabelOptions = null;
             }
             if (cmdletContext.MaxDatapoint != null)
             {
@@ -536,6 +589,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? UtcEndTime { get; set; }
+            public System.String LabelOptions_Timezone { get; set; }
             public System.Int32? MaxDatapoint { get; set; }
             public List<Amazon.CloudWatch.Model.MetricDataQuery> MetricDataQuery { get; set; }
             public System.String NextToken { get; set; }

@@ -28,7 +28,18 @@ using Amazon.ResourceGroupsTaggingAPI.Model;
 namespace Amazon.PowerShell.Cmdlets.RGT
 {
     /// <summary>
-    /// Returns all tag keys in the specified Region for the AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns all tag keys currently in use in the specified Region for the calling AWS
+    /// account.
+    /// 
+    ///  
+    /// <para>
+    /// This operation supports pagination, where the response can be sent in multiple pages.
+    /// You should check the <code>PaginationToken</code> response parameter to determine
+    /// if there are additional results available to return. Repeat the query, passing the
+    /// <code>PaginationToken</code> response parameter value as an input to the next request
+    /// until you recieve a <code>null</code> value. A null value for <code>PaginationToken</code>
+    /// indicates that there are no more results waiting to be returned.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RGTTagKey")]
     [OutputType("System.String")]
@@ -43,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter PaginationToken
         /// <summary>
         /// <para>
-        /// <para>A string that indicates that additional data is available. Leave this value empty
-        /// for your initial request. If the response includes a <code>PaginationToken</code>,
-        /// use that string for this value to request an additional page of data.</para>
+        /// <para>Specifies a <code>PaginationToken</code> response value from a previous request to
+        /// indicate that you want the next page of results. Leave this parameter empty in your
+        /// initial request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

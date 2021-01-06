@@ -44,6 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// </para><para>
     /// After training completes, the evaluation metrics are stored at the location specified
     /// in <code>OutputConfig</code>. 
+    /// </para><para>
+    /// This operation requires permissions to perform the <code>lookoutvision:CreateModel</code>
+    /// operation. If you want to tag your model, you also require permission to the <code>lookoutvision:TagResource</code>
+    /// operation.
     /// </para>
     /// </summary>
     [Cmdlet("New", "LFVModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,39 +59,6 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     )]
     public partial class NewLFVModelCmdlet : AmazonLookoutforVisionClientCmdlet, IExecutor
     {
-        
-        #region Parameter EvaluationManifest_Bucket
-        /// <summary>
-        /// <para>
-        /// <para>The bucket that contains the training output.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Description_EvaluationManifest_Bucket")]
-        public System.String EvaluationManifest_Bucket { get; set; }
-        #endregion
-        
-        #region Parameter EvaluationResult_Bucket
-        /// <summary>
-        /// <para>
-        /// <para>The bucket that contains the training output.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Description_EvaluationResult_Bucket")]
-        public System.String EvaluationResult_Bucket { get; set; }
-        #endregion
-        
-        #region Parameter S3Location_Bucket
-        /// <summary>
-        /// <para>
-        /// <para>The S3 bucket that contain the manifest file.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Description_OutputConfig_S3Location_Bucket")]
-        public System.String S3Location_Bucket { get; set; }
-        #endregion
         
         #region Parameter Output_S3Location_Bucket
         /// <summary>
@@ -107,78 +78,14 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         public System.String Output_S3Location_Bucket { get; set; }
         #endregion
         
-        #region Parameter Description_CreationTimestamp
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The unix timestamp for the date and time that the model was created. </para>
+        /// <para>A description for the version of the model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? Description_CreationTimestamp { get; set; }
-        #endregion
-        
-        #region Parameter Description_Description
-        /// <summary>
-        /// <para>
-        /// <para>The description for the model.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description_Description { get; set; }
-        #endregion
-        
-        #region Parameter Description_EvaluationEndTimestamp
-        /// <summary>
-        /// <para>
-        /// <para>The unix timestamp for the date and time that the evaluation ended. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? Description_EvaluationEndTimestamp { get; set; }
-        #endregion
-        
-        #region Parameter Performance_F1Score
-        /// <summary>
-        /// <para>
-        /// <para>The overall F1 score metric for the trained model.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Description_Performance_F1Score")]
-        public System.Single? Performance_F1Score { get; set; }
-        #endregion
-        
-        #region Parameter EvaluationManifest_Key
-        /// <summary>
-        /// <para>
-        /// <para>The location of the training output in the bucket.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Description_EvaluationManifest_Key")]
-        public System.String EvaluationManifest_Key { get; set; }
-        #endregion
-        
-        #region Parameter EvaluationResult_Key
-        /// <summary>
-        /// <para>
-        /// <para>The location of the training output in the bucket.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Description_EvaluationResult_Key")]
-        public System.String EvaluationResult_Key { get; set; }
-        #endregion
-        
-        #region Parameter Description_KmsKeyId
-        /// <summary>
-        /// <para>
-        /// <para>The identifer for the AWS Key Management Service (AWS KMS) key that was used to encrypt
-        /// the model during training.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description_KmsKeyId { get; set; }
+        public System.String Description { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
@@ -191,48 +98,6 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KmsKeyId { get; set; }
-        #endregion
-        
-        #region Parameter Description_ModelArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the model.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description_ModelArn { get; set; }
-        #endregion
-        
-        #region Parameter Description_ModelVersion
-        /// <summary>
-        /// <para>
-        /// <para>The version of the model</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description_ModelVersion { get; set; }
-        #endregion
-        
-        #region Parameter Performance_Precision
-        /// <summary>
-        /// <para>
-        /// <para>The overall precision metric value for the trained model.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Description_Performance_Precision")]
-        public System.Single? Performance_Precision { get; set; }
-        #endregion
-        
-        #region Parameter S3Location_Prefix
-        /// <summary>
-        /// <para>
-        /// <para>The path and name of the manifest file with the S3 bucket.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Description_OutputConfig_S3Location_Prefix")]
-        public System.String S3Location_Prefix { get; set; }
         #endregion
         
         #region Parameter Output_S3Location_Prefix
@@ -263,36 +128,15 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         public System.String ProjectName { get; set; }
         #endregion
         
-        #region Parameter Performance_Recall
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The overall recall metric value for the trained model. </para>
+        /// <para>A set of tags (key-value pairs) that you want to attach to the model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Description_Performance_Recall")]
-        public System.Single? Performance_Recall { get; set; }
-        #endregion
-        
-        #region Parameter Description_Status
-        /// <summary>
-        /// <para>
-        /// <para>The status of the model.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.LookoutforVision.ModelStatus")]
-        public Amazon.LookoutforVision.ModelStatus Description_Status { get; set; }
-        #endregion
-        
-        #region Parameter Description_StatusMessage
-        /// <summary>
-        /// <para>
-        /// <para>The status message for the model.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description_StatusMessage { get; set; }
+        [Alias("Tags")]
+        public Amazon.LookoutforVision.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -374,23 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
-            context.Description_CreationTimestamp = this.Description_CreationTimestamp;
-            context.Description_Description = this.Description_Description;
-            context.Description_EvaluationEndTimestamp = this.Description_EvaluationEndTimestamp;
-            context.EvaluationManifest_Bucket = this.EvaluationManifest_Bucket;
-            context.EvaluationManifest_Key = this.EvaluationManifest_Key;
-            context.EvaluationResult_Bucket = this.EvaluationResult_Bucket;
-            context.EvaluationResult_Key = this.EvaluationResult_Key;
-            context.Description_KmsKeyId = this.Description_KmsKeyId;
-            context.Description_ModelArn = this.Description_ModelArn;
-            context.Description_ModelVersion = this.Description_ModelVersion;
-            context.S3Location_Bucket = this.S3Location_Bucket;
-            context.S3Location_Prefix = this.S3Location_Prefix;
-            context.Performance_F1Score = this.Performance_F1Score;
-            context.Performance_Precision = this.Performance_Precision;
-            context.Performance_Recall = this.Performance_Recall;
-            context.Description_Status = this.Description_Status;
-            context.Description_StatusMessage = this.Description_StatusMessage;
+            context.Description = this.Description;
             context.KmsKeyId = this.KmsKeyId;
             context.Output_S3Location_Bucket = this.Output_S3Location_Bucket;
             #if MODULAR
@@ -407,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.LFV
                 WriteWarning("You are passing $null as a value for parameter ProjectName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.LookoutforVision.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -427,259 +259,9 @@ namespace Amazon.PowerShell.Cmdlets.LFV
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            
-             // populate Description
-            var requestDescriptionIsNull = true;
-            request.Description = new Amazon.LookoutforVision.Model.ModelDescription();
-            System.DateTime? requestDescription_description_CreationTimestamp = null;
-            if (cmdletContext.Description_CreationTimestamp != null)
+            if (cmdletContext.Description != null)
             {
-                requestDescription_description_CreationTimestamp = cmdletContext.Description_CreationTimestamp.Value;
-            }
-            if (requestDescription_description_CreationTimestamp != null)
-            {
-                request.Description.CreationTimestamp = requestDescription_description_CreationTimestamp.Value;
-                requestDescriptionIsNull = false;
-            }
-            System.String requestDescription_description_Description = null;
-            if (cmdletContext.Description_Description != null)
-            {
-                requestDescription_description_Description = cmdletContext.Description_Description;
-            }
-            if (requestDescription_description_Description != null)
-            {
-                request.Description.Description = requestDescription_description_Description;
-                requestDescriptionIsNull = false;
-            }
-            System.DateTime? requestDescription_description_EvaluationEndTimestamp = null;
-            if (cmdletContext.Description_EvaluationEndTimestamp != null)
-            {
-                requestDescription_description_EvaluationEndTimestamp = cmdletContext.Description_EvaluationEndTimestamp.Value;
-            }
-            if (requestDescription_description_EvaluationEndTimestamp != null)
-            {
-                request.Description.EvaluationEndTimestamp = requestDescription_description_EvaluationEndTimestamp.Value;
-                requestDescriptionIsNull = false;
-            }
-            System.String requestDescription_description_KmsKeyId = null;
-            if (cmdletContext.Description_KmsKeyId != null)
-            {
-                requestDescription_description_KmsKeyId = cmdletContext.Description_KmsKeyId;
-            }
-            if (requestDescription_description_KmsKeyId != null)
-            {
-                request.Description.KmsKeyId = requestDescription_description_KmsKeyId;
-                requestDescriptionIsNull = false;
-            }
-            System.String requestDescription_description_ModelArn = null;
-            if (cmdletContext.Description_ModelArn != null)
-            {
-                requestDescription_description_ModelArn = cmdletContext.Description_ModelArn;
-            }
-            if (requestDescription_description_ModelArn != null)
-            {
-                request.Description.ModelArn = requestDescription_description_ModelArn;
-                requestDescriptionIsNull = false;
-            }
-            System.String requestDescription_description_ModelVersion = null;
-            if (cmdletContext.Description_ModelVersion != null)
-            {
-                requestDescription_description_ModelVersion = cmdletContext.Description_ModelVersion;
-            }
-            if (requestDescription_description_ModelVersion != null)
-            {
-                request.Description.ModelVersion = requestDescription_description_ModelVersion;
-                requestDescriptionIsNull = false;
-            }
-            Amazon.LookoutforVision.ModelStatus requestDescription_description_Status = null;
-            if (cmdletContext.Description_Status != null)
-            {
-                requestDescription_description_Status = cmdletContext.Description_Status;
-            }
-            if (requestDescription_description_Status != null)
-            {
-                request.Description.Status = requestDescription_description_Status;
-                requestDescriptionIsNull = false;
-            }
-            System.String requestDescription_description_StatusMessage = null;
-            if (cmdletContext.Description_StatusMessage != null)
-            {
-                requestDescription_description_StatusMessage = cmdletContext.Description_StatusMessage;
-            }
-            if (requestDescription_description_StatusMessage != null)
-            {
-                request.Description.StatusMessage = requestDescription_description_StatusMessage;
-                requestDescriptionIsNull = false;
-            }
-            Amazon.LookoutforVision.Model.OutputConfig requestDescription_description_OutputConfig = null;
-            
-             // populate OutputConfig
-            var requestDescription_description_OutputConfigIsNull = true;
-            requestDescription_description_OutputConfig = new Amazon.LookoutforVision.Model.OutputConfig();
-            Amazon.LookoutforVision.Model.S3Location requestDescription_description_OutputConfig_description_OutputConfig_S3Location = null;
-            
-             // populate S3Location
-            var requestDescription_description_OutputConfig_description_OutputConfig_S3LocationIsNull = true;
-            requestDescription_description_OutputConfig_description_OutputConfig_S3Location = new Amazon.LookoutforVision.Model.S3Location();
-            System.String requestDescription_description_OutputConfig_description_OutputConfig_S3Location_s3Location_Bucket = null;
-            if (cmdletContext.S3Location_Bucket != null)
-            {
-                requestDescription_description_OutputConfig_description_OutputConfig_S3Location_s3Location_Bucket = cmdletContext.S3Location_Bucket;
-            }
-            if (requestDescription_description_OutputConfig_description_OutputConfig_S3Location_s3Location_Bucket != null)
-            {
-                requestDescription_description_OutputConfig_description_OutputConfig_S3Location.Bucket = requestDescription_description_OutputConfig_description_OutputConfig_S3Location_s3Location_Bucket;
-                requestDescription_description_OutputConfig_description_OutputConfig_S3LocationIsNull = false;
-            }
-            System.String requestDescription_description_OutputConfig_description_OutputConfig_S3Location_s3Location_Prefix = null;
-            if (cmdletContext.S3Location_Prefix != null)
-            {
-                requestDescription_description_OutputConfig_description_OutputConfig_S3Location_s3Location_Prefix = cmdletContext.S3Location_Prefix;
-            }
-            if (requestDescription_description_OutputConfig_description_OutputConfig_S3Location_s3Location_Prefix != null)
-            {
-                requestDescription_description_OutputConfig_description_OutputConfig_S3Location.Prefix = requestDescription_description_OutputConfig_description_OutputConfig_S3Location_s3Location_Prefix;
-                requestDescription_description_OutputConfig_description_OutputConfig_S3LocationIsNull = false;
-            }
-             // determine if requestDescription_description_OutputConfig_description_OutputConfig_S3Location should be set to null
-            if (requestDescription_description_OutputConfig_description_OutputConfig_S3LocationIsNull)
-            {
-                requestDescription_description_OutputConfig_description_OutputConfig_S3Location = null;
-            }
-            if (requestDescription_description_OutputConfig_description_OutputConfig_S3Location != null)
-            {
-                requestDescription_description_OutputConfig.S3Location = requestDescription_description_OutputConfig_description_OutputConfig_S3Location;
-                requestDescription_description_OutputConfigIsNull = false;
-            }
-             // determine if requestDescription_description_OutputConfig should be set to null
-            if (requestDescription_description_OutputConfigIsNull)
-            {
-                requestDescription_description_OutputConfig = null;
-            }
-            if (requestDescription_description_OutputConfig != null)
-            {
-                request.Description.OutputConfig = requestDescription_description_OutputConfig;
-                requestDescriptionIsNull = false;
-            }
-            Amazon.LookoutforVision.Model.OutputS3Object requestDescription_description_EvaluationManifest = null;
-            
-             // populate EvaluationManifest
-            var requestDescription_description_EvaluationManifestIsNull = true;
-            requestDescription_description_EvaluationManifest = new Amazon.LookoutforVision.Model.OutputS3Object();
-            System.String requestDescription_description_EvaluationManifest_evaluationManifest_Bucket = null;
-            if (cmdletContext.EvaluationManifest_Bucket != null)
-            {
-                requestDescription_description_EvaluationManifest_evaluationManifest_Bucket = cmdletContext.EvaluationManifest_Bucket;
-            }
-            if (requestDescription_description_EvaluationManifest_evaluationManifest_Bucket != null)
-            {
-                requestDescription_description_EvaluationManifest.Bucket = requestDescription_description_EvaluationManifest_evaluationManifest_Bucket;
-                requestDescription_description_EvaluationManifestIsNull = false;
-            }
-            System.String requestDescription_description_EvaluationManifest_evaluationManifest_Key = null;
-            if (cmdletContext.EvaluationManifest_Key != null)
-            {
-                requestDescription_description_EvaluationManifest_evaluationManifest_Key = cmdletContext.EvaluationManifest_Key;
-            }
-            if (requestDescription_description_EvaluationManifest_evaluationManifest_Key != null)
-            {
-                requestDescription_description_EvaluationManifest.Key = requestDescription_description_EvaluationManifest_evaluationManifest_Key;
-                requestDescription_description_EvaluationManifestIsNull = false;
-            }
-             // determine if requestDescription_description_EvaluationManifest should be set to null
-            if (requestDescription_description_EvaluationManifestIsNull)
-            {
-                requestDescription_description_EvaluationManifest = null;
-            }
-            if (requestDescription_description_EvaluationManifest != null)
-            {
-                request.Description.EvaluationManifest = requestDescription_description_EvaluationManifest;
-                requestDescriptionIsNull = false;
-            }
-            Amazon.LookoutforVision.Model.OutputS3Object requestDescription_description_EvaluationResult = null;
-            
-             // populate EvaluationResult
-            var requestDescription_description_EvaluationResultIsNull = true;
-            requestDescription_description_EvaluationResult = new Amazon.LookoutforVision.Model.OutputS3Object();
-            System.String requestDescription_description_EvaluationResult_evaluationResult_Bucket = null;
-            if (cmdletContext.EvaluationResult_Bucket != null)
-            {
-                requestDescription_description_EvaluationResult_evaluationResult_Bucket = cmdletContext.EvaluationResult_Bucket;
-            }
-            if (requestDescription_description_EvaluationResult_evaluationResult_Bucket != null)
-            {
-                requestDescription_description_EvaluationResult.Bucket = requestDescription_description_EvaluationResult_evaluationResult_Bucket;
-                requestDescription_description_EvaluationResultIsNull = false;
-            }
-            System.String requestDescription_description_EvaluationResult_evaluationResult_Key = null;
-            if (cmdletContext.EvaluationResult_Key != null)
-            {
-                requestDescription_description_EvaluationResult_evaluationResult_Key = cmdletContext.EvaluationResult_Key;
-            }
-            if (requestDescription_description_EvaluationResult_evaluationResult_Key != null)
-            {
-                requestDescription_description_EvaluationResult.Key = requestDescription_description_EvaluationResult_evaluationResult_Key;
-                requestDescription_description_EvaluationResultIsNull = false;
-            }
-             // determine if requestDescription_description_EvaluationResult should be set to null
-            if (requestDescription_description_EvaluationResultIsNull)
-            {
-                requestDescription_description_EvaluationResult = null;
-            }
-            if (requestDescription_description_EvaluationResult != null)
-            {
-                request.Description.EvaluationResult = requestDescription_description_EvaluationResult;
-                requestDescriptionIsNull = false;
-            }
-            Amazon.LookoutforVision.Model.ModelPerformance requestDescription_description_Performance = null;
-            
-             // populate Performance
-            var requestDescription_description_PerformanceIsNull = true;
-            requestDescription_description_Performance = new Amazon.LookoutforVision.Model.ModelPerformance();
-            System.Single? requestDescription_description_Performance_performance_F1Score = null;
-            if (cmdletContext.Performance_F1Score != null)
-            {
-                requestDescription_description_Performance_performance_F1Score = cmdletContext.Performance_F1Score.Value;
-            }
-            if (requestDescription_description_Performance_performance_F1Score != null)
-            {
-                requestDescription_description_Performance.F1Score = requestDescription_description_Performance_performance_F1Score.Value;
-                requestDescription_description_PerformanceIsNull = false;
-            }
-            System.Single? requestDescription_description_Performance_performance_Precision = null;
-            if (cmdletContext.Performance_Precision != null)
-            {
-                requestDescription_description_Performance_performance_Precision = cmdletContext.Performance_Precision.Value;
-            }
-            if (requestDescription_description_Performance_performance_Precision != null)
-            {
-                requestDescription_description_Performance.Precision = requestDescription_description_Performance_performance_Precision.Value;
-                requestDescription_description_PerformanceIsNull = false;
-            }
-            System.Single? requestDescription_description_Performance_performance_Recall = null;
-            if (cmdletContext.Performance_Recall != null)
-            {
-                requestDescription_description_Performance_performance_Recall = cmdletContext.Performance_Recall.Value;
-            }
-            if (requestDescription_description_Performance_performance_Recall != null)
-            {
-                requestDescription_description_Performance.Recall = requestDescription_description_Performance_performance_Recall.Value;
-                requestDescription_description_PerformanceIsNull = false;
-            }
-             // determine if requestDescription_description_Performance should be set to null
-            if (requestDescription_description_PerformanceIsNull)
-            {
-                requestDescription_description_Performance = null;
-            }
-            if (requestDescription_description_Performance != null)
-            {
-                request.Description.Performance = requestDescription_description_Performance;
-                requestDescriptionIsNull = false;
-            }
-             // determine if request.Description should be set to null
-            if (requestDescriptionIsNull)
-            {
-                request.Description = null;
+                request.Description = cmdletContext.Description;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -732,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.LFV
             if (cmdletContext.ProjectName != null)
             {
                 request.ProjectName = cmdletContext.ProjectName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -795,27 +381,12 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
-            public System.DateTime? Description_CreationTimestamp { get; set; }
-            public System.String Description_Description { get; set; }
-            public System.DateTime? Description_EvaluationEndTimestamp { get; set; }
-            public System.String EvaluationManifest_Bucket { get; set; }
-            public System.String EvaluationManifest_Key { get; set; }
-            public System.String EvaluationResult_Bucket { get; set; }
-            public System.String EvaluationResult_Key { get; set; }
-            public System.String Description_KmsKeyId { get; set; }
-            public System.String Description_ModelArn { get; set; }
-            public System.String Description_ModelVersion { get; set; }
-            public System.String S3Location_Bucket { get; set; }
-            public System.String S3Location_Prefix { get; set; }
-            public System.Single? Performance_F1Score { get; set; }
-            public System.Single? Performance_Precision { get; set; }
-            public System.Single? Performance_Recall { get; set; }
-            public Amazon.LookoutforVision.ModelStatus Description_Status { get; set; }
-            public System.String Description_StatusMessage { get; set; }
+            public System.String Description { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Output_S3Location_Bucket { get; set; }
             public System.String Output_S3Location_Prefix { get; set; }
             public System.String ProjectName { get; set; }
+            public List<Amazon.LookoutforVision.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.LookoutforVision.Model.CreateModelResponse, NewLFVModelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ModelMetadata;
         }

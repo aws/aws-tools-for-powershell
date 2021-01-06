@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Indicates whether to enable or disable host recovery for the Dedicated Host. For more
         /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html">
-        /// Host Recovery</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// Host recovery</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>models.lex.v2</C2jFilename>
+    <AssemblyName>LexModelsV2</AssemblyName>
+    <ServiceNounPrefix>LMBV2</ServiceNounPrefix>
+    <ServiceName>Amazon Lex Model Building V2</ServiceName>
+    <ServiceClientInterface>IAmazonLexModelsV2</ServiceClientInterface>
+    <ServiceClient>AmazonLexModelsV2Client</ServiceClient>
+    <ServiceModuleGuid>33dda8fd-ff80-48ea-98c3-aff899fae1a0</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="nextToken" Next="nextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BuildBotLocale" OutputProperty="*" Verb="Build" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBot" OutputProperty="*" Verb="New" Noun="Bot" ShouldProcessTarget="BotName" PipelineParameter="BotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBotAlias" OutputProperty="*" Verb="New" Noun="BotAlias" ShouldProcessTarget="BotAliasName" PipelineParameter="BotAliasName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBotLocale" OutputProperty="*" Verb="New" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBotVersion" OutputProperty="*" Verb="New" Noun="BotVersion" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIntent" OutputProperty="*" Verb="New" Noun="Intent" ShouldProcessTarget="IntentName" PipelineParameter="IntentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSlot" OutputProperty="*" Verb="New" Noun="Slot" ShouldProcessTarget="SlotName" PipelineParameter="SlotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSlotType" OutputProperty="*" Verb="New" Noun="SlotType" ShouldProcessTarget="SlotTypeName" PipelineParameter="SlotTypeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBot" OutputProperty="*" Verb="Remove" Noun="Bot" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBotAlias" OutputProperty="*" Verb="Remove" Noun="BotAlias" ShouldProcessTarget="BotAliasId" PipelineParameter="BotAliasId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBotLocale" OutputProperty="*" Verb="Remove" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBotVersion" OutputProperty="*" Verb="Remove" Noun="BotVersion" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIntent" Verb="Remove" Noun="Intent" ShouldProcessTarget="IntentId" PipelineParameter="IntentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSlot" Verb="Remove" Noun="Slot" ShouldProcessTarget="SlotId" PipelineParameter="SlotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSlotType" Verb="Remove" Noun="SlotType" ShouldProcessTarget="SlotTypeId" PipelineParameter="SlotTypeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBot" OutputProperty="*" Verb="Get" Noun="Bot" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBotAlias" OutputProperty="*" Verb="Get" Noun="BotAlias" PipelineParameter="BotAliasId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBotLocale" OutputProperty="*" Verb="Get" Noun="BotLocale" PipelineParameter="LocaleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBotVersion" OutputProperty="*" Verb="Get" Noun="BotVersion" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIntent" OutputProperty="*" Verb="Get" Noun="Intent" PipelineParameter="IntentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSlot" OutputProperty="*" Verb="Get" Noun="Slot" PipelineParameter="SlotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSlotType" OutputProperty="*" Verb="Get" Noun="SlotType" PipelineParameter="SlotTypeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBotAliases" OutputProperty="*" Verb="Get" Noun="BotAliasList" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBotLocales" OutputProperty="*" Verb="Get" Noun="BotLocaleList" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBots" OutputProperty="BotSummaries" Verb="Get" Noun="BotList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBotVersions" OutputProperty="*" Verb="Get" Noun="BotVersionList" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBuiltInIntents" OutputProperty="*" Verb="Get" Noun="BuiltInIntentList" PipelineParameter="LocaleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBuiltInSlotTypes" OutputProperty="*" Verb="Get" Noun="BuiltInSlotTypeList" PipelineParameter="LocaleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIntents" OutputProperty="*" Verb="Get" Noun="IntentList" PipelineParameter="LocaleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSlots" OutputProperty="*" Verb="Get" Noun="SlotList" PipelineParameter="IntentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSlotTypes" OutputProperty="*" Verb="Get" Noun="SlotTypeList" PipelineParameter="LocaleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBot" OutputProperty="*" Verb="Update" Noun="Bot" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBotAlias" OutputProperty="*" Verb="Update" Noun="BotAlias" ShouldProcessTarget="BotAliasId" PipelineParameter="BotAliasId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBotLocale" OutputProperty="*" Verb="Update" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIntent" OutputProperty="*" Verb="Update" Noun="Intent" ShouldProcessTarget="IntentId" PipelineParameter="IntentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSlot" OutputProperty="*" Verb="Update" Noun="Slot" ShouldProcessTarget="SlotId" PipelineParameter="SlotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSlotType" OutputProperty="*" Verb="Update" Noun="SlotType" ShouldProcessTarget="SlotTypeId" PipelineParameter="SlotTypeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

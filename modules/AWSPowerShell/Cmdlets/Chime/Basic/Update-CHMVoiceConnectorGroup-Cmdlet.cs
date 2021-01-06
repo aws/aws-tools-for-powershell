@@ -28,8 +28,8 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Updates details for the specified Amazon Chime Voice Connector group, such as the
-    /// name and Amazon Chime Voice Connector priority ranking.
+    /// Updates details of the specified Amazon Chime Voice Connector group, such as the name
+    /// and Amazon Chime Voice Connector priority ranking.
     /// </summary>
     [Cmdlet("Update", "CHMVoiceConnectorGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.VoiceConnectorGroup")]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter VoiceConnectorItem
         /// <summary>
         /// <para>
-        /// <para>The <code>VoiceConnectorItems</code> to associate with the group.</para>
+        /// <para> The <code>VoiceConnectorItems</code> to associate with the group. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

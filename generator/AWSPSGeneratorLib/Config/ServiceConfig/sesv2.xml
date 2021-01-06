@@ -271,6 +271,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutEmailIdentityConfigurationSetAttributes" Verb="Write" Noun="EmailIdentityConfigurationSetAttribute" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="EmailIdentity" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutEmailIdentityDkimAttributes" Verb="Write" Noun="EmailIdentityDkimAttribute" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

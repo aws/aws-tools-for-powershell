@@ -80,6 +80,13 @@ $TFR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Transfer.Domain
+        "New-TFRServer/Domain"
+        {
+            $v = "EFS","S3"
+            break
+        }
+
         # Amazon.Transfer.EndpointType
         {
             ($_ -eq "New-TFRServer/EndpointType") -Or
@@ -123,6 +130,7 @@ $TFR_Completers = {
 }
 
 $TFR_map = @{
+    "Domain"=@("New-TFRServer")
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
     "HomeDirectoryType"=@("New-TFRUser","Update-TFRUser")
     "IdentityProviderType"=@("New-TFRServer")

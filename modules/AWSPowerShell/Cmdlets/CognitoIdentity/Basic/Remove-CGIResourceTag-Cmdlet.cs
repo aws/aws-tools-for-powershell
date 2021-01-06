@@ -28,8 +28,8 @@ using Amazon.CognitoIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
-    /// Removes the specified tags from an Amazon Cognito identity pool. You can use this
-    /// action up to 5 times per second, per account
+    /// Removes the specified tags from the specified Amazon Cognito identity pool. You can
+    /// use this action up to 5 times per second, per account
     /// </summary>
     [Cmdlet("Remove", "CGIResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the identity pool that the tags are assigned to.</para>
+        /// <para>The Amazon Resource Name (ARN) of the identity pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

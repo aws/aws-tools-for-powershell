@@ -179,6 +179,18 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String[] ForwardedHeaders_HeadersAllowList { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the distribution.</para><para>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code>
+        /// for IPv4 and IPv6.</para><para>The default value is <code>dualstack</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lightsail.IpAddressType")]
+        public Amazon.Lightsail.IpAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter CacheBehaviorSettings_MaximumTTL
         /// <summary>
         /// <para>
@@ -401,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 WriteWarning("You are passing $null as a value for parameter DistributionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IpAddressType = this.IpAddressType;
             context.Origin_Name = this.Origin_Name;
             context.Origin_ProtocolPolicy = this.Origin_ProtocolPolicy;
             context.Origin_RegionName = this.Origin_RegionName;
@@ -619,6 +632,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             {
                 request.DistributionName = cmdletContext.DistributionName;
             }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
+            }
             
              // populate Origin
             var requestOriginIsNull = true;
@@ -738,6 +755,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.Int64? CacheBehaviorSettings_MinimumTTL { get; set; }
             public Amazon.Lightsail.BehaviorEnum DefaultCacheBehavior_Behavior { get; set; }
             public System.String DistributionName { get; set; }
+            public Amazon.Lightsail.IpAddressType IpAddressType { get; set; }
             public System.String Origin_Name { get; set; }
             public Amazon.Lightsail.OriginProtocolPolicyEnum Origin_ProtocolPolicy { get; set; }
             public Amazon.Lightsail.RegionName Origin_RegionName { get; set; }

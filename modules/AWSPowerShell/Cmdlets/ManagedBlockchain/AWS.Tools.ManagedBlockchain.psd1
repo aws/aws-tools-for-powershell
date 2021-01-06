@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-MBCResourceTag', 
         'Deny-MBCInvitation', 
         'Get-MBCInvitationList', 
         'Get-MBCMember', 
@@ -97,12 +98,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MBCProposal', 
         'Get-MBCProposalList', 
         'Get-MBCProposalVoteList', 
+        'Get-MBCResourceTag', 
         'New-MBCMember', 
         'New-MBCNetwork', 
         'New-MBCNode', 
         'New-MBCProposal', 
         'Remove-MBCMember', 
         'Remove-MBCNode', 
+        'Remove-MBCResourceTag', 
         'Send-MBCProposalVote', 
         'Update-MBCMember', 
         'Update-MBCNode')

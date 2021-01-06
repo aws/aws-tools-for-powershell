@@ -45,6 +45,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class EditRDSGlobalClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        #region Parameter AllowMajorVersionUpgrade
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether major version upgrades are allowed.</para><para>Constraints: You must allow major version upgrades when specifying a value for the
+        /// <code>EngineVersion</code> parameter that is a different major version than the DB
+        /// cluster's current version.</para><para>If you upgrade the major version of a global database, the cluster and DB instance
+        /// parameter groups are set to the default parameter groups for the new version. Apply
+        /// any custom parameter groups after completing the upgrade.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AllowMajorVersionUpgrade { get; set; }
+        #endregion
+        
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
@@ -54,6 +68,24 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DeletionProtection { get; set; }
+        #endregion
+        
+        #region Parameter EngineVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version number of the database engine to which you want to upgrade. Changing this
+        /// parameter results in an outage. The change is applied during the next maintenance
+        /// window unless <code>ApplyImmediately</code> is enabled.</para><para>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+        /// Aurora), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora --query '*[]|[?SupportsGlobalDatabases
+        /// == `true`].[EngineVersion]'</code></para><para>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL
+        /// 5.7-compatible Aurora), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query '*[]|[?SupportsGlobalDatabases
+        /// == `true`].[EngineVersion]'</code></para><para>To list all of the available engine versions for <code>aurora-postgresql</code>, use
+        /// the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-postgresql --query '*[]|[?SupportsGlobalDatabases
+        /// == `true`].[EngineVersion]'</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EngineVersion { get; set; }
         #endregion
         
         #region Parameter GlobalClusterIdentifier
@@ -139,7 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Select = (response, cmdlet) => this.GlobalClusterIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AllowMajorVersionUpgrade = this.AllowMajorVersionUpgrade;
             context.DeletionProtection = this.DeletionProtection;
+            context.EngineVersion = this.EngineVersion;
             context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
             context.NewGlobalClusterIdentifier = this.NewGlobalClusterIdentifier;
             
@@ -158,9 +192,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request
             var request = new Amazon.RDS.Model.ModifyGlobalClusterRequest();
             
+            if (cmdletContext.AllowMajorVersionUpgrade != null)
+            {
+                request.AllowMajorVersionUpgrade = cmdletContext.AllowMajorVersionUpgrade.Value;
+            }
             if (cmdletContext.DeletionProtection != null)
             {
                 request.DeletionProtection = cmdletContext.DeletionProtection.Value;
+            }
+            if (cmdletContext.EngineVersion != null)
+            {
+                request.EngineVersion = cmdletContext.EngineVersion;
             }
             if (cmdletContext.GlobalClusterIdentifier != null)
             {
@@ -231,7 +273,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllowMajorVersionUpgrade { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
+            public System.String EngineVersion { get; set; }
             public System.String GlobalClusterIdentifier { get; set; }
             public System.String NewGlobalClusterIdentifier { get; set; }
             public System.Func<Amazon.RDS.Model.ModifyGlobalClusterResponse, EditRDSGlobalClusterCmdlet, object> Select { get; set; } =
