@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// A remediation exception is when a specific resource is no longer considered for auto-remediation.
-    /// This API adds a new exception or updates an exisiting exception for a specific resource
+    /// This API adds a new exception or updates an existing exception for a specific resource
     /// with a specific AWS Config rule. 
     /// 
     ///  <note><para>

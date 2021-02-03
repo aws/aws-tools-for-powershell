@@ -115,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-EMLMultiplex', 
         'New-EMLMultiplexProgram', 
         'New-EMLOfferingPurchase', 
+        'New-EMLPartnerInput', 
         'Receive-EMLInputDeviceTransfer', 
         'Remove-EMLChannel', 
         'Remove-EMLInput', 

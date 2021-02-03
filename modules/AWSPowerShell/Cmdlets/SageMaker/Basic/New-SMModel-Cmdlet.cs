@@ -114,6 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ExecutionRoleArn { get; set; }
         #endregion
         
+        #region Parameter InferenceExecutionConfig_Mode
+        /// <summary>
+        /// <para>
+        /// <para>How containers in a multi-container are run. The following values are valid.</para><ul><li><para><code>SERIAL</code> - Containers run as a serial pipeline.</para></li><li><para><code>DIRECT</code> - Only the individual container that you specify is run.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.InferenceExecutionMode")]
+        public Amazon.SageMaker.InferenceExecutionMode InferenceExecutionConfig_Mode { get; set; }
+        #endregion
+        
         #region Parameter ModelName
         /// <summary>
         /// <para>
@@ -255,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ExecutionRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InferenceExecutionConfig_Mode = this.InferenceExecutionConfig_Mode;
             context.ModelName = this.ModelName;
             #if MODULAR
             if (this.ModelName == null && ParameterWasBound(nameof(this.ModelName)))
@@ -302,6 +314,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.ExecutionRoleArn != null)
             {
                 request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
+            }
+            
+             // populate InferenceExecutionConfig
+            var requestInferenceExecutionConfigIsNull = true;
+            request.InferenceExecutionConfig = new Amazon.SageMaker.Model.InferenceExecutionConfig();
+            Amazon.SageMaker.InferenceExecutionMode requestInferenceExecutionConfig_inferenceExecutionConfig_Mode = null;
+            if (cmdletContext.InferenceExecutionConfig_Mode != null)
+            {
+                requestInferenceExecutionConfig_inferenceExecutionConfig_Mode = cmdletContext.InferenceExecutionConfig_Mode;
+            }
+            if (requestInferenceExecutionConfig_inferenceExecutionConfig_Mode != null)
+            {
+                request.InferenceExecutionConfig.Mode = requestInferenceExecutionConfig_inferenceExecutionConfig_Mode;
+                requestInferenceExecutionConfigIsNull = false;
+            }
+             // determine if request.InferenceExecutionConfig should be set to null
+            if (requestInferenceExecutionConfigIsNull)
+            {
+                request.InferenceExecutionConfig = null;
             }
             if (cmdletContext.ModelName != null)
             {
@@ -408,6 +439,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<Amazon.SageMaker.Model.ContainerDefinition> Container { get; set; }
             public System.Boolean? EnableNetworkIsolation { get; set; }
             public System.String ExecutionRoleArn { get; set; }
+            public Amazon.SageMaker.InferenceExecutionMode InferenceExecutionConfig_Mode { get; set; }
             public System.String ModelName { get; set; }
             public Amazon.SageMaker.Model.ContainerDefinition PrimaryContainer { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

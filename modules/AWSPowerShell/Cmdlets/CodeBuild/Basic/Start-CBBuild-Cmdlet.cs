@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> Set to true if you do not want your output artifacts encrypted. This option is valid
-        /// only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this
-        /// is set with another artifacts type, an invalidInputException is thrown. </para>
+        /// only if your artifacts type is Amazon S3. If this is set with another artifacts type,
+        /// an invalidInputException is thrown. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,7 +478,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> Set to true to report to your source provider the status of a build's start and completion.
         /// If you use this option with a source provider other than GitHub, GitHub Enterprise,
-        /// or Bitbucket, an invalidInputException is thrown. </para><note><para> The status of a build triggered by a webhook is always reported to your source provider.
+        /// or Bitbucket, an <code>invalidInputException</code> is thrown. </para><para>To be able to report the build status to the source provider, the user associated
+        /// with the source provider must have write access to the repo. If the user does not
+        /// have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source
+        /// provider access</a> in the <i>AWS CodeBuild User Guide</i>.</para><note><para> The status of a build triggered by a webhook is always reported to your source provider.
         /// </para></note>
         /// </para>
         /// </summary>
@@ -571,7 +574,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// branch name is specified, the branch's HEAD commit ID is used. If not specified, the
         /// default branch's HEAD commit ID is used.</para></dd><dt>Bitbucket</dt><dd><para>The commit ID, branch name, or tag name that corresponds to the version of the source
         /// code you want to build. If a branch name is specified, the branch's HEAD commit ID
-        /// is used. If not specified, the default branch's HEAD commit ID is used.</para></dd><dt>Amazon Simple Storage Service (Amazon S3)</dt><dd><para>The version ID of the object that represents the build input ZIP file to use.</para></dd></dl><para>If <code>sourceVersion</code> is specified at the project level, then this <code>sourceVersion</code>
+        /// is used. If not specified, the default branch's HEAD commit ID is used.</para></dd><dt>Amazon S3</dt><dd><para>The version ID of the object that represents the build input ZIP file to use.</para></dd></dl><para>If <code>sourceVersion</code> is specified at the project level, then this <code>sourceVersion</code>
         /// (at the build level) takes precedence. </para><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source
         /// Version Sample with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>. </para>
         /// </para>
@@ -648,8 +651,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The type of build output artifact. Valid values include:</para><ul><li><para><code>CODEPIPELINE</code>: The build project has build output generated through AWS
-        /// CodePipeline. </para><note><para>The <code>CODEPIPELINE</code> type is not supported for <code>secondaryArtifacts</code>.</para></note></li><li><para><code>NO_ARTIFACTS</code>: The build project does not produce any build output.</para></li><li><para><code>S3</code>: The build project stores build output in Amazon Simple Storage Service
-        /// (Amazon S3).</para></li></ul>
+        /// CodePipeline. </para><note><para>The <code>CODEPIPELINE</code> type is not supported for <code>secondaryArtifacts</code>.</para></note></li><li><para><code>NO_ARTIFACTS</code>: The build project does not produce any build output.</para></li><li><para><code>S3</code>: The build project stores build output in Amazon S3.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

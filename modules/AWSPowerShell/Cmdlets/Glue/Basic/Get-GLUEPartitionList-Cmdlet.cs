@@ -68,6 +68,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String DatabaseName { get; set; }
         #endregion
         
+        #region Parameter ExcludeColumnSchema
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ExcludeColumnSchema { get; set; }
+        #endregion
+        
         #region Parameter Expression
         /// <summary>
         /// <para>
@@ -209,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter DatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExcludeColumnSchema = this.ExcludeColumnSchema;
             context.Expression = this.Expression;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
@@ -257,6 +268,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.DatabaseName != null)
             {
                 request.DatabaseName = cmdletContext.DatabaseName;
+            }
+            if (cmdletContext.ExcludeColumnSchema != null)
+            {
+                request.ExcludeColumnSchema = cmdletContext.ExcludeColumnSchema.Value;
             }
             if (cmdletContext.Expression != null)
             {
@@ -336,6 +351,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.DatabaseName != null)
             {
                 request.DatabaseName = cmdletContext.DatabaseName;
+            }
+            if (cmdletContext.ExcludeColumnSchema != null)
+            {
+                request.ExcludeColumnSchema = cmdletContext.ExcludeColumnSchema.Value;
             }
             if (cmdletContext.Expression != null)
             {
@@ -470,6 +489,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.String CatalogId { get; set; }
             public System.String DatabaseName { get; set; }
+            public System.Boolean? ExcludeColumnSchema { get; set; }
             public System.String Expression { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }

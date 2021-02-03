@@ -168,7 +168,8 @@ $EKS_SelectCompleters = {
 }
 
 $EKS_SelectMap = @{
-    "Select"=@("New-EKSAddon",
+    "Select"=@("Add-EKSIdentityProviderConfig",
+               "New-EKSAddon",
                "New-EKSCluster",
                "New-EKSFargateProfile",
                "New-EKSNodegroup",
@@ -180,11 +181,14 @@ $EKS_SelectMap = @{
                "Get-EKSAddonVersion",
                "Get-EKSCluster",
                "Get-EKSFargateProfile",
+               "Get-EKSIdentityProviderConfig",
                "Get-EKSNodegroup",
                "Get-EKSUpdate",
+               "Remove-EKSIdentityProviderConfig",
                "Get-EKSAddonList",
                "Get-EKSClusterList",
                "Get-EKSFargateProfileList",
+               "Get-EKSIdentityProviderConfigList",
                "Get-EKSNodegroupList",
                "Get-EKSResourceTag",
                "Get-EKSUpdateList",

@@ -504,6 +504,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.Collections.Hashtable MessageRequest_Endpoint { get; set; }
         #endregion
         
+        #region Parameter SMSMessage_EntityId
+        /// <summary>
+        /// <para>
+        /// <para>The entity ID or Principal Entity (PE) id received from the regulatory body for sending
+        /// SMS in your country.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MessageRequest_MessageConfiguration_SMSMessage_EntityId")]
+        public System.String SMSMessage_EntityId { get; set; }
+        #endregion
+        
         #region Parameter ADMMessage_ExpiresAfter
         /// <summary>
         /// <para>
@@ -1205,6 +1217,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.Collections.Hashtable VoiceMessage_Substitution { get; set; }
         #endregion
         
+        #region Parameter SMSMessage_TemplateId
+        /// <summary>
+        /// <para>
+        /// <para>The template ID received from the regulatory body for sending SMS in your country.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MessageRequest_MessageConfiguration_SMSMessage_TemplateId")]
+        public System.String SMSMessage_TemplateId { get; set; }
+        #endregion
+        
         #region Parameter APNSMessage_ThreadId
         /// <summary>
         /// <para>
@@ -1818,6 +1841,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.GCMMessage_Title = this.GCMMessage_Title;
             context.GCMMessage_Url = this.GCMMessage_Url;
             context.SMSMessage_Body = this.SMSMessage_Body;
+            context.SMSMessage_EntityId = this.SMSMessage_EntityId;
             context.SMSMessage_Keyword = this.SMSMessage_Keyword;
             context.SMSMessage_MediaUrl = this.SMSMessage_MediaUrl;
             context.SMSMessage_MessageType = this.SMSMessage_MessageType;
@@ -1843,6 +1867,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     context.SMSMessage_Substitution.Add((String)hashKey, valueSet);
                 }
             }
+            context.SMSMessage_TemplateId = this.SMSMessage_TemplateId;
             context.VoiceMessage_Body = this.VoiceMessage_Body;
             context.VoiceMessage_LanguageCode = this.VoiceMessage_LanguageCode;
             context.VoiceMessage_OriginationNumber = this.VoiceMessage_OriginationNumber;
@@ -2515,6 +2540,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage.Body = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_Body;
                     requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessageIsNull = false;
                 }
+                System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_EntityId = null;
+                if (cmdletContext.SMSMessage_EntityId != null)
+                {
+                    requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_EntityId = cmdletContext.SMSMessage_EntityId;
+                }
+                if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_EntityId != null)
+                {
+                    requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage.EntityId = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_EntityId;
+                    requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessageIsNull = false;
+                }
                 System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_Keyword = null;
                 if (cmdletContext.SMSMessage_Keyword != null)
                 {
@@ -2573,6 +2608,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_Substitution != null)
                 {
                     requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage.Substitutions = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_Substitution;
+                    requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessageIsNull = false;
+                }
+                System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_TemplateId = null;
+                if (cmdletContext.SMSMessage_TemplateId != null)
+                {
+                    requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_TemplateId = cmdletContext.SMSMessage_TemplateId;
+                }
+                if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_TemplateId != null)
+                {
+                    requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage.TemplateId = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_TemplateId;
                     requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessageIsNull = false;
                 }
                  // determine if requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage should be set to null
@@ -3470,12 +3515,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String GCMMessage_Title { get; set; }
             public System.String GCMMessage_Url { get; set; }
             public System.String SMSMessage_Body { get; set; }
+            public System.String SMSMessage_EntityId { get; set; }
             public System.String SMSMessage_Keyword { get; set; }
             public System.String SMSMessage_MediaUrl { get; set; }
             public Amazon.Pinpoint.MessageType SMSMessage_MessageType { get; set; }
             public System.String SMSMessage_OriginationNumber { get; set; }
             public System.String SMSMessage_SenderId { get; set; }
             public Dictionary<System.String, List<System.String>> SMSMessage_Substitution { get; set; }
+            public System.String SMSMessage_TemplateId { get; set; }
             public System.String VoiceMessage_Body { get; set; }
             public System.String VoiceMessage_LanguageCode { get; set; }
             public System.String VoiceMessage_OriginationNumber { get; set; }

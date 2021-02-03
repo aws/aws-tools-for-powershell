@@ -28,14 +28,13 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Creates a new instance profile. For information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-    /// Instance Profiles</a>.
+    /// Creates a new instance profile. For information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entities">About
+    /// instance profiles</a>.
     /// 
     ///  
     /// <para>
-    /// The number and size of IAM resources in an AWS account are limited. For more information,
-    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
-    /// and STS Quotas</a> in the <i>IAM User Guide</i>.
+    ///  For information about the number of instance profiles you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
+    /// object quotas</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMInstanceProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -80,6 +79,21 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String Path { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags that you want to attach to the newly created IAM instance profile.
+        /// Each tag consists of a key name and an associated value. For more information about
+        /// tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
+        /// IAM resources</a> in the <i>IAM User Guide</i>.</para><note><para>If any one of the tags is invalid or if you exceed the allowed maximum number of tags,
+        /// then the entire request fails and the resource is not created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.IdentityManagement.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -151,6 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             #endif
             context.Path = this.Path;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.IdentityManagement.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -174,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.Path != null)
             {
                 request.Path = cmdletContext.Path;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -238,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             public System.String InstanceProfileName { get; set; }
             public System.String Path { get; set; }
+            public List<Amazon.IdentityManagement.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.IdentityManagement.Model.CreateInstanceProfileResponse, NewIAMInstanceProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InstanceProfile;
         }

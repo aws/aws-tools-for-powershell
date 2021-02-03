@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Policies used as permissions boundaries do not provide permissions. You must also
     /// attach a permissions policy to the role. To learn how the effective permissions for
     /// a role are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM
-    /// JSON Policy Evaluation Logic</a> in the IAM User Guide. 
+    /// JSON policy evaluation logic</a> in the IAM User Guide. 
     /// </para></important>
     /// </summary>
     [Cmdlet("Set", "IAMRolePermissionsBoundary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

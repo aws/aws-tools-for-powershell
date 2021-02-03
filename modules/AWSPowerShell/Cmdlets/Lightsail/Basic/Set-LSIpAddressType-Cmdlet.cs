@@ -28,7 +28,7 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Sets the IP address type for a Amazon Lightsail resource.
+    /// Sets the IP address type for an Amazon Lightsail resource.
     /// 
     ///  
     /// <para>

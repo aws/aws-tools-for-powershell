@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Disassociates an Amazon Macie master account from a member account.
+    /// Disassociates an Amazon Macie administrator account from a member account.
     /// </summary>
     [Cmdlet("Unregister", "MAC2Member", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

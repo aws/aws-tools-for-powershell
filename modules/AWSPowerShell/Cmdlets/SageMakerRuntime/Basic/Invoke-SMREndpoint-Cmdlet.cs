@@ -157,6 +157,17 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         public System.String InferenceId { get; set; }
         #endregion
         
+        #region Parameter TargetContainerHostname
+        /// <summary>
+        /// <para>
+        /// <para>If the endpoint hosts multiple containers and is configured to use direct invocation,
+        /// this parameter specifies the host name of the container to invoke.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetContainerHostname { get; set; }
+        #endregion
+        
         #region Parameter TargetModel
         /// <summary>
         /// <para>
@@ -260,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             }
             #endif
             context.InferenceId = this.InferenceId;
+            context.TargetContainerHostname = this.TargetContainerHostname;
             context.TargetModel = this.TargetModel;
             context.TargetVariant = this.TargetVariant;
             
@@ -306,6 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 if (cmdletContext.InferenceId != null)
                 {
                     request.InferenceId = cmdletContext.InferenceId;
+                }
+                if (cmdletContext.TargetContainerHostname != null)
+                {
+                    request.TargetContainerHostname = cmdletContext.TargetContainerHostname;
                 }
                 if (cmdletContext.TargetModel != null)
                 {
@@ -390,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             public System.String CustomAttribute { get; set; }
             public System.String EndpointName { get; set; }
             public System.String InferenceId { get; set; }
+            public System.String TargetContainerHostname { get; set; }
             public System.String TargetModel { get; set; }
             public System.String TargetVariant { get; set; }
             public System.Func<Amazon.SageMakerRuntime.Model.InvokeEndpointResponse, InvokeSMREndpointCmdlet, object> Select { get; set; } =

@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// and localize objects in a sequence of video frames.</para><ul><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-AdjustmentVideoObjectDetection</code></para></li><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-AdjustmentVideoObjectDetection</code></para></li><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-AdjustmentVideoObjectDetection</code></para></li><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-AdjustmentVideoObjectDetection</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-AdjustmentVideoObjectDetection</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-AdjustmentVideoObjectDetection</code></para></li><li><para><code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-AdjustmentVideoObjectDetection</code></para></li><li><para><code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-AdjustmentVideoObjectDetection</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-AdjustmentVideoObjectDetection</code></para></li><li><para><code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-AdjustmentVideoObjectDetection</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-AdjustmentVideoObjectDetection</code></para></li><li><para><code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-AdjustmentVideoObjectDetection</code></para></li></ul><para><b>Video Frame Object Tracking Adjustment</b> - Use this task type when you want
         /// workers to adjust bounding boxes that workers have added to video frames to track
         /// object movement across a sequence of video frames.</para><ul><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-AdjustmentVideoObjectTracking</code></para></li><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-AdjustmentVideoObjectTracking</code></para></li><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-AdjustmentVideoObjectTracking</code></para></li><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-AdjustmentVideoObjectTracking</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-AdjustmentVideoObjectTracking</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-AdjustmentVideoObjectTracking</code></para></li><li><para><code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-AdjustmentVideoObjectTracking</code></para></li><li><para><code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-AdjustmentVideoObjectTracking</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-AdjustmentVideoObjectTracking</code></para></li><li><para><code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-AdjustmentVideoObjectTracking</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-AdjustmentVideoObjectTracking</code></para></li><li><para><code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-AdjustmentVideoObjectTracking</code></para></li></ul><para><b>3D Point Cloud Object Detection Adjustment</b> - Use this task type when you want
-        /// workers to adjust 3D cuboids around objects in a 3D point cloud. </para><ul><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-Adjustment3DPointCloudObjectDetection</code></para><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-Adjustment3DPointCloudObjectDetection</code></para><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-Adjustment3DPointCloudObjectDetection</code></para><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-Adjustment3DPointCloudObjectDetection</code></para><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-Adjustment3DPointCloudObjectDetection</code></para><para><code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-Adjustment3DPointCloudObjectDetection</code></para><para><code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-Adjustment3DPointCloudObjectDetection</code></para><para><code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-Adjustment3DPointCloudObjectDetection</code></para><para><code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-Adjustment3DPointCloudObjectDetection</code></para><para><code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-Adjustment3DPointCloudObjectDetection</code></para><para><code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-Adjustment3DPointCloudObjectDetection</code></para><para><code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudObjectDetection</code></para></li></ul><para><b>3D Point Cloud Object Tracking Adjustment</b> - Use this task type when you want
+        /// workers to adjust 3D cuboids around objects in a 3D point cloud. </para><ul><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-Adjustment3DPointCloudObjectDetection</code></para></li><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-Adjustment3DPointCloudObjectDetection</code></para></li><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-Adjustment3DPointCloudObjectDetection</code></para></li><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-Adjustment3DPointCloudObjectDetection</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-Adjustment3DPointCloudObjectDetection</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-Adjustment3DPointCloudObjectDetection</code></para></li><li><para><code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-Adjustment3DPointCloudObjectDetection</code></para></li><li><para><code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-Adjustment3DPointCloudObjectDetection</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-Adjustment3DPointCloudObjectDetection</code></para></li><li><para><code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-Adjustment3DPointCloudObjectDetection</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-Adjustment3DPointCloudObjectDetection</code></para></li><li><para><code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudObjectDetection</code></para></li></ul><para><b>3D Point Cloud Object Tracking Adjustment</b> - Use this task type when you want
         /// workers to adjust 3D cuboids around objects that appear in a sequence of 3D point
         /// cloud frames.</para><ul><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-Adjustment3DPointCloudObjectTracking</code></para></li><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-Adjustment3DPointCloudObjectTracking</code></para></li><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-Adjustment3DPointCloudObjectTracking</code></para></li><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-Adjustment3DPointCloudObjectTracking</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-Adjustment3DPointCloudObjectTracking</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-Adjustment3DPointCloudObjectTracking</code></para></li><li><para><code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-Adjustment3DPointCloudObjectTracking</code></para></li><li><para><code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-Adjustment3DPointCloudObjectTracking</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-Adjustment3DPointCloudObjectTracking</code></para></li><li><para><code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-Adjustment3DPointCloudObjectTracking</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-Adjustment3DPointCloudObjectTracking</code></para></li><li><para><code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudObjectTracking</code></para></li></ul><para><b>3D Point Cloud Semantic Segmentation Adjustment</b> - Use this task type when
         /// you want workers to adjust a point-level semantic segmentation masks using a paint
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The ARN of the worker task template used to render the worker UI and tools for labeling
         /// job tasks.</para><para>Use this parameter when you are creating a labeling job for 3D point cloud and video
         /// fram labeling jobs. Use your labeling job task type to select one of the following
-        /// ARN's and use it with this parameter when you create a labeling job. Replace <code>aws-region</code>
+        /// ARNs and use it with this parameter when you create a labeling job. Replace <code>aws-region</code>
         /// with the AWS region you are creating your labeling job in.</para><para><b>3D Point Cloud HumanTaskUiArns</b></para><para>Use this <code>HumanTaskUiArn</code> for 3D point cloud object detection and 3D point
         /// cloud object detection adjustment labeling jobs. </para><ul><li><para><code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectDetection</code></para></li></ul><para> Use this <code>HumanTaskUiArn</code> for 3D point cloud object tracking and 3D point
         /// cloud object tracking adjustment labeling jobs. </para><ul><li><para><code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectTracking</code></para></li></ul><para> Use this <code>HumanTaskUiArn</code> for 3D point cloud semantic segmentation and
@@ -239,9 +239,23 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The attribute name to use for the label in the output manifest file. This is the key
         /// for the key/value pair formed with the label that a worker assigns to the object.
-        /// The name can't end with "-metadata". If you are running a semantic segmentation labeling
-        /// job, the attribute name must end with "-ref". If you are running any other kind of
-        /// labeling job, the attribute name must not end with "-ref".</para>
+        /// The <code>LabelAttributeName</code> must meet the following requirements.</para><ul><li><para>The name can't end with "-metadata". </para></li><li><para>If you are using one of the following <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in
+        /// task types</a>, the attribute name <i>must</i> end with "-ref". If the task type you
+        /// are using is not listed below, the attribute name <i>must not</i> end with "-ref".</para><ul><li><para>Image semantic segmentation (<code>SemanticSegmentation)</code>, and adjustment (<code>AdjustmentSemanticSegmentation</code>)
+        /// and verification (<code>VerificationSemanticSegmentation</code>) labeling jobs for
+        /// this task type.</para></li><li><para>Video frame object detection (<code>VideoObjectDetection</code>), and adjustment and
+        /// verification (<code>AdjustmentVideoObjectDetection</code>) labeling jobs for this
+        /// task type.</para></li><li><para>Video frame object tracking (<code>VideoObjectTracking</code>), and adjustment and
+        /// verification (<code>AdjustmentVideoObjectTracking</code>) labeling jobs for this task
+        /// type.</para></li><li><para>3D point cloud semantic segmentation (<code>3DPointCloudSemanticSegmentation</code>),
+        /// and adjustment and verification (<code>Adjustment3DPointCloudSemanticSegmentation</code>)
+        /// labeling jobs for this task type. </para></li><li><para>3D point cloud object tracking (<code>3DPointCloudObjectTracking</code>), and adjustment
+        /// and verification (<code>Adjustment3DPointCloudObjectTracking</code>) labeling jobs
+        /// for this task type. </para></li></ul></li></ul><important><para>If you are creating an adjustment or verification labeling job, you must use a <i>different</i><code>LabelAttributeName</code> than the one used in the original labeling job. The
+        /// original labeling job is the Ground Truth labeling job that produced the labels that
+        /// you want verified or adjusted. To learn more about adjustment and verification labeling
+        /// jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html">Verify
+        /// and Adjust Labels</a>.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -266,7 +280,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// task types</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates.html">custom
         /// tasks</a>, your label category configuration file must be a JSON file in the following
         /// format. Identify the labels you want to use by replacing <code>label_1</code>, <code>label_2</code>,<code>...</code>,<code>label_n</code>
-        /// with your label categories.</para><para><code>{</code></para><para><code> "document-version": "2018-11-28"</code></para><para><code> "labels": [</code></para><para><code> {</code></para><para><code> "label": "<i>label_1</i>"</code></para><para><code> },</code></para><para><code> {</code></para><para><code> "label": "<i>label_2</i>"</code></para><para><code> },</code></para><para><code> ...</code></para><para><code> {</code></para><para><code> "label": "<i>label_n</i>"</code></para><para><code> }</code></para><para><code> ]</code></para><para><code>}</code></para>
+        /// with your label categories.</para><para><code>{ </code></para><para><code>"document-version": "2018-11-28",</code></para><para><code>"labels": [{"label": "label_1"},{"label": "label_2"},...{"label": "label_n"}]</code></para><para><code>}</code></para><para>Note the following about the label category configuration file:</para><ul><li><para>For image classification and text classification (single and multi-label) you must
+        /// specify at least two label categories. For all other task types, the minimum number
+        /// of label categories required is one. </para></li><li><para>Each label category must be unique, you cannot specify duplicate label categories.</para></li><li><para>If you create a 3D point cloud or video frame adjustment or verification labeling
+        /// job, you must include <code>auditLabelAttributeName</code> in the label category configuration.
+        /// Use this parameter to enter the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html#sagemaker-CreateLabelingJob-request-LabelAttributeName"><code>LabelAttributeName</code></a> of the labeling job you want to adjust or verify
+        /// annotations of.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,7 +326,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter S3DataSource_ManifestS3Uri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 location of the manifest file that describes the input data objects.</para>
+        /// <para>The Amazon S3 location of the manifest file that describes the input data objects.
+        /// </para><para>The input manifest file referenced in <code>ManifestS3Uri</code> must contain one
+        /// of the following keys: <code>source-ref</code> or <code>source</code>. The value of
+        /// the keys are interpreted as follows:</para><ul><li><para><code>source-ref</code>: The source of the object is the Amazon S3 object specified
+        /// in the value. Use this value when the object is a binary object, such as an image.</para></li><li><para><code>source</code>: The source of the object is the value. Use this value when the
+        /// object is a text value.</para></li></ul><para>If you are a new user of Ground Truth, it is recommended you review <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-input-data-input-manifest.html">Use
+        /// an Input Manifest File </a> in the Amazon SageMaker Developer Guide to learn how to
+        /// create an input manifest file.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -505,10 +531,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HumanTaskConfig_TaskAvailabilityLifetimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The length of time that a task remains available for labeling by human workers. <b>If
-        /// you choose the Amazon Mechanical Turk workforce, the maximum is 12 hours (43200)</b>.
-        /// The default value is 864000 seconds (10 days). For private and vendor workforces,
-        /// the maximum is as listed.</para>
+        /// <para>The length of time that a task remains available for labeling by human workers. The
+        /// default and maximum values for this parameter depend on the type of workforce you
+        /// use.</para><ul><li><para>If you choose the Amazon Mechanical Turk workforce, the maximum is 12 hours (43,200
+        /// seconds). The default is 6 hours (21,600 seconds).</para></li><li><para>If you choose a private or vendor workforce, the default value is 10 days (864,000
+        /// seconds). For most users, the maximum is also 10 days. If you want to change this
+        /// limit, contact AWS Support.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -548,7 +576,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HumanTaskConfig_TaskTimeLimitInSecond
         /// <summary>
         /// <para>
-        /// <para>The amount of time that a worker has to complete a task.</para>
+        /// <para>The amount of time that a worker has to complete a task. </para><para>If you create a custom labeling job, the maximum value for this parameter is 8 hours
+        /// (28,800 seconds).</para><para>If you create a labeling job using a <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in
+        /// task type</a> the maximum for this parameter depends on the task type you use:</para><ul><li><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-images.html">image</a>
+        /// and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-text.html">text</a>
+        /// labeling jobs, the maximum is 8 hours (28,800 seconds).</para></li><li><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html">3D
+        /// point cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html">video
+        /// frame</a> labeling jobs, the maximum is 7 days (604,800 seconds). If you want to change
+        /// these limits, contact AWS Support.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

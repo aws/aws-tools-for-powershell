@@ -28,8 +28,8 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Gets a list of build IDs for the specified build project, with each build ID representing
-    /// a single build.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets a list of build identifiers for the specified build project, with each build
+    /// identifier representing a single build.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CBBuildIdListForProject")]
     [OutputType("System.String")]
@@ -61,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The order to list build IDs. Valid values include:</para><ul><li><para><code>ASCENDING</code>: List the build IDs in ascending order by build ID.</para></li><li><para><code>DESCENDING</code>: List the build IDs in descending order by build ID.</para></li></ul>
+        /// <para>The order to list results in. The results are sorted by build number, not the build
+        /// identifier.</para><para>Valid values include:</para><ul><li><para><code>ASCENDING</code>: List the build IDs in ascending order by build ID.</para></li><li><para><code>DESCENDING</code>: List the build IDs in descending order by build ID.</para></li></ul><para>If the project has more than 100 builds, setting the sort order will result in an
+        /// error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

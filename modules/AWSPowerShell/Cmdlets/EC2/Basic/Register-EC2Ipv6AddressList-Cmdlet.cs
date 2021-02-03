@@ -53,9 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv6AddressCount
         /// <summary>
         /// <para>
-        /// <para>The number of IPv6 addresses to assign to the network interface. Amazon EC2 automatically
-        /// selects the IPv6 addresses from the subnet range. You can't use this option if specifying
-        /// specific IPv6 addresses.</para>
+        /// <para>The number of additional IPv6 addresses to assign to the network interface. The specified
+        /// number of IPv6 addresses are assigned in addition to the existing IPv6 addresses that
+        /// are already assigned to the network interface. Amazon EC2 automatically selects the
+        /// IPv6 addresses from the subnet range. You can't use this option if specifying specific
+        /// IPv6 addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

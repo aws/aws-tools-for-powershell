@@ -199,7 +199,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the cache engine to be used for the clusters in this replication group.</para>
+        /// <para>The name of the cache engine to be used for the clusters in this replication group.
+        /// Must be Redis.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

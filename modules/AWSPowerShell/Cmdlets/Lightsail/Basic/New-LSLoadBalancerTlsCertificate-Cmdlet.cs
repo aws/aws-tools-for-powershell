@@ -28,7 +28,7 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Creates a Lightsail load balancer TLS certificate.
+    /// Creates an SSL/TLS certificate for an Amazon Lightsail load balancer.
     /// 
     ///  
     /// <para>

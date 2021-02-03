@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RowLevelPermissionDataSet_Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the permission dataset.</para>
+        /// <para>The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,6 +107,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String DataSetId { get; set; }
         #endregion
         
+        #region Parameter FieldFolder
+        /// <summary>
+        /// <para>
+        /// <para>The folder that contains fields and nested subfolders for your dataset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FieldFolders")]
+        public System.Collections.Hashtable FieldFolder { get; set; }
+        #endregion
+        
         #region Parameter ImportMode
         /// <summary>
         /// <para>
@@ -154,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RowLevelPermissionDataSet_Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace associated with the row-level permissions dataset.</para>
+        /// <para>The namespace associated with the dataset that contains permissions for RLS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RowLevelPermissionDataSet_PermissionPolicy
         /// <summary>
         /// <para>
-        /// <para>Permission policy.</para>
+        /// <para>The type of permissions to use when interpretting the permissions for RLS. <code>DENY_ACCESS</code>
+        /// is included for backward compatibility only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -295,6 +307,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter DataSetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.FieldFolder != null)
+            {
+                context.FieldFolder = new Dictionary<System.String, Amazon.QuickSight.Model.FieldFolder>(StringComparer.Ordinal);
+                foreach (var hashKey in this.FieldFolder.Keys)
+                {
+                    context.FieldFolder.Add((String)hashKey, (FieldFolder)(this.FieldFolder[hashKey]));
+                }
+            }
             context.ImportMode = this.ImportMode;
             #if MODULAR
             if (this.ImportMode == null && ParameterWasBound(nameof(this.ImportMode)))
@@ -373,6 +393,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.DataSetId != null)
             {
                 request.DataSetId = cmdletContext.DataSetId;
+            }
+            if (cmdletContext.FieldFolder != null)
+            {
+                request.FieldFolders = cmdletContext.FieldFolder;
             }
             if (cmdletContext.ImportMode != null)
             {
@@ -502,6 +526,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.ColumnGroup> ColumnGroup { get; set; }
             public List<Amazon.QuickSight.Model.ColumnLevelPermissionRule> ColumnLevelPermissionRule { get; set; }
             public System.String DataSetId { get; set; }
+            public Dictionary<System.String, Amazon.QuickSight.Model.FieldFolder> FieldFolder { get; set; }
             public Amazon.QuickSight.DataSetImportMode ImportMode { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.LogicalTable> LogicalTableMap { get; set; }
             public System.String Name { get; set; }

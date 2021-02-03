@@ -32,12 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// When the service provider and the consumer have different accounts multiple Availability
+    /// When the service provider and the consumer have different accounts in multiple Availability
     /// Zones, and the consumer views the VPC endpoint service information, the response only
     /// includes the common Availability Zones. For example, when the service provider account
     /// uses <code>us-east-1a</code> and <code>us-east-1c</code> and the consumer uses <code>us-east-1a</code>
-    /// and us-east-1a and us-east-1b, the response includes the VPC endpoint services in
-    /// the common Availability Zone, <code>us-east-1a</code>.
+    /// and <code>us-east-1b</code>, the response includes the VPC endpoint services in the
+    /// common Availability Zone, <code>us-east-1a</code>.
     /// </para><br/><br/>In the AWS.Tools.EC2 module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VpcEndpointService")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>service-name</code> - The name of the service.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// <para>One or more filters.</para><ul><li><para><code>service-name</code> - The name of the service.</para></li><li><para><code>service-type</code> - The type of service (<code>Interface</code> | <code>Gateway</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name

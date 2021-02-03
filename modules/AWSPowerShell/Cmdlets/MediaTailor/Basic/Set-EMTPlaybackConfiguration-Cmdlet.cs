@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public Amazon.MediaTailor.Model.CdnConfiguration CdnConfiguration { get; set; }
         #endregion
         
+        #region Parameter ConfigurationAlias
+        /// <summary>
+        /// <para>
+        /// <para>Predefined aliases for dynamic variables.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationAliases")]
+        public System.Collections.Hashtable ConfigurationAlias { get; set; }
+        #endregion
+        
         #region Parameter DashConfiguration
         /// <summary>
         /// <para>
@@ -297,6 +308,14 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             context.Bumper_EndUrl = this.Bumper_EndUrl;
             context.Bumper_StartUrl = this.Bumper_StartUrl;
             context.CdnConfiguration = this.CdnConfiguration;
+            if (this.ConfigurationAlias != null)
+            {
+                context.ConfigurationAlias = new Dictionary<System.String, Dictionary<System.String, System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ConfigurationAlias.Keys)
+                {
+                    context.ConfigurationAlias.Add((String)hashKey, (Dictionary<String,String>)(this.ConfigurationAlias[hashKey]));
+                }
+            }
             context.DashConfiguration = this.DashConfiguration;
             context.LivePreRollConfiguration_AdDecisionServerUrl = this.LivePreRollConfiguration_AdDecisionServerUrl;
             context.LivePreRollConfiguration_MaxDurationSecond = this.LivePreRollConfiguration_MaxDurationSecond;
@@ -395,6 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (cmdletContext.CdnConfiguration != null)
             {
                 request.CdnConfiguration = cmdletContext.CdnConfiguration;
+            }
+            if (cmdletContext.ConfigurationAlias != null)
+            {
+                request.ConfigurationAliases = cmdletContext.ConfigurationAlias;
             }
             if (cmdletContext.DashConfiguration != null)
             {
@@ -554,6 +577,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public System.String Bumper_EndUrl { get; set; }
             public System.String Bumper_StartUrl { get; set; }
             public Amazon.MediaTailor.Model.CdnConfiguration CdnConfiguration { get; set; }
+            public Dictionary<System.String, Dictionary<System.String, System.String>> ConfigurationAlias { get; set; }
             public Amazon.MediaTailor.Model.DashConfigurationForPut DashConfiguration { get; set; }
             public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }
             public System.Int32? LivePreRollConfiguration_MaxDurationSecond { get; set; }

@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// that is associated with a running instance might break any applications running on
     /// the instance.
     /// </para></important><para>
-    ///  For more information about IAM roles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-    /// with Roles</a>. For more information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-    /// Instance Profiles</a>.
+    ///  For more information about IAM roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
+    /// with roles</a>. For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
+    /// instance profiles</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMRoleFromInstanceProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

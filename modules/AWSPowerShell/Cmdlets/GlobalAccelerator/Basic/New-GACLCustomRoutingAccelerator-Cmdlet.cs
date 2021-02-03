@@ -38,7 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// cannot receive traffic. To enable all destinations to receive traffic, or to specify
     /// individual port mappings that can receive traffic, see the <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html">
     /// AllowCustomRoutingTraffic</a> operation.
-    /// </para>
+    /// </para><important><para>
+    /// Global Accelerator is a global service that supports endpoints in multiple AWS Regions
+    /// but you must specify the US West (Oregon) Region to create or update accelerators.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "GACLCustomRoutingAccelerator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GlobalAccelerator.Model.CustomRoutingAccelerator")]
@@ -71,6 +74,24 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IdempotencyToken { get; set; }
+        #endregion
+        
+        #region Parameter IpAddress
+        /// <summary>
+        /// <para>
+        /// <para>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP),
+        /// you can choose IP addresses from your own pool to use for the accelerator's static
+        /// IP addresses when you create an accelerator. You can specify one or two addresses,
+        /// separated by a space. Do not include the /32 suffix.</para><para>Only one IP address from each of your IP address ranges can be used for each accelerator.
+        /// If you specify only one IP address from your IP address range, Global Accelerator
+        /// assigns a second static IP address for the accelerator from the AWS IP address pool.</para><para>Note that you can't update IP addresses for an existing accelerator. To change them,
+        /// you must create a new accelerator with the new addresses.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
+        /// your own IP addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IpAddresses")]
+        public System.String[] IpAddress { get; set; }
         #endregion
         
         #region Parameter IpAddressType
@@ -178,6 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Enabled = this.Enabled;
             context.IdempotencyToken = this.IdempotencyToken;
+            if (this.IpAddress != null)
+            {
+                context.IpAddress = new List<System.String>(this.IpAddress);
+            }
             context.IpAddressType = this.IpAddressType;
             context.Name = this.Name;
             #if MODULAR
@@ -213,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             if (cmdletContext.IdempotencyToken != null)
             {
                 request.IdempotencyToken = cmdletContext.IdempotencyToken;
+            }
+            if (cmdletContext.IpAddress != null)
+            {
+                request.IpAddresses = cmdletContext.IpAddress;
             }
             if (cmdletContext.IpAddressType != null)
             {
@@ -289,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         {
             public System.Boolean? Enabled { get; set; }
             public System.String IdempotencyToken { get; set; }
+            public List<System.String> IpAddress { get; set; }
             public Amazon.GlobalAccelerator.IpAddressType IpAddressType { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.GlobalAccelerator.Model.Tag> Tag { get; set; }

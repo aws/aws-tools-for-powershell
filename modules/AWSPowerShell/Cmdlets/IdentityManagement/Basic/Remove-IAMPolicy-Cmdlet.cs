@@ -38,9 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// policy:
     /// </para><ul><li><para>
     /// Detach the policy from all users, groups, and roles that the policy is attached to,
-    /// using the <a>DetachUserPolicy</a>, <a>DetachGroupPolicy</a>, or <a>DetachRolePolicy</a>
-    /// API operations. To list all the users, groups, and roles that a policy is attached
-    /// to, use <a>ListEntitiesForPolicy</a>.
+    /// using <a>DetachUserPolicy</a>, <a>DetachGroupPolicy</a>, or <a>DetachRolePolicy</a>.
+    /// To list all the users, groups, and roles that a policy is attached to, use <a>ListEntitiesForPolicy</a>.
     /// </para></li><li><para>
     /// Delete all versions of the policy using <a>DeletePolicyVersion</a>. To list the policy's
     /// versions, use <a>ListPolicyVersions</a>. You cannot use <a>DeletePolicyVersion</a>
@@ -48,10 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// default version in the next step of the process.
     /// </para></li><li><para>
     /// Delete the policy (this automatically deletes the policy's default version) using
-    /// this API.
+    /// this operation.
     /// </para></li></ul><para>
     /// For information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
+    /// policies and inline policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -68,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM policy you want to delete.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

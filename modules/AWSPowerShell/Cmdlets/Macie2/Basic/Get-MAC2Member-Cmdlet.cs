@@ -28,8 +28,8 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves information about a member account that's associated with an Amazon Macie
-    /// master account.
+    /// Retrieves information about an account that's associated with an Amazon Macie administrator
+    /// account.
     /// </summary>
     [Cmdlet("Get", "MAC2Member")]
     [OutputType("Amazon.Macie2.Model.GetMemberResponse")]

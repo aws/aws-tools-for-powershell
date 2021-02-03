@@ -83,10 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryS3Bucket
         /// <summary>
         /// <para>
-        /// <para>Location of an Amazon S3 bucket where AWS Config can deliver evaluation results. AWS
-        /// Config stores intermediate files while processing conformance pack template. </para><para>The delivery bucket name should start with awsconfigconforms. For example: "Resource":
-        /// "arn:aws:s3:::your_bucket_name/*". For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html">Permissions
-        /// for cross account bucket access</a>.</para>
+        /// <para>Amazon S3 bucket where AWS Config stores conformance pack templates.</para><note><para>This field is optional.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryS3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>The prefix for the Amazon S3 bucket.</para>
+        /// <para>The prefix for the Amazon S3 bucket.</para><note><para>This field is optional.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -76,6 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public Amazon.IoTSiteWise.Permission AccessPolicyPermission { get; set; }
         #endregion
         
+        #region Parameter IamRole_Arn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.htmll#identifiers-arns">IAM
+        /// ARNs</a> in the <i>IAM User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AccessPolicyIdentity_IamRole_Arn")]
+        public System.String IamRole_Arn { get; set; }
+        #endregion
+        
         #region Parameter IamUser_Arn
         /// <summary>
         /// <para>
@@ -213,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             #endif
             context.Group_Id = this.Group_Id;
+            context.IamRole_Arn = this.IamRole_Arn;
             context.IamUser_Arn = this.IamUser_Arn;
             context.User_Id = this.User_Id;
             context.AccessPolicyPermission = this.AccessPolicyPermission;
@@ -272,6 +285,31 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestAccessPolicyIdentity_accessPolicyIdentity_Group != null)
             {
                 request.AccessPolicyIdentity.Group = requestAccessPolicyIdentity_accessPolicyIdentity_Group;
+                requestAccessPolicyIdentityIsNull = false;
+            }
+            Amazon.IoTSiteWise.Model.IAMRoleIdentity requestAccessPolicyIdentity_accessPolicyIdentity_IamRole = null;
+            
+             // populate IamRole
+            var requestAccessPolicyIdentity_accessPolicyIdentity_IamRoleIsNull = true;
+            requestAccessPolicyIdentity_accessPolicyIdentity_IamRole = new Amazon.IoTSiteWise.Model.IAMRoleIdentity();
+            System.String requestAccessPolicyIdentity_accessPolicyIdentity_IamRole_iamRole_Arn = null;
+            if (cmdletContext.IamRole_Arn != null)
+            {
+                requestAccessPolicyIdentity_accessPolicyIdentity_IamRole_iamRole_Arn = cmdletContext.IamRole_Arn;
+            }
+            if (requestAccessPolicyIdentity_accessPolicyIdentity_IamRole_iamRole_Arn != null)
+            {
+                requestAccessPolicyIdentity_accessPolicyIdentity_IamRole.Arn = requestAccessPolicyIdentity_accessPolicyIdentity_IamRole_iamRole_Arn;
+                requestAccessPolicyIdentity_accessPolicyIdentity_IamRoleIsNull = false;
+            }
+             // determine if requestAccessPolicyIdentity_accessPolicyIdentity_IamRole should be set to null
+            if (requestAccessPolicyIdentity_accessPolicyIdentity_IamRoleIsNull)
+            {
+                requestAccessPolicyIdentity_accessPolicyIdentity_IamRole = null;
+            }
+            if (requestAccessPolicyIdentity_accessPolicyIdentity_IamRole != null)
+            {
+                request.AccessPolicyIdentity.IamRole = requestAccessPolicyIdentity_accessPolicyIdentity_IamRole;
                 requestAccessPolicyIdentityIsNull = false;
             }
             Amazon.IoTSiteWise.Model.IAMUserIdentity requestAccessPolicyIdentity_accessPolicyIdentity_IamUser = null;
@@ -459,6 +497,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             public System.String AccessPolicyId { get; set; }
             public System.String Group_Id { get; set; }
+            public System.String IamRole_Arn { get; set; }
             public System.String IamUser_Arn { get; set; }
             public System.String User_Id { get; set; }
             public Amazon.IoTSiteWise.Permission AccessPolicyPermission { get; set; }

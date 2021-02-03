@@ -123,7 +123,8 @@ $EMPV_SelectCompleters = {
 }
 
 $EMPV_SelectMap = @{
-    "Select"=@("New-EMPVAsset",
+    "Select"=@("Update-EMPVLog",
+               "New-EMPVAsset",
                "New-EMPVPackagingConfiguration",
                "New-EMPVPackagingGroup",
                "Remove-EMPVAsset",

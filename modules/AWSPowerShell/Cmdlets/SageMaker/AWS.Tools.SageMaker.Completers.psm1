@@ -397,6 +397,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.InferenceExecutionMode
+        "New-SMModel/InferenceExecutionConfig_Mode"
+        {
+            $v = "Direct","Serial"
+            break
+        }
+
         # Amazon.SageMaker.InstanceType
         {
             ($_ -eq "New-SMNotebookInstance/InstanceType") -Or
@@ -960,6 +967,7 @@ $SM_map = @{
     "HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"=@("New-SMHyperParameterTuningJob")
+    "InferenceExecutionConfig_Mode"=@("New-SMModel")
     "InputConfig_Framework"=@("New-SMCompilationJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "JobResources_ClusterConfig_InstanceType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")

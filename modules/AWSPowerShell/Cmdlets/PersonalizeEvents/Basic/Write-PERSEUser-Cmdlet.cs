@@ -28,7 +28,8 @@ using Amazon.PersonalizeEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.PERSE
 {
     /// <summary>
-    /// Adds one or more users to a Users dataset. For more information see <a>importing-users</a>.
+    /// Adds one or more users to a Users dataset. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html">Importing
+    /// Users Incrementally</a>.
     /// </summary>
     [Cmdlet("Write", "PERSEUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSE
         #region Parameter DatasetArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) of the Users dataset you are adding the user or users
+        /// <para>The Amazon Resource Name (ARN) of the Users dataset you are adding the user or users
         /// to.</para>
         /// </para>
         /// </summary>

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
     /// Retrieves information about the accounts that are associated with an Amazon Macie
-    /// master account.
+    /// administrator account.
     /// </summary>
     [Cmdlet("Get", "MAC2MemberList")]
     [OutputType("Amazon.Macie2.Model.Member")]
@@ -45,8 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <summary>
         /// <para>
         /// <para>Specifies which accounts to include in the response, based on the status of an account's
-        /// relationship with the master account. By default, the response includes only current
-        /// member accounts. To include all accounts, set the value for this parameter to false.</para>
+        /// relationship with the administrator account. By default, the response includes only
+        /// current member accounts. To include all accounts, set the value for this parameter
+        /// to false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

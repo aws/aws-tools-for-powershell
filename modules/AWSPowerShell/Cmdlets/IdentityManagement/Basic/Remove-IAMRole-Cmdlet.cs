@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Deletes the specified role. The role must not have any policies attached. For more
-    /// information about roles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-    /// with Roles</a>.
+    /// information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
+    /// with roles</a>.
     /// 
     ///  <important><para>
     /// Make sure that you do not have any Amazon EC2 instances running with the role you

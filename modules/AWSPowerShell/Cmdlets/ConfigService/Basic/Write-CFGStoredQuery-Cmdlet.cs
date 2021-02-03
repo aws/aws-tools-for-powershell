@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Saves a new query or updates an existing saved query. The <code>QueryName</code> must
-    /// be unique for an AWS account in an AWS Region. You can create upto 300 queries in
-    /// an AWS account in an AWS Region.
+    /// be unique for a single AWS account and a single AWS Region. You can create upto 300
+    /// queries in a single AWS account and a single AWS Region.
     /// </summary>
     [Cmdlet("Write", "CFGStoredQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter StoredQuery_QueryArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-id.</para>
+        /// <para>Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

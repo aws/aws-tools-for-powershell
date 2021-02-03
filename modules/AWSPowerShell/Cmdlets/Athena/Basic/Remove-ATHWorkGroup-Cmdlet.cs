@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>The option to delete the workgroup and its contents even if the workgroup contains
-        /// any named queries.</para>
+        /// any named queries or query executions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

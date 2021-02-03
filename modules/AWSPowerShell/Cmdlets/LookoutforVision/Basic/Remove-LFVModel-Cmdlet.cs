@@ -33,6 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// 
     ///  
     /// <para>
+    /// It might take a few seconds to delete a model. To determine if a model has been deleted,
+    /// call <a>ListProjects</a> and check if the version of the model (<code>ModelVersion</code>)
+    /// is in the <code>Models</code> array. 
+    /// </para><para>
     /// This operation requires permissions to perform the <code>lookoutvision:DeleteModel</code>
     /// operation.
     /// </para>

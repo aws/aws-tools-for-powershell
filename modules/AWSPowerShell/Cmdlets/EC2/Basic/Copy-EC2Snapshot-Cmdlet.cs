@@ -29,18 +29,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can
-    /// copy the snapshot within the same Region or from one Region to another. You can use
-    /// the snapshot to create EBS volumes or Amazon Machine Images (AMIs).
+    /// copy a snapshot within the same Region, from one Region to another, or from a Region
+    /// to an Outpost. You can't copy a snapshot from an Outpost to a Region, from one Outpost
+    /// to another, or within the same Outpost.
     /// 
     ///  
     /// <para>
-    /// Copies of encrypted EBS snapshots remain encrypted. Copies of unencrypted snapshots
-    /// remain unencrypted, unless you enable encryption for the snapshot copy operation.
-    /// By default, encrypted snapshot copies use the default AWS Key Management Service (AWS
-    /// KMS) customer master key (CMK); however, you can specify a different CMK.
+    /// You can use the snapshot to create EBS volumes or Amazon Machine Images (AMIs).
     /// </para><para>
-    /// To copy an encrypted snapshot that has been shared from another account, you must
-    /// have permissions for the CMK used to encrypt the snapshot.
+    /// When copying snapshots to a Region, copies of encrypted EBS snapshots remain encrypted.
+    /// Copies of unencrypted snapshots remain unencrypted, unless you enable encryption for
+    /// the snapshot copy operation. By default, encrypted snapshot copies use the default
+    /// AWS Key Management Service (AWS KMS) customer master key (CMK); however, you can specify
+    /// a different CMK. To copy an encrypted snapshot that has been shared from another account,
+    /// you must have permissions for the CMK used to encrypt the snapshot.
+    /// </para><para>
+    /// Snapshots copied to an Outpost are encrypted by default using the default encryption
+    /// key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>.
+    /// Outposts do not support unencrypted snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
+    /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud
+    /// User Guide</i>.
     /// </para><para>
     /// Snapshots created by copying another snapshot have an arbitrary volume ID that should
     /// not be used for any purpose.
@@ -67,6 +75,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter DestinationOutpostArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot. Only
+        /// specify this parameter when copying a snapshot from an AWS Region to an Outpost. The
+        /// snapshot must be in the Region for the destination Outpost. You cannot copy a snapshot
+        /// from an Outpost to a Region, from one Outpost to another, or within the same Outpost.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots">
+        /// Copying snapshots from an AWS Region to an Outpost</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationOutpostArn { get; set; }
         #endregion
         
         #region Parameter DestinationRegion
@@ -220,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            context.DestinationOutpostArn = this.DestinationOutpostArn;
             context.DestinationRegion = this.DestinationRegion;
             context.Encrypted = this.Encrypted;
             context.KmsKeyId = this.KmsKeyId;
@@ -260,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DestinationOutpostArn != null)
+            {
+                request.DestinationOutpostArn = cmdletContext.DestinationOutpostArn;
             }
             if (cmdletContext.DestinationRegion != null)
             {
@@ -347,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.String DestinationOutpostArn { get; set; }
             public System.String DestinationRegion { get; set; }
             public System.Boolean? Encrypted { get; set; }
             public System.String KmsKeyId { get; set; }

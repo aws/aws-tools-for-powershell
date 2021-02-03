@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Retrieves information about the specified instance profile, including the instance
     /// profile's path, GUID, ARN, and role. For more information about instance profiles,
     /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-    /// Instance Profiles</a> in the <i>IAM User Guide</i>.
+    /// instance profiles</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("Get", "IAMInstanceProfile")]
     [OutputType("Amazon.IdentityManagement.Model.InstanceProfile")]

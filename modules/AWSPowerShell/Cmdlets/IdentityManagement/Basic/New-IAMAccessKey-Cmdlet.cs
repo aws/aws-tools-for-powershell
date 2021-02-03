@@ -38,9 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// the AWS account. Consequently, you can use this operation to manage AWS account root
     /// user credentials. This is true even if the AWS account has no associated users.
     /// </para><para>
-    /// The number and size of IAM resources in an AWS account are limited. For more information,
-    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
-    /// and STS Quotas</a> in the <i>IAM User Guide</i>.
+    ///  For information about quotas on the number of keys you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
+    /// and STS quotas</a> in the <i>IAM User Guide</i>.
     /// </para><important><para>
     /// To ensure the security of your AWS account, the secret access key is accessible only
     /// during key and user creation. You must save the key (for example, in a text file)

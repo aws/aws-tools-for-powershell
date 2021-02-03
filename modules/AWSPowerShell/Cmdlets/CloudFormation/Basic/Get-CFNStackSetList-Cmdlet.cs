@@ -28,7 +28,21 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns summary information about stack sets that are associated with the user.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns summary information about stack sets that are associated with the user.
+    /// 
+    ///  <ul><li><para>
+    /// [Self-managed permissions] If you set the <code>CallAs</code> parameter to <code>SELF</code>
+    /// while signed in to your AWS account, <code>ListStackSets</code> returns all self-managed
+    /// stack sets in your AWS account.
+    /// </para></li><li><para>
+    /// [Service-managed permissions] If you set the <code>CallAs</code> parameter to <code>SELF</code>
+    /// while signed in to the organization's management account, <code>ListStackSets</code>
+    /// returns all stack sets in the management account.
+    /// </para></li><li><para>
+    /// [Service-managed permissions] If you set the <code>CallAs</code> parameter to <code>DELEGATED_ADMIN</code>
+    /// while signed in to your member account, <code>ListStackSets</code> returns all stack
+    /// sets with service-managed permissions in the management account.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNStackSetList")]
     [OutputType("Amazon.CloudFormation.Model.StackSetSummary")]
@@ -39,6 +53,21 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public partial class GetCFNStackSetListCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter CallAs
+        /// <summary>
+        /// <para>
+        /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
+        /// in the management account or as a delegated administrator in a member account.</para><para>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
+        /// self-managed permissions.</para><ul><li><para>If you are signed in to the management account, specify <code>SELF</code>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</para><para>Your AWS account must be registered as a delegated administrator in the management
+        /// account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
+        /// a delegated administrator</a> in the <i>AWS CloudFormation User Guide</i>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.CallAs")]
+        public Amazon.CloudFormation.CallAs CallAs { get; set; }
+        #endregion
         
         #region Parameter Status
         /// <summary>
@@ -144,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 context.Select = (response, cmdlet) => this.Status;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CallAs = this.CallAs;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -177,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // create request and set iteration invariants
             var request = new Amazon.CloudFormation.Model.ListStackSetsRequest();
             
+            if (cmdletContext.CallAs != null)
+            {
+                request.CallAs = cmdletContext.CallAs;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -240,6 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             
             // create request and set iteration invariants
             var request = new Amazon.CloudFormation.Model.ListStackSetsRequest();
+            if (cmdletContext.CallAs != null)
+            {
+                request.CallAs = cmdletContext.CallAs;
+            }
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
@@ -363,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.CloudFormation.CallAs CallAs { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.CloudFormation.StackSetStatus Status { get; set; }

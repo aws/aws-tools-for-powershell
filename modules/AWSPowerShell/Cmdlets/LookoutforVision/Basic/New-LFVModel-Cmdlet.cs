@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter Output_S3Location_Bucket
         /// <summary>
         /// <para>
-        /// <para>The S3 bucket that contain the manifest file.</para>
+        /// <para>The S3 bucket that contains the training output.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,9 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK)
-        /// to use for encypting the model. If this parameter is not specified, the model is encrypted
-        /// by a key that AWS owns and manages.</para>
+        /// <para>The identifier for your AWS Key Management Service (AWS KMS) customer master key (CMK).
+        /// The key is used to encrypt training and test images copied into the service for model
+        /// training. Your source images are unaffected. If this parameter is not specified, the
+        /// copied images are encrypted by a key that AWS owns and manages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter Output_S3Location_Prefix
         /// <summary>
         /// <para>
-        /// <para>The path and name of the manifest file with the S3 bucket.</para>
+        /// <para>The path of the folder, within the S3 bucket, that contains the training output.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

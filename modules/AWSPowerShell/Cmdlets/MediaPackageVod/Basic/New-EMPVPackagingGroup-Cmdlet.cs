@@ -67,6 +67,16 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
         public System.String Id { get; set; }
         #endregion
         
+        #region Parameter EgressAccessLogs_LogGroupName
+        /// <summary>
+        /// <para>
+        /// Customize the log group name.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EgressAccessLogs_LogGroupName { get; set; }
+        #endregion
+        
         #region Parameter Authorization_SecretsRoleArn
         /// <summary>
         /// <para>
@@ -152,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Authorization_CdnIdentifierSecret = this.Authorization_CdnIdentifierSecret;
             context.Authorization_SecretsRoleArn = this.Authorization_SecretsRoleArn;
+            context.EgressAccessLogs_LogGroupName = this.EgressAccessLogs_LogGroupName;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -211,6 +222,25 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
             if (requestAuthorizationIsNull)
             {
                 request.Authorization = null;
+            }
+            
+             // populate EgressAccessLogs
+            var requestEgressAccessLogsIsNull = true;
+            request.EgressAccessLogs = new Amazon.MediaPackageVod.Model.EgressAccessLogs();
+            System.String requestEgressAccessLogs_egressAccessLogs_LogGroupName = null;
+            if (cmdletContext.EgressAccessLogs_LogGroupName != null)
+            {
+                requestEgressAccessLogs_egressAccessLogs_LogGroupName = cmdletContext.EgressAccessLogs_LogGroupName;
+            }
+            if (requestEgressAccessLogs_egressAccessLogs_LogGroupName != null)
+            {
+                request.EgressAccessLogs.LogGroupName = requestEgressAccessLogs_egressAccessLogs_LogGroupName;
+                requestEgressAccessLogsIsNull = false;
+            }
+             // determine if request.EgressAccessLogs should be set to null
+            if (requestEgressAccessLogsIsNull)
+            {
+                request.EgressAccessLogs = null;
             }
             if (cmdletContext.Id != null)
             {
@@ -283,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
         {
             public System.String Authorization_CdnIdentifierSecret { get; set; }
             public System.String Authorization_SecretsRoleArn { get; set; }
+            public System.String EgressAccessLogs_LogGroupName { get; set; }
             public System.String Id { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.MediaPackageVod.Model.CreatePackagingGroupResponse, NewEMPVPackagingGroupCmdlet, object> Select { get; set; } =

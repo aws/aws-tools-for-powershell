@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Creates an alias for your AWS account. For information about using an AWS account
     /// alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
-    /// an Alias for Your AWS Account ID</a> in the <i>IAM User Guide</i>.
+    /// an alias for your AWS account ID</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("New", "IAMAccountAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

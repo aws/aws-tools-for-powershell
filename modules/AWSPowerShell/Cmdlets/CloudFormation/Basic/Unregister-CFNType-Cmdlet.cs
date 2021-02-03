@@ -28,17 +28,22 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Removes a type or type version from active use in the CloudFormation registry. If
-    /// a type or type version is deregistered, it cannot be used in CloudFormation operations.
+    /// Marks an extension or extension version as <code>DEPRECATED</code> in the CloudFormation
+    /// registry, removing it from active use. Deprecated extensions or extension versions
+    /// cannot be used in CloudFormation operations.
     /// 
     ///  
     /// <para>
-    /// To deregister a type, you must individually deregister all registered versions of
-    /// that type. If a type has only a single registered version, deregistering that version
-    /// results in the type itself being deregistered. 
+    /// To deregister an entire extension, you must individually deregister all active versions
+    /// of that extension. If an extension has only a single active version, deregistering
+    /// that version results in the extension itself being deregistered and marked as deprecated
+    /// in the registry. 
     /// </para><para>
-    /// You cannot deregister the default version of a type, unless it is the only registered
-    /// version of that type, in which case the type itself is deregistered as well. 
+    /// You cannot deregister the default version of an extension if there are other active
+    /// version of that extension. If you do deregister the default version of an extension,
+    /// the textensionype itself is deregistered as well and marked as deprecated. 
+    /// </para><para>
+    /// To view the deprecation status of an extension or extension version, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Unregister", "CFNType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the type.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
+        /// <para>The Amazon Resource Name (ARN) of the extension.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
         /// or <code>Arn</code>.</para>
         /// </para>
         /// </summary>
@@ -65,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The kind of type.</para><para>Currently the only valid value is <code>RESOURCE</code>.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
+        /// <para>The kind of extension.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
         /// or <code>Arn</code>.</para>
         /// </para>
         /// </summary>
@@ -77,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the type.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
+        /// <para>The name of the extension.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
         /// or <code>Arn</code>.</para>
         /// </para>
         /// </summary>
@@ -88,8 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>The ID of a specific version of the type. The version ID is the value at the end of
-        /// the Amazon Resource Name (ARN) assigned to the type version when it is registered.</para>
+        /// <para>The ID of a specific version of the extension. The version ID is the value at the
+        /// end of the Amazon Resource Name (ARN) assigned to the extension version when it is
+        /// registered.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

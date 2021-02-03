@@ -28,15 +28,26 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Initiates the copy of an AMI from the specified source Region to the current Region.
-    /// You specify the destination Region by using its endpoint when making the request.
+    /// Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from
+    /// a Region to an AWS Outpost. You can't copy an AMI from an Outpost to a Region, from
+    /// one Outpost to another, or within the same Outpost.
     /// 
     ///  
     /// <para>
-    /// Copies of encrypted backing snapshots for the AMI are encrypted. Copies of unencrypted
-    /// backing snapshots remain unencrypted, unless you set <code>Encrypted</code> during
-    /// the copy operation. You cannot create an unencrypted copy of an encrypted backing
-    /// snapshot.
+    /// To copy an AMI from one Region to another, specify the source Region using the <b>SourceRegion</b>
+    /// parameter, and specify the destination Region using its endpoint. Copies of encrypted
+    /// backing snapshots for the AMI are encrypted. Copies of unencrypted backing snapshots
+    /// remain unencrypted, unless you set <code>Encrypted</code> during the copy operation.
+    /// You cannot create an unencrypted copy of an encrypted backing snapshot.
+    /// </para><para>
+    /// To copy an AMI from a Region to an Outpost, specify the source Region using the <b>SourceRegion</b>
+    /// parameter, and specify the ARN of the destination Outpost using <b>DestinationOutpostArn</b>.
+    /// Backing snapshots copied to an Outpost are encrypted by default using the default
+    /// encryption key for the Region, or a different key that you specify in the request
+    /// using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information,
+    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
+    /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud
+    /// User Guide</i>.
     /// </para><para>
     /// For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying
     /// an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
@@ -60,6 +71,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter DestinationOutpostArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only specify
+        /// this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must
+        /// be in the Region of the destination Outpost. You cannot copy an AMI from an Outpost
+        /// to a Region, from one Outpost to another, or within the same Outpost.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis">
+        /// Copying AMIs from an AWS Region to an Outpost</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationOutpostArn { get; set; }
         #endregion
         
         #region Parameter Encrypted
@@ -146,8 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
@@ -217,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.DestinationOutpostArn = this.DestinationOutpostArn;
             context.Encrypted = this.Encrypted;
             context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
@@ -263,6 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DestinationOutpostArn != null)
+            {
+                request.DestinationOutpostArn = cmdletContext.DestinationOutpostArn;
             }
             if (cmdletContext.Encrypted != null)
             {
@@ -347,6 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String DestinationOutpostArn { get; set; }
             public System.Boolean? Encrypted { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }

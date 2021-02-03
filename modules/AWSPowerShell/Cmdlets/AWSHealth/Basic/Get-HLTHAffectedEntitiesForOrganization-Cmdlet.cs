@@ -41,11 +41,15 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </para><para>
     /// Before you can call this operation, you must first enable AWS Health to work with
     /// AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
-    /// operation from your organization's master account. 
-    /// </para><note><para>
+    /// operation from your organization's management account.
+    /// </para><note><ul><li><para>
     /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
     /// the next request to return more results.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></li><li><para>
+    /// This operation doesn't support resource-level permissions. You can't use this operation
+    /// to allow or deny access to specific AWS Health events. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource-
+    /// and action-based conditions</a> in the <i>AWS Health User Guide</i>.
+    /// </para></li></ul></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "HLTHAffectedEntitiesForOrganization")]
     [OutputType("Amazon.AWSHealth.Model.DescribeAffectedEntitiesForOrganizationResponse")]

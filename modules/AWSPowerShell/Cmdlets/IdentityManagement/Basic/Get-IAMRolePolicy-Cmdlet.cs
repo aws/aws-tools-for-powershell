@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// IAM role.
     /// 
     ///  <note><para>
-    /// Policies returned by this API are URL-encoded compliant with <a href="https://tools.ietf.org/html/rfc3986">RFC
+    /// Policies returned by this operation are URL-encoded compliant with <a href="https://tools.ietf.org/html/rfc3986">RFC
     /// 3986</a>. You can use a URL decoding method to convert the policy back to plain JSON
     /// text. For example, if you use Java, you can use the <code>decode</code> method of
     /// the <code>java.net.URLDecoder</code> utility class in the Java SDK. Other languages
@@ -43,10 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// default version, then use <a>GetPolicyVersion</a> to retrieve the policy document.
     /// </para><para>
     /// For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
+    /// policies and inline policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using
-    /// Roles to Delegate Permissions and Federate Identities</a>.
+    /// roles to delegate permissions and federate identities</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMRolePolicy")]

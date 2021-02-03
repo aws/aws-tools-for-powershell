@@ -28,17 +28,13 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// <note><para>
-    /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-    /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-    /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-    /// WAF Developer Guide</a>. 
-    /// </para></note><para>
     /// Gets detailed information about a specified number of requests--a sample--that AWS
     /// WAF randomly selects from among the first 5,000 requests that your AWS resource received
     /// during a time range that you choose. You can specify a sample size of up to 500 requests,
     /// and you can specify any time range in the previous three hours.
-    /// </para><para><code>GetSampledRequests</code> returns a time range, which is usually the time range
+    /// 
+    ///  
+    /// <para><code>GetSampledRequests</code> returns a time range, which is usually the time range
     /// that you specified. However, if your resource (such as a CloudFront distribution)
     /// received 5,000 requests before the specified time range elapsed, <code>GetSampledRequests</code>
     /// returns an updated time range. This new time range indicates the actual period during

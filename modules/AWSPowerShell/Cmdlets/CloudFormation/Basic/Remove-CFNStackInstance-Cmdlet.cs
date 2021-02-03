@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>[<code>Self-managed</code> permissions] The names of the AWS accounts that you want
-        /// to delete stack instances for.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
+        /// <para>[Self-managed permissions] The names of the AWS accounts that you want to delete stack
+        /// instances for.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,6 +61,22 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DeploymentTargets_Accounts")]
         public System.String[] DeploymentTargets_Account { get; set; }
+        #endregion
+        
+        #region Parameter CallAs
+        /// <summary>
+        /// <para>
+        /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
+        /// in the organization's management account or as a delegated administrator in a member
+        /// account.</para><para>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
+        /// self-managed permissions.</para><ul><li><para>If you are signed in to the management account, specify <code>SELF</code>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</para><para>Your AWS account must be registered as a delegated administrator in the management
+        /// account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
+        /// a delegated administrator</a> in the <i>AWS CloudFormation User Guide</i>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.CallAs")]
+        public Amazon.CloudFormation.CallAs CallAs { get; set; }
         #endregion
         
         #region Parameter OperationId
@@ -218,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.Account = new List<System.String>(this.Account);
             }
+            context.CallAs = this.CallAs;
             if (this.DeploymentTargets_Account != null)
             {
                 context.DeploymentTargets_Account = new List<System.String>(this.DeploymentTargets_Account);
@@ -271,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Account != null)
             {
                 request.Accounts = cmdletContext.Account;
+            }
+            if (cmdletContext.CallAs != null)
+            {
+                request.CallAs = cmdletContext.CallAs;
             }
             
              // populate DeploymentTargets
@@ -383,6 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Account { get; set; }
+            public Amazon.CloudFormation.CallAs CallAs { get; set; }
             public List<System.String> DeploymentTargets_Account { get; set; }
             public List<System.String> DeploymentTargets_OrganizationalUnitId { get; set; }
             public System.String OperationId { get; set; }

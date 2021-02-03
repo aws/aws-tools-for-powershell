@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// API operations and AWS resources to determine the policies' effective permissions.
     /// The entity can be an IAM user, group, or role. If you specify a user, then the simulation
     /// also includes all of the policies that are attached to groups that the user belongs
-    /// to.
+    /// to. You can simulate resources that don't exist in your account.
     /// 
     ///  
     /// <para>
@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><para>
     /// The simulation does not perform the API operations; it only checks the authorization
     /// to determine if the simulated policies allow or deny the operations.
-    /// </para><para><b>Note:</b> This API discloses information about the permissions granted to other
-    /// users. If you do not want users to see other user's permissions, then consider allowing
-    /// them to use <a>SimulateCustomPolicy</a> instead.
+    /// </para><para><b>Note:</b> This operation discloses information about the permissions granted to
+    /// other users. If you do not want users to see other user's permissions, then consider
+    /// allowing them to use <a>SimulateCustomPolicy</a> instead.
     /// </para><para>
     /// Context keys are variables maintained by AWS and its services that provide details
     /// about the context of an API query request. You can use the <code>Condition</code>
@@ -56,6 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><para>
     /// If the output is long, you can use the <code>MaxItems</code> and <code>Marker</code>
     /// parameters to paginate the results.
+    /// </para><para>
+    /// For more information about using the policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing
+    /// IAM policies with the IAM policy simulator </a>in the <i>IAM User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Test", "IAMPrincipalPolicy")]
@@ -102,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// the <code>PolicySourceArn</code> is not the ARN for an IAM user. This is required
         /// so that the resource-based policy's <code>Principal</code> element has a value to
         /// use in evaluating the policy.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// an entity and you pass in a different permissions boundary policy using this parameter,
         /// then the new permissions boundary policy is used for the simulation. For more information
         /// about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
-        /// Boundaries for IAM Entities</a> in the <i>IAM User Guide</i>. The policy input is
+        /// boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is
         /// specified as a string containing the complete, valid JSON text of a permissions boundary
         /// policy.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
         /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
@@ -168,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// include in the simulation. If you specify a user, group, or role, the simulation includes
         /// all policies that are associated with that entity. If you specify a user, the simulation
         /// also includes all policies that are attached to any groups the user belongs to.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -189,10 +192,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// not provided, then the value defaults to <code>*</code> (all resources). Each API
         /// in the <code>ActionNames</code> parameter is evaluated for each resource in this list.
         /// The simulation determines the access result (allowed or denied) of each combination
-        /// and reports it in the response.</para><para>The simulation does not automatically retrieve policies for the specified resources.
+        /// and reports it in the response. You can simulate resources that don't exist in your
+        /// account.</para><para>The simulation does not automatically retrieve policies for the specified resources.
         /// If you want to include a resource policy in the simulation, then you must include
         /// the policy as a string in the <code>ResourcePolicy</code> parameter.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// volume as a resource. If the EC2 scenario includes VPC, then you must supply the network
         /// interface resource. If it includes an IP subnet, then you must specify the subnet
         /// resource. For more information on the EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
-        /// Platforms</a> in the <i>Amazon EC2 User Guide</i>.</para><ul><li><para><b>EC2-Classic-InstanceStore</b></para><para>instance, image, security group</para></li><li><para><b>EC2-Classic-EBS</b></para><para>instance, image, security group, volume</para></li><li><para><b>EC2-VPC-InstanceStore</b></para><para>instance, image, security group, network interface</para></li><li><para><b>EC2-VPC-InstanceStore-Subnet</b></para><para>instance, image, security group, network interface, subnet</para></li><li><para><b>EC2-VPC-EBS</b></para><para>instance, image, security group, network interface, volume</para></li><li><para><b>EC2-VPC-EBS-Subnet</b></para><para>instance, image, security group, network interface, subnet, volume</para></li></ul>
+        /// platforms</a> in the <i>Amazon EC2 User Guide</i>.</para><ul><li><para><b>EC2-Classic-InstanceStore</b></para><para>instance, image, security group</para></li><li><para><b>EC2-Classic-EBS</b></para><para>instance, image, security group, volume</para></li><li><para><b>EC2-VPC-InstanceStore</b></para><para>instance, image, security group, network interface</para></li><li><para><b>EC2-VPC-InstanceStore-Subnet</b></para><para>instance, image, security group, network interface, subnet</para></li><li><para><b>EC2-VPC-EBS</b></para><para>instance, image, security group, network interface, volume</para></li><li><para><b>EC2-VPC-EBS-Subnet</b></para><para>instance, image, security group, network interface, subnet, volume</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

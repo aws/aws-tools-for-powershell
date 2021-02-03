@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// access control lists, AWS Organizations policies, IAM permissions boundaries, and
     /// AWS STS assume role policies. It only applies permissions policy logic. For more about
     /// the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating
-    /// Policies</a> in the <i>IAM User Guide</i>.
+    /// policies</a> in the <i>IAM User Guide</i>.
     /// </para></note><para>
     /// The list of policies returned by the operation depends on the ARN of the identity
     /// that you provide.
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// inline policy, it returns the policy name and the entity to which it is attached.
     /// Inline policies do not have an ARN. For more information about these policy types,
     /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
+    /// policies and inline policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// Policies that are attached to users and roles as permissions boundaries are not returned.
     /// To view which managed policy is currently used to set the permissions boundary for
@@ -91,12 +91,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter ServiceNamespace
         /// <summary>
         /// <para>
-        /// <para>The service namespace for the AWS services whose policies you want to list.</para><para>To learn the service namespace for a service, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html">Actions,
-        /// Resources, and Condition Keys for AWS Services</a> in the <i>IAM User Guide</i>. Choose
+        /// <para>The service namespace for the AWS services whose policies you want to list.</para><para>To learn the service namespace for a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions,
+        /// resources, and condition keys for AWS services</a> in the <i>IAM User Guide</i>. Choose
         /// the name of the service to view details for that service. In the first paragraph,
         /// find the service prefix. For example, <code>(service prefix: a4b)</code>. For more
         /// information about service namespaces, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
-        /// Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// service namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

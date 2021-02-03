@@ -87,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Environment
         /// <summary>
         /// <para>
-        /// <para>Sets the environment variables in the Docker container.</para>
+        /// <para>The environment variables to set in the Docker container. Up to 100 key and values
+        /// entries in the map are supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProcessingOutputConfig_Output
         /// <summary>
         /// <para>
-        /// <para>List of output configurations for the processing job.</para>
+        /// <para>An array of outputs configuring the data to upload from the processing container.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProcessingInput
         /// <summary>
         /// <para>
-        /// <para>List of input configurations for the processing job.</para>
+        /// <para>An array of inputs configuring the data to download into the processing container.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

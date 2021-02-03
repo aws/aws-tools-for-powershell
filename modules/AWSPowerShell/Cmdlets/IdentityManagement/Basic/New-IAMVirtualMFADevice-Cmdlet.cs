@@ -30,14 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Creates a new virtual MFA device for the AWS account. After creating the virtual MFA,
     /// use <a>EnableMFADevice</a> to attach the MFA device to an IAM user. For more information
-    /// about creating and working with virtual MFA devices, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using
-    /// a Virtual MFA Device</a> in the <i>IAM User Guide</i>.
+    /// about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using
+    /// a virtual MFA device</a> in the <i>IAM User Guide</i>.
     /// 
     ///  
     /// <para>
-    /// The number and size of IAM resources in an AWS account are limited. For more information,
-    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
-    /// and STS Quotas</a> in the <i>IAM User Guide</i>.
+    /// For information about the maximum number of MFA devices you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
+    /// and STS quotas</a> in the <i>IAM User Guide</i>.
     /// </para><important><para>
     /// The seed information contained in the QR code and the Base32 string should be treated
     /// like any other secret access information. In other words, protect the seed information
@@ -59,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para> The path for the virtual MFA device. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-        /// Identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of either a forward slash (/) by itself
         /// or a string that must begin and end with forward slashes. In addition, it can contain
         /// any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>),
@@ -68,6 +67,21 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Path { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags that you want to attach to the new IAM virtual MFA device. Each tag
+        /// consists of a key name and an associated value. For more information about tagging,
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
+        /// IAM resources</a> in the <i>IAM User Guide</i>.</para><note><para>If any one of the tags is invalid or if you exceed the allowed maximum number of tags,
+        /// then the entire request fails and the resource is not created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.IdentityManagement.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter VirtualMFADeviceName
@@ -152,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Path = this.Path;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.IdentityManagement.Model.Tag>(this.Tag);
+            }
             context.VirtualMFADeviceName = this.VirtualMFADeviceName;
             #if MODULAR
             if (this.VirtualMFADeviceName == null && ParameterWasBound(nameof(this.VirtualMFADeviceName)))
@@ -178,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.Path != null)
             {
                 request.Path = cmdletContext.Path;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.VirtualMFADeviceName != null)
             {
@@ -245,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Path { get; set; }
+            public List<Amazon.IdentityManagement.Model.Tag> Tag { get; set; }
             public System.String VirtualMFADeviceName { get; set; }
             public System.Func<Amazon.IdentityManagement.Model.CreateVirtualMFADeviceResponse, NewIAMVirtualMFADeviceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.VirtualMFADevice;

@@ -33,14 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  <important><para>
     ///  You should understand the implications of changing an IAM user's path or name. For
     /// more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming">Renaming
-    /// an IAM User</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html">Renaming
-    /// an IAM Group</a> in the <i>IAM User Guide</i>.
+    /// an IAM user</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html">Renaming
+    /// an IAM group</a> in the <i>IAM User Guide</i>.
     /// </para></important><note><para>
     ///  To change a user name, the requester must have appropriate permissions on both the
     /// source object and the target object. For example, to change Bob to Robert, the entity
     /// making the request must have permission on Bob and Robert, or must have permission
     /// on all (*). For more information about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html">Permissions
-    /// and Policies</a>. 
+    /// and policies</a>. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "IAMUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

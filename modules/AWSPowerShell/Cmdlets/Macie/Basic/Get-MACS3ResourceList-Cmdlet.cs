@@ -29,9 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC
 {
     /// <summary>
     /// Lists all the S3 resources associated with Amazon Macie Classic. If memberAccountId
-    /// isn't specified, the action lists the S3 resources associated with Amazon Macie Classic
-    /// for the current master account. If memberAccountId is specified, the action lists
-    /// the S3 resources associated with Amazon Macie Classic for the specified member account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// isn't specified, the action lists the S3 resources associated with Macie Classic for
+    /// the current Macie Classic administrator account. If memberAccountId is specified,
+    /// the action lists the S3 resources associated with Macie Classic for the specified
+    /// member account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MACS3ResourceList")]
     [OutputType("Amazon.Macie.Model.S3ResourceClassification")]

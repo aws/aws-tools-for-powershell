@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// the operation.
     /// </para></li></ul></note><para>
     ///  For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing
-    /// an IAM Password Policy</a> in the <i>IAM User Guide</i>.
+    /// an IAM password policy</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "IAMAccountPasswordPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para> Allows all IAM users in your account to use the AWS Management Console to change
         /// their own passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html">Letting
-        /// IAM Users Change Their Own Passwords</a> in the <i>IAM User Guide</i>.</para><para>If you do not specify a value for this parameter, then the operation uses the default
+        /// IAM users change their own passwords</a> in the <i>IAM User Guide</i>.</para><para>If you do not specify a value for this parameter, then the operation uses the default
         /// value of <code>false</code>. The result is that IAM users in the account do not automatically
         /// have permissions to change their own password.</para>
         /// </para>

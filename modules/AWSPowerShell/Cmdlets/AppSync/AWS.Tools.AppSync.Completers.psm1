@@ -112,7 +112,9 @@ $ASYN_Completers = {
 
         # Amazon.AppSync.ConflictDetectionType
         {
+            ($_ -eq "New-ASYNFunction/SyncConfig_ConflictDetection") -Or
             ($_ -eq "New-ASYNResolver/SyncConfig_ConflictDetection") -Or
+            ($_ -eq "Update-ASYNFunction/SyncConfig_ConflictDetection") -Or
             ($_ -eq "Update-ASYNResolver/SyncConfig_ConflictDetection")
         }
         {
@@ -122,7 +124,9 @@ $ASYN_Completers = {
 
         # Amazon.AppSync.ConflictHandlerType
         {
+            ($_ -eq "New-ASYNFunction/SyncConfig_ConflictHandler") -Or
             ($_ -eq "New-ASYNResolver/SyncConfig_ConflictHandler") -Or
+            ($_ -eq "Update-ASYNFunction/SyncConfig_ConflictHandler") -Or
             ($_ -eq "Update-ASYNResolver/SyncConfig_ConflictHandler")
         }
         {
@@ -204,8 +208,8 @@ $ASYN_map = @{
     "Kind"=@("New-ASYNResolver","Update-ASYNResolver")
     "LogConfig_FieldLogLevel"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "RelationalDatabaseConfig_RelationalDatabaseSourceType"=@("New-ASYNDataSource","Update-ASYNDataSource")
-    "SyncConfig_ConflictDetection"=@("New-ASYNResolver","Update-ASYNResolver")
-    "SyncConfig_ConflictHandler"=@("New-ASYNResolver","Update-ASYNResolver")
+    "SyncConfig_ConflictDetection"=@("New-ASYNFunction","New-ASYNResolver","Update-ASYNFunction","Update-ASYNResolver")
+    "SyncConfig_ConflictHandler"=@("New-ASYNFunction","New-ASYNResolver","Update-ASYNFunction","Update-ASYNResolver")
     "Type"=@("New-ASYNApiCache","New-ASYNDataSource","Update-ASYNApiCache","Update-ASYNDataSource")
 }
 

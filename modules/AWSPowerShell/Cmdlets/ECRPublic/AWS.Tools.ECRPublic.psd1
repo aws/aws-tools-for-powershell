@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-ECRPResourceTag', 
         'Complete-ECRPLayerUpload', 
         'Get-ECRPAuthorizationToken', 
         'Get-ECRPImage', 
@@ -96,10 +97,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ECRPRepository', 
         'Get-ECRPRepositoryCatalogData', 
         'Get-ECRPRepositoryPolicy', 
+        'Get-ECRPResourceTag', 
         'New-ECRPRepository', 
         'Remove-ECRPImageBatch', 
         'Remove-ECRPRepository', 
         'Remove-ECRPRepositoryPolicy', 
+        'Remove-ECRPResourceTag', 
         'Send-ECRPLayerPart', 
         'Set-ECRPRepositoryPolicy', 
         'Start-ECRPLayerUpload', 

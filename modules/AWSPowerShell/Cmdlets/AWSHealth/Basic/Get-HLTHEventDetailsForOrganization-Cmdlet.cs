@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
     /// Returns detailed information about one or more specified events for one or more accounts
-    /// in your organization. Information includes standard event data (Region, service, and
-    /// so on, as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html">DescribeEventsForOrganization</a>),
+    /// in your organization. Information includes standard event data (AWS Region, service,
+    /// and so on, as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html">DescribeEventsForOrganization</a>),
     /// a detailed event description, and possible additional metadata that depends upon the
     /// nature of the event. Affected entities are not included; to retrieve those, use the
     /// <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a>
@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// <para>
     /// Before you can call this operation, you must first enable AWS Health to work with
     /// AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
-    /// operation from your organization's master account.
+    /// operation from your organization's management account.
     /// </para><para>
     /// When you call the <code>DescribeEventDetailsForOrganization</code> operation, you
     /// specify the <code>organizationEventDetailFilters</code> object in the request. Depending
@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// because the event is specific to an AWS account in your organization. 
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.
-    /// </para>
+    /// </para><note><para>
+    /// This operation doesn't support resource-level permissions. You can't use this operation
+    /// to allow or deny access to specific AWS Health events. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource-
+    /// and action-based conditions</a> in the <i>AWS Health User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "HLTHEventDetailsForOrganization")]
     [OutputType("Amazon.AWSHealth.Model.DescribeEventDetailsForOrganizationResponse")]

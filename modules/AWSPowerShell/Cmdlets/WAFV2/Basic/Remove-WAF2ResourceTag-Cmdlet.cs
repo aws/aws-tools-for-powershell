@@ -28,17 +28,10 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// <note><para>
-    /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-    /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-    /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-    /// WAF Developer Guide</a>. 
-    /// </para></note><para>
     /// Disassociates tags from an AWS resource. Tags are key:value pairs that you can associate
     /// with AWS resources. For example, the tag key might be "customer" and the tag value
     /// might be "companyA." You can specify one or more tags to add to each container. You
     /// can add up to 50 tags to each AWS resource.
-    /// </para>
     /// </summary>
     [Cmdlet("Remove", "WAF2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

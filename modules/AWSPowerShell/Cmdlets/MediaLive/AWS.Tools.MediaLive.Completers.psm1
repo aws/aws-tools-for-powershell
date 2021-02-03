@@ -257,6 +257,7 @@ $EML_SelectMap = @{
                "New-EMLInputSecurityGroup",
                "New-EMLMultiplex",
                "New-EMLMultiplexProgram",
+               "New-EMLPartnerInput",
                "Add-EMLResourceTag",
                "Remove-EMLChannel",
                "Remove-EMLInput",

@@ -149,6 +149,17 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public System.Boolean? Salesforce_EnableDynamicFieldUpdate { get; set; }
         #endregion
         
+        #region Parameter Scheduled_FirstExecutionFrom
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TriggerConfig_TriggerProperties_Scheduled_FirstExecutionFrom")]
+        public System.DateTime? Scheduled_FirstExecutionFrom { get; set; }
+        #endregion
+        
         #region Parameter FlowName
         /// <summary>
         /// <para>
@@ -344,6 +355,18 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public System.String Scheduled_ScheduleExpression { get; set; }
         #endregion
         
+        #region Parameter Scheduled_ScheduleOffset
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the optional offset that is added to the time interval for a schedule-triggered
+        /// flow. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TriggerConfig_TriggerProperties_Scheduled_ScheduleOffset")]
+        public System.Int64? Scheduled_ScheduleOffset { get; set; }
+        #endregion
+        
         #region Parameter Scheduled_ScheduleStartTime
         /// <summary>
         /// <para>
@@ -378,7 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para> Specifies the time zone used when referring to the date and time of a scheduled-triggered
-        /// flow. </para>
+        /// flow, such as <code>America/New_York</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -514,8 +537,10 @@ namespace Amazon.PowerShell.Cmdlets.AF
             }
             #endif
             context.Scheduled_DataPullMode = this.Scheduled_DataPullMode;
+            context.Scheduled_FirstExecutionFrom = this.Scheduled_FirstExecutionFrom;
             context.Scheduled_ScheduleEndTime = this.Scheduled_ScheduleEndTime;
             context.Scheduled_ScheduleExpression = this.Scheduled_ScheduleExpression;
+            context.Scheduled_ScheduleOffset = this.Scheduled_ScheduleOffset;
             context.Scheduled_ScheduleStartTime = this.Scheduled_ScheduleStartTime;
             context.Scheduled_Timezone = this.Scheduled_Timezone;
             context.TriggerConfig_TriggerType = this.TriggerConfig_TriggerType;
@@ -1040,6 +1065,16 @@ namespace Amazon.PowerShell.Cmdlets.AF
                 requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled.DataPullMode = requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_DataPullMode;
                 requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_ScheduledIsNull = false;
             }
+            System.DateTime? requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_FirstExecutionFrom = null;
+            if (cmdletContext.Scheduled_FirstExecutionFrom != null)
+            {
+                requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_FirstExecutionFrom = cmdletContext.Scheduled_FirstExecutionFrom.Value;
+            }
+            if (requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_FirstExecutionFrom != null)
+            {
+                requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled.FirstExecutionFrom = requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_FirstExecutionFrom.Value;
+                requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_ScheduledIsNull = false;
+            }
             System.DateTime? requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_ScheduleEndTime = null;
             if (cmdletContext.Scheduled_ScheduleEndTime != null)
             {
@@ -1058,6 +1093,16 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_ScheduleExpression != null)
             {
                 requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled.ScheduleExpression = requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_ScheduleExpression;
+                requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_ScheduledIsNull = false;
+            }
+            System.Int64? requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_ScheduleOffset = null;
+            if (cmdletContext.Scheduled_ScheduleOffset != null)
+            {
+                requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_ScheduleOffset = cmdletContext.Scheduled_ScheduleOffset.Value;
+            }
+            if (requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_ScheduleOffset != null)
+            {
+                requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled.ScheduleOffset = requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_ScheduleOffset.Value;
                 requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_ScheduledIsNull = false;
             }
             System.DateTime? requestTriggerConfig_triggerConfig_TriggerProperties_triggerConfig_TriggerProperties_Scheduled_scheduled_ScheduleStartTime = null;
@@ -1191,8 +1236,10 @@ namespace Amazon.PowerShell.Cmdlets.AF
             public System.String Zendesk_Object { get; set; }
             public List<Amazon.Appflow.Model.Task> Task { get; set; }
             public Amazon.Appflow.DataPullMode Scheduled_DataPullMode { get; set; }
+            public System.DateTime? Scheduled_FirstExecutionFrom { get; set; }
             public System.DateTime? Scheduled_ScheduleEndTime { get; set; }
             public System.String Scheduled_ScheduleExpression { get; set; }
+            public System.Int64? Scheduled_ScheduleOffset { get; set; }
             public System.DateTime? Scheduled_ScheduleStartTime { get; set; }
             public System.String Scheduled_Timezone { get; set; }
             public Amazon.Appflow.TriggerType TriggerConfig_TriggerType { get; set; }

@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Updates the policy that grants an IAM entity permission to assume a role. This is
     /// typically referred to as the "role trust policy". For more information about roles,
-    /// go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using
-    /// Roles to Delegate Permissions and Federate Identities</a>.
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using
+    /// roles to delegate permissions and federate identities</a>.
     /// </summary>
     [Cmdlet("Update", "IAMAssumeRolePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

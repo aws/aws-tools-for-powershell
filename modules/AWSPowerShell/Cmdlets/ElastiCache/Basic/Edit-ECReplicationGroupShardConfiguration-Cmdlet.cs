@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
     /// Modifies a replication group's shards (node groups) by allowing you to add shards,
-    /// remove shards, or rebalance the keyspaces among exisiting shards.
+    /// remove shards, or rebalance the keyspaces among existing shards.
     /// </summary>
     [Cmdlet("Edit", "ECReplicationGroupShardConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]

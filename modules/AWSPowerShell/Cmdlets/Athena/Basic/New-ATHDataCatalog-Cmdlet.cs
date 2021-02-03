@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// to the currently supported version.</para><para><code>metadata-function=<i>lambda_arn</i>, sdk-version=<i>version_number</i></code></para></li><li><para>For the <code>LAMBDA</code> data catalog type, use one of the following sets of required
         /// parameters, but not both.</para><ul><li><para>If you have one Lambda function that processes metadata and another for reading the
         /// actual data, use the following syntax. Both parameters are required.</para><para><code>metadata-function=<i>lambda_arn</i>, record-function=<i>lambda_arn</i></code></para></li><li><para> If you have a composite Lambda function that processes both metadata and data, use
-        /// the following syntax to specify your Lambda function.</para><para><code>function=<i>lambda_arn</i></code></para></li></ul></li><li><para>The <code>GLUE</code> type has no parameters.</para></li></ul>
+        /// the following syntax to specify your Lambda function.</para><para><code>function=<i>lambda_arn</i></code></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,8 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of data catalog to create: <code>LAMBDA</code> for a federated catalog, <code>GLUE</code>
-        /// for AWS Glue Catalog, or <code>HIVE</code> for an external hive metastore.</para>
+        /// <para>The type of data catalog to create: <code>LAMBDA</code> for a federated catalog or
+        /// <code>HIVE</code> for an external hive metastore.</para><note><para>Do not use the <code>GLUE</code> type. This refers to the <code>AwsDataCatalog</code>
+        /// that already exists in your account, of which you can have only one. Specifying the
+        /// <code>GLUE</code> type will result in an <code>INVALID_INPUT</code> error.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

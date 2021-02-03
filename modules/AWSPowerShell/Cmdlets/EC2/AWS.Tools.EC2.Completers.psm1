@@ -80,6 +80,16 @@ $EC2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.EC2.AddressAttributeName
+        {
+            ($_ -eq "Get-EC2AddressesAttribute/Attribute") -Or
+            ($_ -eq "Reset-EC2AddressAttribute/Attribute")
+        }
+        {
+            $v = "domain-name"
+            break
+        }
+
         # Amazon.EC2.Affinity
         "Edit-EC2InstancePlacement/Affinity"
         {
@@ -785,7 +795,7 @@ $EC2_Completers = {
 $EC2_map = @{
     "Affinity"=@("Edit-EC2InstancePlacement")
     "Architecture"=@("Register-EC2Image")
-    "Attribute"=@("Edit-EC2FpgaImageAttribute","Edit-EC2InstanceAttribute","Edit-EC2SnapshotAttribute","Get-EC2FpgaImageAttribute","Get-EC2ImageAttribute","Get-EC2InstanceAttribute","Get-EC2NetworkInterfaceAttribute","Get-EC2SnapshotAttribute","Get-EC2VolumeAttribute","Get-EC2VpcAttribute","Reset-EC2FpgaImageAttribute","Reset-EC2ImageAttribute","Reset-EC2InstanceAttribute","Reset-EC2SnapshotAttribute")
+    "Attribute"=@("Edit-EC2FpgaImageAttribute","Edit-EC2InstanceAttribute","Edit-EC2SnapshotAttribute","Get-EC2AddressesAttribute","Get-EC2FpgaImageAttribute","Get-EC2ImageAttribute","Get-EC2InstanceAttribute","Get-EC2NetworkInterfaceAttribute","Get-EC2SnapshotAttribute","Get-EC2VolumeAttribute","Get-EC2VpcAttribute","Reset-EC2AddressAttribute","Reset-EC2FpgaImageAttribute","Reset-EC2ImageAttribute","Reset-EC2InstanceAttribute","Reset-EC2SnapshotAttribute")
     "AutoPlacement"=@("Edit-EC2Host","New-EC2Host")
     "CapacityReservationSpecification_CapacityReservationPreference"=@("Edit-EC2InstanceCapacityReservationAttribute","New-EC2Instance")
     "CopyTagsFromSource"=@("New-EC2SnapshotBatch")
@@ -1075,6 +1085,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2TransitGatewayMulticastGroupSource",
                "Get-EC2AccountAttribute",
                "Get-EC2Address",
+               "Get-EC2AddressesAttribute",
                "Get-EC2AggregateIdFormat",
                "Get-EC2AvailabilityZone",
                "Get-EC2BundleTask",
@@ -1246,6 +1257,7 @@ $EC2_SelectMap = @{
                "Import-EC2Image",
                "Import-EC2KeyPair",
                "Import-EC2Snapshot",
+               "Edit-EC2AddressAttribute",
                "Edit-EC2AvailabilityZoneGroup",
                "Edit-EC2CapacityReservation",
                "Edit-EC2ClientVpnEndpoint",
@@ -1316,6 +1328,7 @@ $EC2_SelectMap = @{
                "Send-EC2InstanceStatus",
                "Request-EC2SpotFleet",
                "Request-EC2SpotInstance",
+               "Reset-EC2AddressAttribute",
                "Reset-EC2EbsDefaultKmsKeyId",
                "Reset-EC2FpgaImageAttribute",
                "Reset-EC2ImageAttribute",

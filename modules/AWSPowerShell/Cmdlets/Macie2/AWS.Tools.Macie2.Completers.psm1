@@ -167,6 +167,13 @@ $MAC2_Completers = {
             break
         }
 
+        # Amazon.Macie2.TimeRange
+        "Get-MAC2UsageStatistic/TimeRange"
+        {
+            $v = "MONTH_TO_DATE","PAST_30_DAYS"
+            break
+        }
+
         # Amazon.Macie2.UsageStatisticsSortKey
         "Get-MAC2UsageStatistic/SortBy_Key"
         {
@@ -194,6 +201,7 @@ $MAC2_map = @{
     "SortCriteria_AttributeName"=@("Get-MAC2ClassificationJobList","Get-MAC2FindingStatistic")
     "SortCriteria_OrderBy"=@("Get-MAC2Bucket","Get-MAC2ClassificationJobList","Get-MAC2Finding","Get-MAC2FindingList","Get-MAC2FindingStatistic")
     "Status"=@("Enable-MAC2Macie","Update-MAC2MacieSession","Update-MAC2MemberSession")
+    "TimeRange"=@("Get-MAC2UsageStatistic")
 }
 
 _awsArgumentCompleterRegistration $MAC2_Completers $MAC2_map
@@ -264,10 +272,12 @@ $MAC2_SelectMap = @{
                "Get-MAC2OrganizationConfiguration",
                "Disable-MAC2Macie",
                "Disable-MAC2OrganizationAdminAccount",
+               "Unregister-MAC2FromAdministratorAccount",
                "Unregister-MAC2FromMasterAccount",
                "Unregister-MAC2Member",
                "Enable-MAC2Macie",
                "Enable-MAC2OrganizationAdminAccount",
+               "Get-MAC2AdministratorAccount",
                "Get-MAC2BucketStatistic",
                "Get-MAC2ClassificationExportConfiguration",
                "Get-MAC2CustomDataIdentifier",

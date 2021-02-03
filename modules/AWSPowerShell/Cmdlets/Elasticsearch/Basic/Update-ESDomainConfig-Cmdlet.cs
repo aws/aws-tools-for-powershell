@@ -150,6 +150,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_DedicatedMasterType { get; set; }
         #endregion
         
+        #region Parameter AutoTuneOptions_DesiredState
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Auto-Tune desired state. Valid values are ENABLED, DISABLED. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Elasticsearch.AutoTuneDesiredState")]
+        public Amazon.Elasticsearch.AutoTuneDesiredState AutoTuneOptions_DesiredState { get; set; }
+        #endregion
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>
@@ -314,6 +325,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Collections.Hashtable LogPublishingOption { get; set; }
         #endregion
         
+        #region Parameter AutoTuneOptions_MaintenanceSchedule
+        /// <summary>
+        /// <para>
+        /// <para>Specifies list of maitenance schedules. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoTuneOptions_MaintenanceSchedules")]
+        public Amazon.Elasticsearch.Model.AutoTuneMaintenanceSchedule[] AutoTuneOptions_MaintenanceSchedule { get; set; }
+        #endregion
+        
         #region Parameter SAMLOptions_MasterBackendRole
         /// <summary>
         /// <para>
@@ -403,6 +425,18 @@ namespace Amazon.PowerShell.Cmdlets.ES
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AdvancedSecurityOptions_SAMLOptions_RolesKey")]
         public System.String SAMLOptions_RolesKey { get; set; }
+        #endregion
+        
+        #region Parameter AutoTuneOptions_RollbackOnDisable
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the rollback state while disabling Auto-Tune for the domain. Valid values
+        /// are NO_ROLLBACK, DEFAULT_ROLLBACK. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Elasticsearch.RollbackOnDisable")]
+        public Amazon.Elasticsearch.RollbackOnDisable AutoTuneOptions_RollbackOnDisable { get; set; }
         #endregion
         
         #region Parameter VPCOptions_SecurityGroupId
@@ -599,6 +633,12 @@ namespace Amazon.PowerShell.Cmdlets.ES
             context.SAMLOptions_RolesKey = this.SAMLOptions_RolesKey;
             context.SAMLOptions_SessionTimeoutMinute = this.SAMLOptions_SessionTimeoutMinute;
             context.SAMLOptions_SubjectKey = this.SAMLOptions_SubjectKey;
+            context.AutoTuneOptions_DesiredState = this.AutoTuneOptions_DesiredState;
+            if (this.AutoTuneOptions_MaintenanceSchedule != null)
+            {
+                context.AutoTuneOptions_MaintenanceSchedule = new List<Amazon.Elasticsearch.Model.AutoTuneMaintenanceSchedule>(this.AutoTuneOptions_MaintenanceSchedule);
+            }
+            context.AutoTuneOptions_RollbackOnDisable = this.AutoTuneOptions_RollbackOnDisable;
             context.CognitoOptions_Enabled = this.CognitoOptions_Enabled;
             context.CognitoOptions_IdentityPoolId = this.CognitoOptions_IdentityPoolId;
             context.CognitoOptions_RoleArn = this.CognitoOptions_RoleArn;
@@ -855,6 +895,45 @@ namespace Amazon.PowerShell.Cmdlets.ES
             if (requestAdvancedSecurityOptionsIsNull)
             {
                 request.AdvancedSecurityOptions = null;
+            }
+            
+             // populate AutoTuneOptions
+            var requestAutoTuneOptionsIsNull = true;
+            request.AutoTuneOptions = new Amazon.Elasticsearch.Model.AutoTuneOptions();
+            Amazon.Elasticsearch.AutoTuneDesiredState requestAutoTuneOptions_autoTuneOptions_DesiredState = null;
+            if (cmdletContext.AutoTuneOptions_DesiredState != null)
+            {
+                requestAutoTuneOptions_autoTuneOptions_DesiredState = cmdletContext.AutoTuneOptions_DesiredState;
+            }
+            if (requestAutoTuneOptions_autoTuneOptions_DesiredState != null)
+            {
+                request.AutoTuneOptions.DesiredState = requestAutoTuneOptions_autoTuneOptions_DesiredState;
+                requestAutoTuneOptionsIsNull = false;
+            }
+            List<Amazon.Elasticsearch.Model.AutoTuneMaintenanceSchedule> requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule = null;
+            if (cmdletContext.AutoTuneOptions_MaintenanceSchedule != null)
+            {
+                requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule = cmdletContext.AutoTuneOptions_MaintenanceSchedule;
+            }
+            if (requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule != null)
+            {
+                request.AutoTuneOptions.MaintenanceSchedules = requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule;
+                requestAutoTuneOptionsIsNull = false;
+            }
+            Amazon.Elasticsearch.RollbackOnDisable requestAutoTuneOptions_autoTuneOptions_RollbackOnDisable = null;
+            if (cmdletContext.AutoTuneOptions_RollbackOnDisable != null)
+            {
+                requestAutoTuneOptions_autoTuneOptions_RollbackOnDisable = cmdletContext.AutoTuneOptions_RollbackOnDisable;
+            }
+            if (requestAutoTuneOptions_autoTuneOptions_RollbackOnDisable != null)
+            {
+                request.AutoTuneOptions.RollbackOnDisable = requestAutoTuneOptions_autoTuneOptions_RollbackOnDisable;
+                requestAutoTuneOptionsIsNull = false;
+            }
+             // determine if request.AutoTuneOptions should be set to null
+            if (requestAutoTuneOptionsIsNull)
+            {
+                request.AutoTuneOptions = null;
             }
             
              // populate CognitoOptions
@@ -1292,6 +1371,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public System.String SAMLOptions_RolesKey { get; set; }
             public System.Int32? SAMLOptions_SessionTimeoutMinute { get; set; }
             public System.String SAMLOptions_SubjectKey { get; set; }
+            public Amazon.Elasticsearch.AutoTuneDesiredState AutoTuneOptions_DesiredState { get; set; }
+            public List<Amazon.Elasticsearch.Model.AutoTuneMaintenanceSchedule> AutoTuneOptions_MaintenanceSchedule { get; set; }
+            public Amazon.Elasticsearch.RollbackOnDisable AutoTuneOptions_RollbackOnDisable { get; set; }
             public System.Boolean? CognitoOptions_Enabled { get; set; }
             public System.String CognitoOptions_IdentityPoolId { get; set; }
             public System.String CognitoOptions_RoleArn { get; set; }

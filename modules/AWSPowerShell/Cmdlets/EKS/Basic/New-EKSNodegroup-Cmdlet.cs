@@ -28,11 +28,11 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Creates a managed worker node group for an Amazon EKS cluster. You can only create
-    /// a node group for your cluster that is equal to the current Kubernetes version for
-    /// the cluster. All node groups are created with the latest AMI release version for the
-    /// respective minor Kubernetes version of the cluster, unless you deploy a custom AMI
-    /// using a launch template. For more information about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+    /// Creates a managed node group for an Amazon EKS cluster. You can only create a node
+    /// group for your cluster that is equal to the current Kubernetes version for the cluster.
+    /// All node groups are created with the latest AMI release version for the respective
+    /// minor Kubernetes version of the cluster, unless you deploy a custom AMI using a launch
+    /// template. For more information about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
     /// template support</a>.
     /// 
     ///  
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ScalingConfig_DesiredSize
         /// <summary>
         /// <para>
-        /// <para>The current number of worker nodes that the managed node group should maintain.</para>
+        /// <para>The current number of nodes that the managed node group should maintain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter RemoteAccess_Ec2SshKey
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 SSH key that provides access for SSH communication with the worker
-        /// nodes in the managed node group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
+        /// <para>The Amazon EC2 SSH key that provides access for SSH communication with the nodes in
+        /// the managed node group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
         /// EC2 Key Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>.</para>
         /// </para>
         /// </summary>
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// specify an instance type in a launch template or for <code>instanceTypes</code>, then
         /// <code>t3.medium</code> is used, by default. If you specify <code>Spot</code> for <code>capacityType</code>,
         /// then we recommend specifying multiple values for <code>instanceTypes</code>. For more
-        /// information, see <a href="https://docs.aws.amazon.com/managed-node-groups.html#managed-node-group-capacity-types">Managed
+        /// information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types">Managed
         /// node group capacity types</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
@@ -193,8 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ScalingConfig_MaxSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of worker nodes that the managed node group can scale out to. Managed
-        /// node groups can support up to 100 nodes by default.</para>
+        /// <para>The maximum number of nodes that the managed node group can scale out to. For information
+        /// about the maximum number that you can specify, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html">Amazon
+        /// EKS service quotas</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,8 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ScalingConfig_MinSize
         /// <summary>
         /// <para>
-        /// <para>The minimum number of worker nodes that the managed node group can scale in to. This
-        /// number must be greater than zero.</para>
+        /// <para>The minimum number of nodes that the managed node group can scale in to. This number
+        /// must be greater than zero.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,12 +245,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
         /// The Amazon EKS worker node <code>kubelet</code> daemon makes calls to AWS APIs on
-        /// your behalf. Worker nodes receive permissions for these API calls through an IAM instance
-        /// profile and associated policies. Before you can launch worker nodes and register them
-        /// into a cluster, you must create an IAM role for those worker nodes to use when they
-        /// are launched. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">Amazon
-        /// EKS Worker Node IAM Role</a> in the <i><i>Amazon EKS User Guide</i></i>. If you
-        /// specify <code>launchTemplate</code>, then don't specify <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html"><code>IamInstanceProfile</code></a> in your launch template, or the node group deployment
+        /// your behalf. Nodes receive permissions for these API calls through an IAM instance
+        /// profile and associated policies. Before you can launch nodes and register them into
+        /// a cluster, you must create an IAM role for those nodes to use when they are launched.
+        /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">Amazon
+        /// EKS node IAM role</a> in the <i><i>Amazon EKS User Guide</i></i>. If you specify
+        /// <code>launchTemplate</code>, then don't specify <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html"><code>IamInstanceProfile</code></a> in your launch template, or the node group deployment
         /// will fail. For more information about using launch templates with Amazon EKS, see
         /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the Amazon EKS User Guide.</para>
@@ -287,10 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter RemoteAccess_SourceSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The security groups that are allowed SSH access (port 22) to the worker nodes. If
-        /// you specify an Amazon EC2 SSH key but do not specify a source security group when
-        /// you create a managed node group, then port 22 on the worker nodes is opened to the
-        /// internet (0.0.0.0/0). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
+        /// <para>The security groups that are allowed SSH access (port 22) to the nodes. If you specify
+        /// an Amazon EC2 SSH key but do not specify a source security group when you create a
+        /// managed node group, then port 22 on the nodes is opened to the internet (0.0.0.0/0).
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
         /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>

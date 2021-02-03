@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Removes the specified tags from the role. For more information about tagging, see
     /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
-    /// Identities</a> in the <i>IAM User Guide</i>.
+    /// resources</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "IAMRoleTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

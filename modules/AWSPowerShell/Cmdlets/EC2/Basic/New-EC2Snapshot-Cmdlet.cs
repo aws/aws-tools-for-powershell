@@ -34,6 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
+    /// You can create snapshots of volumes in a Region and volumes on an Outpost. If you
+    /// create a snapshot of a volume in a Region, the snapshot must be stored in the same
+    /// Region as the volume. If you create a snapshot of a volume on an Outpost, the snapshot
+    /// can be stored on the same Outpost as the volume, or in the Region for that Outpost.
+    /// </para><para>
     /// When a snapshot is created, any AWS Marketplace product codes that are associated
     /// with the source volume are propagated to the snapshot.
     /// </para><para>
@@ -80,6 +85,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter OutpostArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Outpost on which to create a local snapshot.</para><ul><li><para>To create a snapshot of a volume in a Region, omit this parameter. The snapshot is
+        /// created in the same Region as the volume.</para></li><li><para>To create a snapshot of a volume on an Outpost and store the snapshot in the Region,
+        /// omit this parameter. The snapshot is created in the Region for the Outpost.</para></li><li><para>To create a snapshot of a volume on an Outpost and store the snapshot on an Outpost,
+        /// specify the ARN of the destination Outpost. The snapshot must be created on the same
+        /// Outpost as the volume.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot">
+        /// Creating local snapshots from volumes on an Outpost</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutpostArn { get; set; }
         #endregion
         
         #region Parameter TagSpecification
@@ -172,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            context.OutpostArn = this.OutpostArn;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -202,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.OutpostArn != null)
+            {
+                request.OutpostArn = cmdletContext.OutpostArn;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -273,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.String OutpostArn { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String VolumeId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateSnapshotResponse, NewEC2SnapshotCmdlet, object> Select { get; set; } =

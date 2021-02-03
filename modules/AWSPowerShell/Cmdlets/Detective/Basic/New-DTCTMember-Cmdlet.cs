@@ -29,12 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
     /// Sends a request to invite the specified AWS accounts to be member accounts in the
-    /// behavior graph. This operation can only be called by the master account for a behavior
-    /// graph. 
+    /// behavior graph. This operation can only be called by the administrator account for
+    /// a behavior graph. 
     /// 
     ///  
-    /// <para><code>CreateMembers</code> verifies the accounts and then sends invitations to the
-    /// verified accounts.
+    /// <para><code>CreateMembers</code> verifies the accounts and then invites the verified accounts.
+    /// The administrator can optionally specify to not send invitation emails to the member
+    /// accounts. This would be used when the administrator manages their member accounts
+    /// centrally.
     /// </para><para>
     /// The request provides the behavior graph ARN and the list of accounts to invite.
     /// </para><para>
@@ -42,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     /// </para><ul><li><para>
     /// The accounts that <code>CreateMembers</code> was able to start the verification for.
     /// This list includes member accounts that are being verified, that have passed verification
-    /// and are being sent an invitation, and that have failed verification.
+    /// and are to be invited, and that have failed verification.
     /// </para></li><li><para>
     /// The accounts that <code>CreateMembers</code> was unable to process. This list includes
     /// accounts that were already invited to be member accounts in the behavior graph.
@@ -75,6 +77,18 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Accounts")]
         public Amazon.Detective.Model.Account[] Account { get; set; }
+        #endregion
+        
+        #region Parameter DisableEmailNotification
+        /// <summary>
+        /// <para>
+        /// <para>if set to <code>true</code>, then the member accounts do not receive email notifications.
+        /// By default, this is set to <code>false</code>, and the member accounts receive email
+        /// notifications.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DisableEmailNotification { get; set; }
         #endregion
         
         #region Parameter GraphArn
@@ -177,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
                 WriteWarning("You are passing $null as a value for parameter Account which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DisableEmailNotification = this.DisableEmailNotification;
             context.GraphArn = this.GraphArn;
             #if MODULAR
             if (this.GraphArn == null && ParameterWasBound(nameof(this.GraphArn)))
@@ -204,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
             if (cmdletContext.Account != null)
             {
                 request.Accounts = cmdletContext.Account;
+            }
+            if (cmdletContext.DisableEmailNotification != null)
+            {
+                request.DisableEmailNotification = cmdletContext.DisableEmailNotification.Value;
             }
             if (cmdletContext.GraphArn != null)
             {
@@ -275,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.Detective.Model.Account> Account { get; set; }
+            public System.Boolean? DisableEmailNotification { get; set; }
             public System.String GraphArn { get; set; }
             public System.String Message { get; set; }
             public System.Func<Amazon.Detective.Model.CreateMembersResponse, NewDTCTMemberCmdlet, object> Select { get; set; } =

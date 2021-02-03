@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// policies, access control lists, AWS Organizations policies, IAM permissions boundaries,
     /// and AWS STS assume role policies. It only applies permissions policy logic. For more
     /// about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating
-    /// Policies</a> in the <i>IAM User Guide</i>.
+    /// policies</a> in the <i>IAM User Guide</i>.
     /// </para></note><para>
     /// For each service that the resource could access using permissions policies, the operation
     /// returns details about the most recent access attempt. If there was no attempt, the
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// returns only service data.
     /// </para><para>
     /// For more information about service and action last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
-    /// Permissions Using Service Last Accessed Data</a> in the <i>IAM User Guide</i>.
+    /// permissions using service last accessed data</a> in the <i>IAM User Guide</i>.
     /// </para><br/><br/>In the AWS.Tools.IdentityManagement module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMServiceLastAccessedDetail")]

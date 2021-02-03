@@ -138,10 +138,13 @@ $ECRP_SelectMap = @{
                "Get-ECRPRepositoryCatalogData",
                "Get-ECRPRepositoryPolicy",
                "Start-ECRPLayerUpload",
+               "Get-ECRPResourceTag",
                "Write-ECRPImage",
                "Write-ECRPRegistryCatalogData",
                "Write-ECRPRepositoryCatalogData",
                "Set-ECRPRepositoryPolicy",
+               "Add-ECRPResourceTag",
+               "Remove-ECRPResourceTag",
                "Send-ECRPLayerPart")
 }
 

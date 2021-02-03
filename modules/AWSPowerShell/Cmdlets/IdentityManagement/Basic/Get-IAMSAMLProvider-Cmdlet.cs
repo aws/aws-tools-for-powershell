@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get
         /// information about.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

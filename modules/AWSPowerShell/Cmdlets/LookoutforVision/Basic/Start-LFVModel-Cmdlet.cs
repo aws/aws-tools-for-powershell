@@ -33,6 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// 
     ///  
     /// <para>
+    /// A model is ready to use when its status is <code>HOSTED</code>.
+    /// </para><para>
     /// Once the model is running, you can detect custom labels in new images by calling <a>DetectAnomalies</a>.
     /// </para><note><para>
     /// You are charged for the amount of time that the model is running. To stop a running

@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>This field is only used when <code>SortBy</code> is provided in the request.</para><para>The maximum number of objects that to be returned for this request. If <code>MaxResults</code>
         /// is not specified with <code>SortBy</code>, the request will return 1000 results as
-        /// the default value for this parameter.</para>
+        /// the default value for this parameter.</para><para>For <code>GetCostCategories</code>, MaxResults has an upper limit of 1000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

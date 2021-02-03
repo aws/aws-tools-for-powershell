@@ -68,6 +68,19 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String S3Destination_Bucket { get; set; }
         #endregion
         
+        #region Parameter S3Destination_BucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The AWS account identifier of the owner of the Amazon S3 bucket. This allows report
+        /// data to be exported to an Amazon S3 bucket that is owned by an account other than
+        /// the account running the build.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExportConfig_S3Destination_BucketOwner")]
+        public System.String S3Destination_BucketOwner { get; set; }
+        #endregion
+        
         #region Parameter S3Destination_EncryptionDisabled
         /// <summary>
         /// <para>
@@ -208,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             #endif
             context.ExportConfig_ExportConfigType = this.ExportConfig_ExportConfigType;
             context.S3Destination_Bucket = this.S3Destination_Bucket;
+            context.S3Destination_BucketOwner = this.S3Destination_BucketOwner;
             context.S3Destination_EncryptionDisabled = this.S3Destination_EncryptionDisabled;
             context.S3Destination_EncryptionKey = this.S3Destination_EncryptionKey;
             context.S3Destination_Packaging = this.S3Destination_Packaging;
@@ -263,6 +277,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestExportConfig_exportConfig_S3Destination_s3Destination_Bucket != null)
             {
                 requestExportConfig_exportConfig_S3Destination.Bucket = requestExportConfig_exportConfig_S3Destination_s3Destination_Bucket;
+                requestExportConfig_exportConfig_S3DestinationIsNull = false;
+            }
+            System.String requestExportConfig_exportConfig_S3Destination_s3Destination_BucketOwner = null;
+            if (cmdletContext.S3Destination_BucketOwner != null)
+            {
+                requestExportConfig_exportConfig_S3Destination_s3Destination_BucketOwner = cmdletContext.S3Destination_BucketOwner;
+            }
+            if (requestExportConfig_exportConfig_S3Destination_s3Destination_BucketOwner != null)
+            {
+                requestExportConfig_exportConfig_S3Destination.BucketOwner = requestExportConfig_exportConfig_S3Destination_s3Destination_BucketOwner;
                 requestExportConfig_exportConfig_S3DestinationIsNull = false;
             }
             System.Boolean? requestExportConfig_exportConfig_S3Destination_s3Destination_EncryptionDisabled = null;
@@ -388,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String Arn { get; set; }
             public Amazon.CodeBuild.ReportExportConfigType ExportConfig_ExportConfigType { get; set; }
             public System.String S3Destination_Bucket { get; set; }
+            public System.String S3Destination_BucketOwner { get; set; }
             public System.Boolean? S3Destination_EncryptionDisabled { get; set; }
             public System.String S3Destination_EncryptionKey { get; set; }
             public Amazon.CodeBuild.ReportPackagingType S3Destination_Packaging { get; set; }

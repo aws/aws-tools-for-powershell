@@ -76,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <para>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP),
         /// you can choose IP addresses from your own pool to use for the accelerator's static
         /// IP addresses when you create an accelerator. You can specify one or two addresses,
-        /// separated by a comma. Do not include the /32 suffix.</para><para>Only one IP address from each of your IP address ranges can be used for each accelerator.
+        /// separated by a space. Do not include the /32 suffix.</para><para>Only one IP address from each of your IP address ranges can be used for each accelerator.
         /// If you specify only one IP address from your IP address range, Global Accelerator
-        /// assigns a second static IP address for the accelerator from the AWS IP address pool.</para><para> Note that you can't update IP addresses for an existing accelerator. To change them,
+        /// assigns a second static IP address for the accelerator from the AWS IP address pool.</para><para>Note that you can't update IP addresses for an existing accelerator. To change them,
         /// you must create a new accelerator with the new addresses.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
         /// Your Own IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</para>
         /// </para>

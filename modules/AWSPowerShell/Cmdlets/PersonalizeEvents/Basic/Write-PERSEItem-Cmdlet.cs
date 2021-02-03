@@ -28,7 +28,8 @@ using Amazon.PersonalizeEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.PERSE
 {
     /// <summary>
-    /// Adds one or more items to an Items dataset. For more information see <a>importing-items</a>.
+    /// Adds one or more items to an Items dataset. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html">Importing
+    /// Items Incrementally</a>.
     /// </summary>
     [Cmdlet("Write", "PERSEItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSE
         #region Parameter DatasetArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) of the Items dataset you are adding the item or items
+        /// <para>The Amazon Resource Name (ARN) of the Items dataset you are adding the item or items
         /// to.</para>
         /// </para>
         /// </summary>

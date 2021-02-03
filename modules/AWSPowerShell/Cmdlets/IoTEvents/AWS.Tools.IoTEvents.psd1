@@ -88,6 +88,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-IOTEResourceTag', 
         'Get-IOTEDetectorModel', 
+        'Get-IOTEDetectorModelAnalysis', 
+        'Get-IOTEDetectorModelAnalysisResult', 
         'Get-IOTEDetectorModelList', 
         'Get-IOTEDetectorModelVersionList', 
         'Get-IOTEInput', 
@@ -99,6 +101,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-IOTEDetectorModel', 
         'Remove-IOTEInput', 
         'Remove-IOTEResourceTag', 
+        'Start-IOTEDetectorModelAnalysis', 
         'Update-IOTEDetectorModel', 
         'Update-IOTEInput', 
         'Write-IOTELoggingOption')

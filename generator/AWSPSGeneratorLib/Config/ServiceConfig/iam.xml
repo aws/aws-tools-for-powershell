@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>iam</C2jFilename>
     <AssemblyName>IdentityManagement</AssemblyName>
@@ -30,7 +31,6 @@
         <Map From="VirtualMFADevices" To="VirtualMFADevice" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -388,11 +388,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListInstanceProfileTags" OutputProperty="Tags" Verb="Get" Noun="InstanceProfileTagList" PipelineParameter="InstanceProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMFADevices" OutputProperty="MFADevices" Verb="Get" Noun="MFADevice" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMFADeviceTags" OutputProperty="Tags" Verb="Get" Noun="MFADeviceTagList" PipelineParameter="SerialNumber" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListOpenIDConnectProviders" OutputProperty="OpenIDConnectProviderList" Verb="Get" Noun="OpenIDConnectProviderList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-IAMOpenIDConnectProviders">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOpenIDConnectProviderTags" OutputProperty="Tags" Verb="Get" Noun="OpenIDConnectProviderTagList" PipelineParameter="OpenIDConnectProviderArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -401,6 +413,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPoliciesGrantingServiceAccess" OutputProperty="PoliciesGrantingServiceAccess" Verb="Get" Noun="PolicyGrantingServiceAccessList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyTags" OutputProperty="Tags" Verb="Get" Noun="PolicyTagList" PipelineParameter="PolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -424,7 +440,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSAMLProviderTags" OutputProperty="Tags" Verb="Get" Noun="SAMLProviderTagList" PipelineParameter="SAMLProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListServerCertificates" OutputProperty="ServerCertificateMetadataList" Verb="Get" Noun="ServerCertificateList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMServerCertificates">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServerCertificateTags" OutputProperty="Tags" Verb="Get" Noun="ServerCertificateTagList" PipelineParameter="ServerCertificateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -512,7 +536,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="TagInstanceProfile" Verb="Add" Noun="InstanceProfileTag" ShouldProcessTarget="InstanceProfileName" PipelineParameter="InstanceProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagMFADevice" Verb="Add" Noun="MFADeviceTag" ShouldProcessTarget="SerialNumber" PipelineParameter="SerialNumber" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagOpenIDConnectProvider" Verb="Add" Noun="OpenIDConnectProviderTag" ShouldProcessTarget="OpenIDConnectProviderArn" PipelineParameter="OpenIDConnectProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagPolicy" Verb="Add" Noun="PolicyTag" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagRole" Verb="Add" Noun="RoleTag" ShouldProcessTarget="RoleName" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagSAMLProvider" Verb="Add" Noun="SAMLProviderTag" ShouldProcessTarget="SAMLProviderArn" PipelineParameter="SAMLProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagServerCertificate" Verb="Add" Noun="ServerCertificateTag" ShouldProcessTarget="ServerCertificateName" PipelineParameter="ServerCertificateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -520,7 +568,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UntagInstanceProfile" Verb="Remove" Noun="InstanceProfileTag" ShouldProcessTarget="InstanceProfileName" PipelineParameter="InstanceProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagMFADevice" Verb="Remove" Noun="MFADeviceTag" ShouldProcessTarget="SerialNumber" PipelineParameter="SerialNumber" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagOpenIDConnectProvider" Verb="Remove" Noun="OpenIDConnectProviderTag" ShouldProcessTarget="OpenIDConnectProviderArn" PipelineParameter="OpenIDConnectProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagPolicy" Verb="Remove" Noun="PolicyTag" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UntagRole" Verb="Remove" Noun="RoleTag" ShouldProcessTarget="RoleName" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagSAMLProvider" Verb="Remove" Noun="SAMLProviderTag" ShouldProcessTarget="SAMLProviderArn" PipelineParameter="SAMLProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagServerCertificate" Verb="Remove" Noun="ServerCertificateTag" ShouldProcessTarget="ServerCertificateName" PipelineParameter="ServerCertificateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -597,7 +669,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

@@ -253,6 +253,7 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBContainerRecipeList",
                "Get-EC2IBDistributionConfigurationList",
                "Get-EC2IBImageBuildVersionList",
+               "Get-EC2IBImagePackageList",
                "Get-EC2IBImagePipelineImageList",
                "Get-EC2IBImagePipelineList",
                "Get-EC2IBImageRecipeList",

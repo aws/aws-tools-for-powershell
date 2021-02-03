@@ -99,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2IBImage', 
         'Get-EC2IBImageBuildVersionList', 
         'Get-EC2IBImageList', 
+        'Get-EC2IBImagePackageList', 
         'Get-EC2IBImagePipeline', 
         'Get-EC2IBImagePipelineImageList', 
         'Get-EC2IBImagePipelineList', 

@@ -191,6 +191,7 @@ $ATH_SelectMap = @{
                "Get-ATHWorkGroup",
                "Get-ATHDatabasisList",
                "Get-ATHDataCatalogList",
+               "Get-ATHEngineVersionList",
                "Get-ATHNamedQueryList",
                "Get-ATHQueryExecutionList",
                "Get-ATHTableMetadataList",

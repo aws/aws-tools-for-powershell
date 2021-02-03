@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter AdminAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the delegated administrator account.</para>
+        /// <para>The AWS account ID of the delegated Amazon Macie administrator account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

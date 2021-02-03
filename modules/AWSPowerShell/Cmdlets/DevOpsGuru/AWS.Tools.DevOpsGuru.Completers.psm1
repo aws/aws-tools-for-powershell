@@ -188,6 +188,7 @@ $DGURU_SelectMap = @{
                "Get-DGURUAccountHealth",
                "Get-DGURUAccountOverview",
                "Get-DGURUAnomaly",
+               "Get-DGURUFeedback",
                "Get-DGURUInsight",
                "Get-DGURUResourceCollectionHealth",
                "Get-DGURUServiceIntegration",

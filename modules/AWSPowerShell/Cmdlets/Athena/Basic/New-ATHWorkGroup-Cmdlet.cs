@@ -61,6 +61,22 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EngineVersion_EffectiveEngineVersion
+        /// <summary>
+        /// <para>
+        /// <para>Read only. The engine version on which the query runs. If the user requests a valid
+        /// engine version other than Auto, the effective engine version is the same as the engine
+        /// version that the user requested. If the user requests Auto, the effective engine version
+        /// is chosen by Athena. When a request to update the engine version is made by a <code>CreateWorkGroup</code>
+        /// or <code>UpdateWorkGroup</code> operation, the <code>EffectiveEngineVersion</code>
+        /// field is ignored.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EngineVersion_EffectiveEngineVersion")]
+        public System.String EngineVersion_EffectiveEngineVersion { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_EncryptionOption
         /// <summary>
         /// <para>
@@ -159,6 +175,18 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.Boolean? Configuration_RequesterPaysEnabled { get; set; }
         #endregion
         
+        #region Parameter EngineVersion_SelectedEngineVersion
+        /// <summary>
+        /// <para>
+        /// <para>The engine version requested by the user. Possible values are determined by the output
+        /// of <code>ListEngineVersions</code>, including Auto. The default is Auto.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EngineVersion_SelectedEngineVersion")]
+        public System.String EngineVersion_SelectedEngineVersion { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -232,6 +260,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Configuration_BytesScannedCutoffPerQuery = this.Configuration_BytesScannedCutoffPerQuery;
             context.Configuration_EnforceWorkGroupConfiguration = this.Configuration_EnforceWorkGroupConfiguration;
+            context.EngineVersion_EffectiveEngineVersion = this.EngineVersion_EffectiveEngineVersion;
+            context.EngineVersion_SelectedEngineVersion = this.EngineVersion_SelectedEngineVersion;
             context.Configuration_PublishCloudWatchMetricsEnabled = this.Configuration_PublishCloudWatchMetricsEnabled;
             context.Configuration_RequesterPaysEnabled = this.Configuration_RequesterPaysEnabled;
             context.EncryptionConfiguration_EncryptionOption = this.EncryptionConfiguration_EncryptionOption;
@@ -307,6 +337,41 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (requestConfiguration_configuration_RequesterPaysEnabled != null)
             {
                 request.Configuration.RequesterPaysEnabled = requestConfiguration_configuration_RequesterPaysEnabled.Value;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.Athena.Model.EngineVersion requestConfiguration_configuration_EngineVersion = null;
+            
+             // populate EngineVersion
+            var requestConfiguration_configuration_EngineVersionIsNull = true;
+            requestConfiguration_configuration_EngineVersion = new Amazon.Athena.Model.EngineVersion();
+            System.String requestConfiguration_configuration_EngineVersion_engineVersion_EffectiveEngineVersion = null;
+            if (cmdletContext.EngineVersion_EffectiveEngineVersion != null)
+            {
+                requestConfiguration_configuration_EngineVersion_engineVersion_EffectiveEngineVersion = cmdletContext.EngineVersion_EffectiveEngineVersion;
+            }
+            if (requestConfiguration_configuration_EngineVersion_engineVersion_EffectiveEngineVersion != null)
+            {
+                requestConfiguration_configuration_EngineVersion.EffectiveEngineVersion = requestConfiguration_configuration_EngineVersion_engineVersion_EffectiveEngineVersion;
+                requestConfiguration_configuration_EngineVersionIsNull = false;
+            }
+            System.String requestConfiguration_configuration_EngineVersion_engineVersion_SelectedEngineVersion = null;
+            if (cmdletContext.EngineVersion_SelectedEngineVersion != null)
+            {
+                requestConfiguration_configuration_EngineVersion_engineVersion_SelectedEngineVersion = cmdletContext.EngineVersion_SelectedEngineVersion;
+            }
+            if (requestConfiguration_configuration_EngineVersion_engineVersion_SelectedEngineVersion != null)
+            {
+                requestConfiguration_configuration_EngineVersion.SelectedEngineVersion = requestConfiguration_configuration_EngineVersion_engineVersion_SelectedEngineVersion;
+                requestConfiguration_configuration_EngineVersionIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_EngineVersion should be set to null
+            if (requestConfiguration_configuration_EngineVersionIsNull)
+            {
+                requestConfiguration_configuration_EngineVersion = null;
+            }
+            if (requestConfiguration_configuration_EngineVersion != null)
+            {
+                request.Configuration.EngineVersion = requestConfiguration_configuration_EngineVersion;
                 requestConfigurationIsNull = false;
             }
             Amazon.Athena.Model.ResultConfiguration requestConfiguration_configuration_ResultConfiguration = null;
@@ -449,6 +514,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         {
             public System.Int64? Configuration_BytesScannedCutoffPerQuery { get; set; }
             public System.Boolean? Configuration_EnforceWorkGroupConfiguration { get; set; }
+            public System.String EngineVersion_EffectiveEngineVersion { get; set; }
+            public System.String EngineVersion_SelectedEngineVersion { get; set; }
             public System.Boolean? Configuration_PublishCloudWatchMetricsEnabled { get; set; }
             public System.Boolean? Configuration_RequesterPaysEnabled { get; set; }
             public Amazon.Athena.EncryptionOption EncryptionConfiguration_EncryptionOption { get; set; }

@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters that you want to use to filter your forecast. Cost Explorer API supports
-        /// all of the Cost Explorer filters.</para>
+        /// <para>The filters that you want to use to filter your forecast. The <code>GetUsageForecast</code>
+        /// API supports filtering by the following dimensions:</para><ul><li><para><code>AZ</code></para></li><li><para><code>INSTANCE_TYPE</code></para></li><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>LINKED_ACCOUNT_NAME</code></para></li><li><para><code>OPERATION</code></para></li><li><para><code>PURCHASE_TYPE</code></para></li><li><para><code>REGION</code></para></li><li><para><code>SERVICE</code></para></li><li><para><code>USAGE_TYPE</code></para></li><li><para><code>USAGE_TYPE_GROUP</code></para></li><li><para><code>RECORD_TYPE</code></para></li><li><para><code>OPERATING_SYSTEM</code></para></li><li><para><code>TENANCY</code></para></li><li><para><code>SCOPE</code></para></li><li><para><code>PLATFORM</code></para></li><li><para><code>SUBSCRIPTION_ID</code></para></li><li><para><code>LEGAL_ENTITY_NAME</code></para></li><li><para><code>DEPLOYMENT_OPTION</code></para></li><li><para><code>DATABASE_ENGINE</code></para></li><li><para><code>INSTANCE_TYPE_FAMILY</code></para></li><li><para><code>BILLING_ENTITY</code></para></li><li><para><code>RESERVATION_ID</code></para></li><li><para><code>SAVINGS_PLAN_ARN</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

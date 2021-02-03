@@ -28,15 +28,11 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// <note><para>
-    /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-    /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-    /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-    /// WAF Developer Guide</a>. 
-    /// </para></note><para>
     /// Enables the specified <a>LoggingConfiguration</a>, to start logging from a web ACL,
     /// according to the configuration provided.
-    /// </para><para>
+    /// 
+    ///  
+    /// <para>
     /// You can access information about all traffic that AWS WAF inspects using the following
     /// steps:
     /// </para><ol><li><para>

@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Deny-ESInboundCrossClusterSearchConnection', 
         'Get-ESCompatibleElasticsearchVersion', 
         'Get-ESDomain', 
+        'Get-ESDomainAutoTune', 
         'Get-ESDomainConfig', 
         'Get-ESDomainList', 
         'Get-ESDomainNameList', 

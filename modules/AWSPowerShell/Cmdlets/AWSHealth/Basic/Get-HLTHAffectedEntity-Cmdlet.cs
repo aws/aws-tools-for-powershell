@@ -38,10 +38,14 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// <para>
     /// At least one event ARN is required. Results are sorted by the <code>lastUpdatedTime</code>
     /// of the entity, starting with the most recent.
-    /// </para><note><para>
+    /// </para><note><ul><li><para>
     /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
     /// the next request to return more results.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></li><li><para>
+    /// This operation supports resource-level permissions. You can use this operation to
+    /// allow or deny access to specific AWS Health events. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource-
+    /// and action-based conditions</a> in the <i>AWS Health User Guide</i>.
+    /// </para></li></ul></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "HLTHAffectedEntity")]
     [OutputType("Amazon.AWSHealth.Model.AffectedEntity")]

@@ -41,12 +41,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// The cluster control plane is provisioned across multiple Availability Zones and fronted
     /// by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic
     /// network interfaces in your VPC subnets to provide connectivity from the control plane
-    /// instances to the worker nodes (for example, to support <code>kubectl exec</code>,
-    /// <code>logs</code>, and <code>proxy</code> data flows).
+    /// instances to the nodes (for example, to support <code>kubectl exec</code>, <code>logs</code>,
+    /// and <code>proxy</code> data flows).
     /// </para><para>
-    /// Amazon EKS worker nodes run in your AWS account and connect to your cluster's control
-    /// plane via the Kubernetes API server endpoint and a certificate file that is created
-    /// for your cluster.
+    /// Amazon EKS nodes run in your AWS account and connect to your cluster's control plane
+    /// via the Kubernetes API server endpoint and a certificate file that is created for
+    /// your cluster.
     /// </para><para>
     /// You can use the <code>endpointPublicAccess</code> and <code>endpointPrivateAccess</code>
     /// parameters to enable or disable public and private access to your cluster's Kubernetes
@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// </para></note><para>
     /// Cluster creation typically takes between 10 and 15 minutes. After you create an Amazon
     /// EKS cluster, you must configure your Kubernetes tooling to communicate with the API
-    /// server and launch worker nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing
+    /// server and launch nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing
     /// Cluster Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching
-    /// Amazon EKS Worker Nodes</a> in the <i>Amazon EKS User Guide</i>.
+    /// Amazon EKS nodes</a> in the <i>Amazon EKS User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EKSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

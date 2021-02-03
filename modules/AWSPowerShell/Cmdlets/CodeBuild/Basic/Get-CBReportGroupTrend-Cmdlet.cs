@@ -28,7 +28,7 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    
+    /// Analyzes and accumulates test report values for the specified test reports.
     /// </summary>
     [Cmdlet("Get", "CBReportGroupTrend")]
     [OutputType("Amazon.CodeBuild.Model.GetReportGroupTrendResponse")]
@@ -42,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter NumOfReport
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The number of reports to analyze. This operation always retrieves the most recent
+        /// reports.</para><para>If this parameter is omitted, the most recent 100 reports are analyzed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ReportGroupArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the report group that contains the reports to analyze.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter TrendField
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The test report value to accumulate. This must be one of the following values:</para><dl><dt>Test reports:</dt><dd><dl><dt>DURATION</dt><dd><para>Accumulate the test run times for the specified reports.</para></dd><dt>PASS_RATE</dt><dd><para>Accumulate the percentage of tests that passed for the specified test reports.</para></dd><dt>TOTAL</dt><dd><para>Accumulate the total number of tests for the specified test reports.</para></dd></dl></dd></dl><dl><dt>Code coverage reports:</dt><dd><dl><dt>BRANCH_COVERAGE</dt><dd><para>Accumulate the branch coverage percentages for the specified test reports.</para></dd><dt>BRANCHES_COVERED</dt><dd><para>Accumulate the branches covered values for the specified test reports.</para></dd><dt>BRANCHES_MISSED</dt><dd><para>Accumulate the branches missed values for the specified test reports.</para></dd><dt>LINE_COVERAGE</dt><dd><para>Accumulate the line coverage percentages for the specified test reports.</para></dd><dt>LINES_COVERED</dt><dd><para>Accumulate the lines covered values for the specified test reports.</para></dd><dt>LINES_MISSED</dt><dd><para>Accumulate the lines not covered values for the specified test reports.</para></dd></dl></dd></dl>
         /// </para>
         /// </summary>
         #if !MODULAR

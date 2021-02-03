@@ -123,7 +123,8 @@ $WMMF_SelectCompleters = {
 }
 
 $WMMF_SelectMap = @{
-    "Select"=@("Get-WMMFRawMessageContent")
+    "Select"=@("Get-WMMFRawMessageContent",
+               "Write-WMMFRawMessageContent")
 }
 
 _awsArgumentCompleterRegistration $WMMF_SelectCompleters $WMMF_SelectMap

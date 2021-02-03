@@ -128,9 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of resource identifiers returned on each page. The default is 100.
-        /// You cannot specify a number greater than 100. If you specify 0, AWS Config uses the
-        /// default.</para>
+        /// <para>The maximum number of resource identifiers returned on each page. You cannot specify
+        /// a number greater than 100. If you specify 0, AWS Config uses the default.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

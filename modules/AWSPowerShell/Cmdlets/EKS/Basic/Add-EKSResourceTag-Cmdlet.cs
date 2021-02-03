@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// deleted as well. Tags that you create for Amazon EKS resources do not propagate to
     /// any other resources associated with the cluster. For example, if you tag a cluster
     /// with this operation, that tag does not automatically propagate to the subnets and
-    /// worker nodes associated with the cluster.
+    /// nodes associated with the cluster.
     /// </summary>
     [Cmdlet("Add", "EKSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

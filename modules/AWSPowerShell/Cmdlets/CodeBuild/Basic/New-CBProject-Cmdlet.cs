@@ -80,9 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Environment_Certificate
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Simple Storage Service (Amazon S3) bucket, path prefix, and
-        /// object key that contains the PEM-encoded certificate for the build project. For more
-        /// information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate">certificate</a>
+        /// <para>The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded
+        /// certificate for the build project. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate">certificate</a>
         /// in the <i>AWS CodeBuild User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -137,6 +136,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("BuildBatchConfig_Restrictions_ComputeTypesAllowed")]
         public System.String[] Restrictions_ComputeTypesAllowed { get; set; }
+        #endregion
+        
+        #region Parameter ConcurrentBuildLimit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of concurrent builds that are allowed for this project.</para><para>New builds are only started if the current number of builds is less than or equal
+        /// to this limit. If the current build count meets this limit, new builds are throttled
+        /// and are not run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ConcurrentBuildLimit { get; set; }
         #endregion
         
         #region Parameter BuildStatusConfig_Context
@@ -195,8 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> Set to true if you do not want your output artifacts encrypted. This option is valid
-        /// only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this
-        /// is set with another artifacts type, an invalidInputException is thrown. </para>
+        /// only if your artifacts type is Amazon S3. If this is set with another artifacts type,
+        /// an invalidInputException is thrown. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for
         /// encrypting the build output artifacts.</para><note><para>You can use a cross-account KMS key to encrypt the build output artifacts if your
         /// service role has permission to that key. </para></note><para>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available,
-        /// the CMK's alias (using the format <code>alias/&lt;alias-name&gt;</code>).</para>
+        /// the CMK's alias (using the format <code>alias/&lt;alias-name&gt;</code>). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -379,8 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// AWS CodePipeline, <code>location</code> should not be specified. If it is specified,
         /// AWS CodePipeline ignores it. This is because AWS CodePipeline uses the settings in
         /// a pipeline's source action instead of this value.</para></li><li><para>For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository
-        /// that contains the source code and the buildspec file (for example, <code>https://git-codecommit.&lt;region-ID&gt;.amazonaws.com/v1/repos/&lt;repo-name&gt;</code>).</para></li><li><para>For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, one
-        /// of the following. </para><ul><li><para>The path to the ZIP file that contains the source code (for example, <code>&lt;bucket-name&gt;/&lt;path&gt;/&lt;object-name&gt;.zip</code>).
+        /// that contains the source code and the buildspec file (for example, <code>https://git-codecommit.&lt;region-ID&gt;.amazonaws.com/v1/repos/&lt;repo-name&gt;</code>).</para></li><li><para>For source code in an Amazon S3 input bucket, one of the following. </para><ul><li><para>The path to the ZIP file that contains the source code (for example, <code>&lt;bucket-name&gt;/&lt;path&gt;/&lt;object-name&gt;.zip</code>).
         /// </para></li><li><para>The path to the folder that contains the source code (for example, <code>&lt;bucket-name&gt;/&lt;path-to-source-code&gt;/&lt;folder&gt;/</code>).
         /// </para></li></ul></li><li><para>For source code in a GitHub repository, the HTTPS clone URL to the repository that
         /// contains the source and the buildspec file. You must connect your AWS account to your
@@ -578,8 +588,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> Set to true to report the status of a build's start and finish to your source provider.
         /// This option is valid only when your source provider is GitHub, GitHub Enterprise,
-        /// or Bitbucket. If this is set and you use a different source provider, an invalidInputException
-        /// is thrown. </para><note><para> The status of a build triggered by a webhook is always reported to your source provider.
+        /// or Bitbucket. If this is set and you use a different source provider, an <code>invalidInputException</code>
+        /// is thrown. </para><para>To be able to report the build status to the source provider, the user associated
+        /// with the source provider must have write access to the repo. If the user does not
+        /// have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source
+        /// provider access</a> in the <i>AWS CodeBuild User Guide</i>.</para><note><para> The status of a build triggered by a webhook is always reported to your source provider.
         /// </para></note>
         /// </para>
         /// </summary>
@@ -692,8 +705,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// If a branch name is specified, the branch's HEAD commit ID is used. If not specified,
         /// the default branch's HEAD commit ID is used.</para></li><li><para>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version
         /// of the source code you want to build. If a branch name is specified, the branch's
-        /// HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</para></li><li><para>For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents
-        /// the build input ZIP file to use.</para></li></ul><para>If <code>sourceVersion</code> is specified at the build level, then that version takes
+        /// HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</para></li><li><para>For Amazon S3: the version ID of the object that represents the build input ZIP file
+        /// to use.</para></li></ul><para>If <code>sourceVersion</code> is specified at the build level, then that version takes
         /// precedence over this <code>sourceVersion</code> (at the project level). </para><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source
         /// Version Sample with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>. </para>
         /// </para>
@@ -807,8 +820,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The type of build output artifact. Valid values include:</para><ul><li><para><code>CODEPIPELINE</code>: The build project has build output generated through AWS
-        /// CodePipeline. </para><note><para>The <code>CODEPIPELINE</code> type is not supported for <code>secondaryArtifacts</code>.</para></note></li><li><para><code>NO_ARTIFACTS</code>: The build project does not produce any build output.</para></li><li><para><code>S3</code>: The build project stores build output in Amazon Simple Storage Service
-        /// (Amazon S3).</para></li></ul>
+        /// CodePipeline. </para><note><para>The <code>CODEPIPELINE</code> type is not supported for <code>secondaryArtifacts</code>.</para></note></li><li><para><code>NO_ARTIFACTS</code>: The build project does not produce any build output.</para></li><li><para><code>S3</code>: The build project stores build output in Amazon S3.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -878,8 +890,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>The type of repository that contains the source code to be built. Valid values include:</para><ul><li><para><code>BITBUCKET</code>: The source code is in a Bitbucket repository.</para></li><li><para><code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</para></li><li><para><code>CODEPIPELINE</code>: The source code settings are specified in the source action
         /// of a pipeline in AWS CodePipeline.</para></li><li><para><code>GITHUB</code>: The source code is in a GitHub or GitHub Enterprise Cloud repository.</para></li><li><para><code>GITHUB_ENTERPRISE</code>: The source code is in a GitHub Enterprise Server
-        /// repository.</para></li><li><para><code>NO_SOURCE</code>: The project does not have input source code.</para></li><li><para><code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3)
-        /// input bucket.</para></li></ul>
+        /// repository.</para></li><li><para><code>NO_SOURCE</code>: The project does not have input source code.</para></li><li><para><code>S3</code>: The source code is in an Amazon S3 input bucket.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -994,6 +1005,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 context.Cache_Mode = new List<System.String>(this.Cache_Mode);
             }
             context.Cache_Type = this.Cache_Type;
+            context.ConcurrentBuildLimit = this.ConcurrentBuildLimit;
             context.Description = this.Description;
             context.EncryptionKey = this.EncryptionKey;
             context.Environment_Certificate = this.Environment_Certificate;
@@ -1327,6 +1339,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestCacheIsNull)
             {
                 request.Cache = null;
+            }
+            if (cmdletContext.ConcurrentBuildLimit != null)
+            {
+                request.ConcurrentBuildLimit = cmdletContext.ConcurrentBuildLimit.Value;
             }
             if (cmdletContext.Description != null)
             {
@@ -1881,6 +1897,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String Cache_Location { get; set; }
             public List<System.String> Cache_Mode { get; set; }
             public Amazon.CodeBuild.CacheType Cache_Type { get; set; }
+            public System.Int32? ConcurrentBuildLimit { get; set; }
             public System.String Description { get; set; }
             public System.String EncryptionKey { get; set; }
             public System.String Environment_Certificate { get; set; }

@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ATHDatabasisList', 
         'Get-ATHDataCatalog', 
         'Get-ATHDataCatalogList', 
+        'Get-ATHEngineVersionList', 
         'Get-ATHNamedQuery', 
         'Get-ATHNamedQueryBatch', 
         'Get-ATHNamedQueryList', 

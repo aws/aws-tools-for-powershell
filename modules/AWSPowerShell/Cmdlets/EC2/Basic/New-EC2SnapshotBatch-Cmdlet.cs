@@ -31,7 +31,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Creates crash-consistent snapshots of multiple EBS volumes and stores the data in
     /// S3. Volumes are chosen by specifying an instance. Any attached volumes will produce
     /// one snapshot each that is crash-consistent across the instance. Boot volumes can be
-    /// excluded by changing the parameters.
+    /// excluded by changing the parameters. 
+    /// 
+    ///  
+    /// <para>
+    /// You can create multi-volume snapshots of instances in a Region and instances on an
+    /// Outpost. If you create snapshots from an instance in a Region, the snapshots must
+    /// be stored in the same Region as the instance. If you create snapshots from an instance
+    /// on an Outpost, the snapshots can be stored on the same Outpost as the instance, or
+    /// in the Region for that Outpost.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "EC2SnapshotBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.SnapshotInfo")]
@@ -82,6 +91,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceSpecification_InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter OutpostArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Outpost on which to create the local snapshots.</para><ul><li><para>To create snapshots from an instance in a Region, omit this parameter. The snapshots
+        /// are created in the same Region as the instance.</para></li><li><para>To create snapshots from an instance on an Outpost and store the snapshots in the
+        /// Region, omit this parameter. The snapshots are created in the Region for the Outpost.</para></li><li><para>To create snapshots from an instance on an Outpost and store the snapshots on an Outpost,
+        /// specify the ARN of the destination Outpost. The snapshots must be created on the same
+        /// Outpost as the instance.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot">
+        /// Creating multi-volume local snapshots from instances on an Outpost</a> in the <i>Amazon
+        /// Elastic Compute Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutpostArn { get; set; }
         #endregion
         
         #region Parameter TagSpecification
@@ -160,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Description = this.Description;
             context.InstanceSpecification_ExcludeBootVolume = this.InstanceSpecification_ExcludeBootVolume;
             context.InstanceSpecification_InstanceId = this.InstanceSpecification_InstanceId;
+            context.OutpostArn = this.OutpostArn;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -216,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestInstanceSpecificationIsNull)
             {
                 request.InstanceSpecification = null;
+            }
+            if (cmdletContext.OutpostArn != null)
+            {
+                request.OutpostArn = cmdletContext.OutpostArn;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -286,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Description { get; set; }
             public System.Boolean? InstanceSpecification_ExcludeBootVolume { get; set; }
             public System.String InstanceSpecification_InstanceId { get; set; }
+            public System.String OutpostArn { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateSnapshotsResponse, NewEC2SnapshotBatchCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Snapshots;

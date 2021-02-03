@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ScalingConfig_DesiredSize
         /// <summary>
         /// <para>
-        /// <para>The current number of worker nodes that the managed node group should maintain.</para>
+        /// <para>The current number of nodes that the managed node group should maintain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,8 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ScalingConfig_MaxSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of worker nodes that the managed node group can scale out to. Managed
-        /// node groups can support up to 100 nodes by default.</para>
+        /// <para>The maximum number of nodes that the managed node group can scale out to. For information
+        /// about the maximum number that you can specify, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html">Amazon
+        /// EKS service quotas</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ScalingConfig_MinSize
         /// <summary>
         /// <para>
-        /// <para>The minimum number of worker nodes that the managed node group can scale in to. This
-        /// number must be greater than zero.</para>
+        /// <para>The minimum number of nodes that the managed node group can scale in to. This number
+        /// must be greater than zero.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,8 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC
     /// <summary>
     /// Removes specified S3 resources from being monitored by Amazon Macie Classic. If memberAccountId
     /// isn't specified, the action removes specified S3 resources from Macie Classic for
-    /// the current master account. If memberAccountId is specified, the action removes specified
-    /// S3 resources from Macie Classic for the specified member account.
+    /// the current Macie Classic administrator account. If memberAccountId is specified,
+    /// the action removes specified S3 resources from Macie Classic for the specified member
+    /// account.
     /// </summary>
     [Cmdlet("Remove", "MACS3Resource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Macie.Model.FailedS3Resource")]
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         /// <summary>
         /// <para>
         /// <para>The ID of the Amazon Macie Classic member account whose resources you want to remove
-        /// from being monitored by Amazon Macie Classic. </para>
+        /// from being monitored by Macie Classic. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

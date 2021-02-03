@@ -28,7 +28,7 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Deletes the stored query for an AWS account in an AWS Region.
+    /// Deletes the stored query for a single AWS account and a single AWS Region.
     /// </summary>
     [Cmdlet("Remove", "CFGStoredQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

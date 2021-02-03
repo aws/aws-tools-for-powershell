@@ -147,6 +147,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListImagePackages" OutputProperty="ImagePackageList" Verb="Get" Noun="ImagePackageList" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListImagePipelineImages" OutputProperty="ImageSummaryList" Verb="Get" Noun="ImagePipelineImageList" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

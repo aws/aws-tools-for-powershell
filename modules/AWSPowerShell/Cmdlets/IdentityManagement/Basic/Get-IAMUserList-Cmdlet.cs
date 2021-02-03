@@ -32,8 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// the operation returns all users in the AWS account. If there are none, the operation
     /// returns an empty list.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// IAM resource-listing operations return a subset of the available attributes for the
+    /// resource. For example, this operation does not return tags, even though they are an
+    /// attribute of the returned object. To view all of the information for a user, see <a>GetUser</a>.
+    /// </para></note><para>
     /// You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
     /// parameters.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

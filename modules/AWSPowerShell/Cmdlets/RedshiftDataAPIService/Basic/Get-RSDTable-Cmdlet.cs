@@ -69,14 +69,33 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         public System.String ClusterIdentifier { get; set; }
         #endregion
         
-        #region Parameter Database
+        #region Parameter ConnectedDatabase
         /// <summary>
         /// <para>
-        /// <para>The name of the database. This parameter is required when authenticating using temporary
-        /// credentials.</para>
+        /// <para>A database name. The connected database is specified when you connect with your authentication
+        /// credentials. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectedDatabase { get; set; }
+        #endregion
+        
+        #region Parameter Database
+        /// <summary>
+        /// <para>
+        /// <para>The name of the database that contains the tables to be described. If <code>ConnectedDatabase</code>
+        /// is not specified, this is also the database to connect to with your authentication
+        /// credentials.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Database { get; set; }
         #endregion
         
@@ -204,7 +223,14 @@ namespace Amazon.PowerShell.Cmdlets.RSD
                 WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ConnectedDatabase = this.ConnectedDatabase;
             context.Database = this.Database;
+            #if MODULAR
+            if (this.Database == null && ParameterWasBound(nameof(this.Database)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Database which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.DbUser = this.DbUser;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -230,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+            }
+            if (cmdletContext.ConnectedDatabase != null)
+            {
+                request.ConnectedDatabase = cmdletContext.ConnectedDatabase;
             }
             if (cmdletContext.Database != null)
             {
@@ -321,6 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterIdentifier { get; set; }
+            public System.String ConnectedDatabase { get; set; }
             public System.String Database { get; set; }
             public System.String DbUser { get; set; }
             public System.Int32? MaxResult { get; set; }

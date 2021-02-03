@@ -80,6 +80,29 @@ $CFN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CloudFormation.CallAs
+        {
+            ($_ -eq "Get-CFNStackInstance/CallAs") -Or
+            ($_ -eq "Get-CFNStackInstanceList/CallAs") -Or
+            ($_ -eq "Get-CFNStackSet/CallAs") -Or
+            ($_ -eq "Get-CFNStackSetList/CallAs") -Or
+            ($_ -eq "Get-CFNStackSetOperation/CallAs") -Or
+            ($_ -eq "Get-CFNStackSetOperationList/CallAs") -Or
+            ($_ -eq "Get-CFNStackSetOperationResultList/CallAs") -Or
+            ($_ -eq "New-CFNStackInstance/CallAs") -Or
+            ($_ -eq "New-CFNStackSet/CallAs") -Or
+            ($_ -eq "Remove-CFNStackInstance/CallAs") -Or
+            ($_ -eq "Remove-CFNStackSet/CallAs") -Or
+            ($_ -eq "Start-CFNStackSetDriftDetection/CallAs") -Or
+            ($_ -eq "Stop-CFNStackSetOperation/CallAs") -Or
+            ($_ -eq "Update-CFNStackInstance/CallAs") -Or
+            ($_ -eq "Update-CFNStackSet/CallAs")
+        }
+        {
+            $v = "DELEGATED_ADMIN","SELF"
+            break
+        }
+
         # Amazon.CloudFormation.ChangeSetType
         "New-CFNChangeSet/ChangeSetType"
         {
@@ -207,6 +230,7 @@ $CFN_Completers = {
 }
 
 $CFN_map = @{
+    "CallAs"=@("Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
     "DeprecatedStatus"=@("Get-CFNTypeList","Get-CFNTypeVersion")

@@ -80,6 +80,16 @@ $ES_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Elasticsearch.AutoTuneDesiredState
+        {
+            ($_ -eq "New-ESDomain/AutoTuneOptions_DesiredState") -Or
+            ($_ -eq "Update-ESDomainConfig/AutoTuneOptions_DesiredState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Elasticsearch.ESPartitionInstanceType
         {
             ($_ -eq "New-ESDomain/ElasticsearchClusterConfig_DedicatedMasterType") -Or
@@ -107,6 +117,13 @@ $ES_Completers = {
         "New-ESPackage/PackageType"
         {
             $v = "TXT-DICTIONARY"
+            break
+        }
+
+        # Amazon.Elasticsearch.RollbackOnDisable
+        "Update-ESDomainConfig/AutoTuneOptions_RollbackOnDisable"
+        {
+            $v = "DEFAULT_ROLLBACK","NO_ROLLBACK"
             break
         }
 
@@ -139,6 +156,8 @@ $ES_Completers = {
 }
 
 $ES_map = @{
+    "AutoTuneOptions_DesiredState"=@("New-ESDomain","Update-ESDomainConfig")
+    "AutoTuneOptions_RollbackOnDisable"=@("Update-ESDomainConfig")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-ESDomain","Update-ESDomainConfig")
     "EBSOptions_VolumeType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_DedicatedMasterType"=@("New-ESDomain","Update-ESDomainConfig")
@@ -210,6 +229,7 @@ $ES_SelectMap = @{
                "Remove-ESInboundCrossClusterSearchConnection",
                "Remove-ESOutboundCrossClusterSearchConnection",
                "Remove-ESPackage",
+               "Get-ESDomainAutoTune",
                "Get-ESDomain",
                "Get-ESDomainConfig",
                "Get-ESDomainList",

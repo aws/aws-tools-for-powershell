@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Associates an account with an Amazon Macie master account.
+    /// Associates an account with an Amazon Macie administrator account.
     /// </summary>
     [Cmdlet("New", "MAC2Member", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

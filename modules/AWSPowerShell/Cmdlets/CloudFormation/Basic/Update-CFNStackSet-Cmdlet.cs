@@ -52,9 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>[<code>Self-managed</code> permissions] The accounts in which to update associated
-        /// stack instances. If you specify accounts, you must also specify the Regions in which
-        /// to update stack set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, do not specify
+        /// <para>[Self-managed permissions] The accounts in which to update associated stack instances.
+        /// If you specify accounts, you must also specify the Regions in which to update stack
+        /// set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, do not specify
         /// the <code>Accounts</code> or <code>Regions</code> properties.</para><para>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code>
         /// or <code>TemplateURL</code> properties are specified), or the <code>Parameters</code>
         /// property, AWS CloudFormation marks all stack instances with a status of <code>OUTDATED</code>
@@ -93,6 +93,22 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AdministrationRoleARN { get; set; }
+        #endregion
+        
+        #region Parameter CallAs
+        /// <summary>
+        /// <para>
+        /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
+        /// in the organization's management account or as a delegated administrator in a member
+        /// account.</para><para>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
+        /// self-managed permissions.</para><ul><li><para>If you are signed in to the management account, specify <code>SELF</code>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</para><para>Your AWS account must be registered as a delegated administrator in the management
+        /// account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
+        /// a delegated administrator</a> in the <i>AWS CloudFormation User Guide</i>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.CallAs")]
+        public Amazon.CloudFormation.CallAs CallAs { get; set; }
         #endregion
         
         #region Parameter Capability
@@ -325,8 +341,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The location of the file that contains the template body. The URL must point to a
-        /// template (maximum size: 460,800 bytes) that is located in an Amazon S3 bucket. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
+        /// template (maximum size: 460,800 bytes) that is located in an Amazon S3 bucket or a
+        /// Systems Manager document. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
         /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>
         /// or <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true. </para>
         /// </para>
@@ -414,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             context.AdministrationRoleARN = this.AdministrationRoleARN;
             context.AutoDeployment_Enabled = this.AutoDeployment_Enabled;
             context.AutoDeployment_RetainStacksOnAccountRemoval = this.AutoDeployment_RetainStacksOnAccountRemoval;
+            context.CallAs = this.CallAs;
             if (this.Capability != null)
             {
                 context.Capability = new List<System.String>(this.Capability);
@@ -505,6 +522,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (requestAutoDeploymentIsNull)
             {
                 request.AutoDeployment = null;
+            }
+            if (cmdletContext.CallAs != null)
+            {
+                request.CallAs = cmdletContext.CallAs;
             }
             if (cmdletContext.Capability != null)
             {
@@ -652,6 +673,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public System.String AdministrationRoleARN { get; set; }
             public System.Boolean? AutoDeployment_Enabled { get; set; }
             public System.Boolean? AutoDeployment_RetainStacksOnAccountRemoval { get; set; }
+            public Amazon.CloudFormation.CallAs CallAs { get; set; }
             public List<System.String> Capability { get; set; }
             public List<System.String> DeploymentTargets_Account { get; set; }
             public List<System.String> DeploymentTargets_OrganizationalUnitId { get; set; }

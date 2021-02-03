@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// your AWS resources into an unknown state. Allowing the service to control the role
     /// helps improve service stability and proper cleanup when a service and its role are
     /// no longer needed. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">Using
-    /// Service-Linked Roles</a> in the <i>IAM User Guide</i>. 
+    /// service-linked roles</a> in the <i>IAM User Guide</i>. 
     /// 
     ///  
     /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// a string similar to a URL but without the http:// in front. For example: <code>elasticbeanstalk.amazonaws.com</code>.
         /// </para><para>Service principals are unique and case-sensitive. To find the exact service principal
         /// for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
-        /// Services That Work with IAM</a> in the <i>IAM User Guide</i>. Look for the services
+        /// services that work with IAM</a> in the <i>IAM User Guide</i>. Look for the services
         /// that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b>
         /// link to view the service-linked role documentation for that service.</para>
         /// </para>

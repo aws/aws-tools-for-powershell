@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// If you do not specify a user name, IAM determines the user name implicitly based on
-    /// the AWS access key ID used to sign the request to this API.
+    /// the AWS access key ID used to sign the request to this operation.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMUser")]

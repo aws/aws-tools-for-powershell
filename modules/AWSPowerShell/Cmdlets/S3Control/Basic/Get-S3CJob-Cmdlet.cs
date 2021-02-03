@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The AWS account ID associated with the S3 Batch Operations job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// credentials returned by this operation are used only for authenticating the IAM user
     /// to a specific service. For more information about using service-specific credentials
     /// to authenticate to an AWS service, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html">Set
-    /// Up service-specific credentials</a> in the AWS CodeCommit User Guide.
+    /// up service-specific credentials</a> in the AWS CodeCommit User Guide.
     /// </summary>
     [Cmdlet("Get", "IAMServiceSpecificCredentialList")]
     [OutputType("Amazon.IdentityManagement.Model.ServiceSpecificCredentialMetadata")]

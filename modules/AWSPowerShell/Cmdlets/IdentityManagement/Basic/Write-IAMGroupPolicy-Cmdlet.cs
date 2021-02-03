@@ -35,16 +35,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// A user can also have managed policies attached to it. To attach a managed policy to
     /// a group, use <a>AttachGroupPolicy</a>. To create a new managed policy, use <a>CreatePolicy</a>.
     /// For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
+    /// policies and inline policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
-    /// For information about limits on the number of inline policies that you can embed in
-    /// a group, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-    /// on IAM Entities</a> in the <i>IAM User Guide</i>.
+    /// For information about the maximum number of inline policies that you can embed in
+    /// a group, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
+    /// and STS quotas</a> in the <i>IAM User Guide</i>.
     /// </para><note><para>
     /// Because policy documents can be large, you should use POST rather than GET when calling
     /// <code>PutGroupPolicy</code>. For general information about using the Query API with
-    /// IAM, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making
-    /// Query Requests</a> in the <i>IAM User Guide</i>.
+    /// IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making
+    /// query requests</a> in the <i>IAM User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "IAMGroupPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

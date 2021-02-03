@@ -104,6 +104,18 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String DeliveryChannel_S3KeyPrefix { get; set; }
         #endregion
         
+        #region Parameter DeliveryChannel_S3KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) customer managed
+        /// key (CMK) used to encrypt objects delivered by AWS Config. Must belong to the same
+        /// Region as the destination S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeliveryChannel_S3KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter DeliveryChannel_SnsTopicARN
         /// <summary>
         /// <para>
@@ -181,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             context.DeliveryChannelName = this.DeliveryChannelName;
             context.DeliveryChannel_S3BucketName = this.DeliveryChannel_S3BucketName;
             context.DeliveryChannel_S3KeyPrefix = this.DeliveryChannel_S3KeyPrefix;
+            context.DeliveryChannel_S3KmsKeyArn = this.DeliveryChannel_S3KmsKeyArn;
             context.DeliveryChannel_SnsTopicARN = this.DeliveryChannel_SnsTopicARN;
             
             // allow further manipulation of loaded context prior to processing
@@ -230,6 +243,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestDeliveryChannel_deliveryChannel_S3KeyPrefix != null)
             {
                 request.DeliveryChannel.S3KeyPrefix = requestDeliveryChannel_deliveryChannel_S3KeyPrefix;
+                requestDeliveryChannelIsNull = false;
+            }
+            System.String requestDeliveryChannel_deliveryChannel_S3KmsKeyArn = null;
+            if (cmdletContext.DeliveryChannel_S3KmsKeyArn != null)
+            {
+                requestDeliveryChannel_deliveryChannel_S3KmsKeyArn = cmdletContext.DeliveryChannel_S3KmsKeyArn;
+            }
+            if (requestDeliveryChannel_deliveryChannel_S3KmsKeyArn != null)
+            {
+                request.DeliveryChannel.S3KmsKeyArn = requestDeliveryChannel_deliveryChannel_S3KmsKeyArn;
                 requestDeliveryChannelIsNull = false;
             }
             System.String requestDeliveryChannel_deliveryChannel_SnsTopicARN = null;
@@ -337,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             public System.String DeliveryChannelName { get; set; }
             public System.String DeliveryChannel_S3BucketName { get; set; }
             public System.String DeliveryChannel_S3KeyPrefix { get; set; }
+            public System.String DeliveryChannel_S3KmsKeyArn { get; set; }
             public System.String DeliveryChannel_SnsTopicARN { get; set; }
             public System.Func<Amazon.ConfigService.Model.PutDeliveryChannelResponse, WriteCFGDeliveryChannelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

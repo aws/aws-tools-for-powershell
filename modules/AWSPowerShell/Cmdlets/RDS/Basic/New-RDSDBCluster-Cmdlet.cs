@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The list of log types that need to be enabled for exporting to CloudWatch Logs. The
         /// values in the list depend on the DB engine being used. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para><para><b>Aurora MySQL</b></para><para>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
-        /// and <code>slowquery</code>. </para><para><b>Aurora PostgreSQL</b></para><para>Possible values are <code>postgresql</code> and <code>upgrade</code>. </para>
+        /// and <code>slowquery</code>. </para><para><b>Aurora PostgreSQL</b></para><para>Possible value is <code>postgresql</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,11 +224,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableGlobalWriteForwarding
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable write operations to be forwarded from this
-        /// cluster to the primary cluster in an Aurora global database. The resulting changes
-        /// are replicated back to this cluster. This parameter only applies to DB clusters that
-        /// are secondary clusters in an Aurora global database. By default, Aurora disallows
-        /// write operations for secondary clusters.</para>
+        /// <para>A value that indicates whether to enable this DB cluster to forward write operations
+        /// to the primary cluster of an Aurora global database (<a>GlobalCluster</a>). By default,
+        /// write operations are not allowed on Aurora DB clusters that are secondary clusters
+        /// in an Aurora global database.</para><para>You can set this value only on Aurora DB clusters that are members of an Aurora global
+        /// database. With this parameter enabled, a secondary cluster can forward writes to the
+        /// current primary cluster and the resulting changes are replicated back to this cluster.
+        /// For the primary DB cluster of an Aurora global database, this value is used immediately
+        /// if the primary is demoted by the <a>FailoverGlobalCluster</a> API operation, but it
+        /// does nothing until then. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,16 +28,12 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// <note><para>
-    /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-    /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-    /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-    /// WAF Developer Guide</a>. 
-    /// </para></note><para>
     /// Returns the web ACL capacity unit (WCU) requirements for a specified scope and set
     /// of rules. You can use this to check the capacity requirements for the rules you want
     /// to use in a <a>RuleGroup</a> or <a>WebACL</a>. 
-    /// </para><para>
+    /// 
+    ///  
+    /// <para>
     /// AWS WAF uses WCUs to calculate and control the operating resources that are used to
     /// run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently
     /// for each rule type, to reflect the relative cost of each rule. Simple rules that cost

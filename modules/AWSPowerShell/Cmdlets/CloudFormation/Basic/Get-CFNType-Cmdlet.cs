@@ -28,13 +28,13 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns detailed information about a type that has been registered.
+    /// Returns detailed information about an extension that has been registered.
     /// 
     ///  
     /// <para>
     /// If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information
-    /// about that specific type version. Otherwise, it returns information about the default
-    /// type version.
+    /// about that specific extension version. Otherwise, it returns information about the
+    /// default extension version.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CFNType")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the type.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
+        /// <para>The Amazon Resource Name (ARN) of the extension.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
         /// or <code>Arn</code>.</para>
         /// </para>
         /// </summary>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The kind of type. </para><para>Currently the only valid value is <code>RESOURCE</code>.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
+        /// <para>The kind of extension. </para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
         /// or <code>Arn</code>.</para>
         /// </para>
         /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the type.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
+        /// <para>The name of the extension.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
         /// or <code>Arn</code>.</para>
         /// </para>
         /// </summary>
@@ -83,10 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>The ID of a specific version of the type. The version ID is the value at the end of
-        /// the Amazon Resource Name (ARN) assigned to the type version when it is registered.</para><para>If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information
-        /// about that specific type version. Otherwise, it returns information about the default
-        /// type version.</para>
+        /// <para>The ID of a specific version of the extension. The version ID is the value at the
+        /// end of the Amazon Resource Name (ARN) assigned to the extension version when it is
+        /// registered.</para><para>If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information
+        /// about that specific extension version. Otherwise, it returns information about the
+        /// default extension version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

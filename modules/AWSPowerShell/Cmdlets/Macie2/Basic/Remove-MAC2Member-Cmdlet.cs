@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Deletes the association between an Amazon Macie master account and an account.
+    /// Deletes the association between an Amazon Macie administrator account and an account.
     /// </summary>
     [Cmdlet("Remove", "MAC2Member", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

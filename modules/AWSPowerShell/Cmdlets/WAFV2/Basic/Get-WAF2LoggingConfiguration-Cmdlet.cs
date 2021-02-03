@@ -28,14 +28,7 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// <note><para>
-    /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-    /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-    /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-    /// WAF Developer Guide</a>. 
-    /// </para></note><para>
     /// Returns the <a>LoggingConfiguration</a> for the specified web ACL.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "WAF2LoggingConfiguration")]
     [OutputType("Amazon.WAFV2.Model.LoggingConfiguration")]

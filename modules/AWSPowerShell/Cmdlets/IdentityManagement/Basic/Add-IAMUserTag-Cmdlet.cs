@@ -39,25 +39,26 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// organization and search. For example, you could search for all resources with the
     /// key name <i>Project</i> and the value <i>MyImportantProject</i>. Or search for all
     /// resources with the key name <i>Cost Center</i> and the value <i>41200</i>. 
-    /// </para></li><li><para><b>Access control</b> - Reference tags in IAM user-based and resource-based policies.
-    /// You can use tags to restrict access to only an IAM requesting user or to a role that
-    /// has a specified tag attached. You can also restrict access to only those resources
-    /// that have a certain tag attached. For examples of policies that show how to use tags
-    /// to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control
-    /// Access Using IAM Tags</a> in the <i>IAM User Guide</i>.
+    /// </para></li><li><para><b>Access control</b> - Include tags in IAM user-based and resource-based policies.
+    /// You can use tags to restrict access to only an IAM requesting user that has a specified
+    /// tag attached. You can also restrict access to only those resources that have a certain
+    /// tag attached. For examples of policies that show how to use tags to control access,
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control
+    /// access using IAM tags</a> in the <i>IAM User Guide</i>.
     /// </para></li><li><para><b>Cost allocation</b> - Use tags to help track which individuals and teams are using
     /// which AWS resources.
     /// </para></li></ul><note><ul><li><para>
-    /// Make sure that you have no invalid tags and that you do not exceed the allowed number
-    /// of tags per role. In either case, the entire request fails and <i>no</i> tags are
-    /// added to the role.
+    /// If any one of the tags is invalid or if you exceed the allowed maximum number of tags,
+    /// then the entire request fails and the resource is not created. For more information
+    /// about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
+    /// IAM resources</a> in the <i>IAM User Guide</i>.
     /// </para></li><li><para>
     /// AWS always interprets the tag <code>Value</code> as a single string. If you need to
     /// store an array, you can store comma-separated values in the string. However, you must
     /// interpret the value in your code.
     /// </para></li></ul></note><para>
     /// For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
-    /// IAM Identities</a> in the <i>IAM User Guide</i>.
+    /// IAM identities</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "IAMUserTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The list of tags that you want to attach to the user. Each tag consists of a key name
-        /// and an associated value.</para>
+        /// <para>The list of tags that you want to attach to the IAM user. Each tag consists of a key
+        /// name and an associated value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user that you want to add tags to.</para><para>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// <para>The name of the IAM user to which you want to add tags.</para><para>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
         /// characters with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>

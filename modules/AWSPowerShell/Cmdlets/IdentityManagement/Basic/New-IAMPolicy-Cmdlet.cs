@@ -35,10 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// This operation creates a policy version with a version identifier of <code>v1</code>
     /// and sets v1 as the policy's default version. For more information about policy versions,
     /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-    /// for Managed Policies</a> in the <i>IAM User Guide</i>.
+    /// for managed policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// For more information about managed policies in general, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
+    /// policies and inline policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The path for the policy.</para><para>For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-        /// Identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of either a forward slash (/) by itself
         /// or a string that must begin and end with forward slashes. In addition, it can contain
         /// any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>),
@@ -117,6 +117,21 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PolicyName { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags that you want to attach to the new IAM customer managed policy. Each
+        /// tag consists of a key name and an associated value. For more information about tagging,
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
+        /// IAM resources</a> in the <i>IAM User Guide</i>.</para><note><para>If any one of the tags is invalid or if you exceed the allowed maximum number of tags,
+        /// then the entire request fails and the resource is not created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.IdentityManagement.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -196,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 WriteWarning("You are passing $null as a value for parameter PolicyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.IdentityManagement.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -227,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.PolicyName != null)
             {
                 request.PolicyName = cmdletContext.PolicyName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -293,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             public System.String Path { get; set; }
             public System.String PolicyDocument { get; set; }
             public System.String PolicyName { get; set; }
+            public List<Amazon.IdentityManagement.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.IdentityManagement.Model.CreatePolicyResponse, NewIAMPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Policy;
         }

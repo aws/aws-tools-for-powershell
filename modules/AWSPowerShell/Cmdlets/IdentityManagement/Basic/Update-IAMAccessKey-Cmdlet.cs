@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// AWS account root user credentials even if the AWS account has no associated users.
     /// </para><para>
     /// For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing
-    /// Keys and Certificates</a> in the <i>IAM User Guide</i>.
+    /// keys and certificates</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "IAMAccessKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para> The status you want to assign to the secret access key. <code>Active</code> means
-        /// that the key can be used for API calls to AWS, while <code>Inactive</code> means that
-        /// the key cannot be used.</para>
+        /// that the key can be used for programmatic calls to AWS, while <code>Inactive</code>
+        /// means that the key cannot be used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

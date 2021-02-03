@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Version 4</a>.
     /// </para></note><para>
     ///  For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html">Enabling
-    /// SAML 2.0 Federated Users to Access the AWS Management Console</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About
-    /// SAML 2.0-based Federation</a> in the <i>IAM User Guide</i>.
+    /// SAML 2.0 federated users to access the AWS Management Console</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About
+    /// SAML 2.0-based federation</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMSAMLProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// used to validate the SAML authentication response (assertions) that are received from
         /// the IdP. You must generate the metadata document using the identity management software
         /// that is used as your organization's IdP.</para><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About
-        /// SAML 2.0-based Federation</a> in the <i>IAM User Guide</i></para>
+        /// SAML 2.0-based federation</a> in the <i>IAM User Guide</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,6 +102,20 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SAMLMetadataDocument { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags that you want to attach to the new IAM SAML provider. Each tag consists
+        /// of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a>
+        /// in the <i>IAM User Guide</i>.</para><note><para>If any one of the tags is invalid or if you exceed the allowed maximum number of tags,
+        /// then the entire request fails and the resource is not created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.IdentityManagement.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -179,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 WriteWarning("You are passing $null as a value for parameter SAMLMetadataDocument which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.IdentityManagement.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -202,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.SAMLMetadataDocument != null)
             {
                 request.SAMLMetadataDocument = cmdletContext.SAMLMetadataDocument;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -266,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             public System.String Name { get; set; }
             public System.String SAMLMetadataDocument { get; set; }
+            public List<Amazon.IdentityManagement.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.IdentityManagement.Model.CreateSAMLProviderResponse, NewIAMSAMLProviderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SAMLProviderArn;
         }

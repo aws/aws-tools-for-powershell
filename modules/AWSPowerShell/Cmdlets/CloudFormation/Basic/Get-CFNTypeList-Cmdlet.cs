@@ -28,7 +28,7 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns summary information about types that have been registered with CloudFormation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns summary information about extension that have been registered with CloudFormation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNTypeList")]
     [OutputType("Amazon.CloudFormation.Model.TypeSummary")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeprecatedStatus
         /// <summary>
         /// <para>
-        /// <para>The deprecation status of the types that you want to get summary information about.</para><para>Valid values include:</para><ul><li><para><code>LIVE</code>: The type is registered for use in CloudFormation operations.</para></li><li><para><code>DEPRECATED</code>: The type has been deregistered and can no longer be used
-        /// in CloudFormation operations. </para></li></ul>
+        /// <para>The deprecation status of the extension that you want to get summary information about.</para><para>Valid values include:</para><ul><li><para><code>LIVE</code>: The extension is registered for use in CloudFormation operations.</para></li><li><para><code>DEPRECATED</code>: The extension has been deregistered and can no longer be
+        /// used in CloudFormation operations. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,10 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The provisioning behavior of the type. AWS CloudFormation determines the provisioning
         /// type during registration, based on the types of handlers in the schema handler package
-        /// submitted.</para><para>Valid values include:</para><ul><li><para><code>FULLY_MUTABLE</code>: The type includes an update handler to process updates
-        /// to the type during stack update operations.</para></li><li><para><code>IMMUTABLE</code>: The type does not include an update handler, so the type
-        /// cannot be updated and must instead be replaced during stack update operations.</para></li><li><para><code>NON_PROVISIONABLE</code>: The type does not include create, read, and delete
-        /// handlers, and therefore cannot actually be provisioned.</para></li></ul>
+        /// submitted.</para><para>Valid values include:</para><ul><li><para><code>FULLY_MUTABLE</code>: The extension includes an update handler to process updates
+        /// to the extension during stack update operations.</para></li><li><para><code>IMMUTABLE</code>: The extension does not include an update handler, so the
+        /// extension cannot be updated and must instead be replaced during stack update operations.</para></li><li><para><code>NON_PROVISIONABLE</code>: The extension does not include create, read, and
+        /// delete handlers, and therefore cannot actually be provisioned.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,8 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Visibility
         /// <summary>
         /// <para>
-        /// <para>The scope at which the type is visible and usable in CloudFormation operations.</para><para>Valid values include:</para><ul><li><para><code>PRIVATE</code>: The type is only visible and usable within the account in which
-        /// it is registered. Currently, AWS CloudFormation marks any types you create as <code>PRIVATE</code>.</para></li><li><para><code>PUBLIC</code>: The type is publically visible and usable within any Amazon
+        /// <para>The scope at which the extension is visible and usable in CloudFormation operations.</para><para>Valid values include:</para><ul><li><para><code>PRIVATE</code>: The extension is only visible and usable within the account
+        /// in which it is registered. Currently, AWS CloudFormation marks any extension you create
+        /// as <code>PRIVATE</code>.</para></li><li><para><code>PUBLIC</code>: The extension is publically visible and usable within any Amazon
         /// account.</para></li></ul><para>The default is <code>PRIVATE</code>.</para>
         /// </para>
         /// </summary>

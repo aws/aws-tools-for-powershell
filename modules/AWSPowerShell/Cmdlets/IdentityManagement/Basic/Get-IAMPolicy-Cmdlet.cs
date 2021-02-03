@@ -31,18 +31,18 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Retrieves information about the specified managed policy, including the policy's default
     /// version and the total number of IAM users, groups, and roles to which the policy is
     /// attached. To retrieve the list of the specific users, groups, and roles that the policy
-    /// is attached to, use the <a>ListEntitiesForPolicy</a> API. This API returns metadata
+    /// is attached to, use <a>ListEntitiesForPolicy</a>. This operation returns metadata
     /// about the policy. To retrieve the actual policy document for a specific version of
     /// the policy, use <a>GetPolicyVersion</a>.
     /// 
     ///  
     /// <para>
-    /// This API retrieves information about managed policies. To retrieve information about
-    /// an inline policy that is embedded with an IAM user, group, or role, use the <a>GetUserPolicy</a>,
-    /// <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a> API.
+    /// This operation retrieves information about managed policies. To retrieve information
+    /// about an inline policy that is embedded with an IAM user, group, or role, use <a>GetUserPolicy</a>,
+    /// <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a>.
     /// </para><para>
     /// For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
+    /// policies and inline policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMPolicy")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the managed policy that you want information about.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

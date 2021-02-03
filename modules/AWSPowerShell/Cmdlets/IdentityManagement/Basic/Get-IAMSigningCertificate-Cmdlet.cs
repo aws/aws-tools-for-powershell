@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// paginate the results using the <code>MaxItems</code> and <code>Marker</code> parameters.
     /// </para><para>
     /// If the <code>UserName</code> field is not specified, the user name is determined implicitly
-    /// based on the AWS access key ID used to sign the request for this API. This operation
+    /// based on the AWS access key ID used to sign the request for this operation. This operation
     /// works for access keys under the AWS account. Consequently, you can use this operation
     /// to manage AWS account root user credentials even if the AWS account has no associated
     /// users.

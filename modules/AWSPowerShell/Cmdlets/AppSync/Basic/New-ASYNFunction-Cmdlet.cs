@@ -63,6 +63,29 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String ApiId { get; set; }
         #endregion
         
+        #region Parameter SyncConfig_ConflictDetection
+        /// <summary>
+        /// <para>
+        /// <para>The Conflict Detection strategy to use.</para><ul><li><para><b>VERSION</b>: Detect conflicts based on object versions for this resolver.</para></li><li><para><b>NONE</b>: Do not detect conflicts when executing this resolver.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppSync.ConflictDetectionType")]
+        public Amazon.AppSync.ConflictDetectionType SyncConfig_ConflictDetection { get; set; }
+        #endregion
+        
+        #region Parameter SyncConfig_ConflictHandler
+        /// <summary>
+        /// <para>
+        /// <para>The Conflict Resolution strategy to perform in the event of a conflict.</para><ul><li><para><b>OPTIMISTIC_CONCURRENCY</b>: Resolve conflicts by rejecting mutations when versions
+        /// do not match the latest version at the server.</para></li><li><para><b>AUTOMERGE</b>: Resolve conflicts with the Automerge conflict resolution strategy.</para></li><li><para><b>LAMBDA</b>: Resolve conflicts with a Lambda function supplied in the LambdaConflictHandlerConfig.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppSync.ConflictHandlerType")]
+        public Amazon.AppSync.ConflictHandlerType SyncConfig_ConflictHandler { get; set; }
+        #endregion
+        
         #region Parameter DataSourceName
         /// <summary>
         /// <para>
@@ -106,6 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String FunctionVersion { get; set; }
+        #endregion
+        
+        #region Parameter LambdaConflictHandlerConfig_LambdaConflictHandlerArn
+        /// <summary>
+        /// <para>
+        /// <para>The Arn for the Lambda function to use as the Conflict Handler.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SyncConfig_LambdaConflictHandlerConfig_LambdaConflictHandlerArn")]
+        public System.String LambdaConflictHandlerConfig_LambdaConflictHandlerArn { get; set; }
         #endregion
         
         #region Parameter Name
@@ -238,6 +272,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             #endif
             context.RequestMappingTemplate = this.RequestMappingTemplate;
             context.ResponseMappingTemplate = this.ResponseMappingTemplate;
+            context.SyncConfig_ConflictDetection = this.SyncConfig_ConflictDetection;
+            context.SyncConfig_ConflictHandler = this.SyncConfig_ConflictHandler;
+            context.LambdaConflictHandlerConfig_LambdaConflictHandlerArn = this.LambdaConflictHandlerConfig_LambdaConflictHandlerArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -281,6 +318,60 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.ResponseMappingTemplate != null)
             {
                 request.ResponseMappingTemplate = cmdletContext.ResponseMappingTemplate;
+            }
+            
+             // populate SyncConfig
+            var requestSyncConfigIsNull = true;
+            request.SyncConfig = new Amazon.AppSync.Model.SyncConfig();
+            Amazon.AppSync.ConflictDetectionType requestSyncConfig_syncConfig_ConflictDetection = null;
+            if (cmdletContext.SyncConfig_ConflictDetection != null)
+            {
+                requestSyncConfig_syncConfig_ConflictDetection = cmdletContext.SyncConfig_ConflictDetection;
+            }
+            if (requestSyncConfig_syncConfig_ConflictDetection != null)
+            {
+                request.SyncConfig.ConflictDetection = requestSyncConfig_syncConfig_ConflictDetection;
+                requestSyncConfigIsNull = false;
+            }
+            Amazon.AppSync.ConflictHandlerType requestSyncConfig_syncConfig_ConflictHandler = null;
+            if (cmdletContext.SyncConfig_ConflictHandler != null)
+            {
+                requestSyncConfig_syncConfig_ConflictHandler = cmdletContext.SyncConfig_ConflictHandler;
+            }
+            if (requestSyncConfig_syncConfig_ConflictHandler != null)
+            {
+                request.SyncConfig.ConflictHandler = requestSyncConfig_syncConfig_ConflictHandler;
+                requestSyncConfigIsNull = false;
+            }
+            Amazon.AppSync.Model.LambdaConflictHandlerConfig requestSyncConfig_syncConfig_LambdaConflictHandlerConfig = null;
+            
+             // populate LambdaConflictHandlerConfig
+            var requestSyncConfig_syncConfig_LambdaConflictHandlerConfigIsNull = true;
+            requestSyncConfig_syncConfig_LambdaConflictHandlerConfig = new Amazon.AppSync.Model.LambdaConflictHandlerConfig();
+            System.String requestSyncConfig_syncConfig_LambdaConflictHandlerConfig_lambdaConflictHandlerConfig_LambdaConflictHandlerArn = null;
+            if (cmdletContext.LambdaConflictHandlerConfig_LambdaConflictHandlerArn != null)
+            {
+                requestSyncConfig_syncConfig_LambdaConflictHandlerConfig_lambdaConflictHandlerConfig_LambdaConflictHandlerArn = cmdletContext.LambdaConflictHandlerConfig_LambdaConflictHandlerArn;
+            }
+            if (requestSyncConfig_syncConfig_LambdaConflictHandlerConfig_lambdaConflictHandlerConfig_LambdaConflictHandlerArn != null)
+            {
+                requestSyncConfig_syncConfig_LambdaConflictHandlerConfig.LambdaConflictHandlerArn = requestSyncConfig_syncConfig_LambdaConflictHandlerConfig_lambdaConflictHandlerConfig_LambdaConflictHandlerArn;
+                requestSyncConfig_syncConfig_LambdaConflictHandlerConfigIsNull = false;
+            }
+             // determine if requestSyncConfig_syncConfig_LambdaConflictHandlerConfig should be set to null
+            if (requestSyncConfig_syncConfig_LambdaConflictHandlerConfigIsNull)
+            {
+                requestSyncConfig_syncConfig_LambdaConflictHandlerConfig = null;
+            }
+            if (requestSyncConfig_syncConfig_LambdaConflictHandlerConfig != null)
+            {
+                request.SyncConfig.LambdaConflictHandlerConfig = requestSyncConfig_syncConfig_LambdaConflictHandlerConfig;
+                requestSyncConfigIsNull = false;
+            }
+             // determine if request.SyncConfig should be set to null
+            if (requestSyncConfigIsNull)
+            {
+                request.SyncConfig = null;
             }
             
             CmdletOutput output;
@@ -350,6 +441,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String Name { get; set; }
             public System.String RequestMappingTemplate { get; set; }
             public System.String ResponseMappingTemplate { get; set; }
+            public Amazon.AppSync.ConflictDetectionType SyncConfig_ConflictDetection { get; set; }
+            public Amazon.AppSync.ConflictHandlerType SyncConfig_ConflictHandler { get; set; }
+            public System.String LambdaConflictHandlerConfig_LambdaConflictHandlerArn { get; set; }
             public System.Func<Amazon.AppSync.Model.CreateFunctionResponse, NewASYNFunctionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.FunctionConfiguration;
         }

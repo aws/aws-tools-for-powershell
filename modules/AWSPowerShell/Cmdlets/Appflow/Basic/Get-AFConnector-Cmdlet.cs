@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter ConnectorType
         /// <summary>
         /// <para>
-        /// <para> The type of connector, such as Salesforce, Amplitude, and so on. </para>
+        /// <para> The type of connector, such as Salesforce, Amplitude, and so on. </para><note><para><i>Locke</i> refers to a new destination known as Amazon Connect Customer Profiles.
+        /// At this time, we recommend that you do not use this destination. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

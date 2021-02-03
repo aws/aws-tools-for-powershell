@@ -28,7 +28,8 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    
+    /// Add or updates the evaluations for process checks. This API checks if the rule is
+    /// a process check when the name of the AWS Config rule is provided.
     /// </summary>
     [Cmdlet("Write", "CFGExternalEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ExternalEvaluation_Annotation
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Supplementary information about the reason of compliance. For example, this task was
+        /// completed on a specific date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ExternalEvaluation_ComplianceResourceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The evaluated compliance resource ID. AWS Config accepts only AWS account ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ExternalEvaluation_ComplianceResourceType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The evaluated compliance resource type. AWS Config accepts <code>AWS::::Account</code>
+        /// resource type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ExternalEvaluation_ComplianceType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The compliance of the AWS resource. The valid values are <code>COMPLIANT, NON_COMPLIANT,
+        /// </code> and <code>NOT_APPLICABLE</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the AWS Config rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -121,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ExternalEvaluation_OrderingTimestamp
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The time when the compliance was recorded. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

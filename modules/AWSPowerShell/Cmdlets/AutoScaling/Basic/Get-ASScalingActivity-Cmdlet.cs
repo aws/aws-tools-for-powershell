@@ -28,7 +28,17 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes one or more scaling activities for the specified Auto Scaling group.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes one or more scaling activities for the specified Auto Scaling group.
+    /// 
+    ///  
+    /// <para>
+    /// To view the scaling activities from the Amazon EC2 Auto Scaling console, choose the
+    /// <b>Activity</b> tab of the Auto Scaling group. When scaling events occur, you see
+    /// scaling activity messages in the <b>Activity history</b>. For more information, see
+    /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying
+    /// a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling
+    /// User Guide</i>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASScalingActivity")]
     [OutputType("Amazon.AutoScaling.Model.Activity")]
@@ -62,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
+        
+        #region Parameter IncludeDeletedGroup
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to include scaling activity from deleted Auto Scaling groups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeDeletedGroups")]
+        public System.Boolean? IncludeDeletedGroup { get; set; }
         #endregion
         
         #region Parameter MaxRecord
@@ -156,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.ActivityId = new List<System.String>(this.ActivityId);
             }
             context.AutoScalingGroupName = this.AutoScalingGroupName;
+            context.IncludeDeletedGroup = this.IncludeDeletedGroup;
             context.MaxRecord = this.MaxRecord;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxRecord)) && this.MaxRecord.HasValue)
@@ -195,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+            }
+            if (cmdletContext.IncludeDeletedGroup != null)
+            {
+                request.IncludeDeletedGroups = cmdletContext.IncludeDeletedGroup.Value;
             }
             if (cmdletContext.MaxRecord != null)
             {
@@ -262,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+            }
+            if (cmdletContext.IncludeDeletedGroup != null)
+            {
+                request.IncludeDeletedGroups = cmdletContext.IncludeDeletedGroup.Value;
             }
             
             // Initialize loop variants and commence piping
@@ -377,6 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             public List<System.String> ActivityId { get; set; }
             public System.String AutoScalingGroupName { get; set; }
+            public System.Boolean? IncludeDeletedGroup { get; set; }
             public int? MaxRecord { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.AutoScaling.Model.DescribeScalingActivitiesResponse, GetASScalingActivityCmdlet, object> Select { get; set; } =

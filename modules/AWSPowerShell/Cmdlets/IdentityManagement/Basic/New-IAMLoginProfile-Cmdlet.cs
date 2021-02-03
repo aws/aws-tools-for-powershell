@@ -28,10 +28,19 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Creates a password for the specified user, giving the user the ability to access
-    /// AWS services through the AWS Management Console. For more information about managing
-    /// passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
-    /// Passwords</a> in the <i>IAM User Guide</i>.
+    /// Creates a password for the specified IAM user. A password allows an IAM user to access
+    /// AWS services through the AWS Management Console.
+    /// 
+    ///  
+    /// <para>
+    /// You can use the AWS CLI, the AWS API, or the <b>Users</b> page in the IAM console
+    /// to create a password for any IAM user. Use <a>ChangePassword</a> to update your own
+    /// existing password in the <b>My Security Credentials</b> page in the AWS Management
+    /// Console.
+    /// </para><para>
+    /// For more information about managing passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
+    /// passwords</a> in the <i>IAM User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IAMLoginProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.LoginProfile")]

@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DiskContainer_Format
         /// <summary>
         /// <para>
-        /// <para>The format of the disk image being imported.</para><para>Valid values: <code>VHD</code> | <code>VMDK</code></para>
+        /// <para>The format of the disk image being imported.</para><para>Valid values: <code>VHD</code> | <code>VMDK</code> | <code>RAW</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The tags to apply to the snapshot being imported.</para>
+        /// <para>The tags to apply to the import snapshot task during creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

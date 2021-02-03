@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>dataexchange</C2jFilename>
     <AssemblyName>DataExchange</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -28,7 +28,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateJob" OutputProperty="*" Verb="New" Noun="Job" ShouldProcessTarget="" PipelineParameter="Type" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Details_ExportRevisionsToS3_Encryption_KmsKeyArn" NewName="Details_ExportRevisionsToS3_Encryption_KmsKeyArn" />
+                <Param Name="Details_ExportRevisionsToS3_Encryption_Type" NewName="Details_ExportRevisionsToS3_Encryption_Type" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRevision" OutputProperty="*" Verb="New" Noun="Revision" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
@@ -108,7 +111,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

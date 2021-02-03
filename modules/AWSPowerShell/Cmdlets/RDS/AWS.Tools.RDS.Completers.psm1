@@ -262,6 +262,7 @@ $RDS_SelectMap = @{
                "Get-RDSValidDBInstanceModification",
                "Get-RDSDBLogFilePortion",
                "Start-RDSDBClusterFailover",
+               "Start-RDSFailoverGlobalCluster",
                "Import-RDSInstallationMedia",
                "Get-RDSTagForResource",
                "Edit-RDSCertificate",

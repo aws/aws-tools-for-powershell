@@ -125,6 +125,20 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         public System.String RepositoryName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The metadata that you apply to the repository to help you categorize and organize
+        /// them. Each tag consists of a key and an optional value, both of which you define.
+        /// Tag keys can have a maximum character length of 128 characters, and tag values can
+        /// have a maximum length of 256 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ECRPublic.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter CatalogData_UsageText
         /// <summary>
         /// <para>
@@ -218,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
                 WriteWarning("You are passing $null as a value for parameter RepositoryName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ECRPublic.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -312,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
                 {
                     request.RepositoryName = cmdletContext.RepositoryName;
                 }
+                if (cmdletContext.Tag != null)
+                {
+                    request.Tags = cmdletContext.Tag;
+                }
                 
                 CmdletOutput output;
                 
@@ -388,6 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
             public List<System.String> CatalogData_OperatingSystem { get; set; }
             public System.String CatalogData_UsageText { get; set; }
             public System.String RepositoryName { get; set; }
+            public List<Amazon.ECRPublic.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ECRPublic.Model.CreateRepositoryResponse, NewECRPRepositoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

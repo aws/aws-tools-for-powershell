@@ -103,6 +103,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? AutoMinorVersionUpgrade { get; set; }
         #endregion
         
+        #region Parameter AwsBackupRecoveryPointArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the recovery point in AWS Backup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AwsBackupRecoveryPointArn { get; set; }
+        #endregion
+        
         #region Parameter BackupRetentionPeriod
         /// <summary>
         /// <para>
@@ -755,6 +765,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.AllowMajorVersionUpgrade = this.AllowMajorVersionUpgrade;
             context.ApplyImmediately = this.ApplyImmediately;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
+            context.AwsBackupRecoveryPointArn = this.AwsBackupRecoveryPointArn;
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.CACertificateIdentifier = this.CACertificateIdentifier;
             context.CertificateRotationRestart = this.CertificateRotationRestart;
@@ -848,6 +859,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
                 request.AutoMinorVersionUpgrade = cmdletContext.AutoMinorVersionUpgrade.Value;
+            }
+            if (cmdletContext.AwsBackupRecoveryPointArn != null)
+            {
+                request.AwsBackupRecoveryPointArn = cmdletContext.AwsBackupRecoveryPointArn;
             }
             if (cmdletContext.BackupRetentionPeriod != null)
             {
@@ -1099,6 +1114,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? AllowMajorVersionUpgrade { get; set; }
             public System.Boolean? ApplyImmediately { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
+            public System.String AwsBackupRecoveryPointArn { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
             public System.String CACertificateIdentifier { get; set; }
             public System.Boolean? CertificateRotationRestart { get; set; }

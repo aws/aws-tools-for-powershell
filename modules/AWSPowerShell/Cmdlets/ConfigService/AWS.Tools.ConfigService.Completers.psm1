@@ -118,7 +118,7 @@ $CFG_Completers = {
             ($_ -eq "Get-CFGConformancePackComplianceDetail/Filters_ComplianceType")
         }
         {
-            $v = "COMPLIANT","NON_COMPLIANT"
+            $v = "COMPLIANT","INSUFFICIENT_DATA","NON_COMPLIANT"
             break
         }
 

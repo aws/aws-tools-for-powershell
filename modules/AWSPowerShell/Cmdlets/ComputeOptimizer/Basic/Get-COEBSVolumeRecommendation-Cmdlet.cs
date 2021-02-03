@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the AWS accounts for which to return volume recommendations.</para><para>If your account is the management account of an organization, use this parameter to
-        /// specify the member accounts for which you want to return volume recommendations.</para><para>Only one account ID can be specified per request.</para>
+        /// <para>The ID of the AWS account for which to return volume recommendations.</para><para>If your account is the management account of an organization, use this parameter to
+        /// specify the member account for which you want to return volume recommendations.</para><para>Only one account ID can be specified per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

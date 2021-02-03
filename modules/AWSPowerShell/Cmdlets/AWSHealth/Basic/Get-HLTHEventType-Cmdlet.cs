@@ -28,10 +28,16 @@ using Amazon.AWSHealth.Model;
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
-    /// Returns the event types that meet the specified filter criteria. If no filter criteria
-    /// are specified, all event types are returned, in no particular order.
+    /// Returns the event types that meet the specified filter criteria. You can use this
+    /// API operation to find information about the AWS Health event, such as the category,
+    /// AWS service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a>
+    /// object. 
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// If you don't specify a filter criteria, the API operation returns all event types,
+    /// in no particular order. 
+    /// </para><note><para>
     /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
     /// the next request to return more results.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

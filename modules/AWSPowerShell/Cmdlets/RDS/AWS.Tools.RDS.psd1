@@ -211,6 +211,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-RDSDBInstance', 
         'Start-RDSDBInstanceAutomatedBackupsReplication', 
         'Start-RDSExportTask', 
+        'Start-RDSFailoverGlobalCluster', 
         'Stop-RDSActivityStream', 
         'Stop-RDSDBCluster', 
         'Stop-RDSDBInstance', 

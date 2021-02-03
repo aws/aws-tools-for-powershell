@@ -28,7 +28,7 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Returns a database object for the specfied database and data catalog.
+    /// Returns a database object for the specified database and data catalog.
     /// </summary>
     [Cmdlet("Get", "ATHDatabase")]
     [OutputType("Amazon.Athena.Model.Database")]

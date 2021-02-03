@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para> The status you want to assign to the certificate. <code>Active</code> means that
-        /// the certificate can be used for API calls to AWS <code>Inactive</code> means that
-        /// the certificate cannot be used.</para>
+        /// the certificate can be used for programmatic calls to AWS <code>Inactive</code> means
+        /// that the certificate cannot be used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

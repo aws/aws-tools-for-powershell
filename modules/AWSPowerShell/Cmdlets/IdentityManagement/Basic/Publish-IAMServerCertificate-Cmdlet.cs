@@ -42,19 +42,19 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Certificate Manager User Guide</a>.
     /// </para><para>
     /// For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
-    /// with Server Certificates</a> in the <i>IAM User Guide</i>. This topic includes a list
+    /// with server certificates</a> in the <i>IAM User Guide</i>. This topic includes a list
     /// of AWS services that can use the server certificates that you manage with IAM.
     /// </para><para>
-    /// For information about the number of server certificates you can upload, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html">Limitations
-    /// on IAM Entities and Objects</a> in the <i>IAM User Guide</i>.
+    /// For information about the number of server certificates you can upload, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
+    /// and STS quotas</a> in the <i>IAM User Guide</i>.
     /// </para><note><para>
     /// Because the body of the public key certificate, private key, and the certificate chain
     /// can be large, you should use POST rather than GET when calling <code>UploadServerCertificate</code>.
-    /// For information about setting up signatures and authorization through the API, go
-    /// to <a href="https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html">Signing
-    /// AWS API Requests</a> in the <i>AWS General Reference</i>. For general information
-    /// about using the Query API with IAM, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html">Calling
-    /// the API by Making HTTP Query Requests</a> in the <i>IAM User Guide</i>.
+    /// For information about setting up signatures and authorization through the API, see
+    /// <a href="https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html">Signing
+    /// AWS API requests</a> in the <i>AWS General Reference</i>. For general information
+    /// about using the Query API with IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html">Calling
+    /// the API by making HTTP query requests</a> in the <i>IAM User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Publish", "IAMServerCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The path for the server certificate. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-        /// Identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/). This
+        /// identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/). This
         /// parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of either a forward slash (/) by itself or a string
         /// that must begin and end with forward slashes. In addition, it can contain any ASCII
@@ -161,6 +161,21 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ServerCertificateName { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags that you want to attach to the new IAM server certificate resource.
+        /// Each tag consists of a key name and an associated value. For more information about
+        /// tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
+        /// IAM resources</a> in the <i>IAM User Guide</i>.</para><note><para>If any one of the tags is invalid or if you exceed the allowed maximum number of tags,
+        /// then the entire request fails and the resource is not created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.IdentityManagement.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -247,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 WriteWarning("You are passing $null as a value for parameter ServerCertificateName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.IdentityManagement.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -282,6 +301,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.ServerCertificateName != null)
             {
                 request.ServerCertificateName = cmdletContext.ServerCertificateName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -349,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             public System.String Path { get; set; }
             public System.String PrivateKey { get; set; }
             public System.String ServerCertificateName { get; set; }
+            public List<Amazon.IdentityManagement.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.IdentityManagement.Model.UploadServerCertificateResponse, PublishIAMServerCertificateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ServerCertificateMetadata;
         }

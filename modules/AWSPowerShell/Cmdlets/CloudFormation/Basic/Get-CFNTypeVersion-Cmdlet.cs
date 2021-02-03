@@ -28,7 +28,7 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns summary information about the versions of a type.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns summary information about the versions of an extension.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNTypeVersion")]
     [OutputType("Amazon.CloudFormation.Model.TypeVersionSummary")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the type for which you want version summary information.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
+        /// <para>The Amazon Resource Name (ARN) of the extension for which you want version summary
+        /// information.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
         /// or <code>Arn</code>.</para>
         /// </para>
         /// </summary>
@@ -54,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeprecatedStatus
         /// <summary>
         /// <para>
-        /// <para>The deprecation status of the type versions that you want to get summary information
-        /// about.</para><para>Valid values include:</para><ul><li><para><code>LIVE</code>: The type version is registered and can be used in CloudFormation
-        /// operations, dependent on its provisioning behavior and visibility scope.</para></li><li><para><code>DEPRECATED</code>: The type version has been deregistered and can no longer
+        /// <para>The deprecation status of the extension versions that you want to get summary information
+        /// about.</para><para>Valid values include:</para><ul><li><para><code>LIVE</code>: The extension version is registered and can be used in CloudFormation
+        /// operations, dependent on its provisioning behavior and visibility scope.</para></li><li><para><code>DEPRECATED</code>: The extension version has been deregistered and can no longer
         /// be used in CloudFormation operations. </para></li></ul><para>The default is <code>LIVE</code>.</para>
         /// </para>
         /// </summary>
@@ -68,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The kind of the type.</para><para>Currently the only valid value is <code>RESOURCE</code>.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
+        /// <para>The kind of the extension.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
         /// or <code>Arn</code>.</para>
         /// </para>
         /// </summary>
@@ -80,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the type for which you want version summary information.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
+        /// <para>The name of the extension for which you want version summary information.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
         /// or <code>Arn</code>.</para>
         /// </para>
         /// </summary>

@@ -51,6 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.CP
         public Amazon.CodePipeline.ActionOwner ActionOwnerFilter { get; set; }
         #endregion
         
+        #region Parameter RegionFilter
+        /// <summary>
+        /// <para>
+        /// <para>The Region to filter on for the list of action types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RegionFilter { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
@@ -103,6 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
             }
             context.ActionOwnerFilter = this.ActionOwnerFilter;
             context.NextToken = this.NextToken;
+            context.RegionFilter = this.RegionFilter;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -124,6 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
             if (cmdletContext.ActionOwnerFilter != null)
             {
                 request.ActionOwnerFilter = cmdletContext.ActionOwnerFilter;
+            }
+            if (cmdletContext.RegionFilter != null)
+            {
+                request.RegionFilter = cmdletContext.RegionFilter;
             }
             
             // Initialize loop variant and commence piping
@@ -212,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             public Amazon.CodePipeline.ActionOwner ActionOwnerFilter { get; set; }
             public System.String NextToken { get; set; }
+            public System.String RegionFilter { get; set; }
             public System.Func<Amazon.CodePipeline.Model.ListActionTypesResponse, GetCPActionTypeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ActionTypes;
         }

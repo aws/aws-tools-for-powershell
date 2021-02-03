@@ -88,7 +88,10 @@ $DTEX_Completers = {
         }
 
         # Amazon.DataExchange.ServerSideEncryptionTypes
-        "New-DTEXJob/Details_ExportAssetsToS3_Encryption_Type"
+        {
+            ($_ -eq "New-DTEXJob/Details_ExportAssetsToS3_Encryption_Type") -Or
+            ($_ -eq "New-DTEXJob/Details_ExportRevisionsToS3_Encryption_Type")
+        }
         {
             $v = "AES256","aws:kms"
             break
@@ -97,7 +100,7 @@ $DTEX_Completers = {
         # Amazon.DataExchange.Type
         "New-DTEXJob/Type"
         {
-            $v = "EXPORT_ASSETS_TO_S3","EXPORT_ASSET_TO_SIGNED_URL","IMPORT_ASSETS_FROM_S3","IMPORT_ASSET_FROM_SIGNED_URL"
+            $v = "EXPORT_ASSETS_TO_S3","EXPORT_ASSET_TO_SIGNED_URL","EXPORT_REVISIONS_TO_S3","IMPORT_ASSETS_FROM_S3","IMPORT_ASSET_FROM_SIGNED_URL"
             break
         }
 
@@ -112,6 +115,7 @@ $DTEX_Completers = {
 $DTEX_map = @{
     "AssetType"=@("New-DTEXDataSet")
     "Details_ExportAssetsToS3_Encryption_Type"=@("New-DTEXJob")
+    "Details_ExportRevisionsToS3_Encryption_Type"=@("New-DTEXJob")
     "Type"=@("New-DTEXJob")
 }
 

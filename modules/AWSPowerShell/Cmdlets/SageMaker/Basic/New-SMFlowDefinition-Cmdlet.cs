@@ -111,7 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HumanLoopConfig_HumanTaskUiArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the human task user interface.</para>
+        /// <para>The Amazon Resource Name (ARN) of the human task user interface.</para><para>You can use standard HTML and Crowd HTML Elements to create a custom worker task template.
+        /// You use this template to create a human task UI.</para><para>To learn how to create a custom HTML template, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-custom-templates.html">Create
+        /// Custom Worker Task Template</a>.</para><para>To learn how to create a human task UI, which is a worker task template that can be
+        /// used in a flow definition, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-worker-template-console.html">Create
+        /// and Delete a Worker Task Templates</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,7 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputConfig_S3OutputPath
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 path where the object containing human output will be made available.</para>
+        /// <para>The Amazon S3 path where the object containing human output will be made available.</para><para>To learn more about the format of Amazon A2I output data, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-output-data.html">Amazon
+        /// A2I Output Data</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -244,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The amount of time that a worker has to complete a task. The default value is 3,600
-        /// seconds (1 hour)</para>
+        /// seconds (1 hour).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -283,7 +288,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HumanLoopConfig_WorkteamArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) of a team of workers.</para>
+        /// <para>Amazon Resource Name (ARN) of a team of workers. To learn more about the types of
+        /// workforces and work teams you can create and use with Amazon A2I, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management.html">Create
+        /// and Manage Workforces</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

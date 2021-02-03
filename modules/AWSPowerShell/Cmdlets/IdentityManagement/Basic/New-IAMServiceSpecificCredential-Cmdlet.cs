@@ -37,12 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// You can have a maximum of two sets of service-specific credentials for each supported
     /// service per user.
     /// </para><para>
-    /// The only supported service at this time is AWS CodeCommit.
+    /// You can create service-specific credentials for AWS CodeCommit and Amazon Keyspaces
+    /// (for Apache Cassandra).
     /// </para><para>
     /// You can reset the password to a new service-generated value by calling <a>ResetServiceSpecificCredential</a>.
     /// </para><para>
     /// For more information about service-specific credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html">Using
-    /// IAM with AWS CodeCommit: Git Credentials, SSH Keys, and AWS Access Keys</a> in the
+    /// IAM with AWS CodeCommit: Git credentials, SSH keys, and AWS access keys</a> in the
     /// <i>IAM User Guide</i>.
     /// </para>
     /// </summary>

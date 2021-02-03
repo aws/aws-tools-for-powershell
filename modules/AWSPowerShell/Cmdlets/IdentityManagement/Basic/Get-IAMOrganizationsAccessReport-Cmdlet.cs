@@ -37,10 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Depending on the parameters that you passed when you generated the report, the data
     /// returned could include different information. For details, see <a>GenerateOrganizationsAccessReport</a>.
     /// </para><para>
-    /// To call this operation, you must be signed in to the master account in your organization.
+    /// To call this operation, you must be signed in to the management account in your organization.
     /// SCPs must be enabled for your organization root. You must have permissions to perform
     /// this operation. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining
-    /// Permissions Using Service Last Accessed Data</a> in the <i>IAM User Guide</i>.
+    /// permissions using service last accessed data</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// For each service that principals in an account (root users, IAM users, or IAM roles)
     /// could access using SCPs, the operation returns details about the most recent access

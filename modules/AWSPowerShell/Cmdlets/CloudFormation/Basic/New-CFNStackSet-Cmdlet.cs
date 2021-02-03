@@ -55,6 +55,25 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String AdministrationRoleARN { get; set; }
         #endregion
         
+        #region Parameter CallAs
+        /// <summary>
+        /// <para>
+        /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
+        /// in the organization's management account or as a delegated administrator in a member
+        /// account.</para><para>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
+        /// self-managed permissions.</para><ul><li><para>To create a stack set with service-managed permissions while signed in to the management
+        /// account, specify <code>SELF</code>.</para></li><li><para>To create a stack set with service-managed permissions while signed in to a delegated
+        /// administrator account, specify <code>DELEGATED_ADMIN</code>.</para><para>Your AWS account must be registered as a delegated admin in the management account.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
+        /// a delegated administrator</a> in the <i>AWS CloudFormation User Guide</i>.</para></li></ul><para>Stack sets with service-managed permissions are created in the management account,
+        /// including stack sets that are created by delegated administrators.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.CallAs")]
+        public Amazon.CloudFormation.CallAs CallAs { get; set; }
+        #endregion
+        
         #region Parameter Capability
         /// <summary>
         /// <para>
@@ -233,8 +252,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The location of the file that contains the template body. The URL must point to a
-        /// template (maximum size: 460,800 bytes) that's located in an Amazon S3 bucket. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
+        /// template (maximum size: 460,800 bytes) that's located in an Amazon S3 bucket or a
+        /// Systems Manager document. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
         /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must specify either the TemplateBody or the TemplateURL parameter,
         /// but not both.</para>
         /// </para>
@@ -307,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             context.AdministrationRoleARN = this.AdministrationRoleARN;
             context.AutoDeployment_Enabled = this.AutoDeployment_Enabled;
             context.AutoDeployment_RetainStacksOnAccountRemoval = this.AutoDeployment_RetainStacksOnAccountRemoval;
+            context.CallAs = this.CallAs;
             if (this.Capability != null)
             {
                 context.Capability = new List<System.String>(this.Capability);
@@ -380,6 +400,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (requestAutoDeploymentIsNull)
             {
                 request.AutoDeployment = null;
+            }
+            if (cmdletContext.CallAs != null)
+            {
+                request.CallAs = cmdletContext.CallAs;
             }
             if (cmdletContext.Capability != null)
             {
@@ -485,6 +509,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public System.String AdministrationRoleARN { get; set; }
             public System.Boolean? AutoDeployment_Enabled { get; set; }
             public System.Boolean? AutoDeployment_RetainStacksOnAccountRemoval { get; set; }
+            public Amazon.CloudFormation.CallAs CallAs { get; set; }
             public List<System.String> Capability { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String Description { get; set; }

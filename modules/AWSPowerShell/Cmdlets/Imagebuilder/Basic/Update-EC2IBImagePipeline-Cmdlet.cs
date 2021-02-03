@@ -192,6 +192,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.Int32? ImageTestsConfiguration_TimeoutMinute { get; set; }
         #endregion
         
+        #region Parameter Schedule_Timezone
+        /// <summary>
+        /// <para>
+        /// <para>The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles"
+        /// in the <a href="https://www.joda.org/joda-time/timezones.html">IANA timezone format</a>.
+        /// If not specified this defaults to UTC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Schedule_Timezone { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -287,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             #endif
             context.Schedule_PipelineExecutionStartCondition = this.Schedule_PipelineExecutionStartCondition;
             context.Schedule_ScheduleExpression = this.Schedule_ScheduleExpression;
+            context.Schedule_Timezone = this.Schedule_Timezone;
             context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
@@ -389,6 +402,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 request.Schedule.ScheduleExpression = requestSchedule_schedule_ScheduleExpression;
                 requestScheduleIsNull = false;
             }
+            System.String requestSchedule_schedule_Timezone = null;
+            if (cmdletContext.Schedule_Timezone != null)
+            {
+                requestSchedule_schedule_Timezone = cmdletContext.Schedule_Timezone;
+            }
+            if (requestSchedule_schedule_Timezone != null)
+            {
+                request.Schedule.Timezone = requestSchedule_schedule_Timezone;
+                requestScheduleIsNull = false;
+            }
              // determine if request.Schedule should be set to null
             if (requestScheduleIsNull)
             {
@@ -471,6 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String InfrastructureConfigurationArn { get; set; }
             public Amazon.Imagebuilder.PipelineExecutionStartCondition Schedule_PipelineExecutionStartCondition { get; set; }
             public System.String Schedule_ScheduleExpression { get; set; }
+            public System.String Schedule_Timezone { get; set; }
             public Amazon.Imagebuilder.PipelineStatus Status { get; set; }
             public System.Func<Amazon.Imagebuilder.Model.UpdateImagePipelineResponse, UpdateEC2IBImagePipelineCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ImagePipelineArn;

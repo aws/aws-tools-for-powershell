@@ -41,6 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     public partial class GetRSDStatementListCmdlet : AmazonRedshiftDataAPIServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter RoleLevel
+        /// <summary>
+        /// <para>
+        /// <para>A value that filters which statements to return in the response. If true, all statements
+        /// run by the caller's IAM role are returned. If false, only statements run by the caller's
+        /// IAM role in the current IAM session are returned. The default is true. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RoleLevel { get; set; }
+        #endregion
+        
         #region Parameter StatementName
         /// <summary>
         /// <para>
@@ -122,6 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.RoleLevel = this.RoleLevel;
             context.StatementName = this.StatementName;
             context.Status = this.Status;
             
@@ -147,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.RoleLevel != null)
+            {
+                request.RoleLevel = cmdletContext.RoleLevel.Value;
             }
             if (cmdletContext.StatementName != null)
             {
@@ -219,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.Boolean? RoleLevel { get; set; }
             public System.String StatementName { get; set; }
             public Amazon.RedshiftDataAPIService.StatusString Status { get; set; }
             public System.Func<Amazon.RedshiftDataAPIService.Model.ListStatementsResponse, GetRSDStatementListCmdlet, object> Select { get; set; } =

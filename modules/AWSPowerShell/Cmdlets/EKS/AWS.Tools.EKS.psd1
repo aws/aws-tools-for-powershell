@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-EKSIdentityProviderConfig', 
         'Add-EKSResourceTag', 
         'Get-EKSAddon', 
         'Get-EKSAddonList', 
@@ -94,6 +95,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EKSClusterList', 
         'Get-EKSFargateProfile', 
         'Get-EKSFargateProfileList', 
+        'Get-EKSIdentityProviderConfig', 
+        'Get-EKSIdentityProviderConfigList', 
         'Get-EKSNodegroup', 
         'Get-EKSNodegroupList', 
         'Get-EKSResourceTag', 
@@ -106,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EKSAddon', 
         'Remove-EKSCluster', 
         'Remove-EKSFargateProfile', 
+        'Remove-EKSIdentityProviderConfig', 
         'Remove-EKSNodegroup', 
         'Remove-EKSResourceTag', 
         'Update-EKSAddon', 

@@ -753,6 +753,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAddressesAttribute" OutputProperty="Addresses" Verb="Get" Noun="AddressesAttribute" PipelineParameter="AllocationIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAggregateIdFormat" OutputProperty="*" Verb="Get" Noun="AggregateIdFormat" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1510,6 +1514,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyAddressAttribute" OutputProperty="Address" Verb="Edit" Noun="AddressAttribute" ShouldProcessTarget="AllocationId" PipelineParameter="AllocationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyAvailabilityZoneGroup" OutputProperty="Return" Verb="Edit" Noun="AvailabilityZoneGroup" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1817,6 +1825,10 @@
                 <Param Name="ValidUntilUtc" NewName="UtcValidUntil" AutoApplyAlias="false" />
                 <Param Name="ValidUntil" ExclusiveParameters="UtcValidUntil" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcValidUntil instead." />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetAddressAttribute" OutputProperty="Address" Verb="Reset" Noun="AddressAttribute" ShouldProcessTarget="AllocationId" PipelineParameter="AllocationId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ResetEbsDefaultKmsKeyId" OutputProperty="KmsKeyId" Verb="Reset" Noun="EbsDefaultKmsKeyId" PipelineParameter="" NoPipelineParameter="false">

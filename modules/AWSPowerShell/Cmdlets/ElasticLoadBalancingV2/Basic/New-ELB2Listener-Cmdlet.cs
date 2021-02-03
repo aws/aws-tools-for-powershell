@@ -28,7 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Creates a listener for the specified Application Load Balancer, Network Load Balancer.
+    /// Creates a listener for the specified Application Load Balancer, Network Load Balancer,
     /// or Gateway Load Balancer.
     /// 
     ///  

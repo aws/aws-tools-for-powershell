@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryS3Bucket
         /// <summary>
         /// <para>
-        /// <para>AWS Config stores intermediate files while processing conformance pack template.</para>
+        /// <para>Amazon S3 bucket where AWS Config stores conformance pack templates.</para><note><para>This field is optional.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryS3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>The prefix for the Amazon S3 bucket. </para>
+        /// <para>The prefix for the Amazon S3 bucket. </para><note><para>This field is optional.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

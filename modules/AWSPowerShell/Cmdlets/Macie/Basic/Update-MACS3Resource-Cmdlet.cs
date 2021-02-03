@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC
     /// <summary>
     /// Updates the classification types for the specified S3 resources. If memberAccountId
     /// isn't specified, the action updates the classification types of the S3 resources associated
-    /// with Amazon Macie Classic for the current master account. If memberAccountId is specified,
-    /// the action updates the classification types of the S3 resources associated with Amazon
-    /// Macie Classic for the specified member account.
+    /// with Amazon Macie Classic for the current Macie Classic administrator account. If
+    /// memberAccountId is specified, the action updates the classification types of the S3
+    /// resources associated with Macie Classic for the specified member account.
     /// </summary>
     [Cmdlet("Update", "MACS3Resource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Macie.Model.FailedS3Resource")]

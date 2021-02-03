@@ -28,14 +28,10 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// <note><para>
-    /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-    /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-    /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-    /// WAF Developer Guide</a>. 
-    /// </para></note><para>
     /// Creates a <a>RuleGroup</a> per the specifications provided. 
-    /// </para><para>
+    /// 
+    ///  
+    /// <para>
     ///  A rule group defines a collection of rules to inspect and control web requests that
     /// you can use in a <a>WebACL</a>. When you create a rule group, you define an immutable
     /// capacity limit. If you update a rule group, you must stay within the capacity. This
@@ -97,8 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the rule group that helps with identification. You cannot change
-        /// the description of a rule group after you create it.</para>
+        /// <para>A description of the rule group that helps with identification. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

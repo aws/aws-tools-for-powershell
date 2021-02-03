@@ -28,18 +28,14 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// <note><para>
-    /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-    /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-    /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-    /// WAF Developer Guide</a>. 
-    /// </para></note><para>
     /// Retrieves the <a>TagInfoForResource</a> for the specified resource. Tags are key:value
     /// pairs that you can use to categorize and manage your resources, for purposes like
     /// billing. For example, you might set the tag key to "customer" and the value to the
     /// customer name or ID. You can specify one or more tags to add to each AWS resource,
     /// up to 50 tags for a resource.
-    /// </para><para>
+    /// 
+    ///  
+    /// <para>
     /// You can tag the AWS resources that you manage through AWS WAF: web ACLs, rule groups,
     /// IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF
     /// console. 

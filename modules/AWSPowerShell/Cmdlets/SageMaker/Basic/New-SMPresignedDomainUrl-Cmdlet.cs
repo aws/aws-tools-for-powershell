@@ -35,9 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// IAM. 
     /// 
     ///  <note><para>
-    /// The URL that you get from a call to <code>CreatePresignedDomainUrl</code> is valid
-    /// only for 5 minutes. If you try to use the URL after the 5-minute limit expires, you
-    /// are directed to the AWS console sign-in page.
+    /// The URL that you get from a call to <code>CreatePresignedDomainUrl</code> has a default
+    /// timeout of 5 minutes. You can configure this value using <code>ExpiresInSeconds</code>.
+    /// If you try to use the URL after the timeout limit expires, you are directed to the
+    /// AWS console sign-in page.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "SMPresignedDomainUrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,10 +68,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String DomainId { get; set; }
         #endregion
         
+        #region Parameter ExpiresInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The number of seconds until the pre-signed URL expires. This value defaults to 300.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExpiresInSeconds")]
+        public System.Int32? ExpiresInSecond { get; set; }
+        #endregion
+        
         #region Parameter SessionExpirationDurationInSecond
         /// <summary>
         /// <para>
-        /// <para>The session expiration duration in seconds.</para>
+        /// <para>The session expiration duration in seconds. This value defaults to 43200.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExpiresInSecond = this.ExpiresInSecond;
             context.SessionExpirationDurationInSecond = this.SessionExpirationDurationInSecond;
             context.UserProfileName = this.UserProfileName;
             #if MODULAR
@@ -190,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.DomainId != null)
             {
                 request.DomainId = cmdletContext.DomainId;
+            }
+            if (cmdletContext.ExpiresInSecond != null)
+            {
+                request.ExpiresInSeconds = cmdletContext.ExpiresInSecond.Value;
             }
             if (cmdletContext.SessionExpirationDurationInSecond != null)
             {
@@ -261,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DomainId { get; set; }
+            public System.Int32? ExpiresInSecond { get; set; }
             public System.Int32? SessionExpirationDurationInSecond { get; set; }
             public System.String UserProfileName { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreatePresignedDomainUrlResponse, NewSMPresignedDomainUrlCmdlet, object> Select { get; set; } =

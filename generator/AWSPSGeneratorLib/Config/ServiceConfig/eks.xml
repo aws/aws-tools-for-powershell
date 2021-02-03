@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateIdentityProviderConfig" OutputProperty="*" Verb="Add" Noun="IdentityProviderConfig" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAddon" OutputProperty="Addon" Verb="New" Noun="Addon" ShouldProcessTarget="AddonName" PipelineParameter="AddonName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -67,11 +71,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIdentityProviderConfig" OutputProperty="IdentityProviderConfig" Verb="Get" Noun="IdentityProviderConfig" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeNodegroup" OutputProperty="Nodegroup" Verb="Get" Noun="Nodegroup" PipelineParameter="NodegroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeUpdate" OutputProperty="Update" Verb="Get" Noun="Update" PipelineParameter="UpdateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateIdentityProviderConfig" OutputProperty="Update" Verb="Remove" Noun="IdentityProviderConfig" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -84,6 +96,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFargateProfiles" OutputProperty="FargateProfileNames" Verb="Get" Noun="FargateProfileList" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIdentityProviderConfigs" OutputProperty="IdentityProviderConfigs" Verb="Get" Noun="IdentityProviderConfigList" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

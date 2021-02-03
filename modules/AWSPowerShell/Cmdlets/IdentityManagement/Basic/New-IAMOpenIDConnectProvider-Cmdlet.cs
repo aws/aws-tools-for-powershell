@@ -78,6 +78,21 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public System.String[] ClientIDList { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags that you want to attach to the new IAM OpenID Connect (OIDC) provider.
+        /// Each tag consists of a key name and an associated value. For more information about
+        /// tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
+        /// IAM resources</a> in the <i>IAM User Guide</i>.</para><note><para>If any one of the tags is invalid or if you exceed the allowed maximum number of tags,
+        /// then the entire request fails and the resource is not created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.IdentityManagement.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter ThumbprintList
         /// <summary>
         /// <para>
@@ -91,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// stores its keys at https://keys.server.example.com/openid-connect. In that case, the
         /// thumbprint string would be the hex-encoded SHA-1 hash value of the certificate used
         /// by https://keys.server.example.com.</para><para>For more information about obtaining the OIDC provider's thumbprint, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining
-        /// the Thumbprint for an OpenID Connect Provider</a> in the <i>IAM User Guide</i>.</para>
+        /// the thumbprint for an OpenID Connect provider</a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -193,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             {
                 context.ClientIDList = new List<System.String>(this.ClientIDList);
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.IdentityManagement.Model.Tag>(this.Tag);
+            }
             if (this.ThumbprintList != null)
             {
                 context.ThumbprintList = new List<System.String>(this.ThumbprintList);
@@ -229,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.ClientIDList != null)
             {
                 request.ClientIDList = cmdletContext.ClientIDList;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.ThumbprintList != null)
             {
@@ -300,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ClientIDList { get; set; }
+            public List<Amazon.IdentityManagement.Model.Tag> Tag { get; set; }
             public List<System.String> ThumbprintList { get; set; }
             public System.String Url { get; set; }
             public System.Func<Amazon.IdentityManagement.Model.CreateOpenIDConnectProviderResponse, NewIAMOpenIDConnectProviderCmdlet, object> Select { get; set; } =

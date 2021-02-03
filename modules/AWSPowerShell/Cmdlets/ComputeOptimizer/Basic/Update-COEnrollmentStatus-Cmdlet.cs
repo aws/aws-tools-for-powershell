@@ -28,13 +28,23 @@ using Amazon.ComputeOptimizer.Model;
 namespace Amazon.PowerShell.Cmdlets.CO
 {
     /// <summary>
-    /// Updates the enrollment (opt in) status of an account to the AWS Compute Optimizer
-    /// service.
+    /// Updates the enrollment (opt in and opt out) status of an account to the AWS Compute
+    /// Optimizer service.
     /// 
     ///  
     /// <para>
     /// If the account is a management account of an organization, this action can also be
     /// used to enroll member accounts within the organization.
+    /// </para><para>
+    /// You must have the appropriate permissions to opt in to Compute Optimizer, to view
+    /// its recommendations, and to opt out. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/ug/security-iam.html">Controlling
+    /// access with AWS Identity and Access Management</a> in the <i>Compute Optimizer User
+    /// Guide</i>.
+    /// </para><para>
+    /// When you opt in, Compute Optimizer automatically creates a Service-Linked Role in
+    /// your account to access its data. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/ug/using-service-linked-roles.html">Using
+    /// Service-Linked Roles for AWS Compute Optimizer</a> in the <i>Compute Optimizer User
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "COEnrollmentStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter IncludeMemberAccount
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to enroll member accounts of the organization if the your account
-        /// is the management account of an organization.</para>
+        /// <para>Indicates whether to enroll member accounts of the organization if the account is
+        /// the management account of an organization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,8 +71,14 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The new enrollment status of the account.</para><para>Accepted options are <code>Active</code> or <code>Inactive</code>. You will get an
-        /// error if <code>Pending</code> or <code>Failed</code> are specified.</para>
+        /// <para>The new enrollment status of the account.</para><para>The following status options are available:</para><ul><li><para><code>Active</code> - Opts in your account to the Compute Optimizer service. Compute
+        /// Optimizer begins analyzing the configuration and utilization metrics of your AWS resources
+        /// after you opt in. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/ug/metrics.html">Metrics
+        /// analyzed by AWS Compute Optimizer</a> in the <i>Compute Optimizer User Guide</i>.</para></li><li><para><code>Inactive</code> - Opts out your account from the Compute Optimizer service.
+        /// Your account's recommendations and related metrics data will be deleted from Compute
+        /// Optimizer after you opt out.</para></li></ul><note><para>The <code>Pending</code> and <code>Failed</code> options cannot be used to update
+        /// the enrollment status of an account. They are returned in the response of a request
+        /// to update the enrollment status of an account.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

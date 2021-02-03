@@ -28,7 +28,8 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves information about the Amazon Macie master account for an account.
+    /// (Deprecated) Retrieves information about the Amazon Macie administrator account for
+    /// an account.
     /// </summary>
     [Cmdlet("Get", "MAC2MasterAccount")]
     [OutputType("Amazon.Macie2.Model.Invitation")]

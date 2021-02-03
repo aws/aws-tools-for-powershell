@@ -276,8 +276,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter TumblingWindowInSecond
         /// <summary>
         /// <para>
-        /// <para>(Streams) The duration of a processing window in seconds. The range is between 1 second
-        /// up to 15 minutes.</para>
+        /// <para>(Streams) The duration in seconds of a processing window. The range is between 1 second
+        /// up to 900 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

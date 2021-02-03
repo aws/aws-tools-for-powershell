@@ -34,12 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// To call this operation, you must be signed in using your AWS Organizations master
+    /// To call this operation, you must be signed in using your AWS Organizations management
     /// account credentials. You can use your long-term IAM user or root user credentials,
     /// or temporary credentials from assuming an IAM role. SCPs must be enabled for your
     /// organization root. You must have the required IAM and AWS Organizations permissions.
     /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining
-    /// Permissions Using Service Last Accessed Data</a> in the <i>IAM User Guide</i>.
+    /// permissions using service last accessed data</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// You can generate a service last accessed data report for entities by specifying only
     /// the entity's path. This data includes a list of services that are allowed by any service
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// that the policy allows to account principals in the entity or the entity's children.
     /// For important information about the data, reporting period, permissions required,
     /// troubleshooting, and supported Regions see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
-    /// Permissions Using Service Last Accessed Data</a> in the <i>IAM User Guide</i>.
+    /// permissions using service last accessed data</a> in the <i>IAM User Guide</i>.
     /// </para><important><para>
     /// The data includes all attempts to access AWS, not just the successful ones. This includes
     /// all attempts that were made using the AWS Management Console, the AWS API through
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// request might have been denied. Refer to your CloudTrail logs as the authoritative
     /// source for information about all API calls and whether they were successful or denied
     /// access. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">Logging
-    /// IAM Events with CloudTrail</a> in the <i>IAM User Guide</i>.
+    /// IAM events with CloudTrail</a> in the <i>IAM User Guide</i>.
     /// </para></important><para>
     /// This operation returns a <code>JobId</code>. Use this parameter in the <code><a>GetOrganizationsAccessReport</a></code> operation to check the status of the report generation. To check the status
     /// of this request, use the <code>JobId</code> parameter in the <code><a>GetOrganizationsAccessReport</a></code> operation and test the <code>JobStatus</code> response parameter. When the
@@ -74,15 +74,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><ul><li><para><b>Root</b> – When you specify the organizations root as the entity, the resulting
     /// report lists all of the services allowed by SCPs that are attached to your root. For
     /// each service, the report includes data for all accounts in your organization except
-    /// the master account, because the master account is not limited by SCPs.
+    /// the management account, because the management account is not limited by SCPs.
     /// </para></li><li><para><b>OU</b> – When you specify an organizational unit (OU) as the entity, the resulting
     /// report lists all of the services allowed by SCPs that are attached to the OU and its
     /// parents. For each service, the report includes data for all accounts in the OU or
-    /// its children. This data excludes the master account, because the master account is
-    /// not limited by SCPs.
-    /// </para></li><li><para><b>Master account</b> – When you specify the master account, the resulting report
-    /// lists all AWS services, because the master account is not limited by SCPs. For each
-    /// service, the report includes data for only the master account.
+    /// its children. This data excludes the management account, because the management account
+    /// is not limited by SCPs.
+    /// </para></li><li><para><b>management account</b> – When you specify the management account, the resulting
+    /// report lists all AWS services, because the management account is not limited by SCPs.
+    /// For each service, the report includes data for only the management account.
     /// </para></li><li><para><b>Account</b> – When you specify another account as the entity, the resulting report
     /// lists all of the services allowed by SCPs that are attached to the account and its
     /// parents. For each service, the report includes data for only the specified account.
@@ -93,20 +93,20 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><ul><li><para><b>Root</b> – When you specify the root entity and a policy ID, the resulting report
     /// lists all of the services that are allowed by the specified SCP. For each service,
     /// the report includes data for all accounts in your organization to which the SCP applies.
-    /// This data excludes the master account, because the master account is not limited by
-    /// SCPs. If the SCP is not attached to any entities in the organization, then the report
-    /// will return a list of services with no data.
+    /// This data excludes the management account, because the management account is not limited
+    /// by SCPs. If the SCP is not attached to any entities in the organization, then the
+    /// report will return a list of services with no data.
     /// </para></li><li><para><b>OU</b> – When you specify an OU entity and a policy ID, the resulting report lists
     /// all of the services that are allowed by the specified SCP. For each service, the report
     /// includes data for all accounts in the OU or its children to which the SCP applies.
     /// This means that other accounts outside the OU that are affected by the SCP might not
-    /// be included in the data. This data excludes the master account, because the master
+    /// be included in the data. This data excludes the management account, because the management
     /// account is not limited by SCPs. If the SCP is not attached to the OU or one of its
     /// children, the report will return a list of services with no data.
-    /// </para></li><li><para><b>Master account</b> – When you specify the master account, the resulting report
-    /// lists all AWS services, because the master account is not limited by SCPs. If you
-    /// specify a policy ID in the CLI or API, the policy is ignored. For each service, the
-    /// report includes data for only the master account.
+    /// </para></li><li><para><b>management account</b> – When you specify the management account, the resulting
+    /// report lists all AWS services, because the management account is not limited by SCPs.
+    /// If you specify a policy ID in the CLI or API, the policy is ignored. For each service,
+    /// the report includes data for only the management account.
     /// </para></li><li><para><b>Account</b> – When you specify another account entity and a policy ID, the resulting
     /// report lists all of the services that are allowed by the specified SCP. For each service,
     /// the report includes data for only the specified account. This means that other accounts
@@ -119,10 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// policies, resource-based policies, access control lists, IAM permissions boundaries,
     /// and STS assume role policies. It only applies SCP logic. For more about the evaluation
     /// of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating
-    /// Policies</a> in the <i>IAM User Guide</i>.
+    /// policies</a> in the <i>IAM User Guide</i>.
     /// </para></note><para>
     /// For more information about service last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
-    /// Policy Scope by Viewing User Activity</a> in the <i>IAM User Guide</i>.
+    /// policy scope by viewing user activity</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMOrganizationsAccessReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

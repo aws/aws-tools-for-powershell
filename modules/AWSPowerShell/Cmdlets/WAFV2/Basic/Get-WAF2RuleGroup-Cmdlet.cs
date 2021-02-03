@@ -28,14 +28,7 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// <note><para>
-    /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-    /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-    /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-    /// WAF Developer Guide</a>. 
-    /// </para></note><para>
     /// Retrieves the specified <a>RuleGroup</a>.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "WAF2RuleGroup")]
     [OutputType("Amazon.WAFV2.Model.GetRuleGroupResponse")]

@@ -40,6 +40,22 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class GetCFNStackSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        #region Parameter CallAs
+        /// <summary>
+        /// <para>
+        /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
+        /// in the organization's management account or as a delegated administrator in a member
+        /// account.</para><para>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
+        /// self-managed permissions.</para><ul><li><para>If you are signed in to the management account, specify <code>SELF</code>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</para><para>Your AWS account must be registered as a delegated administrator in the management
+        /// account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
+        /// a delegated administrator</a> in the <i>AWS CloudFormation User Guide</i>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.CallAs")]
+        public Amazon.CloudFormation.CallAs CallAs { get; set; }
+        #endregion
+        
         #region Parameter StackSetName
         /// <summary>
         /// <para>
@@ -102,6 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 context.Select = (response, cmdlet) => this.StackSetName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CallAs = this.CallAs;
             context.StackSetName = this.StackSetName;
             #if MODULAR
             if (this.StackSetName == null && ParameterWasBound(nameof(this.StackSetName)))
@@ -125,6 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // create request
             var request = new Amazon.CloudFormation.Model.DescribeStackSetRequest();
             
+            if (cmdletContext.CallAs != null)
+            {
+                request.CallAs = cmdletContext.CallAs;
+            }
             if (cmdletContext.StackSetName != null)
             {
                 request.StackSetName = cmdletContext.StackSetName;
@@ -190,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.CloudFormation.CallAs CallAs { get; set; }
             public System.String StackSetName { get; set; }
             public System.Func<Amazon.CloudFormation.Model.DescribeStackSetResponse, GetCFNStackSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.StackSet;

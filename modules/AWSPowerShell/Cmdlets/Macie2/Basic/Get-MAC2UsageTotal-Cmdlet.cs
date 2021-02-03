@@ -40,6 +40,19 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     public partial class GetMAC2UsageTotalCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {
         
+        #region Parameter TimeRange
+        /// <summary>
+        /// <para>
+        /// <para>The time period to retrieve the data for. Valid values are: MONTH_TO_DATE, for the
+        /// current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days. If you
+        /// don’t specify a value for this parameter, Amazon Macie provides aggregated usage data
+        /// for the preceding 30 days.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String TimeRange { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'UsageTotals'.
@@ -51,6 +64,16 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         public string Select { get; set; } = "UsageTotals";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the TimeRange parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TimeRange' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TimeRange' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -60,11 +83,22 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Macie2.Model.GetUsageTotalsResponse, GetMAC2UsageTotalCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.TimeRange;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.TimeRange = this.TimeRange;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -81,6 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             // create request
             var request = new Amazon.Macie2.Model.GetUsageTotalsRequest();
             
+            if (cmdletContext.TimeRange != null)
+            {
+                request.TimeRange = cmdletContext.TimeRange;
+            }
             
             CmdletOutput output;
             
@@ -142,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String TimeRange { get; set; }
             public System.Func<Amazon.Macie2.Model.GetUsageTotalsResponse, GetMAC2UsageTotalCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.UsageTotals;
         }

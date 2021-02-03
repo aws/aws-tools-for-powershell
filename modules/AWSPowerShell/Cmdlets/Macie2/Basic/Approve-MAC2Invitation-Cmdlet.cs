@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     public partial class ApproveMAC2InvitationCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {
         
+        #region Parameter AdministratorAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS account ID for the account that sent the invitation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdministratorAccountId { get; set; }
+        #endregion
+        
         #region Parameter InvitationId
         /// <summary>
         /// <para>
@@ -60,17 +70,12 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter MasterAccount
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID for the account that sent the invitation.</para>
+        /// <para>(Deprecated) The AWS account ID for the account that sent the invitation. This property
+        /// has been replaced by the administratorAccountId property and is retained only for
+        /// backward compatibility.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MasterAccount { get; set; }
         #endregion
         
@@ -114,6 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
                 context.Select = CreateSelectDelegate<Amazon.Macie2.Model.AcceptInvitationResponse, ApproveMAC2InvitationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AdministratorAccountId = this.AdministratorAccountId;
             context.InvitationId = this.InvitationId;
             #if MODULAR
             if (this.InvitationId == null && ParameterWasBound(nameof(this.InvitationId)))
@@ -122,12 +128,6 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             }
             #endif
             context.MasterAccount = this.MasterAccount;
-            #if MODULAR
-            if (this.MasterAccount == null && ParameterWasBound(nameof(this.MasterAccount)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MasterAccount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -144,6 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             // create request
             var request = new Amazon.Macie2.Model.AcceptInvitationRequest();
             
+            if (cmdletContext.AdministratorAccountId != null)
+            {
+                request.AdministratorAccountId = cmdletContext.AdministratorAccountId;
+            }
             if (cmdletContext.InvitationId != null)
             {
                 request.InvitationId = cmdletContext.InvitationId;
@@ -213,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AdministratorAccountId { get; set; }
             public System.String InvitationId { get; set; }
             public System.String MasterAccount { get; set; }
             public System.Func<Amazon.Macie2.Model.AcceptInvitationResponse, ApproveMAC2InvitationCmdlet, object> Select { get; set; } =

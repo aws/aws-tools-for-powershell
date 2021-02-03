@@ -42,8 +42,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// parameters.
     /// </para><para>
     /// For more information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// policies and inline policies</a> in the <i>IAM User Guide</i>.
+    /// </para><note><para>
+    /// IAM resource-listing operations return a subset of the available attributes for the
+    /// resource. For example, this operation does not return tags, even though they are an
+    /// attribute of the returned object. To view all of the information for a customer manged
+    /// policy, see <a>GetPolicy</a>.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMPolicyList")]
     [OutputType("Amazon.IdentityManagement.Model.ManagedPolicy")]

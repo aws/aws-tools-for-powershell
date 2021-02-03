@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Lists the MFA devices for an IAM user. If the request includes a IAM user name, then
     /// this operation lists all the MFA devices associated with the specified user. If you
     /// do not specify a user name, IAM determines the user name implicitly based on the AWS
-    /// access key ID signing the request for this API.
+    /// access key ID signing the request for this operation.
     /// 
     ///  
     /// <para>

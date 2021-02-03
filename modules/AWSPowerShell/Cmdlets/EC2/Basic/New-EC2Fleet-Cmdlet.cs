@@ -217,7 +217,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ReplaceUnhealthyInstance
         /// <summary>
         /// <para>
-        /// <para>Indicates whether EC2 Fleet should replace unhealthy instances.</para>
+        /// <para>Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only
+        /// for fleets of type <code>maintain</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks">EC2
+        /// Fleet health checks</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

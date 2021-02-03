@@ -101,6 +101,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EMPVPackagingConfiguration', 
         'Remove-EMPVPackagingGroup', 
         'Remove-EMPVResourceTag', 
+        'Update-EMPVLog', 
         'Update-EMPVPackagingGroup')
 
     # Variables to export from this module

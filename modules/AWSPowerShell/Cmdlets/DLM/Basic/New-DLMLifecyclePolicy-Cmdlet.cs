@@ -159,6 +159,21 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         public Amazon.DLM.PolicyTypeValues PolicyDetails_PolicyType { get; set; }
         #endregion
         
+        #region Parameter PolicyDetails_ResourceLocation
+        /// <summary>
+        /// <para>
+        /// <para>The location of the resources to backup. If the source resources are located in an
+        /// AWS Region, specify <code>CLOUD</code>. If the source resources are located on an
+        /// AWS Outpost in your account, specify <code>OUTPOST</code>. </para><para>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
+        /// of the specified type with matching target tags across all of the Outposts in your
+        /// account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PolicyDetails_ResourceLocations")]
+        public System.String[] PolicyDetails_ResourceLocation { get; set; }
+        #endregion
+        
         #region Parameter PolicyDetails_ResourceType
         /// <summary>
         /// <para>
@@ -341,6 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             context.Parameters_ExcludeBootVolume = this.Parameters_ExcludeBootVolume;
             context.Parameters_NoReboot = this.Parameters_NoReboot;
             context.PolicyDetails_PolicyType = this.PolicyDetails_PolicyType;
+            if (this.PolicyDetails_ResourceLocation != null)
+            {
+                context.PolicyDetails_ResourceLocation = new List<System.String>(this.PolicyDetails_ResourceLocation);
+            }
             if (this.PolicyDetails_ResourceType != null)
             {
                 context.PolicyDetails_ResourceType = new List<System.String>(this.PolicyDetails_ResourceType);
@@ -414,6 +433,16 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             if (requestPolicyDetails_policyDetails_PolicyType != null)
             {
                 request.PolicyDetails.PolicyType = requestPolicyDetails_policyDetails_PolicyType;
+                requestPolicyDetailsIsNull = false;
+            }
+            List<System.String> requestPolicyDetails_policyDetails_ResourceLocation = null;
+            if (cmdletContext.PolicyDetails_ResourceLocation != null)
+            {
+                requestPolicyDetails_policyDetails_ResourceLocation = cmdletContext.PolicyDetails_ResourceLocation;
+            }
+            if (requestPolicyDetails_policyDetails_ResourceLocation != null)
+            {
+                request.PolicyDetails.ResourceLocations = requestPolicyDetails_policyDetails_ResourceLocation;
                 requestPolicyDetailsIsNull = false;
             }
             List<System.String> requestPolicyDetails_policyDetails_ResourceType = null;
@@ -635,6 +664,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
             public System.Boolean? Parameters_ExcludeBootVolume { get; set; }
             public System.Boolean? Parameters_NoReboot { get; set; }
             public Amazon.DLM.PolicyTypeValues PolicyDetails_PolicyType { get; set; }
+            public List<System.String> PolicyDetails_ResourceLocation { get; set; }
             public List<System.String> PolicyDetails_ResourceType { get; set; }
             public List<Amazon.DLM.Model.Schedule> PolicyDetails_Schedule { get; set; }
             public List<Amazon.DLM.Model.Tag> PolicyDetails_TargetTag { get; set; }

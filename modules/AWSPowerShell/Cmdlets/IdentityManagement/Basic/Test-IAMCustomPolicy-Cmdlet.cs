@@ -35,7 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// The simulation does not perform the API operations; it only checks the authorization
-    /// to determine if the simulated policies allow or deny the operations.
+    /// to determine if the simulated policies allow or deny the operations. You can simulate
+    /// resources that don't exist in your account.
     /// </para><para>
     /// If you want to simulate existing policies that are attached to an IAM user, group,
     /// or role, use <a>SimulatePrincipalPolicy</a> instead.
@@ -47,6 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><para>
     /// If the output is long, you can use <code>MaxItems</code> and <code>Marker</code> parameters
     /// to paginate the results.
+    /// </para><para>
+    /// For more information about using the policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing
+    /// IAM policies with the IAM policy simulator </a>in the <i>IAM User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Test", "IAMCustomPolicy")]
@@ -114,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// maximum permissions that an IAM entity can have. You can input only one permissions
         /// boundary when you pass a policy to this operation. For more information about permissions
         /// boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
-        /// Boundaries for IAM Entities</a> in the <i>IAM User Guide</i>. The policy input is
+        /// boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is
         /// specified as a string that contains the complete, valid JSON text of a permissions
         /// boundary policy.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
         /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
@@ -162,11 +166,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// not provided, then the value defaults to <code>*</code> (all resources). Each API
         /// in the <code>ActionNames</code> parameter is evaluated for each resource in this list.
         /// The simulation determines the access result (allowed or denied) of each combination
-        /// and reports it in the response.</para><para>The simulation does not automatically retrieve policies for the specified resources.
+        /// and reports it in the response. You can simulate resources that don't exist in your
+        /// account.</para><para>The simulation does not automatically retrieve policies for the specified resources.
         /// If you want to include a resource policy in the simulation, then you must include
         /// the policy as a string in the <code>ResourcePolicy</code> parameter.</para><para>If you include a <code>ResourcePolicy</code>, then it must be applicable to all of
         /// the resources included in the simulation or you receive an invalid input error.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// as a resource. If the EC2 scenario includes VPC, then you must supply the network-interface
         /// resource. If it includes an IP subnet, then you must specify the subnet resource.
         /// For more information on the EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
-        /// Platforms</a> in the <i>Amazon EC2 User Guide</i>.</para><ul><li><para><b>EC2-Classic-InstanceStore</b></para><para>instance, image, security-group</para></li><li><para><b>EC2-Classic-EBS</b></para><para>instance, image, security-group, volume</para></li><li><para><b>EC2-VPC-InstanceStore</b></para><para>instance, image, security-group, network-interface</para></li><li><para><b>EC2-VPC-InstanceStore-Subnet</b></para><para>instance, image, security-group, network-interface, subnet</para></li><li><para><b>EC2-VPC-EBS</b></para><para>instance, image, security-group, network-interface, volume</para></li><li><para><b>EC2-VPC-EBS-Subnet</b></para><para>instance, image, security-group, network-interface, subnet, volume</para></li></ul>
+        /// platforms</a> in the <i>Amazon EC2 User Guide</i>.</para><ul><li><para><b>EC2-Classic-InstanceStore</b></para><para>instance, image, security-group</para></li><li><para><b>EC2-Classic-EBS</b></para><para>instance, image, security-group, volume</para></li><li><para><b>EC2-VPC-InstanceStore</b></para><para>instance, image, security-group, network-interface</para></li><li><para><b>EC2-VPC-InstanceStore-Subnet</b></para><para>instance, image, security-group, network-interface, subnet</para></li><li><para><b>EC2-VPC-EBS</b></para><para>instance, image, security-group, network-interface, volume</para></li><li><para><b>EC2-VPC-EBS-Subnet</b></para><para>instance, image, security-group, network-interface, subnet, volume</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

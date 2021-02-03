@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <summary>
         /// <para>
         /// <para>An array of objects, one for each condition to use to filter the query results. If
-        /// the array contains more than one object, Amazon Macie uses an AND operator to join
-        /// the conditions specified by the objects.</para>
+        /// you specify more than one condition, Amazon Macie uses an AND operator to join the
+        /// conditions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,6 +74,20 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Macie2.OrderBy")]
         public Amazon.Macie2.OrderBy SortBy_OrderBy { get; set; }
+        #endregion
+        
+        #region Parameter TimeRange
+        /// <summary>
+        /// <para>
+        /// <para>The inclusive time period to query usage data for. Valid values are: MONTH_TO_DATE,
+        /// for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days.
+        /// If you don't specify a value, Amazon Macie provides usage data for the preceding 30
+        /// days.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Macie2.TimeRange")]
+        public Amazon.Macie2.TimeRange TimeRange { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -131,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             context.NextToken = this.NextToken;
             context.SortBy_Key = this.SortBy_Key;
             context.SortBy_OrderBy = this.SortBy_OrderBy;
+            context.TimeRange = this.TimeRange;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -187,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (requestSortByIsNull)
             {
                 request.SortBy = null;
+            }
+            if (cmdletContext.TimeRange != null)
+            {
+                request.TimeRange = cmdletContext.TimeRange;
             }
             
             CmdletOutput output;
@@ -254,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             public System.String NextToken { get; set; }
             public Amazon.Macie2.UsageStatisticsSortKey SortBy_Key { get; set; }
             public Amazon.Macie2.OrderBy SortBy_OrderBy { get; set; }
+            public Amazon.Macie2.TimeRange TimeRange { get; set; }
             public System.Func<Amazon.Macie2.Model.GetUsageStatisticsResponse, GetMAC2UsageStatisticCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Records;
         }

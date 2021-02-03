@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>This field is only used when SortBy is provided in the request. The maximum number
         /// of objects that to be returned for this request. If MaxResults is not specified with
-        /// SortBy, the request will return 1000 results as the default value for this parameter.</para>
+        /// SortBy, the request will return 1000 results as the default value for this parameter.</para><para>For <code>GetTags</code>, MaxResults has an upper limit of 1000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

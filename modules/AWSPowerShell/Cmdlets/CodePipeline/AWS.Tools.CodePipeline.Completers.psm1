@@ -82,8 +82,10 @@ $CP_Completers = {
     {
         # Amazon.CodePipeline.ActionCategory
         {
+            ($_ -eq "Update-CPActionType/ActionType_Id_Category") -Or
             ($_ -eq "Get-CPActionableJobList/ActionTypeId_Category") -Or
             ($_ -eq "Get-CPActionableThirdPartyJobList/ActionTypeId_Category") -Or
+            ($_ -eq "Get-CPActionTypeDeclaration/Category") -Or
             ($_ -eq "New-CPCustomActionType/Category") -Or
             ($_ -eq "Remove-CPCustomActionType/Category")
         }
@@ -107,6 +109,13 @@ $CP_Completers = {
         "Write-CPApprovalResult/Result_Status"
         {
             $v = "Approved","Rejected"
+            break
+        }
+
+        # Amazon.CodePipeline.ExecutorType
+        "Update-CPActionType/ActionType_Executor_Type"
+        {
+            $v = "JobWorker","Lambda"
             break
         }
 
@@ -154,9 +163,11 @@ $CP_Completers = {
 
 $CP_map = @{
     "ActionOwnerFilter"=@("Get-CPActionType")
+    "ActionType_Executor_Type"=@("Update-CPActionType")
+    "ActionType_Id_Category"=@("Update-CPActionType")
     "ActionTypeId_Category"=@("Get-CPActionableJobList","Get-CPActionableThirdPartyJobList")
     "ActionTypeId_Owner"=@("Get-CPActionableJobList","Get-CPActionableThirdPartyJobList")
-    "Category"=@("New-CPCustomActionType","Remove-CPCustomActionType")
+    "Category"=@("Get-CPActionTypeDeclaration","New-CPCustomActionType","Remove-CPCustomActionType")
     "FailureDetails_Type"=@("Write-CPJobFailureResult","Write-CPThirdPartyJobFailureResult")
     "Result_Status"=@("Write-CPApprovalResult")
     "RetryMode"=@("Redo-CPStageExecution")
@@ -224,6 +235,7 @@ $CP_SelectMap = @{
                "Unregister-CPWebhookWithThirdParty",
                "Disable-CPStageTransition",
                "Enable-CPStageTransition",
+               "Get-CPActionTypeDeclaration",
                "Get-CPJobDetail",
                "Get-CPPipeline",
                "Get-CPPipelineExecution",
@@ -250,6 +262,7 @@ $CP_SelectMap = @{
                "Stop-CPPipelineExecution",
                "Add-CPResourceTag",
                "Remove-CPResourceTag",
+               "Update-CPActionType",
                "Update-CPPipeline")
 }
 

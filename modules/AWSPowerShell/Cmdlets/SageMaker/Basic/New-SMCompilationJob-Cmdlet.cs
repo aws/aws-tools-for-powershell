@@ -200,6 +200,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Framework InputConfig_Framework { get; set; }
         #endregion
         
+        #region Parameter InputConfig_FrameworkVersion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the framework version to use.</para><para>This API field is only supported for PyTorch framework versions <code>1.4</code>,
+        /// <code>1.5</code>, and <code>1.6</code> for cloud instance target devices: <code>ml_c4</code>,
+        /// <code>ml_c5</code>, <code>ml_m4</code>, <code>ml_m5</code>, <code>ml_p2</code>, <code>ml_p3</code>,
+        /// and <code>ml_g4dn</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InputConfig_FrameworkVersion { get; set; }
+        #endregion
+        
         #region Parameter OutputConfig_KmsKeyId
         /// <summary>
         /// <para>
@@ -420,6 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter InputConfig_Framework which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InputConfig_FrameworkVersion = this.InputConfig_FrameworkVersion;
             context.InputConfig_S3Uri = this.InputConfig_S3Uri;
             #if MODULAR
             if (this.InputConfig_S3Uri == null && ParameterWasBound(nameof(this.InputConfig_S3Uri)))
@@ -495,6 +509,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_Framework != null)
             {
                 request.InputConfig.Framework = requestInputConfig_inputConfig_Framework;
+                requestInputConfigIsNull = false;
+            }
+            System.String requestInputConfig_inputConfig_FrameworkVersion = null;
+            if (cmdletContext.InputConfig_FrameworkVersion != null)
+            {
+                requestInputConfig_inputConfig_FrameworkVersion = cmdletContext.InputConfig_FrameworkVersion;
+            }
+            if (requestInputConfig_inputConfig_FrameworkVersion != null)
+            {
+                request.InputConfig.FrameworkVersion = requestInputConfig_inputConfig_FrameworkVersion;
                 requestInputConfigIsNull = false;
             }
             System.String requestInputConfig_inputConfig_S3Uri = null;
@@ -707,6 +731,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String CompilationJobName { get; set; }
             public System.String InputConfig_DataInputConfig { get; set; }
             public Amazon.SageMaker.Framework InputConfig_Framework { get; set; }
+            public System.String InputConfig_FrameworkVersion { get; set; }
             public System.String InputConfig_S3Uri { get; set; }
             public System.String OutputConfig_CompilerOption { get; set; }
             public System.String OutputConfig_KmsKeyId { get; set; }

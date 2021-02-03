@@ -32,12 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// You cannot delete the default version from a policy using this API. To delete the
-    /// default version from a policy, use <a>DeletePolicy</a>. To find out which version
+    /// You cannot delete the default version from a policy using this operation. To delete
+    /// the default version from a policy, use <a>DeletePolicy</a>. To find out which version
     /// of a policy is marked as the default version, use <a>ListPolicyVersions</a>.
     /// </para><para>
     /// For information about versions for managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-    /// for Managed Policies</a> in the <i>IAM User Guide</i>.
+    /// for managed policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a version.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// pattern</a>) a string of characters that consists of the lowercase letter 'v' followed
         /// by one or two digits, and optionally followed by a period '.' and a string of letters
         /// and digits.</para><para>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-        /// for Managed Policies</a> in the <i>IAM User Guide</i>.</para>
+        /// for managed policies</a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

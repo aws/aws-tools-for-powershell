@@ -28,7 +28,21 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Lists training jobs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists training jobs.
+    /// 
+    ///  <note><para>
+    /// When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same time,
+    /// the <code>MaxResults</code> number of training jobs are first retrieved ignoring the
+    /// <code>StatusEquals</code> parameter and then they are filtered by the <code>StatusEquals</code>
+    /// parameter, which is returned as a response. For example, if <code>ListTrainingJobs</code>
+    /// is invoked with the following parameters:
+    /// </para><para><code>{ ... MaxResults: 100, StatusEquals: InProgress ... }</code></para><para>
+    /// Then, 100 trainings jobs with any status including those other than <code>InProgress</code>
+    /// are selected first (sorted according the creation time, from the latest to the oldest)
+    /// and those with status <code>InProgress</code> are returned.
+    /// </para><para>
+    /// You can quickly test the API using the following AWS CLI code.
+    /// </para><para><code>aws sagemaker list-training-jobs --max-results 100 --status-equals InProgress</code></para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMTrainingJobList")]
     [OutputType("Amazon.SageMaker.Model.TrainingJobSummary")]

@@ -28,8 +28,8 @@ using Amazon.Macie.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC
 {
     /// <summary>
-    /// Lists all Amazon Macie Classic member accounts for the current Amazon Macie Classic
-    /// master account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all Amazon Macie Classic member accounts for the current Macie Classic administrator
+    /// account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MACMemberAccountList")]
     [OutputType("Amazon.Macie.Model.MemberAccount")]
