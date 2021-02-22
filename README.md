@@ -48,7 +48,7 @@ Take a look at this reference for more in-depth documentation for each PowerShel
 
 Come see what .NET and PowerShell developers at AWS are up to! Learn about new software announcements, guides, and how-to's.
 
-[@awsfornet](https://twitter.com/awsfornet)
+[@dotnetonaws](https://twitter.com/dotnetonaws)
 
 Follow us on Twitter!
 
