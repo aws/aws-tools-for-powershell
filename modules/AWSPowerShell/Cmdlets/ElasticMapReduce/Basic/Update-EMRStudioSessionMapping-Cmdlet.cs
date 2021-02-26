@@ -28,13 +28,8 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// <note><para>
-    /// The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-    /// change.
-    /// </para></note><para>
     /// Updates the session policy attached to the user or group for the specified Amazon
     /// EMR Studio.
-    /// </para>
     /// </summary>
     [Cmdlet("Update", "EMRStudioSessionMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -63,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter IdentityName
         /// <summary>
         /// <para>
-        /// <para>The name of the user or group to update. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserName</a>
+        /// <para>The name of the user or group to update. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a>
         /// and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a>
         /// in the <i>AWS SSO Identity Store API Reference</i>. Either <code>IdentityName</code>
         /// or <code>IdentityId</code> must be specified.</para>
@@ -111,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter StudioId
         /// <summary>
         /// <para>
-        /// <para>The ID of the EMR Studio.</para>
+        /// <para>The ID of the Amazon EMR Studio.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

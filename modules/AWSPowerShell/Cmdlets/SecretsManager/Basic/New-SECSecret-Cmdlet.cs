@@ -105,6 +105,18 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class NewSECSecretCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        #region Parameter AddReplicaRegion
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) Add a list of regions to replicate secrets. Secrets Manager replicates
+        /// the KMSKeyID objects to the list of regions specified in the parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AddReplicaRegions")]
+        public Amazon.SecretsManager.Model.ReplicaRegionType[] AddReplicaRegion { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -122,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// of the secret then a new version of the secret is created. </para></li><li><para>If a version with this value already exists and the version <code>SecretString</code>
         /// and <code>SecretBinary</code> values are the same as those in the request, then the
         /// request is ignored.</para></li><li><para>If a version with this value already exists and that version's <code>SecretString</code>
-        /// and <code>SecretBinary</code> values are different from those in the request then
+        /// and <code>SecretBinary</code> values are different from those in the request, then
         /// the request fails because you cannot modify an existing version. Instead, use <a>PutSecretValue</a>
         /// to create a new version.</para></li></ul><para>This value becomes the <code>VersionId</code> of the new version.</para>
         /// </para>
@@ -139,6 +151,17 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter ForceOverwriteReplicaSecret
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) If set, the replication overwrites a secret with the same name in the destination
+        /// region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForceOverwriteReplicaSecret { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
@@ -306,8 +329,13 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                 context.Select = (response, cmdlet) => this.SecretString;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AddReplicaRegion != null)
+            {
+                context.AddReplicaRegion = new List<Amazon.SecretsManager.Model.ReplicaRegionType>(this.AddReplicaRegion);
+            }
             context.ClientRequestToken = this.ClientRequestToken;
             context.Description = this.Description;
+            context.ForceOverwriteReplicaSecret = this.ForceOverwriteReplicaSecret;
             context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             #if MODULAR
@@ -342,6 +370,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                 // create request
                 var request = new Amazon.SecretsManager.Model.CreateSecretRequest();
                 
+                if (cmdletContext.AddReplicaRegion != null)
+                {
+                    request.AddReplicaRegions = cmdletContext.AddReplicaRegion;
+                }
                 if (cmdletContext.ClientRequestToken != null)
                 {
                     request.ClientRequestToken = cmdletContext.ClientRequestToken;
@@ -349,6 +381,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                 if (cmdletContext.Description != null)
                 {
                     request.Description = cmdletContext.Description;
+                }
+                if (cmdletContext.ForceOverwriteReplicaSecret != null)
+                {
+                    request.ForceOverwriteReplicaSecret = cmdletContext.ForceOverwriteReplicaSecret.Value;
                 }
                 if (cmdletContext.KmsKeyId != null)
                 {
@@ -440,8 +476,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SecretsManager.Model.ReplicaRegionType> AddReplicaRegion { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? ForceOverwriteReplicaSecret { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
             public byte[] SecretBinary { get; set; }

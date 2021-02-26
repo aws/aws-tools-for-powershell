@@ -28,37 +28,38 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Establishes a new queue for processing requests to place new game sessions. A queue
-    /// identifies where new game sessions can be hosted -- by specifying a list of destinations
-    /// (fleets or aliases) -- and how long requests can wait in the queue before timing out.
-    /// You can set up a queue to try to place game sessions on fleets in multiple Regions.
-    /// To add placement requests to a queue, call <a>StartGameSessionPlacement</a> and reference
-    /// the queue name.
+    /// Creates a placement queue that processes requests for new game sessions. A queue uses
+    /// FleetIQ algorithms to determine the best placement locations and find an available
+    /// game server there, then prompts the game server process to start a new game session.
+    /// 
     /// 
     ///  
-    /// <para><b>Destination order.</b> When processing a request for a game session, Amazon GameLift
-    /// tries each destination in order until it finds one with available resources to host
-    /// the new game session. A queue's default order is determined by how destinations are
-    /// listed. The default order is overridden when a game session placement request provides
-    /// player latency information. Player latency information enables Amazon GameLift to
-    /// prioritize destinations where players report the lowest average latency, as a result
-    /// placing the new game session where the majority of players will have the best possible
-    /// gameplay experience.
-    /// </para><para><b>Player latency policies.</b> For placement requests containing player latency
-    /// information, use player latency policies to protect individual players from very high
-    /// latencies. With a latency cap, even when a destination can deliver a low latency for
-    /// most players, the game is not placed where any individual player is reporting latency
-    /// higher than a policy's maximum. A queue can have multiple latency policies, which
-    /// are enforced consecutively starting with the policy with the lowest latency cap. Use
-    /// multiple policies to gradually relax latency controls; for example, you might set
-    /// a policy with a low latency cap for the first 60 seconds, a second policy with a higher
-    /// cap for the next 60 seconds, etc. 
+    /// <para>
+    /// A game session queue is configured with a set of destinations (GameLift fleets or
+    /// aliases), which determine the locations where the queue can place new game sessions.
+    /// These destinations can span multiple fleet types (Spot and On-Demand), instance types,
+    /// and AWS Regions. If the queue includes multi-location fleets, the queue is able to
+    /// place game sessions in all of a fleet's remote locations. You can opt to filter out
+    /// individual locations if needed.
     /// </para><para>
-    /// To create a new queue, provide a name, timeout value, a list of destinations and,
-    /// if desired, a set of latency policies. If successful, a new queue object is returned.
+    /// The queue configuration also determines how FleetIQ selects the best available placement
+    /// for a new game session. Before searching for an available game server, FleetIQ first
+    /// prioritizes the queue's destinations and locations, with the best placement locations
+    /// on top. You can set up the queue to use the FleetIQ default prioritization or provide
+    /// an alternate set of priorities.
+    /// </para><para>
+    /// To create a new queue, provide a name, timeout value, and a list of destinations.
+    /// Optionally, specify a sort configuration and/or a filter, and define a set of latency
+    /// cap policies.
+    /// </para><para>
+    /// If successful, a new <code>GameSessionQueue</code> object is returned with an assigned
+    /// queue ARN. New game session requests, which are submitted to queue with <a>StartGameSessionPlacement</a>
+    /// or <a>StartMatchmaking</a>, reference a queue's name or ARN. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-design.html">
-    /// Design a Game Session Queue</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-creating.html">
-    /// Create a Game Session Queue</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateGameSessionQueue</a></para></li><li><para><a>DescribeGameSessionQueues</a></para></li><li><para><a>UpdateGameSessionQueue</a></para></li><li><para><a>DeleteGameSessionQueue</a></para></li></ul>
+    /// Design a game session queue</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-creating.html">
+    /// Create a game session queue</a></para><para><b>Related actions</b></para><para><a>CreateGameSessionQueue</a> | <a>DescribeGameSessionQueues</a> | <a>UpdateGameSessionQueue</a>
+    /// | <a>DeleteGameSessionQueue</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLGameSessionQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameSessionQueue")]
@@ -70,17 +71,41 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class NewGMLGameSessionQueueCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        #region Parameter FilterConfiguration_AllowedLocation
+        /// <summary>
+        /// <para>
+        /// <para> A list of locations to allow game session placement in, in the form of AWS Region
+        /// codes such as <code>us-west-2</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterConfiguration_AllowedLocations")]
+        public System.String[] FilterConfiguration_AllowedLocation { get; set; }
+        #endregion
+        
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>A list of fleets that can be used to fulfill game session placement requests in the
-        /// queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations
-        /// are listed in default preference order.</para>
+        /// <para>A list of fleets and/or fleet aliases that can be used to fulfill game session placement
+        /// requests in the queue. Destinations are identified by either a fleet ARN or a fleet
+        /// alias ARN, and are listed in order of placement preference.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Destinations")]
         public Amazon.GameLift.Model.GameSessionQueueDestination[] Destination { get; set; }
+        #endregion
+        
+        #region Parameter PriorityConfiguration_LocationOrder
+        /// <summary>
+        /// <para>
+        /// <para>The prioritization order to use for fleet locations, when the <code>PriorityOrder</code>
+        /// property includes <code>LOCATION</code>. Locations are identified by AWS Region codes
+        /// such as <code>us-west-2</code>. Each location can only be listed once. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] PriorityConfiguration_LocationOrder { get; set; }
         #endregion
         
         #region Parameter Name
@@ -104,20 +129,32 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlayerLatencyPolicy
         /// <summary>
         /// <para>
-        /// <para>A collection of latency policies to apply when processing game sessions placement
-        /// requests with player latency information. Multiple policies are evaluated in order
-        /// of the maximum latency value, starting with the lowest latency values. With just one
-        /// policy, the policy is enforced at the start of the game session placement for the
-        /// duration period. With multiple policies, each policy is enforced consecutively for
-        /// its duration period. For example, a queue might enforce a 60-second policy followed
-        /// by a 120-second policy, and then no policy for the remainder of the placement. A player
-        /// latency policy must set a value for <code>MaximumIndividualPlayerLatencyMilliseconds</code>.
-        /// If none is set, this API request fails.</para>
+        /// <para>A set of policies that act as a sliding cap on player latency. FleetIQ works to deliver
+        /// low latency for most players in a game session. These policies ensure that no individual
+        /// player can be placed into a game with unreasonably high latency. Use multiple policies
+        /// to gradually relax latency requirements a step at a time. Multiple policies are applied
+        /// based on their maximum allowed latency, starting with the lowest value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PlayerLatencyPolicies")]
         public Amazon.GameLift.Model.PlayerLatencyPolicy[] PlayerLatencyPolicy { get; set; }
+        #endregion
+        
+        #region Parameter PriorityConfiguration_PriorityOrder
+        /// <summary>
+        /// <para>
+        /// <para>The recommended sequence to use when prioritizing where to place new game sessions.
+        /// Each type can only be listed once.</para><ul><li><para><code>LATENCY</code> -- FleetIQ prioritizes locations where the average player latency
+        /// (provided in each game session request) is lowest. </para></li><li><para><code>COST</code> -- FleetIQ prioritizes destinations with the lowest current hosting
+        /// costs. Cost is evaluated based on the location, instance type, and fleet type (Spot
+        /// or On-Demand) for each destination in the queue.</para></li><li><para><code>DESTINATION</code> -- FleetIQ prioritizes based on the order that destinations
+        /// are listed in the queue configuration.</para></li><li><para><code>LOCATION</code> -- FleetIQ prioritizes based on the provided order of locations,
+        /// as defined in <code>LocationOrder</code>. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] PriorityConfiguration_PriorityOrder { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -215,6 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 context.Destination = new List<Amazon.GameLift.Model.GameSessionQueueDestination>(this.Destination);
             }
+            if (this.FilterConfiguration_AllowedLocation != null)
+            {
+                context.FilterConfiguration_AllowedLocation = new List<System.String>(this.FilterConfiguration_AllowedLocation);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -225,6 +266,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (this.PlayerLatencyPolicy != null)
             {
                 context.PlayerLatencyPolicy = new List<Amazon.GameLift.Model.PlayerLatencyPolicy>(this.PlayerLatencyPolicy);
+            }
+            if (this.PriorityConfiguration_LocationOrder != null)
+            {
+                context.PriorityConfiguration_LocationOrder = new List<System.String>(this.PriorityConfiguration_LocationOrder);
+            }
+            if (this.PriorityConfiguration_PriorityOrder != null)
+            {
+                context.PriorityConfiguration_PriorityOrder = new List<System.String>(this.PriorityConfiguration_PriorityOrder);
             }
             if (this.Tag != null)
             {
@@ -251,6 +300,25 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 request.Destinations = cmdletContext.Destination;
             }
+            
+             // populate FilterConfiguration
+            var requestFilterConfigurationIsNull = true;
+            request.FilterConfiguration = new Amazon.GameLift.Model.FilterConfiguration();
+            List<System.String> requestFilterConfiguration_filterConfiguration_AllowedLocation = null;
+            if (cmdletContext.FilterConfiguration_AllowedLocation != null)
+            {
+                requestFilterConfiguration_filterConfiguration_AllowedLocation = cmdletContext.FilterConfiguration_AllowedLocation;
+            }
+            if (requestFilterConfiguration_filterConfiguration_AllowedLocation != null)
+            {
+                request.FilterConfiguration.AllowedLocations = requestFilterConfiguration_filterConfiguration_AllowedLocation;
+                requestFilterConfigurationIsNull = false;
+            }
+             // determine if request.FilterConfiguration should be set to null
+            if (requestFilterConfigurationIsNull)
+            {
+                request.FilterConfiguration = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -258,6 +326,35 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.PlayerLatencyPolicy != null)
             {
                 request.PlayerLatencyPolicies = cmdletContext.PlayerLatencyPolicy;
+            }
+            
+             // populate PriorityConfiguration
+            var requestPriorityConfigurationIsNull = true;
+            request.PriorityConfiguration = new Amazon.GameLift.Model.PriorityConfiguration();
+            List<System.String> requestPriorityConfiguration_priorityConfiguration_LocationOrder = null;
+            if (cmdletContext.PriorityConfiguration_LocationOrder != null)
+            {
+                requestPriorityConfiguration_priorityConfiguration_LocationOrder = cmdletContext.PriorityConfiguration_LocationOrder;
+            }
+            if (requestPriorityConfiguration_priorityConfiguration_LocationOrder != null)
+            {
+                request.PriorityConfiguration.LocationOrder = requestPriorityConfiguration_priorityConfiguration_LocationOrder;
+                requestPriorityConfigurationIsNull = false;
+            }
+            List<System.String> requestPriorityConfiguration_priorityConfiguration_PriorityOrder = null;
+            if (cmdletContext.PriorityConfiguration_PriorityOrder != null)
+            {
+                requestPriorityConfiguration_priorityConfiguration_PriorityOrder = cmdletContext.PriorityConfiguration_PriorityOrder;
+            }
+            if (requestPriorityConfiguration_priorityConfiguration_PriorityOrder != null)
+            {
+                request.PriorityConfiguration.PriorityOrder = requestPriorityConfiguration_priorityConfiguration_PriorityOrder;
+                requestPriorityConfigurationIsNull = false;
+            }
+             // determine if request.PriorityConfiguration should be set to null
+            if (requestPriorityConfigurationIsNull)
+            {
+                request.PriorityConfiguration = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -329,8 +426,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.GameLift.Model.GameSessionQueueDestination> Destination { get; set; }
+            public List<System.String> FilterConfiguration_AllowedLocation { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.GameLift.Model.PlayerLatencyPolicy> PlayerLatencyPolicy { get; set; }
+            public List<System.String> PriorityConfiguration_LocationOrder { get; set; }
+            public List<System.String> PriorityConfiguration_PriorityOrder { get; set; }
             public List<Amazon.GameLift.Model.Tag> Tag { get; set; }
             public System.Int32? TimeoutInSecond { get; set; }
             public System.Func<Amazon.GameLift.Model.CreateGameSessionQueueResponse, NewGMLGameSessionQueueCmdlet, object> Select { get; set; } =

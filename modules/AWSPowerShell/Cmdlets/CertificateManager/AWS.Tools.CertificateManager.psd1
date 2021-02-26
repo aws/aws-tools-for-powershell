@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-ACMCertificateTag', 
         'Export-ACMCertificate', 
+        'Get-ACMAccountConfiguration', 
         'Get-ACMCertificate', 
         'Get-ACMCertificateDetail', 
         'Get-ACMCertificateList', 
@@ -98,7 +99,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ACMCertificate', 
         'Remove-ACMCertificateTag', 
         'Send-ACMValidationEmail', 
-        'Update-ACMCertificateOption')
+        'Update-ACMCertificateOption', 
+        'Write-ACMAccountConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

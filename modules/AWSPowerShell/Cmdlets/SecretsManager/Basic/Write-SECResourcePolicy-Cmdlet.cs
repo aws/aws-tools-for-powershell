@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
     /// To retrieve the resource policy attached to a secret, use <a>GetResourcePolicy</a>.
     /// </para></li><li><para>
-    /// To delete the resource-based policy that's attached to a secret, use <a>DeleteResourcePolicy</a>.
+    /// To delete the resource-based policy attached to a secret, use <a>DeleteResourcePolicy</a>.
     /// </para></li><li><para>
     /// To list all of the currently available secrets, use <a>ListSecrets</a>.
     /// </para></li></ul>
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter BlockPublicPolicy
         /// <summary>
         /// <para>
-        /// <para>Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad
-        /// access to your secret.</para>
+        /// <para>(Optional) If you set the parameter, <code>BlockPublicPolicy</code> to true, then
+        /// you block resource-based policies that allow broad access to the secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter ResourcePolicy
         /// <summary>
         /// <para>
-        /// <para>A JSON-formatted string that's constructed according to the grammar and syntax for
-        /// an AWS resource-based policy. The policy in the string identifies who can access or
-        /// manage this secret and its versions. For information on how to format a JSON parameter
-        /// for the various command line tool environments, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
+        /// <para>A JSON-formatted string constructed according to the grammar and syntax for an AWS
+        /// resource-based policy. The policy in the string identifies who can access or manage
+        /// this secret and its versions. For information on how to format a JSON parameter for
+        /// the various command line tool environments, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
         /// JSON for Parameters</a> in the <i>AWS CLI User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret that you want to attach the resource-based policy to. You can
-        /// specify either the ARN or the friendly name of the secret.</para><note><para>If you specify an ARN, we generally recommend that you specify a complete ARN. You
+        /// <para>Specifies the secret that you want to attach the resource-based policy. You can specify
+        /// either the ARN or the friendly name of the secret.</para><note><para>If you specify an ARN, we generally recommend that you specify a complete ARN. You
         /// can specify a partial ARN too—for example, if you don’t include the final hyphen and
         /// six random characters that Secrets Manager adds at the end of the ARN when you created
         /// the secret. A partial ARN match can work as long as it uniquely matches only one secret.

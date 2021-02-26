@@ -116,6 +116,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-DSYNTaskExecution', 
         'Stop-DSYNTaskExecution', 
         'Update-DSYNAgent', 
+        'Update-DSYNLocationNfs', 
+        'Update-DSYNLocationObjectStorage', 
+        'Update-DSYNLocationSmb', 
         'Update-DSYNTask', 
         'Update-DSYNTaskExecution')
 

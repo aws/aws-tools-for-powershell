@@ -31,17 +31,28 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Retrieves a fleet's inbound connection permissions. Connection permissions specify
     /// the range of IP addresses and port settings that incoming traffic can use to access
     /// server processes in the fleet. Game sessions that are running on instances in the
-    /// fleet use connections that fall in this range. 
+    /// fleet must use connections that fall in this range.
     /// 
     ///  
     /// <para>
-    /// To get a fleet's inbound connection permissions, specify the fleet's unique identifier.
-    /// If successful, a collection of <a>IpPermission</a> objects is returned for the requested
-    /// fleet ID. If the requested fleet has been deleted, the result set is empty.
+    /// This operation can be used in the following ways: 
+    /// </para><ul><li><para>
+    /// To retrieve the inbound connection permissions for a fleet, identify the fleet's unique
+    /// identifier. 
+    /// </para></li><li><para>
+    /// To check the status of recent updates to a fleet remote location, specify the fleet
+    /// ID and a location. Port setting updates can take time to propagate across all locations.
+    /// 
+    /// </para></li></ul><para>
+    /// If successful, a set of <a>IpPermission</a> objects is returned for the requested
+    /// fleet ID. When a location is specified, a pending status is included. If the requested
+    /// fleet has been deleted, the result set is empty.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift Fleets</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para>
-    /// Describe fleets:
-    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>StartFleetActions</a> or <a>StopFleetActions</a></para></li></ul>
+    /// up GameLift fleets</a></para><para><b>Related actions</b></para><para><a>ListFleets</a> | <a>DescribeEC2InstanceLimits</a> | <a>DescribeFleetAttributes</a>
+    /// | <a>DescribeFleetCapacity</a> | <a>DescribeFleetEvents</a> | <a>DescribeFleetLocationAttributes</a>
+    /// | <a>DescribeFleetPortSettings</a> | <a>DescribeFleetUtilization</a> | <a>DescribeRuntimeConfiguration</a>
+    /// | <a>DescribeScalingPolicies</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLFleetPortSetting")]
     [OutputType("Amazon.GameLift.Model.IpPermission")]
@@ -56,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet to retrieve port settings for. You can use either
+        /// <para>A unique identifier for the fleet to retrieve port settings for. You can use either
         /// the fleet ID or ARN value.</para>
         /// </para>
         /// </summary>
@@ -69,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String FleetId { get; set; }
+        #endregion
+        
+        #region Parameter Location
+        /// <summary>
+        /// <para>
+        /// <para>A remote location to check for status of port setting updates. Use the AWS Region
+        /// code format, such as <code>us-west-2</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Location { get; set; }
         #endregion
         
         #region Parameter Select
@@ -123,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 WriteWarning("You are passing $null as a value for parameter FleetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Location = this.Location;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -142,6 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.FleetId != null)
             {
                 request.FleetId = cmdletContext.FleetId;
+            }
+            if (cmdletContext.Location != null)
+            {
+                request.Location = cmdletContext.Location;
             }
             
             CmdletOutput output;
@@ -205,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String FleetId { get; set; }
+            public System.String Location { get; set; }
             public System.Func<Amazon.GameLift.Model.DescribeFleetPortSettingsResponse, GetGMLFleetPortSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InboundPermissions;
         }

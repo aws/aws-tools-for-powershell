@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></note><para>
     /// To use this operation, you must have permissions to perform the <code>s3:PutBucketTagging</code>
     /// action. The bucket owner has this permission by default and can grant this permission
-    /// to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
-    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a>.
     /// </para><para><code>PutBucketTagging</code> has the following special errors:
     /// </para><ul><li><para>
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Description: The XML provided does not match the schema.
     /// </para></li></ul></li><li><para>
     /// Error code: <code>OperationAbortedError </code></para><ul><li><para>
-    /// Description: A conflicting conditional operation is currently in progress against
-    /// this resource. Please try again.
+    /// Description: A conflicting conditional action is currently in progress against this
+    /// resource. Please try again.
     /// </para></li></ul></li><li><para>
     /// Error code: <code>InternalError</code></para><ul><li><para>
     /// Description: The service was unable to apply the provided tag to the bucket.
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

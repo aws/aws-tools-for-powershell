@@ -193,6 +193,16 @@ $CD_Completers = {
             break
         }
 
+        # Amazon.CodeDeploy.OutdatedInstancesStrategy
+        {
+            ($_ -eq "New-CDDeploymentGroup/OutdatedInstancesStrategy") -Or
+            ($_ -eq "Update-CDDeploymentGroup/OutdatedInstancesStrategy")
+        }
+        {
+            $v = "IGNORE","UPDATE"
+            break
+        }
+
         # Amazon.CodeDeploy.RegistrationStatus
         "Get-CDOnPremiseInstanceList/RegistrationStatus"
         {
@@ -244,6 +254,7 @@ $CD_map = @{
     "DeploymentWaitType"=@("Resume-CDDeployment")
     "FileExistsBehavior"=@("New-CDDeployment")
     "MinimumHealthyHosts_Type"=@("New-CDDeploymentConfig")
+    "OutdatedInstancesStrategy"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "RegistrationStatus"=@("Get-CDOnPremiseInstanceList")
     "Revision_RevisionType"=@("Get-CDApplicationRevision","New-CDDeployment","Register-CDApplicationRevision")
     "Revision_S3Location_BundleType"=@("Get-CDApplicationRevision","New-CDDeployment","Register-CDApplicationRevision")

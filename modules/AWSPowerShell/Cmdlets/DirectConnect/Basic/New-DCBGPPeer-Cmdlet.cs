@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// specify custom IPv6 addresses.
     /// </para><para>
     /// For a public virtual interface, the Autonomous System Number (ASN) must be private
-    /// or already whitelisted for the virtual interface.
+    /// or already on the allow list for the virtual interface.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DCBGPPeer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

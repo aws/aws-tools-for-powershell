@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// The private key must be unencrypted. You cannot import a private key that is protected
     /// by a password or a passphrase.
     /// </para></li><li><para>
+    /// The private key must be no larger than 5 KB (5,120 bytes).
+    /// </para></li><li><para>
     /// If the certificate you are importing is not self-signed, you must enter its certificate
     /// chain.
     /// </para></li><li><para>
@@ -63,12 +65,12 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// The OCSP authority URL, if present, must not exceed 1000 characters.
     /// </para></li><li><para>
     /// To import a new certificate, omit the <code>CertificateArn</code> argument. Include
-    /// this argument only when you want to replace a previously imported certifica
+    /// this argument only when you want to replace a previously imported certificate.
     /// </para></li><li><para>
     /// When you import a certificate by using the CLI, you must specify the certificate,
-    /// the certificate chain, and the private key by their file names preceded by <code>file://</code>.
+    /// the certificate chain, and the private key by their file names preceded by <code>fileb://</code>.
     /// For example, you can specify a certificate saved in the <code>C:\temp</code> folder
-    /// as <code>file://C:\temp\certificate_to_import.pem</code>. If you are making an HTTP
+    /// as <code>fileb://C:\temp\certificate_to_import.pem</code>. If you are making an HTTP
     /// or HTTPS Query request, include these arguments as BLOBs. 
     /// </para></li><li><para>
     /// When you import a certificate by using an SDK, you must specify the certificate, the

@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>The configuration for using a content delivery network (CDN), like Amazon CloudFront,
-        /// for content and ad segment management. </para>
+        /// for content and ad segment management.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter ConfigurationAlias
         /// <summary>
         /// <para>
-        /// <para>Predefined aliases for dynamic variables.</para>
+        /// <para>The player parameters and aliases used as dynamic variables during session initialization.
+        /// For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain
+        /// Variables</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter DashConfiguration
         /// <summary>
         /// <para>
-        /// <para>The configuration for DASH content. </para>
+        /// <para>The configuration for DASH content.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,11 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter AdMarkerPassthrough_Enabled
         /// <summary>
         /// <para>
-        /// <para>For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT,
-        /// and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor
-        /// personalized manifest.</para><para>No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value
-        /// of 60, but no ads are filled for that ad break, MediaTailor will not set the value
-        /// to 0.</para>
+        /// <para>Enables ad marker passthrough for your configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Bumper_EndUrl
         /// <summary>
         /// <para>
-        /// <para>The URL for the end bumper asset. </para>
+        /// <para>The URL for the end bumper asset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,9 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter AvailSuppression_Mode
         /// <summary>
         /// <para>
-        /// Sets the mode for avail suppression, also known as
-        /// ad suppression. By default, ad suppression is off and all ad breaks are filled by
-        /// MediaTailor with ads or slate.
+        /// <para>Sets the ad suppression mode. By default, ad suppression is off and all ad breaks
+        /// are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression
+        /// is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value
+        /// time in the manifest lookback window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +161,13 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter PersonalizationThresholdSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum duration of underfilled ad time (in seconds) allowed in an ad break.</para>
+        /// <para>Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad
+        /// break. If the duration of underfilled ad time exceeds the personalization threshold,
+        /// then the personalization of the ad break is abandoned and the underlying content is
+        /// shown. This feature applies to <i>ad replacement</i> in live and VOD streams, rather
+        /// than ad insertion, because it relies on an underlying content stream. For more information
+        /// about ad break behavior, including ad replacement and insertion, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad
+        /// Behavior in AWS Elemental MediaTailor</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// content. Configuring the slate is optional for non-VPAID configurations. For VPAID,
         /// the slate is required because MediaTailor provides it in the slots that are designated
         /// for dynamic ad content. The slate must be a high-quality asset that contains both
-        /// audio and video. </para>
+        /// audio and video.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Bumper_StartUrl
         /// <summary>
         /// <para>
-        /// <para>The URL for the start bumper asset. </para>
+        /// <para>The URL for the start bumper asset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the playback configuration. </para>
+        /// <para>The tags to assign to the playback configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,9 +226,13 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter AvailSuppression_Value
         /// <summary>
         /// <para>
-        /// The avail suppression value is a live edge offset
-        /// time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest
-        /// lookback window.
+        /// <para>A live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind
+        /// this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync
+        /// with the live edge, and MediaTailor won't fill any ad breaks on or behind the live
+        /// edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this
+        /// time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor
+        /// will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill
+        /// ad breaks on or behind 45 minutes behind the live edge.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter VideoContentSourceUrl
         /// <summary>
         /// <para>
-        /// <para>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum
+        /// <para>The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum
         /// length is 512 characters.</para>
         /// </para>
         /// </summary>

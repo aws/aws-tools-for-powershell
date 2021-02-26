@@ -98,14 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// are automatically in force as soon as they're successfully created. If the fleet's
     /// auto-scaling actions are temporarily suspended, the new policy will be in force once
     /// the fleet actions are restarted.
-    /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para>
-    /// Manage scaling policies:
-    /// </para><ul><li><para><a>PutScalingPolicy</a> (auto-scaling)
-    /// </para></li><li><para><a>DescribeScalingPolicies</a> (auto-scaling)
-    /// </para></li><li><para><a>DeleteScalingPolicy</a> (auto-scaling)
-    /// </para></li></ul></li><li><para>
-    /// Manage fleet actions:
-    /// </para><ul><li><para><a>StartFleetActions</a></para></li><li><para><a>StopFleetActions</a></para></li></ul></li></ul>
+    /// </para><para><b>Related actions</b></para><para><a>DescribeFleetCapacity</a> | <a>UpdateFleetCapacity</a> | <a>DescribeEC2InstanceLimits</a>
+    /// | <a>PutScalingPolicy</a> | <a>DescribeScalingPolicies</a> | <a>DeleteScalingPolicy</a>
+    /// | <a>StopFleetActions</a> | <a>StartFleetActions</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Write", "GMLScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -143,8 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet to apply this policy to. You can use either the fleet
-        /// ID or ARN value. The fleet cannot be in any of the following statuses: ERROR or DELETING.</para>
+        /// <para>A unique identifier for the fleet to apply this policy to. You can use either the
+        /// fleet ID or ARN value. The fleet cannot be in any of the following statuses: ERROR
+        /// or DELETING.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -191,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A descriptive label that is associated with a scaling policy. Policy names do not
-        /// need to be unique. A fleet can have only one scaling policy with the same name.</para>
+        /// <para>A descriptive label that is associated with a fleet's scaling policy. Policy names
+        /// do not need to be unique. A fleet can have only one scaling policy with the same name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

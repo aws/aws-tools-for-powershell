@@ -105,6 +105,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExecuteCommand" OutputProperty="*" Verb="Invoke" Noun="Command" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAccountSettings" OutputProperty="Settings" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -186,6 +190,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCapacityProvider" OutputProperty="CapacityProvider" Verb="Update" Noun="CapacityProvider" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCluster" OutputProperty="Cluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="" PipelineParameter="Cluster" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

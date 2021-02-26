@@ -121,6 +121,17 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         public Amazon.AlexaForBusiness.Model.SipAddress[] SipAddress { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to be added to the specified resource. Do not provide system tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.AlexaForBusiness.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ContactArn'.
@@ -181,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             {
                 context.SipAddress = new List<Amazon.AlexaForBusiness.Model.SipAddress>(this.SipAddress);
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.AlexaForBusiness.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -224,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             if (cmdletContext.SipAddress != null)
             {
                 request.SipAddresses = cmdletContext.SipAddress;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -293,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             public System.String PhoneNumber { get; set; }
             public List<Amazon.AlexaForBusiness.Model.PhoneNumber> PhoneNumberList { get; set; }
             public List<Amazon.AlexaForBusiness.Model.SipAddress> SipAddress { get; set; }
+            public List<Amazon.AlexaForBusiness.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.AlexaForBusiness.Model.CreateContactResponse, NewALXBContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ContactArn;
         }

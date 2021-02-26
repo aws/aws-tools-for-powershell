@@ -33,7 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  
     /// <para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon
-    /// GameLift Realtime Servers</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateScript</a></para></li><li><para><a>ListScripts</a></para></li><li><para><a>DescribeScript</a></para></li><li><para><a>UpdateScript</a></para></li><li><para><a>DeleteScript</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// GameLift Realtime Servers</a></para><para><b>Related actions</b></para><para><a>CreateScript</a> | <a>ListScripts</a> | <a>DescribeScript</a> | <a>UpdateScript</a>
+    /// | <a>DeleteScript</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLScriptList")]
     [OutputType("Amazon.GameLift.Model.Script")]

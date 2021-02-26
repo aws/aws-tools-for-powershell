@@ -28,16 +28,23 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves entries from the specified fleet's event log. You can specify a time range
-    /// to limit the result set. Use the pagination parameters to retrieve results as a set
-    /// of sequential pages. If successful, a collection of event log entries matching the
-    /// request are returned.
+    /// Retrieves entries from a fleet's event log. Fleet events are initiated by changes
+    /// in status, such as during fleet creation and termination, changes in capacity, etc.
+    /// If a fleet has multiple locations, events are also initiated by changes to status
+    /// and capacity in remote locations. 
     /// 
     ///  
-    /// <para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift Fleets</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para>
-    /// Describe fleets:
-    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>StartFleetActions</a> or <a>StopFleetActions</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <para>
+    /// You can specify a time range to limit the result set. Use the pagination parameters
+    /// to retrieve results as a set of sequential pages. 
+    /// </para><para>
+    /// If successful, a collection of event log entries matching the request are returned.
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
+    /// up GameLift fleets</a></para><para><b>Related actions</b></para><para><a>ListFleets</a> | <a>DescribeEC2InstanceLimits</a> | <a>DescribeFleetAttributes</a>
+    /// | <a>DescribeFleetCapacity</a> | <a>DescribeFleetEvents</a> | <a>DescribeFleetLocationAttributes</a>
+    /// | <a>DescribeFleetPortSettings</a> | <a>DescribeFleetUtilization</a> | <a>DescribeRuntimeConfiguration</a>
+    /// | <a>DescribeScalingPolicies</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLFleetEvent")]
     [OutputType("Amazon.GameLift.Model.Event")]
@@ -52,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>Most recent date to retrieve event logs for. If no end time is specified, this call
-        /// returns entries from the specified start time up to the present. Format is a number
-        /// expressed in Unix time as milliseconds (ex: "1469498468.057").</para>
+        /// <para>The most recent date to retrieve event logs for. If no end time is specified, this
+        /// call returns entries from the specified start time up to the present. Format is a
+        /// number expressed in Unix time as milliseconds (ex: "1469498468.057").</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet to get event logs for. You can use either the fleet
+        /// <para>A unique identifier for the fleet to get event logs for. You can use either the fleet
         /// ID or ARN value.</para>
         /// </para>
         /// </summary>
@@ -82,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>Earliest date to retrieve event logs for. If no start time is specified, this call
-        /// returns entries starting from when the fleet was created to the specified end time.
-        /// Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").</para>
+        /// <para>The earliest date to retrieve event logs for. If no start time is specified, this
+        /// call returns entries starting from when the fleet was created to the specified end
+        /// time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// <para>A token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this operation. To start at the beginning
         /// of the result set, do not specify a value.</para>
         /// </para>

@@ -85,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         public System.String ResourceArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>One or more tag key-value pairs for the <a>Protection</a> object that is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Shield.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ProtectionId'.
@@ -160,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
                 WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Shield.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -183,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
             if (cmdletContext.ResourceArn != null)
             {
                 request.ResourceArn = cmdletContext.ResourceArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -247,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         {
             public System.String Name { get; set; }
             public System.String ResourceArn { get; set; }
+            public List<Amazon.Shield.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Shield.Model.CreateProtectionResponse, NewSHLDProtectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ProtectionId;
         }

@@ -29,9 +29,32 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves all active game sessions that match a set of search criteria and sorts them
-    /// in a specified order. You can search or sort by the following game session attributes:
+    /// into a specified order. 
     /// 
-    ///  <ul><li><para><b>gameSessionId</b> -- A unique identifier for the game session. You can use either
+    ///  
+    /// <para>
+    /// When searching for game sessions, you specify exactly where you want to search and
+    /// provide a search filter expression, a sort expression, or both. A search request can
+    /// search only one fleet, but it can search all of a fleet's locations. 
+    /// </para><para>
+    /// This operation can be used in the following ways: 
+    /// </para><ul><li><para>
+    /// To search all game sessions that are currently running on all locations in a fleet,
+    /// provide a fleet or alias ID. This approach returns game sessions in the fleet's home
+    /// Region and all remote locations that fit the search criteria.
+    /// </para></li><li><para>
+    /// To search all game sessions that are currently running on a specific fleet location,
+    /// provide a fleet or alias ID and a location name. For location, you can specify a fleet's
+    /// home Region or any remote location.
+    /// </para></li></ul><para>
+    /// Use the pagination parameters to retrieve results as a set of sequential pages. 
+    /// </para><para>
+    /// If successful, a <code>GameSession</code> object is returned for each game session
+    /// that matches the request. Search finds game sessions that are in <code>ACTIVE</code>
+    /// status only. To retrieve information on game sessions in other statuses, use <a>DescribeGameSessions</a>.
+    /// </para><para>
+    /// You can search or sort by the following game session attributes:
+    /// </para><ul><li><para><b>gameSessionId</b> -- A unique identifier for the game session. You can use either
     /// a <code>GameSessionId</code> or <code>GameSessionArn</code> value. 
     /// </para></li><li><para><b>gameSessionName</b> -- Name assigned to a game session. This value is set when
     /// requesting a new game session with <a>CreateGameSession</a> or updating with <a>UpdateGameSession</a>.
@@ -58,19 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// change quickly as players join sessions and others drop out. Results should be considered
     /// a snapshot in time. Be sure to refresh search results often, and handle sessions that
     /// fill up before a player can join. 
-    /// </para></note><para>
-    /// To search or sort, specify either a fleet ID or an alias ID, and provide a search
-    /// filter expression, a sort expression, or both. If successful, a collection of <a>GameSession</a>
-    /// objects matching the request is returned. Use the pagination parameters to retrieve
-    /// results as a set of sequential pages. 
-    /// </para><para>
-    /// You can search for game sessions one fleet at a time only. To find game sessions across
-    /// multiple fleets, you must search each fleet separately and combine the results. This
-    /// search feature finds only game sessions that are in <code>ACTIVE</code> status. To
-    /// locate games in statuses other than active, use <a>DescribeGameSessionDetails</a>.
-    /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
-    /// Game session placements
-    /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></note><para><b>Related actions</b></para><para><a>CreateGameSession</a> | <a>DescribeGameSessions</a> | <a>DescribeGameSessionDetails</a>
+    /// | <a>SearchGameSessions</a> | <a>UpdateGameSession</a> | <a>GetGameSessionLogUrl</a>
+    /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a>StopGameSessionPlacement</a>
+    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Find", "GMLGameSession")]
     [OutputType("Amazon.GameLift.Model.GameSession")]
@@ -85,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter AliasId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for an alias associated with the fleet to search for active game
+        /// <para>A unique identifier for the alias associated with the fleet to search for active game
         /// sessions. You can use either the alias ID or ARN value. Each request must reference
         /// either a fleet ID or alias ID, but not both.</para>
         /// </para>
@@ -124,13 +139,25 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet to search for active game sessions. You can use either
-        /// the fleet ID or ARN value. Each request must reference either a fleet ID or alias
-        /// ID, but not both.</para>
+        /// <para>A unique identifier for the fleet to search for active game sessions. You can use
+        /// either the fleet ID or ARN value. Each request must reference either a fleet ID or
+        /// alias ID, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FleetId { get; set; }
+        #endregion
+        
+        #region Parameter Location
+        /// <summary>
+        /// <para>
+        /// <para>A fleet location to search for game sessions. You can specify a fleet's home Region
+        /// or a remote location. Use the AWS Region code format, such as <code>us-west-2</code>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Location { get; set; }
         #endregion
         
         #region Parameter SortExpression
@@ -171,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// <para>A token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this operation. To start at the beginning
         /// of the result set, do not specify a value.</para>
         /// </para>
@@ -252,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.Location = this.Location;
             context.NextToken = this.NextToken;
             context.SortExpression = this.SortExpression;
             
@@ -290,6 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.Limit != null)
             {
                 request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+            }
+            if (cmdletContext.Location != null)
+            {
+                request.Location = cmdletContext.Location;
             }
             if (cmdletContext.SortExpression != null)
             {
@@ -361,6 +393,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.FleetId != null)
             {
                 request.FleetId = cmdletContext.FleetId;
+            }
+            if (cmdletContext.Location != null)
+            {
+                request.Location = cmdletContext.Location;
             }
             if (cmdletContext.SortExpression != null)
             {
@@ -482,6 +518,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public System.String FilterExpression { get; set; }
             public System.String FleetId { get; set; }
             public int? Limit { get; set; }
+            public System.String Location { get; set; }
             public System.String NextToken { get; set; }
             public System.String SortExpression { get; set; }
             public System.Func<Amazon.GameLift.Model.SearchGameSessionsResponse, FindGMLGameSessionCmdlet, object> Select { get; set; } =

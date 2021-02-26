@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// <summary>
     /// Provides a list of steps for the cluster in reverse order unless you specify <code>stepIds</code>
     /// with the request of filter by <code>StepStates</code>. You can specify a maximum of
-    /// ten <code>stepIDs</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// 10 <code>stepIDs</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EMRStepList")]
     [OutputType("Amazon.ElasticMapReduce.Model.StepSummary")]

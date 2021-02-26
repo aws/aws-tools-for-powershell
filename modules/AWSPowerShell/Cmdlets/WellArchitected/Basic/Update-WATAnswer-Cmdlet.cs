@@ -28,7 +28,7 @@ using Amazon.WellArchitected.Model;
 namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
-    /// Update the answer.
+    /// Update the answer to a specific question in a workload review.
     /// </summary>
     [Cmdlet("Update", "WATAnswer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WellArchitected.Model.UpdateAnswerResponse")]

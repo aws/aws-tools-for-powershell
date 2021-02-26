@@ -28,25 +28,40 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Suspends activity on a fleet. Currently, this operation is used to stop a fleet's
-    /// auto-scaling activity. It is used to temporarily stop triggering scaling events. The
-    /// policies can be retained and auto-scaling activity can be restarted using <a>StartFleetActions</a>.
-    /// You can view a fleet's stopped actions using <a>DescribeFleetAttributes</a>.
+    /// Suspends certain types of activity in a fleet location. Currently, this operation
+    /// is used to stop auto-scaling activity. For multi-location fleets, fleet actions are
+    /// managed separately for each location. 
     /// 
     ///  
     /// <para>
-    /// To stop fleet actions, specify the fleet ID and the type of actions to suspend. When
-    /// auto-scaling fleet actions are stopped, Amazon GameLift no longer initiates scaling
-    /// events except in response to manual changes using <a>UpdateFleetCapacity</a>. 
+    /// Stopping fleet actions has several potential purposes. It allows you to temporarily
+    /// stop auto-scaling activity but retain your scaling policies for use in the future.
+    /// For multi-location fleets, you can set up fleet-wide auto-scaling, and then opt out
+    /// of it for certain locations. 
+    /// </para><para>
+    /// This operation can be used in the following ways: 
+    /// </para><ul><li><para>
+    /// To stop actions on instances in the fleet's home Region, provide a fleet ID and the
+    /// type of actions to suspend. 
+    /// </para></li><li><para>
+    /// To stop actions on instances in one of the fleet's remote locations, provide a fleet
+    /// ID, a location name, and the type of actions to suspend. 
+    /// </para></li></ul><para>
+    /// If successful, GameLift no longer initiates scaling events except in response to manual
+    /// changes using <a>UpdateFleetCapacity</a>. You can view a fleet's stopped actions using
+    /// <a>DescribeFleetAttributes</a> or <a>DescribeFleetLocationAttributes</a>. Suspended
+    /// activity can be restarted using <a>StartFleetActions</a>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift Fleets</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>StartFleetActions</a> or <a>StopFleetActions</a></para></li></ul>
+    /// up GameLift Fleets</a></para><para><b>Related actions</b></para><para><a>CreateFleet</a> | <a>UpdateFleetCapacity</a> | <a>PutScalingPolicy</a> | <a>DescribeEC2InstanceLimits</a>
+    /// | <a>DescribeFleetAttributes</a> | <a>DescribeFleetLocationAttributes</a> | <a>UpdateFleetAttributes</a>
+    /// | <a>StopFleetActions</a> | <a>DeleteFleet</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Stop", "GMLFleetAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.GameLift.Model.StopFleetActionsResponse")]
     [AWSCmdlet("Calls the Amazon GameLift Service StopFleetActions API operation.", Operation = new[] {"StopFleetActions"}, SelectReturnType = typeof(Amazon.GameLift.Model.StopFleetActionsResponse))]
-    [AWSCmdletOutput("None or Amazon.GameLift.Model.StopFleetActionsResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GameLift.Model.StopFleetActionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.GameLift.Model.StopFleetActionsResponse",
+        "This cmdlet returns an Amazon.GameLift.Model.StopFleetActionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class StopGMLFleetActionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
@@ -72,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet to stop actions on. You can use either the fleet ID
-        /// or ARN value.</para>
+        /// <para>A unique identifier for the fleet to stop actions on. You can use either the fleet
+        /// ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,10 +102,22 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String FleetId { get; set; }
         #endregion
         
+        #region Parameter Location
+        /// <summary>
+        /// <para>
+        /// <para>The fleet location to stop fleet actions for. Specify a location in the form of an
+        /// AWS Region code, such as <code>us-west-2</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Location { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.StopFleetActionsResponse).
+        /// Specifying the name of a property of type Amazon.GameLift.Model.StopFleetActionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 WriteWarning("You are passing $null as a value for parameter FleetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Location = this.Location;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -187,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.FleetId != null)
             {
                 request.FleetId = cmdletContext.FleetId;
+            }
+            if (cmdletContext.Location != null)
+            {
+                request.Location = cmdletContext.Location;
             }
             
             CmdletOutput output;
@@ -251,8 +283,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             public List<System.String> Action { get; set; }
             public System.String FleetId { get; set; }
+            public System.String Location { get; set; }
             public System.Func<Amazon.GameLift.Model.StopFleetActionsResponse, StopGMLFleetActionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

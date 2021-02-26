@@ -28,13 +28,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
-    /// groups.</b><para>
+    /// <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b><para>
     /// Retrieves information on all game servers groups that exist in the current AWS account
     /// for the selected Region. Use the pagination parameters to retrieve results in a set
     /// of sequential segments. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateGameServerGroup</a></para></li><li><para><a>ListGameServerGroups</a></para></li><li><para><a>DescribeGameServerGroup</a></para></li><li><para><a>UpdateGameServerGroup</a></para></li><li><para><a>DeleteGameServerGroup</a></para></li><li><para><a>ResumeGameServerGroup</a></para></li><li><para><a>SuspendGameServerGroup</a></para></li><li><para><a>DescribeGameServerInstances</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>CreateGameServerGroup</a> | <a>ListGameServerGroups</a> | <a>DescribeGameServerGroup</a>
+    /// | <a>UpdateGameServerGroup</a> | <a>DeleteGameServerGroup</a> | <a>ResumeGameServerGroup</a>
+    /// | <a>SuspendGameServerGroup</a> | <a>DescribeGameServerInstances</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All
+    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLGameServerGroupList")]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]
@@ -50,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
-        /// to get results as a set of sequential segments.</para>
+        /// to get results as a set of sequential pages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token that indicates the start of the next sequential segment of results. Use the
-        /// token returned with the previous call to this operation. To start at the beginning
+        /// <para>A token that indicates the start of the next sequential page of results. Use the token
+        /// that is returned with a previous call to this operation. To start at the beginning
         /// of the result set, do not specify a value.</para>
         /// </para>
         /// <para>

@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The AMI attribute.</para><para><b>Note</b>: Depending on your account privileges, the <code>blockDeviceMapping</code>
-        /// attribute may return a <code>Client.AuthFailure</code> error. If this happens, use
-        /// <a>DescribeImages</a> to get information about the block device mapping for the AMI.</para>
+        /// <para>The AMI attribute.</para><para><b>Note</b>: The <code>blockDeviceMapping</code> attribute is deprecated. Using this
+        /// attribute returns the <code>Client.AuthFailure</code> error. To get information about
+        /// the block device mappings for an AMI, use the <a>DescribeImages</a> action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

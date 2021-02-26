@@ -45,7 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Each simple alias can point to only one fleet, but a fleet can have multiple aliases.
     /// If successful, a new alias record is returned, including an alias ID and an ARN. You
     /// can reassign an alias to another fleet by calling <code>UpdateAlias</code>.
-    /// </para><ul><li><para><a>CreateAlias</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>DescribeAlias</a></para></li><li><para><a>UpdateAlias</a></para></li><li><para><a>DeleteAlias</a></para></li><li><para><a>ResolveAlias</a></para></li></ul>
+    /// </para><para><b>Related actions</b></para><para><a>CreateAlias</a> | <a>ListAliases</a> | <a>DescribeAlias</a> | <a>UpdateAlias</a>
+    /// | <a>DeleteAlias</a> | <a>ResolveAlias</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.Alias")]
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RoutingStrategy_FleetId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for a fleet that the alias points to. This value is the fleet
+        /// <para>A unique identifier for the fleet that the alias points to. This value is the fleet
         /// ID, not the fleet ARN.</para>
         /// </para>
         /// </summary>

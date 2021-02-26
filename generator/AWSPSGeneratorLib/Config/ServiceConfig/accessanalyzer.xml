@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessPreview" OutputProperty="Id" Verb="New" Noun="AccessPreview" ShouldProcessTarget="AnalyzerArn" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAnalyzer" OutputProperty="Arn" Verb="New" Noun="Analyzer" ShouldProcessTarget="AnalyzerName" PipelineParameter="AnalyzerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -39,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessPreview" OutputProperty="AccessPreview" Verb="Get" Noun="AccessPreview" PipelineParameter="AccessPreviewId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAnalyzedResource" OutputProperty="Resource" Verb="Get" Noun="AnalyzedResource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -52,6 +60,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetFinding" OutputProperty="Finding" Verb="Get" Noun="Finding" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessPreviewFindings" OutputProperty="Findings" Verb="Get" Noun="AccessPreviewFindingList" PipelineParameter="AccessPreviewId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessPreviews" OutputProperty="AccessPreviews" Verb="Get" Noun="AccessPreviewList" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -92,6 +108,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFindings" Verb="Update" Noun="Finding" ShouldProcessTarget="AnalyzerArn" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidatePolicy" OutputProperty="Findings" Verb="Use" Noun="PolicyValidation" AnonymousShouldProcessTarget="true" PipelineParameter="PolicyDocument" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

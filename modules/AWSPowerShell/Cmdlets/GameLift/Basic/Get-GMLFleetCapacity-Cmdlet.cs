@@ -28,26 +28,39 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves the current capacity statistics for one or more fleets. These statistics
-    /// present a snapshot of the fleet's instances and provide insight on current or imminent
-    /// scaling activity. To get statistics on game hosting activity in the fleet, see <a>DescribeFleetUtilization</a>.
+    /// Retrieves the resource capacity settings for one or more fleets. The data returned
+    /// includes the current fleet capacity (number of EC2 instances), and settings that can
+    /// control how capacity scaling. For fleets with remote locations, this operation retrieves
+    /// data for the fleet's home Region only. See <a>DescribeFleetLocationCapacity</a> to
+    /// get capacity settings for a fleet's remote locations.
     /// 
     ///  
     /// <para>
-    /// You can request capacity for all fleets or specify a list of one or more fleet identifiers.
+    /// This operation can be used in the following ways: 
+    /// </para><ul><li><para>
+    /// To get capacity data for one or more specific fleets, provide a list of fleet IDs
+    /// or fleet ARNs. 
+    /// </para></li><li><para>
+    /// To get capacity data for all fleets, do not provide a fleet identifier. 
+    /// </para></li></ul><para>
     /// When requesting multiple fleets, use the pagination parameters to retrieve results
-    /// as a set of sequential pages. If successful, a <a>FleetCapacity</a> object is returned
-    /// for each requested fleet ID. When a list of fleet IDs is provided, attribute objects
+    /// as a set of sequential pages. 
+    /// </para><para>
+    /// If successful, a <a>FleetCapacity</a> object is returned for each requested fleet
+    /// ID. Each FleetCapacity object includes a <code>Location</code> property, which is
+    /// set to the fleet's home Region. When a list of fleet IDs is provided, attribute objects
     /// are returned only for fleets that currently exist.
     /// </para><note><para>
-    /// Some API operations may limit the number of fleet IDs allowed in one request. If a
-    /// request exceeds this limit, the request fails and the error message includes the maximum
-    /// allowed.
+    /// Some API operations may limit the number of fleet IDs that are allowed in one request.
+    /// If a request exceeds this limit, the request fails and the error message includes
+    /// the maximum allowed.
     /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift Fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift
-    /// Metrics for Fleets</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para>
-    /// Describe fleets:
-    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>StartFleetActions</a> or <a>StopFleetActions</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// up GameLift fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift
+    /// metrics for fleets</a></para><para><b>Related actions</b></para><para><a>ListFleets</a> | <a>DescribeEC2InstanceLimits</a> | <a>DescribeFleetAttributes</a>
+    /// | <a>DescribeFleetCapacity</a> | <a>DescribeFleetEvents</a> | <a>DescribeFleetLocationAttributes</a>
+    /// | <a>DescribeFleetPortSettings</a> | <a>DescribeFleetUtilization</a> | <a>DescribeRuntimeConfiguration</a>
+    /// | <a>DescribeScalingPolicies</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLFleetCapacity")]
     [OutputType("Amazon.GameLift.Model.FleetCapacity")]
@@ -62,8 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet(s) to retrieve capacity information for. You can use
-        /// either the fleet ID or ARN value.</para>
+        /// <para>A unique identifier for the fleet(s) to retrieve capacity information for. You can
+        /// use either the fleet ID or ARN value. Leave this parameter empty to retrieve capacity
+        /// information for all fleets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -92,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// <para>A token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this operation. To start at the beginning
         /// of the result set, do not specify a value. This parameter is ignored when the request
         /// specifies one or a list of fleet IDs.</para>

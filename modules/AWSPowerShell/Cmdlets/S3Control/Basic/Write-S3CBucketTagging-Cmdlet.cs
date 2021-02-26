@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a>
     /// in the <i>Amazon Simple Storage Service API</i>. 
     /// </para></note><para>
-    /// Sets the tags for an Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using
-    /// Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+    /// Sets the tags for an S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+    /// Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service User Guide</i>.
     /// </para><para>
     /// Use tags to organize your AWS bill to reflect your own cost structure. To do this,
     /// sign up to get your AWS account bill with tag key values included. Then, to see the
@@ -42,17 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// with the same tag key values. For example, you can tag several resources with a specific
     /// application name, and then organize your billing information to see the total cost
     /// of that application across several services. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost
-    /// Allocation and Tagging</a>.
+    /// allocation and tagging</a>.
     /// </para><note><para>
     /// Within a bucket, if you add a tag that has the same key as an existing tag, the new
-    /// value overwrites the old value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html">
-    /// Using Cost Allocation in Amazon S3 Bucket Tags</a>.
+    /// value overwrites the old value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html">
+    /// Using cost allocation in Amazon S3 bucket tags</a>.
     /// </para></note><para>
-    /// To use this operation, you must have permissions to perform the <code>s3-outposts:PutBucketTagging</code>
+    /// To use this action, you must have permissions to perform the <code>s3-outposts:PutBucketTagging</code>
     /// action. The Outposts bucket owner has this permission by default and can grant this
-    /// permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">
-    /// Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
-    /// Access Permissions to Your Amazon S3 Resources</a>.
+    /// permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">
+    /// Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+    /// access permissions to your Amazon S3 resources</a>.
     /// </para><para><code>PutBucketTagging</code> has the following special errors:
     /// </para><ul><li><para>
     /// Error code: <code>InvalidTagError</code></para><ul><li><para>
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Description: The XML provided does not match the schema.
     /// </para></li></ul></li><li><para>
     /// Error code: <code>OperationAbortedError </code></para><ul><li><para>
-    /// Description: A conflicting conditional operation is currently in progress against
-    /// this resource. Try again.
+    /// Description: A conflicting conditional action is currently in progress against this
+    /// resource. Try again.
     /// </para></li></ul></li><li><para>
     /// Error code: <code>InternalError</code></para><ul><li><para>
     /// Description: The service was unable to apply the provided tag to the bucket.

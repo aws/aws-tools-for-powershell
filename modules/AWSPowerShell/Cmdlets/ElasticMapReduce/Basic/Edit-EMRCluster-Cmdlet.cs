@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter StepConcurrencyLevel
         /// <summary>
         /// <para>
-        /// <para>The number of steps that can be executed concurrently. You can specify a maximum of
-        /// 256 steps. </para>
+        /// <para>The number of steps that can be executed concurrently. You can specify a minimum of
+        /// 1 step and a maximum of 256 steps. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

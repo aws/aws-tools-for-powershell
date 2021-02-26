@@ -28,12 +28,7 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// <note><para>
-    /// The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-    /// change.
-    /// </para></note><para>
     /// Removes an Amazon EMR Studio from the Studio metadata store.
-    /// </para>
     /// </summary>
     [Cmdlet("Remove", "EMRStudio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -70,6 +70,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String TargetCustomerId { get; set; }
         #endregion
         
+        #region Parameter TargetRegion
+        /// <summary>
+        /// <para>
+        /// The target AWS region to transfer the device.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetRegion { get; set; }
+        #endregion
+        
         #region Parameter TransferMessage
         /// <summary>
         /// <para>
@@ -149,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             #endif
             context.TargetCustomerId = this.TargetCustomerId;
+            context.TargetRegion = this.TargetRegion;
             context.TransferMessage = this.TransferMessage;
             
             // allow further manipulation of loaded context prior to processing
@@ -173,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.TargetCustomerId != null)
             {
                 request.TargetCustomerId = cmdletContext.TargetCustomerId;
+            }
+            if (cmdletContext.TargetRegion != null)
+            {
+                request.TargetRegion = cmdletContext.TargetRegion;
             }
             if (cmdletContext.TransferMessage != null)
             {
@@ -241,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         {
             public System.String InputDeviceId { get; set; }
             public System.String TargetCustomerId { get; set; }
+            public System.String TargetRegion { get; set; }
             public System.String TransferMessage { get; set; }
             public System.Func<Amazon.MediaLive.Model.TransferInputDeviceResponse, MoveEMLInputDeviceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

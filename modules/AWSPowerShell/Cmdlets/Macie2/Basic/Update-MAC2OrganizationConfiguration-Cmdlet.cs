@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter AutoEnable
         /// <summary>
         /// <para>
-        /// <para>Specifies whether Amazon Macie is enabled automatically for each account, when the
+        /// <para>Specifies whether to enable Amazon Macie automatically for each account, when the
         /// account is added to the AWS organization.</para>
         /// </para>
         /// </summary>

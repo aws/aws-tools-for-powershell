@@ -125,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Boolean? EnableECSManagedTag { get; set; }
         #endregion
         
+        #region Parameter EnableExecuteCommand
+        /// <summary>
+        /// <para>
+        /// <para>Whether or not the execute command functionality is enabled for the task. If <code>true</code>,
+        /// this enables execute command functionality on all containers in the task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableExecuteCommand { get; set; }
+        #endregion
+        
         #region Parameter Overrides_ExecutionRoleArn
         /// <summary>
         /// <para>
@@ -354,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             #endif
             context.EnableECSManagedTag = this.EnableECSManagedTag;
+            context.EnableExecuteCommand = this.EnableExecuteCommand;
             context.Group = this.Group;
             context.AwsvpcConfiguration_AssignPublicIp = this.AwsvpcConfiguration_AssignPublicIp;
             if (this.AwsvpcConfiguration_SecurityGroup != null)
@@ -417,6 +429,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.EnableECSManagedTag != null)
             {
                 request.EnableECSManagedTags = cmdletContext.EnableECSManagedTag.Value;
+            }
+            if (cmdletContext.EnableExecuteCommand != null)
+            {
+                request.EnableExecuteCommand = cmdletContext.EnableExecuteCommand.Value;
             }
             if (cmdletContext.Group != null)
             {
@@ -629,6 +645,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.String Cluster { get; set; }
             public List<System.String> ContainerInstance { get; set; }
             public System.Boolean? EnableECSManagedTag { get; set; }
+            public System.Boolean? EnableExecuteCommand { get; set; }
             public System.String Group { get; set; }
             public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }
             public List<System.String> AwsvpcConfiguration_SecurityGroup { get; set; }

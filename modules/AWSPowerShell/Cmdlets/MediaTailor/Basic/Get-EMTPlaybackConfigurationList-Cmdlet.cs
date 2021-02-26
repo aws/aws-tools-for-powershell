@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of records to return. </para>
+        /// <para>Maximum number of records to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

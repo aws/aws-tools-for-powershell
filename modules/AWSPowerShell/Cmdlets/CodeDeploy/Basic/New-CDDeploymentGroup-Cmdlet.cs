@@ -300,6 +300,21 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public Amazon.CodeDeploy.Model.TagFilter[][] OnPremisesTagSetList { get; set; }
         #endregion
         
+        #region Parameter OutdatedInstancesStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Indicates what happens when new EC2 instances are launched mid-deployment and do not
+        /// receive the deployed application revision.</para><para>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
+        /// one or more 'auto-update outdated instances' deployments to apply the deployed application
+        /// revision to the new EC2 instances.</para><para>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a deployment
+        /// to update the new EC2 instances. This may result in instances having different revisions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeDeploy.OutdatedInstancesStrategy")]
+        public Amazon.CodeDeploy.OutdatedInstancesStrategy OutdatedInstancesStrategy { get; set; }
+        #endregion
+        
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
@@ -532,6 +547,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                     context.OnPremisesTagSetList.Add(new List<Amazon.CodeDeploy.Model.TagFilter>(innerList));
                 }
             }
+            context.OutdatedInstancesStrategy = this.OutdatedInstancesStrategy;
             context.ServiceRoleArn = this.ServiceRoleArn;
             #if MODULAR
             if (this.ServiceRoleArn == null && ParameterWasBound(nameof(this.ServiceRoleArn)))
@@ -869,6 +885,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             {
                 request.OnPremisesTagSet = null;
             }
+            if (cmdletContext.OutdatedInstancesStrategy != null)
+            {
+                request.OutdatedInstancesStrategy = cmdletContext.OutdatedInstancesStrategy;
+            }
             if (cmdletContext.ServiceRoleArn != null)
             {
                 request.ServiceRoleArn = cmdletContext.ServiceRoleArn;
@@ -966,6 +986,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public List<Amazon.CodeDeploy.Model.TargetGroupPairInfo> LoadBalancerInfo_TargetGroupPairInfoList { get; set; }
             public List<Amazon.CodeDeploy.Model.TagFilter> OnPremisesInstanceTagFilter { get; set; }
             public List<List<Amazon.CodeDeploy.Model.TagFilter>> OnPremisesTagSetList { get; set; }
+            public Amazon.CodeDeploy.OutdatedInstancesStrategy OutdatedInstancesStrategy { get; set; }
             public System.String ServiceRoleArn { get; set; }
             public List<Amazon.CodeDeploy.Model.Tag> Tag { get; set; }
             public List<Amazon.CodeDeploy.Model.TriggerConfig> TriggerConfiguration { get; set; }

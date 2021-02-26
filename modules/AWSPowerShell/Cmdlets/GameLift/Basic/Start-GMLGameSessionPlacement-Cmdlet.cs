@@ -71,9 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// session has been created and a game session ARN and Region are referenced. If the
     /// placement request times out, you can resubmit the request or retry it with a different
     /// queue. 
-    /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
-    /// Game session placements
-    /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul>
+    /// </para><para><b>Related actions</b></para><para><a>CreateGameSession</a> | <a>DescribeGameSessions</a> | <a>DescribeGameSessionDetails</a>
+    /// | <a>SearchGameSessions</a> | <a>UpdateGameSession</a> | <a>GetGameSessionLogUrl</a>
+    /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a>StopGameSessionPlacement</a>
+    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Start", "GMLGameSessionPlacement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameSessionPlacement")]
@@ -99,9 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameProperty
         /// <summary>
         /// <para>
-        /// <para>Set of custom properties for a game session, formatted as key:value pairs. These properties
-        /// are passed to a game server process in the <a>GameSession</a> object with a request
-        /// to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// <para>A set of custom properties for a game session, formatted as key:value pairs. These
+        /// properties are passed to a game server process in the <a>GameSession</a> object with
+        /// a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>).</para>
         /// </para>
         /// </summary>
@@ -113,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionData
         /// <summary>
         /// <para>
-        /// <para>Set of custom game session properties, formatted as a single string value. This data
-        /// is passed to a game server process in the <a>GameSession</a> object with a request
+        /// <para>A set of custom game session properties, formatted as a single string value. This
+        /// data is passed to a game server process in the <a>GameSession</a> object with a request
         /// to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>).</para>
         /// </para>
@@ -190,8 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlayerLatency
         /// <summary>
         /// <para>
-        /// <para>Set of values, expressed in milliseconds, indicating the amount of latency that a
-        /// player experiences when connected to AWS Regions. This information is used to try
+        /// <para>A set of values, expressed in milliseconds, that indicates the amount of latency that
+        /// a player experiences when connected to AWS Regions. This information is used to try
         /// to place the new game session where it can offer the best possible gameplay experience
         /// for the players. </para>
         /// </para>

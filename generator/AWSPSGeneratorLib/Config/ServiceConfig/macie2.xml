@@ -134,6 +134,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFindingsPublicationConfiguration" OutputProperty="SecurityHubConfiguration" Verb="Get" Noun="FindingsPublicationConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFindingStatistics" OutputProperty="CountsByGroup" Verb="Get" Noun="FindingStatistic" PipelineParameter="GroupBy" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -195,6 +199,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutClassificationExportConfiguration" OutputProperty="Configuration" Verb="Write" Noun="ClassificationExportConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutFindingsPublicationConfiguration" Verb="Write" Noun="FindingsPublicationConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

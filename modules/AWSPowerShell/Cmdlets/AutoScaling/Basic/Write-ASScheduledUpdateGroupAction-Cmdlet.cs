@@ -28,9 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave
-    /// a parameter unspecified when updating a scheduled scaling action, the corresponding
-    /// value remains unchanged.
+    /// Creates or updates a scheduled scaling action for an Auto Scaling group.
     /// 
     ///  
     /// <para>
@@ -80,8 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter UtcEndTime
         /// <summary>
         /// <para>
-        /// <para>The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does
-        /// not perform the action after this time.</para>
+        /// <para>The date and time for the recurring schedule to end, in UTC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,11 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Recurrence
         /// <summary>
         /// <para>
-        /// <para>The recurring schedule for this action, in Unix cron syntax format. This format consists
-        /// of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year]
-        /// [Day_of_Week]. The value must be in quotes (for example, <code>"30 0 1 1,6,12 *"</code>).
-        /// For more information about this format, see <a href="http://crontab.org">Crontab</a>.</para><para>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>,
-        /// they form the boundaries of when the recurring action starts and stops.</para>
+        /// <para>The recurring schedule for this action. This format consists of five fields separated
+        /// by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The
+        /// value must be in quotes (for example, <code>"30 0 1 1,6,12 *"</code>). For more information
+        /// about this format, see <a href="http://crontab.org">Crontab</a>.</para><para>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>,
+        /// they form the boundaries of when the recurring action starts and stops.</para><para>Cron expressions use Universal Coordinated Time (UTC) by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,6 +160,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.DateTime? UtcTime { get; set; }
         #endregion
         
+        #region Parameter TimeZone
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the time zone for a cron expression. If a time zone is not provided, UTC
+        /// is used by default. </para><para>Valid values are the canonical names of the IANA time zones, derived from the IANA
+        /// Time Zone Database (such as <code>Etc/GMT+9</code> or <code>Pacific/Tahiti</code>).
+        /// For more information, see <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TimeZone { get; set; }
+        #endregion
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>
@@ -171,8 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
         /// one of the two property is reflected in the value of both. EndTime is provided for
         /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
-        /// wrong timestamp being passed to the service.</para><para>The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does
-        /// not perform the action after this time.</para>
+        /// wrong timestamp being passed to the service.</para><para>The date and time for the recurring schedule to end, in UTC.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -300,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             #endif
             context.UtcStartTime = this.UtcStartTime;
             context.UtcTime = this.UtcTime;
+            context.TimeZone = this.TimeZone;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EndTime = this.EndTime;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
@@ -360,6 +370,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.UtcTime != null)
             {
                 request.TimeUtc = cmdletContext.UtcTime.Value;
+            }
+            if (cmdletContext.TimeZone != null)
+            {
+                request.TimeZone = cmdletContext.TimeZone;
             }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.EndTime != null)
@@ -461,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String ScheduledActionName { get; set; }
             public System.DateTime? UtcStartTime { get; set; }
             public System.DateTime? UtcTime { get; set; }
+            public System.String TimeZone { get; set; }
             [System.ObsoleteAttribute]
             public System.DateTime? EndTime { get; set; }
             [System.ObsoleteAttribute]

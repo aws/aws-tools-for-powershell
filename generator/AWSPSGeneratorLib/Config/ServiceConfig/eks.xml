@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateEncryptionConfig" OutputProperty="Update" Verb="Add" Noun="EncryptionConfig" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateIdentityProviderConfig" OutputProperty="*" Verb="Add" Noun="IdentityProviderConfig" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

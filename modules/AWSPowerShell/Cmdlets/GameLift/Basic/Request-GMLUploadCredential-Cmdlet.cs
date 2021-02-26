@@ -38,7 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// request. If successful, a new set of credentials are returned, along with the S3 storage
     /// location associated with the build ID.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">
-    /// Create a Build with Files in S3</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul>
+    /// Create a Build with Files in S3</a></para><para><b>Related actions</b></para><para><a>CreateBuild</a> | <a>ListBuilds</a> | <a>DescribeBuild</a> | <a>UpdateBuild</a>
+    /// | <a>DeleteBuild</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Request", "GMLUploadCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.RequestUploadCredentialsResponse")]
@@ -52,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter BuildId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a build to get credentials for. You can use either the build
+        /// <para>A unique identifier for the build to get credentials for. You can use either the build
         /// ID or ARN value. </para>
         /// </para>
         /// </summary>

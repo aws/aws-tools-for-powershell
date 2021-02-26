@@ -209,6 +209,9 @@ $SHLD_SelectMap = @{
                "Get-SHLDProtectionGroupList",
                "Get-SHLDProtectionList",
                "Get-SHLDResourcesInProtectionGroupList",
+               "Get-SHLDResourceTag",
+               "Add-SHLDResourceTag",
+               "Remove-SHLDResourceTag",
                "Update-SHLDEmergencyContactSetting",
                "Update-SHLDProtectionGroup",
                "Update-SHLDSubscription")

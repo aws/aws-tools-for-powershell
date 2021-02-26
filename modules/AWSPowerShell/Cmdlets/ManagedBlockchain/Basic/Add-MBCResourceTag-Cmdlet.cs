@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// <para>
         /// <para>The tags to assign to the specified resource. Tag values can be empty, for example,
         /// <code>"MyTagKey" : ""</code>. You can specify multiple key-value pairs in a single
-        /// request, with an overall maximum of 50 added to each resource.</para>
+        /// request, with an overall maximum of 50 tags added to each resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

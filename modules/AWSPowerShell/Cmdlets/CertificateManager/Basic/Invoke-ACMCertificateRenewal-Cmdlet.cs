@@ -28,7 +28,7 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Renews an eligable ACM certificate. At this time, only exported private certificates
+    /// Renews an eligible ACM certificate. At this time, only exported private certificates
     /// can be renewed with this operation. In order to renew your ACM PCA certificates with
     /// ACM, you must first <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html">grant
     /// the ACM service principal permission to do so</a>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html">Testing
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>
         /// <para>String that contains the ARN of the ACM certificate to be renewed. This must be of
         /// the form:</para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
+        /// Resource Names (ARNs)</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

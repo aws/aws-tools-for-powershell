@@ -38,7 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// empty to retrieve all connection records. If successful, the retrieved information
     /// includes both active and pending connections. Active connections identify the IpV4
     /// CIDR block that the VPC uses to connect. 
-    /// </para><ul><li><para><a>CreateVpcPeeringAuthorization</a></para></li><li><para><a>DescribeVpcPeeringAuthorizations</a></para></li><li><para><a>DeleteVpcPeeringAuthorization</a></para></li><li><para><a>CreateVpcPeeringConnection</a></para></li><li><para><a>DescribeVpcPeeringConnections</a></para></li><li><para><a>DeleteVpcPeeringConnection</a></para></li></ul>
+    /// </para><para><b>Related actions</b></para><para><a>CreateVpcPeeringAuthorization</a> | <a>DescribeVpcPeeringAuthorizations</a> |
+    /// <a>DeleteVpcPeeringAuthorization</a> | <a>CreateVpcPeeringConnection</a> | <a>DescribeVpcPeeringConnections</a>
+    /// | <a>DeleteVpcPeeringConnection</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLVpcPeeringConnection")]
     [OutputType("Amazon.GameLift.Model.VpcPeeringConnection")]
@@ -53,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet. You can use either the fleet ID or ARN value.</para>
+        /// <para>A unique identifier for the fleet. You can use either the fleet ID or ARN value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

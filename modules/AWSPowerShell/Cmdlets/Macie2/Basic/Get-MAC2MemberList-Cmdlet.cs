@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>
         /// <para>Specifies which accounts to include in the response, based on the status of an account's
         /// relationship with the administrator account. By default, the response includes only
-        /// current member accounts. To include all accounts, set the value for this parameter
-        /// to false.</para>
+        /// current member accounts. To include all accounts, set this value to false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

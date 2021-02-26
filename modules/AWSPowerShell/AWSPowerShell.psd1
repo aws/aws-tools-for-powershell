@@ -153,6 +153,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.ElasticTranscoder.dll',
         'AWSSDK.EMRContainers.dll',
         'AWSSDK.EventBridge.dll',
+        'AWSSDK.FIS.dll',
         'AWSSDK.FMS.dll',
         'AWSSDK.ForecastQueryService.dll',
         'AWSSDK.ForecastService.dll',

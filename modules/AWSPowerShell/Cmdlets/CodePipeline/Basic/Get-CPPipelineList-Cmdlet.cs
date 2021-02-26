@@ -40,6 +40,19 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class GetCPPipelineListCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of pipelines to return in a single call. To retrieve the remaining
+        /// pipelines, make another call with the returned nextToken value. The minimum value
+        /// you can specify is 1. The maximum accepted value is 1000.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
@@ -90,6 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 context.Select = CreateSelectDelegate<Amazon.CodePipeline.Model.ListPipelinesResponse, GetCPPipelineListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -109,6 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
             // create request and set iteration invariants
             var request = new Amazon.CodePipeline.Model.ListPipelinesRequest();
             
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
@@ -194,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.CodePipeline.Model.ListPipelinesResponse, GetCPPipelineListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Pipelines;

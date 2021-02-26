@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-SECResourceTag', 
+        'Add-SECSecretToRegion', 
         'Get-SECRandomPassword', 
         'Get-SECResourcePolicy', 
         'Get-SECSecret', 
@@ -95,10 +96,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SECSecretVersionIdList', 
         'Invoke-SECSecretRotation', 
         'New-SECSecret', 
+        'Remove-SECRegionsFromReplication', 
         'Remove-SECResourcePolicy', 
         'Remove-SECResourceTag', 
         'Remove-SECSecret', 
         'Restore-SECSecret', 
+        'Stop-SECReplicationToReplica', 
         'Stop-SECSecretRotation', 
         'Test-SECResourcePolicy', 
         'Update-SECSecret', 

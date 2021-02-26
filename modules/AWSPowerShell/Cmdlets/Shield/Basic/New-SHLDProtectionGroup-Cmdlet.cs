@@ -129,6 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         public Amazon.Shield.ProtectedResourceType ResourceType { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>One or more tag key-value pairs for the protection group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Shield.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -215,6 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
             }
             #endif
             context.ResourceType = this.ResourceType;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Shield.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -250,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
             if (cmdletContext.ResourceType != null)
             {
                 request.ResourceType = cmdletContext.ResourceType;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -317,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
             public Amazon.Shield.ProtectionGroupPattern Pattern { get; set; }
             public System.String ProtectionGroupId { get; set; }
             public Amazon.Shield.ProtectedResourceType ResourceType { get; set; }
+            public List<Amazon.Shield.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Shield.Model.CreateProtectionGroupResponse, NewSHLDProtectionGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

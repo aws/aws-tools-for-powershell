@@ -39,26 +39,28 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></important><para>
     /// The <code>CreateBuild</code> operation can used in the following scenarios:
     /// </para><ul><li><para>
-    /// To create a new game build with build files that are in an S3 location under an AWS
-    /// account that you control. To use this option, you must first give Amazon GameLift
-    /// access to the S3 bucket. With permissions in place, call <code>CreateBuild</code>
-    /// and specify a build name, operating system, and the S3 storage location of your game
-    /// build.
+    /// To create a new game build with build files that are in an Amazon S3 location under
+    /// an AWS account that you control. To use this option, you must first give Amazon GameLift
+    /// access to the Amazon S3 bucket. With permissions in place, call <code>CreateBuild</code>
+    /// and specify a build name, operating system, and the Amazon S3 storage location of
+    /// your game build.
     /// </para></li><li><para>
-    /// To directly upload your build files to a GameLift S3 location. To use this option,
-    /// first call <code>CreateBuild</code> and specify a build name and operating system.
-    /// This operation creates a new build resource and also returns an S3 location with temporary
-    /// access credentials. Use the credentials to manually upload your build files to the
-    /// specified S3 location. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading
+    /// To directly upload your build files to a GameLift Amazon S3 location. To use this
+    /// option, first call <code>CreateBuild</code> and specify a build name and operating
+    /// system. This operation creates a new build resource and also returns an Amazon S3
+    /// location with temporary access credentials. Use the credentials to manually upload
+    /// your build files to the specified Amazon S3 location. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading
     /// Objects</a> in the <i>Amazon S3 Developer Guide</i>. Build files can be uploaded to
-    /// the GameLift S3 location once only; that can't be updated. 
+    /// the GameLift Amazon S3 location once only; that can't be updated. 
     /// </para></li></ul><para>
     /// If successful, this operation creates a new build resource with a unique build ID
     /// and places it in <code>INITIALIZED</code> status. A build must be in <code>READY</code>
     /// status before you can create fleets with it.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Uploading
     /// Your Game</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">
-    /// Create a Build with Files in Amazon S3</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul>
+    /// Create a Build with Files in Amazon S3</a></para><para><b>Related actions</b></para><para><a>CreateBuild</a> | <a>ListBuilds</a> | <a>DescribeBuild</a> | <a>UpdateBuild</a>
+    /// | <a>DeleteBuild</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.CreateBuildResponse")]
@@ -72,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>An S3 bucket identifier. This is the name of the S3 bucket.</para><note><para>GameLift currently does not support uploading from S3 buckets with names that contain
-        /// a dot (.).</para></note>
+        /// <para>An Amazon S3 bucket identifier. This is the name of the S3 bucket.</para><note><para>GameLift currently does not support uploading from Amazon S3 buckets with names that
+        /// contain a dot (.).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

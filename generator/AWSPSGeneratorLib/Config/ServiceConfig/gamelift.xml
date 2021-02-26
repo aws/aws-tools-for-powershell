@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateFleetLocations" OutputProperty="*" Verb="New" Noun="FleetLocation" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGameServerGroup" OutputProperty="GameServerGroup" Verb="New" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -88,6 +92,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFleet" Verb="Remove" Noun="Fleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFleetLocations" OutputProperty="*" Verb="Remove" Noun="FleetLocation" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -148,6 +156,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFleetEvents" OutputProperty="Events" Verb="Get" Noun="FleetEvent" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetLocationAttributes" OutputProperty="*" Verb="Get" Noun="FleetLocationAttribute" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetLocationCapacity" OutputProperty="FleetCapacity" Verb="Get" Noun="FleetLocationCapacity" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetLocationUtilization" OutputProperty="FleetUtilization" Verb="Get" Noun="FleetLocationUtilization" PipelineParameter="FleetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -287,7 +307,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFleetActions" Verb="Start" Noun="FleetAction" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartFleetActions" OutputProperty="*" Verb="Start" Noun="FleetAction" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -303,7 +323,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopFleetActions" Verb="Stop" Noun="FleetAction" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopFleetActions" OutputProperty="*" Verb="Stop" Noun="FleetAction" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

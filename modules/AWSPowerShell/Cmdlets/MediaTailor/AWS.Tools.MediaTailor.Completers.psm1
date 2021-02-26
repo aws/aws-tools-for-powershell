@@ -80,10 +80,34 @@ $EMT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MediaTailor.AccessType
+        {
+            ($_ -eq "New-EMTSourceLocation/AccessConfiguration_AccessType") -Or
+            ($_ -eq "Update-EMTSourceLocation/AccessConfiguration_AccessType")
+        }
+        {
+            $v = "S3_SIGV4"
+            break
+        }
+
         # Amazon.MediaTailor.Mode
         "Set-EMTPlaybackConfiguration/AvailSuppression_Mode"
         {
             $v = "BEHIND_LIVE_EDGE","OFF"
+            break
+        }
+
+        # Amazon.MediaTailor.PlaybackMode
+        "New-EMTChannel/PlaybackMode"
+        {
+            $v = "LOOP"
+            break
+        }
+
+        # Amazon.MediaTailor.RelativePosition
+        "New-EMTProgram/ScheduleConfiguration_Transition_RelativePosition"
+        {
+            $v = "AFTER_PROGRAM","BEFORE_PROGRAM"
             break
         }
 
@@ -96,7 +120,10 @@ $EMT_Completers = {
 }
 
 $EMT_map = @{
+    "AccessConfiguration_AccessType"=@("New-EMTSourceLocation","Update-EMTSourceLocation")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
+    "PlaybackMode"=@("New-EMTChannel")
+    "ScheduleConfiguration_Transition_RelativePosition"=@("New-EMTProgram")
 }
 
 _awsArgumentCompleterRegistration $EMT_Completers $EMT_map
@@ -149,13 +176,37 @@ $EMT_SelectCompleters = {
 }
 
 $EMT_SelectMap = @{
-    "Select"=@("Remove-EMTPlaybackConfiguration",
+    "Select"=@("New-EMTChannel",
+               "New-EMTProgram",
+               "New-EMTSourceLocation",
+               "New-EMTVodSource",
+               "Remove-EMTChannel",
+               "Remove-EMTChannelPolicy",
+               "Remove-EMTPlaybackConfiguration",
+               "Remove-EMTProgram",
+               "Remove-EMTSourceLocation",
+               "Remove-EMTVodSource",
+               "Get-EMTChannel",
+               "Get-EMTProgram",
+               "Get-EMTSourceLocation",
+               "Get-EMTVodSource",
+               "Get-EMTChannelPolicy",
+               "Get-EMTChannelSchedule",
                "Get-EMTPlaybackConfiguration",
+               "Get-EMTChannelList",
                "Get-EMTPlaybackConfigurationList",
+               "Get-EMTSourceLocationList",
                "Get-EMTResourceTag",
+               "Get-EMTVodSourceList",
+               "Write-EMTChannelPolicy",
                "Set-EMTPlaybackConfiguration",
+               "Start-EMTChannel",
+               "Stop-EMTChannel",
                "Add-EMTResourceTag",
-               "Remove-EMTResourceTag")
+               "Remove-EMTResourceTag",
+               "Update-EMTChannel",
+               "Update-EMTSourceLocation",
+               "Update-EMTVodSource")
 }
 
 _awsArgumentCompleterRegistration $EMT_SelectCompleters $EMT_SelectMap

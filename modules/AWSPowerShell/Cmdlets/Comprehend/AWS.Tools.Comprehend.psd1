@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Find-COMPKeyPhrase', 
         'Find-COMPKeyPhrasesBatch', 
         'Find-COMPPiiEntity', 
+        'Find-COMPPiiEntityType', 
         'Find-COMPSentiment', 
         'Find-COMPSentimentBatch', 
         'Find-COMPSyntax', 

@@ -212,6 +212,7 @@ $SSM_Completers = {
 
         # Amazon.SimpleSystemsManagement.OperatingSystem
         {
+            ($_ -eq "Get-SSMDeployablePatchSnapshotForInstance/BaselineOverride_OperatingSystem") -Or
             ($_ -eq "Get-SSMDefaultPatchBaseline/OperatingSystem") -Or
             ($_ -eq "Get-SSMPatchBaselineForPatchGroup/OperatingSystem") -Or
             ($_ -eq "Get-SSMPatchProperty/OperatingSystem") -Or
@@ -245,6 +246,7 @@ $SSM_Completers = {
 
         # Amazon.SimpleSystemsManagement.PatchAction
         {
+            ($_ -eq "Get-SSMDeployablePatchSnapshotForInstance/BaselineOverride_RejectedPatchesAction") -Or
             ($_ -eq "New-SSMPatchBaseline/RejectedPatchesAction") -Or
             ($_ -eq "Update-SSMPatchBaseline/RejectedPatchesAction")
         }
@@ -256,7 +258,8 @@ $SSM_Completers = {
         # Amazon.SimpleSystemsManagement.PatchComplianceLevel
         {
             ($_ -eq "New-SSMPatchBaseline/ApprovedPatchesComplianceLevel") -Or
-            ($_ -eq "Update-SSMPatchBaseline/ApprovedPatchesComplianceLevel")
+            ($_ -eq "Update-SSMPatchBaseline/ApprovedPatchesComplianceLevel") -Or
+            ($_ -eq "Get-SSMDeployablePatchSnapshotForInstance/BaselineOverride_ApprovedPatchesComplianceLevel")
         }
         {
             $v = "CRITICAL","HIGH","INFORMATIONAL","LOW","MEDIUM","UNSPECIFIED"
@@ -291,7 +294,7 @@ $SSM_Completers = {
             ($_ -eq "Remove-SSMResourceTag/ResourceType")
         }
         {
-            $v = "Document","MaintenanceWindow","ManagedInstance","OpsItem","Parameter","PatchBaseline"
+            $v = "Document","MaintenanceWindow","ManagedInstance","OpsItem","OpsMetadata","Parameter","PatchBaseline"
             break
         }
 
@@ -327,6 +330,9 @@ $SSM_Completers = {
 $SSM_map = @{
     "ApprovedPatchesComplianceLevel"=@("New-SSMPatchBaseline","Update-SSMPatchBaseline")
     "AssociationStatus_Name"=@("Update-SSMAssociationStatus")
+    "BaselineOverride_ApprovedPatchesComplianceLevel"=@("Get-SSMDeployablePatchSnapshotForInstance")
+    "BaselineOverride_OperatingSystem"=@("Get-SSMDeployablePatchSnapshotForInstance")
+    "BaselineOverride_RejectedPatchesAction"=@("Get-SSMDeployablePatchSnapshotForInstance")
     "ComplianceSeverity"=@("New-SSMAssociation","Update-SSMAssociation")
     "DocumentFormat"=@("Get-SSMDocument","New-SSMDocument","Update-SSMDocument")
     "DocumentHashType"=@("Send-SSMCommand")

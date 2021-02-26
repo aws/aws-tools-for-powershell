@@ -28,7 +28,9 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns a list of existing backup jobs for an authenticated account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of existing backup jobs for an authenticated account for the last 30
+    /// days. For a longer period of time, consider using these <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">monitoring
+    /// tools</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKBackupJobList")]
     [OutputType("Amazon.Backup.Model.BackupJob")]

@@ -27,7 +27,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateApiDestination" OutputProperty="*" Verb="New" Noun="ApiDestination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateArchive" OutputProperty="*" Verb="New" Noun="Archive" ShouldProcessTarget="ArchiveName" PipelineParameter="ArchiveName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnection" OutputProperty="*" Verb="New" Noun="Connection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -43,7 +51,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeauthorizeConnection" OutputProperty="*" Verb="Clear" Noun="Connection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApiDestination" Verb="Remove" Noun="ApiDestination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteArchive" Verb="Remove" Noun="Archive" ShouldProcessTarget="ArchiveName" PipelineParameter="ArchiveName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnection" OutputProperty="*" Verb="Remove" Noun="Connection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -61,7 +81,15 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApiDestination" OutputProperty="*" Verb="Get" Noun="ApiDestination" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeArchive" OutputProperty="*" Verb="Get" Noun="Archive" PipelineParameter="ArchiveName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnection" OutputProperty="*" Verb="Get" Noun="Connection" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -93,7 +121,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListApiDestinations" OutputProperty="ApiDestinations" Verb="Get" Noun="ApiDestinationList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListArchives" OutputProperty="Archives" Verb="Get" Noun="ArchiveList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnections" OutputProperty="Connections" Verb="Get" Noun="ConnectionList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -179,7 +215,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApiDestination" OutputProperty="*" Verb="Update" Noun="ApiDestination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateArchive" OutputProperty="*" Verb="Update" Noun="Archive" ShouldProcessTarget="ArchiveName" PipelineParameter="ArchiveName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnection" OutputProperty="*" Verb="Update" Noun="Connection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

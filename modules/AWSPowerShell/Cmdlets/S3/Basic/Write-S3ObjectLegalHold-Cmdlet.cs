@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

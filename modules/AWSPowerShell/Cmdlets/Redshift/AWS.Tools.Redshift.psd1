@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Copy-RSClusterSnapshot', 
         'Disable-RSLogging', 
         'Disable-RSSnapshotCopy', 
+        'Edit-RSAquaConfiguration', 
         'Edit-RSCluster', 
         'Edit-RSClusterDbRevision', 
         'Edit-RSClusterIamRole', 

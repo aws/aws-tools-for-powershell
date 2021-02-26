@@ -155,20 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter CapacityProviderStrategy
         /// <summary>
         /// <para>
-        /// <para>The capacity provider strategy to use for the service.</para><para>A capacity provider strategy consists of one or more capacity providers along with
-        /// the <code>base</code> and <code>weight</code> to assign to them. A capacity provider
-        /// must be associated with the cluster to be used in a capacity provider strategy. The
-        /// <a>PutClusterCapacityProviders</a> API is used to associate a capacity provider with
-        /// a cluster. Only capacity providers with an <code>ACTIVE</code> or <code>UPDATING</code>
-        /// status can be used.</para><para>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
+        /// <para>The capacity provider strategy to use for the service.</para><para>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
         /// parameter must be omitted. If no <code>capacityProviderStrategy</code> or <code>launchType</code>
         /// is specified, the <code>defaultCapacityProviderStrategy</code> for the cluster is
-        /// used.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
-        /// must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a>
-        /// API operation.</para><para>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
-        /// <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
-        /// available to all accounts and only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
-        /// available capacity providers for a cluster after the cluster is created.</para>
+        /// used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,6 +214,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Boolean? EnableECSManagedTag { get; set; }
         #endregion
         
+        #region Parameter EnableExecuteCommand
+        /// <summary>
+        /// <para>
+        /// <para>Whether or not the execute command functionality is enabled for the service. If <code>true</code>,
+        /// this enables execute command functionality on all containers in the service tasks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableExecuteCommand { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckGracePeriodSecond
         /// <summary>
         /// <para>
@@ -246,8 +247,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LaunchType
         /// <summary>
         /// <para>
-        /// <para>The launch type on which to run your service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
-        /// ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
+        /// <para>The launch type on which to run your service. The accepted values are <code>FARGATE</code>
+        /// and <code>EC2</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>When a value of <code>FARGATE</code> is specified, your tasks are launched on AWS
+        /// Fargate On-Demand infrastructure. To use Fargate Spot, you must use a capacity provider
+        /// strategy with the <code>FARGATE_SPOT</code> capacity provider.</para><para>When a value of <code>EC2</code> is specified, your tasks are launched on Amazon EC2
+        /// instances registered to your cluster.</para><para>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
         /// parameter must be omitted.</para>
         /// </para>
         /// </summary>
@@ -266,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// one or more target group ARNs to attach to the service. The service-linked role is
         /// required for services that make use of multiple target groups. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
-        /// Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
+        /// service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
         /// Developer Guide</i>.</para><para>If the service is using the <code>CODE_DEPLOY</code> deployment controller, the service
         /// is required to use either an Application Load Balancer or Network Load Balancer. When
         /// creating an AWS CodeDeploy deployment group, you specify two target groups (referred
@@ -384,7 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// is specified only for tasks using the Fargate launch type. If one isn't specified,
         /// the <code>LATEST</code> platform version is used by default. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
-        /// Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service Developer
+        /// Fargate platform versions</a> in the <i>Amazon Elastic Container Service Developer
         /// Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -420,13 +425,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// or if the service is configured to use service discovery, an external deployment controller,
         /// multiple target groups, or Elastic Inference accelerators in which case you should
         /// not specify a role here. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
-        /// Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
+        /// service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
         /// Developer Guide</i>.</para></important><para>If your specified role has a path other than <code>/</code>, then you must either
         /// specify the full role ARN (this is recommended) or prefix the role name with the path.
         /// For example, if a role with the name <code>bar</code> has a path of <code>/foo/</code>
         /// then you would specify <code>/foo/bar</code> as the role name. For more information,
         /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
-        /// Names and Paths</a> in the <i>IAM User Guide</i>.</para>
+        /// names and paths</a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -505,9 +510,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The details of the service discovery registries to assign to this service. For more
         /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
-        /// Discovery</a>.</para><note><para>Service discovery is supported for Fargate tasks if you are using platform version
+        /// discovery</a>.</para><note><para>Service discovery is supported for Fargate tasks if you are using platform version
         /// v1.1.0 or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
-        /// Fargate Platform Versions</a>.</para></note>
+        /// Fargate platform versions</a>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -664,6 +669,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.DeploymentController_Type = this.DeploymentController_Type;
             context.DesiredCount = this.DesiredCount;
             context.EnableECSManagedTag = this.EnableECSManagedTag;
+            context.EnableExecuteCommand = this.EnableExecuteCommand;
             context.HealthCheckGracePeriodSecond = this.HealthCheckGracePeriodSecond;
             context.LaunchType = this.LaunchType;
             if (this.LoadBalancer != null)
@@ -825,6 +831,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.EnableECSManagedTag != null)
             {
                 request.EnableECSManagedTags = cmdletContext.EnableECSManagedTag.Value;
+            }
+            if (cmdletContext.EnableExecuteCommand != null)
+            {
+                request.EnableExecuteCommand = cmdletContext.EnableExecuteCommand.Value;
             }
             if (cmdletContext.HealthCheckGracePeriodSecond != null)
             {
@@ -1003,6 +1013,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public Amazon.ECS.DeploymentControllerType DeploymentController_Type { get; set; }
             public System.Int32? DesiredCount { get; set; }
             public System.Boolean? EnableECSManagedTag { get; set; }
+            public System.Boolean? EnableExecuteCommand { get; set; }
             public System.Int32? HealthCheckGracePeriodSecond { get; set; }
             public Amazon.ECS.LaunchType LaunchType { get; set; }
             public List<Amazon.ECS.Model.LoadBalancer> LoadBalancer { get; set; }

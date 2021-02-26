@@ -96,7 +96,10 @@ $WKS_Completers = {
         }
 
         # Amazon.WorkSpaces.Compute
-        "Edit-WKSWorkspaceProperty/WorkspaceProperties_ComputeTypeName"
+        {
+            ($_ -eq "New-WKSWorkspaceBundle/ComputeType_Name") -Or
+            ($_ -eq "Edit-WKSWorkspaceProperty/WorkspaceProperties_ComputeTypeName")
+        }
         {
             $v = "GRAPHICS","GRAPHICSPRO","PERFORMANCE","POWER","POWERPRO","STANDARD","VALUE"
             break
@@ -168,6 +171,7 @@ $WKS_Completers = {
 
 $WKS_map = @{
     "ClientProperties_ReconnectEnabled"=@("Edit-WKSClientProperty")
+    "ComputeType_Name"=@("New-WKSWorkspaceBundle")
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
     "ImageType"=@("Get-WKSWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
@@ -246,10 +250,12 @@ $WKS_SelectMap = @{
                "New-WKSConnectionAlias",
                "New-WKSIpGroup",
                "New-WKSTag",
+               "New-WKSWorkspaceBundle",
                "New-WKSWorkspace",
                "Remove-WKSConnectionAlias",
                "Remove-WKSIpGroup",
                "Remove-WKSTag",
+               "Remove-WKSWorkspaceBundle",
                "Remove-WKSWorkspaceImage",
                "Unregister-WKSWorkspaceDirectory",
                "Get-WKSAccount",
@@ -288,6 +294,7 @@ $WKS_SelectMap = @{
                "Remove-WKSWorkspace",
                "Update-WKSConnectionAliasPermission",
                "Update-WKSRulesOfIpGroup",
+               "Update-WKSWorkspaceBundle",
                "Update-WKSWorkspaceImagePermission")
 }
 

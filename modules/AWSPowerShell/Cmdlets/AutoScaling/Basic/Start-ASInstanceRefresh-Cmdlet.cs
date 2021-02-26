@@ -40,7 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// API. 
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing
-    /// Auto Scaling Instances Based on an Instance Refresh</a>.
+    /// Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto
+    /// Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "ASInstanceRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -68,6 +69,34 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
+        
+        #region Parameter Preferences_CheckpointDelay
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time, in seconds, to wait after a checkpoint before continuing. This
+        /// property is optional, but if you specify a value for it, you must also specify a value
+        /// for <code>CheckpointPercentages</code>. If you specify a value for <code>CheckpointPercentages</code>
+        /// and not for <code>CheckpointDelay</code>, the <code>CheckpointDelay</code> defaults
+        /// to <code>3600</code> (1 hour). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Preferences_CheckpointDelay { get; set; }
+        #endregion
+        
+        #region Parameter Preferences_CheckpointPercentage
+        /// <summary>
+        /// <para>
+        /// <para>Threshold values for each checkpoint in ascending order. Each number must be unique.
+        /// To replace all instances in the Auto Scaling group, the last number in the array must
+        /// be <code>100</code>.</para><para>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding
+        /// checkpoints to an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Preferences_CheckpointPercentages")]
+        public System.Int32[] Preferences_CheckpointPercentage { get; set; }
         #endregion
         
         #region Parameter Preferences_InstanceWarmup
@@ -179,6 +208,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 WriteWarning("You are passing $null as a value for parameter AutoScalingGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Preferences_CheckpointDelay = this.Preferences_CheckpointDelay;
+            if (this.Preferences_CheckpointPercentage != null)
+            {
+                context.Preferences_CheckpointPercentage = new List<System.Int32>(this.Preferences_CheckpointPercentage);
+            }
             context.Preferences_InstanceWarmup = this.Preferences_InstanceWarmup;
             context.Preferences_MinHealthyPercentage = this.Preferences_MinHealthyPercentage;
             context.Strategy = this.Strategy;
@@ -206,6 +240,26 @@ namespace Amazon.PowerShell.Cmdlets.AS
              // populate Preferences
             var requestPreferencesIsNull = true;
             request.Preferences = new Amazon.AutoScaling.Model.RefreshPreferences();
+            System.Int32? requestPreferences_preferences_CheckpointDelay = null;
+            if (cmdletContext.Preferences_CheckpointDelay != null)
+            {
+                requestPreferences_preferences_CheckpointDelay = cmdletContext.Preferences_CheckpointDelay.Value;
+            }
+            if (requestPreferences_preferences_CheckpointDelay != null)
+            {
+                request.Preferences.CheckpointDelay = requestPreferences_preferences_CheckpointDelay.Value;
+                requestPreferencesIsNull = false;
+            }
+            List<System.Int32> requestPreferences_preferences_CheckpointPercentage = null;
+            if (cmdletContext.Preferences_CheckpointPercentage != null)
+            {
+                requestPreferences_preferences_CheckpointPercentage = cmdletContext.Preferences_CheckpointPercentage;
+            }
+            if (requestPreferences_preferences_CheckpointPercentage != null)
+            {
+                request.Preferences.CheckpointPercentages = requestPreferences_preferences_CheckpointPercentage;
+                requestPreferencesIsNull = false;
+            }
             System.Int32? requestPreferences_preferences_InstanceWarmup = null;
             if (cmdletContext.Preferences_InstanceWarmup != null)
             {
@@ -297,6 +351,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingGroupName { get; set; }
+            public System.Int32? Preferences_CheckpointDelay { get; set; }
+            public List<System.Int32> Preferences_CheckpointPercentage { get; set; }
             public System.Int32? Preferences_InstanceWarmup { get; set; }
             public System.Int32? Preferences_MinHealthyPercentage { get; set; }
             public Amazon.AutoScaling.RefreshStrategy Strategy { get; set; }

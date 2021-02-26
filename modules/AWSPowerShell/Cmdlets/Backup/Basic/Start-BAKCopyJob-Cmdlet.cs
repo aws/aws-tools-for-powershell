@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
     /// Starts a job to create a one-time copy of the specified resource.
+    /// 
+    ///  
+    /// <para>
+    /// Does not support continuous backups.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "BAKCopyJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Backup.Model.StartCopyJobResponse")]

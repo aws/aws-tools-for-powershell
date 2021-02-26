@@ -28,17 +28,17 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// This operation removes the website configuration for a bucket. Amazon S3 returns a
-    /// <code>200 OK</code> response upon successfully deleting a website configuration on
-    /// the specified bucket. You will get a <code>200 OK</code> response if the website configuration
-    /// you are trying to delete does not exist on the bucket. Amazon S3 returns a <code>404</code>
+    /// This action removes the website configuration for a bucket. Amazon S3 returns a <code>200
+    /// OK</code> response upon successfully deleting a website configuration on the specified
+    /// bucket. You will get a <code>200 OK</code> response if the website configuration you
+    /// are trying to delete does not exist on the bucket. Amazon S3 returns a <code>404</code>
     /// response if the bucket specified in the request does not exist.
     /// 
     ///  
     /// <para>
-    /// This DELETE operation requires the <code>S3:DeleteBucketWebsite</code> permission.
-    /// By default, only the bucket owner can delete the website configuration attached to
-    /// a bucket. However, bucket owners can grant other users permission to delete the website
+    /// This DELETE action requires the <code>S3:DeleteBucketWebsite</code> permission. By
+    /// default, only the bucket owner can delete the website configuration attached to a
+    /// bucket. However, bucket owners can grant other users permission to delete the website
     /// configuration by writing a bucket policy granting them the <code>S3:DeleteBucketWebsite</code>
     /// permission. 
     /// </para><para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

@@ -72,9 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// pools specified by the Spot Fleet request.</para><para>If the allocation strategy is <code>lowestPrice</code>, Spot Fleet launches instances
         /// from the Spot Instance pools with the lowest price. This is the default allocation
         /// strategy.</para><para>If the allocation strategy is <code>diversified</code>, Spot Fleet launches instances
-        /// from all the Spot Instance pools that you specify.</para><para>If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet launches
-        /// instances from Spot Instance pools with optimal capacity for the number of instances
-        /// that are launching.</para>
+        /// from all the Spot Instance pools that you specify.</para><para>If the allocation strategy is <code>capacityOptimized</code> (recommended), Spot Fleet
+        /// launches instances from Spot Instance pools with optimal capacity for the number of
+        /// instances that are launching. To give certain instance types a higher chance of launching
+        /// first, use <code>capacityOptimizedPrioritized</code>. Set a priority for each instance
+        /// type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>.
+        /// You can assign the same priority to different <code>LaunchTemplateOverrides</code>.
+        /// EC2 implements the priorities on a best-effort basis, but optimizes for capacity first.
+        /// <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses
+        /// a launch template. Note that if the <code>OnDemandAllocationStrategy</code> is set
+        /// to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
+        /// capacity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

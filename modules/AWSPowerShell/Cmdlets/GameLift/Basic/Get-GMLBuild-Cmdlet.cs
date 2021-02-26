@@ -36,7 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  <note><para>
     /// Build resources are not listed in any particular order.
     /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
-    /// Upload a Custom Server Build</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Upload a Custom Server Build</a></para><para><b>Related actions</b></para><para><a>CreateBuild</a> | <a>ListBuilds</a> | <a>DescribeBuild</a> | <a>UpdateBuild</a>
+    /// | <a>DeleteBuild</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLBuild")]
     [OutputType("Amazon.GameLift.Model.Build")]
@@ -83,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// <para>A token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this operation. To start at the beginning
         /// of the result set, do not specify a value.</para>
         /// </para>

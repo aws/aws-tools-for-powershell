@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// to parse the contents of the response and handle it appropriately.
     /// 
     ///  <important><para>
-    /// This API has been revised. We recommend that you use the newer version, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a>,
+    /// This action has been revised. We recommend that you use the newer version, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a>,
     /// when developing applications. For backward compatibility, Amazon S3 continues to support
     /// <code>ListObjects</code>.
     /// </para></important><para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

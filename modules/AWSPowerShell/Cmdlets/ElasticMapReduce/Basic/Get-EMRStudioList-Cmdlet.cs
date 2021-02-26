@@ -28,13 +28,8 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// <note><para>
-    /// The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-    /// change.
-    /// </para></note><para>
     /// Returns a list of all Amazon EMR Studios associated with the AWS account. The list
-    /// includes details such as ID, Studio Access URL, and creation time for each Studio.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// includes details such as ID, Studio Access URL, and creation time for each Studio.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EMRStudioList")]
     [OutputType("Amazon.ElasticMapReduce.Model.StudioSummary")]

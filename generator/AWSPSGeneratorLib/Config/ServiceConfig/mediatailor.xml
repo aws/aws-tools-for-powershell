@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>mediatailor</C2jFilename>
     <AssemblyName>MediaTailor</AssemblyName>
@@ -13,13 +14,72 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateChannel" OutputProperty="*" Verb="New" Noun="Channel" ShouldProcessTarget="ChannelName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProgram" OutputProperty="*" Verb="New" Noun="Program" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSourceLocation" OutputProperty="*" Verb="New" Noun="SourceLocation" ShouldProcessTarget="SourceLocationName" PipelineParameter="SourceLocationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVodSource" OutputProperty="*" Verb="New" Noun="VodSource" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="ChannelName" PipelineParameter="ChannelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannelPolicy" Verb="Remove" Noun="ChannelPolicy" ShouldProcessTarget="ChannelName" PipelineParameter="ChannelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePlaybackConfiguration" Verb="Remove" Noun="PlaybackConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProgram" Verb="Remove" Noun="Program" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSourceLocation" Verb="Remove" Noun="SourceLocation" ShouldProcessTarget="SourceLocationName" PipelineParameter="SourceLocationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVodSource" Verb="Remove" Noun="VodSource" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannel" OutputProperty="*" Verb="Get" Noun="Channel" PipelineParameter="ChannelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProgram" OutputProperty="*" Verb="Get" Noun="Program" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSourceLocation" OutputProperty="*" Verb="Get" Noun="SourceLocation" PipelineParameter="SourceLocationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVodSource" OutputProperty="*" Verb="Get" Noun="VodSource" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetChannelPolicy" OutputProperty="Policy" Verb="Get" Noun="ChannelPolicy" PipelineParameter="ChannelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetChannelSchedule" OutputProperty="Items" Verb="Get" Noun="ChannelSchedule" PipelineParameter="ChannelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -27,7 +87,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Items" Verb="Get" Noun="ChannelList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPlaybackConfigurations" OutputProperty="Items" Verb="Get" Noun="PlaybackConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSourceLocations" OutputProperty="Items" Verb="Get" Noun="SourceLocationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -35,7 +103,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListVodSources" OutputProperty="Items" Verb="Get" Noun="VodSourceList" PipelineParameter="SourceLocationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutChannelPolicy" Verb="Write" Noun="ChannelPolicy" ShouldProcessTarget="ChannelName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutPlaybackConfiguration" OutputProperty="*" Verb="Set" Noun="PlaybackConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartChannel" Verb="Start" Noun="Channel" ShouldProcessTarget="ChannelName" PipelineParameter="ChannelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopChannel" Verb="Stop" Noun="Channel" ShouldProcessTarget="ChannelName" PipelineParameter="ChannelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -47,9 +131,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChannel" OutputProperty="*" Verb="Update" Noun="Channel" ShouldProcessTarget="ChannelName" PipelineParameter="ChannelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSourceLocation" OutputProperty="*" Verb="Update" Noun="SourceLocation" ShouldProcessTarget="SourceLocationName" PipelineParameter="SourceLocationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVodSource" OutputProperty="*" Verb="Update" Noun="VodSource" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.MediaTailor.Model.CdnConfiguration</Type>
         <Type>Amazon.MediaTailor.Model.DashConfigurationForPut</Type>

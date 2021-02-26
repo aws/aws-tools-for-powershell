@@ -212,6 +212,17 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         public System.String ReviewOwner { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to be associated with the workload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter WorkloadName
         /// <summary>
         /// <para>
@@ -322,6 +333,14 @@ namespace Amazon.PowerShell.Cmdlets.WAT
                 WriteWarning("You are passing $null as a value for parameter ReviewOwner which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.WorkloadName = this.WorkloadName;
             #if MODULAR
             if (this.WorkloadName == null && ParameterWasBound(nameof(this.WorkloadName)))
@@ -396,6 +415,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             if (cmdletContext.ReviewOwner != null)
             {
                 request.ReviewOwner = cmdletContext.ReviewOwner;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.WorkloadName != null)
             {
@@ -475,6 +498,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             public System.String Note { get; set; }
             public List<System.String> PillarPriority { get; set; }
             public System.String ReviewOwner { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String WorkloadName { get; set; }
             public System.Func<Amazon.WellArchitected.Model.CreateWorkloadResponse, NewWATWorkloadCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// 
     ///  
     /// <para>
-    /// If notifications are not enabled on the bucket, the operation returns an empty <code>NotificationConfiguration</code>
+    /// If notifications are not enabled on the bucket, the action returns an empty <code>NotificationConfiguration</code>
     /// element.
     /// </para><para>
     /// By default, you must be the bucket owner to read the notification configuration of
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using
     /// Bucket Policies</a>.
     /// </para><para>
-    /// The following operation is related to <code>GetBucketNotification</code>:
+    /// The following action is related to <code>GetBucketNotification</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotification.html">PutBucketNotification</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketNotification")]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

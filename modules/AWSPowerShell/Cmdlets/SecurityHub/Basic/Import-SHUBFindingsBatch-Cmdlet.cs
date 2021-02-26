@@ -28,9 +28,9 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Imports security findings generated from an integrated third-party product into Security
-    /// Hub. This action is requested by the integrated product to import its findings into
-    /// Security Hub.
+    /// Imports security findings generated from an integrated product into Security Hub.
+    /// This action is requested by the integrated product to import its findings into Security
+    /// Hub.
     /// 
     ///  
     /// <para>
@@ -40,11 +40,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// After a finding is created, <code>BatchImportFindings</code> cannot be used to update
     /// the following finding fields and objects, which Security Hub customers use to manage
     /// their investigation workflow.
-    /// </para><ul><li><para><code>Note</code></para></li><li><para><code>UserDefinedFields</code></para></li><li><para><code>VerificationState</code></para></li><li><para><code>Workflow</code></para></li></ul><para><code>BatchImportFindings</code> can be used to update the following finding fields
-    /// and objects only if they have not been updated using <code>BatchUpdateFindings</code>.
-    /// After they are updated using <code>BatchUpdateFindings</code>, these fields cannot
-    /// be updated using <code>BatchImportFindings</code>.
-    /// </para><ul><li><para><code>Confidence</code></para></li><li><para><code>Criticality</code></para></li><li><para><code>RelatedFindings</code></para></li><li><para><code>Severity</code></para></li><li><para><code>Types</code></para></li></ul>
+    /// </para><ul><li><para><code>Note</code></para></li><li><para><code>UserDefinedFields</code></para></li><li><para><code>VerificationState</code></para></li><li><para><code>Workflow</code></para></li></ul><para>
+    /// Finding providers also should not use <code>BatchImportFindings</code> to update the
+    /// following attributes.
+    /// </para><ul><li><para><code>Confidence</code></para></li><li><para><code>Criticality</code></para></li><li><para><code>RelatedFindings</code></para></li><li><para><code>Severity</code></para></li><li><para><code>Types</code></para></li></ul><para>
+    /// Instead, finding providers use <code>FindingProviderFields</code> to provide values
+    /// for these attributes.
+    /// </para>
     /// </summary>
     [Cmdlet("Import", "SHUBFindingsBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.BatchImportFindingsResponse")]

@@ -72,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The maximum number of Amazon EC2 vCPUs that an environment can reach.</para><note><para>With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
-        /// allocation strategies, AWS Batch might need to go above <code>maxvCpus</code> to meet
-        /// your capacity requirements. In this event, AWS Batch will never go above <code>maxvCpus</code>
-        /// by more than a single instance (e.g., no more than a single instance from among those
-        /// specified in your compute environment).</para></note>
+        /// allocation strategies, AWS Batch might need to exceed <code>maxvCpus</code> to meet
+        /// your capacity requirements. In this event, AWS Batch never exceeds <code>maxvCpus</code>
+        /// by more than a single instance. That is, no more than a single instance from among
+        /// those specified in your compute environment.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// Batch service IAM role</a> in the <i>AWS Batch User Guide</i>.</para><para>If your specified role has a path other than <code>/</code>, then you must either
         /// specify the full role ARN (this is recommended) or prefix the role name with the path.</para><note><para>Depending on how you created your AWS Batch service role, its ARN might contain the
         /// <code>service-role</code> path prefix. When you only specify the name of the service
-        /// role, AWS Batch assumes that your ARN does not use the <code>service-role</code> path
+        /// role, AWS Batch assumes that your ARN doesn't use the <code>service-role</code> path
         /// prefix. Because of this, we recommend that you specify the full ARN of your service
         /// role when you create compute environments.</para></note>
         /// </para>
@@ -149,12 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_Subnet
         /// <summary>
         /// <para>
-        /// <para>The VPC subnets that the compute resources are launched into. This parameter is required
-        /// for jobs running on Fargate compute resources, where it can contain up to 16 subnets.
+        /// <para>The VPC subnets that the compute resources are launched into. Fargate compute resources
+        /// can contain up to 16 subnets. Providing an empty list will be handled as if this parameter
+        /// wasn't specified and no change is made. This can't be specified for EC2 compute resources.
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs
-        /// and Subnets</a> in the <i>Amazon VPC User Guide</i>. This can't be specified for EC2
-        /// compute resources. Providing an empty list will be handled as if this parameter wasn't
-        /// specified and no change is made.</para>
+        /// and Subnets</a> in the <i>Amazon VPC User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

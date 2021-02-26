@@ -87,6 +87,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-IAMAAResourceTag', 
+        'Get-IAMAAAccessPreview', 
+        'Get-IAMAAAccessPreviewFindingList', 
+        'Get-IAMAAAccessPreviewList', 
         'Get-IAMAAAnalyzedResource', 
         'Get-IAMAAAnalyzedResourceList', 
         'Get-IAMAAAnalyzer', 
@@ -96,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IAMAAFinding', 
         'Get-IAMAAFindingList', 
         'Get-IAMAAResourceTag', 
+        'New-IAMAAAccessPreview', 
         'New-IAMAAAnalyzer', 
         'New-IAMAAArchiveRule', 
         'Remove-IAMAAAnalyzer', 
@@ -104,7 +108,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-IAMAAArchiveRule', 
         'Start-IAMAAResourceScan', 
         'Update-IAMAAArchiveRule', 
-        'Update-IAMAAFinding')
+        'Update-IAMAAFinding', 
+        'Use-IAMAAPolicyValidation')
 
     # Variables to export from this module
     VariablesToExport = '*'

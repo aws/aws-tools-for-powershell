@@ -107,11 +107,22 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         #region Parameter RoomArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the room with which to associate your AVS device.</para>
+        /// <para>The Amazon Resource Name (ARN) of the room with which to associate your AVS device.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RoomArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to be added to the specified resource. Do not provide system tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.AlexaForBusiness.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter UserCode
@@ -217,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             }
             #endif
             context.RoomArn = this.RoomArn;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.AlexaForBusiness.Model.Tag>(this.Tag);
+            }
             context.UserCode = this.UserCode;
             #if MODULAR
             if (this.UserCode == null && ParameterWasBound(nameof(this.UserCode)))
@@ -259,6 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             if (cmdletContext.RoomArn != null)
             {
                 request.RoomArn = cmdletContext.RoomArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.UserCode != null)
             {
@@ -330,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             public System.String DeviceSerialNumber { get; set; }
             public System.String ProductId { get; set; }
             public System.String RoomArn { get; set; }
+            public List<Amazon.AlexaForBusiness.Model.Tag> Tag { get; set; }
             public System.String UserCode { get; set; }
             public System.Func<Amazon.AlexaForBusiness.Model.RegisterAVSDeviceResponse, RegisterALXBAVSDeviceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DeviceArn;

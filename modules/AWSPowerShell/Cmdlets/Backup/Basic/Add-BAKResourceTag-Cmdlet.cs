@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Key-value pairs that are used to help organize your resources. You can assign your
-        /// own metadata to the resources you create. </para>
+        /// own metadata to the resources you create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To list tags for a resource, specify the unique ARN value for the resource.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
     /// AWS Resources</a> in the <i>AWS General Reference</i></para><para><a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
-    /// AWS Tagging Strategies</a></para><para><b>Related operations</b></para><ul><li><para><a>TagResource</a></para></li><li><para><a>UntagResource</a></para></li><li><para><a>ListTagsForResource</a></para></li></ul>
+    /// AWS Tagging Strategies</a></para><para><b>Related actions</b></para><para><a>TagResource</a> | <a>UntagResource</a> | <a>ListTagsForResource</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLResourceTag")]
     [OutputType("Amazon.GameLift.Model.Tag")]

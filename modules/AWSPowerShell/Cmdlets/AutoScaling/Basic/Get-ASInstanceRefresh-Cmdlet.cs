@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para></li><li><para><code>Cancelled</code> - The operation is cancelled. 
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing
-    /// Auto Scaling Instances Based on an Instance Refresh</a>.
+    /// Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto
+    /// Scaling User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASInstanceRefresh")]

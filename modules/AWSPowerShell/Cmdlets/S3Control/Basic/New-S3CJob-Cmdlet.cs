@@ -28,14 +28,14 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// You can use S3 Batch Operations to perform large-scale batch operations on Amazon
-    /// S3 objects. Batch Operations can run a single operation on lists of Amazon S3 objects
-    /// that you specify. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3
-    /// Batch Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+    /// You can use S3 Batch Operations to perform large-scale batch actions on Amazon S3
+    /// objects. Batch Operations can run a single action on lists of Amazon S3 objects that
+    /// you specify. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3
+    /// Batch Operations</a> in the <i>Amazon Simple Storage Service User Guide</i>.
     /// 
     ///  
     /// <para>
-    /// This operation creates a S3 Batch Operations job.
+    /// This action creates a S3 Batch Operations job.
     /// </para><para>
     /// Related actions include:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_JobOperation.html">JobOperation</a></para></li></ul>
@@ -603,8 +603,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role
-        /// that Batch Operations will use to run this job's operation on every object in the
-        /// manifest.</para>
+        /// that Batch Operations will use to run this job's action on every object in the manifest.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

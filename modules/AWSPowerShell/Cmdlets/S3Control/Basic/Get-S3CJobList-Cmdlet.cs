@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <summary>
     /// Lists current S3 Batch Operations jobs and jobs that have ended within the last 30
     /// days for the AWS account making the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3
-    /// Batch Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+    /// Batch Operations</a> in the <i>Amazon Simple Storage Service User Guide</i>.
     /// 
     ///  
     /// <para>

@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Owner
         /// <summary>
         /// <para>
-        /// <para>The owner of the bundles. You cannot combine this parameter with any other filter.</para><para>Specify <code>AMAZON</code> to describe the bundles provided by AWS or null to describe
-        /// the bundles that belong to your account.</para>
+        /// <para>The owner of the bundles. You cannot combine this parameter with any other filter.</para><para>To describe the bundles provided by AWS, specify <code>AMAZON</code>. To describe
+        /// the bundles that belong to your account, don't specify a value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

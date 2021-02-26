@@ -28,8 +28,7 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
-    /// groups.</b><para>
+    /// <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b><para>
     /// Temporarily stops activity on a game server group without terminating instances or
     /// the game server group. You can restart activity by calling <a>ResumeGameServerGroup</a>.
     /// You can suspend the following activity:
@@ -45,7 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// suspended. If successful, a <a>GameServerGroup</a> object is returned showing that
     /// the activity is listed in <code>SuspendedActions</code>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateGameServerGroup</a></para></li><li><para><a>ListGameServerGroups</a></para></li><li><para><a>DescribeGameServerGroup</a></para></li><li><para><a>UpdateGameServerGroup</a></para></li><li><para><a>DeleteGameServerGroup</a></para></li><li><para><a>ResumeGameServerGroup</a></para></li><li><para><a>SuspendGameServerGroup</a></para></li><li><para><a>DescribeGameServerInstances</a></para></li></ul>
+    /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>CreateGameServerGroup</a> | <a>ListGameServerGroups</a> | <a>DescribeGameServerGroup</a>
+    /// | <a>UpdateGameServerGroup</a> | <a>DeleteGameServerGroup</a> | <a>ResumeGameServerGroup</a>
+    /// | <a>SuspendGameServerGroup</a> | <a>DescribeGameServerInstances</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Suspend", "GMLGameServerGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]

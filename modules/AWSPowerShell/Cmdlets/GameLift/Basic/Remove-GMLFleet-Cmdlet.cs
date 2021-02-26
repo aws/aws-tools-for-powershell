@@ -28,20 +28,25 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes everything related to a fleet. Before deleting a fleet, you must set the fleet's
-    /// desired capacity to zero. See <a>UpdateFleetCapacity</a>.
+    /// Deletes all resources and information related a fleet. Any current fleet instances,
+    /// including those in remote locations, are shut down. You don't need to call <code>DeleteFleetLocations</code>
+    /// separately.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
     /// If the fleet being deleted has a VPC peering connection, you first need to get a valid
     /// authorization (good for 24 hours) by calling <a>CreateVpcPeeringAuthorization</a>.
     /// You do not need to explicitly delete the VPC peering connection--this is done as part
     /// of the delete fleet process.
-    /// </para><para>
-    /// This operation removes the fleet and its resources. Once a fleet is deleted, you can
-    /// no longer use any of the resource in that fleet.
+    /// </para></note><para>
+    /// To delete a fleet, specify the fleet ID to be terminated. During the deletion process
+    /// the fleet status is changed to <code>DELETING</code>. When completed, the status switches
+    /// to <code>TERMINATED</code> and the fleet event <code>FLEET_DELETED</code> is sent.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift Fleets</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>StartFleetActions</a> or <a>StopFleetActions</a></para></li></ul>
+    /// up GameLift Fleets</a></para><para><b>Related actions</b></para><para><a>CreateFleetLocations</a> | <a>UpdateFleetAttributes</a> | <a>UpdateFleetCapacity</a>
+    /// | <a>UpdateFleetPortSettings</a> | <a>UpdateRuntimeConfiguration</a> | <a>StopFleetActions</a>
+    /// | <a>StartFleetActions</a> | <a>PutScalingPolicy</a> | <a>DeleteFleet</a> | <a>DeleteFleetLocations</a>
+    /// | <a>DeleteScalingPolicy</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Remove", "GMLFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -56,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet to be deleted. You can use either the fleet ID or
+        /// <para>A unique identifier for the fleet to be deleted. You can use either the fleet ID or
         /// ARN value.</para>
         /// </para>
         /// </summary>

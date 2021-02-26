@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// snapshots are disabled. Even if automated snapshots are disabled, you can still create
         /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para>If you decrease the automated snapshot retention period from its current value, existing
         /// automated snapshots that fall outside of the new retention period will be immediately
-        /// deleted.</para><para>Default: Uses existing setting.</para><para>Constraints: Must be a value from 0 to 35.</para>
+        /// deleted.</para><para>You can't disable automated snapshots for RA3 node types. Set the automated retention
+        /// period from 1-35 days.</para><para>Default: Uses existing setting.</para><para>Constraints: Must be a value from 0 to 35.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

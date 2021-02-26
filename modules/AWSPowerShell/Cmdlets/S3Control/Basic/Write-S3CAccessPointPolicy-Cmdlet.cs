@@ -99,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The policy that you want to apply to the specified access point. For more information
-        /// about access point policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html">Managing
+        /// about access point policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing
         /// data access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service
-        /// Developer Guide</i>.</para>
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

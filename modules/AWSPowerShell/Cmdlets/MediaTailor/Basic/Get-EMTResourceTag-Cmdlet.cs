@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the playback configuration. You can get this from
-        /// the response to any playback configuration request. </para>
+        /// the response to any playback configuration request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

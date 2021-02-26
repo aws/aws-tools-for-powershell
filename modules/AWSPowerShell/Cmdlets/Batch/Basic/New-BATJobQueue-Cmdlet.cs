@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// 
     ///  
     /// <para>
-    /// You also set a priority to the job queue that determines the order in which the AWS
-    /// Batch scheduler places jobs onto its associated compute environments. For example,
-    /// if a compute environment is associated with more than one job queue, the job queue
-    /// with a higher priority is given preference for scheduling jobs to that compute environment.
+    /// You also set a priority to the job queue that determines the order that the AWS Batch
+    /// scheduler places jobs onto its associated compute environments. For example, if a
+    /// compute environment is associated with more than one job queue, the job queue with
+    /// a higher priority is given preference for scheduling jobs to that compute environment.
     /// </para>
     /// </summary>
     [Cmdlet("New", "BATJobQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

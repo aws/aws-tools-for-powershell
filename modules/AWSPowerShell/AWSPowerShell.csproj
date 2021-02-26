@@ -355,6 +355,9 @@
     <Reference Include="AWSSDK.EventBridge">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EventBridge.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.FIS">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.FIS.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.FMS">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.FMS.dll</HintPath>
     </Reference>
@@ -1091,6 +1094,9 @@
     </Reference>
     <Reference Include="AWSSDK.EventBridge">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EventBridge.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.FIS">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.FIS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.FMS">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.FMS.dll</HintPath>

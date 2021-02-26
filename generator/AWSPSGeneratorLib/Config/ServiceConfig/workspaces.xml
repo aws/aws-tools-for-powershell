@@ -51,6 +51,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkspaceBundle" OutputProperty="WorkspaceBundle" Verb="New" Noun="WorkspaceBundle" ShouldProcessTarget="BundleName" PipelineParameter="BundleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkspaces" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="Workspaces" PipelineParameter="Workspaces" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -64,6 +68,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkspaceBundle" Verb="Remove" Noun="WorkspaceBundle" ShouldProcessTarget="BundleId" PipelineParameter="BundleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -229,6 +237,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRulesOfIpGroup" Verb="Update" Noun="RulesOfIpGroup" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkspaceBundle" Verb="Update" Noun="WorkspaceBundle" ShouldProcessTarget="BundleId" PipelineParameter="BundleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

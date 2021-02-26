@@ -227,6 +227,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String RecordIdentifierFeatureName { get; set; }
         #endregion
         
+        #region Parameter S3StorageConfig_ResolvedOutputS3Uri
+        /// <summary>
+        /// <para>
+        /// <para>The S3 path where offline records are written.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OfflineStoreConfig_S3StorageConfig_ResolvedOutputS3Uri")]
+        public System.String S3StorageConfig_ResolvedOutputS3Uri { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -362,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.DataCatalogConfig_TableName = this.DataCatalogConfig_TableName;
             context.OfflineStoreConfig_DisableGlueTableCreation = this.OfflineStoreConfig_DisableGlueTableCreation;
             context.S3StorageConfig_KmsKeyId = this.S3StorageConfig_KmsKeyId;
+            context.S3StorageConfig_ResolvedOutputS3Uri = this.S3StorageConfig_ResolvedOutputS3Uri;
             context.S3StorageConfig_S3Uri = this.S3StorageConfig_S3Uri;
             context.OnlineStoreConfig_EnableOnlineStore = this.OnlineStoreConfig_EnableOnlineStore;
             context.SecurityConfig_KmsKeyId = this.SecurityConfig_KmsKeyId;
@@ -423,41 +435,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.OfflineStoreConfig.DisableGlueTableCreation = requestOfflineStoreConfig_offlineStoreConfig_DisableGlueTableCreation.Value;
                 requestOfflineStoreConfigIsNull = false;
             }
-            Amazon.SageMaker.Model.S3StorageConfig requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig = null;
-            
-             // populate S3StorageConfig
-            var requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfigIsNull = true;
-            requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig = new Amazon.SageMaker.Model.S3StorageConfig();
-            System.String requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_KmsKeyId = null;
-            if (cmdletContext.S3StorageConfig_KmsKeyId != null)
-            {
-                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_KmsKeyId = cmdletContext.S3StorageConfig_KmsKeyId;
-            }
-            if (requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_KmsKeyId != null)
-            {
-                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig.KmsKeyId = requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_KmsKeyId;
-                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfigIsNull = false;
-            }
-            System.String requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_S3Uri = null;
-            if (cmdletContext.S3StorageConfig_S3Uri != null)
-            {
-                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_S3Uri = cmdletContext.S3StorageConfig_S3Uri;
-            }
-            if (requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_S3Uri != null)
-            {
-                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig.S3Uri = requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_S3Uri;
-                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfigIsNull = false;
-            }
-             // determine if requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig should be set to null
-            if (requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfigIsNull)
-            {
-                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig = null;
-            }
-            if (requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig != null)
-            {
-                request.OfflineStoreConfig.S3StorageConfig = requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig;
-                requestOfflineStoreConfigIsNull = false;
-            }
             Amazon.SageMaker.Model.DataCatalogConfig requestOfflineStoreConfig_offlineStoreConfig_DataCatalogConfig = null;
             
              // populate DataCatalogConfig
@@ -501,6 +478,51 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestOfflineStoreConfig_offlineStoreConfig_DataCatalogConfig != null)
             {
                 request.OfflineStoreConfig.DataCatalogConfig = requestOfflineStoreConfig_offlineStoreConfig_DataCatalogConfig;
+                requestOfflineStoreConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.S3StorageConfig requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig = null;
+            
+             // populate S3StorageConfig
+            var requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfigIsNull = true;
+            requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig = new Amazon.SageMaker.Model.S3StorageConfig();
+            System.String requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_KmsKeyId = null;
+            if (cmdletContext.S3StorageConfig_KmsKeyId != null)
+            {
+                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_KmsKeyId = cmdletContext.S3StorageConfig_KmsKeyId;
+            }
+            if (requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_KmsKeyId != null)
+            {
+                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig.KmsKeyId = requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_KmsKeyId;
+                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfigIsNull = false;
+            }
+            System.String requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_ResolvedOutputS3Uri = null;
+            if (cmdletContext.S3StorageConfig_ResolvedOutputS3Uri != null)
+            {
+                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_ResolvedOutputS3Uri = cmdletContext.S3StorageConfig_ResolvedOutputS3Uri;
+            }
+            if (requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_ResolvedOutputS3Uri != null)
+            {
+                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig.ResolvedOutputS3Uri = requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_ResolvedOutputS3Uri;
+                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfigIsNull = false;
+            }
+            System.String requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_S3Uri = null;
+            if (cmdletContext.S3StorageConfig_S3Uri != null)
+            {
+                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_S3Uri = cmdletContext.S3StorageConfig_S3Uri;
+            }
+            if (requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_S3Uri != null)
+            {
+                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig.S3Uri = requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig_s3StorageConfig_S3Uri;
+                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfigIsNull = false;
+            }
+             // determine if requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig should be set to null
+            if (requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfigIsNull)
+            {
+                requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig = null;
+            }
+            if (requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig != null)
+            {
+                request.OfflineStoreConfig.S3StorageConfig = requestOfflineStoreConfig_offlineStoreConfig_S3StorageConfig;
                 requestOfflineStoreConfigIsNull = false;
             }
              // determine if request.OfflineStoreConfig should be set to null
@@ -634,6 +656,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String DataCatalogConfig_TableName { get; set; }
             public System.Boolean? OfflineStoreConfig_DisableGlueTableCreation { get; set; }
             public System.String S3StorageConfig_KmsKeyId { get; set; }
+            public System.String S3StorageConfig_ResolvedOutputS3Uri { get; set; }
             public System.String S3StorageConfig_S3Uri { get; set; }
             public System.Boolean? OnlineStoreConfig_EnableOnlineStore { get; set; }
             public System.String SecurityConfig_KmsKeyId { get; set; }

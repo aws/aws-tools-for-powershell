@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the playback configuration. You can get this from
-        /// the response to any playback configuration request. </para>
+        /// the response to any playback configuration request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,8 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>A comma-separated list of the tag keys to remove from the playback configuration.
-        /// </para>
+        /// <para>A comma-separated list of the tag keys to remove from the playback configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

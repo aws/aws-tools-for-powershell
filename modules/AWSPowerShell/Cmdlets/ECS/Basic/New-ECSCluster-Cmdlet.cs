@@ -55,9 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter CapacityProvider
         /// <summary>
         /// <para>
-        /// <para>The short name of one or more capacity providers to associate with the cluster.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
-        /// must already be created and not already associated with another cluster. New capacity
-        /// providers can be created with the <a>CreateCapacityProvider</a> API operation.</para><para>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+        /// <para>The short name of one or more capacity providers to associate with the cluster. A
+        /// capacity provider must be associated with a cluster before it can be included as part
+        /// of the default capacity provider strategy of the cluster or used in a capacity provider
+        /// strategy when calling the <a>CreateService</a> or <a>RunTask</a> actions.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
+        /// must already be created and not already associated with another cluster. New Auto
+        /// Scaling group capacity providers can be created with the <a>CreateCapacityProvider</a>
+        /// API operation.</para><para>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
         /// <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
         /// available to all accounts and only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
         /// available capacity providers for a cluster after the cluster is created.</para>
@@ -66,6 +70,29 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("CapacityProviders")]
         public System.String[] CapacityProvider { get; set; }
+        #endregion
+        
+        #region Parameter LogConfiguration_CloudWatchEncryptionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption
+        /// will be disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ExecuteCommandConfiguration_LogConfiguration_CloudWatchEncryptionEnabled")]
+        public System.Boolean? LogConfiguration_CloudWatchEncryptionEnabled { get; set; }
+        #endregion
+        
+        #region Parameter LogConfiguration_CloudWatchLogGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the CloudWatch log group to send logs to.</para><note><para>The CloudWatch log group must already be created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ExecuteCommandConfiguration_LogConfiguration_CloudWatchLogGroupName")]
+        public System.String LogConfiguration_CloudWatchLogGroupName { get; set; }
         #endregion
         
         #region Parameter ClusterName
@@ -83,23 +110,78 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DefaultCapacityProviderStrategy
         /// <summary>
         /// <para>
-        /// <para>The capacity provider strategy to use by default for the cluster.</para><para>When creating a service or running a task on a cluster, if no capacity provider or
-        /// launch type is specified then the default capacity provider strategy for the cluster
-        /// is used.</para><para>A capacity provider strategy consists of one or more capacity providers along with
-        /// the <code>base</code> and <code>weight</code> to assign to them. A capacity provider
-        /// must be associated with the cluster to be used in a capacity provider strategy. The
-        /// <a>PutClusterCapacityProviders</a> API is used to associate a capacity provider with
-        /// a cluster. Only capacity providers with an <code>ACTIVE</code> or <code>UPDATING</code>
-        /// status can be used.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
-        /// must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a>
-        /// API operation.</para><para>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
-        /// <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
-        /// available to all accounts and only need to be associated with a cluster to be used.</para><para>If a default capacity provider strategy is not defined for a cluster during creation,
+        /// <para>The capacity provider strategy to set as the default for the cluster. When a default
+        /// capacity provider strategy is set for a cluster, when calling the <a>RunTask</a> or
+        /// <a>CreateService</a> APIs wtih no capacity provider strategy or launch type specified,
+        /// the default capacity provider strategy for the cluster is used.</para><para>If a default capacity provider strategy is not defined for a cluster during creation,
         /// it can be defined later with the <a>PutClusterCapacityProviders</a> API operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.ECS.Model.CapacityProviderStrategyItem[] DefaultCapacityProviderStrategy { get; set; }
+        #endregion
+        
+        #region Parameter ExecuteCommandConfiguration_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>Specify an AWS Key Management Service key ID to encrypt the data between the local
+        /// client and the container.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ExecuteCommandConfiguration_KmsKeyId")]
+        public System.String ExecuteCommandConfiguration_KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter ExecuteCommandConfiguration_Logging
+        /// <summary>
+        /// <para>
+        /// <para>The log setting to use for redirecting logs for your execute command results. The
+        /// following log settings are available.</para><ul><li><para><code>NONE</code>: The execute command session is not logged.</para></li><li><para><code>DEFAULT</code>: The <code>awslogs</code> configuration in the task definition
+        /// is used. If no logging parameter is specified, it defaults to this value. If no <code>awslogs</code>
+        /// log driver is configured in the task definition, the output won't be logged.</para></li><li><para><code>OVERRIDE</code>: Specify the logging details as a part of <code>logConfiguration</code>.
+        /// If the <code>OVERRIDE</code> logging option is specified, the <code>logConfiguration</code>
+        /// is required.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ExecuteCommandConfiguration_Logging")]
+        [AWSConstantClassSource("Amazon.ECS.ExecuteCommandLogging")]
+        public Amazon.ECS.ExecuteCommandLogging ExecuteCommandConfiguration_Logging { get; set; }
+        #endregion
+        
+        #region Parameter LogConfiguration_S3BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the S3 bucket to send logs to.</para><note><para>The S3 bucket must already be created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ExecuteCommandConfiguration_LogConfiguration_S3BucketName")]
+        public System.String LogConfiguration_S3BucketName { get; set; }
+        #endregion
+        
+        #region Parameter LogConfiguration_S3EncryptionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption
+        /// will be disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ExecuteCommandConfiguration_LogConfiguration_S3EncryptionEnabled")]
+        public System.Boolean? LogConfiguration_S3EncryptionEnabled { get; set; }
+        #endregion
+        
+        #region Parameter LogConfiguration_S3KeyPrefix
+        /// <summary>
+        /// <para>
+        /// <para>An optional folder in the S3 bucket to place logs in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ExecuteCommandConfiguration_LogConfiguration_S3KeyPrefix")]
+        public System.String LogConfiguration_S3KeyPrefix { get; set; }
         #endregion
         
         #region Parameter Setting
@@ -200,6 +282,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.CapacityProvider = new List<System.String>(this.CapacityProvider);
             }
             context.ClusterName = this.ClusterName;
+            context.ExecuteCommandConfiguration_KmsKeyId = this.ExecuteCommandConfiguration_KmsKeyId;
+            context.LogConfiguration_CloudWatchEncryptionEnabled = this.LogConfiguration_CloudWatchEncryptionEnabled;
+            context.LogConfiguration_CloudWatchLogGroupName = this.LogConfiguration_CloudWatchLogGroupName;
+            context.LogConfiguration_S3BucketName = this.LogConfiguration_S3BucketName;
+            context.LogConfiguration_S3EncryptionEnabled = this.LogConfiguration_S3EncryptionEnabled;
+            context.LogConfiguration_S3KeyPrefix = this.LogConfiguration_S3KeyPrefix;
+            context.ExecuteCommandConfiguration_Logging = this.ExecuteCommandConfiguration_Logging;
             if (this.DefaultCapacityProviderStrategy != null)
             {
                 context.DefaultCapacityProviderStrategy = new List<Amazon.ECS.Model.CapacityProviderStrategyItem>(this.DefaultCapacityProviderStrategy);
@@ -235,6 +324,115 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
+            }
+            
+             // populate Configuration
+            var requestConfigurationIsNull = true;
+            request.Configuration = new Amazon.ECS.Model.ClusterConfiguration();
+            Amazon.ECS.Model.ExecuteCommandConfiguration requestConfiguration_configuration_ExecuteCommandConfiguration = null;
+            
+             // populate ExecuteCommandConfiguration
+            var requestConfiguration_configuration_ExecuteCommandConfigurationIsNull = true;
+            requestConfiguration_configuration_ExecuteCommandConfiguration = new Amazon.ECS.Model.ExecuteCommandConfiguration();
+            System.String requestConfiguration_configuration_ExecuteCommandConfiguration_executeCommandConfiguration_KmsKeyId = null;
+            if (cmdletContext.ExecuteCommandConfiguration_KmsKeyId != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration_executeCommandConfiguration_KmsKeyId = cmdletContext.ExecuteCommandConfiguration_KmsKeyId;
+            }
+            if (requestConfiguration_configuration_ExecuteCommandConfiguration_executeCommandConfiguration_KmsKeyId != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration.KmsKeyId = requestConfiguration_configuration_ExecuteCommandConfiguration_executeCommandConfiguration_KmsKeyId;
+                requestConfiguration_configuration_ExecuteCommandConfigurationIsNull = false;
+            }
+            Amazon.ECS.ExecuteCommandLogging requestConfiguration_configuration_ExecuteCommandConfiguration_executeCommandConfiguration_Logging = null;
+            if (cmdletContext.ExecuteCommandConfiguration_Logging != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration_executeCommandConfiguration_Logging = cmdletContext.ExecuteCommandConfiguration_Logging;
+            }
+            if (requestConfiguration_configuration_ExecuteCommandConfiguration_executeCommandConfiguration_Logging != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration.Logging = requestConfiguration_configuration_ExecuteCommandConfiguration_executeCommandConfiguration_Logging;
+                requestConfiguration_configuration_ExecuteCommandConfigurationIsNull = false;
+            }
+            Amazon.ECS.Model.ExecuteCommandLogConfiguration requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration = null;
+            
+             // populate LogConfiguration
+            var requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfigurationIsNull = true;
+            requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration = new Amazon.ECS.Model.ExecuteCommandLogConfiguration();
+            System.Boolean? requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_CloudWatchEncryptionEnabled = null;
+            if (cmdletContext.LogConfiguration_CloudWatchEncryptionEnabled != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_CloudWatchEncryptionEnabled = cmdletContext.LogConfiguration_CloudWatchEncryptionEnabled.Value;
+            }
+            if (requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_CloudWatchEncryptionEnabled != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration.CloudWatchEncryptionEnabled = requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_CloudWatchEncryptionEnabled.Value;
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_CloudWatchLogGroupName = null;
+            if (cmdletContext.LogConfiguration_CloudWatchLogGroupName != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_CloudWatchLogGroupName = cmdletContext.LogConfiguration_CloudWatchLogGroupName;
+            }
+            if (requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_CloudWatchLogGroupName != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration.CloudWatchLogGroupName = requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_CloudWatchLogGroupName;
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_S3BucketName = null;
+            if (cmdletContext.LogConfiguration_S3BucketName != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_S3BucketName = cmdletContext.LogConfiguration_S3BucketName;
+            }
+            if (requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_S3BucketName != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration.S3BucketName = requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_S3BucketName;
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfigurationIsNull = false;
+            }
+            System.Boolean? requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_S3EncryptionEnabled = null;
+            if (cmdletContext.LogConfiguration_S3EncryptionEnabled != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_S3EncryptionEnabled = cmdletContext.LogConfiguration_S3EncryptionEnabled.Value;
+            }
+            if (requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_S3EncryptionEnabled != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration.S3EncryptionEnabled = requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_S3EncryptionEnabled.Value;
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_S3KeyPrefix = null;
+            if (cmdletContext.LogConfiguration_S3KeyPrefix != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_S3KeyPrefix = cmdletContext.LogConfiguration_S3KeyPrefix;
+            }
+            if (requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_S3KeyPrefix != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration.S3KeyPrefix = requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration_logConfiguration_S3KeyPrefix;
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration should be set to null
+            if (requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfigurationIsNull)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration = null;
+            }
+            if (requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration != null)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration.LogConfiguration = requestConfiguration_configuration_ExecuteCommandConfiguration_configuration_ExecuteCommandConfiguration_LogConfiguration;
+                requestConfiguration_configuration_ExecuteCommandConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_ExecuteCommandConfiguration should be set to null
+            if (requestConfiguration_configuration_ExecuteCommandConfigurationIsNull)
+            {
+                requestConfiguration_configuration_ExecuteCommandConfiguration = null;
+            }
+            if (requestConfiguration_configuration_ExecuteCommandConfiguration != null)
+            {
+                request.Configuration.ExecuteCommandConfiguration = requestConfiguration_configuration_ExecuteCommandConfiguration;
+                requestConfigurationIsNull = false;
+            }
+             // determine if request.Configuration should be set to null
+            if (requestConfigurationIsNull)
+            {
+                request.Configuration = null;
             }
             if (cmdletContext.DefaultCapacityProviderStrategy != null)
             {
@@ -311,6 +509,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public List<System.String> CapacityProvider { get; set; }
             public System.String ClusterName { get; set; }
+            public System.String ExecuteCommandConfiguration_KmsKeyId { get; set; }
+            public System.Boolean? LogConfiguration_CloudWatchEncryptionEnabled { get; set; }
+            public System.String LogConfiguration_CloudWatchLogGroupName { get; set; }
+            public System.String LogConfiguration_S3BucketName { get; set; }
+            public System.Boolean? LogConfiguration_S3EncryptionEnabled { get; set; }
+            public System.String LogConfiguration_S3KeyPrefix { get; set; }
+            public Amazon.ECS.ExecuteCommandLogging ExecuteCommandConfiguration_Logging { get; set; }
             public List<Amazon.ECS.Model.CapacityProviderStrategyItem> DefaultCapacityProviderStrategy { get; set; }
             public List<Amazon.ECS.Model.ClusterSetting> Setting { get; set; }
             public List<Amazon.ECS.Model.Tag> Tag { get; set; }

@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Specifies the status for the account. To enable Amazon Macie and start all Macie activities
-        /// for the account, set this value to ENABLED.</para>
+        /// <para>Specifies the new status for the account. To enable Amazon Macie and start all Macie
+        /// activities for the account, set this value to ENABLED.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

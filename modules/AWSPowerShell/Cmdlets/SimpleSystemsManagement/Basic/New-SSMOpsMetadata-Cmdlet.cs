@@ -69,6 +69,21 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String ResourceId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Optional metadata that you assign to a resource. You can specify a maximum of five
+        /// tags for an OpsMetadata object. Tags enable you to categorize a resource in different
+        /// ways, such as by purpose, owner, or environment. For example, you might want to tag
+        /// an OpsMetadata object to identify an environment or target AWS Region. In this case,
+        /// you could specify the following key-value pairs:</para><ul><li><para><code>Key=Environment,Value=Production</code></para></li><li><para><code>Key=Region,Value=us-east-2</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SimpleSystemsManagement.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'OpsMetadataArn'.
@@ -145,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 WriteWarning("You are passing $null as a value for parameter ResourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.SimpleSystemsManagement.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -168,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.ResourceId != null)
             {
                 request.ResourceId = cmdletContext.ResourceId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -232,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             public Dictionary<System.String, Amazon.SimpleSystemsManagement.Model.MetadataValue> Metadata { get; set; }
             public System.String ResourceId { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.CreateOpsMetadataResponse, NewSSMOpsMetadataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.OpsMetadataArn;
         }

@@ -93,7 +93,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNFlowSource/Protocol")
         }
         {
-            $v = "rist","rtp","rtp-fec","zixi-pull","zixi-push"
+            $v = "rist","rtp","rtp-fec","srt-listener","zixi-pull","zixi-push"
             break
         }
 

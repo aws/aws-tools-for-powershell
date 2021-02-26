@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>fis</C2jFilename>
+    <AssemblyName>FIS</AssemblyName>
+    <ServiceNounPrefix>FIS</ServiceNounPrefix>
+    <ServiceName>AWS Fault Injection Simulator</ServiceName>
+    <ServiceClientInterface>IAmazonFIS</ServiceClientInterface>
+    <ServiceClient>AmazonFISClient</ServiceClient>
+    <ServiceModuleGuid>61E35DF7-01F2-4539-B867-FD779FCCBA69</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="nextToken" Next="nextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="New" Noun="ExperimentTemplate" ShouldProcessTarget="RoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="Remove" Noun="ExperimentTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAction" OutputProperty="Action" Verb="Get" Noun="Action" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExperiment" OutputProperty="Experiment" Verb="Get" Noun="Experiment" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="Get" Noun="ExperimentTemplate" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListActions" OutputProperty="Actions" Verb="Get" Noun="ActionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExperiments" OutputProperty="Experiments" Verb="Get" Noun="ExperimentList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExperimentTemplates" OutputProperty="ExperimentTemplates" Verb="Get" Noun="ExperimentTemplateList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartExperiment" OutputProperty="Experiment" Verb="Start" Noun="Experiment" ShouldProcessTarget="ExperimentTemplateId" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopExperiment" OutputProperty="Experiment" Verb="Stop" Noun="Experiment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="Update" Noun="ExperimentTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

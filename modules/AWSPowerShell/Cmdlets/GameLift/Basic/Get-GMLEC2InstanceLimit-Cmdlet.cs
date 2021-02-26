@@ -28,18 +28,54 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves the following information for the specified EC2 instance type:
+    /// The GameLift service limits and current utilization for an AWS Region or location.
+    /// Instance limits control the number of instances, per instance type, per location,
+    /// that your AWS account can use. Learn more at <a href="http://aws.amazon.com/ec2/instance-types/">Amazon
+    /// EC2 Instance Types</a>. The information returned includes the maximum number of instances
+    /// allowed and your account's current usage across all fleets. This information can affect
+    /// your ability to scale your GameLift fleets. You can request a limit increase for your
+    /// account by using the <b>Service limits</b> page in the GameLift console.
     /// 
-    ///  <ul><li><para>
-    /// Maximum number of instances allowed per AWS account (service limit).
+    ///  
+    /// <para>
+    /// Instance limits differ based on whether the instances are deployed in a fleet's home
+    /// Region or in a remote location. For remote locations, limits also differ based on
+    /// the combination of home Region and remote location. All requests must specify an AWS
+    /// Region (either explicitly or as your default settings). To get the limit for a remote
+    /// location, you must also specify the location. For example, the following requests
+    /// all return different results: 
+    /// </para><ul><li><para>
+    /// Request specifies the Region <code>ap-northeast-1</code> with no location. The result
+    /// is limits and usage data on all instance types that are deployed in <code>us-east-2</code>,
+    /// by all of the fleets that reside in <code>ap-northeast-1</code>. 
     /// </para></li><li><para>
-    /// Current usage for the AWS account.
+    /// Request specifies the Region <code>us-east-1</code> with location <code>ca-central-1</code>.
+    /// The result is limits and usage data on all instance types that are deployed in <code>ca-central-1</code>,
+    /// by all of the fleets that reside in <code>us-east-2</code>. These limits do not affect
+    /// fleets in any other Regions that deploy instances to <code>ca-central-1</code>.
+    /// </para></li><li><para>
+    /// Request specifies the Region <code>eu-west-1</code> with location <code>ca-central-1</code>.
+    /// The result is limits and usage data on all instance types that are deployed in <code>ca-central-1</code>,
+    /// by all of the fleets that reside in <code>eu-west-1</code>.
     /// </para></li></ul><para>
-    /// To learn more about the capabilities of each instance type, see <a href="http://aws.amazon.com/ec2/instance-types/">Amazon
-    /// EC2 Instance Types</a>. Note that the instance types offered may vary depending on
-    /// the region.
+    /// This operation can be used in the following ways:
+    /// </para><ul><li><para>
+    /// To get limit and usage data for all instance types that are deployed in an AWS Region
+    /// by fleets that reside in the same Region: Specify the Region only. Optionally, specify
+    /// a single instance type to retrieve information for.
+    /// </para></li><li><para>
+    /// To get limit and usage data for all instance types that are deployed to a remote location
+    /// by fleets that reside in different AWS Region: Provide both the AWS Region and the
+    /// remote location. Optionally, specify a single instance type to retrieve information
+    /// for.
+    /// </para></li></ul><para>
+    /// If successful, an <code>EC2InstanceLimits</code> object is returned with limits and
+    /// usage data for each requested instance type.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift Fleets</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>StartFleetActions</a> or <a>StopFleetActions</a></para></li></ul>
+    /// up GameLift fleets</a></para><para><b>Related actions</b></para><para><a>CreateFleet</a> | <a>UpdateFleetCapacity</a> | <a>PutScalingPolicy</a> | <a>DescribeEC2InstanceLimits</a>
+    /// | <a>DescribeFleetAttributes</a> | <a>DescribeFleetLocationAttributes</a> | <a>UpdateFleetAttributes</a>
+    /// | <a>StopFleetActions</a> | <a>DeleteFleet</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLEC2InstanceLimit")]
     [OutputType("Amazon.GameLift.Model.EC2InstanceLimit")]
@@ -54,17 +90,26 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter EC2InstanceType
         /// <summary>
         /// <para>
-        /// <para>Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance
-        /// type determines the computing resources of each instance in the fleet, including CPU,
-        /// memory, storage, and networking capacity. Amazon GameLift supports the following EC2
-        /// instance types. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2
-        /// Instance Types</a> for detailed descriptions. Leave this parameter blank to retrieve
-        /// limits for all types.</para>
+        /// <para>Name of an EC2 instance type that is supported in GameLift. A fleet instance type
+        /// determines the computing resources of each instance in the fleet, including CPU, memory,
+        /// storage, and networking capacity. Do not specify a value for this parameter to retrieve
+        /// limits for all instance types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [AWSConstantClassSource("Amazon.GameLift.EC2InstanceType")]
         public Amazon.GameLift.EC2InstanceType EC2InstanceType { get; set; }
+        #endregion
+        
+        #region Parameter Location
+        /// <summary>
+        /// <para>
+        /// <para>The name of a remote location to request instance limits for, in the form of an AWS
+        /// Region code such as <code>us-west-2</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Location { get; set; }
         #endregion
         
         #region Parameter Select
@@ -113,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EC2InstanceType = this.EC2InstanceType;
+            context.Location = this.Location;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -132,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.EC2InstanceType != null)
             {
                 request.EC2InstanceType = cmdletContext.EC2InstanceType;
+            }
+            if (cmdletContext.Location != null)
+            {
+                request.Location = cmdletContext.Location;
             }
             
             CmdletOutput output;
@@ -195,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.GameLift.EC2InstanceType EC2InstanceType { get; set; }
+            public System.String Location { get; set; }
             public System.Func<Amazon.GameLift.Model.DescribeEC2InstanceLimitsResponse, GetGMLEC2InstanceLimitCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.EC2InstanceLimits;
         }

@@ -28,14 +28,36 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves a collection of fleet resources for this AWS account. You can filter the
-    /// result set to find only those fleets that are deployed with a specific build or script.
-    /// Use the pagination parameters to retrieve results in sequential pages.
+    /// Retrieves a collection of fleet resources in an AWS Region. You can call this operation
+    /// to get fleets in a previously selected default Region (see <a href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html</a>or
+    /// specify a Region in your request. You can filter the result set to find only those
+    /// fleets that are deployed with a specific build or script. For fleets that have multiple
+    /// locations, this operation retrieves fleets based on their home Region only.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// This operation can be used in the following ways: 
+    /// </para><ul><li><para>
+    /// To get a list of all fleets in a Region, don't provide a build or script identifier.
+    /// 
+    /// </para></li><li><para>
+    /// To get a list of all fleets where a specific custom game build is deployed, provide
+    /// the build ID.
+    /// </para></li><li><para>
+    /// To get a list of all Realtime Servers fleets with a specific configuration script,
+    /// provide the script ID. 
+    /// </para></li></ul><para>
+    /// Use the pagination parameters to retrieve results as a set of sequential pages. 
+    /// </para><para>
+    /// If successful, a list of fleet IDs that match the request parameters is returned.
+    /// A NextToken value is also returned if there are more result pages to retrieve.
+    /// </para><note><para>
     /// Fleet resources are not listed in a particular order.
     /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift Fleets</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>StartFleetActions</a> or <a>StopFleetActions</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// up GameLift fleets</a></para><para><b>Related actions</b></para><para><a>CreateFleet</a> | <a>UpdateFleetCapacity</a> | <a>PutScalingPolicy</a> | <a>DescribeEC2InstanceLimits</a>
+    /// | <a>DescribeFleetAttributes</a> | <a>DescribeFleetLocationAttributes</a> | <a>UpdateFleetAttributes</a>
+    /// | <a>StopFleetActions</a> | <a>DeleteFleet</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLFleet")]
     [OutputType("System.String")]
@@ -50,9 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter BuildId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a build to return fleets for. Use this parameter to return
-        /// only fleets using a specified build. Use either the build ID or ARN value. To retrieve
-        /// all fleets, do not include either a BuildId and ScriptID parameter.</para>
+        /// <para>A unique identifier for the build to request fleets for. Use this parameter to return
+        /// only fleets using a specified build. Use either the build ID or ARN value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -62,9 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ScriptId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a Realtime script to return fleets for. Use this parameter
-        /// to return only fleets using a specified script. Use either the script ID or ARN value.
-        /// To retrieve all fleets, leave this parameter empty.</para>
+        /// <para>A unique identifier for the Realtime script to request fleets for. Use this parameter
+        /// to return only fleets using a specified script. Use either the script ID or ARN value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// <para>A token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this operation. To start at the beginning
         /// of the result set, do not specify a value.</para>
         /// </para>

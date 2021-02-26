@@ -124,6 +124,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.BlockDeviceMapping[] BlockDeviceMapping { get; set; }
         #endregion
         
+        #region Parameter BootMode
+        /// <summary>
+        /// <para>
+        /// <para>The boot mode of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot
+        /// modes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.BootModeValues")]
+        public Amazon.EC2.BootModeValues BootMode { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -300,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.BlockDeviceMapping = new List<Amazon.EC2.Model.BlockDeviceMapping>(this.BlockDeviceMapping);
             }
+            context.BootMode = this.BootMode;
             context.Description = this.Description;
             context.EnaSupport = this.EnaSupport;
             context.ImageLocation = this.ImageLocation;
@@ -342,6 +355,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.BlockDeviceMapping != null)
             {
                 request.BlockDeviceMappings = cmdletContext.BlockDeviceMapping;
+            }
+            if (cmdletContext.BootMode != null)
+            {
+                request.BootMode = cmdletContext.BootMode;
             }
             if (cmdletContext.Description != null)
             {
@@ -443,6 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.ArchitectureValues Architecture { get; set; }
             public List<System.String> BillingProduct { get; set; }
             public List<Amazon.EC2.Model.BlockDeviceMapping> BlockDeviceMapping { get; set; }
+            public Amazon.EC2.BootModeValues BootMode { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? EnaSupport { get; set; }
             public System.String ImageLocation { get; set; }

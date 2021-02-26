@@ -29,19 +29,19 @@ namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
     /// <note><para>
-    /// This operation gets an Amazon S3 on Outposts bucket's lifecycle configuration. To
-    /// get an S3 bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a>
+    /// This action gets an Amazon S3 on Outposts bucket's lifecycle configuration. To get
+    /// an S3 bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a>
     /// in the <i>Amazon Simple Storage Service API</i>. 
     /// </para></note><para>
     /// Returns the lifecycle configuration information set on the Outposts bucket. For more
-    /// information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using
+    /// information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
     /// Amazon S3 on Outposts</a> and for information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">
-    /// Object Lifecycle Management</a> in <i>Amazon Simple Storage Service Developer Guide</i>.
+    /// Object Lifecycle Management</a> in <i>Amazon Simple Storage Service User Guide</i>.
     /// </para><para>
-    /// To use this operation, you must have permission to perform the <code>s3-outposts:GetLifecycleConfiguration</code>
+    /// To use this action, you must have permission to perform the <code>s3-outposts:GetLifecycleConfiguration</code>
     /// action. The Outposts bucket owner has this permission, by default. The bucket owner
-    /// can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
-    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a>.
     /// </para><para>
     /// All Amazon S3 on Outposts REST API requests for this action require an additional

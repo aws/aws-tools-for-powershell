@@ -72,12 +72,26 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.Boolean? AllowVersionUpgrade { get; set; }
         #endregion
         
+        #region Parameter AquaConfigurationStatus
+        /// <summary>
+        /// <para>
+        /// <para>The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator)
+        /// when it is created. Possible values include the following.</para><ul><li><para>enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift
+        /// node type.</para></li><li><para>disabled - Don't use AQUA. </para></li><li><para>auto - Amazon Redshift determines whether to use AQUA.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Redshift.AquaConfigurationStatus")]
+        public Amazon.Redshift.AquaConfigurationStatus AquaConfigurationStatus { get; set; }
+        #endregion
+        
         #region Parameter AutomatedSnapshotRetentionPeriod
         /// <summary>
         /// <para>
         /// <para>The number of days that automated snapshots are retained. If the value is 0, automated
         /// snapshots are disabled. Even if automated snapshots are disabled, you can still create
-        /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para>Default: <code>1</code></para><para>Constraints: Must be a value from 0 to 35.</para>
+        /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para>You can't disable automated snapshots for RA3 node types. Set the automated retention
+        /// period from 1-35 days.</para><para>Default: <code>1</code></para><para>Constraints: Must be a value from 0 to 35.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -509,6 +523,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AdditionalInfo = this.AdditionalInfo;
             context.AllowVersionUpgrade = this.AllowVersionUpgrade;
+            context.AquaConfigurationStatus = this.AquaConfigurationStatus;
             context.AutomatedSnapshotRetentionPeriod = this.AutomatedSnapshotRetentionPeriod;
             context.AvailabilityZone = this.AvailabilityZone;
             context.AvailabilityZoneRelocation = this.AvailabilityZoneRelocation;
@@ -597,6 +612,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.AllowVersionUpgrade != null)
             {
                 request.AllowVersionUpgrade = cmdletContext.AllowVersionUpgrade.Value;
+            }
+            if (cmdletContext.AquaConfigurationStatus != null)
+            {
+                request.AquaConfigurationStatus = cmdletContext.AquaConfigurationStatus;
             }
             if (cmdletContext.AutomatedSnapshotRetentionPeriod != null)
             {
@@ -777,6 +796,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             public System.String AdditionalInfo { get; set; }
             public System.Boolean? AllowVersionUpgrade { get; set; }
+            public Amazon.Redshift.AquaConfigurationStatus AquaConfigurationStatus { get; set; }
             public System.Int32? AutomatedSnapshotRetentionPeriod { get; set; }
             public System.String AvailabilityZone { get; set; }
             public System.Boolean? AvailabilityZoneRelocation { get; set; }

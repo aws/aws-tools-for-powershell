@@ -142,6 +142,21 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLocationNfs" Verb="Update" Noun="LocationNfs" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLocationObjectStorage" Verb="Update" Noun="LocationObjectStorage" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="AccessKey" NewName="BucketAccessKey" AutoApplyAlias="false" />
+                <Param Name="SecretKey" NewName="BucketSecretKey" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLocationSmb" Verb="Update" Noun="LocationSmb" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateTask" Verb="Update" Noun="Task" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

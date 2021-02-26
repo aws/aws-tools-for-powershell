@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// 
     ///  
     /// <para>
-    /// This PUT operation requires the <code>S3:PutBucketWebsite</code> permission. By default,
+    /// This PUT action requires the <code>S3:PutBucketWebsite</code> permission. By default,
     /// only the bucket owner can configure the website attached to a bucket; however, bucket
     /// owners can allow other users to set the website configuration by writing a bucket
     /// policy that grants them the <code>S3:PutBucketWebsite</code> permission.
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Amazon S3 has a limitation of 50 routing rules per website configuration. If you require
     /// more than 50 routing rules, you can use object redirect. For more information, see
     /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">Configuring
-    /// an Object Redirect</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+    /// an Object Redirect</a> in the <i>Amazon S3 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "S3BucketWebsite", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

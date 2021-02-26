@@ -87,12 +87,36 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-EMTResourceTag', 
+        'Get-EMTChannel', 
+        'Get-EMTChannelList', 
+        'Get-EMTChannelPolicy', 
+        'Get-EMTChannelSchedule', 
         'Get-EMTPlaybackConfiguration', 
         'Get-EMTPlaybackConfigurationList', 
+        'Get-EMTProgram', 
         'Get-EMTResourceTag', 
+        'Get-EMTSourceLocation', 
+        'Get-EMTSourceLocationList', 
+        'Get-EMTVodSource', 
+        'Get-EMTVodSourceList', 
+        'New-EMTChannel', 
+        'New-EMTProgram', 
+        'New-EMTSourceLocation', 
+        'New-EMTVodSource', 
+        'Remove-EMTChannel', 
+        'Remove-EMTChannelPolicy', 
         'Remove-EMTPlaybackConfiguration', 
+        'Remove-EMTProgram', 
         'Remove-EMTResourceTag', 
-        'Set-EMTPlaybackConfiguration')
+        'Remove-EMTSourceLocation', 
+        'Remove-EMTVodSource', 
+        'Set-EMTPlaybackConfiguration', 
+        'Start-EMTChannel', 
+        'Stop-EMTChannel', 
+        'Update-EMTChannel', 
+        'Update-EMTSourceLocation', 
+        'Update-EMTVodSource', 
+        'Write-EMTChannelPolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

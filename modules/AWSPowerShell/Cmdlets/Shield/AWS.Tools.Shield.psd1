@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-SHLDHealthCheck', 
         'Add-SHLDProactiveEngagementDetail', 
+        'Add-SHLDResourceTag', 
         'Disable-SHLDProactiveEngagement', 
         'Enable-SHLDProactiveEngagement', 
         'Get-SHLDAttack', 
@@ -100,6 +101,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SHLDProtectionGroupList', 
         'Get-SHLDProtectionList', 
         'Get-SHLDResourcesInProtectionGroupList', 
+        'Get-SHLDResourceTag', 
         'Get-SHLDSubscription', 
         'Get-SHLDSubscriptionState', 
         'Grant-SHLDDRTLogBucketAssociation', 
@@ -110,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SHLDHealthCheck', 
         'Remove-SHLDProtection', 
         'Remove-SHLDProtectionGroup', 
+        'Remove-SHLDResourceTag', 
         'Remove-SHLDSubscription', 
         'Revoke-SHLDDRTLogBucketAssociation', 
         'Revoke-SHLDDRTRoleAssociation', 

@@ -668,7 +668,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Source_SourceIdentifier
         /// <summary>
         /// <para>
-        /// <para> An identifier for this project source. </para>
+        /// <para>An identifier for this project source. The identifier can only contain alphanumeric
+        /// characters and underscores, and must be less than 128 characters in length. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -858,7 +859,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>The type of repository that contains the source code to be built. Valid values include:</para><ul><li><para><code>BITBUCKET</code>: The source code is in a Bitbucket repository.</para></li><li><para><code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</para></li><li><para><code>CODEPIPELINE</code>: The source code settings are specified in the source action
         /// of a pipeline in AWS CodePipeline.</para></li><li><para><code>GITHUB</code>: The source code is in a GitHub or GitHub Enterprise Cloud repository.</para></li><li><para><code>GITHUB_ENTERPRISE</code>: The source code is in a GitHub Enterprise Server
-        /// repository.</para></li><li><para><code>NO_SOURCE</code>: The project does not have input source code.</para></li><li><para><code>S3</code>: The source code is in an Amazon S3 input bucket.</para></li></ul>
+        /// repository.</para></li><li><para><code>NO_SOURCE</code>: The project does not have input source code.</para></li><li><para><code>S3</code>: The source code is in an Amazon S3 bucket.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

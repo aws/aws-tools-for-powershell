@@ -173,16 +173,12 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter Rule
         /// <summary>
         /// <para>
-        /// <para>The name of a file containing stateful rule group rules specifications in Suricata
-        /// flat format, with one rule per line. Use this to import your existing Suricata compatible
-        /// rule groups. </para><note><para>You must provide either this rules setting or a populated <code>RuleGroup</code> setting,
-        /// but not both. </para></note><para>You can provide your rule group specification in a file through this setting when
-        /// you create or update your rule group. The call response returns a <a>RuleGroup</a>
-        /// object that Network Firewall has populated from your file. Network Firewall uses the
-        /// file contents to populate the rule group rules, but does not maintain a reference
-        /// to the file or use the file in any way after performing the create or update. If you
-        /// call <a>DescribeRuleGroup</a> to retrieve the rule group, Network Firewall returns
-        /// rules settings inside a <a>RuleGroup</a> object. </para>
+        /// <para>A string containing stateful rule group rules specifications in Suricata flat format,
+        /// with one rule per line. Use this to import your existing Suricata compatible rule
+        /// groups. </para><note><para>You must provide either this rules setting or a populated <code>RuleGroup</code> setting,
+        /// but not both. </para></note><para>You can provide your rule group specification in Suricata flat format through this
+        /// setting when you create or update your rule group. The call response returns a <a>RuleGroup</a>
+        /// object that Network Firewall has populated from your string. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,10 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>Stateful inspection criteria, provided in Suricata compatible intrusion prevention
         /// system (IPS) rules. Suricata is an open-source network IPS that includes a standard
         /// rule-based language for network traffic inspection.</para><para>These rules contain the inspection criteria and the action to take for traffic that
-        /// matches the criteria, so this type of rule group doesn't have a separate action setting.</para><para>You can provide the rules from a file that you've stored in an Amazon S3 bucket, or
-        /// by providing the rules in a Suricata rules string. To import from Amazon S3, provide
-        /// the fully qualified name of the file that contains the rules definitions. To provide
-        /// a Suricata rule string, provide the complete, Suricata compatible rule.</para>
+        /// matches the criteria, so this type of rule group doesn't have a separate action setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,7 +238,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>The domains that you want to inspect for in your traffic flows. To provide multiple
-        /// domains, separate them with commas.</para>
+        /// domains, separate them with commas. Valid domain specifications are the following:</para><ul><li><para>Explicit names. For example, <code>abc.example.com</code> matches only the domain
+        /// <code>abc.example.com</code>.</para></li><li><para>Names that use a domain wildcard, which you indicate with an initial '<code>.</code>'.
+        /// For example,<code>.example.com</code> matches <code>example.com</code> and matches
+        /// all subdomains of <code>example.com</code>, such as <code>abc.example.com</code> and
+        /// <code>www.example.com</code>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,7 +253,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter RulesSourceList_TargetType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The protocols you want to inspect. Specify <code>TLS_SNI</code> for <code>HTTPS</code>.
+        /// Specity <code>HTTP_HOST</code> for <code>HTTP</code>. You can specify either or both.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

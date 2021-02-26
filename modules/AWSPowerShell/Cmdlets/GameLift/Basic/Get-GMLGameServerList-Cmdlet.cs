@@ -28,13 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
-    /// groups.</b><para>
+    /// <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b><para>
     /// Retrieves information on all game servers that are currently active in a specified
     /// game server group. You can opt to sort the list by game server age. Use the pagination
     /// parameters to retrieve results in a set of sequential segments. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>RegisterGameServer</a></para></li><li><para><a>ListGameServers</a></para></li><li><para><a>ClaimGameServer</a></para></li><li><para><a>DescribeGameServer</a></para></li><li><para><a>UpdateGameServer</a></para></li><li><para><a>DeregisterGameServer</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>RegisterGameServer</a> | <a>ListGameServers</a> | <a>ClaimGameServer</a> | <a>DescribeGameServer</a>
+    /// | <a>UpdateGameServer</a> | <a>DeregisterGameServer</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All
+    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLGameServerList")]
     [OutputType("Amazon.GameLift.Model.GameServer")]
@@ -68,9 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Indicates how to sort the returned data based on game server registration timestamp.
-        /// Use ASCENDING to retrieve oldest game servers first, or use DESCENDING to retrieve
-        /// newest game servers first. If this parameter is left empty, game servers are returned
-        /// in no particular order.</para>
+        /// Use <code>ASCENDING</code> to retrieve oldest game servers first, or use <code>DESCENDING</code>
+        /// to retrieve newest game servers first. If this parameter is left empty, game servers
+        /// are returned in no particular order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
-        /// to get results as a set of sequential segments.</para>
+        /// to get results as a set of sequential pages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token that indicates the start of the next sequential segment of results. Use the
-        /// token returned with the previous call to this operation. To start at the beginning
+        /// <para>A token that indicates the start of the next sequential page of results. Use the token
+        /// that is returned with a previous call to this operation. To start at the beginning
         /// of the result set, do not specify a value.</para>
         /// </para>
         /// <para>

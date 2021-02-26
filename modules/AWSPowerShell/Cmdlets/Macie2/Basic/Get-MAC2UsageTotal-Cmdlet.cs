@@ -43,10 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter TimeRange
         /// <summary>
         /// <para>
-        /// <para>The time period to retrieve the data for. Valid values are: MONTH_TO_DATE, for the
-        /// current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days. If you
-        /// don’t specify a value for this parameter, Amazon Macie provides aggregated usage data
-        /// for the preceding 30 days.</para>
+        /// <para>The inclusive time period to retrieve the data for. Valid values are: MONTH_TO_DATE,
+        /// for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days.
+        /// If you don't specify a value for this parameter, Amazon Macie provides aggregated
+        /// usage data for the preceding 30 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

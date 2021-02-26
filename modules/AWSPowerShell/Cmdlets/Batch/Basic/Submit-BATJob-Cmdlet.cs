@@ -28,12 +28,18 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Submits an AWS Batch job from a job definition. Parameters specified during <a>SubmitJob</a>
-    /// override parameters defined in the job definition.
+    /// Submits an AWS Batch job from a job definition. Parameters that are specified during
+    /// <a>SubmitJob</a> override parameters defined in the job definition. vCPU and memory
+    /// requirements that are specified in the <code>ResourceRequirements</code> objects in
+    /// the job definition are the exception. They can't be overridden this way using the
+    /// <code>memory</code> and <code>vcpus</code> parameters. Rather, you must specify updates
+    /// to job definition parameters in a <code>ResourceRequirements</code> object that's
+    /// included in the <code>containerOverrides</code> parameter.
     /// 
     ///  <important><para>
-    /// Jobs run on Fargate resources don't run for more than 14 days. After 14 days, the
-    /// Fargate resources might no longer be available and the job is terminated.
+    /// Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days.
+    /// This is because, after 14 days, Fargate resources might become unavailable and job
+    /// might be terminated.
     /// </para></important>
     /// </summary>
     [Cmdlet("Submit", "BATJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -160,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobQueue
         /// <summary>
         /// <para>
-        /// <para>The job queue into which the job is submitted. You can specify either the name or
-        /// the Amazon Resource Name (ARN) of the queue.</para>
+        /// <para>The job queue where the job is submitted. You can specify either the name or the Amazon
+        /// Resource Name (ARN) of the queue.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -287,10 +293,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerOverrides_Memory
         /// <summary>
         /// <para>
-        /// <para>This parameter is deprecated and not supported for jobs run on Fargate resources,
-        /// use <code>ResourceRequirement</code>. For jobs run on EC2 resource, the number of
-        /// MiB of memory reserved for the job. This value overrides the value set in the job
-        /// definition.</para>
+        /// <para>This parameter indicates the amount of memory (in MiB) that's reserved for the job.
+        /// It overrides the <code>memory</code> parameter set in the job definition, but doesn't
+        /// override any memory requirement specified in the <code>ResourceRequirement</code>
+        /// structure in the job definition.</para><para>This parameter is supported for jobs that run on EC2 resources, but isn't supported
+        /// for jobs that run on Fargate resources. For these resources, use <code>resourceRequirement</code>
+        /// instead.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -302,18 +310,19 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerOverrides_Vcpus
         /// <summary>
         /// <para>
-        /// <para>This parameter is deprecated and not supported for jobs run on Fargate resources,
-        /// see <code>resourceRequirement</code>. For jobs run on EC2 resources, the number of
-        /// vCPUs to reserve for the container. This value overrides the value set in the job
-        /// definition. Jobs run on EC2 resources can specify the vCPU requirement using <code>resourceRequirement</code>
-        /// but the vCPU requirements can't be specified both here and in <code>resourceRequirement</code>.
-        /// This parameter maps to <code>CpuShares</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
+        /// <para>This parameter indicates the number of vCPUs reserved for the container.It overrides
+        /// the <code>vcpus</code> parameter that's set in the job definition, but doesn't override
+        /// any vCPU requirement specified in the <code>resourceRequirement</code> structure in
+        /// the job definition.</para><para>This parameter is supported for jobs that run on EC2 resources, but isn't supported
+        /// for jobs that run on Fargate resources. For Fargate resources, you can only use <code>resourceRequirement</code>.
+        /// For EC2 resources, you can use either this parameter or <code>resourceRequirement</code>
+        /// but not both. </para><para>This parameter maps to <code>CpuShares</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one
-        /// vCPU.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
-        /// be provided. Jobs running on Fargate resources must specify the vCPU requirement for
-        /// the job using <code>resourceRequirements</code>.</para></note>
+        /// vCPU.</para><note><para>This parameter isn't applicable to jobs that run on Fargate resources and shouldn't
+        /// be provided. For jobs that run on Fargate resources, you must specify the vCPU requirement
+        /// for the job using <code>resourceRequirements</code>.</para></note>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

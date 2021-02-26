@@ -29,6 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
     /// (Deprecated) Disassociates a member account from its Amazon Macie administrator account.
+    /// This operation has been replaced by the <link linkend="DisassociateFromAdministratorAccount">DisassociateFromAdministratorAccount</link>
+    /// operation.
     /// </summary>
     [Cmdlet("Unregister", "MAC2FromMasterAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

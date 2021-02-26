@@ -40,6 +40,44 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMDeployablePatchSnapshotForInstanceCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter BaselineOverride_ApprovedPatch
+        /// <summary>
+        /// <para>
+        /// <para>A list of explicitly approved patches for the baseline.</para><para>For information about accepted formats for lists of approved patches and rejected
+        /// patches, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
+        /// package name formats for approved and rejected patch lists</a> in the <i>AWS Systems
+        /// Manager User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BaselineOverride_ApprovedPatches")]
+        public System.String[] BaselineOverride_ApprovedPatch { get; set; }
+        #endregion
+        
+        #region Parameter BaselineOverride_ApprovedPatchesComplianceLevel
+        /// <summary>
+        /// <para>
+        /// <para>Defines the compliance level for approved patches. When an approved patch is reported
+        /// as missing, this value describes the severity of the compliance violation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.PatchComplianceLevel")]
+        public Amazon.SimpleSystemsManagement.PatchComplianceLevel BaselineOverride_ApprovedPatchesComplianceLevel { get; set; }
+        #endregion
+        
+        #region Parameter BaselineOverride_ApprovedPatchesEnableNonSecurity
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the list of approved patches includes non-security updates that
+        /// should be applied to the instances. The default value is 'false'. Applies to Linux
+        /// instances only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? BaselineOverride_ApprovedPatchesEnableNonSecurity { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -57,6 +95,66 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter BaselineOverride_OperatingSystem
+        /// <summary>
+        /// <para>
+        /// <para>The operating system rule used by the patch baseline override.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.OperatingSystem")]
+        public Amazon.SimpleSystemsManagement.OperatingSystem BaselineOverride_OperatingSystem { get; set; }
+        #endregion
+        
+        #region Parameter GlobalFilters_PatchFilter
+        /// <summary>
+        /// <para>
+        /// <para>The set of patch filters that make up the group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BaselineOverride_GlobalFilters_PatchFilters")]
+        public Amazon.SimpleSystemsManagement.Model.PatchFilter[] GlobalFilters_PatchFilter { get; set; }
+        #endregion
+        
+        #region Parameter ApprovalRules_PatchRule
+        /// <summary>
+        /// <para>
+        /// <para>The rules that make up the rule group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BaselineOverride_ApprovalRules_PatchRules")]
+        public Amazon.SimpleSystemsManagement.Model.PatchRule[] ApprovalRules_PatchRule { get; set; }
+        #endregion
+        
+        #region Parameter BaselineOverride_RejectedPatch
+        /// <summary>
+        /// <para>
+        /// <para>A list of explicitly rejected patches for the baseline.</para><para>For information about accepted formats for lists of approved patches and rejected
+        /// patches, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
+        /// package name formats for approved and rejected patch lists</a> in the <i>AWS Systems
+        /// Manager User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BaselineOverride_RejectedPatches")]
+        public System.String[] BaselineOverride_RejectedPatch { get; set; }
+        #endregion
+        
+        #region Parameter BaselineOverride_RejectedPatchesAction
+        /// <summary>
+        /// <para>
+        /// <para>The action for Patch Manager to take on patches included in the RejectedPackages list.
+        /// A patch can be allowed only if it is a dependency of another package, or blocked entirely
+        /// along with packages that include it as a dependency.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.PatchAction")]
+        public Amazon.SimpleSystemsManagement.PatchAction BaselineOverride_RejectedPatchesAction { get; set; }
+        #endregion
+        
         #region Parameter SnapshotId
         /// <summary>
         /// <para>
@@ -72,6 +170,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SnapshotId { get; set; }
+        #endregion
+        
+        #region Parameter BaselineOverride_Source
+        /// <summary>
+        /// <para>
+        /// <para>Information about the patches to use to update the instances, including target operating
+        /// systems and source repositories. Applies to Linux instances only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BaselineOverride_Sources")]
+        public Amazon.SimpleSystemsManagement.Model.PatchSource[] BaselineOverride_Source { get; set; }
         #endregion
         
         #region Parameter Select
@@ -119,6 +229,30 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Select = (response, cmdlet) => this.SnapshotId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.ApprovalRules_PatchRule != null)
+            {
+                context.ApprovalRules_PatchRule = new List<Amazon.SimpleSystemsManagement.Model.PatchRule>(this.ApprovalRules_PatchRule);
+            }
+            if (this.BaselineOverride_ApprovedPatch != null)
+            {
+                context.BaselineOverride_ApprovedPatch = new List<System.String>(this.BaselineOverride_ApprovedPatch);
+            }
+            context.BaselineOverride_ApprovedPatchesComplianceLevel = this.BaselineOverride_ApprovedPatchesComplianceLevel;
+            context.BaselineOverride_ApprovedPatchesEnableNonSecurity = this.BaselineOverride_ApprovedPatchesEnableNonSecurity;
+            if (this.GlobalFilters_PatchFilter != null)
+            {
+                context.GlobalFilters_PatchFilter = new List<Amazon.SimpleSystemsManagement.Model.PatchFilter>(this.GlobalFilters_PatchFilter);
+            }
+            context.BaselineOverride_OperatingSystem = this.BaselineOverride_OperatingSystem;
+            if (this.BaselineOverride_RejectedPatch != null)
+            {
+                context.BaselineOverride_RejectedPatch = new List<System.String>(this.BaselineOverride_RejectedPatch);
+            }
+            context.BaselineOverride_RejectedPatchesAction = this.BaselineOverride_RejectedPatchesAction;
+            if (this.BaselineOverride_Source != null)
+            {
+                context.BaselineOverride_Source = new List<Amazon.SimpleSystemsManagement.Model.PatchSource>(this.BaselineOverride_Source);
+            }
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -149,6 +283,135 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceRequest();
             
+            
+             // populate BaselineOverride
+            var requestBaselineOverrideIsNull = true;
+            request.BaselineOverride = new Amazon.SimpleSystemsManagement.Model.BaselineOverride();
+            List<System.String> requestBaselineOverride_baselineOverride_ApprovedPatch = null;
+            if (cmdletContext.BaselineOverride_ApprovedPatch != null)
+            {
+                requestBaselineOverride_baselineOverride_ApprovedPatch = cmdletContext.BaselineOverride_ApprovedPatch;
+            }
+            if (requestBaselineOverride_baselineOverride_ApprovedPatch != null)
+            {
+                request.BaselineOverride.ApprovedPatches = requestBaselineOverride_baselineOverride_ApprovedPatch;
+                requestBaselineOverrideIsNull = false;
+            }
+            Amazon.SimpleSystemsManagement.PatchComplianceLevel requestBaselineOverride_baselineOverride_ApprovedPatchesComplianceLevel = null;
+            if (cmdletContext.BaselineOverride_ApprovedPatchesComplianceLevel != null)
+            {
+                requestBaselineOverride_baselineOverride_ApprovedPatchesComplianceLevel = cmdletContext.BaselineOverride_ApprovedPatchesComplianceLevel;
+            }
+            if (requestBaselineOverride_baselineOverride_ApprovedPatchesComplianceLevel != null)
+            {
+                request.BaselineOverride.ApprovedPatchesComplianceLevel = requestBaselineOverride_baselineOverride_ApprovedPatchesComplianceLevel;
+                requestBaselineOverrideIsNull = false;
+            }
+            System.Boolean? requestBaselineOverride_baselineOverride_ApprovedPatchesEnableNonSecurity = null;
+            if (cmdletContext.BaselineOverride_ApprovedPatchesEnableNonSecurity != null)
+            {
+                requestBaselineOverride_baselineOverride_ApprovedPatchesEnableNonSecurity = cmdletContext.BaselineOverride_ApprovedPatchesEnableNonSecurity.Value;
+            }
+            if (requestBaselineOverride_baselineOverride_ApprovedPatchesEnableNonSecurity != null)
+            {
+                request.BaselineOverride.ApprovedPatchesEnableNonSecurity = requestBaselineOverride_baselineOverride_ApprovedPatchesEnableNonSecurity.Value;
+                requestBaselineOverrideIsNull = false;
+            }
+            Amazon.SimpleSystemsManagement.OperatingSystem requestBaselineOverride_baselineOverride_OperatingSystem = null;
+            if (cmdletContext.BaselineOverride_OperatingSystem != null)
+            {
+                requestBaselineOverride_baselineOverride_OperatingSystem = cmdletContext.BaselineOverride_OperatingSystem;
+            }
+            if (requestBaselineOverride_baselineOverride_OperatingSystem != null)
+            {
+                request.BaselineOverride.OperatingSystem = requestBaselineOverride_baselineOverride_OperatingSystem;
+                requestBaselineOverrideIsNull = false;
+            }
+            List<System.String> requestBaselineOverride_baselineOverride_RejectedPatch = null;
+            if (cmdletContext.BaselineOverride_RejectedPatch != null)
+            {
+                requestBaselineOverride_baselineOverride_RejectedPatch = cmdletContext.BaselineOverride_RejectedPatch;
+            }
+            if (requestBaselineOverride_baselineOverride_RejectedPatch != null)
+            {
+                request.BaselineOverride.RejectedPatches = requestBaselineOverride_baselineOverride_RejectedPatch;
+                requestBaselineOverrideIsNull = false;
+            }
+            Amazon.SimpleSystemsManagement.PatchAction requestBaselineOverride_baselineOverride_RejectedPatchesAction = null;
+            if (cmdletContext.BaselineOverride_RejectedPatchesAction != null)
+            {
+                requestBaselineOverride_baselineOverride_RejectedPatchesAction = cmdletContext.BaselineOverride_RejectedPatchesAction;
+            }
+            if (requestBaselineOverride_baselineOverride_RejectedPatchesAction != null)
+            {
+                request.BaselineOverride.RejectedPatchesAction = requestBaselineOverride_baselineOverride_RejectedPatchesAction;
+                requestBaselineOverrideIsNull = false;
+            }
+            List<Amazon.SimpleSystemsManagement.Model.PatchSource> requestBaselineOverride_baselineOverride_Source = null;
+            if (cmdletContext.BaselineOverride_Source != null)
+            {
+                requestBaselineOverride_baselineOverride_Source = cmdletContext.BaselineOverride_Source;
+            }
+            if (requestBaselineOverride_baselineOverride_Source != null)
+            {
+                request.BaselineOverride.Sources = requestBaselineOverride_baselineOverride_Source;
+                requestBaselineOverrideIsNull = false;
+            }
+            Amazon.SimpleSystemsManagement.Model.PatchRuleGroup requestBaselineOverride_baselineOverride_ApprovalRules = null;
+            
+             // populate ApprovalRules
+            var requestBaselineOverride_baselineOverride_ApprovalRulesIsNull = true;
+            requestBaselineOverride_baselineOverride_ApprovalRules = new Amazon.SimpleSystemsManagement.Model.PatchRuleGroup();
+            List<Amazon.SimpleSystemsManagement.Model.PatchRule> requestBaselineOverride_baselineOverride_ApprovalRules_approvalRules_PatchRule = null;
+            if (cmdletContext.ApprovalRules_PatchRule != null)
+            {
+                requestBaselineOverride_baselineOverride_ApprovalRules_approvalRules_PatchRule = cmdletContext.ApprovalRules_PatchRule;
+            }
+            if (requestBaselineOverride_baselineOverride_ApprovalRules_approvalRules_PatchRule != null)
+            {
+                requestBaselineOverride_baselineOverride_ApprovalRules.PatchRules = requestBaselineOverride_baselineOverride_ApprovalRules_approvalRules_PatchRule;
+                requestBaselineOverride_baselineOverride_ApprovalRulesIsNull = false;
+            }
+             // determine if requestBaselineOverride_baselineOverride_ApprovalRules should be set to null
+            if (requestBaselineOverride_baselineOverride_ApprovalRulesIsNull)
+            {
+                requestBaselineOverride_baselineOverride_ApprovalRules = null;
+            }
+            if (requestBaselineOverride_baselineOverride_ApprovalRules != null)
+            {
+                request.BaselineOverride.ApprovalRules = requestBaselineOverride_baselineOverride_ApprovalRules;
+                requestBaselineOverrideIsNull = false;
+            }
+            Amazon.SimpleSystemsManagement.Model.PatchFilterGroup requestBaselineOverride_baselineOverride_GlobalFilters = null;
+            
+             // populate GlobalFilters
+            var requestBaselineOverride_baselineOverride_GlobalFiltersIsNull = true;
+            requestBaselineOverride_baselineOverride_GlobalFilters = new Amazon.SimpleSystemsManagement.Model.PatchFilterGroup();
+            List<Amazon.SimpleSystemsManagement.Model.PatchFilter> requestBaselineOverride_baselineOverride_GlobalFilters_globalFilters_PatchFilter = null;
+            if (cmdletContext.GlobalFilters_PatchFilter != null)
+            {
+                requestBaselineOverride_baselineOverride_GlobalFilters_globalFilters_PatchFilter = cmdletContext.GlobalFilters_PatchFilter;
+            }
+            if (requestBaselineOverride_baselineOverride_GlobalFilters_globalFilters_PatchFilter != null)
+            {
+                requestBaselineOverride_baselineOverride_GlobalFilters.PatchFilters = requestBaselineOverride_baselineOverride_GlobalFilters_globalFilters_PatchFilter;
+                requestBaselineOverride_baselineOverride_GlobalFiltersIsNull = false;
+            }
+             // determine if requestBaselineOverride_baselineOverride_GlobalFilters should be set to null
+            if (requestBaselineOverride_baselineOverride_GlobalFiltersIsNull)
+            {
+                requestBaselineOverride_baselineOverride_GlobalFilters = null;
+            }
+            if (requestBaselineOverride_baselineOverride_GlobalFilters != null)
+            {
+                request.BaselineOverride.GlobalFilters = requestBaselineOverride_baselineOverride_GlobalFilters;
+                requestBaselineOverrideIsNull = false;
+            }
+             // determine if request.BaselineOverride should be set to null
+            if (requestBaselineOverrideIsNull)
+            {
+                request.BaselineOverride = null;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
@@ -218,6 +481,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SimpleSystemsManagement.Model.PatchRule> ApprovalRules_PatchRule { get; set; }
+            public List<System.String> BaselineOverride_ApprovedPatch { get; set; }
+            public Amazon.SimpleSystemsManagement.PatchComplianceLevel BaselineOverride_ApprovedPatchesComplianceLevel { get; set; }
+            public System.Boolean? BaselineOverride_ApprovedPatchesEnableNonSecurity { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.PatchFilter> GlobalFilters_PatchFilter { get; set; }
+            public Amazon.SimpleSystemsManagement.OperatingSystem BaselineOverride_OperatingSystem { get; set; }
+            public List<System.String> BaselineOverride_RejectedPatch { get; set; }
+            public Amazon.SimpleSystemsManagement.PatchAction BaselineOverride_RejectedPatchesAction { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.PatchSource> BaselineOverride_Source { get; set; }
             public System.String InstanceId { get; set; }
             public System.String SnapshotId { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse, GetSSMDeployablePatchSnapshotForInstanceCmdlet, object> Select { get; set; } =

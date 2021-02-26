@@ -117,6 +117,16 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.ExecuteCommandLogging
+        {
+            ($_ -eq "New-ECSCluster/Configuration_ExecuteCommandConfiguration_Logging") -Or
+            ($_ -eq "Update-ECSCluster/Configuration_ExecuteCommandConfiguration_Logging")
+        }
+        {
+            $v = "DEFAULT","NONE","OVERRIDE"
+            break
+        }
+
         # Amazon.ECS.IpcMode
         "Register-ECSTaskDefinition/IpcMode"
         {
@@ -260,6 +270,7 @@ $ECS_Completers = {
 $ECS_map = @{
     "AutoScalingGroupProvider_ManagedScaling_Status"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
+    "Configuration_ExecuteCommandConfiguration_Logging"=@("New-ECSCluster","Update-ECSCluster")
     "DeploymentController_Type"=@("New-ECSService")
     "DesiredStatus"=@("Get-ECSTaskList")
     "IpcMode"=@("Register-ECSTaskDefinition")
@@ -346,6 +357,7 @@ $ECS_SelectMap = @{
                "Get-ECSTaskDefinitionDetail",
                "Get-ECSTaskDetail",
                "Get-ECSTaskSet",
+               "Invoke-ECSCommand",
                "Get-ECSAccountSetting",
                "Get-ECSAttributeList",
                "Get-ECSClusterList",
@@ -367,6 +379,7 @@ $ECS_SelectMap = @{
                "Add-ECSResourceTag",
                "Remove-ECSResourceTag",
                "Update-ECSCapacityProvider",
+               "Update-ECSCluster",
                "Update-ECSClusterSetting",
                "Update-ECSContainerAgent",
                "Update-ECSContainerInstancesState",

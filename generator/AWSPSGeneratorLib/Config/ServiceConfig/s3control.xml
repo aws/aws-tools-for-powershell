@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessPointForObjectLambda" OutputProperty="ObjectLambdaAccessPointArn" Verb="New" Noun="AccessPointForObjectLambda" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBucket" OutputProperty="*" Verb="New" Noun="Bucket" ShouldProcessTarget="OutpostId" PipelineParameter="Bucket" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -35,7 +39,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessPointForObjectLambda" Verb="Remove" Noun="AccessPointForObjectLambda" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccessPointPolicy" Verb="Remove" Noun="AccessPointPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessPointPolicyForObjectLambda" Verb="Remove" Noun="AccessPointPolicyForObjectLambda" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,11 +91,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessPointConfigurationForObjectLambda" OutputProperty="Configuration" Verb="Get" Noun="AccessPointConfigurationForObjectLambda" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessPointForObjectLambda" OutputProperty="*" Verb="Get" Noun="AccessPointForObjectLambda" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAccessPointPolicy" OutputProperty="Policy" Verb="Get" Noun="AccessPointPolicy" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessPointPolicyForObjectLambda" OutputProperty="Policy" Verb="Get" Noun="AccessPointPolicyForObjectLambda" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAccessPointPolicyStatus" OutputProperty="PolicyStatus" Verb="Get" Noun="AccessPointPolicyStatus" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessPointPolicyStatusForObjectLambda" OutputProperty="PolicyStatus" Verb="Get" Noun="AccessPointPolicyStatusForObjectLambda" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -123,6 +151,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessPointsForObjectLambda" OutputProperty="ObjectLambdaAccessPointList" Verb="Get" Noun="AccessPointsForObjectLambdaList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -135,7 +167,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutAccessPointConfigurationForObjectLambda" Verb="Write" Noun="AccessPointConfigurationForObjectLambda" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutAccessPointPolicy" Verb="Write" Noun="AccessPointPolicy" ShouldProcessTarget="Name" PipelineParameter="Policy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAccessPointPolicyForObjectLambda" Verb="Write" Noun="AccessPointPolicyForObjectLambda" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

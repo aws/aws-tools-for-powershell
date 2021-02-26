@@ -487,6 +487,16 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.String[] VPCOptions_SubnetId { get; set; }
         #endregion
         
+        #region Parameter TagList
+        /// <summary>
+        /// <para>
+        /// <para>A list of <code>Tag</code> added during domain creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Elasticsearch.Model.Tag[] TagList { get; set; }
+        #endregion
+        
         #region Parameter DomainEndpointOptions_TLSSecurityPolicy
         /// <summary>
         /// <para>
@@ -683,6 +693,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
             }
             context.NodeToNodeEncryptionOptions_Enabled = this.NodeToNodeEncryptionOptions_Enabled;
             context.SnapshotOptions_AutomatedSnapshotStartHour = this.SnapshotOptions_AutomatedSnapshotStartHour;
+            if (this.TagList != null)
+            {
+                context.TagList = new List<Amazon.Elasticsearch.Model.Tag>(this.TagList);
+            }
             if (this.VPCOptions_SecurityGroupId != null)
             {
                 context.VPCOptions_SecurityGroupId = new List<System.String>(this.VPCOptions_SecurityGroupId);
@@ -1263,6 +1277,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
             {
                 request.SnapshotOptions = null;
             }
+            if (cmdletContext.TagList != null)
+            {
+                request.TagList = cmdletContext.TagList;
+            }
             
              // populate VPCOptions
             var requestVPCOptionsIsNull = true;
@@ -1399,6 +1417,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public Dictionary<System.String, Amazon.Elasticsearch.Model.LogPublishingOption> LogPublishingOption { get; set; }
             public System.Boolean? NodeToNodeEncryptionOptions_Enabled { get; set; }
             public System.Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
+            public List<Amazon.Elasticsearch.Model.Tag> TagList { get; set; }
             public List<System.String> VPCOptions_SecurityGroupId { get; set; }
             public List<System.String> VPCOptions_SubnetId { get; set; }
             public System.Func<Amazon.Elasticsearch.Model.CreateElasticsearchDomainResponse, NewESDomainCmdlet, object> Select { get; set; } =

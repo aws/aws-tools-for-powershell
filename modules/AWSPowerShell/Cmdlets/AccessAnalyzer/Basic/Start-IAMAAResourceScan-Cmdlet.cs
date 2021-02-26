@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         #region Parameter AnalyzerArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the analyzer to use to scan the policies applied to the specified resource.</para>
+        /// <para>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN
+        /// of the analyzer</a> to use to scan the policies applied to the specified resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

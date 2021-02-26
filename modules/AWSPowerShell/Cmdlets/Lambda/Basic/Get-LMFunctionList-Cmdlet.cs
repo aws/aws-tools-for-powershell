@@ -34,9 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
     ///  
     /// <para>
     /// Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions
-    /// of each function in addition to the unpublished version. To get more information about
-    /// a function or version, use <a>GetFunction</a>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// of each function in addition to the unpublished version. 
+    /// </para><note><para>
+    /// The <code>ListFunctions</code> action returns a subset of the <a>FunctionConfiguration</a>
+    /// fields. To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus,
+    /// LastUpdateStatusReason, LastUpdateStatusReasonCode) for a function or version, use
+    /// <a>GetFunction</a>.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMFunctionList")]
     [OutputType("Amazon.Lambda.Model.FunctionConfiguration")]
@@ -91,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>The maximum number of functions to return.</para>
+        /// <para>The maximum number of functions to return in the response. Note that <code>ListFunctions</code>
+        /// returns a maximum of 50 items in each response, even if you set the number higher.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

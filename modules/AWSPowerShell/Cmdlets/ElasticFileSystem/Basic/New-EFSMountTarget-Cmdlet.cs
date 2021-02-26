@@ -37,22 +37,34 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// in a VPC within a given Availability Zone share a single mount target for a given
     /// file system. If you have multiple subnets in an Availability Zone, you create a mount
     /// target in one of the subnets. EC2 instances do not need to be in the same subnet as
-    /// the mount target in order to access their file system. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS: How
-    /// it Works</a>. 
+    /// the mount target in order to access their file system.
     /// </para><para>
-    /// In the request, you also specify a file system ID for which you are creating the mount
-    /// target and the file system's lifecycle state must be <code>available</code>. For more
-    /// information, see <a>DescribeFileSystems</a>.
+    /// You can create only one mount target for an EFS file system using One Zone storage
+    /// classes. You must create that mount target in the same Availability Zone in which
+    /// the file system is located. Use the <code>AvailabilityZoneName</code> and <code>AvailabiltyZoneId</code>
+    /// properties in the <a>DescribeFileSystems</a> response object to get this information.
+    /// Use the <code>subnetId</code> associated with the file system's Availability Zone
+    /// when creating the mount target.
     /// </para><para>
-    /// In the request, you also provide a subnet ID, which determines the following:
+    /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon
+    /// EFS: How it Works</a>. 
+    /// </para><para>
+    /// To create a mount target for a file system, the file system's lifecycle state must
+    /// be <code>available</code>. For more information, see <a>DescribeFileSystems</a>.
+    /// </para><para>
+    /// In the request, provide the following:
     /// </para><ul><li><para>
-    /// VPC in which Amazon EFS creates the mount target
+    /// The file system ID for which you are creating the mount target.
     /// </para></li><li><para>
-    /// Availability Zone in which Amazon EFS creates the mount target
+    /// A subnet ID, which determines the following:
+    /// </para><ul><li><para>
+    /// The VPC in which Amazon EFS creates the mount target
     /// </para></li><li><para>
-    /// IP address range from which Amazon EFS selects the IP address of the mount target
+    /// The Availability Zone in which Amazon EFS creates the mount target
+    /// </para></li><li><para>
+    /// The IP address range from which Amazon EFS selects the IP address of the mount target
     /// (if you don't specify an IP address in the request)
-    /// </para></li></ul><para>
+    /// </para></li></ul></li></ul><para>
     /// After creating the mount target, Amazon EFS returns a response that includes, a <code>MountTargetId</code>
     /// and an <code>IpAddress</code>. You use this IP address when mounting the file system
     /// in an EC2 instance. You can also use the mount target's DNS name when mounting the
@@ -166,7 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the subnet to add the mount target in.</para>
+        /// <para>The ID of the subnet to add the mount target in. For file systems that use One Zone
+        /// storage classes, use the subnet that is associated with the file system's Availability
+        /// Zone.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -118,6 +118,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-FRCPredictor', 
         'Remove-FRCPredictorBacktestExportJob', 
         'Remove-FRCResourceTag', 
+        'Stop-FRCResource', 
         'Update-FRCDatasetGroup')
 
     # Variables to export from this module

@@ -140,6 +140,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDBProxyEndpoint" OutputProperty="DBProxyEndpoint" Verb="New" Noun="DBProxyEndpoint" ShouldProcessTarget="DBProxyEndpointName" PipelineParameter="DBProxyEndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDBSecurityGroup" OutputProperty="DBSecurityGroup" Verb="New" Noun="DBSecurityGroup" ShouldProcessTarget="DBSecurityGroupName" PositionalParameters="DBSecurityGroupDescription" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -197,6 +201,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDBProxy" OutputProperty="DBProxy" Verb="Remove" Noun="DBProxy" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDBProxyEndpoint" OutputProperty="DBProxyEndpoint" Verb="Remove" Noun="DBProxyEndpoint" ShouldProcessTarget="DBProxyEndpointName" PipelineParameter="DBProxyEndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -299,6 +307,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDBProxies" OutputProperty="DBProxies" Verb="Get" Noun="DBProxy" PipelineParameter="DBProxyName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBProxyEndpoints" OutputProperty="DBProxyEndpoints" Verb="Get" Noun="DBProxyEndpoint" PipelineParameter="DBProxyEndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -450,6 +462,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyDBProxy" OutputProperty="DBProxy" Verb="Edit" Noun="DBProxy" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBProxyEndpoint" OutputProperty="DBProxyEndpoint" Verb="Edit" Noun="DBProxyEndpoint" ShouldProcessTarget="DBProxyEndpointName" PipelineParameter="DBProxyEndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

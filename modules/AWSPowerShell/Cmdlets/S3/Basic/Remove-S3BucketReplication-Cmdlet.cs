@@ -34,13 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <para>
     /// To use this operation, you must have permissions to perform the <code>s3:PutReplicationConfiguration</code>
     /// action. The bucket owner has these permissions by default and can grant it to others.
-    /// For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
-    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a>. 
     /// </para><note><para>
     /// It can take a while for the deletion of a replication configuration to fully propagate.
     /// </para></note><para>
-    ///  For information about replication configuration, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a>
+    ///  For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a>
     /// in the <i>Amazon S3 Developer Guide</i>. 
     /// </para><para>
     /// The following operations are related to <code>DeleteBucketReplication</code>:
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

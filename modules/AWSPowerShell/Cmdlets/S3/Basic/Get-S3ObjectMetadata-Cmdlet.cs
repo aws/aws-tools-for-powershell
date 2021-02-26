@@ -28,15 +28,17 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// The HEAD operation retrieves metadata from an object without returning the object
-    /// itself. This operation is useful if you're only interested in an object's metadata.
-    /// To use HEAD, you must have READ access to the object.
+    /// The HEAD action retrieves metadata from an object without returning the object itself.
+    /// This action is useful if you're only interested in an object's metadata. To use HEAD,
+    /// you must have READ access to the object.
     /// 
     ///  
     /// <para>
-    /// A <code>HEAD</code> request has the same options as a <code>GET</code> operation on
-    /// an object. The response is identical to the <code>GET</code> response except that
-    /// there is no response body.
+    /// A <code>HEAD</code> request has the same options as a <code>GET</code> action on an
+    /// object. The response is identical to the <code>GET</code> response except that there
+    /// is no response body. Because of this, if the <code>HEAD</code> request generates an
+    /// error, it returns a generic <code>404 Not Found</code> or <code>403 Forbidden</code>
+    /// code. It is not possible to retrieve the exact exception beyond these error codes.
     /// </para><para>
     /// If you encrypt an object by using server-side encryption with customer-provided encryption
     /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata
@@ -50,13 +52,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></li></ul><para>
     /// For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
     /// Encryption (Using Customer-Provided Encryption Keys)</a>.
-    /// </para><note><para>
+    /// </para><note><ul><li><para>
     /// Encryption request headers, like <code>x-amz-server-side-encryption</code>, should
     /// not be sent for GET requests if your object uses server-side encryption with CMKs
     /// stored in AWS KMS (SSE-KMS) or server-side encryption with Amazon S3–managed encryption
     /// keys (SSE-S3). If your object does use these types of keys, you’ll get an HTTP 400
     /// BadRequest error.
-    /// </para></note><para>
+    /// </para></li><li><para>
+    ///  The last modified property in this case is the creation date of the object.
+    /// </para></li></ul></note><para>
     /// Request headers are limited to 8 KB in size. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html">Common
     /// Request Headers</a>.
     /// </para><para>
@@ -90,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
     /// HTTP status code 403 ("access denied") error.
     /// </para></li></ul><para>
-    /// The following operation is related to <code>HeadObject</code>:
+    /// The following action is related to <code>HeadObject</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3ObjectMetadata")]
@@ -145,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePreparedStatement" Verb="New" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="QueryStatement" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkGroup" Verb="New" Noun="WorkGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -44,6 +48,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteNamedQuery" Verb="Remove" Noun="NamedQuery" ShouldProcessTarget="NamedQueryId" PipelineParameter="NamedQueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePreparedStatement" Verb="Remove" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="StatementName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -60,6 +68,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetNamedQuery" OutputProperty="NamedQuery" Verb="Get" Noun="NamedQuery" PipelineParameter="NamedQueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPreparedStatement" OutputProperty="PreparedStatement" Verb="Get" Noun="PreparedStatement" PipelineParameter="StatementName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -92,6 +104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListNamedQueries" OutputProperty="NamedQueryIds" Verb="Get" Noun="NamedQueryList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPreparedStatements" OutputProperty="PreparedStatements" Verb="Get" Noun="PreparedStatementList" PipelineParameter="WorkGroup" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -128,6 +144,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataCatalog" Verb="Update" Noun="DataCatalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePreparedStatement" Verb="Update" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="StatementName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

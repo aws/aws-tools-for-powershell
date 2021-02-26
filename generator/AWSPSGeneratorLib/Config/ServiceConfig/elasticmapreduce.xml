@@ -220,6 +220,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStudio" Verb="Update" Noun="Studio" ShouldProcessTarget="StudioId" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateStudioSessionMapping" Verb="Update" Noun="StudioSessionMapping" ShouldProcessTarget="StudioId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

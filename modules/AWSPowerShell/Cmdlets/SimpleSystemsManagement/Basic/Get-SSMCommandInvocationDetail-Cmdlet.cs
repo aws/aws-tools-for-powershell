@@ -78,8 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter PluginName
         /// <summary>
         /// <para>
-        /// <para>(Optional) The name of the plugin for which you want detailed results. If the document
-        /// contains only one plugin, the name can be omitted and the details will be returned.</para><para>Plugin names are also referred to as step names in Systems Manager documents.</para>
+        /// <para>The name of the plugin for which you want detailed results. If the document contains
+        /// only one plugin, you can omit the name and details for that plugin are returned. If
+        /// the document contains more than one plugin, you must specify the name of the plugin
+        /// for which you want to view details.</para><para>Plugin names are also referred to as <i>step names</i> in Systems Manager documents.
+        /// For example, <code>aws:RunShellScript</code> is a plugin.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

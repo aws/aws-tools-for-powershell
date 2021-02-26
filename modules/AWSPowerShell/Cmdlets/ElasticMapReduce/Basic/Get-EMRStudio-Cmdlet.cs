@@ -28,13 +28,8 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// <note><para>
-    /// The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-    /// change.
-    /// </para></note><para>
     /// Returns details for the specified Amazon EMR Studio including ID, Name, VPC, Studio
     /// access URL, and so on.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "EMRStudio")]
     [OutputType("Amazon.ElasticMapReduce.Model.Studio")]

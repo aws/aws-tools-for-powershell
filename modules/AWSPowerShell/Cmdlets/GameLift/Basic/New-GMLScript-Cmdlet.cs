@@ -53,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// at this storage location as needed for deployment.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon
     /// GameLift Realtime Servers</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set
-    /// Up a Role for Amazon GameLift Access</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateScript</a></para></li><li><para><a>ListScripts</a></para></li><li><para><a>DescribeScript</a></para></li><li><para><a>UpdateScript</a></para></li><li><para><a>DeleteScript</a></para></li></ul>
+    /// Up a Role for Amazon GameLift Access</a></para><para><b>Related actions</b></para><para><a>CreateScript</a> | <a>ListScripts</a> | <a>DescribeScript</a> | <a>UpdateScript</a>
+    /// | <a>DeleteScript</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLScript", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.Script")]
@@ -68,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>An S3 bucket identifier. This is the name of the S3 bucket.</para><note><para>GameLift currently does not support uploading from S3 buckets with names that contain
-        /// a dot (.).</para></note>
+        /// <para>An Amazon S3 bucket identifier. This is the name of the S3 bucket.</para><note><para>GameLift currently does not support uploading from Amazon S3 buckets with names that
+        /// contain a dot (.).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,8 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The version that is associated with a build or script. Version strings do not need
-        /// to be unique. You can use <a>UpdateScript</a> to change this value later. </para>
+        /// <para>Version information that is associated with a build or script. Version strings do
+        /// not need to be unique. You can use <a>UpdateScript</a> to change this value later.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

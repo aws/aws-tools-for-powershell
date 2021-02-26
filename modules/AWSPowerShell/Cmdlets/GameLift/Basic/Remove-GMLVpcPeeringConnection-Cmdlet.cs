@@ -38,7 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Once a valid authorization exists, call this operation from the AWS account that is
     /// used to manage the Amazon GameLift fleets. Identify the connection to delete by the
     /// connection ID and fleet ID. If successful, the connection is removed. 
-    /// </para><ul><li><para><a>CreateVpcPeeringAuthorization</a></para></li><li><para><a>DescribeVpcPeeringAuthorizations</a></para></li><li><para><a>DeleteVpcPeeringAuthorization</a></para></li><li><para><a>CreateVpcPeeringConnection</a></para></li><li><para><a>DescribeVpcPeeringConnections</a></para></li><li><para><a>DeleteVpcPeeringConnection</a></para></li></ul>
+    /// </para><para><b>Related actions</b></para><para><a>CreateVpcPeeringAuthorization</a> | <a>DescribeVpcPeeringAuthorizations</a> |
+    /// <a>DeleteVpcPeeringAuthorization</a> | <a>CreateVpcPeeringConnection</a> | <a>DescribeVpcPeeringConnections</a>
+    /// | <a>DeleteVpcPeeringConnection</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Remove", "GMLVpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -53,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet. This fleet specified must match the fleet referenced
+        /// <para>A unique identifier for the fleet. This fleet specified must match the fleet referenced
         /// in the VPC peering connection record. You can use either the fleet ID or ARN value.</para>
         /// </para>
         /// </summary>

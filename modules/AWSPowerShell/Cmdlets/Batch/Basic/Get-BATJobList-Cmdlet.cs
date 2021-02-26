@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// </para><ul><li><para>
     /// A job queue ID to return a list of jobs in that job queue
     /// </para></li><li><para>
-    /// A multi-node parallel job ID to return a list of that job's nodes
+    /// A multi-node parallel job ID to return a list of nodes for that job
     /// </para></li><li><para>
-    /// An array job ID to return a list of that job's children
+    /// An array job ID to return a list of the children for that job
     /// </para></li></ul><para>
     /// You can filter the results by job status with the <code>jobStatus</code> parameter.
     /// If you don't specify a status, only <code>RUNNING</code> jobs are returned.
@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The maximum number of results returned by <code>ListJobs</code> in paginated output.
         /// When this parameter is used, <code>ListJobs</code> only returns <code>maxResults</code>
-        /// results in a single page along with a <code>nextToken</code> response element. The
-        /// remaining results of the initial request can be seen by sending another <code>ListJobs</code>
+        /// results in a single page and a <code>nextToken</code> response element. The remaining
+        /// results of the initial request can be seen by sending another <code>ListJobs</code>
         /// request with the returned <code>nextToken</code> value. This value can be between
         /// 1 and 100. If this parameter isn't used, then <code>ListJobs</code> returns up to
         /// 100 results and a <code>nextToken</code> value if applicable.</para>

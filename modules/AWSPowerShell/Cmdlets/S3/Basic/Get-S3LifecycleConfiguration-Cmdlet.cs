@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// section describes the latest API. The response describes the new filter element that
     /// you can use to specify a filter to select a subset of objects to which the rule applies.
     /// If you are using a previous version of the lifecycle configuration, it still works.
-    /// For the earlier API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html">GetBucketLifecycle</a>.
+    /// For the earlier action, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html">GetBucketLifecycle</a>.
     /// </para></note><para>
     /// Returns the lifecycle configuration information set on the bucket. For information
     /// about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object
@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><para>
     /// To use this operation, you must have permission to perform the <code>s3:GetLifecycleConfiguration</code>
     /// action. The bucket owner has this permission, by default. The bucket owner can grant
-    /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
-    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a>.
     /// </para><para><code>GetBucketLifecycleConfiguration</code> has the following special error:
     /// </para><ul><li><para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

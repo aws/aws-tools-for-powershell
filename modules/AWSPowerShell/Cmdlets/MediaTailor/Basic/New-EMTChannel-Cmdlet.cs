@@ -1,0 +1,280 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.MediaTailor;
+using Amazon.MediaTailor.Model;
+
+namespace Amazon.PowerShell.Cmdlets.EMT
+{
+    /// <summary>
+    /// Creates a channel.
+    /// </summary>
+    [Cmdlet("New", "EMTChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.MediaTailor.Model.CreateChannelResponse")]
+    [AWSCmdlet("Calls the AWS Elemental MediaTailor CreateChannel API operation.", Operation = new[] {"CreateChannel"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.CreateChannelResponse))]
+    [AWSCmdletOutput("Amazon.MediaTailor.Model.CreateChannelResponse",
+        "This cmdlet returns an Amazon.MediaTailor.Model.CreateChannelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class NewEMTChannelCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
+    {
+        
+        #region Parameter ChannelName
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the channel you are working on.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ChannelName { get; set; }
+        #endregion
+        
+        #region Parameter Output
+        /// <summary>
+        /// <para>
+        /// <para>The channel's output properties.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Outputs")]
+        public Amazon.MediaTailor.Model.RequestOutputItem[] Output { get; set; }
+        #endregion
+        
+        #region Parameter PlaybackMode
+        /// <summary>
+        /// <para>
+        /// <para>The type of playback mode for this channel. The only supported value is LOOP.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.MediaTailor.PlaybackMode")]
+        public Amazon.MediaTailor.PlaybackMode PlaybackMode { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaTailor.Model.CreateChannelResponse).
+        /// Specifying the name of a property of type Amazon.MediaTailor.Model.CreateChannelResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChannelName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EMTChannel (CreateChannel)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.MediaTailor.Model.CreateChannelResponse, NewEMTChannelCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.ChannelName = this.ChannelName;
+            #if MODULAR
+            if (this.ChannelName == null && ParameterWasBound(nameof(this.ChannelName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ChannelName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Output != null)
+            {
+                context.Output = new List<Amazon.MediaTailor.Model.RequestOutputItem>(this.Output);
+            }
+            #if MODULAR
+            if (this.Output == null && ParameterWasBound(nameof(this.Output)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Output which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.PlaybackMode = this.PlaybackMode;
+            #if MODULAR
+            if (this.PlaybackMode == null && ParameterWasBound(nameof(this.PlaybackMode)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PlaybackMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.MediaTailor.Model.CreateChannelRequest();
+            
+            if (cmdletContext.ChannelName != null)
+            {
+                request.ChannelName = cmdletContext.ChannelName;
+            }
+            if (cmdletContext.Output != null)
+            {
+                request.Outputs = cmdletContext.Output;
+            }
+            if (cmdletContext.PlaybackMode != null)
+            {
+                request.PlaybackMode = cmdletContext.PlaybackMode;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.MediaTailor.Model.CreateChannelResponse CallAWSServiceOperation(IAmazonMediaTailor client, Amazon.MediaTailor.Model.CreateChannelRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaTailor", "CreateChannel");
+            try
+            {
+                #if DESKTOP
+                return client.CreateChannel(request);
+                #elif CORECLR
+                return client.CreateChannelAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String ChannelName { get; set; }
+            public List<Amazon.MediaTailor.Model.RequestOutputItem> Output { get; set; }
+            public Amazon.MediaTailor.PlaybackMode PlaybackMode { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Func<Amazon.MediaTailor.Model.CreateChannelResponse, NewEMTChannelCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

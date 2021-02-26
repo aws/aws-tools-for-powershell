@@ -34,14 +34,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// <para>
     /// The lifecycle defines when a protected resource is transitioned to cold storage and
     /// when it expires. AWS Backup transitions and expires backups automatically according
-    /// to the lifecycle that you define. 
+    /// to the lifecycle that you define.
     /// </para><para>
     /// Backups transitioned to cold storage must be stored in cold storage for a minimum
     /// of 90 days. Therefore, the “expire after days” setting must be 90 days greater than
     /// the “transition to cold after days” setting. The “transition to cold after days” setting
-    /// cannot be changed after a backup has been transitioned to cold. 
+    /// cannot be changed after a backup has been transitioned to cold.
     /// </para><para>
     /// Only Amazon EFS file system backups can be transitioned to cold storage.
+    /// </para><para>
+    /// Does not support continuous backups.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "BAKRecoveryPointLifecycle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

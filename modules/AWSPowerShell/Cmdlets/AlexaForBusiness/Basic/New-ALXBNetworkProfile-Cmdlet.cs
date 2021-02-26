@@ -157,6 +157,17 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         public System.String Ssid { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to be added to the specified resource. Do not provide system tags. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.AlexaForBusiness.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TrustAnchor
         /// <summary>
         /// <para>
@@ -257,6 +268,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 WriteWarning("You are passing $null as a value for parameter Ssid which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.AlexaForBusiness.Model.Tag>(this.Tag);
+            }
             if (this.TrustAnchor != null)
             {
                 context.TrustAnchor = new List<System.String>(this.TrustAnchor);
@@ -312,6 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             if (cmdletContext.Ssid != null)
             {
                 request.Ssid = cmdletContext.Ssid;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TrustAnchor != null)
             {
@@ -387,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             public System.String NextPassword { get; set; }
             public Amazon.AlexaForBusiness.NetworkSecurityType SecurityType { get; set; }
             public System.String Ssid { get; set; }
+            public List<Amazon.AlexaForBusiness.Model.Tag> Tag { get; set; }
             public List<System.String> TrustAnchor { get; set; }
             public System.Func<Amazon.AlexaForBusiness.Model.CreateNetworkProfileResponse, NewALXBNetworkProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.NetworkProfileArn;

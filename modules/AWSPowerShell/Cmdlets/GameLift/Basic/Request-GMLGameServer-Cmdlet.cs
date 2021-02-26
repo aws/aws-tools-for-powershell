@@ -28,8 +28,7 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
-    /// groups.</b><para>
+    /// <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b><para>
     /// Locates an available game server and temporarily reserves it to host gameplay and
     /// players. This operation is called from a game client or client service (such as a
     /// matchmaker) to request hosting resources for a new game session. In response, GameLift
@@ -61,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// is running on an instance in <code>DRAINING</code> status. To avoid this, first check
     /// the instance status by calling <a>DescribeGameServerInstances</a>.
     /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>RegisterGameServer</a></para></li><li><para><a>ListGameServers</a></para></li><li><para><a>ClaimGameServer</a></para></li><li><para><a>DescribeGameServer</a></para></li><li><para><a>UpdateGameServer</a></para></li><li><para><a>DeregisterGameServer</a></para></li></ul>
+    /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>RegisterGameServer</a> | <a>ListGameServers</a> | <a>ClaimGameServer</a> | <a>DescribeGameServer</a>
+    /// | <a>UpdateGameServer</a> | <a>DeregisterGameServer</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Request", "GMLGameServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServer")]
@@ -89,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the game server group where the game server is running. Use
-        /// either the <a>GameServerGroup</a> name or ARN value.. If you are not specifying a
-        /// game server to claim, this value identifies where you want GameLift FleetIQ to look
-        /// for an available game server to claim. </para>
+        /// either the <a>GameServerGroup</a> name or ARN value. If you are not specifying a game
+        /// server to claim, this value identifies where you want GameLift FleetIQ to look for
+        /// an available game server to claim. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

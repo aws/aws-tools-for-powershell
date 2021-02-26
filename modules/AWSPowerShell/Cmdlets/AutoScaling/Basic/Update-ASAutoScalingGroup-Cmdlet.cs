@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>An embedded object that specifies a mixed instances policy. When you make changes
-        /// to an existing policy, all optional parameters are left unchanged if not specified.
+        /// to an existing policy, all optional properties are left unchanged if not specified.
         /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto
         /// Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon
         /// EC2 Auto Scaling User Guide</i>.</para>

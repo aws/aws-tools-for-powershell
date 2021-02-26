@@ -28,12 +28,7 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// <note><para>
-    /// The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-    /// change.
-    /// </para></note><para>
     /// Creates a new Amazon EMR Studio.
-    /// </para>
     /// </summary>
     [Cmdlet("New", "EMRStudio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticMapReduce.Model.CreateStudioResponse")]
@@ -65,18 +60,24 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter DefaultS3Location
         /// <summary>
         /// <para>
-        /// <para>The default Amazon S3 location to back up EMR Studio Workspaces and notebook files.
-        /// A Studio user can select an alternative Amazon S3 location when creating a Workspace.</para>
+        /// <para>The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DefaultS3Location { get; set; }
         #endregion
         
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A detailed description of the Studio.</para>
+        /// <para>A detailed description of the Amazon EMR Studio.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,9 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>A list of subnet IDs to associate with the Studio. The subnets must belong to the
-        /// VPC specified by <code>VpcId</code>. Studio users can create a Workspace in any of
-        /// the specified subnets.</para>
+        /// <para>A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a
+        /// maximum of 5 subnets. The subnets must belong to the VPC specified by <code>VpcId</code>.
+        /// Studio users can create a Workspace in any of the specified subnets.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -160,9 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tags to associate with the Studio. Tags are user-defined key-value pairs
-        /// that consist of a required key string with a maximum of 128 characters, and an optional
-        /// value string with a maximum of 256 characters.</para>
+        /// <para>A list of tags to associate with the Amazon EMR Studio. Tags are user-defined key-value
+        /// pairs that consist of a required key string with a maximum of 128 characters, and
+        /// an optional value string with a maximum of 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,9 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter UserRole
         /// <summary>
         /// <para>
-        /// <para>The IAM user role that will be assumed by users and groups logged in to a Studio.
-        /// The permissions attached to this IAM role can be scoped down for each user or group
-        /// using session policies.</para>
+        /// <para>The IAM user role that will be assumed by users and groups logged in to an Amazon
+        /// EMR Studio. The permissions attached to this IAM role can be scoped down for each
+        /// user or group using session policies.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -274,6 +275,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             }
             #endif
             context.DefaultS3Location = this.DefaultS3Location;
+            #if MODULAR
+            if (this.DefaultS3Location == null && ParameterWasBound(nameof(this.DefaultS3Location)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DefaultS3Location which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Description = this.Description;
             context.EngineSecurityGroupId = this.EngineSecurityGroupId;
             #if MODULAR

@@ -28,12 +28,7 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// <note><para>
-    /// The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-    /// change.
-    /// </para></note><para>
     /// Removes a user or group from an Amazon EMR Studio.
-    /// </para>
     /// </summary>
     [Cmdlet("Remove", "EMRStudioSessionMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -62,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter IdentityName
         /// <summary>
         /// <para>
-        /// <para>The name of the user name or group to remove from the Studio. For more information,
-        /// see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserName</a>
+        /// <para>The name of the user name or group to remove from the Amazon EMR Studio. For more
+        /// information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a>
         /// and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a>
         /// in the <i>AWS SSO Identity Store API Reference</i>. Either <code>IdentityName</code>
         /// or <code>IdentityId</code> must be specified.</para>
@@ -76,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter IdentityType
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the identity to delete from the Studio is a user or a group.</para>
+        /// <para>Specifies whether the identity to delete from the Amazon EMR Studio is a user or a
+        /// group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

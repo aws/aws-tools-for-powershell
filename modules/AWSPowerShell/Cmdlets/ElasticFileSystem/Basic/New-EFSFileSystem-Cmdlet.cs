@@ -52,20 +52,26 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// was reset. As long as you use the same creation token, if the initial call had succeeded
     /// in creating a file system, the client can learn of its existence from the <code>FileSystemAlreadyExists</code>
     /// error.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/creating-using-create-fs.html#creating-using-create-fs-part1">Creating
+    /// a file system</a> in the <i>Amazon EFS User Guide</i>.
     /// </para><note><para>
     /// The <code>CreateFileSystem</code> call returns while the file system's lifecycle state
     /// is still <code>creating</code>. You can check the file system creation status by calling
     /// the <a>DescribeFileSystems</a> operation, which among other things returns the file
     /// system state.
     /// </para></note><para>
-    /// This operation also takes an optional <code>PerformanceMode</code> parameter that
-    /// you choose for your file system. We recommend <code>generalPurpose</code> performance
+    /// This operation accepts an optional <code>PerformanceMode</code> parameter that you
+    /// choose for your file system. We recommend <code>generalPurpose</code> performance
     /// mode for most file systems. File systems using the <code>maxIO</code> performance
     /// mode can scale to higher levels of aggregate throughput and operations per second
     /// with a tradeoff of slightly higher latencies for most file operations. The performance
     /// mode can't be changed after the file system has been created. For more information,
     /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon
-    /// EFS: Performance Modes</a>.
+    /// EFS performance modes</a>.
+    /// </para><para>
+    /// You can set the throughput mode for the file system using the <code>ThroughputMode</code>
+    /// parameter.
     /// </para><para>
     /// After the file system is fully created, Amazon EFS sets its lifecycle state to <code>available</code>,
     /// at which point you can create one or more mount targets for the file system in your
@@ -86,6 +92,36 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     )]
     public partial class NewEFSFileSystemCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
+        
+        #region Parameter AvailabilityZoneName
+        /// <summary>
+        /// <para>
+        /// <para>Used to create a file system that uses One Zone storage classes. It specifies the
+        /// AWS Availability Zone in which to create the file system. Use the format <code>us-east-1a</code>
+        /// to specify the Availability Zone. For more information about One Zone storage classes,
+        /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using
+        /// EFS storage classes</a> in the <i>Amazon EFS User Guide</i>.</para><note><para>One Zone storage classes are not available in all Availability Zones in AWS Regions
+        /// where Amazon EFS is available.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZoneName { get; set; }
+        #endregion
+        
+        #region Parameter Backup
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether automatic backups are enabled on the file system that you are creating.
+        /// Set the value to <code>true</code> to enable automatic backups. If you are creating
+        /// a file system that uses One Zone storage classes, automatic backups are enabled by
+        /// default. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups">Automatic
+        /// backups</a> in the <i>Amazon EFS User Guide</i>.</para><para>Default is <code>false</code>. However, if you specify an <code>AvailabilityZoneName</code>,
+        /// the default is <code>true</code>.</para><note><para>AWS Backup is not available in all AWS Regions where Amazon EFS is available.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Backup { get; set; }
+        #endregion
         
         #region Parameter CreationToken
         /// <summary>
@@ -115,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>The ID of the AWS KMS CMK to be used to protect the encrypted file system. This parameter
-        /// is only required if you want to use a nondefault CMK. If this parameter is not specified,
+        /// is only required if you want to use a non-default CMK. If this parameter is not specified,
         /// the default CMK for Amazon EFS is used. This ID can be in one of the following formats:</para><ul><li><para>Key ID - A unique identifier of the key, for example <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>ARN - An Amazon Resource Name (ARN) for the key, for example <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Key alias - A previously created display name for a key, for example <code>alias/projectKey1</code>.</para></li><li><para>Key alias ARN - An ARN for a key alias, for example <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</para></li></ul><para>If <code>KmsKeyId</code> is specified, the <a>CreateFileSystemRequest$Encrypted</a>
         /// parameter must be set to true.</para><important><para>EFS accepts only symmetric CMKs. You cannot use asymmetric CMKs with EFS file systems.</para></important>
         /// </para>
@@ -131,7 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// performance mode for most file systems. File systems using the <code>maxIO</code>
         /// performance mode can scale to higher levels of aggregate throughput and operations
         /// per second with a tradeoff of slightly higher latencies for most file operations.
-        /// The performance mode can't be changed after the file system has been created.</para>
+        /// The performance mode can't be changed after the file system has been created.</para><note><para>The <code>maxIO</code> mode is not supported on file systems using One Zone storage
+        /// classes.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,9 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>The throughput, measured in MiB/s, that you want to provision for a file system that
         /// you're creating. Valid values are 1-1024. Required if <code>ThroughputMode</code>
         /// is set to <code>provisioned</code>. The upper limit for throughput is 1024 MiB/s.
-        /// You can get this limit increased by contacting AWS Support. For more information,
-        /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon
-        /// EFS Limits That You Can Increase</a> in the <i>Amazon EFS User Guide.</i></para>
+        /// To increase this limit, contact AWS Support. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon
+        /// EFS quotas that you can increase</a> in the <i>Amazon EFS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,14 +207,14 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter ThroughputMode
         /// <summary>
         /// <para>
-        /// <para>The throughput mode for the file system to be created. There are two throughput modes
-        /// to choose from for your file system: <code>bursting</code> and <code>provisioned</code>.
-        /// If you set <code>ThroughputMode</code> to <code>provisioned</code>, you must also
-        /// set a value for <code>ProvisionedThroughPutInMibps</code>. You can decrease your file
-        /// system's throughput in Provisioned Throughput mode or change between the throughput
-        /// modes as long as it’s been more than 24 hours since the last decrease or throughput
-        /// mode change. For more, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying
-        /// Throughput with Provisioned Mode</a> in the <i>Amazon EFS User Guide.</i></para>
+        /// <para>Specifies the throughput mode for the file system, either <code>bursting</code> or
+        /// <code>provisioned</code>. If you set <code>ThroughputMode</code> to <code>provisioned</code>,
+        /// you must also set a value for <code>ProvisionedThroughputInMibps</code>. After you
+        /// create the file system, you can decrease your file system's throughput in Provisioned
+        /// Throughput mode or change between the throughput modes, as long as it’s been more
+        /// than 24 hours since the last decrease or throughput mode change. For more information,
+        /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying
+        /// throughput with provisioned mode</a> in the <i>Amazon EFS User Guide</i>. </para><para>Default is <code>bursting</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,6 +263,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                 context.Select = CreateSelectDelegate<Amazon.ElasticFileSystem.Model.CreateFileSystemResponse, NewEFSFileSystemCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AvailabilityZoneName = this.AvailabilityZoneName;
+            context.Backup = this.Backup;
             context.CreationToken = this.CreationToken;
             context.Encrypted = this.Encrypted;
             context.KmsKeyId = this.KmsKeyId;
@@ -253,6 +291,14 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             // create request
             var request = new Amazon.ElasticFileSystem.Model.CreateFileSystemRequest();
             
+            if (cmdletContext.AvailabilityZoneName != null)
+            {
+                request.AvailabilityZoneName = cmdletContext.AvailabilityZoneName;
+            }
+            if (cmdletContext.Backup != null)
+            {
+                request.Backup = cmdletContext.Backup.Value;
+            }
             if (cmdletContext.CreationToken != null)
             {
                 request.CreationToken = cmdletContext.CreationToken;
@@ -342,6 +388,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AvailabilityZoneName { get; set; }
+            public System.Boolean? Backup { get; set; }
             public System.String CreationToken { get; set; }
             public System.Boolean? Encrypted { get; set; }
             public System.String KmsKeyId { get; set; }

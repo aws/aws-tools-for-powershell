@@ -178,13 +178,16 @@ $ATH_SelectMap = @{
                "Get-ATHQueryExecutionBatch",
                "New-ATHDataCatalog",
                "New-ATHNamedQuery",
+               "New-ATHPreparedStatement",
                "New-ATHWorkGroup",
                "Remove-ATHDataCatalog",
                "Remove-ATHNamedQuery",
+               "Remove-ATHPreparedStatement",
                "Remove-ATHWorkGroup",
                "Get-ATHDatabase",
                "Get-ATHDataCatalog",
                "Get-ATHNamedQuery",
+               "Get-ATHPreparedStatement",
                "Get-ATHQueryExecution",
                "Get-ATHQueryResult",
                "Get-ATHTableMetadata",
@@ -193,6 +196,7 @@ $ATH_SelectMap = @{
                "Get-ATHDataCatalogList",
                "Get-ATHEngineVersionList",
                "Get-ATHNamedQueryList",
+               "Get-ATHPreparedStatementList",
                "Get-ATHQueryExecutionList",
                "Get-ATHTableMetadataList",
                "Get-ATHResourceTag",
@@ -202,6 +206,7 @@ $ATH_SelectMap = @{
                "Add-ATHResourceTag",
                "Remove-ATHResourceTag",
                "Update-ATHDataCatalog",
+               "Update-ATHPreparedStatement",
                "Update-ATHWorkGroup")
 }
 

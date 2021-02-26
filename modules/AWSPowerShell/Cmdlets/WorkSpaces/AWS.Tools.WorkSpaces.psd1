@@ -115,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-WKSIpGroup', 
         'New-WKSTag', 
         'New-WKSWorkspace', 
+        'New-WKSWorkspaceBundle', 
         'Register-WKSConnectionAlias', 
         'Register-WKSIpGroup', 
         'Register-WKSWorkspaceDirectory', 
@@ -122,6 +123,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-WKSIpGroup', 
         'Remove-WKSTag', 
         'Remove-WKSWorkspace', 
+        'Remove-WKSWorkspaceBundle', 
         'Remove-WKSWorkspaceImage', 
         'Reset-WKSWorkspace', 
         'Restart-WKSWorkspace', 
@@ -135,6 +137,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Unregister-WKSWorkspaceDirectory', 
         'Update-WKSConnectionAliasPermission', 
         'Update-WKSRulesOfIpGroup', 
+        'Update-WKSWorkspaceBundle', 
         'Update-WKSWorkspaceImagePermission')
 
     # Variables to export from this module

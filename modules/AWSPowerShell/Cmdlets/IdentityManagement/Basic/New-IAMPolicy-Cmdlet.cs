@@ -37,6 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
     /// for managed policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
+    /// As a best practice, you can validate your IAM policies. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html">Validating
+    /// IAM policies</a> in the <i>IAM User Guide</i>.
+    /// </para><para>
     /// For more information about managed policies in general, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
     /// policies and inline policies</a> in the <i>IAM User Guide</i>.
     /// </para>

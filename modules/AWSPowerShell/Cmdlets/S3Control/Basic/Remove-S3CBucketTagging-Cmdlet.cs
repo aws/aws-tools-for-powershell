@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
     /// <note><para>
-    /// This operation deletes an Amazon S3 on Outposts bucket's tags. To delete an S3 bucket
+    /// This action deletes an Amazon S3 on Outposts bucket's tags. To delete an S3 bucket
     /// tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html">DeleteBucketTagging</a>
     /// in the <i>Amazon Simple Storage Service API</i>. 
     /// </para></note><para>
-    /// Deletes the tags from the Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using
-    /// Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service Developer Guide</i>.
+    /// Deletes the tags from the Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+    /// Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service User Guide</i>.
     /// </para><para>
-    /// To use this operation, you must have permission to perform the <code>PutBucketTagging</code>
+    /// To use this action, you must have permission to perform the <code>PutBucketTagging</code>
     /// action. By default, the bucket owner has this permission and can grant this permission
     /// to others. 
     /// </para><para>

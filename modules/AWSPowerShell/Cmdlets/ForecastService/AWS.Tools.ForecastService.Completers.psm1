@@ -190,6 +190,7 @@ $FRC_SelectMap = @{
                "Get-FRCPredictorBacktestExportJobList",
                "Get-FRCPredictorList",
                "Get-FRCResourceTag",
+               "Stop-FRCResource",
                "Add-FRCResourceTag",
                "Remove-FRCResourceTag",
                "Update-FRCDatasetGroup")

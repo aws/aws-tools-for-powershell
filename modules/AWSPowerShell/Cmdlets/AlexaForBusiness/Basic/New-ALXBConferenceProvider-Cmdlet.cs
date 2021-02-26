@@ -166,6 +166,17 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         public Amazon.AlexaForBusiness.RequirePin MeetingSetting_RequirePin { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to be added to the specified resource. Do not provide system tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.AlexaForBusiness.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ConferenceProviderArn'.
@@ -255,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             context.PSTNDialIn_OneClickIdDelay = this.PSTNDialIn_OneClickIdDelay;
             context.PSTNDialIn_OneClickPinDelay = this.PSTNDialIn_OneClickPinDelay;
             context.PSTNDialIn_PhoneNumber = this.PSTNDialIn_PhoneNumber;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.AlexaForBusiness.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -380,6 +395,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             {
                 request.PSTNDialIn = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -451,6 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             public System.String PSTNDialIn_OneClickIdDelay { get; set; }
             public System.String PSTNDialIn_OneClickPinDelay { get; set; }
             public System.String PSTNDialIn_PhoneNumber { get; set; }
+            public List<Amazon.AlexaForBusiness.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.AlexaForBusiness.Model.CreateConferenceProviderResponse, NewALXBConferenceProviderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConferenceProviderArn;
         }

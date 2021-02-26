@@ -181,6 +181,7 @@ $BAK_SelectMap = @{
                "Get-BAKRecoveryPoint",
                "Get-BAKRegionSetting",
                "Get-BAKRestoreJob",
+               "Unlock-BAKRecoveryPoint",
                "Export-BAKBackupPlanTemplate",
                "Get-BAKBackupPlan",
                "Get-BAKBackupPlanFromJSON",

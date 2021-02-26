@@ -28,32 +28,41 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Finds new players to fill open slots in an existing game session. This operation can
-    /// be used to add players to matched games that start with fewer than the maximum number
-    /// of players or to replace players when they drop out. By backfilling with the same
-    /// matchmaker used to create the original match, you ensure that new players meet the
-    /// match criteria and maintain a consistent experience throughout the game session. You
-    /// can backfill a match anytime after a game session has been created. 
+    /// Finds new players to fill open slots in currently running game sessions. The backfill
+    /// match process is essentially identical to the process of forming new matches. Backfill
+    /// requests use the same matchmaker that was used to make the original match, and they
+    /// provide matchmaking data for all players currently in the game session. FlexMatch
+    /// uses this information to select new players so that backfilled match continues to
+    /// meet the original match requirements. 
     /// 
     ///  
     /// <para>
-    /// To request a match backfill, specify a unique ticket ID, the existing game session's
-    /// ARN, a matchmaking configuration, and a set of data that describes all current players
-    /// in the game session. If successful, a match backfill ticket is created and returned
-    /// with status set to QUEUED. The ticket is placed in the matchmaker's ticket pool and
-    /// processed. Track the status of the ticket to respond as needed. 
+    /// When using FlexMatch with GameLift managed hosting, you can request a backfill match
+    /// from a client service by calling this operation with a <a>GameSession</a> identifier.
+    /// You also have the option of making backfill requests directly from your game server.
+    /// In response to a request, FlexMatch creates player sessions for the new players, updates
+    /// the <code>GameSession</code> resource, and sends updated matchmaking data to the game
+    /// server. You can request a backfill match at any point after a game session is started.
+    /// Each game session can have only one active backfill request at a time; a subsequent
+    /// request automatically replaces the earlier request.
     /// </para><para>
-    /// The process of finding backfill matches is essentially identical to the initial matchmaking
-    /// process. The matchmaker searches the pool and groups tickets together to form potential
-    /// matches, allowing only one backfill ticket per potential match. Once the a match is
-    /// formed, the matchmaker creates player sessions for the new players. All tickets in
-    /// the match are updated with the game session's connection information, and the <a>GameSession</a>
-    /// object is updated to include matchmaker data on the new players. For more detail on
-    /// how match backfill requests are processed, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
-    /// How Amazon GameLift FlexMatch Works</a>. 
+    /// When using FlexMatch as a standalone component, request a backfill match by calling
+    /// this operation without a game session identifier. As with newly formed matches, matchmaking
+    /// results are returned in a matchmaking event so that your game can update the game
+    /// session that is being backfilled.
+    /// </para><para>
+    /// To request a backfill match, specify a unique ticket ID, the original matchmaking
+    /// configuration, and matchmaking data for all current players in the game session being
+    /// backfilled. Optionally, specify the <code>GameSession</code> ARN. If successful, a
+    /// match backfill ticket is created and returned with status set to QUEUED. Track the
+    /// status of backfill tickets using the same method for tracking tickets for new matches.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">
-    /// Backfill Existing Games with FlexMatch</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
-    /// How GameLift FlexMatch Works</a></para><para><b>Related operations</b></para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>
+    /// Backfill existing games with FlexMatch</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html">
+    /// Matchmaking events</a> (reference)
+    /// </para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
+    /// How GameLift FlexMatch works</a></para><para><b>Related actions</b></para><para><a>StartMatchmaking</a> | <a>DescribeMatchmaking</a> | <a>StopMatchmaking</a> | <a>AcceptMatch</a>
+    /// | <a>StartMatchBackfill</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Start", "GMLMatchBackfill", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.MatchmakingTicket")]
@@ -87,9 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>)
-        /// that is assigned to a game session and uniquely identifies it. This is the same as
-        /// the game session ID.</para>
+        /// <para>A unique identifier for the game session. Use the game session ID. When using FlexMatch
+        /// as a standalone matchmaking solution, this parameter is not needed. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -101,11 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Match information on all players that are currently assigned to the game session.
         /// This information is used by the matchmaker to find new players and add them to the
-        /// existing game.</para><ul><li><para>PlayerID, PlayerAttributes, Team -\\- This information is maintained in the <a>GameSession</a>
+        /// existing game.</para><ul><li><para>PlayerID, PlayerAttributes, Team -- This information is maintained in the <a>GameSession</a>
         /// object, <code>MatchmakerData</code> property, for all players who are currently assigned
         /// to the game session. The matchmaker data is in JSON syntax, formatted as a string.
         /// For more details, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data">
-        /// Match Data</a>. </para></li><li><para>LatencyInMs -\\- If the matchmaker uses player latency, include a latency value, in
+        /// Match Data</a>. </para></li><li><para>LatencyInMs -- If the matchmaker uses player latency, include a latency value, in
         /// milliseconds, for the Region that the game session is currently in. Do not include
         /// latency values for any other Region.</para></li></ul>
         /// </para>

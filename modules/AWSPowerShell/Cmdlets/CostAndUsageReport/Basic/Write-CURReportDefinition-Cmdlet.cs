@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         public System.String[] ReportDefinition_AdditionalSchemaElement { get; set; }
         #endregion
         
+        #region Parameter ReportDefinition_BillingViewArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon resource name of the billing view. You can get this value by using the
+        /// billing view service public APIs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReportDefinition_BillingViewArn { get; set; }
+        #endregion
+        
         #region Parameter ReportDefinition_Compression
         /// <summary>
         /// <para>
@@ -268,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
                 WriteWarning("You are passing $null as a value for parameter ReportDefinition_AdditionalSchemaElement which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ReportDefinition_BillingViewArn = this.ReportDefinition_BillingViewArn;
             context.ReportDefinition_Compression = this.ReportDefinition_Compression;
             #if MODULAR
             if (this.ReportDefinition_Compression == null && ParameterWasBound(nameof(this.ReportDefinition_Compression)))
@@ -357,6 +369,16 @@ namespace Amazon.PowerShell.Cmdlets.CUR
             if (requestReportDefinition_reportDefinition_AdditionalSchemaElement != null)
             {
                 request.ReportDefinition.AdditionalSchemaElements = requestReportDefinition_reportDefinition_AdditionalSchemaElement;
+                requestReportDefinitionIsNull = false;
+            }
+            System.String requestReportDefinition_reportDefinition_BillingViewArn = null;
+            if (cmdletContext.ReportDefinition_BillingViewArn != null)
+            {
+                requestReportDefinition_reportDefinition_BillingViewArn = cmdletContext.ReportDefinition_BillingViewArn;
+            }
+            if (requestReportDefinition_reportDefinition_BillingViewArn != null)
+            {
+                request.ReportDefinition.BillingViewArn = requestReportDefinition_reportDefinition_BillingViewArn;
                 requestReportDefinitionIsNull = false;
             }
             Amazon.CostAndUsageReport.CompressionFormat requestReportDefinition_reportDefinition_Compression = null;
@@ -517,6 +539,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         {
             public List<System.String> ReportDefinition_AdditionalArtifact { get; set; }
             public List<System.String> ReportDefinition_AdditionalSchemaElement { get; set; }
+            public System.String ReportDefinition_BillingViewArn { get; set; }
             public Amazon.CostAndUsageReport.CompressionFormat ReportDefinition_Compression { get; set; }
             public Amazon.CostAndUsageReport.ReportFormat ReportDefinition_Format { get; set; }
             public System.Boolean? ReportDefinition_RefreshClosedReport { get; set; }

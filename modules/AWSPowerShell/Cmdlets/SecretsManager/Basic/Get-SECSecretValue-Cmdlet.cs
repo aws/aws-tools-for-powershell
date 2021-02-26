@@ -89,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>Specifies the unique identifier of the version of the secret that you want to retrieve.
-        /// If you specify this parameter then don't specify <code>VersionStage</code>. If you
-        /// don't specify either a <code>VersionStage</code> or <code>VersionId</code> then the
-        /// default is to perform the operation on the version with the <code>VersionStage</code>
-        /// value of <code>AWSCURRENT</code>.</para><para>This value is typically a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
+        /// If you specify both this parameter and <code>VersionStage</code>, the two parameters
+        /// must refer to the same secret version. If you don't specify either a <code>VersionStage</code>
+        /// or <code>VersionId</code> then the default is to perform the operation on the version
+        /// with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.</para><para>This value is typically a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
         /// value with 32 hexadecimal digits.</para>
         /// </para>
         /// </summary>
@@ -105,10 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>Specifies the secret version that you want to retrieve by the staging label attached
         /// to the version.</para><para>Staging labels are used to keep track of different versions during the rotation process.
-        /// If you use this parameter then don't specify <code>VersionId</code>. If you don't
-        /// specify either a <code>VersionStage</code> or <code>VersionId</code>, then the default
-        /// is to perform the operation on the version with the <code>VersionStage</code> value
-        /// of <code>AWSCURRENT</code>.</para>
+        /// If you specify both this parameter and <code>VersionId</code>, the two parameters
+        /// must refer to the same secret version . If you don't specify either a <code>VersionStage</code>
+        /// or <code>VersionId</code>, then the default is to perform the operation on the version
+        /// with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

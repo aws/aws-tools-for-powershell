@@ -33,7 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// fleet, provide an updated routing strategy. If successful, the updated alias record
     /// is returned.
     /// 
-    ///  <ul><li><para><a>CreateAlias</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>DescribeAlias</a></para></li><li><para><a>UpdateAlias</a></para></li><li><para><a>DeleteAlias</a></para></li><li><para><a>ResolveAlias</a></para></li></ul>
+    ///  
+    /// <para><b>Related actions</b></para><para><a>CreateAlias</a> | <a>ListAliases</a> | <a>DescribeAlias</a> | <a>UpdateAlias</a>
+    /// | <a>DeleteAlias</a> | <a>ResolveAlias</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.Alias")]
@@ -76,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RoutingStrategy_FleetId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for a fleet that the alias points to. This value is the fleet
+        /// <para>A unique identifier for the fleet that the alias points to. This value is the fleet
         /// ID, not the fleet ARN.</para>
         /// </para>
         /// </summary>

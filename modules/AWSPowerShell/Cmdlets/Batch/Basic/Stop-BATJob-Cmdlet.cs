@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// <summary>
     /// Cancels a job in an AWS Batch job queue. Jobs that are in the <code>SUBMITTED</code>,
     /// <code>PENDING</code>, or <code>RUNNABLE</code> state are canceled. Jobs that have
-    /// progressed to <code>STARTING</code> or <code>RUNNING</code> are not canceled (but
-    /// the API operation still succeeds, even if no job is canceled); these jobs must be
-    /// terminated with the <a>TerminateJob</a> operation.
+    /// progressed to <code>STARTING</code> or <code>RUNNING</code> aren't canceled, but the
+    /// API operation still succeeds, even if no job is canceled. These jobs must be terminated
+    /// with the <a>TerminateJob</a> operation.
     /// </summary>
     [Cmdlet("Stop", "BATJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

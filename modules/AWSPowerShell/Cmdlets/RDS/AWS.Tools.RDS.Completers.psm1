@@ -87,6 +87,13 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.DBProxyEndpointTargetRole
+        "New-RDSDBProxyEndpoint/TargetRole"
+        {
+            $v = "READ_ONLY","READ_WRITE"
+            break
+        }
+
         # Amazon.RDS.EngineFamily
         "New-RDSDBProxy/EngineFamily"
         {
@@ -124,6 +131,7 @@ $RDS_map = @{
     "Mode"=@("Start-RDSActivityStream")
     "ReplicaMode"=@("Edit-RDSDBInstance","New-RDSDBInstanceReadReplica")
     "SourceType"=@("Get-RDSEvent")
+    "TargetRole"=@("New-RDSDBProxyEndpoint")
 }
 
 _awsArgumentCompleterRegistration $RDS_Completers $RDS_map
@@ -198,6 +206,7 @@ $RDS_SelectMap = @{
                "New-RDSDBInstanceReadReplica",
                "New-RDSDBParameterGroup",
                "New-RDSDBProxy",
+               "New-RDSDBProxyEndpoint",
                "New-RDSDBSecurityGroup",
                "New-RDSDBSnapshot",
                "New-RDSDBSubnetGroup",
@@ -213,6 +222,7 @@ $RDS_SelectMap = @{
                "Remove-RDSDBInstanceAutomatedBackup",
                "Remove-RDSDBParameterGroup",
                "Remove-RDSDBProxy",
+               "Remove-RDSDBProxyEndpoint",
                "Remove-RDSDBSecurityGroup",
                "Remove-RDSDBSnapshot",
                "Remove-RDSDBSubnetGroup",
@@ -238,6 +248,7 @@ $RDS_SelectMap = @{
                "Get-RDSDBParameterGroup",
                "Get-RDSDBParameter",
                "Get-RDSDBProxy",
+               "Get-RDSDBProxyEndpoint",
                "Get-RDSDBProxyTargetGroup",
                "Get-RDSDBProxyTarget",
                "Get-RDSDBSecurityGroup",
@@ -274,6 +285,7 @@ $RDS_SelectMap = @{
                "Edit-RDSDBInstance",
                "Edit-RDSDBParameterGroup",
                "Edit-RDSDBProxy",
+               "Edit-RDSDBProxyEndpoint",
                "Edit-RDSDBProxyTargetGroup",
                "Edit-RDSDBSnapshot",
                "Edit-RDSDBSnapshotAttribute",

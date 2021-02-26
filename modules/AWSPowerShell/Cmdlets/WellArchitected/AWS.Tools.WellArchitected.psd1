@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-WATLense', 
+        'Add-WATResourceTag', 
         'Convert-WATLensReview', 
         'Get-WATAnswer', 
         'Get-WATAnswerList', 
@@ -99,6 +100,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-WATMilestone', 
         'Get-WATMilestoneList', 
         'Get-WATNotificationList', 
+        'Get-WATResourceTag', 
         'Get-WATShareInvitationList', 
         'Get-WATWorkload', 
         'Get-WATWorkloadList', 
@@ -107,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-WATWorkload', 
         'New-WATWorkloadShare', 
         'Remove-WATLense', 
+        'Remove-WATResourceTag', 
         'Remove-WATWorkload', 
         'Remove-WATWorkloadShare', 
         'Update-WATAnswer', 

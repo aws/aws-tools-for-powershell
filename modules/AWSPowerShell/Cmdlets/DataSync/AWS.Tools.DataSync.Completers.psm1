@@ -81,14 +81,20 @@ $DSYN_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.DataSync.NfsVersion
-        "New-DSYNLocationNfs/MountOptions_Version"
+        {
+            ($_ -eq "New-DSYNLocationNfs/MountOptions_Version") -Or
+            ($_ -eq "Update-DSYNLocationNfs/MountOptions_Version")
+        }
         {
             $v = "AUTOMATIC","NFS3","NFS4_0","NFS4_1"
             break
         }
 
         # Amazon.DataSync.ObjectStorageServerProtocol
-        "New-DSYNLocationObjectStorage/ServerProtocol"
+        {
+            ($_ -eq "New-DSYNLocationObjectStorage/ServerProtocol") -Or
+            ($_ -eq "Update-DSYNLocationObjectStorage/ServerProtocol")
+        }
         {
             $v = "HTTP","HTTPS"
             break
@@ -102,7 +108,10 @@ $DSYN_Completers = {
         }
 
         # Amazon.DataSync.SmbVersion
-        "New-DSYNLocationSmb/MountOptions_Version"
+        {
+            ($_ -eq "New-DSYNLocationSmb/MountOptions_Version") -Or
+            ($_ -eq "Update-DSYNLocationSmb/MountOptions_Version")
+        }
         {
             $v = "AUTOMATIC","SMB2","SMB3"
             break
@@ -117,9 +126,9 @@ $DSYN_Completers = {
 }
 
 $DSYN_map = @{
-    "MountOptions_Version"=@("New-DSYNLocationNfs","New-DSYNLocationSmb")
+    "MountOptions_Version"=@("New-DSYNLocationNfs","New-DSYNLocationSmb","Update-DSYNLocationNfs","Update-DSYNLocationSmb")
     "S3StorageClass"=@("New-DSYNLocationS3")
-    "ServerProtocol"=@("New-DSYNLocationObjectStorage")
+    "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
 }
 
 _awsArgumentCompleterRegistration $DSYN_Completers $DSYN_map
@@ -202,6 +211,9 @@ $DSYN_SelectMap = @{
                "Add-DSYNResourceTag",
                "Remove-DSYNResourceTag",
                "Update-DSYNAgent",
+               "Update-DSYNLocationNfs",
+               "Update-DSYNLocationObjectStorage",
+               "Update-DSYNLocationSmb",
                "Update-DSYNTask",
                "Update-DSYNTaskExecution")
 }

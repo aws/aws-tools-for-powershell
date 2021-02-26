@@ -28,15 +28,16 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
-    /// groups.</b><para>
+    /// <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b><para>
     /// Retrieves information for a registered game server. Information includes game server
     /// status, health check info, and the instance that the game server is running on. 
     /// </para><para>
     /// To retrieve game server information, specify the game server ID. If successful, the
     /// requested game server object is returned. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>RegisterGameServer</a></para></li><li><para><a>ListGameServers</a></para></li><li><para><a>ClaimGameServer</a></para></li><li><para><a>DescribeGameServer</a></para></li><li><para><a>UpdateGameServer</a></para></li><li><para><a>DeregisterGameServer</a></para></li></ul>
+    /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>RegisterGameServer</a> | <a>ListGameServers</a> | <a>ClaimGameServer</a> | <a>DescribeGameServer</a>
+    /// | <a>UpdateGameServer</a> | <a>DeregisterGameServer</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLGameServer")]
     [OutputType("Amazon.GameLift.Model.GameServer")]

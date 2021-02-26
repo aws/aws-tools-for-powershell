@@ -28,19 +28,31 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves information about a fleet's instances, including instance IDs. Use this
-    /// operation to get details on all instances in the fleet or get details on one specific
-    /// instance.
+    /// Retrieves information about a fleet's instances, including instance IDs, connection
+    /// data, and status. 
     /// 
     ///  
     /// <para>
-    /// To get a specific instance, specify fleet ID and instance ID. To get all instances
-    /// in a fleet, specify a fleet ID only. Use the pagination parameters to retrieve results
-    /// as a set of sequential pages. If successful, an <a>Instance</a> object is returned
-    /// for each result.
+    /// This operation can be used in the following ways:
+    /// </para><ul><li><para>
+    /// To get information on all instances that are deployed to a fleet's home Region, provide
+    /// the fleet ID.
+    /// </para></li><li><para>
+    /// To get information on all instances that are deployed to a fleet's remote location,
+    /// provide the fleet ID and location name.
+    /// </para></li><li><para>
+    /// To get information on a specific instance in a fleet, provide the fleet ID and instance
+    /// ID.
+    /// </para></li></ul><para>
+    /// Use the pagination parameters to retrieve results as a set of sequential pages. 
+    /// </para><para>
+    /// If successful, an <code>Instance</code> object is returned for each requested instance.
+    /// Instances are not returned in any particular order. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely
     /// Access Fleet Instances</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug
-    /// Fleet Issues</a></para><para><b>Related operations</b></para><ul><li><para><a>DescribeInstances</a></para></li><li><para><a>GetInstanceAccess</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Fleet Issues</a></para><para><b>Related actions</b></para><para><a>DescribeInstances</a> | <a>GetInstanceAccess</a> | <a>DescribeEC2InstanceLimits</a>
+    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLInstance")]
     [OutputType("Amazon.GameLift.Model.Instance")]
@@ -55,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet to retrieve instance information for. You can use
+        /// <para>A unique identifier for the fleet to retrieve instance information for. You can use
         /// either the fleet ID or ARN value.</para>
         /// </para>
         /// </summary>
@@ -81,6 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter Location
+        /// <summary>
+        /// <para>
+        /// <para>The name of a location to retrieve instance information for, in the form of an AWS
+        /// Region code such as <code>us-west-2</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Location { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
@@ -101,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// <para>A token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this operation. To start at the beginning
         /// of the result set, do not specify a value.</para>
         /// </para>
@@ -187,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.Location = this.Location;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -220,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.Limit != null)
             {
                 request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+            }
+            if (cmdletContext.Location != null)
+            {
+                request.Location = cmdletContext.Location;
             }
             
             // Initialize loop variant and commence piping
@@ -283,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.Location != null)
+            {
+                request.Location = cmdletContext.Location;
             }
             
             // Initialize loop variants and commence piping
@@ -399,6 +431,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public System.String FleetId { get; set; }
             public System.String InstanceId { get; set; }
             public int? Limit { get; set; }
+            public System.String Location { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.GameLift.Model.DescribeInstancesResponse, GetGMLInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Instances;

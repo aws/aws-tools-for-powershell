@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SettingId
         /// <summary>
         /// <para>
-        /// <para>The ID of the service setting to get. The setting ID can be <code>/ssm/parameter-store/default-parameter-tier</code>,
+        /// <para>The ID of the service setting to get. The setting ID can be <code>/ssm/automation/customer-script-log-destination</code>,
+        /// <code>/ssm/automation/customer-script-log-group-name</code>, <code>/ssm/parameter-store/default-parameter-tier</code>,
         /// <code>/ssm/parameter-store/high-throughput-enabled</code>, or <code>/ssm/managed-instance/activation-tier</code>.</para>
         /// </para>
         /// </summary>

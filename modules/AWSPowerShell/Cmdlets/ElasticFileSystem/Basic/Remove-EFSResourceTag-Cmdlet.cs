@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The keys of the key:value tag pairs that you want to remove from the specified EFS
+        /// <para>The keys of the key-value tag pairs that you want to remove from the specified EFS
         /// resource.</para>
         /// </para>
         /// </summary>

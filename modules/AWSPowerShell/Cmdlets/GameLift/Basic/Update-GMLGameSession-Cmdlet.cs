@@ -28,16 +28,19 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates game session properties. This includes the session name, maximum player count,
-    /// protection policy, which controls whether or not an active game session can be terminated
-    /// during a scale-down event, and the player session creation policy, which controls
-    /// whether or not new players can join the session. To update a game session, specify
-    /// the game session ID and the values you want to change. If successful, an updated <a>GameSession</a>
-    /// object is returned. 
+    /// Updates the mutable properties of a game session. 
     /// 
-    ///  <ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
-    /// Game session placements
-    /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul>
+    ///  
+    /// <para>
+    /// To update a game session, specify the game session ID and the values you want to change.
+    /// 
+    /// </para><para>
+    /// If successful, the updated <code>GameSession</code> object is returned. 
+    /// </para><para><b>Related actions</b></para><para><a>CreateGameSession</a> | <a>DescribeGameSessions</a> | <a>DescribeGameSessionDetails</a>
+    /// | <a>SearchGameSessions</a> | <a>UpdateGameSession</a> | <a>GetGameSessionLogUrl</a>
+    /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a>StopGameSessionPlacement</a>
+    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLGameSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameSession")]
@@ -90,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlayerSessionCreationPolicy
         /// <summary>
         /// <para>
-        /// <para>Policy determining whether or not the game session accepts new players.</para>
+        /// <para>A policy that determines whether the game session is accepting new players.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

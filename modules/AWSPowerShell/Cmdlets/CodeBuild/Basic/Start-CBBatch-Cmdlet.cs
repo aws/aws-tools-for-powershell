@@ -151,6 +151,19 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.CredentialProviderType RegistryCredentialOverride_CredentialProvider { get; set; }
         #endregion
         
+        #region Parameter DebugSessionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if session debugging is enabled for this batch build. For more information,
+        /// see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html">Viewing
+        /// a running build in Session Manager</a>. Batch session debugging is not supported for
+        /// matrix batch builds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DebugSessionEnabled { get; set; }
+        #endregion
+        
         #region Parameter ArtifactsOverride_EncryptionDisabled
         /// <summary>
         /// <para>
@@ -789,6 +802,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.CacheOverride_Type = this.CacheOverride_Type;
             context.CertificateOverride = this.CertificateOverride;
             context.ComputeTypeOverride = this.ComputeTypeOverride;
+            context.DebugSessionEnabled = this.DebugSessionEnabled;
             context.EncryptionKeyOverride = this.EncryptionKeyOverride;
             context.EnvironmentTypeOverride = this.EnvironmentTypeOverride;
             if (this.EnvironmentVariablesOverride != null)
@@ -1080,6 +1094,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.ComputeTypeOverride != null)
             {
                 request.ComputeTypeOverride = cmdletContext.ComputeTypeOverride;
+            }
+            if (cmdletContext.DebugSessionEnabled != null)
+            {
+                request.DebugSessionEnabled = cmdletContext.DebugSessionEnabled.Value;
             }
             if (cmdletContext.EncryptionKeyOverride != null)
             {
@@ -1415,6 +1433,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.CacheType CacheOverride_Type { get; set; }
             public System.String CertificateOverride { get; set; }
             public Amazon.CodeBuild.ComputeType ComputeTypeOverride { get; set; }
+            public System.Boolean? DebugSessionEnabled { get; set; }
             public System.String EncryptionKeyOverride { get; set; }
             public Amazon.CodeBuild.EnvironmentType EnvironmentTypeOverride { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> EnvironmentVariablesOverride { get; set; }

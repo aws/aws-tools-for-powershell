@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// interfaces per instance.</para></li><li><para><code>network-info.network-performance</code> - The network performance (for example,
         /// "25 Gigabit").</para></li><li><para><code>processor-info.supported-architecture</code> - The CPU architecture (<code>arm64</code>
         /// | <code>i386</code> | <code>x86_64</code>).</para></li><li><para><code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in
-        /// GHz.</para></li><li><para><code>supported-root-device-type</code> - The root device type (<code>ebs</code>
+        /// GHz.</para></li><li><para><code>supported-boot-mode</code> - The boot mode (<code>legacy-bios</code> | <code>uefi</code>).</para></li><li><para><code>supported-root-device-type</code> - The root device type (<code>ebs</code>
         /// | <code>instance-store</code>).</para></li><li><para><code>supported-usage-class</code> - The usage class (<code>on-demand</code> | <code>spot</code>).</para></li><li><para><code>supported-virtualization-type</code> - The virtualization type (<code>hvm</code>
         /// | <code>paravirtual</code>).</para></li><li><para><code>vcpu-info.default-cores</code> - The default number of cores for the instance
         /// type.</para></li><li><para><code>vcpu-info.default-threads-per-core</code> - The default number of threads per

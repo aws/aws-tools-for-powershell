@@ -30,14 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <summary>
     /// Puts an Amazon S3 Storage Lens configuration. For more information about S3 Storage
     /// Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working
-    /// with Amazon S3 Storage Lens</a> in the <i>Amazon Simple Storage Service Developer
-    /// Guide</i>.
+    /// with Amazon S3 Storage Lens</a> in the <i>Amazon Simple Storage Service User Guide</i>.
     /// 
     ///  <note><para>
     /// To use this action, you must have permission to perform the <code>s3:PutStorageLensConfiguration</code>
     /// action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting
     /// permissions to use Amazon S3 Storage Lens</a> in the <i>Amazon Simple Storage Service
-    /// Developer Guide</i>.
+    /// User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "S3CStorageLensConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

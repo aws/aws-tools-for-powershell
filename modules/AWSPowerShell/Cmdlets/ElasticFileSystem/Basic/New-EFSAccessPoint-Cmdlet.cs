@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// system path is exposed as the access point's root directory. Applications using the
     /// access point can only access data in its own directory and below. To learn more, see
     /// <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">Mounting
-    /// a File System Using EFS Access Points</a>.
+    /// a file system using EFS access points</a>.
     /// 
     ///  
     /// <para>

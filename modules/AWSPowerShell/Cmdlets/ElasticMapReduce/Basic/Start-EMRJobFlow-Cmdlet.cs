@@ -501,7 +501,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// installation script as bootstrap action arguments. For more information, see "Launch
         /// a Job Flow on the MapR Distribution for Hadoop" in the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon
         /// EMR Developer Guide</a>. Supported values are:</para><ul><li><para>"mapr-m3" - launch the cluster using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the cluster using MapR M5 Edition.</para></li><li><para>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch
-        /// the job flow using MapR M3 or M5 Edition respectively.</para></li><li><para>"mapr-m7" - launch the cluster using MapR M7 Edition.</para></li><li><para>"hunk" - launch the cluster with the Hunk Big Data Analtics Platform.</para></li><li><para>"hue"- launch the cluster with Hue installed.</para></li><li><para>"spark" - launch the cluster with Apache Spark installed.</para></li><li><para>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</para></li></ul>
+        /// the job flow using MapR M3 or M5 Edition respectively.</para></li><li><para>"mapr-m7" - launch the cluster using MapR M7 Edition.</para></li><li><para>"hunk" - launch the cluster with the Hunk Big Data Analytics Platform.</para></li><li><para>"hue"- launch the cluster with Hue installed.</para></li><li><para>"spark" - launch the cluster with Apache Spark installed.</para></li><li><para>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,7 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// delete an existing VPC peering connection, call <a>DeleteVpcPeeringConnection</a>.
     /// 
     /// 
-    ///  <ul><li><para><a>CreateVpcPeeringAuthorization</a></para></li><li><para><a>DescribeVpcPeeringAuthorizations</a></para></li><li><para><a>DeleteVpcPeeringAuthorization</a></para></li><li><para><a>CreateVpcPeeringConnection</a></para></li><li><para><a>DescribeVpcPeeringConnections</a></para></li><li><para><a>DeleteVpcPeeringConnection</a></para></li></ul>
+    ///  
+    /// <para><b>Related actions</b></para><para><a>CreateVpcPeeringAuthorization</a> | <a>DescribeVpcPeeringAuthorizations</a> |
+    /// <a>DeleteVpcPeeringAuthorization</a> | <a>CreateVpcPeeringConnection</a> | <a>DescribeVpcPeeringConnections</a>
+    /// | <a>DeleteVpcPeeringConnection</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Remove", "GMLVpcPeeringAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -47,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameLiftAwsAccountId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the AWS account that you use to manage your Amazon GameLift
-        /// fleet. You can find your Account ID in the AWS Management Console under account settings.</para>
+        /// <para>A unique identifier for the AWS account that you use to manage your GameLift fleet.
+        /// You can find your Account ID in the AWS Management Console under account settings.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,11 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PeerVpcId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift
-        /// fleet. The VPC must be in the same Region where your fleet is deployed. Look up a
-        /// VPC ID using the <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in
-        /// the AWS Management Console. Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
-        /// Peering with Amazon GameLift Fleets</a>.</para>
+        /// <para>A unique identifier for a VPC with resources to be accessed by your GameLift fleet.
+        /// The VPC must be in the same Region as your fleet. To look up a VPC ID, use the <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in the AWS Management
+        /// Console. Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
+        /// Peering with GameLift Fleets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

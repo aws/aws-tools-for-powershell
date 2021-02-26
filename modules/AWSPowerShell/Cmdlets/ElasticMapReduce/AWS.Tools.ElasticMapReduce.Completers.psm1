@@ -134,6 +134,20 @@ $EMR_Completers = {
             break
         }
 
+        # Amazon.ElasticMapReduce.OnDemandCapacityReservationPreference
+        "Add-EMRInstanceFleet/InstanceFleet_LaunchSpecifications_OnDemandSpecification_CapacityReservationOptions_CapacityReservationPreference"
+        {
+            $v = "none","open"
+            break
+        }
+
+        # Amazon.ElasticMapReduce.OnDemandCapacityReservationUsageStrategy
+        "Add-EMRInstanceFleet/InstanceFleet_LaunchSpecifications_OnDemandSpecification_CapacityReservationOptions_UsageStrategy"
+        {
+            $v = "use-capacity-reservations-first"
+            break
+        }
+
         # Amazon.ElasticMapReduce.OnDemandProvisioningAllocationStrategy
         "Add-EMRInstanceFleet/InstanceFleet_LaunchSpecifications_OnDemandSpecification_AllocationStrategy"
         {
@@ -190,6 +204,8 @@ $EMR_map = @{
     "IdentityType"=@("Get-EMRStudioSessionMapping","Get-EMRStudioSessionMappingList","New-EMRStudioSessionMapping","Remove-EMRStudioSessionMapping","Update-EMRStudioSessionMapping")
     "InstanceFleet_InstanceFleetType"=@("Add-EMRInstanceFleet")
     "InstanceFleet_LaunchSpecifications_OnDemandSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
+    "InstanceFleet_LaunchSpecifications_OnDemandSpecification_CapacityReservationOptions_CapacityReservationPreference"=@("Add-EMRInstanceFleet")
+    "InstanceFleet_LaunchSpecifications_OnDemandSpecification_CapacityReservationOptions_UsageStrategy"=@("Add-EMRInstanceFleet")
     "InstanceFleet_LaunchSpecifications_SpotSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
     "InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutAction"=@("Add-EMRInstanceFleet")
     "InstanceFleetType"=@("Get-EMRInstanceList")
@@ -295,6 +311,7 @@ $EMR_SelectMap = @{
                "Start-EMRNotebookExecution",
                "Stop-EMRNotebookExecution",
                "Stop-EMRJobFlow",
+               "Update-EMRStudio",
                "Update-EMRStudioSessionMapping")
 }
 

@@ -150,9 +150,19 @@ $S3_Completers = {
         }
 
         # Amazon.S3.ObjectLockLegalHoldStatus
-        "Write-S3ObjectLegalHold/LegalHold_Status"
+        {
+            ($_ -eq "Write-S3ObjectLegalHold/LegalHold_Status") -Or
+            ($_ -eq "Write-S3GetObjectResponse/ObjectLockLegalHoldStatus")
+        }
         {
             $v = "OFF","ON"
+            break
+        }
+
+        # Amazon.S3.ObjectLockMode
+        "Write-S3GetObjectResponse/ObjectLockMode"
+        {
+            $v = "COMPLIANCE","GOVERNANCE"
             break
         }
 
@@ -166,16 +176,32 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.ReplicationStatus
+        "Write-S3GetObjectResponse/ReplicationStatus"
+        {
+            $v = "COMPLETED","FAILED","PENDING","REPLICA"
+            break
+        }
+
+        # Amazon.S3.RequestCharged
+        "Write-S3GetObjectResponse/RequestCharged"
+        {
+            $v = "requester"
+            break
+        }
+
         # Amazon.S3.RequestPayer
         {
             ($_ -eq "Get-S3Object/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectLegalHold/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectMetadata/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectRetention/RequestPayer") -Or
+            ($_ -eq "Get-S3ObjectTagSet/RequestPayer") -Or
             ($_ -eq "Restore-S3Object/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLegalHold/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLockConfiguration/RequestPayer") -Or
-            ($_ -eq "Write-S3ObjectRetention/RequestPayer")
+            ($_ -eq "Write-S3ObjectRetention/RequestPayer") -Or
+            ($_ -eq "Write-S3ObjectTagSet/RequestPayer")
         }
         {
             $v = "requester"
@@ -203,7 +229,10 @@ $S3_Completers = {
         }
 
         # Amazon.S3.S3StorageClass
-        "Restore-S3Object/OutputLocation_S3_StorageClass"
+        {
+            ($_ -eq "Restore-S3Object/OutputLocation_S3_StorageClass") -Or
+            ($_ -eq "Write-S3GetObjectResponse/StorageClass")
+        }
         {
             $v = "DEEP_ARCHIVE","GLACIER","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","STANDARD","STANDARD_IA"
             break
@@ -217,7 +246,8 @@ $S3_Completers = {
             ($_ -eq "Get-S3ObjectMetadata/ServerSideEncryptionCustomerMethod") -Or
             ($_ -eq "Get-S3PreSignedURL/ServerSideEncryptionCustomerMethod") -Or
             ($_ -eq "Read-S3Object/ServerSideEncryptionCustomerMethod") -Or
-            ($_ -eq "Write-S3Object/ServerSideEncryptionCustomerMethod")
+            ($_ -eq "Write-S3Object/ServerSideEncryptionCustomerMethod") -Or
+            ($_ -eq "Write-S3GetObjectResponse/SSECustomerAlgorithm")
         }
         {
             $v = "","AES256"
@@ -229,7 +259,8 @@ $S3_Completers = {
             ($_ -eq "Restore-S3Object/OutputLocation_S3_Encryption_EncryptionType") -Or
             ($_ -eq "Copy-S3Object/ServerSideEncryption") -Or
             ($_ -eq "Write-S3Object/ServerSideEncryption") -Or
-            ($_ -eq "Get-S3PreSignedURL/ServerSideEncryptionMethod")
+            ($_ -eq "Get-S3PreSignedURL/ServerSideEncryptionMethod") -Or
+            ($_ -eq "Write-S3GetObjectResponse/ServerSideEncryptionMethod")
         }
         {
             $v = "","AES256","aws:kms"
@@ -273,17 +304,23 @@ $S3_map = @{
     "LegalHold_Status"=@("Write-S3ObjectLegalHold")
     "ObjectLockConfiguration_ObjectLockEnabled"=@("Write-S3ObjectLockConfiguration")
     "ObjectLockConfiguration_Rule_DefaultRetention_Mode"=@("Write-S3ObjectLockConfiguration")
+    "ObjectLockLegalHoldStatus"=@("Write-S3GetObjectResponse")
+    "ObjectLockMode"=@("Write-S3GetObjectResponse")
     "OutputLocation_S3_CannedACL"=@("Restore-S3Object")
     "OutputLocation_S3_Encryption_EncryptionType"=@("Restore-S3Object")
     "OutputLocation_S3_StorageClass"=@("Restore-S3Object")
-    "RequestPayer"=@("Get-S3Object","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Restore-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention")
+    "ReplicationStatus"=@("Write-S3GetObjectResponse")
+    "RequestCharged"=@("Write-S3GetObjectResponse")
+    "RequestPayer"=@("Get-S3Object","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Restore-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "RestoreRequestType"=@("Restore-S3Object")
     "Retention_Mode"=@("Write-S3ObjectRetention")
     "RetrievalTier"=@("Restore-S3Object")
     "ServerSideCustomerEncryptionMethod"=@("Select-S3ObjectContent")
     "ServerSideEncryption"=@("Copy-S3Object","Write-S3Object")
     "ServerSideEncryptionCustomerMethod"=@("Copy-S3Object","Get-S3ObjectMetadata","Get-S3PreSignedURL","Read-S3Object","Write-S3Object")
-    "ServerSideEncryptionMethod"=@("Get-S3PreSignedURL")
+    "ServerSideEncryptionMethod"=@("Get-S3PreSignedURL","Write-S3GetObjectResponse")
+    "SSECustomerAlgorithm"=@("Write-S3GetObjectResponse")
+    "StorageClass"=@("Write-S3GetObjectResponse")
     "Tier"=@("Restore-S3Object")
     "VersioningConfig_Status"=@("Write-S3BucketVersioning")
 }
@@ -410,6 +447,7 @@ $S3_SelectMap = @{
                "Add-S3PublicAccessBlock",
                "Restore-S3Object",
                "Select-S3ObjectContent",
+               "Write-S3GetObjectResponse",
                "Copy-S3Object",
                "Get-S3PreSignedURL",
                "New-S3Bucket",

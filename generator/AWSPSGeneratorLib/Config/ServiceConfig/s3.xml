@@ -422,6 +422,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="WriteGetObjectResponse" Verb="Write" Noun="GetObjectResponse" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten>
         <Type>Amazon.S3.Model.SelectParameters</Type>

@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// in the <i>Amazon S3 Developer Guide</i>. 
     /// 
     ///  <note><para>
-    /// To perform this operation, the user or role performing the operation must have the
-    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a>
+    /// To perform this operation, the user or role performing the action must have the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a>
     /// permission.
     /// </para></note><para>
     /// Specify the replication configuration in the request body. In the replication configuration,
@@ -63,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// By default, a resource owner, in this case the AWS account that created the bucket,
     /// can perform this operation. The resource owner can also grant others permissions to
     /// perform the operation. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
-    /// Permissions in a Policy</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// Permissions in a Policy</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a>.
     /// </para><para><b>Handling Replication of Encrypted Objects</b></para><para>
     /// By default, Amazon S3 doesn't replicate objects that are stored at rest using server-side
@@ -101,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

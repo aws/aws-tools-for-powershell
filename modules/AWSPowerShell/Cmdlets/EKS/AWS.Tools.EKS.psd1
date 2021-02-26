@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-EKSEncryptionConfig', 
         'Add-EKSIdentityProviderConfig', 
         'Add-EKSResourceTag', 
         'Get-EKSAddon', 

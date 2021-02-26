@@ -18,7 +18,6 @@
     </VerbMappings>
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases>
         <AliasSet Cmdlet="Approve-RSClusterSecurityGroupIngress">Authorize-RSClusterSecurityGroupIngress</AliasSet>
         <AliasSet Cmdlet="Request-ECReservedNodeOffering">Purchase-RSReservedNodeOffering</AliasSet>
@@ -314,6 +313,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyAquaConfiguration" OutputProperty="AquaConfiguration" Verb="Edit" Noun="AquaConfiguration" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyCluster" OutputProperty="Cluster" Verb="Edit" Noun="Cluster" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params>
                 <Param Name="NumberOfNodes" AutoRename="false" />
@@ -415,7 +418,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

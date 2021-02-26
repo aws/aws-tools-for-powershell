@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     /// 
     ///  
     /// <para>
-    /// To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">Access
+    /// To learn about filter keys that you can use to retrieve a list of findings, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">Access
     /// Analyzer filter keys</a> in the <b>IAM User Guide</b>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         #region Parameter AnalyzerArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the analyzer to retrieve findings from.</para>
+        /// <para>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN
+        /// of the analyzer</a> to retrieve findings from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

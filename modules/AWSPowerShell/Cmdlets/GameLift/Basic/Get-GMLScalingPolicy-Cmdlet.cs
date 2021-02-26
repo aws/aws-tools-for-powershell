@@ -41,14 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// This operation does not affect the status of the scaling policies, which remains ACTIVE.
     /// To see whether a fleet's scaling policies are in force or suspended, call <a>DescribeFleetAttributes</a>
     /// and check the stopped actions.
-    /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para>
-    /// Manage scaling policies:
-    /// </para><ul><li><para><a>PutScalingPolicy</a> (auto-scaling)
-    /// </para></li><li><para><a>DescribeScalingPolicies</a> (auto-scaling)
-    /// </para></li><li><para><a>DeleteScalingPolicy</a> (auto-scaling)
-    /// </para></li></ul></li><li><para>
-    /// Manage fleet actions:
-    /// </para><ul><li><para><a>StartFleetActions</a></para></li><li><para><a>StopFleetActions</a></para></li></ul></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><para><b>Related actions</b></para><para><a>DescribeFleetCapacity</a> | <a>UpdateFleetCapacity</a> | <a>DescribeEC2InstanceLimits</a>
+    /// | <a>PutScalingPolicy</a> | <a>DescribeScalingPolicies</a> | <a>DeleteScalingPolicy</a>
+    /// | <a>StopFleetActions</a> | <a>StartFleetActions</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLScalingPolicy")]
     [OutputType("Amazon.GameLift.Model.ScalingPolicy")]
@@ -63,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet to retrieve scaling policies for. You can use either
+        /// <para>A unique identifier for the fleet to retrieve scaling policies for. You can use either
         /// the fleet ID or ARN value.</para>
         /// </para>
         /// </summary>
@@ -76,6 +72,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String FleetId { get; set; }
+        #endregion
+        
+        #region Parameter Location
+        /// <summary>
+        /// <para>
+        /// <para> CONTENT TODO </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Location { get; set; }
         #endregion
         
         #region Parameter StatusFilter
@@ -111,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// <para>A token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this operation. To start at the beginning
         /// of the result set, do not specify a value.</para>
         /// </para>
@@ -196,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.Location = this.Location;
             context.NextToken = this.NextToken;
             context.StatusFilter = this.StatusFilter;
             
@@ -226,6 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.Limit != null)
             {
                 request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+            }
+            if (cmdletContext.Location != null)
+            {
+                request.Location = cmdletContext.Location;
             }
             if (cmdletContext.StatusFilter != null)
             {
@@ -289,6 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.FleetId != null)
             {
                 request.FleetId = cmdletContext.FleetId;
+            }
+            if (cmdletContext.Location != null)
+            {
+                request.Location = cmdletContext.Location;
             }
             if (cmdletContext.StatusFilter != null)
             {
@@ -408,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             public System.String FleetId { get; set; }
             public int? Limit { get; set; }
+            public System.String Location { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.GameLift.ScalingStatusType StatusFilter { get; set; }
             public System.Func<Amazon.GameLift.Model.DescribeScalingPoliciesResponse, GetGMLScalingPolicyCmdlet, object> Select { get; set; } =

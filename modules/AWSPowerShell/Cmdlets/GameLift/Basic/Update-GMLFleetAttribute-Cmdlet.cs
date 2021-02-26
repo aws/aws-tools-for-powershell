@@ -28,15 +28,21 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates fleet properties, including name and description, for a fleet. To update metadata,
-    /// specify the fleet ID and the property values that you want to change. If successful,
-    /// the fleet ID for the updated fleet is returned.
+    /// Updates a fleet's mutable attributes, including game session protection and resource
+    /// creation limits.
     /// 
     ///  
-    /// <para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift Fleets</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para><a>DescribeFleetAttributes</a></para></li><li><para>
-    /// Update fleets:
-    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para><a>StartFleetActions</a> or <a>StopFleetActions</a></para></li></ul>
+    /// <para>
+    /// To update fleet attributes, specify the fleet ID and the property values that you
+    /// want to change. 
+    /// </para><para>
+    /// If successful, an updated <code>FleetAttributes</code> object is returned.
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
+    /// up GameLift fleets</a></para><para><b>Related actions</b></para><para><a>CreateFleetLocations</a> | <a>UpdateFleetAttributes</a> | <a>UpdateFleetCapacity</a>
+    /// | <a>UpdateFleetPortSettings</a> | <a>UpdateRuntimeConfiguration</a> | <a>StopFleetActions</a>
+    /// | <a>StartFleetActions</a> | <a>PutScalingPolicy</a> | <a>DeleteFleet</a> | <a>DeleteFleetLocations</a>
+    /// | <a>DeleteScalingPolicy</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLFleetAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -51,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Human-readable description of a fleet.</para>
+        /// <para>A human-readable description of a fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet to update attribute metadata for. You can use either
+        /// <para>A unique identifier for the fleet to update attribute metadata for. You can use either
         /// the fleet ID or ARN value.</para>
         /// </para>
         /// </summary>
@@ -79,10 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter MetricGroup
         /// <summary>
         /// <para>
-        /// <para>Names of metric groups to include this fleet in. Amazon CloudWatch uses a fleet metric
-        /// group is to aggregate metrics from multiple fleets. Use an existing metric group name
-        /// to add this fleet to the group. Or use a new name to create a new metric group. A
-        /// fleet can only be included in one metric group at a time.</para>
+        /// <para>The name of a metric group to add this fleet to. Use a metric group in Amazon CloudWatch
+        /// to aggregate the metrics from multiple fleets. Provide an existing metric group name,
+        /// or create a new metric group by providing a new name. A fleet can only be in one metric
+        /// group at a time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NewGameSessionProtectionPolicy
         /// <summary>
         /// <para>
-        /// <para>Game session protection policy to apply to all new instances created in this fleet.
+        /// <para>The game session protection policy to apply to all new instances created in this fleet.
         /// Instances that already exist are not affected. You can set protection for individual
         /// instances using <a>UpdateGameSession</a>.</para><ul><li><para><b>NoProtection</b> -- The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> -- If the game session is in an <code>ACTIVE</code> status,
         /// it cannot be terminated during a scale-down event.</para></li></ul>

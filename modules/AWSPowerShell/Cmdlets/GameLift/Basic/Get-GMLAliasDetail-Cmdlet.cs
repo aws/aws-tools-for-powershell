@@ -35,7 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <para>
     /// To get alias properties, specify the alias ID. If successful, the requested alias
     /// record is returned.
-    /// </para><ul><li><para><a>CreateAlias</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>DescribeAlias</a></para></li><li><para><a>UpdateAlias</a></para></li><li><para><a>DeleteAlias</a></para></li><li><para><a>ResolveAlias</a></para></li></ul>
+    /// </para><para><b>Related actions</b></para><para><a>CreateAlias</a> | <a>ListAliases</a> | <a>DescribeAlias</a> | <a>UpdateAlias</a>
+    /// | <a>DeleteAlias</a> | <a>ResolveAlias</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLAliasDetail")]
     [OutputType("Amazon.GameLift.Model.Alias")]

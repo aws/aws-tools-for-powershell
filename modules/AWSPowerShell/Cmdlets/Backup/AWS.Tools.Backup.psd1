@@ -130,6 +130,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-BAKCopyJob', 
         'Start-BAKRestoreJob', 
         'Stop-BAKBackupJob', 
+        'Unlock-BAKRecoveryPoint', 
         'Update-BAKBackupPlan', 
         'Update-BAKGlobalSetting', 
         'Update-BAKRecoveryPointLifecycle', 

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
     /// Returns information about an action type created for an external provider, where the
-    /// action is to be used by customers of the external provider. The action can have been
-    /// created with any supported integration model.
+    /// action is to be used by customers of the external provider. The action can be created
+    /// with any supported integration model.
     /// </summary>
     [Cmdlet("Get", "CPActionTypeDeclaration")]
     [OutputType("Amazon.CodePipeline.Model.ActionTypeDeclaration")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Category
         /// <summary>
         /// <para>
-        /// <para>A category defines what kind of action can be taken in the stage. Valid categories
-        /// are limited to one of the following values:</para><ul><li><para><code>Source</code></para></li><li><para><code>Build</code></para></li><li><para><code>Test</code></para></li><li><para><code>Deploy</code></para></li><li><para><code>Approval</code></para></li><li><para><code>Invoke</code></para></li></ul>
+        /// <para>Defines what kind of action can be taken in the stage. The following are the valid
+        /// values:</para><ul><li><para><code>Source</code></para></li><li><para><code>Build</code></para></li><li><para><code>Test</code></para></li><li><para><code>Deploy</code></para></li><li><para><code>Approval</code></para></li><li><para><code>Invoke</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,9 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Owner
         /// <summary>
         /// <para>
-        /// <para>The creator of an action type that has been created with any supported integration
-        /// model. There are two valid values for the <code>owner</code> field in the action type
-        /// category: <code>AWS</code> and <code>ThirdParty</code>.</para>
+        /// <para>The creator of an action type that was created with any supported integration model.
+        /// There are two valid values: <code>AWS</code> and <code>ThirdParty</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

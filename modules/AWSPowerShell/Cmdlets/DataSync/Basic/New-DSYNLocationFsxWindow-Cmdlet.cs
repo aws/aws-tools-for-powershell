@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Creates an endpoint for an Amazon FSx for Windows file system.
+    /// Creates an endpoint for an Amazon FSx for Windows File Server file system.
     /// </summary>
     [Cmdlet("New", "DSYNLocationFsxWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The name of the Windows domain that the FSx for Windows server belongs to.</para>
+        /// <para>The name of the Windows domain that the FSx for Windows File Server belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter FsxFilesystemArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the FSx for Windows file system.</para>
+        /// <para>The Amazon Resource Name (ARN) for the FSx for Windows File Server file system.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The password of the user who has the permissions to access files and folders in the
-        /// FSx for Windows file system.</para>
+        /// FSx for Windows File Server file system.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Names (ARNs) of the security groups that are to use to configure
-        /// the FSx for Windows file system.</para>
+        /// the FSx for Windows File Server file system.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>A subdirectory in the location’s path. This subdirectory in the Amazon FSx for Windows
-        /// file system is used to read data from the Amazon FSx for Windows source location or
-        /// write data to the FSx for Windows destination.</para>
+        /// File Server file system is used to read data from the Amazon FSx for Windows File
+        /// Server source location or write data to the FSx for Windows File Server destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The user who has the permissions to access files and folders in the FSx for Windows
-        /// file system.</para>
+        /// File Server file system.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

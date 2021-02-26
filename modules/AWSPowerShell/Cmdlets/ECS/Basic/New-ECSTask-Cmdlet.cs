@@ -84,20 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter CapacityProviderStrategy
         /// <summary>
         /// <para>
-        /// <para>The capacity provider strategy to use for the task.</para><para>A capacity provider strategy consists of one or more capacity providers along with
-        /// the <code>base</code> and <code>weight</code> to assign to them. A capacity provider
-        /// must be associated with the cluster to be used in a capacity provider strategy. The
-        /// <a>PutClusterCapacityProviders</a> API is used to associate a capacity provider with
-        /// a cluster. Only capacity providers with an <code>ACTIVE</code> or <code>UPDATING</code>
-        /// status can be used.</para><para>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
+        /// <para>The capacity provider strategy to use for the task.</para><para>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
         /// parameter must be omitted. If no <code>capacityProviderStrategy</code> or <code>launchType</code>
         /// is specified, the <code>defaultCapacityProviderStrategy</code> for the cluster is
-        /// used.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
-        /// must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a>
-        /// API operation.</para><para>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
-        /// <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
-        /// available to all accounts and only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
-        /// available capacity providers for a cluster after the cluster is created.</para>
+        /// used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,6 +151,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Boolean? EnableECSManagedTag { get; set; }
         #endregion
         
+        #region Parameter EnableExecuteCommand
+        /// <summary>
+        /// <para>
+        /// <para>Whether or not to enable the execute command functionality for the containers in this
+        /// task. If <code>true</code>, this enables execute command functionality on all containers
+        /// in the task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableExecuteCommand { get; set; }
+        #endregion
+        
         #region Parameter Overrides_ExecutionRoleArn
         /// <summary>
         /// <para>
@@ -196,8 +198,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LaunchType
         /// <summary>
         /// <para>
-        /// <para>The launch type on which to run your task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
-        /// ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
+        /// <para>The launch type on which to run your task. The accepted values are <code>FARGATE</code>
+        /// and <code>EC2</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+        /// ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>When a value of <code>FARGATE</code> is specified, your tasks are launched on AWS
+        /// Fargate On-Demand infrastructure. To use Fargate Spot, you must use a capacity provider
+        /// strategy with the <code>FARGATE_SPOT</code> capacity provider.</para><para>When a value of <code>EC2</code> is specified, your tasks are launched on Amazon EC2
+        /// instances registered to your cluster.</para><para>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
         /// parameter must be omitted.</para>
         /// </para>
         /// </summary>
@@ -439,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.Cluster = this.Cluster;
             context.Count = this.Count;
             context.EnableECSManagedTag = this.EnableECSManagedTag;
+            context.EnableExecuteCommand = this.EnableExecuteCommand;
             context.Group = this.Group;
             context.LaunchType = this.LaunchType;
             context.AwsvpcConfiguration_AssignPublicIp = this.AwsvpcConfiguration_AssignPublicIp;
@@ -516,6 +523,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.EnableECSManagedTag != null)
             {
                 request.EnableECSManagedTags = cmdletContext.EnableECSManagedTag.Value;
+            }
+            if (cmdletContext.EnableExecuteCommand != null)
+            {
+                request.EnableExecuteCommand = cmdletContext.EnableExecuteCommand.Value;
             }
             if (cmdletContext.Group != null)
             {
@@ -745,6 +756,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.String Cluster { get; set; }
             public System.Int32? Count { get; set; }
             public System.Boolean? EnableECSManagedTag { get; set; }
+            public System.Boolean? EnableExecuteCommand { get; set; }
             public System.String Group { get; set; }
             public Amazon.ECS.LaunchType LaunchType { get; set; }
             public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }

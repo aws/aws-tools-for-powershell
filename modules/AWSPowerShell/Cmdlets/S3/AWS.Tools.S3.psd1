@@ -161,6 +161,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-S3BucketVersioning', 
         'Write-S3BucketWebsite', 
         'Write-S3CORSConfiguration', 
+        'Write-S3GetObjectResponse', 
         'Write-S3LifecycleConfiguration', 
         'Write-S3Object', 
         'Write-S3ObjectLegalHold', 

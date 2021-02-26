@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  
     /// <para>
     /// To use this operation, you must have permission to perform the <code>s3:GetObjectTagging</code>
-    /// action. By default, the GET operation returns information about current version of
-    /// an object. For a versioned bucket, you can have multiple versions of an object in
-    /// your bucket. To retrieve tags of any other version, use the versionId query parameter.
+    /// action. By default, the GET action returns information about current version of an
+    /// object. For a versioned bucket, you can have multiple versions of an object in your
+    /// bucket. To retrieve tags of any other version, use the versionId query parameter.
     /// You also need permission for the <code>s3:GetObjectVersionTagging</code> action.
     /// </para><para>
     ///  By default, the bucket owner has this permission and can grant this permission to
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  For information about the Amazon S3 object tagging feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object
     /// Tagging</a>.
     /// </para><para>
-    /// The following operation is related to <code>GetObjectTagging</code>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a></para></li></ul>
+    /// The following action is related to <code>GetObjectTagging</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">DeleteObjectTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3ObjectTagSet")]
     [OutputType("Amazon.S3.Model.Tag")]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>
@@ -95,6 +95,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Key { get; set; }
+        #endregion
+        
+        #region Parameter RequestPayer
+        /// <summary>
+        /// <para>
+        /// <para>Confirms that the requester knows that they will be charged for the request. 
+        /// Bucket owners need not specify this parameter in their requests</para>.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.RequestPayer")]
+        public Amazon.S3.RequestPayer RequestPayer { get; set; }
         #endregion
         
         #region Parameter VersionId
@@ -156,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.Key = this.Key;
             context.VersionId = this.VersionId;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.RequestPayer = this.RequestPayer;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -187,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ExpectedBucketOwner != null)
             {
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
             }
             
             CmdletOutput output;
@@ -253,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String Key { get; set; }
             public System.String VersionId { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
+            public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.Func<Amazon.S3.Model.GetObjectTaggingResponse, GetS3ObjectTagSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Tagging;
         }

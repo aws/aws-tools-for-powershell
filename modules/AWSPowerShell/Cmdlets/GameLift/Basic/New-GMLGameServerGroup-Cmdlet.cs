@@ -28,8 +28,7 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
-    /// groups.</b><para>
+    /// <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b><para>
     /// Creates a GameLift FleetIQ game server group for managing game hosting on a collection
     /// of Amazon EC2 instances for game hosting. This operation creates the game server group,
     /// creates an Auto Scaling group in your AWS account, and establishes a link between
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     /// </para></li><li><para>
     /// An IAM role that extends limited access to your AWS account to allow GameLift FleetIQ
-    /// to create and interact with the Auto Scaling group. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-iam-permissions-roles.html">Create
+    /// to create and interact with the Auto Scaling group. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html">Create
     /// IAM roles for cross-service interaction</a> in the <i>GameLift FleetIQ Developer Guide</i>.
     /// </para></li></ul><para>
     /// To create a new game server group, specify a unique group name, IAM role and Amazon
@@ -60,7 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Keep in mind that some Auto Scaling group properties are periodically updated by GameLift
     /// FleetIQ as part of its balancing activities to optimize for availability and cost.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateGameServerGroup</a></para></li><li><para><a>ListGameServerGroups</a></para></li><li><para><a>DescribeGameServerGroup</a></para></li><li><para><a>UpdateGameServerGroup</a></para></li><li><para><a>DeleteGameServerGroup</a></para></li><li><para><a>ResumeGameServerGroup</a></para></li><li><para><a>SuspendGameServerGroup</a></para></li><li><para><a>DescribeGameServerInstances</a></para></li></ul>
+    /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>CreateGameServerGroup</a> | <a>ListGameServerGroups</a> | <a>DescribeGameServerGroup</a>
+    /// | <a>UpdateGameServerGroup</a> | <a>DeleteGameServerGroup</a> | <a>ResumeGameServerGroup</a>
+    /// | <a>SuspendGameServerGroup</a> | <a>DescribeGameServerInstances</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLGameServerGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]

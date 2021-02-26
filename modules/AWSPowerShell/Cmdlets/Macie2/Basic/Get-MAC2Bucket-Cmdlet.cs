@@ -44,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter SortCriteria_AttributeName
         /// <summary>
         /// <para>
-        /// <para>The name of the property to sort the results by. This value can be the name of any
-        /// property that Amazon Macie defines as bucket metadata, such as bucketName or accountId.</para>
+        /// <para>The name of the bucket property to sort the results by. This value can be one of the
+        /// following properties that Amazon Macie defines as bucket metadata: accountId, bucketName,
+        /// classifiableObjectCount, classifiableSizeInBytes, objectCount, or sizeInBytes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter SortCriteria_OrderBy
         /// <summary>
         /// <para>
-        /// <para>The sort order to apply to the results, based on the value for the property specified
-        /// by the attributeName property. Valid values are: ASC, sort the results in ascending
-        /// order; and, DESC, sort the results in descending order.</para>
+        /// <para>The sort order to apply to the results, based on the value specified by the attributeName
+        /// property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort
+        /// the results in descending order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

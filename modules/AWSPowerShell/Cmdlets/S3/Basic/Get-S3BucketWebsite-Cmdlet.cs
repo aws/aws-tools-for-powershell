@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// 
     ///  
     /// <para>
-    /// This GET operation requires the <code>S3:GetBucketWebsite</code> permission. By default,
+    /// This GET action requires the <code>S3:GetBucketWebsite</code> permission. By default,
     /// only the bucket owner can read the bucket website configuration. However, bucket owners
     /// can allow other users to read the website configuration by writing a bucket policy
     /// granting them the <code>S3:GetBucketWebsite</code> permission.
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

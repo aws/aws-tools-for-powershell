@@ -34,12 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// To remotely access an instance, you need credentials that match the operating system
-    /// of the instance. For a Windows instance, Amazon GameLift returns a user name and password
-    /// as strings for use with a Windows Remote Desktop client. For a Linux instance, Amazon
-    /// GameLift returns a user name and RSA private key, also as strings, for use with an
-    /// SSH client. The private key must be saved in the proper format to a <code>.pem</code>
-    /// file before using. If you're making this request using the AWS CLI, saving the secret
-    /// can be handled as part of the GetInstanceAccess request, as shown in one of the examples
+    /// of the instance. For a Windows instance, GameLift returns a user name and password
+    /// as strings for use with a Windows Remote Desktop client. For a Linux instance, GameLift
+    /// returns a user name and RSA private key, also as strings, for use with an SSH client.
+    /// The private key must be saved in the proper format to a <code>.pem</code> file before
+    /// using. If you're making this request using the AWS CLI, saving the secret can be handled
+    /// as part of the <code>GetInstanceAccess</code> request, as shown in one of the examples
     /// for this operation. 
     /// </para><para>
     /// To request access to a specific instance, specify the IDs of both the instance and
@@ -48,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// IP address and a set of credentials.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely
     /// Access Fleet Instances</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug
-    /// Fleet Issues</a></para><para><b>Related operations</b></para><ul><li><para><a>DescribeInstances</a></para></li><li><para><a>GetInstanceAccess</a></para></li></ul>
+    /// Fleet Issues</a></para><para><b>Related actions</b></para><para><a>DescribeInstances</a> | <a>GetInstanceAccess</a> | <a>DescribeEC2InstanceLimits</a>
+    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLInstanceAccess")]
     [OutputType("Amazon.GameLift.Model.InstanceAccess")]
@@ -63,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet that contains the instance you want access to. You
+        /// <para>A unique identifier for the fleet that contains the instance you want access to. You
         /// can use either the fleet ID or ARN value. The fleet can be in any of the following
         /// statuses: <code>ACTIVATING</code>, <code>ACTIVE</code>, or <code>ERROR</code>. Fleets
         /// with an <code>ERROR</code> status may be accessible for a short time before they are
@@ -84,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for an instance you want to get access to. You can access an instance
-        /// in any status.</para>
+        /// <para>A unique identifier for the instance you want to get access to. You can access an
+        /// instance in any status.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

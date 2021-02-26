@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     ///  
     /// <para>
     /// You can modify bandwidth throttling for a task execution that is running or queued.
-    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting
+    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting
     /// Bandwidth Throttling for a Task Execution</a>.
     /// </para><note><para>
     /// The only <code>Option</code> that can be modified by <code>UpdateTaskExecution</code>

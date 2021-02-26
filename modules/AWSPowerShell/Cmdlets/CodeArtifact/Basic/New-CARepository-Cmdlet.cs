@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para> The domain that contains the created repository. </para>
+        /// <para> The name of the domain that contains the created repository. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

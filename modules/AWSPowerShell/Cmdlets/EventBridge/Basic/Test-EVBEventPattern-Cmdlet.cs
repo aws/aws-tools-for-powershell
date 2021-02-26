@@ -51,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter Event
         /// <summary>
         /// <para>
-        /// <para>The event, in JSON format, to test against the event pattern.</para>
+        /// <para>The event, in JSON format, to test against the event pattern. The JSON must follow
+        /// the format specified in <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html">AWS
+        /// Events</a>, and the following fields are mandatory:</para><ul><li><para><code>id</code></para></li><li><para><code>account</code></para></li><li><para><code>source</code></para></li><li><para><code>time</code></para></li><li><para><code>region</code></para></li><li><para><code>resources</code></para></li><li><para><code>detail-type</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

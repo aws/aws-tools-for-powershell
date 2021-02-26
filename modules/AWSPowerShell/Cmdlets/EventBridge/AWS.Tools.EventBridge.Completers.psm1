@@ -80,10 +80,47 @@ $EVB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.EventBridge.ApiDestinationHttpMethod
+        {
+            ($_ -eq "New-EVBApiDestination/HttpMethod") -Or
+            ($_ -eq "Update-EVBApiDestination/HttpMethod")
+        }
+        {
+            $v = "DELETE","GET","HEAD","OPTIONS","PATCH","POST","PUT"
+            break
+        }
+
         # Amazon.EventBridge.ArchiveState
         "Get-EVBArchiveList/State"
         {
             $v = "CREATE_FAILED","CREATING","DISABLED","ENABLED","UPDATE_FAILED","UPDATING"
+            break
+        }
+
+        # Amazon.EventBridge.ConnectionAuthorizationType
+        {
+            ($_ -eq "New-EVBConnection/AuthorizationType") -Or
+            ($_ -eq "Update-EVBConnection/AuthorizationType")
+        }
+        {
+            $v = "API_KEY","BASIC","OAUTH_CLIENT_CREDENTIALS"
+            break
+        }
+
+        # Amazon.EventBridge.ConnectionOAuthHttpMethod
+        {
+            ($_ -eq "New-EVBConnection/AuthParameters_OAuthParameters_HttpMethod") -Or
+            ($_ -eq "Update-EVBConnection/AuthParameters_OAuthParameters_HttpMethod")
+        }
+        {
+            $v = "GET","POST","PUT"
+            break
+        }
+
+        # Amazon.EventBridge.ConnectionState
+        "Get-EVBConnectionList/ConnectionState"
+        {
+            $v = "AUTHORIZED","AUTHORIZING","CREATING","DEAUTHORIZED","DEAUTHORIZING","DELETING","UPDATING"
             break
         }
 
@@ -110,6 +147,10 @@ $EVB_Completers = {
 }
 
 $EVB_map = @{
+    "AuthorizationType"=@("New-EVBConnection","Update-EVBConnection")
+    "AuthParameters_OAuthParameters_HttpMethod"=@("New-EVBConnection","Update-EVBConnection")
+    "ConnectionState"=@("Get-EVBConnectionList")
+    "HttpMethod"=@("New-EVBApiDestination","Update-EVBApiDestination")
     "State"=@("Get-EVBArchiveList","Get-EVBReplayList","Write-EVBRule")
 }
 
@@ -165,15 +206,22 @@ $EVB_SelectCompleters = {
 $EVB_SelectMap = @{
     "Select"=@("Enable-EVBEventSource",
                "Stop-EVBReplay",
+               "New-EVBApiDestination",
                "New-EVBArchive",
+               "New-EVBConnection",
                "New-EVBEventBus",
                "New-EVBPartnerEventSource",
                "Disable-EVBEventSource",
+               "Clear-EVBConnection",
+               "Remove-EVBApiDestination",
                "Remove-EVBArchive",
+               "Remove-EVBConnection",
                "Remove-EVBEventBus",
                "Remove-EVBPartnerEventSource",
                "Remove-EVBRule",
+               "Get-EVBApiDestination",
                "Get-EVBArchive",
+               "Get-EVBConnection",
                "Get-EVBEventBus",
                "Get-EVBEventSource",
                "Get-EVBPartnerEventSource",
@@ -181,7 +229,9 @@ $EVB_SelectMap = @{
                "Get-EVBRuleDetail",
                "Disable-EVBRule",
                "Enable-EVBRule",
+               "Get-EVBApiDestinationList",
                "Get-EVBArchiveList",
+               "Get-EVBConnectionList",
                "Get-EVBEventBusList",
                "Get-EVBEventSourceList",
                "Get-EVBPartnerEventSourceAccountList",
@@ -202,7 +252,9 @@ $EVB_SelectMap = @{
                "Add-EVBResourceTag",
                "Test-EVBEventPattern",
                "Remove-EVBResourceTag",
-               "Update-EVBArchive")
+               "Update-EVBApiDestination",
+               "Update-EVBArchive",
+               "Update-EVBConnection")
 }
 
 _awsArgumentCompleterRegistration $EVB_SelectCompleters $EVB_SelectMap

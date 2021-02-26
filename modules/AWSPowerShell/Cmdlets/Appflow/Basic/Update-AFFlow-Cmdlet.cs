@@ -152,7 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter Scheduled_FirstExecutionFrom
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> Specifies the date range for the records to import from the connector in the first
+        /// flow run. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

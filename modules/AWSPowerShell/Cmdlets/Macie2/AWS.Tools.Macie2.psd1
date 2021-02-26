@@ -105,6 +105,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MAC2FindingList', 
         'Get-MAC2FindingsFilter', 
         'Get-MAC2FindingsFilterList', 
+        'Get-MAC2FindingsPublicationConfiguration', 
         'Get-MAC2FindingStatistic', 
         'Get-MAC2GetCustomDataIdentifier', 
         'Get-MAC2InvitationList', 
@@ -138,7 +139,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-MAC2MacieSession', 
         'Update-MAC2MemberSession', 
         'Update-MAC2OrganizationConfiguration', 
-        'Write-MAC2ClassificationExportConfiguration')
+        'Write-MAC2ClassificationExportConfiguration', 
+        'Write-MAC2FindingsPublicationConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

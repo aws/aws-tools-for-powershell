@@ -28,9 +28,9 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// This implementation of the DELETE operation uses the policy subresource to delete
-    /// the policy of a specified bucket. If you are using an identity other than the root
-    /// user of the AWS account that owns the bucket, the calling identity must have the <code>DeleteBucketPolicy</code>
+    /// This implementation of the DELETE action uses the policy subresource to delete the
+    /// policy of a specified bucket. If you are using an identity other than the root user
+    /// of the AWS account that owns the bucket, the calling identity must have the <code>DeleteBucketPolicy</code>
     /// permissions on the specified bucket and belong to the bucket owner's account to use
     /// this operation. 
     /// 
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// always use this operation, even if the policy explicitly denies the root user the
     /// ability to perform this action.
     /// </para></important><para>
-    /// For more information about bucket policies, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using
+    /// For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using
     /// Bucket Policies and UserPolicies</a>. 
     /// </para><para>
     /// The following operations are related to <code>DeleteBucketPolicy</code></para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">DeleteObject</a></para></li></ul>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

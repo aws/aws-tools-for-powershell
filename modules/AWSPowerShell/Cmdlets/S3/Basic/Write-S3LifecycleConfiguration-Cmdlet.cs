@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
-    /// configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a>.
     /// 
     ///  <note><para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></li><li><para>
     /// s3:PutLifecycleConfiguration
     /// </para></li></ul><para>
-    /// For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a>.
     /// </para><para>
     /// The following are related to <code>PutBucketLifecycleConfiguration</code>:
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

@@ -87,10 +87,24 @@ $IAMAA_Completers = {
             break
         }
 
+        # Amazon.AccessAnalyzer.Locale
+        "Use-IAMAAPolicyValidation/Locale"
+        {
+            $v = "DE","EN","ES","FR","IT","JA","KO","PT_BR","ZH_CN","ZH_TW"
+            break
+        }
+
         # Amazon.AccessAnalyzer.OrderBy
         "Get-IAMAAFindingList/Sort_OrderBy"
         {
             $v = "ASC","DESC"
+            break
+        }
+
+        # Amazon.AccessAnalyzer.PolicyType
+        "Use-IAMAAPolicyValidation/PolicyType"
+        {
+            $v = "IDENTITY_POLICY","RESOURCE_POLICY","SERVICE_CONTROL_POLICY"
             break
         }
 
@@ -120,6 +134,8 @@ $IAMAA_Completers = {
 }
 
 $IAMAA_map = @{
+    "Locale"=@("Use-IAMAAPolicyValidation")
+    "PolicyType"=@("Use-IAMAAPolicyValidation")
     "ResourceType"=@("Get-IAMAAAnalyzedResourceList")
     "Sort_OrderBy"=@("Get-IAMAAFindingList")
     "Status"=@("Update-IAMAAFinding")
@@ -177,14 +193,18 @@ $IAMAA_SelectCompleters = {
 
 $IAMAA_SelectMap = @{
     "Select"=@("Start-IAMAAArchiveRule",
+               "New-IAMAAAccessPreview",
                "New-IAMAAAnalyzer",
                "New-IAMAAArchiveRule",
                "Remove-IAMAAAnalyzer",
                "Remove-IAMAAArchiveRule",
+               "Get-IAMAAAccessPreview",
                "Get-IAMAAAnalyzedResource",
                "Get-IAMAAAnalyzer",
                "Get-IAMAAArchiveRule",
                "Get-IAMAAFinding",
+               "Get-IAMAAAccessPreviewFindingList",
+               "Get-IAMAAAccessPreviewList",
                "Get-IAMAAAnalyzedResourceList",
                "Get-IAMAAAnalyzerList",
                "Get-IAMAAArchiveRuleList",
@@ -194,7 +214,8 @@ $IAMAA_SelectMap = @{
                "Add-IAMAAResourceTag",
                "Remove-IAMAAResourceTag",
                "Update-IAMAAArchiveRule",
-               "Update-IAMAAFinding")
+               "Update-IAMAAFinding",
+               "Use-IAMAAPolicyValidation")
 }
 
 _awsArgumentCompleterRegistration $IAMAA_SelectCompleters $IAMAA_SelectMap

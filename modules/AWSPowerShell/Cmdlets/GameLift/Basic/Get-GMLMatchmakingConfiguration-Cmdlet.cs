@@ -40,7 +40,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If successful, a configuration is returned for each requested name. When specifying
     /// a list of names, only configurations that currently exist are returned. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/matchmaker-build.html">
-    /// Setting Up FlexMatch Matchmakers</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li><li><para><a>DeleteMatchmakingRuleSet</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Setting up FlexMatch matchmakers</a></para><para><b>Related actions</b></para><para><a>CreateMatchmakingConfiguration</a> | <a>DescribeMatchmakingConfigurations</a>
+    /// | <a>UpdateMatchmakingConfiguration</a> | <a>DeleteMatchmakingConfiguration</a> |
+    /// <a>CreateMatchmakingRuleSet</a> | <a>DescribeMatchmakingRuleSets</a> | <a>ValidateMatchmakingRuleSet</a>
+    /// | <a>DeleteMatchmakingRuleSet</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLMatchmakingConfiguration")]
     [OutputType("Amazon.GameLift.Model.MatchmakingConfiguration")]
@@ -55,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a matchmaking configuration(s) to retrieve. You can use either
-        /// the configuration name or ARN value. To request all existing configurations, leave
-        /// this parameter empty.</para>
+        /// <para>A unique identifier for the matchmaking configuration(s) to retrieve. You can use
+        /// either the configuration name or ARN value. To request all existing configurations,
+        /// leave this parameter empty.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuleSetName
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a matchmaking rule set. You can use either the rule set name
-        /// or ARN value. Use this parameter to retrieve all matchmaking configurations that use
-        /// this rule set.</para>
+        /// <para>A unique identifier for the matchmaking rule set. You can use either the rule set
+        /// name or ARN value. Use this parameter to retrieve all matchmaking configurations that
+        /// use this rule set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

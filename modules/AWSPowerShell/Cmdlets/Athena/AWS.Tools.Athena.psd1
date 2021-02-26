@@ -95,6 +95,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ATHNamedQuery', 
         'Get-ATHNamedQueryBatch', 
         'Get-ATHNamedQueryList', 
+        'Get-ATHPreparedStatement', 
+        'Get-ATHPreparedStatementList', 
         'Get-ATHQueryExecution', 
         'Get-ATHQueryExecutionBatch', 
         'Get-ATHQueryExecutionList', 
@@ -106,14 +108,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ATHWorkGroupList', 
         'New-ATHDataCatalog', 
         'New-ATHNamedQuery', 
+        'New-ATHPreparedStatement', 
         'New-ATHWorkGroup', 
         'Remove-ATHDataCatalog', 
         'Remove-ATHNamedQuery', 
+        'Remove-ATHPreparedStatement', 
         'Remove-ATHResourceTag', 
         'Remove-ATHWorkGroup', 
         'Start-ATHQueryExecution', 
         'Stop-ATHQueryExecution', 
         'Update-ATHDataCatalog', 
+        'Update-ATHPreparedStatement', 
         'Update-ATHWorkGroup')
 
     # Variables to export from this module

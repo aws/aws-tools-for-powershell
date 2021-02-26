@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para> The format of the package that is copied. The valid package types are: </para><ul><li><para><code>npm</code>: A Node Package Manager (npm) package. </para></li><li><para><code>pypi</code>: A Python Package Index (PyPI) package. </para></li><li><para><code>maven</code>: A Maven package that contains compiled code in a distributable
-        /// format, such as a JAR file. </para></li><li><para><code>nuget</code>: A NuGet package. </para></li></ul>
+        /// format, such as a JAR file. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -139,7 +139,6 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <para>
         /// <para> The namespace of the package. The package component that specifies its namespace
         /// depends on its type. For example: </para><ul><li><para> The namespace of a Maven package is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package is its <code>scope</code>. </para></li><li><para> A Python package does not contain a corresponding component, so Python packages do
-        /// not have a namespace. </para></li><li><para> A NuGet package does not contain a corresponding component, so NuGet packages do
         /// not have a namespace. </para></li></ul>
         /// </para>
         /// </summary>

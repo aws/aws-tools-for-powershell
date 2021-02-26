@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ContainsPiiEntities" OutputProperty="Labels" Verb="Find" Noun="PiiEntityType" PipelineParameter="Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDocumentClassifier" OutputProperty="DocumentClassifierArn" Verb="New" Noun="DocumentClassifier" ShouldProcessTarget="DocumentClassifierName" PipelineParameter="DocumentClassifierName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

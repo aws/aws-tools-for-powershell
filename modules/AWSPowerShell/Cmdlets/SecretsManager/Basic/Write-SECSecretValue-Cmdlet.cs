@@ -41,13 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// If this operation creates the first version for the secret then Secrets Manager automatically
     /// attaches the staging label <code>AWSCURRENT</code> to the new version.
     /// </para></li><li><para>
-    /// If another version of this secret already exists, then this operation does not automatically
-    /// move any staging labels other than those that you explicitly specify in the <code>VersionStages</code>
-    /// parameter.
+    /// If you do not specify a value for VersionStages then Secrets Manager automatically
+    /// moves the staging label <code>AWSCURRENT</code> to this new version.
     /// </para></li><li><para>
     /// If this operation moves the staging label <code>AWSCURRENT</code> from another version
-    /// to this version (because you included it in the <code>StagingLabels</code> parameter)
-    /// then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code>
+    /// to this version, then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code>
     /// to the version that <code>AWSCURRENT</code> was removed from.
     /// </para></li><li><para>
     /// This operation is idempotent. If a version with a <code>VersionId</code> with the

@@ -128,6 +128,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-EMRJobFlow', 
         'Stop-EMRNotebookExecution', 
         'Stop-EMRStep', 
+        'Update-EMRStudio', 
         'Update-EMRStudioSessionMapping', 
         'Write-EMRAutoScalingPolicy', 
         'Write-EMRBlockPublicAccessConfiguration', 

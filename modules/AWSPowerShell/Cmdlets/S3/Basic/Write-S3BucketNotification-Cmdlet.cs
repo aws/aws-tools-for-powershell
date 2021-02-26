@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// By default, your bucket has no event notifications configured. That is, the notification
     /// configuration will be an empty <code>NotificationConfiguration</code>.
     /// </para><para><code>&lt;NotificationConfiguration&gt;</code></para><para><code>&lt;/NotificationConfiguration&gt;</code></para><para>
-    /// This operation replaces the existing notification configuration with the configuration
+    /// This action replaces the existing notification configuration with the configuration
     /// you include in the request body.
     /// </para><para>
     /// After Amazon S3 receives this request, it first verifies that any Amazon Simple Notification
@@ -62,15 +62,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// The PUT notification is an atomic operation. For example, suppose your notification
     /// configuration includes SNS topic, SQS queue, and Lambda function configurations. When
     /// you send a PUT request with this configuration, Amazon S3 sends test messages to your
-    /// SNS topic. If the message fails, the entire PUT operation will fail, and Amazon S3
-    /// will not add the configuration to your bucket.
+    /// SNS topic. If the message fails, the entire PUT action will fail, and Amazon S3 will
+    /// not add the configuration to your bucket.
     /// </para></note><para><b>Responses</b></para><para>
     /// If the configuration in the request body includes only one <code>TopicConfiguration</code>
     /// specifying only the <code>s3:ReducedRedundancyLostObject</code> event type, the response
     /// will also include the <code>x-amz-sns-test-message-id</code> header containing the
     /// message ID of the test notification sent to the topic.
     /// </para><para>
-    /// The following operation is related to <code>PutBucketNotificationConfiguration</code>:
+    /// The following action is related to <code>PutBucketNotificationConfiguration</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html">GetBucketNotificationConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </para>
         /// </summary>

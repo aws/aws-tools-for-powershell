@@ -118,7 +118,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>Specifies additional parameters for compiler options in JSON format. The compiler
         /// options are <code>TargetPlatform</code> specific. It is required for NVIDIA accelerators
         /// and highly recommended for CPU compilations. For any other cases, it is optional to
-        /// specify <code>CompilerOptions.</code></para><ul><li><para><code>CPU</code>: Compilation for CPU supports the following compiler options.</para><ul><li><para><code>mcpu</code>: CPU micro-architecture. For example, <code>{'mcpu': 'skylake-avx512'}</code></para></li><li><para><code>mattr</code>: CPU flags. For example, <code>{'mattr': ['+neon', '+vfpv4']}</code></para></li></ul></li><li><para><code>ARM</code>: Details of ARM CPU compilations.</para><ul><li><para><code>NEON</code>: NEON is an implementation of the Advanced SIMD extension used
+        /// specify <code>CompilerOptions.</code></para><ul><li><para><code>DTYPE</code>: Specifies the data type for the input. When compiling for <code>ml_*</code>
+        /// (except for <code>ml_inf</code>) instances using PyTorch framework, provide the data
+        /// type (dtype) of the model's input. <code>"float32"</code> is used if <code>"DTYPE"</code>
+        /// is not specified. Options for data type are:</para><ul><li><para>float32: Use either <code>"float"</code> or <code>"float32"</code>.</para></li><li><para>int64: Use either <code>"int64"</code> or <code>"long"</code>.</para></li></ul><para> For example, <code>{"dtype" : "float32"}</code>.</para></li><li><para><code>CPU</code>: Compilation for CPU supports the following compiler options.</para><ul><li><para><code>mcpu</code>: CPU micro-architecture. For example, <code>{'mcpu': 'skylake-avx512'}</code></para></li><li><para><code>mattr</code>: CPU flags. For example, <code>{'mattr': ['+neon', '+vfpv4']}</code></para></li></ul></li><li><para><code>ARM</code>: Details of ARM CPU compilations.</para><ul><li><para><code>NEON</code>: NEON is an implementation of the Advanced SIMD extension used
         /// in ARMv7 processors.</para><para>For example, add <code>{'mattr': ['+neon']}</code> to the compiler options if compiling
         /// for ARM 32-bit platform with the NEON support.</para></li></ul></li><li><para><code>NVIDIA</code>: Compilation for NVIDIA GPU supports the following compiler options.</para><ul><li><para><code>gpu_code</code>: Specifies the targeted architecture.</para></li><li><para><code>trt-ver</code>: Specifies the TensorRT versions in x.y.z. format.</para></li><li><para><code>cuda-ver</code>: Specifies the CUDA version in x.y format.</para></li></ul><para>For example, <code>{'gpu-code': 'sm_72', 'trt-ver': '6.0.1', 'cuda-ver': '10.1'}</code></para></li><li><para><code>ANDROID</code>: Compilation for the Android OS supports the following compiler
         /// options:</para><ul><li><para><code>ANDROID_PLATFORM</code>: Specifies the Android API levels. Available levels
@@ -129,7 +132,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// Neuron Compiler CLI</a>. </para></li><li><para><code>CoreML</code>: Compilation for the CoreML <a>OutputConfig$TargetDevice</a>
         /// supports the following compiler options:</para><ul><li><para><code>class_labels</code>: Specifies the classification labels file name inside input
         /// tar.gz file. For example, <code>{"class_labels": "imagenet_labels_1000.txt"}</code>.
-        /// Labels inside the txt file should be separated by newlines.</para></li></ul></li></ul>
+        /// Labels inside the txt file should be separated by newlines.</para></li></ul></li><li><para><code>EIA</code>: Compilation for the Elastic Inference Accelerator supports the
+        /// following compiler options:</para><ul><li><para><code>precision_mode</code>: Specifies the precision of compiled artifacts. Supported
+        /// values are <code>"FP16"</code> and <code>"FP32"</code>. Default is <code>"FP32"</code>.</para></li><li><para><code>signature_def_key</code>: Specifies the signature to use for models in SavedModel
+        /// format. Defaults is TensorFlow's default signature def key.</para></li><li><para><code>output_names</code>: Specifies a list of output tensor names for models in
+        /// FrozenGraph format. Set at most one API field, either: <code>signature_def_key</code>
+        /// or <code>output_names</code>.</para></li></ul><para>For example: <code>{"precision_mode": "FP32", "output_names": ["output:0"]}</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +177,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// [1,224,224,3]}}</code></para></li></ul></li><li><para>Tensor type input without input name (PyTorch):</para><ul><li><para><code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
         /// [1,3,224,224]}]</code></para></li></ul></li><li><para>Image type input:</para><ul><li><para><code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
         /// [1,224,224,3], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}}</code></para></li><li><para><code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code></para></li></ul></li><li><para>Image type input without input name (PyTorch):</para><ul><li><para><code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
-        /// [1,3,224,224], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}]</code></para></li><li><para><code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code></para></li></ul></li></ul>
+        /// [1,3,224,224], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}]</code></para></li><li><para><code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code></para></li></ul></li></ul><para>Depending on the model format, <code>DataInputConfig</code> requires the following
+        /// parameters for <code>ml_eia2</code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-TargetDevice">OutputConfig:TargetDevice</a>.</para><ul><li><para>For TensorFlow models saved in the SavedModel format, specify the input names from
+        /// <code>signature_def_key</code> and the input model shapes for <code>DataInputConfig</code>.
+        /// Specify the <code>signature_def_key</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions"><code>OutputConfig:CompilerOptions</code></a> if the model does not use TensorFlow's
+        /// default signature def key. For example:</para><ul><li><para><code>"DataInputConfig": {"inputs": [1, 224, 224, 3]}</code></para></li><li><para><code>"CompilerOptions": {"signature_def_key": "serving_custom"}</code></para></li></ul></li><li><para>For TensorFlow models saved as a frozen graph, specify the input tensor names and
+        /// shapes in <code>DataInputConfig</code> and the output tensor names for <code>output_names</code>
+        /// in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions"><code>OutputConfig:CompilerOptions</code></a>. For example:</para><ul><li><para><code>"DataInputConfig": {"input_tensor:0": [1, 224, 224, 3]}</code></para></li><li><para><code>"CompilerOptions": {"output_names": ["output_tensor:0"]}</code></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

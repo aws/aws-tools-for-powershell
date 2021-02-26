@@ -209,12 +209,23 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter MaxWorker
         /// <summary>
         /// <para>
-        /// <para>The Maximum Workers to update of your Amazon MWAA environment.</para>
+        /// <para>The maximum number of workers to update of your Amazon MWAA environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaxWorkers")]
         public System.Int32? MaxWorker { get; set; }
+        #endregion
+        
+        #region Parameter MinWorker
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of workers to update of your Amazon MWAA environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MinWorkers")]
+        public System.Int32? MinWorker { get; set; }
         #endregion
         
         #region Parameter Name
@@ -401,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             context.WorkerLogs_Enabled = this.WorkerLogs_Enabled;
             context.WorkerLogs_LogLevel = this.WorkerLogs_LogLevel;
             context.MaxWorker = this.MaxWorker;
+            context.MinWorker = this.MinWorker;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -643,6 +655,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             {
                 request.MaxWorkers = cmdletContext.MaxWorker.Value;
             }
+            if (cmdletContext.MinWorker != null)
+            {
+                request.MinWorkers = cmdletContext.MinWorker.Value;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -771,6 +787,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             public System.Boolean? WorkerLogs_Enabled { get; set; }
             public Amazon.MWAA.LoggingLevel WorkerLogs_LogLevel { get; set; }
             public System.Int32? MaxWorker { get; set; }
+            public System.Int32? MinWorker { get; set; }
             public System.String Name { get; set; }
             public List<System.String> NetworkConfiguration_SecurityGroupId { get; set; }
             public System.String PluginsS3ObjectVersion { get; set; }

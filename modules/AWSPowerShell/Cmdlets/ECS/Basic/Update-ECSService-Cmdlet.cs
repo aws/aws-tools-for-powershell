@@ -204,6 +204,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Boolean? DeploymentCircuitBreaker_Enable { get; set; }
         #endregion
         
+        #region Parameter EnableExecuteCommand
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, this enables execute command functionality on all task containers.</para><para>If you do not want to override the value that was set when the service was created,
+        /// you can set this to <code>null</code> when performing this action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableExecuteCommand { get; set; }
+        #endregion
+        
         #region Parameter ForceNewDeployment
         /// <summary>
         /// <para>
@@ -474,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.DeploymentConfiguration_MaximumPercent = this.DeploymentConfiguration_MaximumPercent;
             context.DeploymentConfiguration_MinimumHealthyPercent = this.DeploymentConfiguration_MinimumHealthyPercent;
             context.DesiredCount = this.DesiredCount;
+            context.EnableExecuteCommand = this.EnableExecuteCommand;
             context.ForceNewDeployment = this.ForceNewDeployment;
             context.HealthCheckGracePeriodSecond = this.HealthCheckGracePeriodSecond;
             context.AwsvpcConfiguration_AssignPublicIp = this.AwsvpcConfiguration_AssignPublicIp;
@@ -593,6 +605,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.DesiredCount != null)
             {
                 request.DesiredCount = cmdletContext.DesiredCount.Value;
+            }
+            if (cmdletContext.EnableExecuteCommand != null)
+            {
+                request.EnableExecuteCommand = cmdletContext.EnableExecuteCommand.Value;
             }
             if (cmdletContext.ForceNewDeployment != null)
             {
@@ -744,6 +760,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }
             public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
             public System.Int32? DesiredCount { get; set; }
+            public System.Boolean? EnableExecuteCommand { get; set; }
             public System.Boolean? ForceNewDeployment { get; set; }
             public System.Int32? HealthCheckGracePeriodSecond { get; set; }
             public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }

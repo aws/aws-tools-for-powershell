@@ -73,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags attached to the specified resource. Tags are metadata that can be used to
+        /// manage a resource</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.IoTWireless.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Sidewalk'.
@@ -137,6 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.ClientRequestToken = this.ClientRequestToken;
             context.Sidewalk_AmazonId = this.Sidewalk_AmazonId;
             context.Sidewalk_AppServerPrivateKey = this.Sidewalk_AppServerPrivateKey;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.IoTWireless.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -185,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestSidewalkIsNull)
             {
                 request.Sidewalk = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -250,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String ClientRequestToken { get; set; }
             public System.String Sidewalk_AmazonId { get; set; }
             public System.String Sidewalk_AppServerPrivateKey { get; set; }
+            public List<Amazon.IoTWireless.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.IoTWireless.Model.AssociateAwsAccountWithPartnerAccountResponse, JoinIOTWAwsAccountWithPartnerAccountCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Sidewalk;
         }

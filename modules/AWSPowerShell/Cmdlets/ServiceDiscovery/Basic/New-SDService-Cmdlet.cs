@@ -121,7 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// instance, and if you're using a system that requires a specific <code>SRV</code> format,
         /// such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</para><ul><li><para>Start the name with an underscore (_), such as <code>_exampleservice</code></para></li><li><para>End the name with <i>._protocol</i>, such as <code>._tcp</code></para></li></ul><para>When you register an instance, AWS Cloud Map creates an <code>SRV</code> record and
         /// assigns a name to the record by concatenating the service name and the namespace name,
-        /// for example:</para><para><code>_exampleservice._tcp.example.com</code></para>
+        /// for example:</para><para><code>_exampleservice._tcp.example.com</code></para><note><para>For a single DNS namespace, you cannot create two services with names that differ
+        /// only by case (such as EXAMPLE and example). Otherwise, these services will have the
+        /// same DNS name. However, you can create multiple HTTP services with names that differ
+        /// only by case because HTTP services are case sensitive.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -190,6 +193,19 @@ namespace Amazon.PowerShell.Cmdlets.SD
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ServiceDiscovery.HealthCheckType")]
         public Amazon.ServiceDiscovery.HealthCheckType HealthCheckConfig_Type { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>If present, specifies that the service instances are only discoverable using the <code>DiscoverInstances</code>
+        /// API operation. No DNS records will be registered for the service instances. The only
+        /// valid value is <code>HTTP</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ServiceDiscovery.ServiceTypeOption")]
+        public Amazon.ServiceDiscovery.ServiceTypeOption Type { get; set; }
         #endregion
         
         #region Parameter Select
@@ -272,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
             {
                 context.Tag = new List<Amazon.ServiceDiscovery.Model.Tag>(this.Tag);
             }
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -355,6 +372,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
+            }
             
             CmdletOutput output;
             
@@ -426,6 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
             public System.String Name { get; set; }
             public System.String NamespaceId { get; set; }
             public List<Amazon.ServiceDiscovery.Model.Tag> Tag { get; set; }
+            public Amazon.ServiceDiscovery.ServiceTypeOption Type { get; set; }
             public System.Func<Amazon.ServiceDiscovery.Model.CreateServiceResponse, NewSDServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Service;
         }

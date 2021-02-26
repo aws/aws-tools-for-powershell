@@ -179,8 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html">System
         /// Controls</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><ul><li><para>For tasks that use the <code>host</code> IPC mode, IPC namespace related <code>systemControls</code>
         /// are not supported.</para></li><li><para>For tasks that use the <code>task</code> IPC mode, IPC namespace related <code>systemControls</code>
-        /// will apply to all containers within a task.</para></li></ul><note><para>This parameter is not supported for Windows containers or tasks using the Fargate
-        /// launch type.</para></note>
+        /// will apply to all containers within a task.</para></li></ul><note><para>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,8 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// For more information, see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
         /// settings</a> in the <i>Docker run reference</i>.</para><para>If the <code>host</code> PID mode is used, be aware that there is a heightened risk
         /// of undesired process namespace expose. For more information, see <a href="https://docs.docker.com/engine/security/security/">Docker
-        /// security</a>.</para><note><para>This parameter is not supported for Windows containers or tasks using the Fargate
-        /// launch type.</para></note>
+        /// security</a>.</para><note><para>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -305,8 +303,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The task launch type that Amazon ECS should validate the task definition against.
-        /// This ensures that the task definition parameters are compatible with the specified
-        /// launch type. If no value is specified, it defaults to <code>EC2</code>.</para>
+        /// A client exception is returned if the task definition doesn't validate against the
+        /// compatibilities specified. If no value is specified, the parameter is omitted from
+        /// the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

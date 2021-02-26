@@ -125,6 +125,7 @@ $COMP_Completers = {
             ($_ -eq "Find-COMPKeyPhrase/LanguageCode") -Or
             ($_ -eq "Find-COMPKeyPhrasesBatch/LanguageCode") -Or
             ($_ -eq "Find-COMPPiiEntity/LanguageCode") -Or
+            ($_ -eq "Find-COMPPiiEntityType/LanguageCode") -Or
             ($_ -eq "Find-COMPSentiment/LanguageCode") -Or
             ($_ -eq "Find-COMPSentimentBatch/LanguageCode") -Or
             ($_ -eq "New-COMPDocumentClassifier/LanguageCode") -Or
@@ -186,7 +187,7 @@ $COMP_map = @{
     "Filter_JobStatus"=@("Get-COMPDocumentClassificationJobList","Get-COMPEventsDetectionJobList")
     "Filter_Status"=@("Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList")
     "InputDataConfig_DataFormat"=@("New-COMPDocumentClassifier","New-COMPEntityRecognizer")
-    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob")
+    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob")
     "Mode"=@("New-COMPDocumentClassifier","Start-COMPPiiEntitiesDetectionJob")
     "RedactionConfig_MaskMode"=@("Start-COMPPiiEntitiesDetectionJob")
 }
@@ -247,6 +248,7 @@ $COMP_SelectMap = @{
                "Find-COMPSentimentBatch",
                "Find-COMPSyntaxBatch",
                "Invoke-COMPDocumentClassification",
+               "Find-COMPPiiEntityType",
                "New-COMPDocumentClassifier",
                "New-COMPEndpoint",
                "New-COMPEntityRecognizer",

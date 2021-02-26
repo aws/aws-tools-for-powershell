@@ -89,6 +89,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateRecoveryPoint" Verb="Unlock" Noun="RecoveryPoint" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ExportBackupPlanTemplate" OutputProperty="BackupPlanTemplateJson" Verb="Export" Noun="BackupPlanTemplate" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

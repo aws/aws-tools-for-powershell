@@ -67,10 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter Includes_KeyType
         /// <summary>
         /// <para>
-        /// <para>Specify one or more algorithms that can be used to generate key pairs.</para><para>Default filtering returns only <code>RSA_2048</code> certificates. To return other
-        /// certificate types, provide the desired type signatures in a comma-separated list.
-        /// For example, <code>"keyTypes": ["RSA_2048,RSA_4096"]</code> returns both <code>RSA_2048</code>
-        /// and <code>RSA_4096</code> certificates.</para>
+        /// <para>Specify one or more algorithms that can be used to generate key pairs.</para><para>Default filtering returns only <code>RSA_1024</code> and <code>RSA_2048</code> certificates
+        /// that have at least one domain. To return other certificate types, provide the desired
+        /// type signatures in a comma-separated list. For example, <code>"keyTypes": ["RSA_2048,RSA_4096"]</code>
+        /// returns both <code>RSA_2048</code> and <code>RSA_4096</code> certificates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

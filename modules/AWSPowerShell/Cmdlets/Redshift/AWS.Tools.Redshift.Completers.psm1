@@ -87,6 +87,17 @@ $RS_Completers = {
             break
         }
 
+        # Amazon.Redshift.AquaConfigurationStatus
+        {
+            ($_ -eq "Edit-RSAquaConfiguration/AquaConfigurationStatus") -Or
+            ($_ -eq "New-RSCluster/AquaConfigurationStatus") -Or
+            ($_ -eq "Restore-RSFromClusterSnapshot/AquaConfigurationStatus")
+        }
+        {
+            $v = "auto","disabled","enabled"
+            break
+        }
+
         # Amazon.Redshift.ScheduledActionTypeValues
         "Get-RSScheduledAction/TargetActionType"
         {
@@ -145,6 +156,7 @@ $RS_Completers = {
 
 $RS_map = @{
     "ActionType"=@("Get-RSNodeConfigurationOption")
+    "AquaConfigurationStatus"=@("Edit-RSAquaConfiguration","New-RSCluster","Restore-RSFromClusterSnapshot")
     "BreachAction"=@("Edit-RSUsageLimit","New-RSUsageLimit")
     "FeatureType"=@("Get-RSUsageLimit","New-RSUsageLimit")
     "LimitType"=@("New-RSUsageLimit")
@@ -271,6 +283,7 @@ $RS_SelectMap = @{
                "Enable-RSSnapshotCopy",
                "Get-RSClusterCredential",
                "Get-RSReservedNodeExchangeOffering",
+               "Edit-RSAquaConfiguration",
                "Edit-RSCluster",
                "Edit-RSClusterDbRevision",
                "Edit-RSClusterIamRole",

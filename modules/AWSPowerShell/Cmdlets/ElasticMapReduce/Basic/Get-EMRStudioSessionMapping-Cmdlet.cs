@@ -28,13 +28,8 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// <note><para>
-    /// The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-    /// change.
-    /// </para></note><para>
     /// Fetches mapping details for the specified Amazon EMR Studio and identity (user or
     /// group).
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "EMRStudioSessionMapping")]
     [OutputType("Amazon.ElasticMapReduce.Model.SessionMappingDetail")]
@@ -63,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter IdentityName
         /// <summary>
         /// <para>
-        /// <para>The name of the user or group to fetch. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserName</a>
+        /// <para>The name of the user or group to fetch. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a>
         /// and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a>
         /// in the <i>AWS SSO Identity Store API Reference</i>. Either <code>IdentityName</code>
         /// or <code>IdentityId</code> must be specified.</para>

@@ -125,6 +125,20 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.Int32? MaxLatency { get; set; }
         #endregion
         
+        #region Parameter MinLatency
+        /// <summary>
+        /// <para>
+        /// The minimum latency in milliseconds for SRT-based
+        /// streams. In streams that use the SRT protocol, this value that you set on your MediaConnect
+        /// source or output represents the minimal potential latency of that connection. The
+        /// latency of the stream is set to the highest number between the sender’s minimum latency
+        /// and the receiver’s minimum latency.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MinLatency { get; set; }
+        #endregion
+        
         #region Parameter Protocol
         /// <summary>
         /// <para>
@@ -261,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.IngestPort = this.IngestPort;
             context.MaxBitrate = this.MaxBitrate;
             context.MaxLatency = this.MaxLatency;
+            context.MinLatency = this.MinLatency;
             context.Protocol = this.Protocol;
             context.SourceArn = this.SourceArn;
             #if MODULAR
@@ -315,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.MaxLatency != null)
             {
                 request.MaxLatency = cmdletContext.MaxLatency.Value;
+            }
+            if (cmdletContext.MinLatency != null)
+            {
+                request.MinLatency = cmdletContext.MinLatency.Value;
             }
             if (cmdletContext.Protocol != null)
             {
@@ -404,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.Int32? IngestPort { get; set; }
             public System.Int32? MaxBitrate { get; set; }
             public System.Int32? MaxLatency { get; set; }
+            public System.Int32? MinLatency { get; set; }
             public Amazon.MediaConnect.Protocol Protocol { get; set; }
             public System.String SourceArn { get; set; }
             public System.String StreamId { get; set; }

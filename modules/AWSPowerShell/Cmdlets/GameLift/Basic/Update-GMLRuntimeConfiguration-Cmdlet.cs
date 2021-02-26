@@ -28,25 +28,27 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates the current runtime configuration for the specified fleet, which tells Amazon
-    /// GameLift how to launch server processes on instances in the fleet. You can update
-    /// a fleet's runtime configuration at any time after the fleet is created; it does not
-    /// need to be in an <code>ACTIVE</code> status.
+    /// Updates the current runtime configuration for the specified fleet, which tells GameLift
+    /// how to launch server processes on all instances in the fleet. You can update a fleet's
+    /// runtime configuration at any time after the fleet is created; it does not need to
+    /// be in <code>ACTIVE</code> status.
     /// 
     ///  
     /// <para>
     /// To update runtime configuration, specify the fleet ID and provide a <code>RuntimeConfiguration</code>
-    /// object with an updated set of server process configurations.
+    /// with an updated set of server process configurations.
     /// </para><para>
-    /// Each instance in a Amazon GameLift fleet checks regularly for an updated runtime configuration
-    /// and changes how it launches server processes to comply with the latest version. Existing
-    /// server processes are not affected by the update; runtime configuration changes are
-    /// applied gradually as existing processes shut down and new processes are launched during
-    /// Amazon GameLift's normal process recycling activity.
+    /// If successful, the fleet's runtime configuration settings are updated. Each instance
+    /// in the fleet regularly checks for and retrieves updated runtime configurations. Instances
+    /// immediately begin complying with the new configuration by launching new server processes
+    /// or not replacing existing processes when they shut down. Updating a fleet's runtime
+    /// configuration never affects existing server processes.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift Fleets</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para><a>DescribeFleetAttributes</a></para></li><li><para>
-    /// Update fleets:
-    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para><a>StartFleetActions</a> or <a>StopFleetActions</a></para></li></ul>
+    /// up GameLift fleets</a></para><para><b>Related actions</b></para><para><a>CreateFleetLocations</a> | <a>UpdateFleetAttributes</a> | <a>UpdateFleetCapacity</a>
+    /// | <a>UpdateFleetPortSettings</a> | <a>UpdateRuntimeConfiguration</a> | <a>StopFleetActions</a>
+    /// | <a>StartFleetActions</a> | <a>PutScalingPolicy</a> | <a>DeleteFleet</a> | <a>DeleteFleetLocations</a>
+    /// | <a>DeleteScalingPolicy</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLRuntimeConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.RuntimeConfiguration")]
@@ -61,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet to update runtime configuration for. You can use either
-        /// the fleet ID or ARN value.</para>
+        /// <para>A unique identifier for the fleet to update runtime configuration for. You can use
+        /// either the fleet ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,9 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_GameSessionActivationTimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum amount of time (in seconds) that a game session can remain in status <code>ACTIVATING</code>.
-        /// If the game session is not active before the timeout, activation is terminated and
-        /// the game session status is changed to <code>TERMINATED</code>.</para>
+        /// <para>The maximum amount of time (in seconds) allowed to launch a new game session and have
+        /// it report ready to host players. During this time, the game session is in status <code>ACTIVATING</code>.
+        /// If the game session does not become active before the timeout, it is ended and the
+        /// game session status is changed to <code>TERMINATED</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_MaxConcurrentGameSessionActivation
         /// <summary>
         /// <para>
-        /// <para>The maximum number of game sessions with status <code>ACTIVATING</code> to allow on
-        /// an instance simultaneously. This setting limits the amount of instance resources that
-        /// can be used for new game activations at any one time.</para>
+        /// <para>The number of game sessions in status <code>ACTIVATING</code> to allow on an instance.
+        /// This setting limits the instance resources that can be used for new game activations
+        /// at any one time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_ServerProcess
         /// <summary>
         /// <para>
-        /// <para>A collection of server process configurations that describe which server processes
+        /// <para>A collection of server process configurations that identify what server processes
         /// to run on each instance in a fleet.</para>
         /// </para>
         /// </summary>

@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to change the status of the account. Valid values are: ENABLED,
-        /// resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie
-        /// activities for the account.</para>
+        /// <para>Specifies a new status for the account. Valid values are: ENABLED, resume all Amazon
+        /// Macie activities for the account; and, PAUSED, suspend all Macie activities for the
+        /// account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

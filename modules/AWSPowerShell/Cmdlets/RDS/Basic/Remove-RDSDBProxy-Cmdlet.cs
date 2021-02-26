@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Deletes an existing proxy.
+    /// Deletes an existing DB proxy.
     /// </summary>
     [Cmdlet("Remove", "RDSDBProxy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RDS.Model.DBProxy")]

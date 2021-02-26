@@ -28,10 +28,10 @@ using Amazon.CodePipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    /// Updates an action type that has been created with any supported integration model,
-    /// where the action type is to be used by customers of the action type provider. Use
-    /// a JSON file with the action definition and <code>UpdateActionType</code> to provide
-    /// the full structure.
+    /// Updates an action type that was created with any supported integration model, where
+    /// the action type is to be used by customers of the action type provider. Use a JSON
+    /// file with the action definition and <code>UpdateActionType</code> to provide the full
+    /// structure.
     /// </summary>
     [Cmdlet("Update", "CPActionType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Permissions_AllowedAccount
         /// <summary>
         /// <para>
-        /// <para>A list of AWS account IDs with allow access to use the action type in their pipelines.</para>
+        /// <para>A list of AWS account IDs with access to use the action type in their pipelines.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,11 +57,16 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Id_Category
         /// <summary>
         /// <para>
-        /// <para>A category defines what kind of action can be taken in the stage. Valid categories
-        /// are limited to one of the following values:</para><ul><li><para><code>Source</code></para></li><li><para><code>Build</code></para></li><li><para><code>Test</code></para></li><li><para><code>Deploy</code></para></li><li><para><code>Approval</code></para></li><li><para><code>Invoke</code></para></li></ul>
+        /// <para>Defines what kind of action can be taken in the stage, one of the following:</para><ul><li><para><code>Source</code></para></li><li><para><code>Build</code></para></li><li><para><code>Test</code></para></li><li><para><code>Deploy</code></para></li><li><para><code>Approval</code></para></li><li><para><code>Invoke</code></para></li></ul>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ActionType_Id_Category")]
         [AWSConstantClassSource("Amazon.CodePipeline.ActionCategory")]
         public Amazon.CodePipeline.ActionCategory Id_Category { get; set; }
@@ -118,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Executor_JobTimeout
         /// <summary>
         /// <para>
-        /// <para>The timeout in seconds for the job. An action execution can consist of multiple jobs.
-        /// This is the timeout for a single job, and not for the entire action execution.</para>
+        /// <para>The timeout in seconds for the job. An action execution can have multiple jobs. This
+        /// is the timeout for a single job, not the entire action execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,12 +146,18 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter InputArtifactDetails_MaximumCount
         /// <summary>
         /// <para>
-        /// <para>The maximum allowed number of artifacts that can be used with the actiontype. For
-        /// example, you should specify a minimum and maximum of zero input artifacts for an action
-        /// type with a category of <code>source</code>.</para>
+        /// <para>The maximum number of artifacts that can be used with the actiontype. For example,
+        /// you should specify a minimum and maximum of zero input artifacts for an action type
+        /// with a category of <code>source</code>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ActionType_InputArtifactDetails_MaximumCount")]
         public System.Int32? InputArtifactDetails_MaximumCount { get; set; }
         #endregion
@@ -154,12 +165,18 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter OutputArtifactDetails_MaximumCount
         /// <summary>
         /// <para>
-        /// <para>The maximum allowed number of artifacts that can be used with the actiontype. For
-        /// example, you should specify a minimum and maximum of zero input artifacts for an action
-        /// type with a category of <code>source</code>.</para>
+        /// <para>The maximum number of artifacts that can be used with the actiontype. For example,
+        /// you should specify a minimum and maximum of zero input artifacts for an action type
+        /// with a category of <code>source</code>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ActionType_OutputArtifactDetails_MaximumCount")]
         public System.Int32? OutputArtifactDetails_MaximumCount { get; set; }
         #endregion
@@ -167,12 +184,18 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter InputArtifactDetails_MinimumCount
         /// <summary>
         /// <para>
-        /// <para>The minimum allowed number of artifacts that can be used with the action type. For
-        /// example, you should specify a minimum and maximum of zero input artifacts for an action
-        /// type with a category of <code>source</code>.</para>
+        /// <para>The minimum number of artifacts that can be used with the action type. For example,
+        /// you should specify a minimum and maximum of zero input artifacts for an action type
+        /// with a category of <code>source</code>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ActionType_InputArtifactDetails_MinimumCount")]
         public System.Int32? InputArtifactDetails_MinimumCount { get; set; }
         #endregion
@@ -180,12 +203,18 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter OutputArtifactDetails_MinimumCount
         /// <summary>
         /// <para>
-        /// <para>The minimum allowed number of artifacts that can be used with the action type. For
-        /// example, you should specify a minimum and maximum of zero input artifacts for an action
-        /// type with a category of <code>source</code>.</para>
+        /// <para>The minimum number of artifacts that can be used with the action type. For example,
+        /// you should specify a minimum and maximum of zero input artifacts for an action type
+        /// with a category of <code>source</code>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ActionType_OutputArtifactDetails_MinimumCount")]
         public System.Int32? OutputArtifactDetails_MinimumCount { get; set; }
         #endregion
@@ -193,11 +222,17 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Id_Owner
         /// <summary>
         /// <para>
-        /// <para>The creator of the action type being called. There are two valid values for the <code>owner</code>
-        /// field: <code>AWS</code> and <code>ThirdParty</code>.</para>
+        /// <para>The creator of the action type being called: <code>AWS</code> or <code>ThirdParty</code>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ActionType_Id_Owner")]
         public System.String Id_Owner { get; set; }
         #endregion
@@ -206,9 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <summary>
         /// <para>
         /// <para>The policy statement that specifies the permissions in the CodePipeline customer’s
-        /// account that are needed to successfully run an action execution.</para><para>To grant permission to another account, specify the account ID as the Principal. For
-        /// AWS services, the Principal is a domain-style identifier defined by the service, like
-        /// <code>codepipeline.amazonaws.com</code>.</para><note><para>The size of the passed JSON policy document cannot exceed 2048 characters.</para></note>
+        /// account that are needed to successfully run an action.</para><para>To grant permission to another account, specify the account ID as the Principal, a
+        /// domain-style identifier defined by the service, for example <code>codepipeline.amazonaws.com</code>.</para><note><para>The size of the passed JSON policy document cannot exceed 2048 characters.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -258,7 +292,14 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// action type is created.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ActionType_Id_Provider")]
         public System.String Id_Provider { get; set; }
         #endregion
@@ -278,12 +319,17 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Executor_Type
         /// <summary>
         /// <para>
-        /// <para>The integration model used to create and update the action type, such as the Lambda
-        /// integration model. Each integration type has a related action engine, or executor.
-        /// The available executor types are <code>Lambda</code> and <code>JobWorker</code>.</para>
+        /// <para>The integration model used to create and update the action type, <code>Lambda</code>
+        /// or <code>JobWorker</code>. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ActionType_Executor_Type")]
         [AWSConstantClassSource("Amazon.CodePipeline.ExecutorType")]
         public Amazon.CodePipeline.ExecutorType Executor_Type { get; set; }
@@ -295,7 +341,14 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>A string that describes the action type version.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ActionType_Id_Version")]
         public System.String Id_Version { get; set; }
         #endregion
@@ -353,14 +406,68 @@ namespace Amazon.PowerShell.Cmdlets.CP
             context.Executor_JobTimeout = this.Executor_JobTimeout;
             context.Executor_PolicyStatementsTemplate = this.Executor_PolicyStatementsTemplate;
             context.Executor_Type = this.Executor_Type;
+            #if MODULAR
+            if (this.Executor_Type == null && ParameterWasBound(nameof(this.Executor_Type)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Executor_Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Id_Category = this.Id_Category;
+            #if MODULAR
+            if (this.Id_Category == null && ParameterWasBound(nameof(this.Id_Category)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Id_Category which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Id_Owner = this.Id_Owner;
+            #if MODULAR
+            if (this.Id_Owner == null && ParameterWasBound(nameof(this.Id_Owner)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Id_Owner which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Id_Provider = this.Id_Provider;
+            #if MODULAR
+            if (this.Id_Provider == null && ParameterWasBound(nameof(this.Id_Provider)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Id_Provider which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Id_Version = this.Id_Version;
+            #if MODULAR
+            if (this.Id_Version == null && ParameterWasBound(nameof(this.Id_Version)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Id_Version which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.InputArtifactDetails_MaximumCount = this.InputArtifactDetails_MaximumCount;
+            #if MODULAR
+            if (this.InputArtifactDetails_MaximumCount == null && ParameterWasBound(nameof(this.InputArtifactDetails_MaximumCount)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InputArtifactDetails_MaximumCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.InputArtifactDetails_MinimumCount = this.InputArtifactDetails_MinimumCount;
+            #if MODULAR
+            if (this.InputArtifactDetails_MinimumCount == null && ParameterWasBound(nameof(this.InputArtifactDetails_MinimumCount)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InputArtifactDetails_MinimumCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.OutputArtifactDetails_MaximumCount = this.OutputArtifactDetails_MaximumCount;
+            #if MODULAR
+            if (this.OutputArtifactDetails_MaximumCount == null && ParameterWasBound(nameof(this.OutputArtifactDetails_MaximumCount)))
+            {
+                WriteWarning("You are passing $null as a value for parameter OutputArtifactDetails_MaximumCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.OutputArtifactDetails_MinimumCount = this.OutputArtifactDetails_MinimumCount;
+            #if MODULAR
+            if (this.OutputArtifactDetails_MinimumCount == null && ParameterWasBound(nameof(this.OutputArtifactDetails_MinimumCount)))
+            {
+                WriteWarning("You are passing $null as a value for parameter OutputArtifactDetails_MinimumCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Permissions_AllowedAccount != null)
             {
                 context.Permissions_AllowedAccount = new List<System.String>(this.Permissions_AllowedAccount);

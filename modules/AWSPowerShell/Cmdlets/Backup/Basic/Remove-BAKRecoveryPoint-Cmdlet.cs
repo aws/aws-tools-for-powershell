@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
     /// Deletes the recovery point specified by a recovery point ID.
+    /// 
+    ///  
+    /// <para>
+    /// If the recovery point ID belongs to a continuous backup, calling this endpoint deletes
+    /// the existing continuous backup and stops future continuous backup.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "BAKRecoveryPoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

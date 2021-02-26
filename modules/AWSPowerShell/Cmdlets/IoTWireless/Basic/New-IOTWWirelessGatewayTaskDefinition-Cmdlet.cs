@@ -159,6 +159,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String UpdateVersion_Station { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags attached to the specified resource. Tags are metadata that can be used to
+        /// manage a resource</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.IoTWireless.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Update_UpdateDataRole
         /// <summary>
         /// <para>
@@ -260,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
             context.Name = this.Name;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.IoTWireless.Model.Tag>(this.Tag);
+            }
             context.CurrentVersion_Model = this.CurrentVersion_Model;
             context.CurrentVersion_PackageVersion = this.CurrentVersion_PackageVersion;
             context.CurrentVersion_Station = this.CurrentVersion_Station;
@@ -297,6 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
              // populate Update
@@ -516,6 +536,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.Boolean? AutoCreateTask { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.IoTWireless.Model.Tag> Tag { get; set; }
             public System.String CurrentVersion_Model { get; set; }
             public System.String CurrentVersion_PackageVersion { get; set; }
             public System.String CurrentVersion_Station { get; set; }

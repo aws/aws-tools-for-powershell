@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
     /// (Deprecated) Retrieves information about the Amazon Macie administrator account for
-    /// an account.
+    /// an account. This operation has been replaced by the <link linkend="GetAdministratorAccount">GetAdministratorAccount</link>
+    /// operation.
     /// </summary>
     [Cmdlet("Get", "MAC2MasterAccount")]
     [OutputType("Amazon.Macie2.Model.Invitation")]

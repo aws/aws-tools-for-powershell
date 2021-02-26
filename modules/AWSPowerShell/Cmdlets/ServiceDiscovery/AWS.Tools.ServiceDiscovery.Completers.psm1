@@ -101,6 +101,13 @@ $SD_Completers = {
             break
         }
 
+        # Amazon.ServiceDiscovery.ServiceTypeOption
+        "New-SDService/Type"
+        {
+            $v = "HTTP"
+            break
+        }
+
 
     }
 
@@ -113,6 +120,7 @@ $SD_map = @{
     "HealthCheckConfig_Type"=@("New-SDService")
     "HealthStatus"=@("Find-SDInstance")
     "Status"=@("Update-SDInstanceCustomHealthStatus")
+    "Type"=@("New-SDService")
 }
 
 _awsArgumentCompleterRegistration $SD_Completers $SD_map

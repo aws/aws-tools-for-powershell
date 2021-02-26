@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The result of a Lambda function that validates a deployment lifecycle event (<code>Succeeded</code>
-        /// or <code>Failed</code>).</para>
+        /// <para>The result of a Lambda function that validates a deployment lifecycle event. <code>Succeeded</code>
+        /// and <code>Failed</code> are the only valid values for <code>status</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

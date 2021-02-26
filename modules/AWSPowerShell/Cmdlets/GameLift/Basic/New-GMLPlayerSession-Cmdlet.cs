@@ -28,22 +28,24 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Reserves open slots in a game session for a group of players. Before players can be
-    /// added, a game session must have an <code>ACTIVE</code> status, have a creation policy
-    /// of <code>ALLOW_ALL</code>, and have an open player slot. To add a single player to
-    /// a game session, use <a>CreatePlayerSession</a>. When a player connects to the game
-    /// server and references a player session ID, the game server contacts the Amazon GameLift
-    /// service to validate the player reservation and accept the player.
+    /// Reserves open slots in a game session for a group of players. New player sessions
+    /// can be created in any game session with an open slot that is in <code>ACTIVE</code>
+    /// status and has a player creation policy of <code>ACCEPT_ALL</code>. To add a single
+    /// player to a game session, use <a>CreatePlayerSession</a>. 
     /// 
     ///  
     /// <para>
-    /// To create player sessions, specify a game session ID, a list of player IDs, and optionally
-    /// a set of player data strings. If successful, a slot is reserved in the game session
-    /// for each player and a set of new <a>PlayerSession</a> objects is returned. Player
-    /// sessions cannot be updated.
-    /// </para><para><i>Available in Amazon GameLift Local.</i></para><ul><li><para><a>CreatePlayerSession</a></para></li><li><para><a>CreatePlayerSessions</a></para></li><li><para><a>DescribePlayerSessions</a></para></li><li><para>
-    /// Game session placements
-    /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul>
+    /// To create player sessions, specify a game session ID and a list of player IDs. Optionally,
+    /// provide a set of player data for each player ID. 
+    /// </para><para>
+    /// If successful, a slot is reserved in the game session for each player, and new <a>PlayerSession</a>
+    /// objects are returned with player session IDs. Each player references their player
+    /// session ID when sending a connection request to the game session, and the game server
+    /// can use it to validate the player reservation with the GameLift service. Player sessions
+    /// cannot be updated.
+    /// </para><para><i>Available in Amazon GameLift Local.</i></para><para><b>Related actions</b></para><para><a>CreatePlayerSession</a> | <a>CreatePlayerSessions</a> | <a>DescribePlayerSessions</a>
+    /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLPlayerSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.PlayerSession")]
@@ -77,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Map of string pairs, each specifying a player ID and a set of developer-defined information
         /// related to the player. Amazon GameLift does not use this data, so it can be formatted
-        /// as needed for use in the game. Player data strings for player IDs not included in
-        /// the <code>PlayerIds</code> parameter are ignored. </para>
+        /// as needed for use in the game. Any player data strings for player IDs that are not
+        /// included in the <code>PlayerIds</code> parameter are ignored. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

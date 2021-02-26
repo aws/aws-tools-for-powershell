@@ -168,7 +168,8 @@ $EKS_SelectCompleters = {
 }
 
 $EKS_SelectMap = @{
-    "Select"=@("Add-EKSIdentityProviderConfig",
+    "Select"=@("Add-EKSEncryptionConfig",
+               "Add-EKSIdentityProviderConfig",
                "New-EKSAddon",
                "New-EKSCluster",
                "New-EKSFargateProfile",

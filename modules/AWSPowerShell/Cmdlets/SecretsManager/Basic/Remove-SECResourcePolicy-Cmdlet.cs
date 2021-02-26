@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
     /// To attach a resource policy to a secret, use <a>PutResourcePolicy</a>.
     /// </para></li><li><para>
-    /// To retrieve the current resource-based policy that's attached to a secret, use <a>GetResourcePolicy</a>.
+    /// To retrieve the current resource-based policy attached to a secret, use <a>GetResourcePolicy</a>.
     /// </para></li><li><para>
     /// To list all of the currently available secrets, use <a>ListSecrets</a>.
     /// </para></li></ul>
