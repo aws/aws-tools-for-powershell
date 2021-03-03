@@ -46,6 +46,10 @@ Param
     [ValidateNotNullOrEmpty()]
     [string]$SecretKey,
 
+    [Parameter(Mandatory = $true, HelpMessage = "The AWS profile to use to update and store PowerShell Gallery package information in the ProfileVersions table.")]
+    [ValidateNotNullOrEmpty()]
+    [string]$UpdatePackageVersionsProfile,
+
     [Parameter()]
     [switch]$DryRun
 )
@@ -53,6 +57,7 @@ Param
 $ErrorActionPreference = "Stop"
 
 Import-Module -Name "PowerShellGet"
+Import-Module $PSScriptRoot/Update-ModulePackageVersion.psm1
 
 $alreadyImportedModules = New-Object System.Collections.Generic.HashSet[string]
 
@@ -103,6 +108,7 @@ function PublishRecursive([string]$modulePath) {
                 }
                 else {
                     Publish-Module -Path $modulePath @commonArgs -Force
+                    Update-ModulePackageVersion -modulePath $modulePath -versionNumber $manifestData.ModuleVersion -repository "PSGallery" -profileName $UpdatePackageVersionsProfile
                 }
                 Write-Host "Published $modulePath"
                 break
@@ -112,6 +118,7 @@ function PublishRecursive([string]$modulePath) {
                 try {
                     Find-Module ([System.IO.Path]::GetFileNameWithoutExtension($manifest)) -RequiredVersion $manifestData.ModuleVersion
                     Write-Host "Successfully found module $modulePath version $($manifestData.ModuleVersion) already on the gallery"
+                    Update-ModulePackageVersion -modulePath $modulePath -versionNumber $manifestData.ModuleVersion -repository "PSGallery" -profileName $UpdatePackageVersionsProfile
                     break;
                 }
                 catch {
