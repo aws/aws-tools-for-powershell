@@ -95,14 +95,21 @@ function Get-AWSToolsModule {
     )
 
     Process {
+        #Windows Powershell 5.1 has inconistent behavior where Get-Module could return nothing in %USERPROFILE%\Documents\WindowsPowerShell\Modules.
         [PSModuleInfo[]]$installedAwsToolsModules = Microsoft.PowerShell.Core\Get-Module -Name 'AWS.Tools.*' -ListAvailable -Verbose:$false
+
         if ($installedAwsToolsModules -and ($PSVersionTable.PSVersion.Major -lt 6 -or $IsWindows)) {
             $installedAwsToolsModules = $installedAwsToolsModules | Where-Object {
                 [Signature]$signature = Microsoft.PowerShell.Security\Get-AuthenticodeSignature -FilePath $_.Path
                 ($signature.Status -eq 'Valid' -or $SkipIfInvalidSignature) -and ($signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAmazonSubject -or $signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAwsSubject)
             }
         }
-        $installedAwsToolsModules | Where-Object { $_.Name -ne 'AWS.Tools.Installer' }
+
+        if($installedAwsToolsModules) {
+            $installedAwsToolsModules = $installedAwsToolsModules | Where-Object { $_.Name -ne 'AWS.Tools.Installer' }
+        }
+
+        $installedAwsToolsModules
     }
 }
 
@@ -165,61 +172,63 @@ function Uninstall-AWSToolsModule {
         Write-Verbose "[$($MyInvocation.MyCommand)] Searching installed modules"
         [PSModuleInfo[]]$InstalledAwsToolsModules = Get-AWSToolsModule
 
-        if ($MinimumVersion) {
+        if ($MinimumVersion -and $InstalledAwsToolsModules) {
             $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -ge $MinimumVersion }
         }
-        if ($MaximumVersion) {
+        if ($MaximumVersion -and $InstalledAwsToolsModules) {
             $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -le $MaximumVersion }
         }
-        if ($RequiredVersion) {
+        if ($RequiredVersion -and $InstalledAwsToolsModules) {
             $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -eq $RequiredVersion }
         }
-        if ($ExceptVersion) {
+        if ($ExceptVersion -and $InstalledAwsToolsModules) {
             $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -ne $ExceptVersion }
         }
 
-        $versions = $InstalledAwsToolsModules | Group-Object Version
+        if ($InstalledAwsToolsModules) {
+            $versions = $InstalledAwsToolsModules | Group-Object Version
 
-        if ($versions -and ($Force -or $WhatIfPreference -or $PSCmdlet.ShouldProcess("AWS Tools version $([string]::Join(', ', $versions.Name))"))) {
-            $ConfirmPreference = 'None'
+            if ($versions -and ($Force -or $WhatIfPreference -or $PSCmdlet.ShouldProcess("AWS Tools version $([string]::Join(', ', $versions.Name))"))) {
+                $ConfirmPreference = 'None'
 
-            $versions | ForEach-Object {
-                Write-Host "Uninstalling AWS.Tools version $($_.Name)"
+                $versions | ForEach-Object {
+                    Write-Host "Uninstalling AWS.Tools version $($_.Name)"
 
-                [PSModuleInfo[]]$versionModules = $_.Group
+                    [PSModuleInfo[]]$versionModules = $_.Group
 
-                while ($versionModules) {
-                    [string[]]$dependencyNames = $versionModules | Select-Object -ExpandProperty RequiredModules | Select-Object -ExpandProperty Name | Sort-Object -Unique
-                    if ($dependencyNames) {
-                        [PSModuleInfo[]]$removableModules = $versionModules | Where-Object { -not $dependencyNames.Contains($_.Name) }
-                    }
-                    else {
-                        [PSModuleInfo[]]$removableModules = $versionModules
-                    }
-
-                    if (-not $removableModules) {
-                        Write-Error "Remaining modules for version $($_.Name) cannot be removed"
-                        break
-                    }
-                    $removableModules | ForEach-Object {
-                        if ($WhatIfPreference) {
-                            Write-Host "What if: Uninstalling module $($_.Name)"
+                    while ($versionModules) {
+                        [string[]]$dependencyNames = $versionModules | Select-Object -ExpandProperty RequiredModules | Select-Object -ExpandProperty Name | Sort-Object -Unique
+                        if ($dependencyNames) {
+                            [PSModuleInfo[]]$removableModules = $versionModules | Where-Object { -not $dependencyNames.Contains($_.Name) }
                         }
                         else {
-                            Write-Host "Uninstalling module $($_.Name)"
-                            #We need to use -Force to work around https://github.com/PowerShell/PowerShellGet/issues/542
-                            $uninstallModuleParams = @{
-                                Name            = $_.Name
-                                RequiredVersion = $_.Version
-                                Force           = $true
-                                Confirm         = $false
-                                ErrorAction     = 'Continue'
-                            }
-                            PowerShellGet\Uninstall-Module @uninstallModuleParams
+                            [PSModuleInfo[]]$removableModules = $versionModules
                         }
-                    }
 
-                    $versionModules = $versionModules | Where-Object { $_.Name -notin ($removableModules | Select-Object -ExpandProperty Name) }
+                        if (-not $removableModules) {
+                            Write-Error "Remaining modules for version $($_.Name) cannot be removed"
+                            break
+                        }
+                        $removableModules | ForEach-Object {
+                            if ($WhatIfPreference) {
+                                Write-Host "What if: Uninstalling module $($_.Name)"
+                            }
+                            else {
+                                Write-Host "Uninstalling module $($_.Name)"
+                                #We need to use -Force to work around https://github.com/PowerShell/PowerShellGet/issues/542
+                                $uninstallModuleParams = @{
+                                    Name            = $_.Name
+                                    RequiredVersion = $_.Version
+                                    Force           = $true
+                                    Confirm         = $false
+                                    ErrorAction     = 'Continue'
+                                }
+                                PowerShellGet\Uninstall-Module @uninstallModuleParams
+                            }
+                        }
+
+                        $versionModules = $versionModules | Where-Object { $_.Name -notin ($removableModules | Select-Object -ExpandProperty Name) }
+                    }
                 }
             }
         }
