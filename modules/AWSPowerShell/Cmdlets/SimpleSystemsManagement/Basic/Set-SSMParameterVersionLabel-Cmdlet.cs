@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// You can't create a label when you create a new parameter. You must attach a label
     /// to a specific version of a parameter.
     /// </para></li><li><para>
-    /// You can't delete a parameter label. If you no longer want to use a parameter label,
-    /// then you must move it to a different version of a parameter.
+    /// If you no longer want to use a parameter label, then you can either delete it or move
+    /// it to a different version of a parameter.
     /// </para></li><li><para>
     /// A label can have a maximum of 100 characters.
     /// </para></li><li><para>

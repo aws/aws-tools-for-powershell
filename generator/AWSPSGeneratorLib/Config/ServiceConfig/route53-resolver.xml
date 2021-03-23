@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateFirewallRuleGroup" OutputProperty="FirewallRuleGroupAssociation" Verb="New" Noun="FirewallRuleGroupAssociation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateResolverEndpointIpAddress" OutputProperty="ResolverEndpoint" Verb="Add" Noun="ResolverEndpointIpAddressAssociation" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="IpAddress" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -28,6 +32,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateResolverRule" OutputProperty="ResolverRuleAssociation" Verb="Add" Noun="ResolverRuleAssociation" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFirewallDomainList" OutputProperty="FirewallDomainList" Verb="New" Noun="FirewallDomainList" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFirewallRule" OutputProperty="FirewallRule" Verb="New" Noun="FirewallRule" ShouldProcessTarget="FirewallRuleGroupId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFirewallRuleGroup" OutputProperty="FirewallRuleGroup" Verb="New" Noun="FirewallRuleGroup" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -43,6 +59,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFirewallDomainList" OutputProperty="FirewallDomainList" Verb="Remove" Noun="FirewallDomainList" ShouldProcessTarget="FirewallDomainListId" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFirewallRule" OutputProperty="FirewallRule" Verb="Remove" Noun="FirewallRule" ShouldProcessTarget="FirewallRuleGroupId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFirewallRuleGroup" OutputProperty="FirewallRuleGroup" Verb="Remove" Noun="FirewallRuleGroup" ShouldProcessTarget="FirewallRuleGroupId" PipelineParameter="FirewallRuleGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="Remove" Noun="ResolverEndpoint" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -55,6 +83,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateFirewallRuleGroup" OutputProperty="FirewallRuleGroupAssociation" Verb="Remove" Noun="FirewallRuleGroupAssociation" ShouldProcessTarget="FirewallRuleGroupAssociationId" PipelineParameter="FirewallRuleGroupAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateResolverEndpointIpAddress" OutputProperty="ResolverEndpoint" Verb="Remove" Noun="ResolverEndpointIpAddressAssociation" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="IpAddress" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -64,6 +96,26 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateResolverRule" OutputProperty="ResolverRuleAssociation" Verb="Remove" Noun="ResolverRuleAssociation" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFirewallConfig" OutputProperty="FirewallConfig" Verb="Get" Noun="FirewallConfig" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFirewallDomainList" OutputProperty="FirewallDomainList" Verb="Get" Noun="FirewallDomainList" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFirewallRuleGroup" OutputProperty="FirewallRuleGroup" Verb="Get" Noun="FirewallRuleGroup" PipelineParameter="FirewallRuleGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFirewallRuleGroupAssociation" OutputProperty="FirewallRuleGroupAssociation" Verb="Get" Noun="FirewallRuleGroupAssociation" PipelineParameter="FirewallRuleGroupAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFirewallRuleGroupPolicy" OutputProperty="FirewallRuleGroupPolicy" Verb="Get" Noun="FirewallRuleGroupPolicy" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -99,6 +151,34 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ImportFirewallDomains" OutputProperty="*" Verb="Import" Noun="FirewallDomainList" ShouldProcessTarget="FirewallDomainListId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFirewallConfigs" OutputProperty="FirewallConfigs" Verb="Get" Noun="FirewallConfigList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFirewallDomainLists" OutputProperty="FirewallDomainLists" Verb="Get" Noun="FirewallDomainListList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFirewallDomains" OutputProperty="Domains" Verb="Get" Noun="FirewallDomain" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFirewallRuleGroupAssociations" OutputProperty="FirewallRuleGroupAssociations" Verb="Get" Noun="FirewallRuleGroupAssociationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFirewallRuleGroups" OutputProperty="FirewallRuleGroups" Verb="Get" Noun="FirewallRuleGroupList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFirewallRules" OutputProperty="FirewallRules" Verb="Get" Noun="FirewallRuleList" PipelineParameter="FirewallRuleGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListResolverDnssecConfigs" OutputProperty="ResolverDnssecConfigs" Verb="Get" Noun="ResolverDnssecConfigList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -131,6 +211,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutFirewallRuleGroupPolicy" OutputProperty="ReturnValue" Verb="Edit" Noun="FirewallRuleGroupPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutResolverQueryLogConfigPolicy" OutputProperty="ReturnValue" Verb="Write" Noun="ResolverQueryLogConfigPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -144,6 +228,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFirewallConfig" OutputProperty="FirewallConfig" Verb="Edit" Noun="FirewallConfig" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFirewallDomains" OutputProperty="*" Verb="Edit" Noun="FirewallDomain" ShouldProcessTarget="FirewallDomainListId" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFirewallRule" OutputProperty="FirewallRule" Verb="Edit" Noun="FirewallRule" ShouldProcessTarget="FirewallRuleGroupId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFirewallRuleGroupAssociation" OutputProperty="FirewallRuleGroupAssociation" Verb="Edit" Noun="FirewallRuleGroupAssociation" ShouldProcessTarget="FirewallRuleGroupAssociationId" PipelineParameter="FirewallRuleGroupAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

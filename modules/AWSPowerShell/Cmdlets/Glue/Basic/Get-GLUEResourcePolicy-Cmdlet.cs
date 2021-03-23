@@ -42,9 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Glue resource for the resource policy to be retrieved. For more
-        /// information about AWS Glue resource ARNs, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id">AWS
-        /// Glue ARN string pattern</a></para>
+        /// <para>The ARN of the AWS Glue resource for which to retrieve the resource policy. If not
+        /// supplied, the Data Catalog resource policy is returned. Use <code>GetResourcePolicies</code>
+        /// to view all existing resource policies. For more information see <a href="https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html">Specifying
+        /// AWS Glue Resource ARNs</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

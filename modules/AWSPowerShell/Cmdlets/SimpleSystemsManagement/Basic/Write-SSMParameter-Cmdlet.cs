@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Overwrite
         /// <summary>
         /// <para>
-        /// <para>Overwrite an existing parameter. If not specified, will default to "false".</para>
+        /// <para>Overwrite an existing parameter. The default value is 'false'.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

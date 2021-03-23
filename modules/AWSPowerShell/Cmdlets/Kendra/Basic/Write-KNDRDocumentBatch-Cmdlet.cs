@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The identifier of the index to add the documents to. You need to create the index
-        /// first using the <a>CreateIndex</a> operation.</para>
+        /// first using the <code>CreateIndex</code> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

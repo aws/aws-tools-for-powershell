@@ -30,13 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// <summary>
     /// Creates a new Amazon Kendra index. Index creation is an asynchronous operation. To
     /// determine if index creation has completed, check the <code>Status</code> field returned
-    /// from a call to . The <code>Status</code> field is set to <code>ACTIVE</code> when
-    /// the index is ready to use.
+    /// from a call to <code>DescribeIndex</code>. The <code>Status</code> field is set to
+    /// <code>ACTIVE</code> when the index is ready to use.
     /// 
     ///  
     /// <para>
-    /// Once the index is active you can index your documents using the operation or using
-    /// one of the supported data sources. 
+    /// Once the index is active you can index your documents using the <code>BatchPutDocument</code>
+    /// operation or using one of the supported data sources. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "KNDRIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Modifies the settings for a Global Datastore.
+    /// Modifies the settings for a Global datastore.
     /// </summary>
     [Cmdlet("Edit", "ECGlobalReplicationGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.GlobalReplicationGroup")]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheNodeType
         /// <summary>
         /// <para>
-        /// <para>A valid cache node type that you want to scale this Global Datastore to.</para>
+        /// <para>A valid cache node type that you want to scale this Global datastore to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The upgraded version of the cache engine to be run on the clusters in the Global Datastore.
+        /// <para>The upgraded version of the cache engine to be run on the clusters in the Global datastore.
         /// </para>
         /// </para>
         /// </summary>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter GlobalReplicationGroupDescription
         /// <summary>
         /// <para>
-        /// <para>A description of the Global Datastore</para>
+        /// <para>A description of the Global datastore</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter GlobalReplicationGroupId
         /// <summary>
         /// <para>
-        /// <para>The name of the Global Datastore</para>
+        /// <para>The name of the Global datastore</para>
         /// </para>
         /// </summary>
         #if !MODULAR

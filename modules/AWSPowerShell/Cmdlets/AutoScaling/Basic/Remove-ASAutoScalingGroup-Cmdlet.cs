@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>Specifies that the group is to be deleted along with all instances associated with
         /// the group, without waiting for all instances to be terminated. This parameter also
-        /// deletes any lifecycle actions associated with the group.</para>
+        /// deletes any outstanding lifecycle actions associated with the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

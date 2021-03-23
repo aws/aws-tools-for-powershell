@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <para>The compute statistics for a <code>DataSource</code>. The statistics are generated
         /// from the observation data referenced by a <code>DataSource</code>. Amazon ML uses
         /// the statistics internally during <code>MLModel</code> training. This parameter must
-        /// be set to <code>true</code> if the <code></code>DataSource<code></code> needs to be
-        /// used for <code>MLModel</code> training. </para>
+        /// be set to <code>true</code> if the <code />DataSource<code /> needs to be used for <code>MLModel</code>
+        /// training. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,11 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// The <code>DataSchema</code> defines the structure of the observation data in the data
         /// file(s) referenced in the <code>DataSource</code>.</para><para>A <code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code></para><para>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code>
         /// and <code>excludedVariableNames</code> have an array of key-value pairs for their
-        /// value. Use the following format to define your <code>DataSchema</code>.</para><para>{ "version": "1.0",</para><para> "recordAnnotationFieldName": "F1",</para><para> "recordWeightFieldName": "F2",</para><para> "targetFieldName": "F3",</para><para> "dataFormat": "CSV",</para><para> "dataFileContainsHeader": true,</para><para> "attributes": [</para><para> { "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC"
+        /// value. Use the following format to define your <code>DataSchema</code>.</para><para>{ "version": "1.0",</para><para>"recordAnnotationFieldName": "F1",</para><para>"recordWeightFieldName": "F2",</para><para>"targetFieldName": "F3",</para><para>"dataFormat": "CSV",</para><para>"dataFileContainsHeader": true,</para><para>"attributes": [</para><para>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC"
         /// }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType":
         /// "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6",
         /// "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" },
-        /// { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</para><para> "excludedVariableNames": [ "F6" ] } </para>
+        /// { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</para><para>"excludedVariableNames": [ "F6" ] }</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <para>
         /// <para>The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic Compute Cloud
         /// (Amazon EC2) instance to carry out the copy operation from Amazon RDS to an Amazon
-        /// S3 task. For more information, see <a href="http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role
+        /// S3 task. For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role
         /// templates</a> for data pipelines.</para>
         /// </para>
         /// </summary>
@@ -327,7 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <para>
         /// <para>The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to monitor
         /// the progress of the copy task from Amazon RDS to Amazon S3. For more information,
-        /// see <a href="http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role
+        /// see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role
         /// templates</a> for data pipelines.</para>
         /// </para>
         /// </summary>

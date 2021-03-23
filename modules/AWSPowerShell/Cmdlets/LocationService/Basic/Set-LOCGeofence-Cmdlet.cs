@@ -28,8 +28,8 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Stores a geofence to a given geofence collection, or updates the geometry of an existing
-    /// geofence if a geofence ID is included in the request.
+    /// Stores a geofence geometry in a given geofence collection, or updates the geometry
+    /// of an existing geofence if a geofence ID is included in the request.
     /// </summary>
     [Cmdlet("Set", "LOCGeofence", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.PutGeofenceResponse")]

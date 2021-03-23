@@ -41,6 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     public partial class NewEC2IBContainerRecipeCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
         
+        #region Parameter InstanceConfiguration_BlockDeviceMapping
+        /// <summary>
+        /// <para>
+        /// <para>Defines the block devices to attach for building an instance from this Image Builder
+        /// AMI.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceConfiguration_BlockDeviceMappings")]
+        public Amazon.Imagebuilder.Model.InstanceBlockDeviceMapping[] InstanceConfiguration_BlockDeviceMapping { get; set; }
+        #endregion
+        
         #region Parameter Component
         /// <summary>
         /// <para>
@@ -92,14 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>The Dockerfile template used to build your image as an inline data blob.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DockerfileTemplateData { get; set; }
         #endregion
         
@@ -111,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DockerfileTemplateUri { get; set; }
+        #endregion
+        
+        #region Parameter InstanceConfiguration_Image
+        /// <summary>
+        /// <para>
+        /// <para>The AMI ID to use as the base image for a container build and test instance. If not
+        /// specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceConfiguration_Image { get; set; }
         #endregion
         
         #region Parameter ImageOsVersionOverride
@@ -322,14 +338,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             #endif
             context.Description = this.Description;
             context.DockerfileTemplateData = this.DockerfileTemplateData;
-            #if MODULAR
-            if (this.DockerfileTemplateData == null && ParameterWasBound(nameof(this.DockerfileTemplateData)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DockerfileTemplateData which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DockerfileTemplateUri = this.DockerfileTemplateUri;
             context.ImageOsVersionOverride = this.ImageOsVersionOverride;
+            if (this.InstanceConfiguration_BlockDeviceMapping != null)
+            {
+                context.InstanceConfiguration_BlockDeviceMapping = new List<Amazon.Imagebuilder.Model.InstanceBlockDeviceMapping>(this.InstanceConfiguration_BlockDeviceMapping);
+            }
+            context.InstanceConfiguration_Image = this.InstanceConfiguration_Image;
             context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             #if MODULAR
@@ -419,6 +434,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.ImageOsVersionOverride != null)
             {
                 request.ImageOsVersionOverride = cmdletContext.ImageOsVersionOverride;
+            }
+            
+             // populate InstanceConfiguration
+            var requestInstanceConfigurationIsNull = true;
+            request.InstanceConfiguration = new Amazon.Imagebuilder.Model.InstanceConfiguration();
+            List<Amazon.Imagebuilder.Model.InstanceBlockDeviceMapping> requestInstanceConfiguration_instanceConfiguration_BlockDeviceMapping = null;
+            if (cmdletContext.InstanceConfiguration_BlockDeviceMapping != null)
+            {
+                requestInstanceConfiguration_instanceConfiguration_BlockDeviceMapping = cmdletContext.InstanceConfiguration_BlockDeviceMapping;
+            }
+            if (requestInstanceConfiguration_instanceConfiguration_BlockDeviceMapping != null)
+            {
+                request.InstanceConfiguration.BlockDeviceMappings = requestInstanceConfiguration_instanceConfiguration_BlockDeviceMapping;
+                requestInstanceConfigurationIsNull = false;
+            }
+            System.String requestInstanceConfiguration_instanceConfiguration_Image = null;
+            if (cmdletContext.InstanceConfiguration_Image != null)
+            {
+                requestInstanceConfiguration_instanceConfiguration_Image = cmdletContext.InstanceConfiguration_Image;
+            }
+            if (requestInstanceConfiguration_instanceConfiguration_Image != null)
+            {
+                request.InstanceConfiguration.Image = requestInstanceConfiguration_instanceConfiguration_Image;
+                requestInstanceConfigurationIsNull = false;
+            }
+             // determine if request.InstanceConfiguration should be set to null
+            if (requestInstanceConfigurationIsNull)
+            {
+                request.InstanceConfiguration = null;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -545,6 +589,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String DockerfileTemplateData { get; set; }
             public System.String DockerfileTemplateUri { get; set; }
             public System.String ImageOsVersionOverride { get; set; }
+            public List<Amazon.Imagebuilder.Model.InstanceBlockDeviceMapping> InstanceConfiguration_BlockDeviceMapping { get; set; }
+            public System.String InstanceConfiguration_Image { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
             public System.String ParentImage { get; set; }

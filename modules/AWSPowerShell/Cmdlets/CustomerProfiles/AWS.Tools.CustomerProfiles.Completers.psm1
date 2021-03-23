@@ -80,6 +80,13 @@ $CPF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CustomerProfiles.DataPullMode
+        "Write-CPFIntegration/FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode"
+        {
+            $v = "Complete","Incremental"
+            break
+        }
+
         # Amazon.CustomerProfiles.Gender
         {
             ($_ -eq "New-CPFProfile/Gender") -Or
@@ -100,6 +107,20 @@ $CPF_Completers = {
             break
         }
 
+        # Amazon.CustomerProfiles.SourceConnectorType
+        "Write-CPFIntegration/FlowDefinition_SourceFlowConfig_ConnectorType"
+        {
+            $v = "Marketo","S3","Salesforce","Servicenow","Zendesk"
+            break
+        }
+
+        # Amazon.CustomerProfiles.TriggerType
+        "Write-CPFIntegration/FlowDefinition_TriggerConfig_TriggerType"
+        {
+            $v = "Event","OnDemand","Scheduled"
+            break
+        }
+
 
     }
 
@@ -109,6 +130,9 @@ $CPF_Completers = {
 }
 
 $CPF_map = @{
+    "FlowDefinition_SourceFlowConfig_ConnectorType"=@("Write-CPFIntegration")
+    "FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("Write-CPFIntegration")
+    "FlowDefinition_TriggerConfig_TriggerType"=@("Write-CPFIntegration")
     "Gender"=@("New-CPFProfile","Update-CPFProfile")
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
 }

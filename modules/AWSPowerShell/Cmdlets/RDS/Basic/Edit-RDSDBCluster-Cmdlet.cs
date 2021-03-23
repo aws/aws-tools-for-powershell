@@ -360,9 +360,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
         /// are enabled, using the <code>BackupRetentionPeriod</code> parameter. </para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region. To see the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
-        /// Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora
-        /// User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// for each AWS Region. To view the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
+        /// Backup window</a> in the <i>Amazon Aurora User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -388,7 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The time, in seconds, before an Aurora DB cluster in <code>serverless</code> mode
-        /// is paused.</para>
+        /// is paused.</para><para>Specify a value between 300 and 86,400 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

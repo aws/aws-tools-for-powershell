@@ -90,6 +90,24 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.Boolean? VisibilityConfig_CloudWatchMetricsEnabled { get; set; }
         #endregion
         
+        #region Parameter CustomResponseBody
+        /// <summary>
+        /// <para>
+        /// <para>A map of custom response keys and content bodies. When you create a rule with a block
+        /// action, you can send a custom response to the web request. You define these for the
+        /// rule group, and then use them in the rules that you define in the rule group. </para><para>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing
+        /// web requests and responses in AWS WAF</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+        /// WAF Developer Guide</a>. </para><para>For information about the limits on count and size for custom request and response
+        /// settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">AWS
+        /// WAF quotas</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+        /// WAF Developer Guide</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomResponseBodies")]
+        public System.Collections.Hashtable CustomResponseBody { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -268,6 +286,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 WriteWarning("You are passing $null as a value for parameter Capacity which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.CustomResponseBody != null)
+            {
+                context.CustomResponseBody = new Dictionary<System.String, Amazon.WAFV2.Model.CustomResponseBody>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CustomResponseBody.Keys)
+                {
+                    context.CustomResponseBody.Add((String)hashKey, (CustomResponseBody)(this.CustomResponseBody[hashKey]));
+                }
+            }
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -331,6 +357,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             if (cmdletContext.Capacity != null)
             {
                 request.Capacity = cmdletContext.Capacity.Value;
+            }
+            if (cmdletContext.CustomResponseBody != null)
+            {
+                request.CustomResponseBodies = cmdletContext.CustomResponseBody;
             }
             if (cmdletContext.Description != null)
             {
@@ -453,6 +483,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int64? Capacity { get; set; }
+            public Dictionary<System.String, Amazon.WAFV2.Model.CustomResponseBody> CustomResponseBody { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.WAFV2.Model.Rule> Rule { get; set; }

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DistributionConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the distribution configuration to delete. </para>
+        /// <para>The Amazon Resource Name (ARN) of the distribution configuration to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

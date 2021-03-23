@@ -202,6 +202,7 @@ $APS_SelectMap = @{
                "New-APSImageBuilderStreamingURL",
                "New-APSStack",
                "New-APSStreamingURL",
+               "New-APSUpdatedImage",
                "New-APSUsageReportSubscription",
                "New-APSUser",
                "Remove-APSDirectoryConfig",

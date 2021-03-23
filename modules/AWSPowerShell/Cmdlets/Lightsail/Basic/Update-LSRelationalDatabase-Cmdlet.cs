@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the master user of your database. The password can include any printable
-        /// ASCII character except "/", """, or "@".</para><para>Constraints: Must contain 8 to 41 characters.</para>
+        /// <para>The password for the master user. The password can include any printable ASCII character
+        /// except "/", """, or "@".</para><para>My<b>SQL</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>PostgreSQL</b></para><para>Constraints: Must contain from 8 to 128 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter RelationalDatabaseName
         /// <summary>
         /// <para>
-        /// <para>The name of your database to update.</para>
+        /// <para>The name of your Lightsail database resource to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter RelationalDatabaseName
         /// <summary>
         /// <para>
-        /// <para>The name to use for your new database.</para><para>Constraints:</para><ul><li><para>Must contain from 2 to 255 alphanumeric characters, or hyphens.</para></li><li><para>The first and last character must be a letter or number.</para></li></ul>
+        /// <para>The name to use for your new Lightsail database resource.</para><para>Constraints:</para><ul><li><para>Must contain from 2 to 255 alphanumeric characters, or hyphens.</para></li><li><para>The first and last character must be a letter or number.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

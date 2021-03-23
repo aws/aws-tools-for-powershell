@@ -106,11 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SourceDestCheck
         /// <summary>
         /// <para>
-        /// <para>Indicates whether source/destination checking is enabled. A value of <code>true</code>
-        /// means checking is enabled, and <code>false</code> means checking is disabled. This
-        /// value must be <code>false</code> for a NAT instance to perform NAT. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT
-        /// Instances</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>
+        /// <para>Enable or disable source/destination checks, which ensure that the instance is either
+        /// the source or the destination of any traffic that it receives. If the value is <code>true</code>,
+        /// source/destination checks are enabled; otherwise, they are disabled. The default value
+        /// is <code>true</code>. You must disable source/destination checks if the instance runs
+        /// services such as network address translation, routing, or firewalls.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

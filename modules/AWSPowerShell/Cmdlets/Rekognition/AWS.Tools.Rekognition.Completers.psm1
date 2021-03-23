@@ -230,6 +230,7 @@ $REK_SelectMap = @{
                "Get-REKCollectionIdList",
                "Get-REKFaceList",
                "Get-REKStreamProcessorList",
+               "Get-REKResourceTag",
                "Find-REKCelebrity",
                "Search-REKFace",
                "Search-REKFacesByImage",
@@ -244,7 +245,9 @@ $REK_SelectMap = @{
                "Start-REKStreamProcessor",
                "Start-REKTextDetection",
                "Stop-REKProjectVersion",
-               "Stop-REKStreamProcessor")
+               "Stop-REKStreamProcessor",
+               "Add-REKResourceTag",
+               "Remove-REKResourceTag")
 }
 
 _awsArgumentCompleterRegistration $REK_SelectCompleters $REK_SelectMap

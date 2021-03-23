@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Adds to or modifies the tags of the given resource. Tags are metadata that can be
-        /// used to manage a resource.</para>
+        /// <para>Adds to or modifies the tags of the given resource. Tags are metadata that you can
+        /// use to manage a resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

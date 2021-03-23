@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMobileDeviceAccessRule" OutputProperty="MobileDeviceAccessRuleId" Verb="New" Noun="MobileDeviceAccessRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateOrganization" OutputProperty="OrganizationId" Verb="New" Noun="Organization" ShouldProcessTarget="" PipelineParameter="Alias" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -64,6 +68,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteMailboxPermissions" Verb="Remove" Noun="MailboxPermission" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMobileDeviceAccessRule" Verb="Remove" Noun="MobileDeviceAccessRule" ShouldProcessTarget="MobileDeviceAccessRuleId" PipelineParameter="MobileDeviceAccessRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -127,6 +135,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMobileDeviceAccessEffect" OutputProperty="*" Verb="Get" Noun="MobileDeviceAccessEffect" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAccessControlRules" OutputProperty="Rules" Verb="Get" Noun="AccessControlRuleList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -148,6 +160,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMailboxPermissions" OutputProperty="Permissions" Verb="Get" Noun="MailboxPermissionList" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMobileDeviceAccessRules" OutputProperty="Rules" Verb="Get" Noun="MobileDeviceAccessRuleList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -204,6 +220,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMailboxQuota" Verb="Update" Noun="MailboxQuota" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMobileDeviceAccessRule" Verb="Update" Noun="MobileDeviceAccessRule" ShouldProcessTarget="MobileDeviceAccessRuleId" PipelineParameter="MobileDeviceAccessRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

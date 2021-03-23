@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Decreases the number of node groups in a Global Datastore
+    /// Decreases the number of node groups in a Global datastore
     /// </summary>
     [Cmdlet("Request", "ECNodeGroupDecreaseInGlobalReplicationGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.GlobalReplicationGroup")]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter GlobalReplicationGroupId
         /// <summary>
         /// <para>
-        /// <para>The name of the Global Datastore</para>
+        /// <para>The name of the Global datastore</para>
         /// </para>
         /// </summary>
         #if !MODULAR

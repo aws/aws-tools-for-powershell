@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource that you want to tag. </para>
+        /// <para>The Amazon Resource Name (ARN) of the resource that you want to tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to apply to the resource. </para>
+        /// <para>The tags to apply to the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

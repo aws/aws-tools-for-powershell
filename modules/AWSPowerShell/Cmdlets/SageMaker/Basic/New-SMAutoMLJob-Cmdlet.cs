@@ -32,12 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// Find the best performing model after you run an Autopilot job by calling . Deploy
-    /// that model by following the steps described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html">Step
-    /// 6.1: Deploy the Model to Amazon SageMaker Hosting Services</a>.
+    /// Find the best performing model after you run an Autopilot job by calling .
     /// </para><para>
-    /// For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">
-    /// Automate Model Development with Amazon SageMaker Autopilot</a>.
+    /// For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">Automate
+    /// Model Development with Amazon SageMaker Autopilot</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SMAutoMLJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AutoMLJobName
         /// <summary>
         /// <para>
-        /// <para>Identifies an Autopilot job. Must be unique to your account and is case-insensitive.</para>
+        /// <para>Identifies an Autopilot job. The name must be unique to your account and is case-insensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter GenerateCandidateDefinitionsOnly
         /// <summary>
         /// <para>
-        /// <para>Generates possible candidates without training a model. A candidate is a combination
+        /// <para>Generates possible candidates without training the models. A candidate is a combination
         /// of data preprocessors, algorithms, and algorithm parameter settings.</para>
         /// </para>
         /// </summary>
@@ -92,8 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InputDataConfig
         /// <summary>
         /// <para>
-        /// <para>Similar to InputDataConfig supported by Tuning. Format(s) supported: CSV. Minimum
-        /// of 500 rows.</para>
+        /// <para>An array of channel objects that describes the input data and its location. Each channel
+        /// is a named input source. Similar to <code>InputDataConfig</code> supported by . Format(s)
+        /// supported: CSV. Minimum of 500 rows.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -121,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The maximum time, in seconds, an AutoML job is allowed to wait for a trial to complete.
-        /// It must be equal to or greater than MaxRuntimePerTrainingJobInSeconds.</para>
+        /// It must be equal to or greater than <code>MaxRuntimePerTrainingJobInSeconds</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,8 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProblemType
         /// <summary>
         /// <para>
-        /// <para>Defines the kind of preprocessing and algorithms intended for the candidates. Options
-        /// include: BinaryClassification, MulticlassClassification, and Regression.</para>
+        /// <para>Defines the type of supervised learning available for the candidates. Options include:
+        /// BinaryClassification, MulticlassClassification, and Regression. For more information,
+        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
+        /// Amazon SageMaker Autopilot problem types and algorithm support</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

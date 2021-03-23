@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter CollectionName
         /// <summary>
         /// <para>
-        /// <para>A custom name for the geofence collection.</para><para>Requirements:</para><ul><li><para>Contain only alphanumeric characters (A–Z, a–z, 0-9), hyphens (-), and underscores
-        /// (_). </para></li><li><para>Must be a unique geofence collection name.</para></li><li><para>No spaces allowed. For example, <code>ExampleGeofenceCollection</code>.</para></li></ul>
+        /// <para>A custom name for the geofence collection.</para><para>Requirements:</para><ul><li><para>Contain only alphanumeric characters (A–Z, a–z, 0-9), hyphens (-), periods (.), and
+        /// underscores (_). </para></li><li><para>Must be a unique geofence collection name.</para></li><li><para>No spaces allowed. For example, <code>ExampleGeofenceCollection</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,9 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>Specifies the pricing plan for your geofence collection. There's three pricing plan
-        /// options:</para><ul><li><para><code>RequestBasedUsage</code> — Selects the "Request-Based Usage" pricing plan.</para></li><li><para><code>MobileAssetTracking</code> — Selects the "Mobile Asset Tracking" pricing plan.</para></li><li><para><code>MobileAssetManagement</code> — Selects the "Mobile Asset Management" pricing
-        /// plan.</para></li></ul><para>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
+        /// <para>Specifies the pricing plan for your geofence collection.</para><para>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
         /// Location Service pricing page</a>.</para>
         /// </para>
         /// </summary>
@@ -85,6 +83,20 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.LocationService.PricingPlan")]
         public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
+        #endregion
+        
+        #region Parameter PricingPlanDataSource
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the plan data source. Required if the Mobile Asset Tracking (MAT) or the
+        /// Mobile Asset Management (MAM) pricing plan is selected.</para><para>Billing is determined by the resource usage, the associated pricing plan, and the
+        /// data source that was specified. For more information about each pricing plan option
+        /// and restrictions, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
+        /// Location Service pricing page</a>.</para><para>Valid Values: <code>Esri </code>| <code>Here</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PricingPlanDataSource { get; set; }
         #endregion
         
         #region Parameter Select
@@ -163,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 WriteWarning("You are passing $null as a value for parameter PricingPlan which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PricingPlanDataSource = this.PricingPlanDataSource;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.PricingPlan != null)
             {
                 request.PricingPlan = cmdletContext.PricingPlan;
+            }
+            if (cmdletContext.PricingPlanDataSource != null)
+            {
+                request.PricingPlanDataSource = cmdletContext.PricingPlanDataSource;
             }
             
             CmdletOutput output;
@@ -255,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public System.String CollectionName { get; set; }
             public System.String Description { get; set; }
             public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
+            public System.String PricingPlanDataSource { get; set; }
             public System.Func<Amazon.LocationService.Model.CreateGeofenceCollectionResponse, NewLOCGeofenceCollectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// After you enable encryption by default, the EBS volumes that you create are are always
+    /// After you enable encryption by default, the EBS volumes that you create are always
     /// encrypted, either using the default CMK or the CMK that you specified when you created
     /// each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
     /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.

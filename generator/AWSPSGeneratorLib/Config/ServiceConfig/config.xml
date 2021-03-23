@@ -98,6 +98,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAggregateComplianceByConformancePacks" OutputProperty="AggregateComplianceByConformancePacks" Verb="Get" Noun="AggregateComplianceByConformancePack" PipelineParameter="ConfigurationAggregatorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAggregationAuthorizations" OutputProperty="AggregationAuthorizations" Verb="Get" Noun="AggregationAuthorizationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -195,6 +199,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAggregateConfigRuleComplianceSummary" OutputProperty="*" Verb="Get" Noun="AggregateConfigRuleComplianceSummary" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAggregateConformancePackComplianceSummary" OutputProperty="*" Verb="Get" Noun="AggregateConformancePackComplianceSummary" PipelineParameter="ConfigurationAggregatorName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

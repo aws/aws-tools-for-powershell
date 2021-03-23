@@ -94,6 +94,13 @@ $CW_Completers = {
             break
         }
 
+        # Amazon.CloudWatch.MetricStreamOutputFormat
+        "Write-CWMetricStream/OutputFormat"
+        {
+            $v = "json","opentelemetry0.7"
+            break
+        }
+
         # Amazon.CloudWatch.RecentlyActive
         "Get-CWMetricList/RecentlyActive"
         {
@@ -153,6 +160,7 @@ $CW_Completers = {
 $CW_map = @{
     "ComparisonOperator"=@("Write-CWMetricAlarm")
     "HistoryItemType"=@("Get-CWAlarmHistory")
+    "OutputFormat"=@("Write-CWMetricStream")
     "RecentlyActive"=@("Get-CWMetricList")
     "ScanBy"=@("Get-CWAlarmHistory","Get-CWMetricData")
     "StateValue"=@("Get-CWAlarm","Set-CWAlarmState")
@@ -214,6 +222,7 @@ $CW_SelectMap = @{
                "Remove-CWAnomalyDetector",
                "Remove-CWDashboard",
                "Remove-CWInsightRule",
+               "Remove-CWMetricStream",
                "Get-CWAlarmHistory",
                "Get-CWAlarm",
                "Get-CWAlarmForMetric",
@@ -227,9 +236,11 @@ $CW_SelectMap = @{
                "Get-CWInsightRuleReport",
                "Get-CWMetricData",
                "Get-CWMetricStatistic",
+               "Get-CWMetricStream",
                "Get-CWMetricWidgetImage",
                "Get-CWDashboardList",
                "Get-CWMetricList",
+               "Get-CWMetricStreamList",
                "Get-CWResourceTag",
                "Write-CWAnomalyDetector",
                "Write-CWCompositeAlarm",
@@ -237,7 +248,10 @@ $CW_SelectMap = @{
                "Write-CWInsightRule",
                "Write-CWMetricAlarm",
                "Write-CWMetricData",
+               "Write-CWMetricStream",
                "Set-CWAlarmState",
+               "Start-CWMetricStream",
+               "Stop-CWMetricStream",
                "Add-CWResourceTag",
                "Remove-CWResourceTag")
 }

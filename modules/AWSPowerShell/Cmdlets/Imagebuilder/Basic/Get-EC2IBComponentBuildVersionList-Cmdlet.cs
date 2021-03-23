@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ComponentVersionArn
         /// <summary>
         /// <para>
-        /// <para>The component version Amazon Resource Name (ARN) whose versions you want to list.
-        /// </para>
+        /// <para>The component version Amazon Resource Name (ARN) whose versions you want to list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum items to return in a request. </para>
+        /// <para>The maximum items to return in a request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>A token to specify where to start paginating. This is the NextToken from a previously
-        /// truncated response. </para>
+        /// truncated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

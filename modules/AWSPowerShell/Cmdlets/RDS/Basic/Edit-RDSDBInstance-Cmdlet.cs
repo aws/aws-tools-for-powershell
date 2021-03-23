@@ -117,11 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The number of days to retain automated backups. Setting this parameter to a positive
-        /// number enables backups. Setting this parameter to 0 disables automated backups.</para><para>Changing this parameter can result in an outage if you change from 0 to a non-zero
-        /// value or from a non-zero value to 0. These changes are applied during the next maintenance
-        /// window unless the <code>ApplyImmediately</code> parameter is enabled for this request.
-        /// If you change the parameter from one non-zero value to another non-zero value, the
-        /// change is asynchronously applied as soon as possible.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.
+        /// number enables backups. Setting this parameter to 0 disables automated backups.</para><note><para>Enabling and disabling backups can result in a brief I/O suspension that lasts from
+        /// a few seconds to a few minutes, depending on the size and class of your DB instance.</para></note><para>These changes are applied during the next maintenance window unless the <code>ApplyImmediately</code>
+        /// parameter is enabled for this request. If you change the parameter from one non-zero
+        /// value to another non-zero value, the change is asynchronously applied as soon as possible.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.
         /// For more information, see <code>ModifyDBCluster</code>.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can be specified for a MySQL read replica only if the source is running MySQL 5.6
         /// or later</para></li><li><para>Can be specified for a PostgreSQL read replica only if the source is running PostgreSQL
         /// 9.3.5</para></li><li><para>Can't be set to 0 if the DB instance is a source to read replicas</para></li></ul>
@@ -548,7 +547,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para> The daily time range during which automated backups are created if automated backups
         /// are enabled, as determined by the <code>BackupRetentionPeriod</code> parameter. Changing
         /// this parameter doesn't result in an outage and the change is asynchronously applied
-        /// as soon as possible. </para><para><b>Amazon Aurora</b></para><para>Not applicable. The daily time range for creating automated backups is managed by
+        /// as soon as possible. The default is a 30-minute window selected at random from an
+        /// 8-hour block of time for each AWS Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup
+        /// window</a> in the <i>Amazon RDS User Guide.</i></para><para><b>Amazon Aurora</b></para><para>Not applicable. The daily time range for creating automated backups is managed by
         /// the DB cluster. For more information, see <code>ModifyDBCluster</code>.</para><para>Constraints:</para><ul><li><para>Must be in the format hh24:mi-hh24:mi</para></li><li><para>Must be in Universal Time Coordinated (UTC)</para></li><li><para>Must not conflict with the preferred maintenance window</para></li><li><para>Must be at least 30 minutes</para></li></ul>
         /// </para>
         /// </summary>
@@ -566,7 +567,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// to include the current time, then changing this parameter will cause a reboot of the
         /// DB instance. If moving this window to the current time, there must be at least 30
         /// minutes between the current time and end of the window to ensure pending changes are
-        /// applied.</para><para>Default: Uses existing setting</para><para>Format: ddd:hh24:mi-ddd:hh24:mi</para><para>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</para><para>Constraints: Must be at least 30 minutes</para>
+        /// applied.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance">Amazon
+        /// RDS Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Default: Uses existing setting</para><para>Format: ddd:hh24:mi-ddd:hh24:mi</para><para>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</para><para>Constraints: Must be at least 30 minutes</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

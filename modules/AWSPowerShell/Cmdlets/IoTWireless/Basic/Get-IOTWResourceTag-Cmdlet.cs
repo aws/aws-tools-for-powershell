@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource for which to list tags.</para>
+        /// <para>The ARN of the resource for which you want to list tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// of time.
     /// 
     ///  <note><para>
-    /// Limitation — Device positions are deleted after one year.
+    /// Device positions are deleted after 1 year.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "LOCDevicePositionHistory")]
@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specify the end time for the position history in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">
-        /// ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </para><ul><li><para>The given time for <code>EndTimeExclusive</code> must be after the time for <code>StartTimeInclusive</code>.</para></li></ul>
+        /// ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. By default, the value
+        /// will be the time that the request is made.</para><para>Requirement:</para><ul><li><para>The time specified for <code>EndTimeExclusive</code> must be after the time for <code>StartTimeInclusive</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specify the start time for the position history in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">
-        /// ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </para><ul><li><para>The given time for <code>EndTimeExclusive</code> must be after the time for <code>StartTimeInclusive</code>.</para></li></ul>
+        /// ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. By default, the value
+        /// will be 24 hours prior to the time that the request is made.</para><para>Requirement:</para><ul><li><para>The time specified for <code>StartTimeInclusive</code> must be before <code>EndTimeExclusive</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

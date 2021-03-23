@@ -76,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ExpirationDate
         /// <summary>
         /// <para>
-        /// <para>The date by which this activation request should expire. The default value is 24 hours.</para>
+        /// <para>The date by which this activation request should expire, in timestamp format, such
+        /// as "2021-07-07T00:00:00". You can specify a date up to 30 days in advance. If you
+        /// don't provide an expiration date, the activation code expires in 24 hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

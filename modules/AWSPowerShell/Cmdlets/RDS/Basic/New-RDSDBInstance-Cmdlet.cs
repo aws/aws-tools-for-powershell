@@ -533,13 +533,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The daily time range during which automated backups are created if automated backups
-        /// are enabled, using the <code>BackupRetentionPeriod</code> parameter. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">The
-        /// Backup Window</a> in the <i>Amazon RDS User Guide</i>. </para><para><b>Amazon Aurora</b></para><para>Not applicable. The daily time range for creating automated backups is managed by
-        /// the DB cluster.</para><para> The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region. To see the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow">
-        /// Adjusting the Preferred DB Instance Maintenance Window</a> in the <i>Amazon RDS User
-        /// Guide</i>. </para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// are enabled, using the <code>BackupRetentionPeriod</code> parameter. The default is
+        /// a 30-minute window selected at random from an 8-hour block of time for each AWS Region.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup
+        /// window</a> in the <i>Amazon RDS User Guide</i>. </para><para><b>Amazon Aurora</b></para><para>Not applicable. The daily time range for creating automated backups is managed by
+        /// the DB cluster.</para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

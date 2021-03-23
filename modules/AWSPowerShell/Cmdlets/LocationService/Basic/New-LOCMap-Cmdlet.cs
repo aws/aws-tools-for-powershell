@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter MapName
         /// <summary>
         /// <para>
-        /// <para>The name for the map resource.</para><para>Requirements:</para><ul><li><para>Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), and underscores
-        /// (_). </para></li><li><para>Must be a unique map resource name. </para></li><li><para>No spaces allowed. For example, <code>ExampleMap</code>.</para></li></ul>
+        /// <para>The name for the map resource.</para><para>Requirements:</para><ul><li><para>Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.),
+        /// and underscores (_). </para></li><li><para>Must be a unique map resource name. </para></li><li><para>No spaces allowed. For example, <code>ExampleMap</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,8 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>Specifies the pricing plan for your map resource. There's three pricing plan options:</para><ul><li><para><code>RequestBasedUsage</code> — Selects the "Request-Based Usage" pricing plan.</para></li><li><para><code>MobileAssetTracking</code> — Selects the "Mobile Asset Tracking" pricing plan.</para></li><li><para><code>MobileAssetManagement</code> — Selects the "Mobile Asset Management" pricing
-        /// plan.</para></li></ul><para>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
+        /// <para>Specifies the pricing plan for your map resource.</para><para>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
         /// Location Service pricing page</a>.</para>
         /// </para>
         /// </summary>

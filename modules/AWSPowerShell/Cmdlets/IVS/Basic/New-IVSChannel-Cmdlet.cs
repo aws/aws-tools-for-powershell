@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter Authorized
         /// <summary>
         /// <para>
-        /// <para>Whether the channel is authorized. Default: <code>false</code>.</para>
+        /// <para>Whether the channel is private (enabled for playback authorization). Default: <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -52,7 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter LatencyMode
         /// <summary>
         /// <para>
-        /// <para>Channel latency mode. Default: <code>LOW</code>.</para>
+        /// <para>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video
+        /// up to Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. (Note:
+        /// In the Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to
+        /// Ultra-low and Standard, respectively.) Default: <code>LOW</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,10 +73,20 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter RecordingConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>Recording-configuration ARN. Default: "" (empty string, recording is disabled).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RecordingConfigurationArn { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>See <a>Channel$tags</a>.</para>
+        /// <para>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,11 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// <para>
         /// <para>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed
         /// the allowable resolution or bitrate, the stream probably will disconnect immediately.</i>
-        /// Valid values:</para><ul><li><para><code>STANDARD</code>: Multiple qualities are generated from the original input,
+        /// Default: <code>STANDARD</code>. Valid values:</para><ul><li><para><code>STANDARD</code>: Multiple qualities are generated from the original input,
         /// to automatically give viewers the best experience for their devices and network conditions.
         /// Vertical resolution can be up to 1080 and bitrate can be up to 8.5 Mbps.</para></li><li><para><code>BASIC</code>: Amazon IVS delivers the original input to viewers. The viewer’s
         /// video-quality choice is limited to the original input. Vertical resolution can be
-        /// up to 480 and bitrate can be up to 1.5 Mbps.</para></li></ul><para>Default: <code>STANDARD</code>.</para>
+        /// up to 480 and bitrate can be up to 1.5 Mbps.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             context.Authorized = this.Authorized;
             context.LatencyMode = this.LatencyMode;
             context.Name = this.Name;
+            context.RecordingConfigurationArn = this.RecordingConfigurationArn;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -198,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.RecordingConfigurationArn != null)
+            {
+                request.RecordingConfigurationArn = cmdletContext.RecordingConfigurationArn;
             }
             if (cmdletContext.Tag != null)
             {
@@ -271,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             public System.Boolean? Authorized { get; set; }
             public Amazon.IVS.ChannelLatencyMode LatencyMode { get; set; }
             public System.String Name { get; set; }
+            public System.String RecordingConfigurationArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.IVS.ChannelType Type { get; set; }
             public System.Func<Amazon.IVS.Model.CreateChannelResponse, NewIVSChannelCmdlet, object> Select { get; set; } =

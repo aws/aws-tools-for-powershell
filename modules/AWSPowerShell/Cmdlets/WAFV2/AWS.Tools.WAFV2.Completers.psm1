@@ -80,6 +80,13 @@ $WAF2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WAFV2.FilterBehavior
+        "Write-WAF2LoggingConfiguration/LoggingConfiguration_LoggingFilter_DefaultBehavior"
+        {
+            $v = "DROP","KEEP"
+            break
+        }
+
         # Amazon.WAFV2.IPAddressVersion
         "New-WAF2IPSet/IPAddressVersion"
         {
@@ -138,6 +145,7 @@ $WAF2_Completers = {
 
 $WAF2_map = @{
     "IPAddressVersion"=@("New-WAF2IPSet")
+    "LoggingConfiguration_LoggingFilter_DefaultBehavior"=@("Write-WAF2LoggingConfiguration")
     "ResourceType"=@("Get-WAF2ResourcesForWebACLList")
     "Scope"=@("Get-WAF2AvailableManagedRuleGroupList","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedRuleGroup","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL")
 }

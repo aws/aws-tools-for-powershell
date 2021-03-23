@@ -79,6 +79,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String ThingTypeName { get; set; }
         #endregion
         
+        #region Parameter UsePrefixAttributeValue
+        /// <summary>
+        /// <para>
+        /// <para>When <code>true</code>, the action returns the thing resources with attribute values
+        /// that start with the <code>attributeValue</code> provided.</para><para>When <code>false</code>, or not present, the action returns only the thing resources
+        /// with attribute values that match the entire <code>attributeValue</code> provided.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UsePrefixAttributeValue { get; set; }
+        #endregion
+        
         #region Parameter Marker
         /// <summary>
         /// <para>
@@ -160,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             #endif
             context.ThingTypeName = this.ThingTypeName;
+            context.UsePrefixAttributeValue = this.UsePrefixAttributeValue;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -194,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.ThingTypeName != null)
             {
                 request.ThingTypeName = cmdletContext.ThingTypeName;
+            }
+            if (cmdletContext.UsePrefixAttributeValue != null)
+            {
+                request.UsePrefixAttributeValue = cmdletContext.UsePrefixAttributeValue.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -261,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.ThingTypeName != null)
             {
                 request.ThingTypeName = cmdletContext.ThingTypeName;
+            }
+            if (cmdletContext.UsePrefixAttributeValue != null)
+            {
+                request.UsePrefixAttributeValue = cmdletContext.UsePrefixAttributeValue.Value;
             }
             
             // Initialize loop variants and commence piping
@@ -386,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String Marker { get; set; }
             public int? MaxResult { get; set; }
             public System.String ThingTypeName { get; set; }
+            public System.Boolean? UsePrefixAttributeValue { get; set; }
             public System.Func<Amazon.IoT.Model.ListThingsResponse, GetIOTThingListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Things;
         }

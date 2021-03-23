@@ -58,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public System.String CostCategoryArn { get; set; }
         #endregion
         
+        #region Parameter DefaultValue
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultValue { get; set; }
+        #endregion
+        
         #region Parameter Rule
         /// <summary>
         /// <para>
@@ -163,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 WriteWarning("You are passing $null as a value for parameter CostCategoryArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DefaultValue = this.DefaultValue;
             if (this.Rule != null)
             {
                 context.Rule = new List<Amazon.CostExplorer.Model.CostCategoryRule>(this.Rule);
@@ -199,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (cmdletContext.CostCategoryArn != null)
             {
                 request.CostCategoryArn = cmdletContext.CostCategoryArn;
+            }
+            if (cmdletContext.DefaultValue != null)
+            {
+                request.DefaultValue = cmdletContext.DefaultValue;
             }
             if (cmdletContext.Rule != null)
             {
@@ -270,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CostCategoryArn { get; set; }
+            public System.String DefaultValue { get; set; }
             public List<Amazon.CostExplorer.Model.CostCategoryRule> Rule { get; set; }
             public Amazon.CostExplorer.CostCategoryRuleVersion RuleVersion { get; set; }
             public System.Func<Amazon.CostExplorer.Model.UpdateCostCategoryDefinitionResponse, UpdateCECostCategoryDefinitionCmdlet, object> Select { get; set; } =

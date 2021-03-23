@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeEndpointAccess" OutputProperty="*" Verb="Approve" Noun="EndpointAccess" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AuthorizeSnapshotAccess" OutputProperty="Snapshot" Verb="Approve" Noun="SnapshotAccess" ShouldProcessTarget="SnapshotIdentifier" PositionalParameters="AccountWithRestoreAccess" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -76,6 +80,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateClusterSubnetGroup" OutputProperty="ClusterSubnetGroup" Verb="New" Noun="ClusterSubnetGroup" ShouldProcessTarget="ClusterSubnetGroupName" PositionalParameters="Description;SubnetIds" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEndpointAccess" OutputProperty="*" Verb="New" Noun="EndpointAccess" ShouldProcessTarget="" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -128,6 +136,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteClusterSubnetGroup" Verb="Remove" Noun="ClusterSubnetGroup" ShouldProcessTarget="ClusterSubnetGroupName" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEndpointAccess" OutputProperty="*" Verb="Remove" Noun="EndpointAccess" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -209,6 +221,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDefaultClusterParameters" OutputProperty="DefaultClusterParameters.Parameters" OutputWrapper="DefaultClusterParameters" Verb="Get" Noun="DefaultClusterParameter" PipelineParameter="ParameterGroupFamily" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSDefaultClusterParameters">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpointAccess" OutputProperty="EndpointAccessList" Verb="Get" Noun="EndpointAccess" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpointAuthorization" OutputProperty="EndpointAuthorizationList" Verb="Get" Noun="EndpointAuthorization" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -353,6 +373,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyEndpointAccess" OutputProperty="*" Verb="Edit" Noun="EndpointAccess" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyEventSubscription" OutputProperty="EventSubscription" Verb="Edit" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -407,6 +431,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="RevokeClusterSecurityGroupIngress" OutputProperty="ClusterSecurityGroup" Verb="Revoke" Noun="ClusterSecurityGroupIngress" ShouldProcessTarget="ClusterSecurityGroupName" PositionalParameters="CIDRIP;EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeEndpointAccess" OutputProperty="*" Verb="Revoke" Noun="EndpointAccess" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="ForceRevoke" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RevokeSnapshotAccess" OutputProperty="Snapshot" Verb="Revoke" Noun="SnapshotAccess" ShouldProcessTarget="SnapshotIdentifier" PositionalParameters="AccountWithRestoreAccess" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">

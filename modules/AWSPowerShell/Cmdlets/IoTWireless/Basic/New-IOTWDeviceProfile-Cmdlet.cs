@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to attach to the new device profile Tags are metadata that can be used to
+        /// <para>The tags to attach to the new device profile. Tags are metadata that you can use to
         /// manage a resource.</para>
         /// </para>
         /// </summary>

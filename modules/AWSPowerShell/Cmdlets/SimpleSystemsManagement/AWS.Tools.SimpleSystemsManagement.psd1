@@ -184,6 +184,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SSMPatchBaseline', 
         'Remove-SSMResourceDataSync', 
         'Remove-SSMResourceTag', 
+        'Reset-SSMParameterVersionLabel', 
         'Reset-SSMServiceSetting', 
         'Resume-SSMSession', 
         'Send-SSMAutomationSignal', 

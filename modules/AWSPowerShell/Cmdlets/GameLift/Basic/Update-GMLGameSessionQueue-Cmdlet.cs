@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String[] FilterConfiguration_AllowedLocation { get; set; }
         #endregion
         
+        #region Parameter CustomEventData
+        /// <summary>
+        /// <para>
+        /// <para> Information to be added to all events that are related to this game session queue.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomEventData { get; set; }
+        #endregion
+        
         #region Parameter Destination
         /// <summary>
         /// <para>
@@ -103,6 +114,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter NotificationTarget
+        /// <summary>
+        /// <para>
+        /// <para>An SNS topic ARN that is set up to receive game session placement notifications. See
+        /// <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html">
+        /// Setting up notifications for game session placement</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NotificationTarget { get; set; }
         #endregion
         
         #region Parameter PlayerLatencyPolicy
@@ -211,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CustomEventData = this.CustomEventData;
             if (this.Destination != null)
             {
                 context.Destination = new List<Amazon.GameLift.Model.GameSessionQueueDestination>(this.Destination);
@@ -226,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NotificationTarget = this.NotificationTarget;
             if (this.PlayerLatencyPolicy != null)
             {
                 context.PlayerLatencyPolicy = new List<Amazon.GameLift.Model.PlayerLatencyPolicy>(this.PlayerLatencyPolicy);
@@ -255,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // create request
             var request = new Amazon.GameLift.Model.UpdateGameSessionQueueRequest();
             
+            if (cmdletContext.CustomEventData != null)
+            {
+                request.CustomEventData = cmdletContext.CustomEventData;
+            }
             if (cmdletContext.Destination != null)
             {
                 request.Destinations = cmdletContext.Destination;
@@ -281,6 +310,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NotificationTarget != null)
+            {
+                request.NotificationTarget = cmdletContext.NotificationTarget;
             }
             if (cmdletContext.PlayerLatencyPolicy != null)
             {
@@ -380,9 +413,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CustomEventData { get; set; }
             public List<Amazon.GameLift.Model.GameSessionQueueDestination> Destination { get; set; }
             public List<System.String> FilterConfiguration_AllowedLocation { get; set; }
             public System.String Name { get; set; }
+            public System.String NotificationTarget { get; set; }
             public List<Amazon.GameLift.Model.PlayerLatencyPolicy> PlayerLatencyPolicy { get; set; }
             public List<System.String> PriorityConfiguration_LocationOrder { get; set; }
             public List<System.String> PriorityConfiguration_PriorityOrder { get; set; }

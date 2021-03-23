@@ -115,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ASScheduledAction', 
         'Get-ASTag', 
         'Get-ASTerminationPolicyType', 
+        'Get-ASWarmPool', 
         'Mount-ASInstance', 
         'New-ASAutoScalingGroup', 
         'New-ASLaunchConfiguration', 
@@ -126,6 +127,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ASScheduledAction', 
         'Remove-ASScheduledActionBatch', 
         'Remove-ASTag', 
+        'Remove-ASWarmPool', 
         'Resume-ASProcess', 
         'Set-ASDesiredCapacity', 
         'Set-ASInstanceHealth', 
@@ -142,7 +144,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-ASLifecycleHook', 
         'Write-ASNotificationConfiguration', 
         'Write-ASScalingPolicy', 
-        'Write-ASScheduledUpdateGroupAction')
+        'Write-ASScheduledUpdateGroupAction', 
+        'Write-ASWarmPool')
 
     # Variables to export from this module
     VariablesToExport = '*'

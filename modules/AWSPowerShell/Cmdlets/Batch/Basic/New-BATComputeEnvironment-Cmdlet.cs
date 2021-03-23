@@ -454,7 +454,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The version number of the launch template, <code>$Latest</code>, or <code>$Default</code>.</para><para>If the value is <code>$Latest</code>, the latest version of the launch template is
         /// used. If the value is <code>$Default</code>, the default version of the launch template
-        /// is used.</para><para>Default: <code>$Default</code>.</para>
+        /// is used.</para><important><para>After the compute environment is created, the launch template version used will not
+        /// be changed, even if the <code>$Default</code> or <code>$Latest</code> version for
+        /// the launch template is updated. To use a new launch template version, create a new
+        /// compute environment, add the new compute environment to the existing job queue, remove
+        /// the old compute environment from the job queue, and delete the old compute environment.</para></important><para>Default: <code>$Default</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

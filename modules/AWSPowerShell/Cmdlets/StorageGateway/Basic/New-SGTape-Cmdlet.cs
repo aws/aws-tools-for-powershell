@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A prefix that you append to the barcode of the virtual tape you are creating. This
-        /// prefix makes the barcode unique.</para><note><para>The prefix must be 1 to 4 characters in length and must be one of the uppercase letters
+        /// prefix makes the barcode unique.</para><note><para>The prefix must be 1-4 characters in length and must be one of the uppercase letters
         /// from A to Z.</para></note>
         /// </para>
         /// </summary>

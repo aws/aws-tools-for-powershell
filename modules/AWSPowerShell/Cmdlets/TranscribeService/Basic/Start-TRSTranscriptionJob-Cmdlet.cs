@@ -328,7 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>Set to <code>mask</code> to remove filtered text from the transcript and replace it
         /// with three asterisks ("***") as placeholder text. Set to <code>remove</code> to remove
-        /// filtered text from the transcript without using placeholder text.</para>
+        /// filtered text from the transcript without using placeholder text. Set to <code>tag</code>
+        /// to mark the word in the transcription output that matches the vocabulary filter. When
+        /// you set the filter method to <code>tag</code>, the words matching your vocabulary
+        /// filter are not masked or removed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

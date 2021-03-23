@@ -28,7 +28,8 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Terminates the specified instance and optionally adjusts the desired group size. 
+    /// Terminates the specified instance and optionally adjusts the desired group size. This
+    /// operation cannot be called on instances in a warm pool.
     /// 
     ///  
     /// <para>

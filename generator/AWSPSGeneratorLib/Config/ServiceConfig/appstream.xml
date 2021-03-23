@@ -59,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateUpdatedImage" OutputProperty="*" Verb="New" Noun="UpdatedImage" ShouldProcessTarget="ExistingImageName" PipelineParameter="NewImageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateUsageReportSubscription" OutputProperty="*" Verb="New" Noun="UsageReportSubscription" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

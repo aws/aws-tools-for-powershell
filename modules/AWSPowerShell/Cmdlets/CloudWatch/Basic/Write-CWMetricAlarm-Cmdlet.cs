@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// OpsItem actions.
     /// </para></li></ul><para>
     /// The first time you create an alarm in the AWS Management Console, the CLI, or by using
-    /// the PutMetricAlarm API, CloudWatch creates the necessary service-linked rolea for
-    /// you. The service-linked roles are called <code>AWSServiceRoleForCloudWatchEvents</code>
+    /// the PutMetricAlarm API, CloudWatch creates the necessary service-linked role for you.
+    /// The service-linked roles are called <code>AWSServiceRoleForCloudWatchEvents</code>
     /// and <code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>. For more information,
     /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">AWS
     /// service-linked role</a>.
@@ -287,7 +287,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code>
         /// | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para><para>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
         /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
-        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></para>
+        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
+        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

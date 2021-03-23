@@ -53,6 +53,18 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter DataAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role
+        /// that grants Amazon Comprehend read access to trained custom models encrypted with
+        /// a customer managed key (ModelKmsKeyId).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataAccessRoleArn { get; set; }
+        #endregion
+        
         #region Parameter DesiredInferenceUnit
         /// <summary>
         /// <para>
@@ -181,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.DataAccessRoleArn = this.DataAccessRoleArn;
             context.DesiredInferenceUnit = this.DesiredInferenceUnit;
             #if MODULAR
             if (this.DesiredInferenceUnit == null && ParameterWasBound(nameof(this.DesiredInferenceUnit)))
@@ -225,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.DataAccessRoleArn != null)
+            {
+                request.DataAccessRoleArn = cmdletContext.DataAccessRoleArn;
             }
             if (cmdletContext.DesiredInferenceUnit != null)
             {
@@ -304,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.String DataAccessRoleArn { get; set; }
             public System.Int32? DesiredInferenceUnit { get; set; }
             public System.String EndpointName { get; set; }
             public System.String ModelArn { get; set; }

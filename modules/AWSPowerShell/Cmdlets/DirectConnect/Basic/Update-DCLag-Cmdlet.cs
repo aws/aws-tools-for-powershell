@@ -32,19 +32,23 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// 
     ///  
     /// <para>
-    /// You can update the following attributes:
+    /// You can update the following LAG attributes:
     /// </para><ul><li><para>
     /// The name of the LAG.
     /// </para></li><li><para>
     /// The value for the minimum number of connections that must be operational for the LAG
     /// itself to be operational. 
-    /// </para></li></ul><para>
-    /// When you create a LAG, the default value for the minimum number of operational connections
-    /// is zero (0). If you update this value and the number of operational connections falls
-    /// below the specified value, the LAG automatically goes down to avoid over-utilization
-    /// of the remaining connections. Adjust this value with care, as it could force the LAG
-    /// down if it is set higher than the current number of operational connections.
-    /// </para>
+    /// </para></li><li><para>
+    /// The LAG's MACsec encryption mode.
+    /// </para><para>
+    /// AWS assigns this value to each connection which is part of the LAG.
+    /// </para></li><li><para>
+    /// The tags
+    /// </para></li></ul><note><para>
+    /// If you adjust the threshold value for the minimum number of operational connections,
+    /// ensure that the new value does not cause the LAG to fall below the threshold and become
+    /// non-operational.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "DCLag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.UpdateLagResponse")]
@@ -54,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
     )]
     public partial class UpdateDCLagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter EncryptionMode
+        /// <summary>
+        /// <para>
+        /// <para>The LAG MAC Security (MACsec) encryption mode.</para><para>AWS applies the value to all connections which are part of the LAG.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionMode { get; set; }
+        #endregion
         
         #region Parameter LagId
         /// <summary>
@@ -155,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 context.Select = (response, cmdlet) => this.LagId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EncryptionMode = this.EncryptionMode;
             context.LagId = this.LagId;
             #if MODULAR
             if (this.LagId == null && ParameterWasBound(nameof(this.LagId)))
@@ -180,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // create request
             var request = new Amazon.DirectConnect.Model.UpdateLagRequest();
             
+            if (cmdletContext.EncryptionMode != null)
+            {
+                request.EncryptionMode = cmdletContext.EncryptionMode;
+            }
             if (cmdletContext.LagId != null)
             {
                 request.LagId = cmdletContext.LagId;
@@ -253,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String EncryptionMode { get; set; }
             public System.String LagId { get; set; }
             public System.String LagName { get; set; }
             public System.Int32? MinimumLink { get; set; }

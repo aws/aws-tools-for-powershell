@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// store the batch prediction results. The following substrings are not allowed in the
         /// <code>s3 key</code> portion of the <code>outputURI</code> field: ':', '//', '/./',
         /// '/../'.</para><para>Amazon ML needs permissions to store and retrieve the logs on your behalf. For information
-        /// about how to set permissions, see the <a href="http://docs.aws.amazon.com/machine-learning/latest/dg">Amazon
+        /// about how to set permissions, see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon
         /// Machine Learning Developer Guide</a>.</para>
         /// </para>
         /// </summary>

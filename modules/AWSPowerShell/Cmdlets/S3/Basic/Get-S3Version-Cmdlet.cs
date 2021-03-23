@@ -30,9 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// Returns metadata about all versions of the objects in a bucket. You can also use request
     /// parameters as selection criteria to return metadata about a subset of all the object
-    /// versions. 
+    /// versions.
     /// 
-    ///  <note><para>
+    ///  <important><para>
+    ///  To use this operation, you must have permissions to perform the <code>s3:ListBucketVersions</code>
+    /// action. Be aware of the name difference. 
+    /// </para></important><note><para>
     ///  A 200 OK response can contain valid or invalid XML. Make sure to design your application
     /// to parse the contents of the response and handle it appropriately.
     /// </para></note><para>

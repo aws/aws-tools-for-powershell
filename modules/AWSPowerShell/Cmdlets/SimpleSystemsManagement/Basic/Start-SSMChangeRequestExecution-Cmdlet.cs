@@ -42,6 +42,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class StartSSMChangeRequestExecutionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter ChangeDetail
+        /// <summary>
+        /// <para>
+        /// <para>User-provided details about the change. If no details are provided, content specified
+        /// in the <b>Template information</b> section of the associated change template is added.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChangeDetails")]
+        public System.String ChangeDetail { get; set; }
+        #endregion
+        
         #region Parameter ChangeRequestName
         /// <summary>
         /// <para>
@@ -109,6 +121,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Runbooks")]
         public Amazon.SimpleSystemsManagement.Model.Runbook[] Runbook { get; set; }
+        #endregion
+        
+        #region Parameter ScheduledEndTime
+        /// <summary>
+        /// <para>
+        /// <para>The time that the requester expects the runbook workflow related to the change request
+        /// to complete. The time is an estimate only that the requester provides for reviewers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? ScheduledEndTime { get; set; }
         #endregion
         
         #region Parameter ScheduledTime
@@ -209,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Select = (response, cmdlet) => this.DocumentName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ChangeDetail = this.ChangeDetail;
             context.ChangeRequestName = this.ChangeRequestName;
             context.ClientToken = this.ClientToken;
             context.DocumentName = this.DocumentName;
@@ -249,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 WriteWarning("You are passing $null as a value for parameter Runbook which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ScheduledEndTime = this.ScheduledEndTime;
             context.ScheduledTime = this.ScheduledTime;
             if (this.Tag != null)
             {
@@ -270,6 +295,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.StartChangeRequestExecutionRequest();
             
+            if (cmdletContext.ChangeDetail != null)
+            {
+                request.ChangeDetails = cmdletContext.ChangeDetail;
+            }
             if (cmdletContext.ChangeRequestName != null)
             {
                 request.ChangeRequestName = cmdletContext.ChangeRequestName;
@@ -293,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Runbook != null)
             {
                 request.Runbooks = cmdletContext.Runbook;
+            }
+            if (cmdletContext.ScheduledEndTime != null)
+            {
+                request.ScheduledEndTime = cmdletContext.ScheduledEndTime.Value;
             }
             if (cmdletContext.ScheduledTime != null)
             {
@@ -363,12 +396,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ChangeDetail { get; set; }
             public System.String ChangeRequestName { get; set; }
             public System.String ClientToken { get; set; }
             public System.String DocumentName { get; set; }
             public System.String DocumentVersion { get; set; }
             public Dictionary<System.String, List<System.String>> Parameter { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Runbook> Runbook { get; set; }
+            public System.DateTime? ScheduledEndTime { get; set; }
             public System.DateTime? ScheduledTime { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.StartChangeRequestExecutionResponse, StartSSMChangeRequestExecutionCmdlet, object> Select { get; set; } =

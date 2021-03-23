@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter GlobalReplicationGroupId
         /// <summary>
         /// <para>
-        /// <para>The name of the Global Datastore</para>
+        /// <para>The name of the Global datastore</para>
         /// </para>
         /// </summary>
         #if !MODULAR

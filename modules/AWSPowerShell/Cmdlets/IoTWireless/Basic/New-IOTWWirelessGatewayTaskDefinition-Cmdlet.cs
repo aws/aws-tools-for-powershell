@@ -162,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags attached to the specified resource. Tags are metadata that can be used to
-        /// manage a resource</para>
+        /// <para>The tags to attach to the specified resource. Tags are metadata that you can use to
+        /// manage a resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

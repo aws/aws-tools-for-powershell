@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Increase the number of node groups in the Global Datastore
+    /// Increase the number of node groups in the Global datastore
     /// </summary>
     [Cmdlet("Request", "ECNodeGroupIncreaseInGlobalReplicationGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.GlobalReplicationGroup")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter GlobalReplicationGroupId
         /// <summary>
         /// <para>
-        /// <para>The name of the Global Datastore</para>
+        /// <para>The name of the Global datastore</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Describes the replication group IDs, the AWS regions where they are stored and the
-        /// shard configuration for each that comprise the Global Datastore</para>
+        /// shard configuration for each that comprise the Global datastore</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

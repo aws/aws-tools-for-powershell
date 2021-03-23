@@ -240,7 +240,7 @@ $PIN_Completers = {
             ($_ -eq "Update-PINJourney/WriteJourneyRequest_State")
         }
         {
-            $v = "ACTIVE","CANCELLED","CLOSED","COMPLETED","DRAFT"
+            $v = "ACTIVE","CANCELLED","CLOSED","COMPLETED","DRAFT","PAUSED"
             break
         }
 

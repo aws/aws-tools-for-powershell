@@ -133,8 +133,11 @@ $DTCT_SelectMap = @{
                "Get-DTCTGraphList",
                "Get-DTCTInvitationList",
                "Get-DTCTMemberList",
+               "Get-DTCTResourceTag",
                "Deny-DTCTInvitation",
-               "Start-DTCTMonitoringMember")
+               "Start-DTCTMonitoringMember",
+               "Add-DTCTResourceTag",
+               "Remove-DTCTResourceTag")
 }
 
 _awsArgumentCompleterRegistration $DTCT_SelectCompleters $DTCT_SelectMap

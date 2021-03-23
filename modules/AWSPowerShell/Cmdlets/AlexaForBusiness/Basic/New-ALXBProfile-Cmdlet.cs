@@ -67,6 +67,16 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter DataRetentionOptIn
+        /// <summary>
+        /// <para>
+        /// <para>Whether data retention of the profile is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DataRetentionOptIn { get; set; }
+        #endregion
+        
         #region Parameter DistanceUnit
         /// <summary>
         /// <para>
@@ -363,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             }
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
+            context.DataRetentionOptIn = this.DataRetentionOptIn;
             context.DistanceUnit = this.DistanceUnit;
             #if MODULAR
             if (this.DistanceUnit == null && ParameterWasBound(nameof(this.DistanceUnit)))
@@ -440,6 +451,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.DataRetentionOptIn != null)
+            {
+                request.DataRetentionOptIn = cmdletContext.DataRetentionOptIn.Value;
             }
             if (cmdletContext.DistanceUnit != null)
             {
@@ -678,6 +693,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         {
             public System.String Address { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public System.Boolean? DataRetentionOptIn { get; set; }
             public Amazon.AlexaForBusiness.DistanceUnit DistanceUnit { get; set; }
             public System.String Locale { get; set; }
             public System.Int32? MaxVolumeLimit { get; set; }

@@ -50,6 +50,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class UpdateSSMResourceDataSyncCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter SyncSource_EnableAllOpsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>When you create a resource data sync, if you choose one of the AWS Organizations options,
+        /// then Systems Manager automatically enables all OpsData sources in the selected AWS
+        /// Regions for all AWS accounts in your organization (or in the selected organization
+        /// units). For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html">About
+        /// multiple account and Region resource data syncs</a> in the <i>AWS Systems Manager
+        /// User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SyncSource_EnableAllOpsDataSources")]
+        public System.Boolean? SyncSource_EnableAllOpsDataSource { get; set; }
+        #endregion
+        
         #region Parameter SyncSource_IncludeFutureRegion
         /// <summary>
         /// <para>
@@ -230,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.AwsOrganizationsSource_OrganizationalUnit = new List<Amazon.SimpleSystemsManagement.Model.ResourceDataSyncOrganizationalUnit>(this.AwsOrganizationsSource_OrganizationalUnit);
             }
             context.AwsOrganizationsSource_OrganizationSourceType = this.AwsOrganizationsSource_OrganizationSourceType;
+            context.SyncSource_EnableAllOpsDataSource = this.SyncSource_EnableAllOpsDataSource;
             context.SyncSource_IncludeFutureRegion = this.SyncSource_IncludeFutureRegion;
             if (this.SyncSource_SourceRegion != null)
             {
@@ -279,6 +296,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
              // populate SyncSource
             var requestSyncSourceIsNull = true;
             request.SyncSource = new Amazon.SimpleSystemsManagement.Model.ResourceDataSyncSource();
+            System.Boolean? requestSyncSource_syncSource_EnableAllOpsDataSource = null;
+            if (cmdletContext.SyncSource_EnableAllOpsDataSource != null)
+            {
+                requestSyncSource_syncSource_EnableAllOpsDataSource = cmdletContext.SyncSource_EnableAllOpsDataSource.Value;
+            }
+            if (requestSyncSource_syncSource_EnableAllOpsDataSource != null)
+            {
+                request.SyncSource.EnableAllOpsDataSources = requestSyncSource_syncSource_EnableAllOpsDataSource.Value;
+                requestSyncSourceIsNull = false;
+            }
             System.Boolean? requestSyncSource_syncSource_IncludeFutureRegion = null;
             if (cmdletContext.SyncSource_IncludeFutureRegion != null)
             {
@@ -417,6 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String SyncName { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.ResourceDataSyncOrganizationalUnit> AwsOrganizationsSource_OrganizationalUnit { get; set; }
             public System.String AwsOrganizationsSource_OrganizationSourceType { get; set; }
+            public System.Boolean? SyncSource_EnableAllOpsDataSource { get; set; }
             public System.Boolean? SyncSource_IncludeFutureRegion { get; set; }
             public List<System.String> SyncSource_SourceRegion { get; set; }
             public System.String SyncSource_SourceType { get; set; }

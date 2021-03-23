@@ -67,14 +67,26 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String SourceSnapshotName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags to be added to this resource. A tag is a key-value pair. A tag key
+        /// must be accompanied by a tag value, although null is accepted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ElastiCache.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TargetBucket
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 bucket to which the snapshot is exported. This parameter is used only
         /// when exporting a snapshot for external access.</para><para>When using this parameter to export a snapshot, be sure Amazon ElastiCache has the
-        /// needed permissions to this S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step
+        /// needed permissions to this S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step
         /// 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the <i>Amazon ElastiCache
-        /// User Guide</i>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html">Exporting
+        /// User Guide</i>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html">Exporting
         /// a Snapshot</a> in the <i>Amazon ElastiCache User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -170,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 WriteWarning("You are passing $null as a value for parameter SourceSnapshotName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ElastiCache.Model.Tag>(this.Tag);
+            }
             context.TargetBucket = this.TargetBucket;
             context.TargetSnapshotName = this.TargetSnapshotName;
             #if MODULAR
@@ -201,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.SourceSnapshotName != null)
             {
                 request.SourceSnapshotName = cmdletContext.SourceSnapshotName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TargetBucket != null)
             {
@@ -273,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             public System.String KmsKeyId { get; set; }
             public System.String SourceSnapshotName { get; set; }
+            public List<Amazon.ElastiCache.Model.Tag> Tag { get; set; }
             public System.String TargetBucket { get; set; }
             public System.String TargetSnapshotName { get; set; }
             public System.Func<Amazon.ElastiCache.Model.CopySnapshotResponse, CopyECSnapshotCmdlet, object> Select { get; set; } =

@@ -55,16 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter FilterVariable
         /// <summary>
         /// <para>
-        /// <para>Use one of the following variable to filter a list of <code>Evaluation</code> objects:</para><ul><li><code>CreatedAt</code> - Sets the search criteria to the <code>Evaluation</code>
-        /// creation date.</li><li><code>Status</code> - Sets the search criteria to the <code>Evaluation</code>
-        /// status.</li><li><code>Name</code> - Sets the search criteria to the contents of
-        /// <code>Evaluation</code><b></b><code>Name</code>.</li><li><code>IAMUser</code>
-        /// - Sets the search criteria to the user account that invoked an <code>Evaluation</code>.</li><li><code>MLModelId</code> - Sets the search criteria to the <code>MLModel</code>
-        /// that was evaluated.</li><li><code>DataSourceId</code> - Sets the search criteria
-        /// to the <code>DataSource</code> used in <code>Evaluation</code>.</li><li><code>DataUri</code>
-        /// - Sets the search criteria to the data file(s) used in <code>Evaluation</code>. The
-        /// URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3) bucket
-        /// or directory.</li></ul>
+        /// <para>Use one of the following variable to filter a list of <code>Evaluation</code> objects:</para><ul><li><para><code>CreatedAt</code> - Sets the search criteria to the <code>Evaluation</code>
+        /// creation date.</para></li><li><para><code>Status</code> - Sets the search criteria to the <code>Evaluation</code> status.</para></li><li><para><code>Name</code> - Sets the search criteria to the contents of <code>Evaluation</code><b></b><code>Name</code>.</para></li><li><para><code>IAMUser</code> - Sets the search criteria to the user account that invoked
+        /// an <code>Evaluation</code>.</para></li><li><para><code>MLModelId</code> - Sets the search criteria to the <code>MLModel</code> that
+        /// was evaluated.</para></li><li><para><code>DataSourceId</code> - Sets the search criteria to the <code>DataSource</code>
+        /// used in <code>Evaluation</code>.</para></li><li><para><code>DataUri</code> - Sets the search criteria to the data file(s) used in <code>Evaluation</code>.
+        /// The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3)
+        /// bucket or directory.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>A two-value parameter that determines the sequence of the resulting list of <code>Evaluation</code>.</para><ul><li><code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</li><li><code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</li></ul><para>Results are sorted by <code>FilterVariable</code>.</para>
+        /// <para>A two-value parameter that determines the sequence of the resulting list of <code>Evaluation</code>.</para><ul><li><para><code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</para></li><li><para><code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</para></li></ul><para>Results are sorted by <code>FilterVariable</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter InfrastructureConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the infrastructure configuration to delete. </para>
+        /// <para>The Amazon Resource Name (ARN) of the infrastructure configuration to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

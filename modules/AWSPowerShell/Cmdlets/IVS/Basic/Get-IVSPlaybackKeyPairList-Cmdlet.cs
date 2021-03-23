@@ -28,7 +28,8 @@ using Amazon.IVS.Model;
 namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
-    /// Gets summary information about playback key pairs.
+    /// Gets summary information about playback key pairs. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting
+    /// Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.
     /// </summary>
     [Cmdlet("Get", "IVSPlaybackKeyPairList")]
     [OutputType("Amazon.IVS.Model.PlaybackKeyPairSummary")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// <summary>
         /// <para>
         /// <para>The first key pair to retrieve. This is used for pagination; see the <code>nextToken</code>
-        /// response field.</para>
+        /// response field. Default: 50.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

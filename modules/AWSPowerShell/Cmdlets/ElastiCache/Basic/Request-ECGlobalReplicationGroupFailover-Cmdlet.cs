@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter GlobalReplicationGroupId
         /// <summary>
         /// <para>
-        /// <para>The name of the Global Datastore</para>
+        /// <para>The name of the Global datastore</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter PrimaryRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS region of the primary cluster of the Global Datastore</para>
+        /// <para>The AWS region of the primary cluster of the Global datastore</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -180,6 +180,17 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public Amazon.Comprehend.DocumentClassifierMode Mode { get; set; }
         #endregion
         
+        #region Parameter ModelKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+        /// trained custom models. The ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelKmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter InputDataConfig_S3Uri
         /// <summary>
         /// <para>
@@ -358,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             }
             #endif
             context.Mode = this.Mode;
+            context.ModelKmsKeyId = this.ModelKmsKeyId;
             context.OutputDataConfig_KmsKeyId = this.OutputDataConfig_KmsKeyId;
             context.OutputDataConfig_S3Uri = this.OutputDataConfig_S3Uri;
             if (this.Tag != null)
@@ -457,6 +469,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (cmdletContext.Mode != null)
             {
                 request.Mode = cmdletContext.Mode;
+            }
+            if (cmdletContext.ModelKmsKeyId != null)
+            {
+                request.ModelKmsKeyId = cmdletContext.ModelKmsKeyId;
             }
             
              // populate OutputDataConfig
@@ -594,6 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String InputDataConfig_S3Uri { get; set; }
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
             public Amazon.Comprehend.DocumentClassifierMode Mode { get; set; }
+            public System.String ModelKmsKeyId { get; set; }
             public System.String OutputDataConfig_KmsKeyId { get; set; }
             public System.String OutputDataConfig_S3Uri { get; set; }
             public List<Amazon.Comprehend.Model.Tag> Tag { get; set; }

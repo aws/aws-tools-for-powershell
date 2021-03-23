@@ -508,6 +508,9 @@
     <Reference Include="AWSSDK.LookoutforVision">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LookoutforVision.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.LookoutMetrics">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LookoutMetrics.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MachineLearning">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MachineLearning.dll</HintPath>
     </Reference>
@@ -549,6 +552,9 @@
     </Reference>
     <Reference Include="AWSSDK.MediaTailor">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaTailor.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Mgn">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Mgn.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MigrationHub">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHub.dll</HintPath>
@@ -1248,6 +1254,9 @@
     <Reference Include="AWSSDK.LookoutforVision">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LookoutforVision.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.LookoutMetrics">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LookoutMetrics.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MachineLearning">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MachineLearning.dll</HintPath>
     </Reference>
@@ -1289,6 +1298,9 @@
     </Reference>
     <Reference Include="AWSSDK.MediaTailor">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MediaTailor.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Mgn">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Mgn.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MigrationHub">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MigrationHub.dll</HintPath>

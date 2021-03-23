@@ -98,6 +98,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IAMAAArchiveRuleList', 
         'Get-IAMAAFinding', 
         'Get-IAMAAFindingList', 
+        'Get-IAMAAGeneratedPolicy', 
+        'Get-IAMAAPolicyGenerationList', 
         'Get-IAMAAResourceTag', 
         'New-IAMAAAccessPreview', 
         'New-IAMAAAnalyzer', 
@@ -106,7 +108,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-IAMAAArchiveRule', 
         'Remove-IAMAAResourceTag', 
         'Start-IAMAAArchiveRule', 
+        'Start-IAMAAPolicyGeneration', 
         'Start-IAMAAResourceScan', 
+        'Stop-IAMAAPolicyGeneration', 
         'Update-IAMAAArchiveRule', 
         'Update-IAMAAFinding', 
         'Use-IAMAAPolicyValidation')

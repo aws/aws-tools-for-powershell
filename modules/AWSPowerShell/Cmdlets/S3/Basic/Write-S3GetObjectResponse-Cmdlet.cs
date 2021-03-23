@@ -42,6 +42,31 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// invokes <code>GetObject</code>. When <code>WriteGetObjectResponse</code> is called
     /// by a customer-owned Lambda function, the metadata returned to the end user <code>GetObject</code>
     /// call might differ from what Amazon S3 would normally return.
+    /// </para><para>
+    /// AWS provides some prebuilt Lambda functions that you can use with S3 Object Lambda
+    /// to detect and redact personally identifiable information (PII) and decompress S3 objects.
+    /// These Lambda functions are available in the AWS Serverless Application Repository,
+    /// and can be selected through the AWS Management Console when you create your Object
+    /// Lambda Access Point.
+    /// </para><para>
+    /// Example 1: PII Access Control - This Lambda function uses Amazon Comprehend, a natural
+    /// language processing (NLP) service using machine learning to find insights and relationships
+    /// in text. It automatically detects personally identifiable information (PII) such as
+    /// names, addresses, dates, credit card numbers, and social security numbers from documents
+    /// in your Amazon S3 bucket. 
+    /// </para><para>
+    /// Example 2: PII Redaction - This Lambda function uses Amazon Comprehend, a natural
+    /// language processing (NLP) service using machine learning to find insights and relationships
+    /// in text. It automatically redacts personally identifiable information (PII) such as
+    /// names, addresses, dates, credit card numbers, and social security numbers from documents
+    /// in your Amazon S3 bucket. 
+    /// </para><para>
+    /// Example 3: Decompression - The Lambda function S3ObjectLambdaDecompression, is equipped
+    /// to decompress objects stored in S3 in one of six compressed file formats including
+    /// bzip2, gzip, snappy, zlib, zstandard and ZIP. 
+    /// </para><para>
+    /// For information on how to view and use these functions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-examples.html">Using
+    /// AWS built Lambda functions</a> in the <i>Amazon S3 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "S3GetObjectResponse", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

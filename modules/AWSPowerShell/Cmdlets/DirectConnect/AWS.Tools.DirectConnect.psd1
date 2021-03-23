@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-DCMacSecKey', 
         'Add-DCResourceTag', 
         'Confirm-DCConnection', 
         'Confirm-DCDirectConnectGatewayAssociationProposal', 
@@ -134,11 +135,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-DCGatewayAssociation', 
         'Remove-DCInterconnect', 
         'Remove-DCLag', 
+        'Remove-DCMacSecKey', 
         'Remove-DCResourceTag', 
         'Remove-DCVirtualInterface', 
         'Start-DCBgpFailoverTest', 
         'Stop-DCBgpFailoverTest', 
         'Unregister-DCConnectionFromLag', 
+        'Update-DCConnection', 
         'Update-DCDirectConnectGatewayAssociation', 
         'Update-DCLag', 
         'Update-DCVirtualInterfaceAttribute')

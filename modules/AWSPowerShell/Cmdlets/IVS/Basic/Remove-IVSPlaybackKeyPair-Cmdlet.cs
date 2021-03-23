@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
     /// Deletes a specified authorization key pair. This invalidates future viewer tokens
-    /// generated using the key pair’s <code>privateKey</code>.
+    /// generated using the key pair’s <code>privateKey</code>. For more information, see
+    /// <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting
+    /// Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "IVSPlaybackKeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

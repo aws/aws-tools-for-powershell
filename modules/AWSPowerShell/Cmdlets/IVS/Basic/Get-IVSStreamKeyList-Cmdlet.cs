@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of streamKeys to return.</para>
+        /// <para>Maximum number of streamKeys to return. Default: 50.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

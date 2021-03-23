@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Returns information about an Amazon SageMaker job.
+    /// Returns information about an Amazon SageMaker AutoML job.
     /// </summary>
     [Cmdlet("Get", "SMAutoMLJob")]
     [OutputType("Amazon.SageMaker.Model.DescribeAutoMLJobResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AutoMLJobName
         /// <summary>
         /// <para>
-        /// <para>Request information about a job using that job's unique name.</para>
+        /// <para>Requests information about an AutoML job using its unique name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -54,14 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter FilterVariable
         /// <summary>
         /// <para>
-        /// <para>Use one of the following variables to filter a list of <code>DataSource</code>:</para><ul><li><code>CreatedAt</code> - Sets the search criteria to <code>DataSource</code>
-        /// creation dates.</li><li><code>Status</code> - Sets the search criteria to <code>DataSource</code>
-        /// statuses.</li><li><code>Name</code> - Sets the search criteria to the contents of
-        /// <code>DataSource</code><b></b><code>Name</code>.</li><li><code>DataUri</code>
-        /// - Sets the search criteria to the URI of data files used to create the <code>DataSource</code>.
-        /// The URI can identify either a file or an Amazon Simple Storage Service (Amazon S3)
-        /// bucket or directory.</li><li><code>IAMUser</code> - Sets the search criteria to
-        /// the user account that invoked the <code>DataSource</code> creation.</li></ul>
+        /// <para>Use one of the following variables to filter a list of <code>DataSource</code>:</para><ul><li><para><code>CreatedAt</code> - Sets the search criteria to <code>DataSource</code> creation
+        /// dates.</para></li><li><para><code>Status</code> - Sets the search criteria to <code>DataSource</code> statuses.</para></li><li><para><code>Name</code> - Sets the search criteria to the contents of <code>DataSource</code><code>Name</code>.</para></li><li><para><code>DataUri</code> - Sets the search criteria to the URI of data files used to
+        /// create the <code>DataSource</code>. The URI can identify either a file or an Amazon
+        /// Simple Storage Service (Amazon S3) bucket or directory.</para></li><li><para><code>IAMUser</code> - Sets the search criteria to the user account that invoked
+        /// the <code>DataSource</code> creation.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>A two-value parameter that determines the sequence of the resulting list of <code>DataSource</code>.</para><ul><li><code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</li><li><code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</li></ul><para>Results are sorted by <code>FilterVariable</code>.</para>
+        /// <para>A two-value parameter that determines the sequence of the resulting list of <code>DataSource</code>.</para><ul><li><para><code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</para></li><li><para><code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</para></li></ul><para>Results are sorted by <code>FilterVariable</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

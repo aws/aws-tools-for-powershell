@@ -80,6 +80,75 @@ $R53R_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Route53Resolver.Action
+        {
+            ($_ -eq "Edit-R53RFirewallRule/Action") -Or
+            ($_ -eq "Get-R53RFirewallRuleList/Action") -Or
+            ($_ -eq "New-R53RFirewallRule/Action")
+        }
+        {
+            $v = "ALERT","ALLOW","BLOCK"
+            break
+        }
+
+        # Amazon.Route53Resolver.BlockOverrideDnsType
+        {
+            ($_ -eq "Edit-R53RFirewallRule/BlockOverrideDnsType") -Or
+            ($_ -eq "New-R53RFirewallRule/BlockOverrideDnsType")
+        }
+        {
+            $v = "CNAME"
+            break
+        }
+
+        # Amazon.Route53Resolver.BlockResponse
+        {
+            ($_ -eq "Edit-R53RFirewallRule/BlockResponse") -Or
+            ($_ -eq "New-R53RFirewallRule/BlockResponse")
+        }
+        {
+            $v = "NODATA","NXDOMAIN","OVERRIDE"
+            break
+        }
+
+        # Amazon.Route53Resolver.FirewallDomainImportOperation
+        "Import-R53RFirewallDomainList/Operation"
+        {
+            $v = "REPLACE"
+            break
+        }
+
+        # Amazon.Route53Resolver.FirewallDomainUpdateOperation
+        "Edit-R53RFirewallDomain/Operation"
+        {
+            $v = "ADD","REMOVE","REPLACE"
+            break
+        }
+
+        # Amazon.Route53Resolver.FirewallFailOpenStatus
+        "Edit-R53RFirewallConfig/FirewallFailOpen"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Route53Resolver.FirewallRuleGroupAssociationStatus
+        "Get-R53RFirewallRuleGroupAssociationList/Status"
+        {
+            $v = "COMPLETE","DELETING","UPDATING"
+            break
+        }
+
+        # Amazon.Route53Resolver.MutationProtectionStatus
+        {
+            ($_ -eq "Edit-R53RFirewallRuleGroupAssociation/MutationProtection") -Or
+            ($_ -eq "New-R53RFirewallRuleGroupAssociation/MutationProtection")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Route53Resolver.ResolverEndpointDirection
         "New-R53RResolverEndpoint/Direction"
         {
@@ -120,9 +189,16 @@ $R53R_Completers = {
 }
 
 $R53R_map = @{
+    "Action"=@("Edit-R53RFirewallRule","Get-R53RFirewallRuleList","New-R53RFirewallRule")
+    "BlockOverrideDnsType"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
+    "BlockResponse"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "Direction"=@("New-R53RResolverEndpoint")
+    "FirewallFailOpen"=@("Edit-R53RFirewallConfig")
+    "MutationProtection"=@("Edit-R53RFirewallRuleGroupAssociation","New-R53RFirewallRuleGroupAssociation")
+    "Operation"=@("Edit-R53RFirewallDomain","Import-R53RFirewallDomainList")
     "RuleType"=@("New-R53RResolverRule")
     "SortOrder"=@("Get-R53RResolverQueryLogConfigAssociationList","Get-R53RResolverQueryLogConfigList")
+    "Status"=@("Get-R53RFirewallRuleGroupAssociationList")
     "Validation"=@("Update-R53RResolverDnssecConfig")
 }
 
@@ -176,18 +252,31 @@ $R53R_SelectCompleters = {
 }
 
 $R53R_SelectMap = @{
-    "Select"=@("Add-R53RResolverEndpointIpAddressAssociation",
+    "Select"=@("New-R53RFirewallRuleGroupAssociation",
+               "Add-R53RResolverEndpointIpAddressAssociation",
                "Add-R53RResolverQueryLogConfigAssociation",
                "Add-R53RResolverRuleAssociation",
+               "New-R53RFirewallDomainList",
+               "New-R53RFirewallRule",
+               "New-R53RFirewallRuleGroup",
                "New-R53RResolverEndpoint",
                "New-R53RResolverQueryLogConfig",
                "New-R53RResolverRule",
+               "Remove-R53RFirewallDomainList",
+               "Remove-R53RFirewallRule",
+               "Remove-R53RFirewallRuleGroup",
                "Remove-R53RResolverEndpoint",
                "Remove-R53RResolverQueryLogConfig",
                "Remove-R53RResolverRule",
+               "Remove-R53RFirewallRuleGroupAssociation",
                "Remove-R53RResolverEndpointIpAddressAssociation",
                "Remove-R53RResolverQueryLogConfigAssociation",
                "Remove-R53RResolverRuleAssociation",
+               "Get-R53RFirewallConfig",
+               "Get-R53RFirewallDomainList",
+               "Get-R53RFirewallRuleGroup",
+               "Get-R53RFirewallRuleGroupAssociation",
+               "Get-R53RFirewallRuleGroupPolicy",
                "Get-R53RResolverDnssecConfig",
                "Get-R53RResolverEndpoint",
                "Get-R53RResolverQueryLogConfig",
@@ -196,6 +285,13 @@ $R53R_SelectMap = @{
                "Get-R53RResolverRule",
                "Get-R53RResolverRuleAssociation",
                "Get-R53RResolverRulePolicy",
+               "Import-R53RFirewallDomainList",
+               "Get-R53RFirewallConfigList",
+               "Get-R53RFirewallDomainListList",
+               "Get-R53RFirewallDomain",
+               "Get-R53RFirewallRuleGroupAssociationList",
+               "Get-R53RFirewallRuleGroupList",
+               "Get-R53RFirewallRuleList",
                "Get-R53RResolverDnssecConfigList",
                "Get-R53RResolverEndpointIpAddressList",
                "Get-R53RResolverEndpointList",
@@ -204,10 +300,15 @@ $R53R_SelectMap = @{
                "Get-R53RResolverRuleAssociationList",
                "Get-R53RResolverRuleList",
                "Get-R53RResourceTagList",
+               "Edit-R53RFirewallRuleGroupPolicy",
                "Write-R53RResolverQueryLogConfigPolicy",
                "Set-R53RResolverRulePolicy",
                "Add-R53RResourceTag",
                "Remove-R53RResourceTag",
+               "Edit-R53RFirewallConfig",
+               "Edit-R53RFirewallDomain",
+               "Edit-R53RFirewallRule",
+               "Edit-R53RFirewallRuleGroupAssociation",
                "Update-R53RResolverDnssecConfig",
                "Update-R53RResolverEndpoint",
                "Update-R53RResolverRule")

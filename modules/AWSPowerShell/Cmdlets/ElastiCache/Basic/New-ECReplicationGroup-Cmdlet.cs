@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     ///  
     /// <para>
     /// This API can be used to create a standalone regional replication group or a secondary
-    /// replication group associated with a Global Datastore.
+    /// replication group associated with a Global datastore.
     /// </para><para>
     /// A Redis (cluster mode disabled) replication group is a collection of clusters, where
     /// one of the clusters is a read/write primary and the others are read-only replicas.
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter GlobalReplicationGroupId
         /// <summary>
         /// <para>
-        /// <para>The name of the Global Datastore</para>
+        /// <para>The name of the Global datastore</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -476,10 +476,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of cost allocation tags to be added to this resource. Tags are comma-separated
-        /// key,value pairs (e.g. Key=<code>myKey</code>, Value=<code>myKeyValue</code>. You can
-        /// include multiple tags as shown following: Key=<code>myKey</code>, Value=<code>myKeyValue</code>
-        /// Key=<code>mySecondKey</code>, Value=<code>mySecondKeyValue</code>.</para>
+        /// <para>A list of tags to be added to this resource. Tags are comma-separated key,value pairs
+        /// (e.g. Key=<code>myKey</code>, Value=<code>myKeyValue</code>. You can include multiple
+        /// tags as shown following: Key=<code>myKey</code>, Value=<code>myKeyValue</code> Key=<code>mySecondKey</code>,
+        /// Value=<code>mySecondKeyValue</code>. Tags on replication groups will be replicated
+        /// to all nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

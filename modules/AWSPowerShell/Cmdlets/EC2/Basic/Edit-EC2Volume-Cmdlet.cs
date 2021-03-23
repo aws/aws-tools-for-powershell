@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The target IOPS rate of the volume. This parameter is valid only for <code>gp3</code>,
-        /// <code>io1</code>, and <code>io2</code> volumes.</para><para>The following are the supported values for each volume type:</para><ul><li><para><code>gp3</code>: 3,000-16,000 IOPS</para></li><li><para><code>io1</code>: 100-64,000 IOPS</para></li><li><para><code>io2</code>: 100-64,000 IOPS</para></li></ul><para>Default: If no IOPS value is specified, the existing value is retained.</para>
+        /// <code>io1</code>, and <code>io2</code> volumes.</para><para>The following are the supported values for each volume type:</para><ul><li><para><code>gp3</code>: 3,000-16,000 IOPS</para></li><li><para><code>io1</code>: 100-64,000 IOPS</para></li><li><para><code>io2</code>: 100-64,000 IOPS</para></li></ul><para>Default: If no IOPS value is specified, the existing value is retained, unless a volume
+        /// type is modified that supports different values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

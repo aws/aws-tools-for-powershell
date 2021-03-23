@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the infrastructure configuration. </para>
+        /// <para>The description of the infrastructure configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to
-        /// update. </para>
+        /// update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter InstanceProfileName
         /// <summary>
         /// <para>
-        /// <para>The instance profile to associate with the instance used to customize your EC2 AMI.
-        /// </para>
+        /// <para>The instance profile to associate with the instance used to customize your EC2 AMI.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para>The instance types of the infrastructure configuration. You can specify one or more
         /// instance types to use for this build. The service will pick one of these instance
-        /// types based on availability. </para>
+        /// types based on availability.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The key pair of the infrastructure configuration. This can be used to log on to and
-        /// debug the instance used to create your image. </para>
+        /// debug the instance used to create your image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,8 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The security group IDs to associate with the instance used to customize your EC2 AMI.
-        /// </para>
+        /// <para>The security group IDs to associate with the instance used to customize your EC2 AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
-        /// <para>The SNS topic on which to send image build events. </para>
+        /// <para>The SNS topic on which to send image build events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The subnet ID to place the instance used to customize your EC2 AMI in. </para>
+        /// <para>The subnet ID to place the instance used to customize your EC2 AMI in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para>The terminate instance on failure setting of the infrastructure configuration. Set
         /// to false if you want Image Builder to retain the instance used to configure your AMI
-        /// if the build or test phase of your workflow fails. </para>
+        /// if the build or test phase of your workflow fails.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The idempotency token used to make this request idempotent. </para>
+        /// <para>The idempotency token used to make this request idempotent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

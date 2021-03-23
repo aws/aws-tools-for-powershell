@@ -90,7 +90,7 @@ $TRS_Completers = {
         # Amazon.TranscribeService.CLMLanguageCode
         "New-TRSLanguageModel/LanguageCode"
         {
-            $v = "en-US"
+            $v = "en-AU","en-GB","en-US","es-US","hi-IN"
             break
         }
 
@@ -167,7 +167,7 @@ $TRS_Completers = {
         # Amazon.TranscribeService.VocabularyFilterMethod
         "Start-TRSTranscriptionJob/Settings_VocabularyFilterMethod"
         {
-            $v = "mask","remove"
+            $v = "mask","remove","tag"
             break
         }
 

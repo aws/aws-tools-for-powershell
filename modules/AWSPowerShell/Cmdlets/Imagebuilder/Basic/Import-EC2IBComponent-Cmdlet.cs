@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The change description of the component. Describes what change has been made in this
-        /// version, or what makes this version different from other versions of this component.
-        /// </para>
+        /// version, or what makes this version different from other versions of this component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the component. Describes the contents of the component. </para>
+        /// <para>The description of the component. Describes the contents of the component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Format
         /// <summary>
         /// <para>
-        /// <para>The format of the resource that you want to import as a component. </para>
+        /// <para>The format of the resource that you want to import as a component.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the KMS key that should be used to encrypt this component. </para>
+        /// <para>The ID of the KMS key that should be used to encrypt this component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para> The name of the component. </para>
+        /// <para> The name of the component.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Platform
         /// <summary>
         /// <para>
-        /// <para>The platform of the component. </para>
+        /// <para>The platform of the component.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags of the component. </para>
+        /// <para>The tags of the component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The type of the component denotes whether the component is used to build the image
-        /// or only to test it. </para>
+        /// or only to test it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -188,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>The uri of the component. Must be an S3 URL and the requester must have permission
         /// to access the S3 bucket. If you use S3, you can specify component content up to your
         /// service quota. Either <code>data</code> or <code>uri</code> can be used to specify
-        /// the data within the component. </para>
+        /// the data within the component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The idempotency token of the component. </para>
+        /// <para>The idempotency token of the component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// List the Candidates created for the job.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List the candidates created for the job.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMCandidatesForAutoMLJobList")]
     [OutputType("Amazon.SageMaker.Model.AutoMLCandidate")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AutoMLJobName
         /// <summary>
         /// <para>
-        /// <para>List the Candidates created for the job by providing the job's name.</para>
+        /// <para>List the candidates created for the job by providing the job's name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CandidateNameEqual
         /// <summary>
         /// <para>
-        /// <para>List the Candidates for the job and filter by candidate name.</para>
+        /// <para>List the candidates for the job and filter by candidate name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The parameter by which to sort the results. The default is Descending.</para>
+        /// <para>The parameter by which to sort the results. The default is <code>Descending</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order for the results. The default is Ascending.</para>
+        /// <para>The sort order for the results. The default is <code>Ascending</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StatusEqual
         /// <summary>
         /// <para>
-        /// <para>List the Candidates for the job and filter by status.</para>
+        /// <para>List the candidates for the job and filter by status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>List the job's Candidates up to a specified limit.</para>
+        /// <para>List the job's candidates up to a specified limit.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

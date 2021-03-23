@@ -33,10 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// When you specify a start and end time, this operation returns the prices of the instance
-    /// types within the time range that you specified and the time when the price changed.
-    /// The price is valid within the time period that you specified; the response merely
-    /// indicates the last time that the price changed.
+    /// When you specify a start and end time, the operation returns the prices of the instance
+    /// types within that time range. It also returns the last price change before the start
+    /// time, which is the effective price as of the start time.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2SpotPriceHistory")]

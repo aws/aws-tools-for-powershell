@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>mgn</C2jFilename>
+    <AssemblyName>Mgn</AssemblyName>
+    <ServiceNounPrefix>MGN</ServiceNounPrefix>
+    <ServiceName>Application Migration Service</ServiceName>
+    <ServiceClientInterface>IAmazonMgn</ServiceClientInterface>
+    <ServiceClient>AmazonMgnClient</ServiceClient>
+    <ServiceModuleGuid>db4dcedc-a60b-46ba-9cf4-f117d7c85ecc</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="nextToken" Next="nextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ChangeServerLifeCycleState" OutputProperty="*" Verb="Set" Noun="ServerLifeCycleState" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReplicationConfigurationTemplate" OutputProperty="*" Verb="New" Noun="ReplicationConfigurationTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteJob" Verb="Remove" Noun="Job" ShouldProcessTarget="JobID" PipelineParameter="JobID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationConfigurationTemplate" Verb="Remove" Noun="ReplicationConfigurationTemplate" ShouldProcessTarget="ReplicationConfigurationTemplateID" PipelineParameter="ReplicationConfigurationTemplateID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSourceServer" Verb="Remove" Noun="SourceServer" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeJobLogItems" OutputProperty="Items" Verb="Get" Noun="JobLogItem" PipelineParameter="JobID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeJobs" OutputProperty="Items" Verb="Get" Noun="Job" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationConfigurationTemplates" OutputProperty="Items" Verb="Get" Noun="ReplicationConfigurationTemplate" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSourceServers" OutputProperty="Items" Verb="Get" Noun="SourceServer" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisconnectFromService" OutputProperty="*" Verb="Disconnect" Noun="FromService" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="FinalizeCutover" OutputProperty="*" Verb="Complete" Noun="Cutover" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLaunchConfiguration" OutputProperty="*" Verb="Get" Noun="LaunchConfiguration" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReplicationConfiguration" OutputProperty="*" Verb="Get" Noun="ReplicationConfiguration" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InitializeService" Verb="Initialize" Noun="Service" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="MarkAsArchived" OutputProperty="*" Verb="Set" Noun="AsArchived" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetryDataReplication" OutputProperty="*" Verb="Resume" Noun="DataReplication" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCutover" OutputProperty="Job" Verb="Start" Noun="Cutover" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTest" OutputProperty="Job" Verb="Start" Noun="Test" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateTargetInstances" OutputProperty="Job" Verb="Remove" Noun="TargetInstance" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLaunchConfiguration" OutputProperty="*" Verb="Update" Noun="LaunchConfiguration" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReplicationConfiguration" OutputProperty="*" Verb="Update" Noun="ReplicationConfiguration" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReplicationConfigurationTemplate" OutputProperty="*" Verb="Update" Noun="ReplicationConfigurationTemplate" ShouldProcessTarget="ReplicationConfigurationTemplateID" PipelineParameter="ReplicationConfigurationTemplateID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

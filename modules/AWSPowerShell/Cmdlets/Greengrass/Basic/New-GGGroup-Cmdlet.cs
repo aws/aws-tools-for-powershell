@@ -113,7 +113,14 @@ namespace Amazon.PowerShell.Cmdlets.GG
         /// The name of the group.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
         #endregion
         
@@ -220,6 +227,12 @@ namespace Amazon.PowerShell.Cmdlets.GG
             context.InitialVersion_ResourceDefinitionVersionArn = this.InitialVersion_ResourceDefinitionVersionArn;
             context.InitialVersion_SubscriptionDefinitionVersionArn = this.InitialVersion_SubscriptionDefinitionVersionArn;
             context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);

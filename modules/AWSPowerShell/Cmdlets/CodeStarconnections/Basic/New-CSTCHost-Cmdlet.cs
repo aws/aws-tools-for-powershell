@@ -125,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         public System.String[] VpcConfiguration_SubnetId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.CodeStarconnections.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter VpcConfiguration_TlsCertificate
         /// <summary>
         /// <para>
@@ -229,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
                 WriteWarning("You are passing $null as a value for parameter ProviderType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.CodeStarconnections.Model.Tag>(this.Tag);
+            }
             if (this.VpcConfiguration_SecurityGroupId != null)
             {
                 context.VpcConfiguration_SecurityGroupId = new List<System.String>(this.VpcConfiguration_SecurityGroupId);
@@ -266,6 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             if (cmdletContext.ProviderType != null)
             {
                 request.ProviderType = cmdletContext.ProviderType;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
              // populate VpcConfiguration
@@ -380,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             public System.String Name { get; set; }
             public System.String ProviderEndpoint { get; set; }
             public Amazon.CodeStarconnections.ProviderType ProviderType { get; set; }
+            public List<Amazon.CodeStarconnections.Model.Tag> Tag { get; set; }
             public List<System.String> VpcConfiguration_SecurityGroupId { get; set; }
             public List<System.String> VpcConfiguration_SubnetId { get; set; }
             public System.String VpcConfiguration_TlsCertificate { get; set; }

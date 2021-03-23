@@ -39,6 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class NewCECostCategoryDefinitionCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        #region Parameter DefaultValue
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultValue { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -152,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DefaultValue = this.DefaultValue;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -192,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // create request
             var request = new Amazon.CostExplorer.Model.CreateCostCategoryDefinitionRequest();
             
+            if (cmdletContext.DefaultValue != null)
+            {
+                request.DefaultValue = cmdletContext.DefaultValue;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -265,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DefaultValue { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.CostExplorer.Model.CostCategoryRule> Rule { get; set; }
             public Amazon.CostExplorer.CostCategoryRuleVersion RuleVersion { get; set; }

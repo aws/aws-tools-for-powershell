@@ -175,7 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// Windows <code>MULTI_AZ_1</code> file system deployment types, provide exactly two
         /// subnet IDs, one for the preferred file server and one for the standby file server.
         /// You specify one of these subnets as the preferred subnet using the <code>WindowsConfiguration
-        /// &gt; PreferredSubnetID</code> property.</para><para>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> file system deployment
+        /// &gt; PreferredSubnetID</code> property. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
+        /// Availability and durability: Single-AZ and Multi-AZ file systems</a>.</para><para>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> file system deployment
         /// types and Lustre file systems, provide exactly one subnet ID. The file server is launched
         /// in that subnet's Availability Zone.</para>
         /// </para>

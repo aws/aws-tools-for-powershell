@@ -29,8 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Import single or multi-volume disk images or EBS snapshots into an Amazon Machine
-    /// Image (AMI). For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing
-    /// a VM as an Image Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
+    /// Image (AMI).
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing
+    /// a VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Import", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ImportImageResponse")]

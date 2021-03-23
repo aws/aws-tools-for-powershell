@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageBuildVersionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the image to delete. </para>
+        /// <para>The Amazon Resource Name (ARN) of the image to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

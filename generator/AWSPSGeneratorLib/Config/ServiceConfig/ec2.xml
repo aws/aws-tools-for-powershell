@@ -363,10 +363,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateReplaceRootVolumeTask" OutputProperty="ReplaceRootVolumeTask" Verb="New" Noun="ReplaceRootVolumeTask" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateReservedInstancesListing" OutputProperty="ReservedInstancesListings" Verb="New" Noun="ReservedInstancesListing" ShouldProcessTarget="ReservedInstancesId" PositionalParameters="InstanceCount;PriceSchedules;ClientToken" PipelineParameter="ReservedInstancesId" NoPipelineParameter="false">
             <Params>
                 <Param Name="PriceSchedules" NewName="PriceSchedule" Alias="PricingSchedules" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRestoreImageTask" OutputProperty="ImageId" Verb="New" Noun="RestoreImageTask" ShouldProcessTarget="Name" PipelineParameter="ObjectKey" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRoute" OutputProperty="Return" Verb="New" Noun="Route" ShouldProcessTarget="RouteTableId" PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId" PipelineParameter="RouteTableId" NoPipelineParameter="false">
@@ -392,6 +400,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSpotDatafeedSubscription" OutputProperty="SpotDatafeedSubscription" Verb="New" Noun="SpotDatafeedSubscription" ShouldProcessTarget="Bucket" PositionalParameters="Prefix" PipelineParameter="Bucket" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStoreImageTask" OutputProperty="ObjectKey" Verb="New" Noun="StoreImageTask" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1038,6 +1050,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplaceRootVolumeTasks" OutputProperty="ReplaceRootVolumeTasks" Verb="Get" Noun="ReplaceRootVolumeTask" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeReservedInstances" OutputProperty="ReservedInstances" Verb="Get" Noun="ReservedInstance" PositionalParameters="Filters;OfferingType" PipelineParameter="ReservedInstancesIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1135,6 +1151,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeStaleSecurityGroups" OutputProperty="StaleSecurityGroupSet" Verb="Get" Noun="StaleSecurityGroup" PipelineParameter="VpcId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStoreImageTasks" OutputProperty="StoreImageTaskResults" Verb="Get" Noun="StoreImageTask" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1296,6 +1316,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Disable" Noun="SerialConsoleAccess" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableTransitGatewayRouteTablePropagation" OutputProperty="Propagation" Verb="Disable" Noun="TransitGatewayRouteTablePropagation" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1353,6 +1377,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableFastSnapshotRestores" OutputProperty="*" Verb="Enable" Noun="FastSnapshotRestore" ShouldProcessTarget="SourceSnapshotIds" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Enable" Noun="SerialConsoleAccess" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1428,6 +1456,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFlowLogsIntegrationTemplate" OutputProperty="Result" Verb="Get" Noun="FlowLogsIntegrationTemplate" PipelineParameter="FlowLogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetGroupsForCapacityReservation" OutputProperty="CapacityReservationGroups" Verb="Get" Noun="GroupsForCapacityReservation" PipelineParameter="CapacityReservationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1453,6 +1485,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetReservedInstancesExchangeQuote" OutputProperty="*" Verb="Get" Noun="ReservedInstancesExchangeQuote" PipelineParameter="ReservedInstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSerialConsoleAccessStatus" OutputProperty="SerialConsoleAccessEnabled" Verb="Get" Noun="SerialConsoleAccessStatus" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

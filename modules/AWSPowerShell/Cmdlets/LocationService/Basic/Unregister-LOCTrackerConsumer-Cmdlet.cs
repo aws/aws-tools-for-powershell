@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Removes the association bewteen a tracker resource and a geofence collection.
+    /// Removes the association between a tracker resource and a geofence collection.
     /// 
     ///  <note><para>
     /// Once you unlink a tracker resource from a geofence collection, the tracker positions

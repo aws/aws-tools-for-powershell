@@ -145,6 +145,17 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
         #endregion
         
+        #region Parameter ModelKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+        /// trained custom models. The ModelKmsKeyId can be either of the following formats</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelKmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter RecognizerName
         /// <summary>
         /// <para>
@@ -351,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 WriteWarning("You are passing $null as a value for parameter LanguageCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ModelKmsKeyId = this.ModelKmsKeyId;
             context.RecognizerName = this.RecognizerName;
             #if MODULAR
             if (this.RecognizerName == null && ParameterWasBound(nameof(this.RecognizerName)))
@@ -513,6 +525,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
             }
+            if (cmdletContext.ModelKmsKeyId != null)
+            {
+                request.ModelKmsKeyId = cmdletContext.ModelKmsKeyId;
+            }
             if (cmdletContext.RecognizerName != null)
             {
                 request.RecognizerName = cmdletContext.RecognizerName;
@@ -624,6 +640,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String EntityList_S3Uri { get; set; }
             public List<Amazon.Comprehend.Model.EntityTypesListItem> InputDataConfig_EntityType { get; set; }
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
+            public System.String ModelKmsKeyId { get; set; }
             public System.String RecognizerName { get; set; }
             public List<Amazon.Comprehend.Model.Tag> Tag { get; set; }
             public System.String VolumeKmsKeyId { get; set; }

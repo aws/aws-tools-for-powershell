@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>docdb</C2jFilename>
     <AssemblyName>DocDB</AssemblyName>
@@ -13,12 +14,15 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AddSourceIdentifierToSubscription" OutputProperty="EventSubscription" Verb="Add" Noun="SourceIdentifierToSubscription" ShouldProcessTarget="SourceIdentifier" PipelineParameter="SourceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AddTagsToResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -55,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventSubscription" OutputProperty="EventSubscription" Verb="New" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDBCluster" OutputProperty="DBCluster" Verb="Remove" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -72,6 +80,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDBSubnetGroup" Verb="Remove" Noun="DBSubnetGroup" ShouldProcessTarget="DBSubnetGroupName" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventSubscription" OutputProperty="EventSubscription" Verb="Remove" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -123,6 +135,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventSubscriptions" OutputProperty="EventSubscriptionsList" Verb="Get" Noun="EventSubscription" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeOrderableDBInstanceOptions" OutputProperty="OrderableDBInstanceOptions" Verb="Get" Noun="OrderableDBInstanceOption" PipelineParameter="Engine" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -159,7 +175,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyEventSubscription" OutputProperty="EventSubscription" Verb="Edit" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RebootDBInstance" OutputProperty="DBInstance" Verb="Restart" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveSourceIdentifierFromSubscription" OutputProperty="EventSubscription" Verb="Remove" Noun="SourceIdentifierFromSubscription" ShouldProcessTarget="SourceIdentifier" PipelineParameter="SourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -188,7 +212,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

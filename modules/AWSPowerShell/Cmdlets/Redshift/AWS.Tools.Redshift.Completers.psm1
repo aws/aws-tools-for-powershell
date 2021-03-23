@@ -217,6 +217,7 @@ $RS_SelectCompleters = {
 $RS_SelectMap = @{
     "Select"=@("Switch-RSReservedNode",
                "Approve-RSClusterSecurityGroupIngress",
+               "Approve-RSEndpointAccess",
                "Approve-RSSnapshotAccess",
                "Remove-RSClusterSnapshotBatch",
                "Edit-RSClusterSnapshotBatch",
@@ -227,6 +228,7 @@ $RS_SelectMap = @{
                "New-RSClusterSecurityGroup",
                "New-RSClusterSnapshot",
                "New-RSClusterSubnetGroup",
+               "New-RSEndpointAccess",
                "New-RSEventSubscription",
                "New-RSHsmClientCertificate",
                "New-RSHsmConfiguration",
@@ -240,6 +242,7 @@ $RS_SelectMap = @{
                "Remove-RSClusterSecurityGroup",
                "Remove-RSClusterSnapshot",
                "Remove-RSClusterSubnetGroup",
+               "Remove-RSEndpointAccess",
                "Remove-RSEventSubscription",
                "Remove-RSHsmClientCertificate",
                "Remove-RSHsmConfiguration",
@@ -259,6 +262,8 @@ $RS_SelectMap = @{
                "Get-RSClusterTrack",
                "Get-RSClusterVersion",
                "Get-RSDefaultClusterParameter",
+               "Get-RSEndpointAccess",
+               "Get-RSEndpointAuthorization",
                "Get-RSEventCategory",
                "Get-RSEvent",
                "Get-RSEventSubscription",
@@ -292,6 +297,7 @@ $RS_SelectMap = @{
                "Edit-RSClusterSnapshot",
                "Edit-RSClusterSnapshotSchedule",
                "Edit-RSClusterSubnetGroup",
+               "Edit-RSEndpointAccess",
                "Edit-RSEventSubscription",
                "Edit-RSScheduledAction",
                "Edit-RSSnapshotCopyRetentionPeriod",
@@ -306,6 +312,7 @@ $RS_SelectMap = @{
                "Restore-RSTableFromClusterSnapshot",
                "Start-RSCluster",
                "Revoke-RSClusterSecurityGroupIngress",
+               "Revoke-RSEndpointAccess",
                "Revoke-RSSnapshotAccess",
                "Switch-RSEncryptionKey")
 }

@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter RequestPayer
         /// <summary>
         /// <para>
-        /// Confirms that the requester knows that she or he will be charged for the list objects request.
+        /// Confirms that the requester knows that she or he will be charged for the request.
         /// Bucket owners need not specify this parameter in their requests.
         /// </para>
         /// </summary>

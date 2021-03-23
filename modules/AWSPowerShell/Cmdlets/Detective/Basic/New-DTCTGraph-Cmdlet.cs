@@ -59,6 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     public partial class NewDTCTGraphCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the new behavior graph. For each tag, you provide the tag key
+        /// and the tag value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'GraphArn'.
@@ -84,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Tag), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DTCTGraph (CreateGraph)"))
             {
                 return;
@@ -99,6 +111,14 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
             {
                 context.Select = CreateSelectDelegate<Amazon.Detective.Model.CreateGraphResponse, NewDTCTGraphCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -116,6 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
             // create request
             var request = new Amazon.Detective.Model.CreateGraphRequest();
             
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -177,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Detective.Model.CreateGraphResponse, NewDTCTGraphCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GraphArn;
         }

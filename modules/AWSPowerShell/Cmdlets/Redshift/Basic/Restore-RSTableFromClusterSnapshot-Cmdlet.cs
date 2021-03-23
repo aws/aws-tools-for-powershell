@@ -71,6 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String ClusterIdentifier { get; set; }
         #endregion
         
+        #region Parameter EnableCaseSensitiveIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether name identifiers for database, schema, and table are case sensitive.
+        /// If <code>true</code>, the names are case sensitive. If <code>false</code> (default),
+        /// the names are not case sensitive.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableCaseSensitiveIdentifier { get; set; }
+        #endregion
+        
         #region Parameter NewTableName
         /// <summary>
         /// <para>
@@ -240,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EnableCaseSensitiveIdentifier = this.EnableCaseSensitiveIdentifier;
             context.NewTableName = this.NewTableName;
             #if MODULAR
             if (this.NewTableName == null && ParameterWasBound(nameof(this.NewTableName)))
@@ -290,6 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+            }
+            if (cmdletContext.EnableCaseSensitiveIdentifier != null)
+            {
+                request.EnableCaseSensitiveIdentifier = cmdletContext.EnableCaseSensitiveIdentifier.Value;
             }
             if (cmdletContext.NewTableName != null)
             {
@@ -381,6 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterIdentifier { get; set; }
+            public System.Boolean? EnableCaseSensitiveIdentifier { get; set; }
             public System.String NewTableName { get; set; }
             public System.String SnapshotIdentifier { get; set; }
             public System.String SourceDatabaseName { get; set; }

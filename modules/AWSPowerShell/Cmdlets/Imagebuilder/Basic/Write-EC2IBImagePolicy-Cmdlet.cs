@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the image that this policy should be applied to.
-        /// </para>
+        /// <para>The Amazon Resource Name (ARN) of the image that this policy should be applied to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The policy to apply. </para>
+        /// <para>The policy to apply.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

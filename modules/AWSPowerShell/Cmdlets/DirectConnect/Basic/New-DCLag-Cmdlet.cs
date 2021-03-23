@@ -165,6 +165,18 @@ namespace Amazon.PowerShell.Cmdlets.DC
         public System.String ProviderName { get; set; }
         #endregion
         
+        #region Parameter RequestMACSec
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the connection will support MAC Security (MACsec).</para><note><para>All connections in the LAG must be capable of supporting MAC Security (MACsec). For
+        /// information about MAC Security (MACsec) prerequisties, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites">MACsec
+        /// prerequisties</a> in the <i>AWS Direct Connect User Guide</i>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RequestMACSec { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -271,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             }
             #endif
             context.ProviderName = this.ProviderName;
+            context.RequestMACSec = this.RequestMACSec;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.DirectConnect.Model.Tag>(this.Tag);
@@ -318,6 +331,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (cmdletContext.ProviderName != null)
             {
                 request.ProviderName = cmdletContext.ProviderName;
+            }
+            if (cmdletContext.RequestMACSec != null)
+            {
+                request.RequestMACSec = cmdletContext.RequestMACSec.Value;
             }
             if (cmdletContext.Tag != null)
             {
@@ -391,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             public System.String Location { get; set; }
             public System.Int32? NumberOfConnection { get; set; }
             public System.String ProviderName { get; set; }
+            public System.Boolean? RequestMACSec { get; set; }
             public List<Amazon.DirectConnect.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.DirectConnect.Model.CreateLagResponse, NewDCLagCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

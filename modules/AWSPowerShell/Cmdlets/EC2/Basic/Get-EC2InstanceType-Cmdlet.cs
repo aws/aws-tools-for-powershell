@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <code>unsupported</code>).</para></li><li><para><code>instance-storage-info.total-size-in-gb</code> - The total amount of storage
         /// available from all local instance storage, in GB.</para></li><li><para><code>instance-storage-supported</code> - Indicates whether the instance type has
         /// local instance storage (<code>true</code> | <code>false</code>).</para></li><li><para><code>instance-type</code> - The instance type (for example <code>c5.2xlarge</code>
-        /// or c5*).</para></li><li><para><code>memory-info.size-in-mib</code> - The memory size.</para></li><li><para><code>network-info.efa-supported</code> - Indicates whether the instance type supports
+        /// or c5*).</para></li><li><para><code>memory-info.size-in-mib</code> - The memory size.</para></li><li><para><code>network-info.efa-info.maximum-efa-interfaces</code> - The maximum number of
+        /// Elastic Fabric Adapters (EFAs) per instance.</para></li><li><para><code>network-info.efa-supported</code> - Indicates whether the instance type supports
         /// Elastic Fabric Adapter (EFA) (<code>true</code> | <code>false</code>).</para></li><li><para><code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter
         /// (ENA) is supported or required (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</para></li><li><para><code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private
         /// IPv4 addresses per network interface.</para></li><li><para><code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// <summary>
     /// Deletes an existing Amazon Kendra index. An exception is not thrown if the index is
     /// already being deleted. While the index is being deleted, the <code>Status</code> field
-    /// returned by a call to the <a>DescribeIndex</a> operation is set to <code>DELETING</code>.
+    /// returned by a call to the <code>DescribeIndex</code> operation is set to <code>DELETING</code>.
     /// </summary>
     [Cmdlet("Remove", "KNDRIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

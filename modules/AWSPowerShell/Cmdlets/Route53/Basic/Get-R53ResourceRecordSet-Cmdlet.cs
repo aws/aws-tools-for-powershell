@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// Lists the resource record sets in a specified hosted zone.
     /// 
     ///  
-    /// <para><code>ListResourceRecordSets</code> returns up to 100 resource record sets at a time
+    /// <para><code>ListResourceRecordSets</code> returns up to 300 resource record sets at a time
     /// in ASCII order, beginning at a position specified by the <code>name</code> and <code>type</code>
     /// elements.
     /// </para><para><b>Sort order</b></para><para><code>ListResourceRecordSets</code> sorts results first by DNS name with the labels

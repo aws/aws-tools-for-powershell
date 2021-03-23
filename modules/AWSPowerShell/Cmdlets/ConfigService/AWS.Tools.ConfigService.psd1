@@ -88,8 +88,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-CFGResourceTag', 
         'Get-CFGAggregateComplianceByConfigRuleList', 
+        'Get-CFGAggregateComplianceByConformancePack', 
         'Get-CFGAggregateComplianceDetailsByConfigRule', 
         'Get-CFGAggregateConfigRuleComplianceSummary', 
+        'Get-CFGAggregateConformancePackComplianceSummary', 
         'Get-CFGAggregateDiscoveredResourceCount', 
         'Get-CFGAggregateDiscoveredResourceList', 
         'Get-CFGAggregateResourceConfig', 

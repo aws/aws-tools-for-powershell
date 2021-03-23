@@ -92,10 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <summary>
         /// <para>
         /// <para>The category of supervised learning that this <code>MLModel</code> will address. Choose
-        /// from the following types:</para><ul><li>Choose <code>REGRESSION</code> if the <code>MLModel</code> will be used
-        /// to predict a numeric value.</li><li>Choose <code>BINARY</code> if the <code>MLModel</code>
-        /// result has two possible values.</li><li>Choose <code>MULTICLASS</code> if the <code>MLModel</code>
-        /// result has a limited number of values. </li></ul><para> For more information, see the <a href="http://docs.aws.amazon.com/machine-learning/latest/dg">Amazon
+        /// from the following types:</para><ul><li><para>Choose <code>REGRESSION</code> if the <code>MLModel</code> will be used to predict
+        /// a numeric value.</para></li><li><para>Choose <code>BINARY</code> if the <code>MLModel</code> result has two possible values.</para></li><li><para>Choose <code>MULTICLASS</code> if the <code>MLModel</code> result has a limited number
+        /// of values.</para></li></ul><para> For more information, see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon
         /// Machine Learning Developer Guide</a>.</para>
         /// </para>
         /// </summary>
@@ -115,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <summary>
         /// <para>
         /// <para>A list of the training parameters in the <code>MLModel</code>. The list is implemented
-        /// as a map of key-value pairs.</para><para>The following is the current set of training parameters: </para><ul><li><para><code>sgd.maxMLModelSizeInBytes</code> - The maximum allowed size of the model. Depending
+        /// as a map of key-value pairs.</para><para>The following is the current set of training parameters:</para><ul><li><para><code>sgd.maxMLModelSizeInBytes</code> - The maximum allowed size of the model. Depending
         /// on the input data, the size of the model might affect its performance.</para><para> The value is an integer that ranges from <code>100000</code> to <code>2147483648</code>.
         /// The default value is <code>33554432</code>.</para></li><li><para><code>sgd.maxPasses</code> - The number of times that the training process traverses
         /// the observations to build the <code>MLModel</code>. The value is an integer that ranges

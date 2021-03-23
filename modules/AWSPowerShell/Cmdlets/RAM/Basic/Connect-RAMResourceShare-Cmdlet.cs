@@ -43,7 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The principals.</para>
+        /// <para>The principals to associate with the resource share. The possible values are IDs of
+        /// AWS accounts, and the ARNs of organizational units (OU) or organizations from AWS
+        /// Organizations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

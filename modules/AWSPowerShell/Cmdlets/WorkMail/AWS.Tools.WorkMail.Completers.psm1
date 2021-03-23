@@ -87,6 +87,16 @@ $WM_Completers = {
             break
         }
 
+        # Amazon.WorkMail.MobileDeviceAccessRuleEffect
+        {
+            ($_ -eq "New-WMMobileDeviceAccessRule/Effect") -Or
+            ($_ -eq "Update-WMMobileDeviceAccessRule/Effect")
+        }
+        {
+            $v = "ALLOW","DENY"
+            break
+        }
+
         # Amazon.WorkMail.ResourceType
         "New-WMResource/Type"
         {
@@ -103,7 +113,7 @@ $WM_Completers = {
 }
 
 $WM_map = @{
-    "Effect"=@("Write-WMAccessControlRule")
+    "Effect"=@("New-WMMobileDeviceAccessRule","Update-WMMobileDeviceAccessRule","Write-WMAccessControlRule")
     "Type"=@("New-WMResource")
 }
 
@@ -162,6 +172,7 @@ $WM_SelectMap = @{
                "Stop-WMMailboxExportJob",
                "New-WMAlias",
                "New-WMGroup",
+               "New-WMMobileDeviceAccessRule",
                "New-WMOrganization",
                "New-WMResource",
                "New-WMUser",
@@ -169,6 +180,7 @@ $WM_SelectMap = @{
                "Remove-WMAlias",
                "Remove-WMGroup",
                "Remove-WMMailboxPermission",
+               "Remove-WMMobileDeviceAccessRule",
                "Remove-WMOrganization",
                "Remove-WMResource",
                "Remove-WMRetentionPolicy",
@@ -184,12 +196,14 @@ $WM_SelectMap = @{
                "Get-WMAccessControlEffect",
                "Get-WMDefaultRetentionPolicy",
                "Get-WMMailboxDetail",
+               "Get-WMMobileDeviceAccessEffect",
                "Get-WMAccessControlRuleList",
                "Get-WMAliasList",
                "Get-WMMemberList",
                "Get-WMGroupList",
                "Get-WMMailboxExportJobList",
                "Get-WMMailboxPermissionList",
+               "Get-WMMobileDeviceAccessRuleList",
                "Get-WMOrganizationList",
                "Get-WMDelegateList",
                "Get-WMResourceList",
@@ -204,6 +218,7 @@ $WM_SelectMap = @{
                "Add-WMResourceTag",
                "Remove-WMResourceTag",
                "Update-WMMailboxQuota",
+               "Update-WMMobileDeviceAccessRule",
                "Update-WMPrimaryEmailAddress",
                "Update-WMResource")
 }

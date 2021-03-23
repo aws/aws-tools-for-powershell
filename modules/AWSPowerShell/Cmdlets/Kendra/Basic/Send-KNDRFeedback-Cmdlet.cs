@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The identifier of the specific query for which you are submitting feedback. The query
-        /// ID is returned in the response to the operation.</para>
+        /// ID is returned in the response to the <code>Query</code> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

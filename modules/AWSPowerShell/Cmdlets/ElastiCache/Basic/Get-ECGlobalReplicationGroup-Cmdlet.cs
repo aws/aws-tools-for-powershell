@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
     /// Returns information about a particular global replication group. If no identifier
-    /// is specified, returns information about all Global Datastores.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// is specified, returns information about all Global datastores.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECGlobalReplicationGroup")]
     [OutputType("Amazon.ElastiCache.Model.GlobalReplicationGroup")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter GlobalReplicationGroupId
         /// <summary>
         /// <para>
-        /// <para>The name of the Global Datastore</para>
+        /// <para>The name of the Global datastore</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ShowMemberInfo
         /// <summary>
         /// <para>
-        /// <para>Returns the list of members that comprise the Global Datastore.</para>
+        /// <para>Returns the list of members that comprise the Global datastore.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

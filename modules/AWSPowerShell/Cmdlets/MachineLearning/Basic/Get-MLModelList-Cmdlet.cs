@@ -54,18 +54,15 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter FilterVariable
         /// <summary>
         /// <para>
-        /// <para>Use one of the following variables to filter a list of <code>MLModel</code>:</para><ul><li><code>CreatedAt</code> - Sets the search criteria to <code>MLModel</code>
-        /// creation date.</li><li><code>Status</code> - Sets the search criteria to <code>MLModel</code>
-        /// status.</li><li><code>Name</code> - Sets the search criteria to the contents of
-        /// <code>MLModel</code><b></b><code>Name</code>.</li><li><code>IAMUser</code> - Sets
-        /// the search criteria to the user account that invoked the <code>MLModel</code> creation.</li><li><code>TrainingDataSourceId</code> - Sets the search criteria to the <code>DataSource</code>
-        /// used to train one or more <code>MLModel</code>.</li><li><code>RealtimeEndpointStatus</code>
-        /// - Sets the search criteria to the <code>MLModel</code> real-time endpoint status.</li><li><code>MLModelType</code> - Sets the search criteria to <code>MLModel</code> type:
-        /// binary, regression, or multi-class.</li><li><code>Algorithm</code> - Sets the search
-        /// criteria to the algorithm that the <code>MLModel</code> uses.</li><li><code>TrainingDataURI</code>
-        /// - Sets the search criteria to the data file(s) used in training a <code>MLModel</code>.
-        /// The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3)
-        /// bucket or directory.</li></ul>
+        /// <para>Use one of the following variables to filter a list of <code>MLModel</code>:</para><ul><li><para><code>CreatedAt</code> - Sets the search criteria to <code>MLModel</code> creation
+        /// date.</para></li><li><para><code>Status</code> - Sets the search criteria to <code>MLModel</code> status.</para></li><li><para><code>Name</code> - Sets the search criteria to the contents of <code>MLModel</code><b></b><code>Name</code>.</para></li><li><para><code>IAMUser</code> - Sets the search criteria to the user account that invoked
+        /// the <code>MLModel</code> creation.</para></li><li><para><code>TrainingDataSourceId</code> - Sets the search criteria to the <code>DataSource</code>
+        /// used to train one or more <code>MLModel</code>.</para></li><li><para><code>RealtimeEndpointStatus</code> - Sets the search criteria to the <code>MLModel</code>
+        /// real-time endpoint status.</para></li><li><para><code>MLModelType</code> - Sets the search criteria to <code>MLModel</code> type:
+        /// binary, regression, or multi-class.</para></li><li><para><code>Algorithm</code> - Sets the search criteria to the algorithm that the <code>MLModel</code>
+        /// uses.</para></li><li><para><code>TrainingDataURI</code> - Sets the search criteria to the data file(s) used
+        /// in training a <code>MLModel</code>. The URL can identify either a file or an Amazon
+        /// Simple Storage Service (Amazon S3) bucket or directory.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>A two-value parameter that determines the sequence of the resulting list of <code>MLModel</code>.</para><ul><li><code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</li><li><code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</li></ul><para>Results are sorted by <code>FilterVariable</code>.</para>
+        /// <para>A two-value parameter that determines the sequence of the resulting list of <code>MLModel</code>.</para><ul><li><para><code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</para></li><li><para><code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</para></li></ul><para>Results are sorted by <code>FilterVariable</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

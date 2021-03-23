@@ -14,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -42,7 +41,10 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWebACL" OutputProperty="Summary" Verb="New" Noun="WebACL" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
-            <TypesNotToFlatten />
+            <TypesNotToFlatten>
+                <Type>Amazon.WAFV2.Model.AllowAction</Type>
+                <Type>Amazon.WAFV2.Model.BlockAction</Type>
+            </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFirewallManagerRuleGroups" OutputProperty="NextWebACLLockToken" Verb="Remove" Noun="FirewallManagerRuleGroup" ShouldProcessTarget="WebACLArn" PipelineParameter="WebACLArn" NoPipelineParameter="false">
             <Params />
@@ -178,10 +180,11 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWebACL" OutputProperty="NextLockToken" Verb="Update" Noun="WebACL" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
-            <TypesNotToFlatten />
+            <TypesNotToFlatten>
+                <Type>Amazon.WAFV2.Model.AllowAction</Type>
+                <Type>Amazon.WAFV2.Model.BlockAction</Type>
+            </TypesNotToFlatten>
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

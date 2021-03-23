@@ -378,7 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of cost allocation tags to be added to this resource.</para>
+        /// <para>A list of tags to be added to this resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

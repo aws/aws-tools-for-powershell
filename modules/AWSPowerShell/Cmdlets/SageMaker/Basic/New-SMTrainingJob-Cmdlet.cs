@@ -63,6 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// </para></li><li><para><code>StoppingCondition</code> - To help cap training costs, use <code>MaxRuntimeInSeconds</code>
     /// to set a time limit for training. Use <code>MaxWaitTimeInSeconds</code> to specify
     /// how long you are willing to wait for a managed spot training job to complete. 
+    /// </para></li><li><para><code>Environment</code> - The environment variables to set in the Docker container.
     /// </para></li></ul><para>
     ///  For more information about Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
     /// It Works</a>. 
@@ -166,6 +167,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? EnableNetworkIsolation { get; set; }
+        #endregion
+        
+        #region Parameter Environment
+        /// <summary>
+        /// <para>
+        /// <para>The environment variables to set in the Docker container.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Environment { get; set; }
         #endregion
         
         #region Parameter ExperimentConfig_ExperimentName
@@ -595,6 +606,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.EnableInterContainerTrafficEncryption = this.EnableInterContainerTrafficEncryption;
             context.EnableManagedSpotTraining = this.EnableManagedSpotTraining;
             context.EnableNetworkIsolation = this.EnableNetworkIsolation;
+            if (this.Environment != null)
+            {
+                context.Environment = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Environment.Keys)
+                {
+                    context.Environment.Add((String)hashKey, (String)(this.Environment[hashKey]));
+                }
+            }
             context.ExperimentConfig_ExperimentName = this.ExperimentConfig_ExperimentName;
             context.ExperimentConfig_TrialComponentDisplayName = this.ExperimentConfig_TrialComponentDisplayName;
             context.ExperimentConfig_TrialName = this.ExperimentConfig_TrialName;
@@ -781,6 +800,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.EnableNetworkIsolation != null)
             {
                 request.EnableNetworkIsolation = cmdletContext.EnableNetworkIsolation.Value;
+            }
+            if (cmdletContext.Environment != null)
+            {
+                request.Environment = cmdletContext.Environment;
             }
             
              // populate ExperimentConfig
@@ -1051,6 +1074,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Boolean? EnableInterContainerTrafficEncryption { get; set; }
             public System.Boolean? EnableManagedSpotTraining { get; set; }
             public System.Boolean? EnableNetworkIsolation { get; set; }
+            public Dictionary<System.String, System.String> Environment { get; set; }
             public System.String ExperimentConfig_ExperimentName { get; set; }
             public System.String ExperimentConfig_TrialComponentDisplayName { get; set; }
             public System.String ExperimentConfig_TrialName { get; set; }

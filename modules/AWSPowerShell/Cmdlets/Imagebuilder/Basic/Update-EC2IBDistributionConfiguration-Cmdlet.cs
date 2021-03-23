@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the distribution configuration. </para>
+        /// <para>The description of the distribution configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the distribution configuration that you want to
-        /// update. </para>
+        /// update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Distribution
         /// <summary>
         /// <para>
-        /// <para>The distributions of the distribution configuration. </para>
+        /// <para>The distributions of the distribution configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The idempotency token of the distribution configuration. </para>
+        /// <para>The idempotency token of the distribution configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

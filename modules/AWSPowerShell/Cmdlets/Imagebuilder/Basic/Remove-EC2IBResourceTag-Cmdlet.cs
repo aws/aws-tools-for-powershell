@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource that you want to untag. </para>
+        /// <para>The Amazon Resource Name (ARN) of the resource that you want to untag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The tag keys to remove from the resource. </para>
+        /// <para>The tag keys to remove from the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

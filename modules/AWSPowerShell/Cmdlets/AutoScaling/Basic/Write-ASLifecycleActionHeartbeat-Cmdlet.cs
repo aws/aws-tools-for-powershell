@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// in a pending state.</b></para></li><li><para>
     /// If you finish before the timeout period ends, complete the lifecycle action.
     /// </para></li></ol><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto
-    /// Scaling lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon
+    /// EC2 Auto Scaling lifecycle hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASLifecycleActionHeartbeat", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

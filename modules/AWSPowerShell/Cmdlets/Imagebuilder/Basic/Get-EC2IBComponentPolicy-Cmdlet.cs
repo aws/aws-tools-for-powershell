@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ComponentArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the component whose policy you want to retrieve.
-        /// </para>
+        /// <para>The Amazon Resource Name (ARN) of the component whose policy you want to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

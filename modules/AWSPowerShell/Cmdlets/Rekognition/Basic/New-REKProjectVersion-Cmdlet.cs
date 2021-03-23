@@ -127,6 +127,17 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public System.String OutputConfig_S3KeyPrefix { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para> A set of tags (key-value pairs) that you want to attach to the model. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter VersionName
         /// <summary>
         /// <para>
@@ -214,6 +225,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 WriteWarning("You are passing $null as a value for parameter ProjectArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             if (this.TestingData_Asset != null)
             {
                 context.TestingData_Asset = new List<Amazon.Rekognition.Model.Asset>(this.TestingData_Asset);
@@ -278,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (cmdletContext.ProjectArn != null)
             {
                 request.ProjectArn = cmdletContext.ProjectArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
              // populate TestingData
@@ -395,6 +418,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
             public System.String OutputConfig_S3Bucket { get; set; }
             public System.String OutputConfig_S3KeyPrefix { get; set; }
             public System.String ProjectArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public List<Amazon.Rekognition.Model.Asset> TestingData_Asset { get; set; }
             public System.Boolean? TestingData_AutoCreate { get; set; }
             public List<Amazon.Rekognition.Model.Asset> TrainingData_Asset { get; set; }

@@ -28,7 +28,13 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Amazon.S3.IAmazonS3.PutObjectRetention
+    /// Places an Object Retention configuration on an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    /// This action is not supported by Amazon S3 on Outposts.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "S3ObjectRetention", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.RequestCharged")]

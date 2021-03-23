@@ -114,7 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make
         /// calls to other AWS services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">AWS
-        /// Batch service IAM role</a> in the <i>AWS Batch User Guide</i>.</para><para>If your specified role has a path other than <code>/</code>, then you must either
+        /// Batch service IAM role</a> in the <i>AWS Batch User Guide</i>.</para><important><para>If the compute environment has a service-linked role, it cannot be changed to use
+        /// a regular IAM role. If the compute environment has a regular IAM role, it cannot be
+        /// changed to use a service-linked role.</para></important><para>If your specified role has a path other than <code>/</code>, then you must either
         /// specify the full role ARN (this is recommended) or prefix the role name with the path.</para><note><para>Depending on how you created your AWS Batch service role, its ARN might contain the
         /// <code>service-role</code> path prefix. When you only specify the name of the service
         /// role, AWS Batch assumes that your ARN doesn't use the <code>service-role</code> path

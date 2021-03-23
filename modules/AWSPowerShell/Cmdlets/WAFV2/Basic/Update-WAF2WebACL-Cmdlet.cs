@@ -90,6 +90,25 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.Boolean? VisibilityConfig_CloudWatchMetricsEnabled { get; set; }
         #endregion
         
+        #region Parameter CustomResponseBody
+        /// <summary>
+        /// <para>
+        /// <para>A map of custom response keys and content bodies. When you create a rule with a block
+        /// action, you can send a custom response to the web request. You define these for the
+        /// web ACL, and then use them in the rules and default actions that you define in the
+        /// web ACL. </para><para>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing
+        /// web requests and responses in AWS WAF</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+        /// WAF Developer Guide</a>. </para><para>For information about the limits on count and size for custom request and response
+        /// settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">AWS
+        /// WAF quotas</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+        /// WAF Developer Guide</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomResponseBodies")]
+        public System.Collections.Hashtable CustomResponseBody { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -291,6 +310,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.CustomResponseBody != null)
+            {
+                context.CustomResponseBody = new Dictionary<System.String, Amazon.WAFV2.Model.CustomResponseBody>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CustomResponseBody.Keys)
+                {
+                    context.CustomResponseBody.Add((String)hashKey, (CustomResponseBody)(this.CustomResponseBody[hashKey]));
+                }
+            }
             context.DefaultAction_Allow = this.DefaultAction_Allow;
             context.DefaultAction_Block = this.DefaultAction_Block;
             context.Description = this.Description;
@@ -363,6 +390,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             // create request
             var request = new Amazon.WAFV2.Model.UpdateWebACLRequest();
             
+            if (cmdletContext.CustomResponseBody != null)
+            {
+                request.CustomResponseBodies = cmdletContext.CustomResponseBody;
+            }
             
              // populate DefaultAction
             var requestDefaultActionIsNull = true;
@@ -516,6 +547,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, Amazon.WAFV2.Model.CustomResponseBody> CustomResponseBody { get; set; }
             public Amazon.WAFV2.Model.AllowAction DefaultAction_Allow { get; set; }
             public Amazon.WAFV2.Model.BlockAction DefaultAction_Block { get; set; }
             public System.String Description { get; set; }

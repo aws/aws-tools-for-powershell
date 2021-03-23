@@ -528,6 +528,7 @@ $SSM_SelectMap = @{
                "Start-SSMSession",
                "Stop-SSMAutomationExecution",
                "Stop-SSMSession",
+               "Reset-SSMParameterVersionLabel",
                "Update-SSMAssociation",
                "Update-SSMAssociationStatus",
                "Update-SSMDocument",

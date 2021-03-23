@@ -66,6 +66,30 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     public partial class WriteWAF2LoggingConfigurationCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter LoggingFilter_DefaultBehavior
+        /// <summary>
+        /// <para>
+        /// <para>Default handling for logs that don't match any of the specified filtering conditions.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingConfiguration_LoggingFilter_DefaultBehavior")]
+        [AWSConstantClassSource("Amazon.WAFV2.FilterBehavior")]
+        public Amazon.WAFV2.FilterBehavior LoggingFilter_DefaultBehavior { get; set; }
+        #endregion
+        
+        #region Parameter LoggingFilter_Filter
+        /// <summary>
+        /// <para>
+        /// <para>The filters that you want to apply to the logs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingConfiguration_LoggingFilter_Filters")]
+        public Amazon.WAFV2.Model.Filter[] LoggingFilter_Filter { get; set; }
+        #endregion
+        
         #region Parameter LoggingConfiguration_LogDestinationConfig
         /// <summary>
         /// <para>
@@ -199,6 +223,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 WriteWarning("You are passing $null as a value for parameter LoggingConfiguration_LogDestinationConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LoggingFilter_DefaultBehavior = this.LoggingFilter_DefaultBehavior;
+            if (this.LoggingFilter_Filter != null)
+            {
+                context.LoggingFilter_Filter = new List<Amazon.WAFV2.Model.Filter>(this.LoggingFilter_Filter);
+            }
             context.LoggingConfiguration_ManagedByFirewallManager = this.LoggingConfiguration_ManagedByFirewallManager;
             if (this.LoggingConfiguration_RedactedField != null)
             {
@@ -271,6 +300,41 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 request.LoggingConfiguration.ResourceArn = requestLoggingConfiguration_loggingConfiguration_ResourceArn;
                 requestLoggingConfigurationIsNull = false;
             }
+            Amazon.WAFV2.Model.LoggingFilter requestLoggingConfiguration_loggingConfiguration_LoggingFilter = null;
+            
+             // populate LoggingFilter
+            var requestLoggingConfiguration_loggingConfiguration_LoggingFilterIsNull = true;
+            requestLoggingConfiguration_loggingConfiguration_LoggingFilter = new Amazon.WAFV2.Model.LoggingFilter();
+            Amazon.WAFV2.FilterBehavior requestLoggingConfiguration_loggingConfiguration_LoggingFilter_loggingFilter_DefaultBehavior = null;
+            if (cmdletContext.LoggingFilter_DefaultBehavior != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_LoggingFilter_loggingFilter_DefaultBehavior = cmdletContext.LoggingFilter_DefaultBehavior;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_LoggingFilter_loggingFilter_DefaultBehavior != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_LoggingFilter.DefaultBehavior = requestLoggingConfiguration_loggingConfiguration_LoggingFilter_loggingFilter_DefaultBehavior;
+                requestLoggingConfiguration_loggingConfiguration_LoggingFilterIsNull = false;
+            }
+            List<Amazon.WAFV2.Model.Filter> requestLoggingConfiguration_loggingConfiguration_LoggingFilter_loggingFilter_Filter = null;
+            if (cmdletContext.LoggingFilter_Filter != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_LoggingFilter_loggingFilter_Filter = cmdletContext.LoggingFilter_Filter;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_LoggingFilter_loggingFilter_Filter != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_LoggingFilter.Filters = requestLoggingConfiguration_loggingConfiguration_LoggingFilter_loggingFilter_Filter;
+                requestLoggingConfiguration_loggingConfiguration_LoggingFilterIsNull = false;
+            }
+             // determine if requestLoggingConfiguration_loggingConfiguration_LoggingFilter should be set to null
+            if (requestLoggingConfiguration_loggingConfiguration_LoggingFilterIsNull)
+            {
+                requestLoggingConfiguration_loggingConfiguration_LoggingFilter = null;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_LoggingFilter != null)
+            {
+                request.LoggingConfiguration.LoggingFilter = requestLoggingConfiguration_loggingConfiguration_LoggingFilter;
+                requestLoggingConfigurationIsNull = false;
+            }
              // determine if request.LoggingConfiguration should be set to null
             if (requestLoggingConfigurationIsNull)
             {
@@ -338,6 +402,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> LoggingConfiguration_LogDestinationConfig { get; set; }
+            public Amazon.WAFV2.FilterBehavior LoggingFilter_DefaultBehavior { get; set; }
+            public List<Amazon.WAFV2.Model.Filter> LoggingFilter_Filter { get; set; }
             public System.Boolean? LoggingConfiguration_ManagedByFirewallManager { get; set; }
             public List<Amazon.WAFV2.Model.FieldToMatch> LoggingConfiguration_RedactedField { get; set; }
             public System.String LoggingConfiguration_ResourceArn { get; set; }

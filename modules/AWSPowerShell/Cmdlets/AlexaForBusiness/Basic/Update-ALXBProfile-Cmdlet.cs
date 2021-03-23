@@ -50,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         public System.String Address { get; set; }
         #endregion
         
+        #region Parameter DataRetentionOptIn
+        /// <summary>
+        /// <para>
+        /// <para>Whether data retention of the profile is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DataRetentionOptIn { get; set; }
+        #endregion
+        
         #region Parameter DistanceUnit
         /// <summary>
         /// <para>
@@ -318,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Address = this.Address;
+            context.DataRetentionOptIn = this.DataRetentionOptIn;
             context.DistanceUnit = this.DistanceUnit;
             context.IsDefault = this.IsDefault;
             context.Locale = this.Locale;
@@ -359,6 +370,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             if (cmdletContext.Address != null)
             {
                 request.Address = cmdletContext.Address;
+            }
+            if (cmdletContext.DataRetentionOptIn != null)
+            {
+                request.DataRetentionOptIn = cmdletContext.DataRetentionOptIn.Value;
             }
             if (cmdletContext.DistanceUnit != null)
             {
@@ -600,6 +615,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Address { get; set; }
+            public System.Boolean? DataRetentionOptIn { get; set; }
             public Amazon.AlexaForBusiness.DistanceUnit DistanceUnit { get; set; }
             public System.Boolean? IsDefault { get; set; }
             public System.String Locale { get; set; }

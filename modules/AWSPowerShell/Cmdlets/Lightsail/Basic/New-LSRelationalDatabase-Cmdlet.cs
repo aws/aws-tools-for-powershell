@@ -63,7 +63,20 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter MasterDatabaseName
         /// <summary>
         /// <para>
-        /// <para>The name of the master database created when the Lightsail database resource is created.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 64 alphanumeric characters.</para></li><li><para>Cannot be a word reserved by the specified database engine</para></li></ul>
+        /// <para>The meaning of this parameter differs according to the database engine you use.</para><para><b>MySQL</b></para><para>The name of the database to create when the Lightsail database resource is created.
+        /// If this parameter isn't specified, no database is created in the database resource.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
+        /// (0- 9).</para></li><li><para>Can't be a word reserved by the specified database engine.</para><para>For more information about reserved words in MySQL, see the Keywords and Reserved
+        /// Words articles for <a href="https://dev.mysql.com/doc/refman/5.6/en/keywords.html">MySQL
+        /// 5.6</a>, <a href="https://dev.mysql.com/doc/refman/5.7/en/keywords.html">MySQL 5.7</a>,
+        /// and <a href="https://dev.mysql.com/doc/refman/8.0/en/keywords.html">MySQL 8.0</a>.</para></li></ul><para><b>PostgreSQL</b></para><para>The name of the database to create when the Lightsail database resource is created.
+        /// If this parameter isn't specified, a database named <code>postgres</code> is created
+        /// in the database resource.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 63 letters or numbers.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
+        /// (0- 9).</para></li><li><para>Can't be a word reserved by the specified database engine.</para><para>For more information about reserved words in PostgreSQL, see the SQL Key Words articles
+        /// for <a href="https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html">PostgreSQL
+        /// 9.6</a>, <a href="https://www.postgresql.org/docs/10/sql-keywords-appendix.html">PostgreSQL
+        /// 10</a>, <a href="https://www.postgresql.org/docs/11/sql-keywords-appendix.html">PostgreSQL
+        /// 11</a>, and <a href="https://www.postgresql.org/docs/12/sql-keywords-appendix.html">PostgreSQL
+        /// 12</a>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,10 +93,15 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para>The master user name for your new database.</para><para>Constraints:</para><ul><li><para>Master user name is required.</para></li><li><para>Must contain from 1 to 16 alphanumeric characters.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot be a reserved word for the database engine you choose.</para><para>For more information about reserved words in MySQL 5.6 or 5.7, see the Keywords and
+        /// <para>The name for the master user.</para><para><b>MySQL</b></para><para>Constraints:</para><ul><li><para>Required for MySQL.</para></li><li><para>Must be 1 to 16 letters or numbers. Can contain underscores.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para><para>For more information about reserved words in MySQL 5.6 or 5.7, see the Keywords and
         /// Reserved Words articles for <a href="https://dev.mysql.com/doc/refman/5.6/en/keywords.html">MySQL
-        /// 5.6</a> or <a href="https://dev.mysql.com/doc/refman/5.7/en/keywords.html">MySQL 5.7</a>
-        /// respectively.</para></li></ul>
+        /// 5.6</a>, <a href="https://dev.mysql.com/doc/refman/5.7/en/keywords.html">MySQL 5.7</a>,
+        /// or <a href="https://dev.mysql.com/doc/refman/8.0/en/keywords.html">MySQL 8.0</a>.</para></li></ul><para><b>PostgreSQL</b></para><para>Constraints:</para><ul><li><para>Required for PostgreSQL.</para></li><li><para>Must be 1 to 63 letters or numbers. Can contain underscores.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para><para>For more information about reserved words in MySQL 5.6 or 5.7, see the Keywords and
+        /// Reserved Words articles for <a href="https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html">PostgreSQL
+        /// 9.6</a>, <a href="https://www.postgresql.org/docs/10/sql-keywords-appendix.html">PostgreSQL
+        /// 10</a>, <a href="https://www.postgresql.org/docs/11/sql-keywords-appendix.html">PostgreSQL
+        /// 11</a>, and <a href="https://www.postgresql.org/docs/12/sql-keywords-appendix.html">PostgreSQL
+        /// 12</a>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the master user of your new database. The password can include any
-        /// printable ASCII character except "/", """, or "@".</para><para>Constraints: Must contain 8 to 41 characters.</para>
+        /// <para>The password for the master user. The password can include any printable ASCII character
+        /// except "/", """, or "@". It cannot contain spaces.</para><para><b>MySQL</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>PostgreSQL</b></para><para>Constraints: Must contain from 8 to 128 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

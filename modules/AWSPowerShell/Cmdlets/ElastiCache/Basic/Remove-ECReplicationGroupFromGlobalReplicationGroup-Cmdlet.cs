@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Remove a secondary cluster from the Global Datastore using the Global Datastore name.
+    /// Remove a secondary cluster from the Global datastore using the Global datastore name.
     /// The secondary cluster will no longer receive updates from the primary cluster, but
     /// will remain as a standalone cluster in that AWS region.
     /// </summary>
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter GlobalReplicationGroupId
         /// <summary>
         /// <para>
-        /// <para>The name of the Global Datastore</para>
+        /// <para>The name of the Global datastore</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ReplicationGroupId
         /// <summary>
         /// <para>
-        /// <para>The name of the secondary cluster you wish to remove from the Global Datastore</para>
+        /// <para>The name of the secondary cluster you wish to remove from the Global datastore</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ReplicationGroupRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS region of secondary cluster you wish to remove from the Global Datastore</para>
+        /// <para>The AWS region of secondary cluster you wish to remove from the Global datastore</para>
         /// </para>
         /// </summary>
         #if !MODULAR

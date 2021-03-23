@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to
-        /// retrieve. </para>
+        /// retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

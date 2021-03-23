@@ -20,7 +20,6 @@
         <Map From="AlarmsForMetric" To="AlarmForMetric" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -39,6 +38,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteInsightRules" OutputProperty="Failures" Verb="Remove" Noun="InsightRule" ShouldProcessTarget="RuleNames" PipelineParameter="RuleNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMetricStream" Verb="Remove" Noun="MetricStream" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -109,6 +112,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMetricStream" OutputProperty="*" Verb="Get" Noun="MetricStream" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMetricWidgetImage" OutputProperty="MetricWidgetImage" Verb="Get" Noun="MetricWidgetImage" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -119,6 +126,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMetrics" OutputProperty="Metrics" Verb="Get" Noun="MetricList" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyAlias="Get-CWMetrics">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMetricStreams" OutputProperty="Entries" Verb="Get" Noun="MetricStreamList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -150,7 +161,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutMetricStream" OutputProperty="Arn" Verb="Write" Noun="MetricStream" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SetAlarmState" Verb="Set" Noun="AlarmState" ShouldProcessTarget="AlarmName" PositionalParameters="StateValue;StateReason;StateReasonData" PipelineParameter="AlarmName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMetricStreams" Verb="Start" Noun="MetricStream" ShouldProcessTarget="Names" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopMetricStreams" Verb="Stop" Noun="MetricStream" ShouldProcessTarget="Names" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -163,7 +186,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

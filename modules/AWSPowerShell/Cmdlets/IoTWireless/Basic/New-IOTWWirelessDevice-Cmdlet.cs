@@ -249,6 +249,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String LoRaWAN_AbpV1_1_SessionKeys_SNwkSIntKey { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to attach to the new wireless device. Tags are metadata that you can use
+        /// to manage a resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.IoTWireless.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -353,6 +365,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.LoRaWAN_OtaaV1_1_NwkKey = this.LoRaWAN_OtaaV1_1_NwkKey;
             context.LoRaWAN_ServiceProfileId = this.LoRaWAN_ServiceProfileId;
             context.Name = this.Name;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.IoTWireless.Model.Tag>(this.Tag);
+            }
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -651,6 +667,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
@@ -736,6 +756,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String LoRaWAN_OtaaV1_1_NwkKey { get; set; }
             public System.String LoRaWAN_ServiceProfileId { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.IoTWireless.Model.Tag> Tag { get; set; }
             public Amazon.IoTWireless.WirelessDeviceType Type { get; set; }
             public System.Func<Amazon.IoTWireless.Model.CreateWirelessDeviceResponse, NewIOTWWirelessDeviceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

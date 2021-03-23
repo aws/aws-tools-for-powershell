@@ -193,6 +193,30 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         public Amazon.MediaPackage.Origination Origination { get; set; }
         #endregion
         
+        #region Parameter EncryptionContractConfiguration_PresetSpeke20Audio
+        /// <summary>
+        /// <para>
+        /// A collection of audio encryption presets.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio")]
+        [AWSConstantClassSource("Amazon.MediaPackage.PresetSpeke20Audio")]
+        public Amazon.MediaPackage.PresetSpeke20Audio EncryptionContractConfiguration_PresetSpeke20Audio { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionContractConfiguration_PresetSpeke20Video
+        /// <summary>
+        /// <para>
+        /// A collection of video encryption presets.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video")]
+        [AWSConstantClassSource("Amazon.MediaPackage.PresetSpeke20Video")]
+        public Amazon.MediaPackage.PresetSpeke20Video EncryptionContractConfiguration_PresetSpeke20Video { get; set; }
+        #endregion
+        
         #region Parameter SpekeKeyProvider_ResourceId
         /// <summary>
         /// <para>
@@ -387,6 +411,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             context.Authorization_SecretsRoleArn = this.Authorization_SecretsRoleArn;
             context.Encryption_KeyRotationIntervalSecond = this.Encryption_KeyRotationIntervalSecond;
             context.SpekeKeyProvider_CertificateArn = this.SpekeKeyProvider_CertificateArn;
+            context.EncryptionContractConfiguration_PresetSpeke20Audio = this.EncryptionContractConfiguration_PresetSpeke20Audio;
+            context.EncryptionContractConfiguration_PresetSpeke20Video = this.EncryptionContractConfiguration_PresetSpeke20Video;
             context.SpekeKeyProvider_ResourceId = this.SpekeKeyProvider_ResourceId;
             context.SpekeKeyProvider_RoleArn = this.SpekeKeyProvider_RoleArn;
             if (this.SpekeKeyProvider_SystemId != null)
@@ -571,6 +597,41 @@ namespace Amazon.PowerShell.Cmdlets.EMP
                 requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider.Url = requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_spekeKeyProvider_Url;
                 requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProviderIsNull = false;
             }
+            Amazon.MediaPackage.Model.EncryptionContractConfiguration requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration = null;
+            
+             // populate EncryptionContractConfiguration
+            var requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfigurationIsNull = true;
+            requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration = new Amazon.MediaPackage.Model.EncryptionContractConfiguration();
+            Amazon.MediaPackage.PresetSpeke20Audio requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_encryptionContractConfiguration_PresetSpeke20Audio = null;
+            if (cmdletContext.EncryptionContractConfiguration_PresetSpeke20Audio != null)
+            {
+                requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_encryptionContractConfiguration_PresetSpeke20Audio = cmdletContext.EncryptionContractConfiguration_PresetSpeke20Audio;
+            }
+            if (requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_encryptionContractConfiguration_PresetSpeke20Audio != null)
+            {
+                requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration.PresetSpeke20Audio = requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_encryptionContractConfiguration_PresetSpeke20Audio;
+                requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfigurationIsNull = false;
+            }
+            Amazon.MediaPackage.PresetSpeke20Video requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_encryptionContractConfiguration_PresetSpeke20Video = null;
+            if (cmdletContext.EncryptionContractConfiguration_PresetSpeke20Video != null)
+            {
+                requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_encryptionContractConfiguration_PresetSpeke20Video = cmdletContext.EncryptionContractConfiguration_PresetSpeke20Video;
+            }
+            if (requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_encryptionContractConfiguration_PresetSpeke20Video != null)
+            {
+                requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration.PresetSpeke20Video = requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_encryptionContractConfiguration_PresetSpeke20Video;
+                requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfigurationIsNull = false;
+            }
+             // determine if requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration should be set to null
+            if (requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfigurationIsNull)
+            {
+                requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration = null;
+            }
+            if (requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration != null)
+            {
+                requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider.EncryptionContractConfiguration = requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_cmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration;
+                requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProviderIsNull = false;
+            }
              // determine if requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider should be set to null
             if (requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProviderIsNull)
             {
@@ -746,6 +807,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             public System.String Authorization_SecretsRoleArn { get; set; }
             public System.Int32? Encryption_KeyRotationIntervalSecond { get; set; }
             public System.String SpekeKeyProvider_CertificateArn { get; set; }
+            public Amazon.MediaPackage.PresetSpeke20Audio EncryptionContractConfiguration_PresetSpeke20Audio { get; set; }
+            public Amazon.MediaPackage.PresetSpeke20Video EncryptionContractConfiguration_PresetSpeke20Video { get; set; }
             public System.String SpekeKeyProvider_ResourceId { get; set; }
             public System.String SpekeKeyProvider_RoleArn { get; set; }
             public List<System.String> SpekeKeyProvider_SystemId { get; set; }

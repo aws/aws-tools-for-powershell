@@ -134,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter PreserveExistingData
         /// <summary>
         /// <para>
-        /// <para>Set to true <code>true</code> if you want to preserve the data on the local disk.
-        /// Otherwise, set to <code>false</code> to create an empty volume.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Set to <code>true</code> if you want to preserve the data on the local disk. Otherwise,
+        /// set to <code>false</code> to create an empty volume.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter SnapshotId
         /// <summary>
         /// <para>
-        /// <para>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored
+        /// <para>The snapshot ID (e.g., "snap-1122aabb") of the snapshot to restore as the new stored
         /// volume. Specify this field if you want to create the iSCSI storage volume from a snapshot;
         /// otherwise, do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a>
         /// in the <i>Amazon Elastic Compute Cloud API Reference</i>.</para>

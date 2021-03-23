@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// A batch request for storing geofences into a given geofence collection.
+    /// A batch request for storing geofence geometries into a given geofence collection.
     /// </summary>
     [Cmdlet("Set", "LOCGeofenceBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.BatchPutGeofenceResponse")]

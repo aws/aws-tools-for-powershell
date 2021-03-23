@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// until the conformance pack is created or updated. You cannot update a conformance
     /// pack while it is in this state.
     /// </para><para>
-    /// You can create 6 conformance packs with 25 AWS Config rules in each pack and 3 delegated
+    /// You can create 50 conformance packs with 25 AWS Config rules in each pack and 3 delegated
     /// administrator per organization. 
     /// </para></note>
     /// </summary>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryS3Bucket
         /// <summary>
         /// <para>
-        /// <para>Amazon S3 bucket where AWS Config stores conformance pack templates.</para><note><para>This field is optional.</para></note>
+        /// <para>Amazon S3 bucket where AWS Config stores conformance pack templates.</para><note><para>This field is optional. If used, it must be prefixed with <code>awsconfigconforms</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

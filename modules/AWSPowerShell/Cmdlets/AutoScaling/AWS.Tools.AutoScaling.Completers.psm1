@@ -115,6 +115,13 @@ $AS_Completers = {
             break
         }
 
+        # Amazon.AutoScaling.WarmPoolState
+        "Write-ASWarmPool/PoolState"
+        {
+            $v = "Running","Stopped"
+            break
+        }
+
 
     }
 
@@ -126,6 +133,7 @@ $AS_Completers = {
 $AS_map = @{
     "MetadataOptions_HttpEndpoint"=@("New-ASLaunchConfiguration")
     "MetadataOptions_HttpTokens"=@("New-ASLaunchConfiguration")
+    "PoolState"=@("Write-ASWarmPool")
     "Strategy"=@("Start-ASInstanceRefresh")
     "TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic"=@("Write-ASScalingPolicy")
     "TargetTrackingConfiguration_PredefinedMetricSpecification_PredefinedMetricType"=@("Write-ASScalingPolicy")
@@ -198,6 +206,7 @@ $AS_SelectMap = @{
                "Remove-ASPolicy",
                "Remove-ASScheduledAction",
                "Remove-ASTag",
+               "Remove-ASWarmPool",
                "Get-ASAccountLimit",
                "Get-ASAdjustmentType",
                "Get-ASAutoScalingGroup",
@@ -217,6 +226,7 @@ $AS_SelectMap = @{
                "Get-ASScheduledAction",
                "Get-ASTag",
                "Get-ASTerminationPolicyType",
+               "Get-ASWarmPool",
                "Dismount-ASInstance",
                "Dismount-ASLoadBalancer",
                "Dismount-ASLoadBalancerTargetGroup",
@@ -229,6 +239,7 @@ $AS_SelectMap = @{
                "Write-ASNotificationConfiguration",
                "Write-ASScalingPolicy",
                "Write-ASScheduledUpdateGroupAction",
+               "Write-ASWarmPool",
                "Write-ASLifecycleActionHeartbeat",
                "Resume-ASProcess",
                "Set-ASDesiredCapacity",

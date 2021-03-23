@@ -29,6 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
     /// Deletes the specified channel and its associated stream keys.
+    /// 
+    ///  
+    /// <para>
+    /// If you try to delete a live channel, you will get an error (409 ConflictException).
+    /// To delete a channel that is live, call <a>StopStream</a>, wait for the Amazon EventBridge
+    /// "Stream End" event (to verify that the stream's state was changed from Live to Offline),
+    /// then call DeleteChannel. (See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html">
+    /// Using EventBridge with Amazon IVS</a>.) 
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "IVSChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

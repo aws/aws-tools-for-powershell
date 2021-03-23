@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>See <a>Channel$tags</a>.</para>
+        /// <para>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

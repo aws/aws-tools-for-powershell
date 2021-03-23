@@ -27,6 +27,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelBatchPredictionJob" Verb="Stop" Noun="BatchPredictionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBatchPredictionJob" Verb="New" Noun="BatchPredictionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDetectorVersion" OutputProperty="*" Verb="New" Noun="DetectorVersion" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -44,6 +52,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVariable" Verb="New" Noun="Variable" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBatchPredictionJob" Verb="Remove" Noun="BatchPredictionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -100,6 +112,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeModelVersions" OutputProperty="ModelVersionDetails" Verb="Get" Noun="ModelVersionList" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBatchPredictionJobs" OutputProperty="BatchPredictions" Verb="Get" Noun="BatchPredictionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

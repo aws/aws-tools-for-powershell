@@ -102,20 +102,26 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CWMetricData', 
         'Get-CWMetricList', 
         'Get-CWMetricStatistic', 
+        'Get-CWMetricStream', 
+        'Get-CWMetricStreamList', 
         'Get-CWMetricWidgetImage', 
         'Get-CWResourceTag', 
         'Remove-CWAlarm', 
         'Remove-CWAnomalyDetector', 
         'Remove-CWDashboard', 
         'Remove-CWInsightRule', 
+        'Remove-CWMetricStream', 
         'Remove-CWResourceTag', 
         'Set-CWAlarmState', 
+        'Start-CWMetricStream', 
+        'Stop-CWMetricStream', 
         'Write-CWAnomalyDetector', 
         'Write-CWCompositeAlarm', 
         'Write-CWDashboard', 
         'Write-CWInsightRule', 
         'Write-CWMetricAlarm', 
-        'Write-CWMetricData')
+        'Write-CWMetricData', 
+        'Write-CWMetricStream')
 
     # Variables to export from this module
     VariablesToExport = '*'

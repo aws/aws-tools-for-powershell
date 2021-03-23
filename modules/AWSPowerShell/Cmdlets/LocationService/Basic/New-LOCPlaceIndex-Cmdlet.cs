@@ -53,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter DataSource
         /// <summary>
         /// <para>
-        /// <para>Specifies the data provider of geospatial data.</para>
+        /// <para>Specifies the data provider of geospatial data.</para><note><para>This field is case-sensitive. Enter the valid values as shown. For example, entering
+        /// <code>HERE</code> will return an error.</para></note><para>Valid values include:</para><ul><li><para><code>Esri</code></para></li><li><para><code>Here</code></para></li></ul><para>For additional details on data providers, see the <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon
+        /// Location Service data providers page</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter IndexName
         /// <summary>
         /// <para>
-        /// <para>The name of the Place index resource. </para><para>Requirements:</para><ul><li><para>Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-) and underscores
-        /// (_) ).</para></li><li><para>Must be a unique Place index resource name.</para></li><li><para>No spaces allowed. For example, <code>ExamplePlaceIndex</code>.</para></li></ul>
+        /// <para>The name of the Place index resource. </para><para>Requirements:</para><ul><li><para>Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and
+        /// underscores (_).</para></li><li><para>Must be a unique Place index resource name.</para></li><li><para>No spaces allowed. For example, <code>ExamplePlaceIndex</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,9 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>Specifies the pricing plan for your Place index resource. There's three pricing plan
-        /// options:</para><ul><li><para><code>RequestBasedUsage</code> — Selects the "Request-Based Usage" pricing plan.</para></li><li><para><code>MobileAssetTracking</code> — Selects the "Mobile Asset Tracking" pricing plan.</para></li><li><para><code>MobileAssetManagement</code> — Selects the "Mobile Asset Management" pricing
-        /// plan.</para></li></ul><para>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
+        /// <para>Specifies the pricing plan for your Place index resource.</para><para>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
         /// Location Service pricing page</a>.</para>
         /// </para>
         /// </summary>

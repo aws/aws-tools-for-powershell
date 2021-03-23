@@ -119,9 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] Changes the security groups of the instance. You must specify at least one
-        /// security group, even if it's just the default security group for the VPC. You must
-        /// specify the security group ID, not the security group name.</para>
+        /// <para>[EC2-VPC] Replaces the security groups of the instance with the specified security
+        /// groups. You must specify at least one security group, even if it's just the default
+        /// security group for the VPC. You must specify the security group ID, not the security
+        /// group name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

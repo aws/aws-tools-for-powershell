@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Returns detailed information about command execution for an invocation or plugin.
+    /// 
+    ///  
+    /// <para><code>GetCommandInvocation</code> only gives the execution status of a plugin in
+    /// a document. To get the command execution status on a specific instance, use <a>ListCommandInvocations</a>.
+    /// To get the command execution status across instances, use <a>ListCommands</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SSMCommandInvocationDetail")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse")]
@@ -60,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>(Required) The ID of the managed instance targeted by the command. A managed instance
-        /// can be an EC2 instance or an instance in your hybrid environment that is configured
-        /// for Systems Manager.</para>
+        /// can be an Amazon Elastic Compute Cloud (Amazon EC2) instance or an instance in your
+        /// hybrid environment that is configured for AWS Systems Manager.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,10 +85,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The name of the plugin for which you want detailed results. If the document contains
-        /// only one plugin, you can omit the name and details for that plugin are returned. If
-        /// the document contains more than one plugin, you must specify the name of the plugin
-        /// for which you want to view details.</para><para>Plugin names are also referred to as <i>step names</i> in Systems Manager documents.
-        /// For example, <code>aws:RunShellScript</code> is a plugin.</para>
+        /// only one plugin, you can omit the name and details for that plugin. If the document
+        /// contains more than one plugin, you must specify the name of the plugin for which you
+        /// want to view details.</para><para>Plugin names are also referred to as <i>step names</i> in Systems Manager documents.
+        /// For example, <code>aws:RunShellScript</code> is a plugin.</para><para>To find the <code>PluginName</code>, check the document content and find the name
+        /// of the plugin. Alternatively, use <a>ListCommandInvocations</a> with the <code>CommandId</code>
+        /// and <code>Details</code> parameters. The <code>PluginName</code> is the <code>Name</code>
+        /// attribute of the <code>CommandPlugin</code> object in the <code>CommandPlugins</code>
+        /// list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

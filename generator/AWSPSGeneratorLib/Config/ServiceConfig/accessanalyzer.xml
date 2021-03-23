@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelPolicyGeneration" Verb="Stop" Noun="PolicyGeneration" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAccessPreview" OutputProperty="Id" Verb="New" Noun="AccessPreview" ShouldProcessTarget="AnalyzerArn" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetGeneratedPolicy" OutputProperty="*" Verb="Get" Noun="GeneratedPolicy" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAccessPreviewFindings" OutputProperty="Findings" Verb="Get" Noun="AccessPreviewFindingList" PipelineParameter="AccessPreviewId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -87,7 +95,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyGenerations" OutputProperty="PolicyGenerations" Verb="Get" Noun="PolicyGenerationList" PipelineParameter="PrincipalArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartPolicyGeneration" OutputProperty="JobId" Verb="Start" Noun="PolicyGeneration" ShouldProcessTarget="PolicyGenerationDetails_PrincipalArn" PipelineParameter="PolicyGenerationDetails_PrincipalArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

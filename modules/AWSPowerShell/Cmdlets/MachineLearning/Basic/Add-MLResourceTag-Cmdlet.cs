@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the ML object to tag. </para>
+        /// <para>The type of the ML object to tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

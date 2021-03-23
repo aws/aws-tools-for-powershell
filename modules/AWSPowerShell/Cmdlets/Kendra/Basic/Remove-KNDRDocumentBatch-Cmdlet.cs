@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
     /// Removes one or more documents from an index. The documents must have been added with
-    /// the <a>BatchPutDocument</a> operation.
+    /// the <code>BatchPutDocument</code> operation.
     /// 
     ///  
     /// <para>
     /// The documents are deleted asynchronously. You can see the progress of the deletion
-    /// by using AWS CloudWatch. Any error messages releated to the processing of the batch
+    /// by using AWS CloudWatch. Any error messages related to the processing of the batch
     /// are sent to you CloudWatch log.
     /// </para>
     /// </summary>

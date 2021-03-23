@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>A comma-separated list that specifies the types of AWS resources for which AWS Config
         /// records configuration changes (for example, <code>AWS::EC2::Instance</code> or <code>AWS::CloudTrail::Trail</code>).</para><para>To record all configuration changes, you must set the <code>allSupported</code> option
-        /// to <code>false</code>.</para><para>If you set this option to <code>true</code>, when AWS Config adds support for a new
+        /// to <code>true</code>.</para><para>If you set this option to <code>false</code>, when AWS Config adds support for a new
         /// type of resource, it will not record resources of that type unless you manually add
         /// that type to your recording group.</para><para>For a list of valid <code>resourceTypes</code> values, see the <b>resourceType Value</b>
         /// column in <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported

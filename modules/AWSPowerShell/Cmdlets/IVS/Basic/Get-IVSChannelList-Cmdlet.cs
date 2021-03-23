@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
     /// Gets summary information about all channels in your account, in the AWS region where
-    /// the API request is processed. This list can be filtered to match a specified string.
+    /// the API request is processed. This list can be filtered to match a specified name
+    /// or recording-configuration ARN. Filters are mutually exclusive and cannot be used
+    /// together. If you try to use both filters, you will get an error (409 ConflictException).
     /// </summary>
     [Cmdlet("Get", "IVSChannelList")]
     [OutputType("Amazon.IVS.Model.ChannelSummary")]
@@ -51,10 +53,20 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public System.String FilterByName { get; set; }
         #endregion
         
+        #region Parameter FilterByRecordingConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>Filters the channel list to match the specified recording-configuration ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterByRecordingConfigurationArn { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of channels to return.</para>
+        /// <para>Maximum number of channels to return. Default: 50.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,6 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.FilterByName = this.FilterByName;
+            context.FilterByRecordingConfigurationArn = this.FilterByRecordingConfigurationArn;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -140,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (cmdletContext.FilterByName != null)
             {
                 request.FilterByName = cmdletContext.FilterByName;
+            }
+            if (cmdletContext.FilterByRecordingConfigurationArn != null)
+            {
+                request.FilterByRecordingConfigurationArn = cmdletContext.FilterByRecordingConfigurationArn;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -211,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String FilterByName { get; set; }
+            public System.String FilterByRecordingConfigurationArn { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.IVS.Model.ListChannelsResponse, GetIVSChannelListCmdlet, object> Select { get; set; } =

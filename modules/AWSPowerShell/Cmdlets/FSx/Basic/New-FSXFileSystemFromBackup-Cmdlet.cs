@@ -99,6 +99,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter LustreConfiguration
         /// <summary>
         /// <para>
@@ -255,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
+            context.KmsKeyId = this.KmsKeyId;
             context.LustreConfiguration = this.LustreConfiguration;
             if (this.SecurityGroupId != null)
             {
@@ -299,6 +310,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.LustreConfiguration != null)
             {
@@ -387,6 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             public System.String BackupId { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public System.String KmsKeyId { get; set; }
             public Amazon.FSx.Model.CreateFileSystemLustreConfiguration LustreConfiguration { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public Amazon.FSx.StorageType StorageType { get; set; }

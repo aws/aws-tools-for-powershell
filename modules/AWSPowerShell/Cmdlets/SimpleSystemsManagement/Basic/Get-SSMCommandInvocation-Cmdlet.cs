@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>(Optional) If set this returns the response of the command executions and any command
-        /// output. By default this is set to False. </para>
+        /// output. The default value is 'false'. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

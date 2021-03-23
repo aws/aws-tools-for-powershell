@@ -56,6 +56,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateMacSecKey" OutputProperty="*" Verb="Add" Noun="MacSecKey" ShouldProcessTarget="ConnectionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateVirtualInterface" OutputProperty="*" Verb="Register" Noun="VirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -216,6 +220,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateMacSecKey" OutputProperty="*" Verb="Remove" Noun="MacSecKey" ShouldProcessTarget="ConnectionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListVirtualInterfaceTestHistory" OutputProperty="VirtualInterfaceTestHistory" Verb="Get" Noun="VirtualInterfaceTestHistoryList" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -233,6 +241,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnection" OutputProperty="*" Verb="Update" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

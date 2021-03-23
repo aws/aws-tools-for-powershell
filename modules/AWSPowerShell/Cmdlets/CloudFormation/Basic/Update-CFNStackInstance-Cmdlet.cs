@@ -84,6 +84,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String[] DeploymentTargets_Account { get; set; }
         #endregion
         
+        #region Parameter DeploymentTargets_AccountsUrl
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeploymentTargets_AccountsUrl { get; set; }
+        #endregion
+        
         #region Parameter CallAs
         /// <summary>
         /// <para>
@@ -266,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.DeploymentTargets_Account = new List<System.String>(this.DeploymentTargets_Account);
             }
+            context.DeploymentTargets_AccountsUrl = this.DeploymentTargets_AccountsUrl;
             if (this.DeploymentTargets_OrganizationalUnitId != null)
             {
                 context.DeploymentTargets_OrganizationalUnitId = new List<System.String>(this.DeploymentTargets_OrganizationalUnitId);
@@ -329,6 +340,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (requestDeploymentTargets_deploymentTargets_Account != null)
             {
                 request.DeploymentTargets.Accounts = requestDeploymentTargets_deploymentTargets_Account;
+                requestDeploymentTargetsIsNull = false;
+            }
+            System.String requestDeploymentTargets_deploymentTargets_AccountsUrl = null;
+            if (cmdletContext.DeploymentTargets_AccountsUrl != null)
+            {
+                requestDeploymentTargets_deploymentTargets_AccountsUrl = cmdletContext.DeploymentTargets_AccountsUrl;
+            }
+            if (requestDeploymentTargets_deploymentTargets_AccountsUrl != null)
+            {
+                request.DeploymentTargets.AccountsUrl = requestDeploymentTargets_deploymentTargets_AccountsUrl;
                 requestDeploymentTargetsIsNull = false;
             }
             List<System.String> requestDeploymentTargets_deploymentTargets_OrganizationalUnitId = null;
@@ -430,6 +451,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public List<System.String> Account { get; set; }
             public Amazon.CloudFormation.CallAs CallAs { get; set; }
             public List<System.String> DeploymentTargets_Account { get; set; }
+            public System.String DeploymentTargets_AccountsUrl { get; set; }
             public List<System.String> DeploymentTargets_OrganizationalUnitId { get; set; }
             public System.String OperationId { get; set; }
             public Amazon.CloudFormation.Model.StackSetOperationPreferences OperationPreference { get; set; }

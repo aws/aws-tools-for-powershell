@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The time, in seconds, before an Aurora DB cluster in <code>serverless</code> mode
-        /// is paused.</para>
+        /// is paused.</para><para>Specify a value between 300 and 86,400 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

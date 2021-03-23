@@ -30,7 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// <summary>
     /// Gets the value that Amazon Route 53 returns in response to a DNS request for a specified
     /// record name and type. You can optionally specify the IP address of a DNS resolver,
-    /// an EDNS0 client subnet IP address, and a subnet mask.
+    /// an EDNS0 client subnet IP address, and a subnet mask. 
+    /// 
+    ///  
+    /// <para>
+    /// This call only supports querying public hosted zones.
+    /// </para>
     /// </summary>
     [Cmdlet("Test", "R53DNSAnswer")]
     [OutputType("Amazon.Route53.Model.TestDNSAnswerResponse")]

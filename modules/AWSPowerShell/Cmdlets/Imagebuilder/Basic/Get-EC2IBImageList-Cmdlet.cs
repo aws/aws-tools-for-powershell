@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters. </para>
+        /// <para>The filters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum items to return in a request. </para>
+        /// <para>The maximum items to return in a request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>A token to specify where to start paginating. This is the NextToken from a previously
-        /// truncated response. </para>
+        /// truncated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>The owner defines which images you want to list. By default, this request will only
         /// show images owned by your account. You can use this field to specify if you want to
         /// view images owned by yourself, by Amazon, or those images that have been shared with
-        /// you by other customers. </para>
+        /// you by other customers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

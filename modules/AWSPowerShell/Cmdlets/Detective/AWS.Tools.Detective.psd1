@@ -86,17 +86,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-DTCTResourceTag', 
         'Approve-DTCTInvitation', 
         'Deny-DTCTInvitation', 
         'Get-DTCTGraphList', 
         'Get-DTCTInvitationList', 
         'Get-DTCTMember', 
         'Get-DTCTMemberList', 
+        'Get-DTCTResourceTag', 
         'New-DTCTGraph', 
         'New-DTCTMember', 
         'Remove-DTCTGraph', 
         'Remove-DTCTMember', 
         'Remove-DTCTMembership', 
+        'Remove-DTCTResourceTag', 
         'Start-DTCTMonitoringMember')
 
     # Variables to export from this module

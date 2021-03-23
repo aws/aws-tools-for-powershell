@@ -28,10 +28,10 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Retrieves the latest device position.
+    /// Retrieves a device's most recent position according to its sample time.
     /// 
     ///  <note><para>
-    /// Limitation — Device positions are deleted after one year.
+    /// Device positions are deleted after one year.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "LOCDevicePosition")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter DeviceId
         /// <summary>
         /// <para>
-        /// <para>The device whose position you want to retreieve.</para>
+        /// <para>The device whose position you want to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

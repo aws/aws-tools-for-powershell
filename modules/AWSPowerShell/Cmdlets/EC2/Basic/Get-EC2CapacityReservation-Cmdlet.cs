@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// is no longer available for your use.</para></li><li><para><code>pending</code> - The Capacity Reservation request was successful but the capacity
         /// provisioning is still pending.</para></li><li><para><code>failed</code> - The Capacity Reservation request has failed. A request might
         /// fail due to invalid request parameters, capacity constraints, or instance limit constraints.
-        /// Failed requests are retained for 60 minutes.</para></li></ul></li><li><para><code>end-date</code> - The date and time at which the Capacity Reservation expires.
+        /// Failed requests are retained for 60 minutes.</para></li></ul></li><li><para><code>start-date</code> - The date and time at which the Capacity Reservation was
+        /// started.</para></li><li><para><code>end-date</code> - The date and time at which the Capacity Reservation expires.
         /// When a Capacity Reservation expires, the reserved capacity is released and you can
         /// no longer launch instances into it. The Capacity Reservation's state changes to expired
         /// when it reaches its end date and time.</para></li><li><para><code>end-date-type</code> - Indicates the way in which the Capacity Reservation

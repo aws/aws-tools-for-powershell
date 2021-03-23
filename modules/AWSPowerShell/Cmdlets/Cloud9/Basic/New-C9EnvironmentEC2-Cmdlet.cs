@@ -68,7 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.C9
         #region Parameter ConnectionType
         /// <summary>
         /// <para>
-        /// <para>The connection type used for connecting to an Amazon EC2 environment.</para>
+        /// <para>The connection type used for connecting to an Amazon EC2 environment. Valid values
+        /// are <code>CONNECT_SSH</code> (default) and <code>CONNECT_SSM</code> (connected through
+        /// AWS Systems Manager).</para><para>For more information, see <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html">Accessing
+        /// no-ingress EC2 instances with AWS Systems Manager</a> in the <i>AWS Cloud9 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,6 +87,19 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter ImageId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
+        /// To choose an AMI for the instance, you must specify a valid AMI alias or a valid AWS
+        /// Systems Manager (SSM) path.</para><para>The default AMI is used if the parameter isn't explicitly assigned a value in the
+        /// request. </para><para><b>AMI aliases </b></para><ul><li><para><b>Amazon Linux (default): <code>amazonlinux-1-x86_64</code></b></para></li><li><para>Amazon Linux 2: <code>amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code></para></li></ul><para><b>SSM paths</b></para><ul><li><para><b>Amazon Linux (default): <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code></b></para></li><li><para>Amazon Linux 2: <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageId { get; set; }
         #endregion
         
         #region Parameter InstanceType
@@ -220,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
             context.ClientRequestToken = this.ClientRequestToken;
             context.ConnectionType = this.ConnectionType;
             context.Description = this.Description;
+            context.ImageId = this.ImageId;
             context.InstanceType = this.InstanceType;
             #if MODULAR
             if (this.InstanceType == null && ParameterWasBound(nameof(this.InstanceType)))
@@ -271,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.C9
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.ImageId != null)
+            {
+                request.ImageId = cmdletContext.ImageId;
             }
             if (cmdletContext.InstanceType != null)
             {
@@ -357,6 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
             public System.String ClientRequestToken { get; set; }
             public Amazon.Cloud9.ConnectionType ConnectionType { get; set; }
             public System.String Description { get; set; }
+            public System.String ImageId { get; set; }
             public System.String InstanceType { get; set; }
             public System.String Name { get; set; }
             public System.String OwnerArn { get; set; }

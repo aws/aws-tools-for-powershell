@@ -55,16 +55,14 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter FilterVariable
         /// <summary>
         /// <para>
-        /// <para>Use one of the following variables to filter a list of <code>BatchPrediction</code>:</para><ul><li><code>CreatedAt</code> - Sets the search criteria to the <code>BatchPrediction</code>
-        /// creation date.</li><li><code>Status</code> - Sets the search criteria to the <code>BatchPrediction</code>
-        /// status.</li><li><code>Name</code> - Sets the search criteria to the contents of
-        /// the <code>BatchPrediction</code><b></b><code>Name</code>.</li><li><code>IAMUser</code>
-        /// - Sets the search criteria to the user account that invoked the <code>BatchPrediction</code>
-        /// creation.</li><li><code>MLModelId</code> - Sets the search criteria to the <code>MLModel</code>
-        /// used in the <code>BatchPrediction</code>.</li><li><code>DataSourceId</code> - Sets
-        /// the search criteria to the <code>DataSource</code> used in the <code>BatchPrediction</code>.</li><li><code>DataURI</code> - Sets the search criteria to the data file(s) used in the
-        /// <code>BatchPrediction</code>. The URL can identify either a file or an Amazon Simple
-        /// Storage Solution (Amazon S3) bucket or directory.</li></ul>
+        /// <para>Use one of the following variables to filter a list of <code>BatchPrediction</code>:</para><ul><li><para><code>CreatedAt</code> - Sets the search criteria to the <code>BatchPrediction</code>
+        /// creation date.</para></li><li><para><code>Status</code> - Sets the search criteria to the <code>BatchPrediction</code>
+        /// status.</para></li><li><para><code>Name</code> - Sets the search criteria to the contents of the <code>BatchPrediction</code><b></b><code>Name</code>.</para></li><li><para><code>IAMUser</code> - Sets the search criteria to the user account that invoked
+        /// the <code>BatchPrediction</code> creation.</para></li><li><para><code>MLModelId</code> - Sets the search criteria to the <code>MLModel</code> used
+        /// in the <code>BatchPrediction</code>.</para></li><li><para><code>DataSourceId</code> - Sets the search criteria to the <code>DataSource</code>
+        /// used in the <code>BatchPrediction</code>.</para></li><li><para><code>DataURI</code> - Sets the search criteria to the data file(s) used in the <code>BatchPrediction</code>.
+        /// The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3)
+        /// bucket or directory.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>A two-value parameter that determines the sequence of the resulting list of <code>MLModel</code>s.</para><ul><li><code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</li><li><code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</li></ul><para>Results are sorted by <code>FilterVariable</code>.</para>
+        /// <para>A two-value parameter that determines the sequence of the resulting list of <code>MLModel</code>s.</para><ul><li><para><code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</para></li><li><para><code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</para></li></ul><para>Results are sorted by <code>FilterVariable</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// be unique for each key-signing key (KSK) in a single hosted zone. To see an example
         /// of <code>KeyManagementServiceArn</code> that grants the correct permissions for DNSSEC,
         /// scroll down to <b>Example</b>. </para><para>You must configure the customer managed CMK as follows:</para><dl><dt>Status</dt><dd><para>Enabled</para></dd><dt>Key spec</dt><dd><para>ECC_NIST_P256</para></dd><dt>Key usage</dt><dd><para>Sign and verify</para></dd><dt>Key policy</dt><dd><para>The key policy must give permission for the following actions:</para><ul><li><para>DescribeKey</para></li><li><para>GetPublicKey</para></li><li><para>Sign</para></li></ul><para>The key policy must also include the Amazon Route 53 service in the principal for
-        /// your account. Specify the following:</para><ul><li><para><code>"Service": "api-service.dnssec.route53.aws.internal"</code></para></li></ul></dd></dl><para>For more information about working with a customer managed CMK in AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS Key
+        /// your account. Specify the following:</para><ul><li><para><code>"Service": "dnssec.route53.aws.amazonaws.com"</code></para></li></ul></dd></dl><para>For more information about working with a customer managed CMK in AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS Key
         /// Management Service concepts</a>.</para>
         /// </para>
         /// </summary>

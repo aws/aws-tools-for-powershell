@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para> The operating system (OS) version supported by the component. If the OS information
         /// is available, a prefix match is performed against the parent image OS version during
-        /// image recipe creation. </para>
+        /// image recipe creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -58,6 +58,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateFileSystem" OutputProperty="FileSystemAssociationARN" Verb="New" Noun="SGFileSystemAssociation" ShouldProcessTarget="UserName" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AttachVolume" OutputProperty="*" Verb="Mount" Noun="Volume" ShouldProcessTarget="VolumeARN" PositionalParameters="GatewayARN" PipelineParameter="VolumeARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -174,6 +178,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFileSystemAssociations" OutputProperty="FileSystemAssociationInfoList" Verb="Get" Noun="SGFileSystemAssociation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeGatewayInformation" OutputProperty="*" Verb="Get" Noun="GatewayInformation" PipelineParameter="GatewayARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -234,6 +242,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateFileSystem" OutputProperty="FileSystemAssociationARN" Verb="Remove" Noun="SGFileSystemAssociation" ShouldProcessTarget="FileSystemAssociationARN" PipelineParameter="FileSystemAssociationARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="JoinDomain" OutputProperty="GatewayARN" Verb="Join" Noun="Domain" ShouldProcessTarget="DomainName" PositionalParameters="GatewayARN" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -245,6 +257,10 @@
         <ServiceOperation MethodName="ListFileShares" OutputProperty="FileShareInfoList" Verb="Get" Noun="FileShareList" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="Limit" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFileSystemAssociations" OutputProperty="FileSystemAssociationSummaryList" Verb="Get" Noun="SGFileSystemAssociationList" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListGateways" OutputProperty="Gateways" Verb="Get" Noun="Gateway" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
@@ -336,6 +352,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateChapCredentials" OutputProperty="*" Verb="Update" Noun="ChapCredential" ShouldProcessTarget="InitiatorName" PositionalParameters="SecretToAuthenticateInitiator;InitiatorName;SecretToAuthenticateTarget" PipelineParameter="TargetARN" NoPipelineParameter="false" LegacyAlias="Update-SGChapCredentials">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFileSystemAssociation" OutputProperty="FileSystemAssociationARN" Verb="Update" Noun="SGFileSystemAssociation" ShouldProcessTarget="UserName" PipelineParameter="FileSystemAssociationARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

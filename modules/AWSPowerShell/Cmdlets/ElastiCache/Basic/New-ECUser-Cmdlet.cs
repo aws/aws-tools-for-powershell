@@ -96,6 +96,18 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String[] Password { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags to be added to this resource. A tag is a key-value pair. A tag key
+        /// must be accompanied by a tag value, although null is accepted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ElastiCache.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter UserId
         /// <summary>
         /// <para>
@@ -210,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 context.Password = new List<System.String>(this.Password);
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ElastiCache.Model.Tag>(this.Tag);
+            }
             context.UserId = this.UserId;
             #if MODULAR
             if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
@@ -255,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.Password != null)
             {
                 request.Passwords = cmdletContext.Password;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.UserId != null)
             {
@@ -329,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String Engine { get; set; }
             public System.Boolean? NoPasswordRequired { get; set; }
             public List<System.String> Password { get; set; }
+            public List<Amazon.ElastiCache.Model.Tag> Tag { get; set; }
             public System.String UserId { get; set; }
             public System.String UserName { get; set; }
             public System.Func<Amazon.ElastiCache.Model.CreateUserResponse, NewECUserCmdlet, object> Select { get; set; } =

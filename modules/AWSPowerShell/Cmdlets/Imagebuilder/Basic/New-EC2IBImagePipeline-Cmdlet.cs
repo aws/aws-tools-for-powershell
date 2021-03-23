@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> The description of the image pipeline. </para>
+        /// <para> The description of the image pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the distribution configuration that will be used
-        /// to configure and distribute images created by this image pipeline. </para>
+        /// to configure and distribute images created by this image pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para> Collects additional information about the image being created, including the operating
         /// system (OS) version and package list. This information is used to enhance the overall
-        /// experience of using EC2 Image Builder. Enabled by default. </para>
+        /// experience of using EC2 Image Builder. Enabled by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the image recipe that will be used to configure
-        /// images created by this image pipeline. </para>
+        /// images created by this image pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the infrastructure configuration that will be used
-        /// to build images created by this image pipeline. </para>
+        /// to build images created by this image pipeline.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para> The name of the image pipeline. </para>
+        /// <para> The name of the image pipeline.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para> The status of the image pipeline. </para>
+        /// <para> The status of the image pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> The tags of the image pipeline. </para>
+        /// <para> The tags of the image pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> The idempotency token used to make this request idempotent. </para>
+        /// <para> The idempotency token used to make this request idempotent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

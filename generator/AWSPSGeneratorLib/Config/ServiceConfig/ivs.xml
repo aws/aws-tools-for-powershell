@@ -30,6 +30,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRecordingConfiguration" OutputProperty="RecordingConfiguration" Verb="New" Noun="RecordingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateStreamKey" OutputProperty="StreamKey" Verb="New" Noun="StreamKey" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -42,6 +46,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRecordingConfiguration" Verb="Remove" Noun="RecordingConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteStreamKey" Verb="Remove" Noun="StreamKey" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -51,6 +59,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPlaybackKeyPair" OutputProperty="KeyPair" Verb="Get" Noun="PlaybackKeyPair" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecordingConfiguration" OutputProperty="RecordingConfiguration" Verb="Get" Noun="RecordingConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -71,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPlaybackKeyPairs" OutputProperty="KeyPairs" Verb="Get" Noun="PlaybackKeyPairList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecordingConfigurations" OutputProperty="RecordingConfigurations" Verb="Get" Noun="RecordingConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -218,16 +218,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service ID of the key used to encrypt the output data, if any.</para><para>If you use a KMS key ID or an alias of your master key, the Amazon SageMaker execution
-        /// role must include permissions to call <code>kms:Encrypt</code>. If you don't provide
-        /// a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's
-        /// account. Amazon SageMaker uses server-side encryption with KMS-managed keys for <code>LabelingJobOutputConfig</code>.
-        /// If you use a bucket policy with an <code>s3:PutObject</code> permission that only
+        /// <para>The AWS Key Management Service ID of the key used to encrypt the output data, if any.</para><para>If you provide your own KMS key ID, you must add the required permissions to your
+        /// KMS key described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-permission.html#sms-security-kms-permissions">Encrypt
+        /// Output Data and Storage Volume with AWS KMS</a>.</para><para>If you don't provide a KMS key ID, Amazon SageMaker uses the default AWS KMS key for
+        /// Amazon S3 for your role's account to encrypt your output data.</para><para>If you use a bucket policy with an <code>s3:PutObject</code> permission that only
         /// allows objects with server-side encryption, set the condition key of <code>s3:x-amz-server-side-encryption</code>
         /// to <code>"aws:kms"</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed
-        /// Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i></para><para>The KMS key policy must grant permission to the IAM role that you specify in your
-        /// <code>CreateLabelingJob</code> request. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
-        /// Key Policies in AWS KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
+        /// Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -495,8 +492,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon SNS input topic Amazon Resource Name (ARN). Specify the ARN of the input
-        /// topic you will use to send new data objects to a streaming labeling job.</para><para>If you specify an input topic for <code>SnsTopicArn</code> in <code>InputConfig</code>,
-        /// you must specify a value for <code>SnsTopicArn</code> in <code>OutputConfig</code>.</para>
+        /// topic you will use to send new data objects to a streaming labeling job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -507,9 +503,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputConfig_SnsTopicArn
         /// <summary>
         /// <para>
-        /// <para>An Amazon Simple Notification Service (Amazon SNS) output topic ARN.</para><para>When workers complete labeling tasks, Ground Truth will send labeling task output
-        /// data to the SNS output topic you specify here.</para><para>You must provide a value for this parameter if you provide an Amazon SNS input topic
-        /// in <code>SnsDataSource</code> in <code>InputConfig</code>.</para>
+        /// <para>An Amazon Simple Notification Service (Amazon SNS) output topic ARN.</para><para>If you provide an <code>SnsTopicArn</code> in <code>OutputConfig</code>, when workers
+        /// complete labeling tasks, Ground Truth will send labeling task output data to the SNS
+        /// output topic you specify here. </para><para>To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-output-data">Receive
+        /// Output Data from a Streaming Labeling Job</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -644,7 +641,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
         /// data on the storage volume attached to the ML compute instance(s) that run the training
-        /// job. The <code>VolumeKmsKeyId</code> can be any of the following formats:</para><ul><li><para>// KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// and inference jobs used for automated data labeling. </para><para>You can only specify a <code>VolumeKmsKeyId</code> when you create a labeling job
+        /// with automated data labeling enabled using the API operation <code>CreateLabelingJob</code>.
+        /// You cannot specify an AWS KMS customer managed CMK to encrypt the storage volume used
+        /// for automated data labeling model training and inference when you create a labeling
+        /// job using the console. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security.html">Output
+        /// Data and Storage Volume Encryption</a>.</para><para>The <code>VolumeKmsKeyId</code> can be any of the following formats:</para><ul><li><para>KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

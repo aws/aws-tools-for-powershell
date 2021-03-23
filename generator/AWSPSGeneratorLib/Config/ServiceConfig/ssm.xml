@@ -502,6 +502,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UnlabelParameterVersion" OutputProperty="*" Verb="Reset" Noun="ParameterVersionLabel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateAssociation" OutputProperty="AssociationDescription" Verb="Update" Noun="Association" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

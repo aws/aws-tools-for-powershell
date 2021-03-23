@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter AuditDestinationARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the storage used for the audit logs.</para>
+        /// <para>The Amazon Resource Name (ARN) of the storage used for audit logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of time
         /// since the last refresh after which access to the directory would cause the file gateway
-        /// to first refresh that directory's contents from the Amazon S3 bucket. The TTL duration
-        /// is in seconds.</para><para>Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)</para>
+        /// to first refresh that directory's contents from the Amazon S3 bucket or Amazon FSx
+        /// file system. The TTL duration is in seconds.</para><para>Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,7 +234,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter NotificationPolicy
         /// <summary>
         /// <para>
-        /// <para>The notification policy of the file share.</para>
+        /// <para>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls
+        /// the number of seconds to wait after the last point in time a client wrote to a file
+        /// before generating an <code>ObjectUploaded</code> notification. Because clients can
+        /// make many small writes to files, it's best to set this parameter for as long as possible
+        /// to avoid generating multiple notifications for the same file in a small time period.</para><note><para><code>SettlingTimeInSeconds</code> has no effect on the timing of the object uploading
+        /// to Amazon S3, only the timing of the notification.</para></note><para>The following example sets <code>NotificationPolicy</code> on with <code>SettlingTimeInSeconds</code>
+        /// set to 60.</para><para><code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code></para><para>The following example sets <code>NotificationPolicy</code> off.</para><para><code>{}</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

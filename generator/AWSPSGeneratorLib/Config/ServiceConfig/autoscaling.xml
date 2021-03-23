@@ -108,6 +108,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWarmPool" Verb="Remove" Noun="WarmPool" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="*" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-ASAccountLimits">
             <Params />
             <TypesNotToFlatten />
@@ -189,6 +193,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWarmPool" OutputProperty="*" Verb="Get" Noun="WarmPool" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DetachInstances" OutputProperty="Activities" Verb="Dismount" Noun="Instance" ShouldProcessTarget="InstanceIds" PositionalParameters="AutoScalingGroupName" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyAlias="Dismount-ASInstances">
             <Params />
             <TypesNotToFlatten />
@@ -242,6 +250,10 @@
                 <Param Name="TimeUtc" NewName="UtcTime" AutoApplyAlias="false" />
                 <Param Name="Time" ExclusiveParameters="UtcTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcTime instead." />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutWarmPool" Verb="Write" Noun="WarmPool" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RecordLifecycleActionHeartbeat" Verb="Write" Noun="LifecycleActionHeartbeat" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">

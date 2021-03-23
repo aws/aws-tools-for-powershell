@@ -28,7 +28,8 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Updates the instance protection settings of the specified instances.
+    /// Updates the instance protection settings of the specified instances. This operation
+    /// cannot be called on instances in a warm pool.
     /// 
     ///  
     /// <para>

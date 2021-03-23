@@ -93,11 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type.</para><para>Valid values: <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code>
-        /// | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:Subnet</code>
-        /// | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code>
-        /// | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>license-manager:LicenseConfiguration</code>
-        /// I <code>resource-groups:Group</code> | <code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code></para>
+        /// <para>The resource type.</para><para>Valid values: <code>acm-pca:CertificateAuthority</code> | <code>appmesh:Mesh</code>
+        /// | <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code>
+        /// | <code>ec2:DedicatedHost</code> | <code>ec2:LocalGatewayRouteTable</code> | <code>ec2:PrefixList</code>
+        /// | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code>
+        /// | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code>
+        /// | <code>imagebuilder:ContainerRecipe</code> | <code>glue:Catalog</code> | <code>glue:Database</code>
+        /// | <code>glue:Table</code> | <code>license-manager:LicenseConfiguration</code> I <code>network-firewall:FirewallPolicy</code>
+        /// | <code>network-firewall:StatefulRuleGroup</code> | <code>network-firewall:StatelessRuleGroup</code>
+        /// | <code>outposts:Outpost</code> | <code>resource-groups:Group</code> | <code>rds:Cluster</code>
+        /// | <code>route53resolver:FirewallRuleGroup</code> |<code>route53resolver:ResolverQueryLogConfig</code>
+        /// | <code>route53resolver:ResolverRule</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -109,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-APSImageBuilderStreamingURL', 
         'New-APSStack', 
         'New-APSStreamingURL', 
+        'New-APSUpdatedImage', 
         'New-APSUsageReportSubscription', 
         'New-APSUser', 
         'Register-APSFleet', 

@@ -33,13 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// or <code>CreateBatchPrediction</code> operations.
     /// 
     ///  
-    /// <para><code>CreateDataSourceFromS3</code> is an asynchronous operation. In response to <code>CreateDataSourceFromS3</code>,
-    /// Amazon Machine Learning (Amazon ML) immediately returns and sets the <code>DataSource</code>
-    /// status to <code>PENDING</code>. After the <code>DataSource</code> has been created
-    /// and is ready for use, Amazon ML sets the <code>Status</code> parameter to <code>COMPLETED</code>.
-    /// <code>DataSource</code> in the <code>COMPLETED</code> or <code>PENDING</code> state
-    /// can be used to perform only <code>CreateMLModel</code>, <code>CreateEvaluation</code>
-    /// or <code>CreateBatchPrediction</code> operations. 
+    /// <para><code>CreateDataSourceFromS3</code> is an asynchronous operation. In response to
+    /// <code>CreateDataSourceFromS3</code>, Amazon Machine Learning (Amazon ML) immediately
+    /// returns and sets the <code>DataSource</code> status to <code>PENDING</code>. After
+    /// the <code>DataSource</code> has been created and is ready for use, Amazon ML sets
+    /// the <code>Status</code> parameter to <code>COMPLETED</code>. <code>DataSource</code>
+    /// in the <code>COMPLETED</code> or <code>PENDING</code> state can be used to perform
+    /// only <code>CreateMLModel</code>, <code>CreateEvaluation</code> or <code>CreateBatchPrediction</code>
+    /// operations. 
     /// </para><para>
     ///  If Amazon ML can't accept the input source, it sets the <code>Status</code> parameter
     /// to <code>FAILED</code> and includes an error message in the <code>Message</code> attribute
@@ -77,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <para>The compute statistics for a <code>DataSource</code>. The statistics are generated
         /// from the observation data referenced by a <code>DataSource</code>. Amazon ML uses
         /// the statistics internally during <code>MLModel</code> training. This parameter must
-        /// be set to <code>true</code> if the <code></code>DataSource<code></code> needs to be
-        /// used for <code>MLModel</code> training.</para>
+        /// be set to <code>true</code> if the <code />DataSource<code /> needs to be used for <code>MLModel</code>
+        /// training.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,11 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// The <code>DataSchema</code> defines the structure of the observation data in the data
         /// file(s) referenced in the <code>DataSource</code>.</para><para>You must provide either the <code>DataSchema</code> or the <code>DataSchemaLocationS3</code>.</para><para>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code>
         /// and <code>excludedVariableNames</code> have an array of key-value pairs for their
-        /// value. Use the following format to define your <code>DataSchema</code>.</para><para>{ "version": "1.0",</para><para> "recordAnnotationFieldName": "F1",</para><para> "recordWeightFieldName": "F2",</para><para> "targetFieldName": "F3",</para><para> "dataFormat": "CSV",</para><para> "dataFileContainsHeader": true,</para><para> "attributes": [</para><para> { "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC"
+        /// value. Use the following format to define your <code>DataSchema</code>.</para><para>{ "version": "1.0",</para><para>"recordAnnotationFieldName": "F1",</para><para>"recordWeightFieldName": "F2",</para><para>"targetFieldName": "F3",</para><para>"dataFormat": "CSV",</para><para>"dataFileContainsHeader": true,</para><para>"attributes": [</para><para>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC"
         /// }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType":
         /// "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6",
         /// "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" },
-        /// { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</para><para> "excludedVariableNames": [ "F6" ] } </para>
+        /// { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</para><para>"excludedVariableNames": [ "F6" ] }</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -179,11 +179,11 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// The <code>DataSchema</code> defines the structure of the observation data in the data
         /// file(s) referenced in the <code>DataSource</code>.</para><para>A <code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code>.</para><para>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code>
         /// and <code>excludedVariableNames</code> have an array of key-value pairs for their
-        /// value. Use the following format to define your <code>DataSchema</code>.</para><para>{ "version": "1.0",</para><para> "recordAnnotationFieldName": "F1",</para><para> "recordWeightFieldName": "F2",</para><para> "targetFieldName": "F3",</para><para> "dataFormat": "CSV",</para><para> "dataFileContainsHeader": true,</para><para> "attributes": [</para><para> { "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC"
+        /// value. Use the following format to define your <code>DataSchema</code>.</para><para>{ "version": "1.0",</para><para>"recordAnnotationFieldName": "F1",</para><para>"recordWeightFieldName": "F2",</para><para>"targetFieldName": "F3",</para><para>"dataFormat": "CSV",</para><para>"dataFileContainsHeader": true,</para><para>"attributes": [</para><para>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC"
         /// }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType":
         /// "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6",
         /// "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" },
-        /// { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</para><para> "excludedVariableNames": [ "F6" ] } </para>
+        /// { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</para><para>"excludedVariableNames": [ "F6" ] }</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,8 +249,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <summary>
         /// <para>
         /// <para>A fully specified role Amazon Resource Name (ARN). Amazon ML assumes the role on behalf
-        /// of the user to create the following: </para><para><ul><li><para>A security group to allow Amazon ML to execute the <code>SelectSqlQuery</code> query
-        /// on an Amazon Redshift cluster</para></li><li><para>An Amazon S3 bucket policy to grant Amazon ML read/write permissions on the <code>S3StagingLocation</code></para></li></ul></para>
+        /// of the user to create the following:</para><ul><li><para>A security group to allow Amazon ML to execute the <code>SelectSqlQuery</code> query
+        /// on an Amazon Redshift cluster</para></li><li><para>An Amazon S3 bucket policy to grant Amazon ML read/write permissions on the <code>S3StagingLocation</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

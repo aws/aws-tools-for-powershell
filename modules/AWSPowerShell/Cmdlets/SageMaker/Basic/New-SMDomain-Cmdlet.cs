@@ -104,7 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultUserSetting
         /// <summary>
         /// <para>
-        /// <para>The default user settings.</para>
+        /// <para>The default settings to use to create a user profile when <code>UserSettings</code>
+        /// isn't specified in the call to the <code>CreateUserProfile</code> API.</para><para><code>SecurityGroups</code> is aggregated when specified in both calls. For all other
+        /// settings in <code>UserSettings</code>, the values specified in <code>CreateUserProfile</code>
+        /// take precedence over those specified in <code>CreateDomain</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -169,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Tags to associated with the Domain. Each tag consists of a key and an optional value.
-        /// Tag keys must be unique per resource. Tags are searchable using the <a>Search</a>
+        /// Tag keys must be unique per resource. Tags are searchable using the <code>Search</code>
         /// API.</para>
         /// </para>
         /// </summary>

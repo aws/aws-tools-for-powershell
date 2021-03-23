@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the index to search. The identifier is returned in the response
-        /// from the operation.</para>
+        /// from the <code>CreateIndex</code> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

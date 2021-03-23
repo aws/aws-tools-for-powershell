@@ -28,12 +28,14 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Uploads a position update for one or more devices to a tracker resource. The data
-    /// is used for API queries requesting the device position and position history.
+    /// Uploads position update data for one or more devices to a tracker resource. Amazon
+    /// Location uses the data when reporting the last known device position and position
+    /// history.
     /// 
     ///  <note><para>
-    /// Limitation — Location data is sampled at a fixed rate of 1 position per 30 second
-    /// interval, and retained for 1 year before it is deleted.
+    /// Only one position update is stored per sample time. Location data is sampled at a
+    /// fixed rate of one position per 30-second interval, and retained for one year before
+    /// it is deleted.
     /// </para></note>
     /// </summary>
     [Cmdlet("Set", "LOCDevicePositionBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -82,6 +82,18 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String ReservedCacheNodesOfferingId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags to be added to this resource. A tag is a key-value pair. A tag key
+        /// must be accompanied by a tag value, although null is accepted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ElastiCache.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ReservedCacheNode'.
@@ -152,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 WriteWarning("You are passing $null as a value for parameter ReservedCacheNodesOfferingId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ElastiCache.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.ReservedCacheNodesOfferingId != null)
             {
                 request.ReservedCacheNodesOfferingId = cmdletContext.ReservedCacheNodesOfferingId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -244,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.Int32? CacheNodeCount { get; set; }
             public System.String ReservedCacheNodeId { get; set; }
             public System.String ReservedCacheNodesOfferingId { get; set; }
+            public List<Amazon.ElastiCache.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ElastiCache.Model.PurchaseReservedCacheNodesOfferingResponse, RequestECReservedCacheNodesOfferingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReservedCacheNode;
         }
