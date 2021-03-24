@@ -250,6 +250,9 @@ Set-Alias -Name Get-KINStreams -Value Get-KINStreamList
 Set-Alias -Name Get-LMEventSourceMappings -Value Get-LMEventSourceMappingList
 Set-Alias -Name Get-LMFunctions -Value Get-LMFunctionList
 
+# LexModelsV2
+Set-Alias -Name Build-LMBV2BotLocale -Value Invoke-LMBV2BuildBotLocale
+
 # MachineLearning
 Set-Alias -Name Add-MLTag -Value Add-MLResourceTag
 Set-Alias -Name Get-MLBatchPredictions -Value Get-MLBatchPredictionList

@@ -87,7 +87,6 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-LMBV2ResourceTag', 
-        'Build-LMBV2BotLocale', 
         'Get-LMBV2Bot', 
         'Get-LMBV2BotAlias', 
         'Get-LMBV2BotAliasList', 
@@ -105,6 +104,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LMBV2SlotList', 
         'Get-LMBV2SlotType', 
         'Get-LMBV2SlotTypeList', 
+        'Invoke-LMBV2BuildBotLocale', 
         'New-LMBV2Bot', 
         'New-LMBV2BotAlias', 
         'New-LMBV2BotLocale', 
@@ -131,7 +131,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     VariablesToExport = '*'
 
     # Aliases to export from this module
-    AliasesToExport = @()
+    AliasesToExport = @(
+        'Build-LMBV2BotLocale')
 
     # List of all modules packaged with this module
     ModuleList = @()

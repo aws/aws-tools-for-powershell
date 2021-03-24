@@ -12303,7 +12303,9 @@ Set-Alias -Name List-MOBLProjects -Value Get-MOBLProjectList
 Set-Alias -Name List-MOBLProjectList -Value Get-MOBLProjectList
 Set-Alias -Name MOBL-ListProjects -Value Get-MOBLProjectList
 Set-Alias -Name MOBL-UpdateProject -Value Update-MOBLProject
-Set-Alias -Name LMBV2-BuildBotLocale -Value Build-LMBV2BotLocale
+Set-Alias -Name Build-LMBV2BotLocale -Value Invoke-LMBV2BuildBotLocale
+Set-Alias -Name Build-LMBV2BuildBotLocale -Value Invoke-LMBV2BuildBotLocale
+Set-Alias -Name LMBV2-BuildBotLocale -Value Invoke-LMBV2BuildBotLocale
 Set-Alias -Name Create-LMBV2BotAlias -Value New-LMBV2BotAlias
 Set-Alias -Name LMBV2-CreateBotAlias -Value New-LMBV2BotAlias
 Set-Alias -Name Create-LMBV2Bot -Value New-LMBV2Bot

@@ -15,11 +15,13 @@
     <NounMappings />
     <Params />
     <CustomAliases />
-    <LegacyAliases />
+    <LegacyAliases >
+        <AliasSet Cmdlet="Invoke-LMBV2BuildBotLocale">Build-LMBV2BotLocale</AliasSet>
+    </LegacyAliases>
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BuildBotLocale" OutputProperty="*" Verb="Build" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BuildBotLocale" OutputProperty="*" Verb="Invoke" Noun="BuildBotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

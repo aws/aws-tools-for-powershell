@@ -248,7 +248,7 @@ $LMBV2_SelectCompleters = {
 }
 
 $LMBV2_SelectMap = @{
-    "Select"=@("Build-LMBV2BotLocale",
+    "Select"=@("Invoke-LMBV2BuildBotLocale",
                "New-LMBV2Bot",
                "New-LMBV2BotAlias",
                "New-LMBV2BotLocale",

@@ -32,13 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     /// built into multiple locales. At runtime the locale is used to choose a specific build
     /// of the bot.
     /// </summary>
-    [Cmdlet("Build", "LMBV2BotLocale", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Invoke", "LMBV2BuildBotLocale", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LexModelsV2.Model.BuildBotLocaleResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 BuildBotLocale API operation.", Operation = new[] {"BuildBotLocale"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.BuildBotLocaleResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.BuildBotLocaleResponse",
         "This cmdlet returns an Amazon.LexModelsV2.Model.BuildBotLocaleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class BuildLMBV2BotLocaleCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
+    public partial class InvokeLMBV2BuildBotLocaleCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
         #region Parameter BotId
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LocaleId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Build-LMBV2BotLocale (BuildBotLocale)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-LMBV2BuildBotLocale (BuildBotLocale)"))
             {
                 return;
             }
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.LexModelsV2.Model.BuildBotLocaleResponse, BuildLMBV2BotLocaleCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LexModelsV2.Model.BuildBotLocaleResponse, InvokeLMBV2BuildBotLocaleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String BotId { get; set; }
             public System.String BotVersion { get; set; }
             public System.String LocaleId { get; set; }
-            public System.Func<Amazon.LexModelsV2.Model.BuildBotLocaleResponse, BuildLMBV2BotLocaleCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.LexModelsV2.Model.BuildBotLocaleResponse, InvokeLMBV2BuildBotLocaleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         
