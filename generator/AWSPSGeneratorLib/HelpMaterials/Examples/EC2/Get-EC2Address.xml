@@ -61,4 +61,22 @@ i-012e3cb4df567e8aa eipassoc-0d1b2fa4d67d03810 eipalloc-0123f456f78a01b58 37.210
 i-0123bcf4b567890e1 eipassoc-01d2345f678903fb1 eipalloc-0e1db23cfef5c45c7 37.215.222.270</code>
     <description>This example retrieves all the Elastic IPs with its allocation id, association id and instance ids</description>
   </example>
+  <example>
+    <code>Get-EC2Address -Filter @{Name="tag:Category";Values="Prod"}
+
+AllocationId            : eipalloc-0123f456f81a01b58
+AssociationId           : eipassoc-0d1b23a456d103810
+CustomerOwnedIp         :
+CustomerOwnedIpv4Pool   :
+Domain                  : vpc
+InstanceId              : i-012e3cb4df567e1aa
+NetworkBorderGroup      : eu-west-1
+NetworkInterfaceId      : eni-0123f41d5a60d5f40
+NetworkInterfaceOwnerId : 123456789012
+PrivateIpAddress        : 192.168.1.84
+PublicIp                : 34.250.81.29
+PublicIpv4Pool          : amazon
+Tags                    : {Category, Name}</code>
+    <description>This example fetches list of EC2 IP addresses matching tag key 'Category' with value 'Prod'</description>
+  </example>
 </examples>
