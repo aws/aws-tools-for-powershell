@@ -1,9 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>$ldif = gc D:\Users\jvadaria\Downloads\ExtendedSchema.ldf -raw
+    <code>$ldif = Get-Content D:\Users\jvadaria\Downloads\ExtendedSchema.ldf -Raw
 Start-DSSchemaExtension -DirectoryId d-123456ijkl -CreateSnapshotBeforeSchemaExtension $true -Description ManagedADSchemaExtension -LdifContent $ldif
+
 e-9067306643</code>
     <description>This Example Applies a schema extension to a Microsoft AD directory.</description>
   </example>
