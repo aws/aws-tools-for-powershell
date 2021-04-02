@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>$ldif = Get-Content D:\Users\jvadaria\Downloads\ExtendedSchema.ldf -Raw
+    <code>$ldif = Get-Content D:\Users\Username\Downloads\ExtendedSchema.ldf -Raw
 Start-DSSchemaExtension -DirectoryId d-123456ijkl -CreateSnapshotBeforeSchemaExtension $true -Description ManagedADSchemaExtension -LdifContent $ldif
 
 e-9067306643</code>
