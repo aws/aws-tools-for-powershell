@@ -59,4 +59,12 @@ do {
 } while ($nextToken -ne $null)</code>
     <description>This example describes all your Auto Scaling groups, in batches of 10.</description>
   </example>
+  <example>
+    <code>PS C:\> (Get-ASAutoScalingGroup -AutoScalingGroupName my-ag-1).LaunchTemplate
+    
+LaunchTemplateId     LaunchTemplateName   Version
+----------------     ------------------   -------
+lt-06095fd619cb40371 test-launch-template $Default</code>
+    <description>This example describes LaunchTemplate for the specified Auto Scaling group. This example assumes that the "Instance purchase options" is set to "Adhere to launch template". In case this option is set to "Combine purchase options and instance types", LaunchTemplate could be accessed using "MixedInstancesPolicy.LaunchTemplate" property.</description>
+  </example>
 </examples>
