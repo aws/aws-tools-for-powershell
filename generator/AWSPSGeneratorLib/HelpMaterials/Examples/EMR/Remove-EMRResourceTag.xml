@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Remove-EMRResourceTag -ResourceId j-JAQJ6IM99WC0 -TagKey "Site"</code>
+    <description>This sample removes the tag for the given resource for the tag key "Site"</description>
+  </example>
+</examples>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-EMRInstanceGroupList -ClusterId j-JAQJ1IM23WC4 | Select-Object Id, InstanceGroupType, InstanceType, RunningInstanceCount
+
+Id               InstanceGroupType InstanceType RunningInstanceCount
+--               ----------------- ------------ --------------------
+ig-12RK73EBI4567 CORE              m4.xlarge                       1
+ig-ZTGH1FABEZMZ  MASTER            m4.xlarge                       1</code>
+    <description>This sample describes the given instance, showing selected properties in output.</description>
+  </example>
+</examples>

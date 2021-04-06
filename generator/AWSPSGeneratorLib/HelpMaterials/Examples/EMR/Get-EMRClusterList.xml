@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-EMRClusterList | Select-Object ClusterArn, @{n="Status";e={$_.Status.state}}, @{n="Reason";e={$_.Status.StateChangeReason.Code}}
+
+ClusterArn                                                              Status                 Reason
+----------                                                              ------                 ------
+arn:aws:elasticmapreduce:eu-west-1:123456789012:cluster/j-JAQJ1IM23WC4  WAITING
+arn:aws:elasticmapreduce:eu-west-1:123456789012:cluster/j-1PL2U34BH5YRD TERMINATED             USER_REQUEST
+arn:aws:elasticmapreduce:eu-west-1:123456789012:cluster/j-1DQRFNKCZH2BE TERMINATED_WITH_ERRORS VALIDATION_ERROR</code>
+    <description>This sample lists the EMR clusters and asserts their status with state-reason.</description>
+  </example>
+</examples>
