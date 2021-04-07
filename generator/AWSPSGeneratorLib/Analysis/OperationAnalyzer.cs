@@ -1500,6 +1500,10 @@ namespace AWSPowerShellGenerator.Analysis
             // remove "Resize" and "Optimize", as these are 3.0 verbs
             allVerbs.Remove("Resize");
             allVerbs.Remove("Optimize");
+            
+            // remove "Resize" and "Optimize", as these are 6.0 verbs and we are still supporting 5.1
+            allVerbs.Remove("Build");
+            allVerbs.Remove("Deploy");
 
             // Should we have an assert here for the number of verbs? If we change the reference 
             // and get more verbs, that should cause a quick break.
