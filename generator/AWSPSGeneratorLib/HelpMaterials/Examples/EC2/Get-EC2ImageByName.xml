@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2ImageByName
+    <code>Get-EC2ImageByName
     
 WINDOWS_2012R2_BASE
 WINDOWS_2012R2_SQL_SERVER_EXPRESS_2014
@@ -33,7 +33,7 @@ VPC_NAT</code>
     <description>This example describes the complete set of filter names that are currently supported.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2ImageByName -Names WINDOWS_2012R2_BASE
+    <code>Get-EC2ImageByName -Names WINDOWS_2012R2_BASE
     
 Architecture        : x86_64
 BlockDeviceMappings : {/dev/sda1, xvdca, xvdcb, xvdcc...}

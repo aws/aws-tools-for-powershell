@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>New-IAMGroup -GroupName Developers
+    <code>New-IAMGroup -GroupName Developers
 
 Arn        : arn:aws:iam::123456789012:group/Developers
 CreateDate : 4/14/2015 11:21:31 AM

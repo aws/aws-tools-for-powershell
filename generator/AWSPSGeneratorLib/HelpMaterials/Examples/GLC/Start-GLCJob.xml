@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\> Start-GLCJob -VaultName myvault -JobType "archive-retrieval" -JobDescription "archive retrieval" -ArchiveId "o9O9j...TX-TpIhQJw"
+Start-GLCJob -VaultName myvault -JobType "archive-retrieval" -JobDescription "archive retrieval" -ArchiveId "o9O9j...TX-TpIhQJw"
 
 JobId            JobOutputPath Location
 -----            ------------- --------

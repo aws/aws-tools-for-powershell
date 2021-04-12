@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-ASAutoScalingNotificationType
+    <code>Get-ASAutoScalingNotificationType
     
 autoscaling:EC2_INSTANCE_LAUNCH
 autoscaling:EC2_INSTANCE_LAUNCH_ERROR

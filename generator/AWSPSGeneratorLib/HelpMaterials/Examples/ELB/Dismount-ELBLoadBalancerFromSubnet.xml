@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Dismount-ELBLoadBalancerFromSubnet -LoadBalancerName my-load-balancer -Subnet subnet-12345678
+    <code>Dismount-ELBLoadBalancerFromSubnet -LoadBalancerName my-load-balancer -Subnet subnet-12345678
     
 subnet-87654321</code>
     <description>This example removes the specified subnet from the set of subnets configured for the specified load balancer. The output includes the remaining subnets.</description>

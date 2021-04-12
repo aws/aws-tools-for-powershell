@@ -3,7 +3,7 @@
   <example>
     <code>
 	
-PS C:\> New-FSXFileSystem -FileSystemType WINDOWS -StorageCapacity 300 -SubnetId subnet-1a2b3c4d5e6f -WindowsConfiguration @{ThroughputCapacity=8;ActiveDirectoryId='d-1a2b3c4d'}
+New-FSXFileSystem -FileSystemType WINDOWS -StorageCapacity 300 -SubnetId subnet-1a2b3c4d5e6f -WindowsConfiguration @{ThroughputCapacity=8;ActiveDirectoryId='d-1a2b3c4d'}
 
 CreationTime         : 12/10/2018 6:06:59 PM
 DNSName              : fs-abcdef01234567890.example.com

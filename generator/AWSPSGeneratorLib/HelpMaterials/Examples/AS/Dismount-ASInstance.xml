@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Dismount-ASInstance -InstanceId i-93633f9b -AutoScalingGroupName my-asg -ShouldDecrementDesiredCapacity $true
+    <code>Dismount-ASInstance -InstanceId i-93633f9b -AutoScalingGroupName my-asg -ShouldDecrementDesiredCapacity $true
 
 ActivityId           : 06733445-ce94-4039-be1b-b9f1866e276e
 AutoScalingGroupName : my-asg
@@ -17,7 +17,7 @@ StatusMessage        :</code>
   	<description>This example detaches the specified instance from the specified Auto Scaling group and decreases the desired capacity so that Auto Scaling does not launch a replacement instance.</description>
   </example>
   <example>
-    <code>PS C:\> Dismount-ASInstance -InstanceId i-7bf746a2 -AutoScalingGroupName my-asg -ShouldDecrementDesiredCapacity $false
+    <code>Dismount-ASInstance -InstanceId i-7bf746a2 -AutoScalingGroupName my-asg -ShouldDecrementDesiredCapacity $false
     
 ActivityId           : f43a3cd4-d38c-4af7-9fe0-d76ec2307b6d
 AutoScalingGroupName : my-asg

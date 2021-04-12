@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Get-IAMGroupPolicyList -GroupName Testers
+    <code>Get-IAMGroupPolicyList -GroupName Testers
 
 Deny-Assume-S3-Role-In-Production
 PowerUserAccess-Testers</code>

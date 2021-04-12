@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Send-EC2InstanceStatus -Instance i-12345678 -Status impaired -ReasonCode unresponsive</code>
+    <code>Send-EC2InstanceStatus -Instance i-12345678 -Status impaired -ReasonCode unresponsive</code>
     <description>This example reports status feedback for the specified instance.</description>
   </example>
 </examples>

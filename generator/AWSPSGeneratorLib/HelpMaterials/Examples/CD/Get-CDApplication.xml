@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-CDApplication -ApplicationName CodeDeployDemoApplication
+    <code>Get-CDApplication -ApplicationName CodeDeployDemoApplication
 
 ApplicationId                           ApplicationName              CreateTime              LinkedToGitHub
 -------------                           ---------------              ----------              --------------

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> New-EC2RouteTable -VpcId vpc-12345678
+    <code>New-EC2RouteTable -VpcId vpc-12345678
     
 Associations    : {}
 PropagatingVgws : {}

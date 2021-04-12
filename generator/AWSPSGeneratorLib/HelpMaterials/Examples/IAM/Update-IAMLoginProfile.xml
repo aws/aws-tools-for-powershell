@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Update-IAMLoginProfile -UserName Bob -Password "P@ssw0rd1234" -PasswordResetRequired $true</code>
+    <code>Update-IAMLoginProfile -UserName Bob -Password "P@ssw0rd1234" -PasswordResetRequired $true</code>
     <description>This example sets a new temporary password for the IAM user <code>Bob</code>, and requires the user to change the password the next time the user signs in.</description>
   </example>
 </examples>

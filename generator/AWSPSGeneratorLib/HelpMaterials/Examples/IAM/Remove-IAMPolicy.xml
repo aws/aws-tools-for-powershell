@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Remove-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy</code>
+    <code>Remove-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy</code>
     <description>This example deletes the policy whose ARN is <code>arn:aws:iam::123456789012:policy/MySamplePolicy</code>. Before you can delete the policy, you must first delete all versions except the default by running <code>Remove-IAMPolicyVersion</code>. You must also detach the policy from any IAM users, groups, or roles.</description>
   </example>
   <example>
-    <code>PS C:\>$pol = Get-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
-PS C:\>Get-IAMPolicyVersions -PolicyArn $pol.Arn | where {-not $_.IsDefaultVersion} | Remove-IAMPolicyVersion -PolicyArn $pol.Arn -force
-PS C:\>$attached = Get-IAMEntitiesForPolicy -PolicyArn $pol.Arn
-PS C:\>$attached.PolicyGroups | Unregister-IAMGroupPolicy -PolicyArn $pol.arn
-PS C:\>$attached.PolicyRoles | Unregister-IAMRolePolicy -PolicyArn $pol.arn
-PS C:\>$attached.PolicyUsers | Unregister-IAMUserPolicy -PolicyArn $pol.arn
-PS C:\>Remove-IAMPolicy $pol.Arn -Force</code>
+    <code>$pol = Get-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
+Get-IAMPolicyVersions -PolicyArn $pol.Arn | where {-not $_.IsDefaultVersion} | Remove-IAMPolicyVersion -PolicyArn $pol.Arn -force
+$attached = Get-IAMEntitiesForPolicy -PolicyArn $pol.Arn
+$attached.PolicyGroups | Unregister-IAMGroupPolicy -PolicyArn $pol.arn
+$attached.PolicyRoles | Unregister-IAMRolePolicy -PolicyArn $pol.arn
+$attached.PolicyUsers | Unregister-IAMUserPolicy -PolicyArn $pol.arn
+Remove-IAMPolicy $pol.Arn -Force</code>
     <description>This example deletes a policy by first deleting all the non-default policy versions, detaching it from all attached IAM entities, and finally deleting the policy itself. The first line retrieves the policy object. The second line retrieves all the policy versions that are not flagged as the default version into a collection and then deletes each policy in the collection. The third line retrieves all of the IAM users, groups, and roles to which the policy is attached. Lines four through six detach the policy from each attached entity. The last line uses this command to remove the managed policy as well as the remaining default version. The example includes the <code>-Force</code> switch parameter on any line that needs it to suppress prompts for confirmation.</description>
   </example>
 </examples>

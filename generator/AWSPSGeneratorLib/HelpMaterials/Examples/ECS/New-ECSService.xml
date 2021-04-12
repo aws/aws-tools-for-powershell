@@ -6,12 +6,12 @@
     </example>
     <example>
         <code>
-PS C:\>$lb = @{
+$lb = @{
     LoadBalancerName = "EC2Contai-EcsElast-S06278JGSJCM"
     ContainerName = "simple-demo"
     ContainerPort = 80
 }        
-PS C:\>New-ECSService -ServiceName ecs-simple-service -TaskDefinition ecs-demo -DesiredCount 10 -LoadBalancer $lb
+New-ECSService -ServiceName ecs-simple-service -TaskDefinition ecs-demo -DesiredCount 10 -LoadBalancer $lb
         </code>
         <description>This example command creates a service behind a load balancer in your default cluster called `ecs-simple-service`. The service uses the `ecs-demo` task definition and it maintains 10 instantiations of that task.</description>
     </example>

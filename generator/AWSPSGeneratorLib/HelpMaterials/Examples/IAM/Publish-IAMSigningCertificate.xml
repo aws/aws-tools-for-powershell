@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Publish-IAMSigningCertificate -UserName Bob -CertificateBody (Get-Content -Raw SampleSigningCert.pem)
+    <code>Publish-IAMSigningCertificate -UserName Bob -CertificateBody (Get-Content -Raw SampleSigningCert.pem)
 
 CertificateBody : -----BEGIN CERTIFICATE-----
                   MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMC

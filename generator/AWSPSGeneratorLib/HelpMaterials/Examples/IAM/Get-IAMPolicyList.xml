@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Get-IAMPolicyList -MaxItem 3
+    <code>Get-IAMPolicyList -MaxItem 3
 
 Arn              : arn:aws:iam::aws:policy/AWSDirectConnectReadOnlyAccess
 AttachmentCount  : 0
@@ -38,7 +38,7 @@ UpdateDate       : 2/11/2015 9:21:45 AM</code>
     <description>This example returns a collection of the first three managed policies available in the current AWS account. Because <code>-scope</code> is not specified, it defaults to <code>all</code> and includes both AWS managed and customer managed policies.</description>
   </example>
   <example>
-    <code>PS C:\>Get-IAMPolicyList -Scope local -MaxItem 2
+    <code>Get-IAMPolicyList -Scope local -MaxItem 2
 Arn              : arn:aws:iam::123456789012:policy/MyLocalPolicy
 AttachmentCount  : 0
 CreateDate       : 2/12/2015 9:39:09 AM

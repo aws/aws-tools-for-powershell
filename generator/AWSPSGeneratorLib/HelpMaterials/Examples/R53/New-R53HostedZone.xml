@@ -2,7 +2,7 @@
 <examples>
     <example>
         <code>
-PS C:\>$params = @{
+$params = @{
     Name="example.com"
     CallerReference="myUniqueIdentifier"
     HostedZoneConfig_Comment="This is my first hosted zone"
@@ -11,7 +11,7 @@ PS C:\>$params = @{
     VPC_VPCRegion="us-east-1"
 }
 
-PS C:\>New-R53HostedZone @params</code>
+New-R53HostedZone @params</code>
         <description>Creates a new hosted zone named 'example.com', associated with a reusable delegation set. Note that you must supply a value for the CallerReference parameter so that requests that need to be retried if necessary without the risk of executing the operation twice. Because the hosted zone is being created in a VPC it is automatically private and you should not set the -HostedZoneConfig_PrivateZone parameter.</description>
     </example>
 </examples>

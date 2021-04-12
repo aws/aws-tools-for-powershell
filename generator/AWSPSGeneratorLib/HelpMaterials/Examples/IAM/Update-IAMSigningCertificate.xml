@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Update-IAMSigningCertificate -CertificateId Y3EK7RMEXAMPLESV33FCREXAMPLEMJLU -UserName Bob -Status Inactive</code>
+    <code>Update-IAMSigningCertificate -CertificateId Y3EK7RMEXAMPLESV33FCREXAMPLEMJLU -UserName Bob -Status Inactive</code>
     <description>This example updates the certificate that is associated with the IAM user named <code>Bob</code> and whose certificate ID si <code>Y3EK7RMEXAMPLESV33FCREXAMPLEMJLU</code> to mark it as inactive.</description>
   </example>
 </examples>

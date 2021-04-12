@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
 	<example>
-		<code>PS C:\> Stop-EC2ImportTask -ImportTaskId import-ami-abcdefgh</code>
+		<code>Stop-EC2ImportTask -ImportTaskId import-ami-abcdefgh</code>
 		<description>This example cancels the specified import task (either snapshot or image import). If required, a reason can be providing using the <code>-CancelReason</code> parameter.</description>
 	</example>
 </examples>

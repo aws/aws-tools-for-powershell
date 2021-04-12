@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>$results = Get-IAMPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyManagedPolicy -VersionId v2
-PS C:\>$results
+    <code>$results = Get-IAMPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyManagedPolicy -VersionId v2
+$results
 
 CreateDate             Document                                        IsDefaultVersion     VersionId
 ----------             --------                                        ----------------     ---------
 2/12/2015 9:39:53 AM   %7B%0A%20%20%22Version%22%3A%20%222012-10...    True                 v2
 
-PS C:\>[System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
-PS C:\>$policy = [System.Web.HttpUtility]::UrlDecode($results.Document)
-PS C:\>$policy
+[System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
+$policy = [System.Web.HttpUtility]::UrlDecode($results.Document)
+$policy
 {
   "Version": "2012-10-17",
   "Statement": 

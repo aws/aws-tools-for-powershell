@@ -5,8 +5,8 @@
     <description>This example deletes the inline policy named <code>AccessToEC2Policy</code> that is embedded in the IAM user named <code>Bob</code>.</description>
   </example>
   <example>
-    <code>PS C:\>$inlinepols = Get-IAMUserPolicies -UserName Theresa
-PS C:\>foreach ($pol in $inlinepols) { Remove-IAMUserPolicy -PolicyName $pol -UserName Theresa -Force}</code>
+    <code>$inlinepols = Get-IAMUserPolicies -UserName Theresa
+foreach ($pol in $inlinepols) { Remove-IAMUserPolicy -PolicyName $pol -UserName Theresa -Force}</code>
     <description>This example finds all of the inline polices that are embedded in the IAM user named <code>Theresa</code> and then deletes them.</description>
   </example>
 </examples>

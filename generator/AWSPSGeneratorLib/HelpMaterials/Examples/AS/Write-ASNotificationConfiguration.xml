@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Write-ASNotificationConfiguration -AutoScalingGroupName my-asg -NotificationType "autoscaling:EC2_INSTANCE_LAUNCH" -TopicARN "arn:aws:sns:us-west-2:123456789012:my-topic"</code>
+    <code>Write-ASNotificationConfiguration -AutoScalingGroupName my-asg -NotificationType "autoscaling:EC2_INSTANCE_LAUNCH" -TopicARN "arn:aws:sns:us-west-2:123456789012:my-topic"</code>
     <description>This example configures the specified Auto Scaling group to send a notification to the specified SNS topic when it launches EC2 instances.</description>
   </example>
   <example>
-    <code>PS C:\> Write-ASNotificationConfiguration -AutoScalingGroupName my-asg -NotificationType @("autoscaling:EC2_INSTANCE_LAUNCH", "autoscaling:EC2_INSTANCE_TERMINATE") -TopicARN "arn:aws:sns:us-west-2:123456789012:my-topic"</code>
+    <code>Write-ASNotificationConfiguration -AutoScalingGroupName my-asg -NotificationType @("autoscaling:EC2_INSTANCE_LAUNCH", "autoscaling:EC2_INSTANCE_TERMINATE") -TopicARN "arn:aws:sns:us-west-2:123456789012:my-topic"</code>
     <description>This example configures the specified Auto Scaling group to send a notification to the specified SNS topic when it launches or terminates EC2 instances.</description>
   </example>
 </examples>

@@ -2,10 +2,10 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
     <example>
-        <code>PS C:\> $filter1 = @{Key="PRODUCT";Values=@("WindowsServer2012")}
-PS C:\> $filter2 = @{Key="MSRC_SEVERITY";Values=@("Critical")}
+        <code>$filter1 = @{Key="PRODUCT";Values=@("WindowsServer2012")}
+$filter2 = @{Key="MSRC_SEVERITY";Values=@("Critical")}
 
-PS C:\> Get-SSMAvailablePatch -Filter $filter1,$filter2
+Get-SSMAvailablePatch -Filter $filter1,$filter2
 
 Classification : SecurityUpdates
 ContentUrl     : https://support.microsoft.com/en-us/kb/2727528
@@ -26,14 +26,14 @@ Vendor         : Microsoft
         <description>This example gets all available patches for Windows Server 2012 that have a MSRC severity of Critical. The syntax used by this example requires PowerShell version 3 or later.</description>
     </example>
     <example>
-        <code>PS C:\> $filter1 = New-Object Amazon.SimpleSystemsManagement.Model.PatchOrchestratorFilter
-PS C:\> $filter1.Key = "PRODUCT"
-PS C:\> $filter1.Values = "WindowsServer2012"
-PS C:\> $filter2 = New-Object Amazon.SimpleSystemsManagement.Model.PatchOrchestratorFilter
-PS C:\> $filter2.Key = "MSRC_SEVERITY"
-PS C:\> $filter2.Values = "Critical"
+        <code>$filter1 = New-Object Amazon.SimpleSystemsManagement.Model.PatchOrchestratorFilter
+$filter1.Key = "PRODUCT"
+$filter1.Values = "WindowsServer2012"
+$filter2 = New-Object Amazon.SimpleSystemsManagement.Model.PatchOrchestratorFilter
+$filter2.Key = "MSRC_SEVERITY"
+$filter2.Values = "Critical"
 
-PS C:\> Get-SSMAvailablePatch -Filter $filter1,$filter2</code>
+Get-SSMAvailablePatch -Filter $filter1,$filter2</code>
         <description>With PowerShell version 2, you must use New-Object to create each filter.</description>
     </example>
   <example>

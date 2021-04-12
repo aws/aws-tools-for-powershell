@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Reset-EC2SnapshotAttribute -SnapshotId snap-12345678 -Attribute CreateVolumePermission</code>
+    <code>Reset-EC2SnapshotAttribute -SnapshotId snap-12345678 -Attribute CreateVolumePermission</code>
     <description>This example resets the specified attribute of the specified snapshot.</description>
   </example>
 </examples>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>New-IAMOpenIDConnectProvider -Url https://example.oidcprovider.com -ClientIDList my-testapp-1 -ThumbprintList 990F419EXAMPLEECF12DDEDA5EXAMPLE52F20D9E 
+    <code>New-IAMOpenIDConnectProvider -Url https://example.oidcprovider.com -ClientIDList my-testapp-1 -ThumbprintList 990F419EXAMPLEECF12DDEDA5EXAMPLE52F20D9E 
 arn:aws:iam::123456789012:oidc-provider/example.oidcprovider.com</code>
     <description>This example creates an IAM OIDC provider associated with the OIDC compatible provider service found at the URL <code>https://example.oidcprovider.com</code> and the client ID <code>my-testapp-1</code>. The OIDC provider supplies the thumbprint. To authenticate the thumbprint, follow the steps at <url>http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html</url>.</description>
   </example>

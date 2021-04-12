@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> New-EC2Address -Domain Vpc
+    <code>New-EC2Address -Domain Vpc
     
 AllocationId         Domain      PublicIp
 ------------         ------      --------
@@ -10,7 +10,7 @@ eipalloc-12345678    vpc         198.51.100.2
     <description>This example allocates an Elastic IP address to use with an instance in a VPC.</description>
   </example>
   <example>
-    <code>PS C:\> New-EC2Address
+    <code>New-EC2Address
     
 AllocationId         Domain      PublicIp
 ------------         ------      --------

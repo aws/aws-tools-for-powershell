@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Update-IAMSAMLProvider -SAMLProviderArn arn:aws:iam::123456789012:saml-provider/SAMLADFS -SAMLMetadataDocument (Get-Content -Raw SAMLMetaData.xml)</code>
+    <code>Update-IAMSAMLProvider -SAMLProviderArn arn:aws:iam::123456789012:saml-provider/SAMLADFS -SAMLMetadataDocument (Get-Content -Raw SAMLMetaData.xml)</code>
     <description>This example updates the SAML provider in IAM whose ARN is <code>arn:aws:iam::123456789012:saml-provider/SAMLADFS</code> with a new SAML metadata document from the file <code>SAMLMetaData.xml</code>. Note that you must use the <code>-Raw</code> switch parameter to successfully process the contents of the JSON file.</description>
   </example>
 </examples>

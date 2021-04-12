@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Edit-EC2VolumeAttribute -VolumeId vol-12345678 -AutoEnableIO $true</code>
+    <code>Edit-EC2VolumeAttribute -VolumeId vol-12345678 -AutoEnableIO $true</code>
     <description>This example modifies the specified attribute of the specified volume. I/O operations for the volume are automatically resumed after being suspended due to potentially inconsistent data.</description>
   </example>
 </examples>

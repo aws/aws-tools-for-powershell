@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Remove-ASPolicy -AutoScalingGroupName my-asg -PolicyName myScaleInPolicy
+    <code>Remove-ASPolicy -AutoScalingGroupName my-asg -PolicyName myScaleInPolicy
 
 Confirm
 Are you sure you want to perform this action?
@@ -10,7 +10,7 @@ Performing operation "Remove-ASPolicy (DeletePolicy)" on Target "myScaleInPolicy
     <description>This example deletes the specified policy for the specified Auto Scaling group. You are prompted for confirmation before the operation proceeds.</description>
   </example>
   <example>
-    <code>PS C:\>Remove-ASPolicy -AutoScalingGroupName my-asg -PolicyName myScaleInPolicy -Force
+    <code>Remove-ASPolicy -AutoScalingGroupName my-asg -PolicyName myScaleInPolicy -Force
     </code>
     <description>If you specify the Force parameter, you are not prompted for confirmation before the operation proceeds.</description>
   </example>

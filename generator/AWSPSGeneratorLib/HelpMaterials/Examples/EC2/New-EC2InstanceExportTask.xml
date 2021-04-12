@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> New-EC2InstanceExportTask -InstanceId i-0800b00a00EXAMPLE -ExportToS3Task_DiskImageFormat VHD -ExportToS3Task_S3Bucket "testbucket-export-instances-2019" -TargetEnvironment Microsoft -Region us-east-1
+    <code>New-EC2InstanceExportTask -InstanceId i-0800b00a00EXAMPLE -ExportToS3Task_DiskImageFormat VHD -ExportToS3Task_S3Bucket "testbucket-export-instances-2019" -TargetEnvironment Microsoft -Region us-east-1
 
 Description           : 
 ExportTaskId          : export-i-077c73108aEXAMPLE

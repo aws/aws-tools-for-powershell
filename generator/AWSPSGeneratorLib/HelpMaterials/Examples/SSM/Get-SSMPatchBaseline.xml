@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMPatchBaseline
+        <code>Get-SSMPatchBaseline
 
 BaselineDescription                                             BaselineId                                                            BaselineName
 -------------------                                             ----------                                                            ------------
@@ -11,23 +11,23 @@ Baseline containing all updates approved for production systems pb-0a2f1059b670e
         <description>This example lists all patch baselines.</description>
     </example>
 	<example>
-        <code>PS C:\> $filter1 = @{Key="OWNER";Values=@("AWS")}
+        <code>$filter1 = @{Key="OWNER";Values=@("AWS")}
 
-PS C:\> Get-SSMPatchBaseline -Filter $filter1</code>
+Get-SSMPatchBaseline -Filter $filter1</code>
         <description>This example lists all patch baselines provided by AWS. The syntax used by this example requires PowerShell version 3 or later.</description>
     </example>
 	<example>
-        <code>PS C:\> $filter1 = @{Key="OWNER";Values=@("Self")}
+        <code>$filter1 = @{Key="OWNER";Values=@("Self")}
 		
-PS C:\> Get-SSMPatchBaseline -Filter $filter1</code>
+Get-SSMPatchBaseline -Filter $filter1</code>
         <description>This example lists all patch baselines with you as the owner. The syntax used by this example requires PowerShell version 3 or later.</description>
     </example>
     <example>
-        <code>PS C:\> $filter1 = New-Object Amazon.SimpleSystemsManagement.Model.PatchOrchestratorFilter
-PS C:\> $filter1.Key = "OWNER"
-PS C:\> $filter1.Values = "AWS"
+        <code>$filter1 = New-Object Amazon.SimpleSystemsManagement.Model.PatchOrchestratorFilter
+$filter1.Key = "OWNER"
+$filter1.Values = "AWS"
 
-PS C:\> Get-SSMPatchBaseline -Filter $filter1
+Get-SSMPatchBaseline -Filter $filter1
 
 BaselineDescription                     BaselineId                                                            BaselineName             DefaultBaselin
                                                                                                                                        e

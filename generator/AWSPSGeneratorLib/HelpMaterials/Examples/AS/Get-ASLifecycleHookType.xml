@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-ASLifecycleHookType
+    <code>Get-ASLifecycleHookType
     
 autoscaling:EC2_INSTANCE_LAUNCHING
 autoscaling:EC2_INSTANCE_TERMINATING</code>

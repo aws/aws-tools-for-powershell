@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\> Get-RGTTagValue -Key "stage" -Region us-west-2
+Get-RGTTagValue -Key "stage" -Region us-west-2
 beta
     </code>
     <description>Returns the value for the specified tag in a region. If the -Region parameter is not specified the cmdlet will attempt to infer the region from the default shell region or EC2 instance metadata.</description>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> New-EC2VpnGateway -Type ipsec.1
+    <code>New-EC2VpnGateway -Type ipsec.1
     
 AvailabilityZone :
 State            : available

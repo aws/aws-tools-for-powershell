@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\> Get-EC2InstanceMetadata -ListCategory
+Get-EC2InstanceMetadata -ListCategory
 
 AmiId
 LaunchIndex
@@ -33,7 +33,7 @@ IdentityPkcs7
   </example>
   <example>
     <code>
-PS C:\> Get-EC2InstanceMetadata -Category AmiId
+Get-EC2InstanceMetadata -Category AmiId
 
 ami-b2e756ca
     </code>
@@ -41,7 +41,7 @@ ami-b2e756ca
   </example>
   <example>
     <code>
-PS C:\> Get-EC2InstanceMetadata -Category IdentityDocument
+Get-EC2InstanceMetadata -Category IdentityDocument
 {
   "availabilityZone" : "us-west-2a",
   "devpayProductCodes" : null,
@@ -64,7 +64,7 @@ PS C:\> Get-EC2InstanceMetadata -Category IdentityDocument
   </example>
   <example>
     <code>
-PS C:\> Get-EC2InstanceMetadata -Path "/network/interfaces/macs"
+Get-EC2InstanceMetadata -Path "/network/interfaces/macs"
 
 02:80:7f:ef:4c:e0/
     </code>
@@ -72,7 +72,7 @@ PS C:\> Get-EC2InstanceMetadata -Path "/network/interfaces/macs"
   </example>
   <example>
     <code>
-PS C:\> Get-EC2InstanceMetadata -Path "/iam/info"
+Get-EC2InstanceMetadata -Path "/iam/info"
 
 {
   "Code" : "Success",

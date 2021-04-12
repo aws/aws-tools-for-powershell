@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2SnapshotAttribute -SnapshotId snap-12345678 -Attribute ProductCodes
+    <code>Get-EC2SnapshotAttribute -SnapshotId snap-12345678 -Attribute ProductCodes
     
 CreateVolumePermissions    ProductCodes    SnapshotId
 -----------------------    ------------    ----------
@@ -9,7 +9,7 @@ CreateVolumePermissions    ProductCodes    SnapshotId
     <description>This example describes the specified attribute of the specified snapshot.</description>
   </example>
   <example>
-    <code>PS C:\> (Get-EC2SnapshotAttribute -SnapshotId snap-12345678 -Attribute CreateVolumePermission).CreateVolumePermissions
+    <code>(Get-EC2SnapshotAttribute -SnapshotId snap-12345678 -Attribute CreateVolumePermission).CreateVolumePermissions
     
 Group    UserId
 -----    ------

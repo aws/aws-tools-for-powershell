@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Get-IAMUserList
+    <code>Get-IAMUserList
 
       Arn              : arn:aws:iam::123456789012:user/Administrator
       CreateDate       : 10/16/2014 9:03:09 AM

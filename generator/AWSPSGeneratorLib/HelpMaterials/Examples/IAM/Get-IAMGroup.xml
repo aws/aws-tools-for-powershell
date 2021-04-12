@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>$results = Get-IAMGroup -GroupName "Testers"
-PS C:\>$results
+    <code>$results = Get-IAMGroup -GroupName "Testers"
+$results
 
 Group                                     IsTruncated           Marker                Users
 -----                                     -----------           ------                -----
 Amazon.IdentityManagement.Model.Group     False                                       {Theresa, David}
 
-PS C:\>$results.Group
+$results.Group
 
 Arn        : arn:aws:iam::123456789012:group/Testers
 CreateDate : 12/10/2014 3:39:11 PM
@@ -16,7 +16,7 @@ GroupId    : 3RHNZZGQJ7QHMAEXAMPLE1
 GroupName  : Testers
 Path       : /
 
-PS C:\>$results.Users
+$results.Users
 
 Arn              : arn:aws:iam::123456789012:user/Theresa
 CreateDate       : 12/10/2014 3:39:27 PM

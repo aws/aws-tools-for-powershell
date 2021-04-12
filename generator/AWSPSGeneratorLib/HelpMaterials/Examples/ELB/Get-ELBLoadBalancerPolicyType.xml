@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-ELBLoadBalancerPolicyType
+    <code>Get-ELBLoadBalancerPolicyType
 
 Description                             PolicyAttributeTypeDescriptions         PolicyTypeName
 -----------                             -------------------------------         --------------
@@ -14,7 +14,7 @@ Policy that controls whether to incl... {ProxyProtocol}                         
     <description>This example gets the policy types supported by Elastic Load Balancing.</description>
   </example>
   <example>
-    <code> PS C:\> Get-ELBLoadBalancerPolicyType -PolicyTypeName ProxyProtocolPolicyType
+    <code> Get-ELBLoadBalancerPolicyType -PolicyTypeName ProxyProtocolPolicyType
     
 Description                             PolicyAttributeTypeDescriptions         PolicyTypeName
 -----------                             -------------------------------         --------------
@@ -22,7 +22,7 @@ Policy that controls whether to incl... {ProxyProtocol}                         
     <description>This example describes the specified policy type.</description>
   </example>
   <example>
-    <code>PS C:\> (Get-ELBLoadBalancerPolicyType -PolicyTypeName).Description
+    <code>(Get-ELBLoadBalancerPolicyType -PolicyTypeName).Description
     
 Policy that controls whether to include the IP address and port of the originating request for TCP messages. 
 This policy operates on TCP/SSL listeners only</code>

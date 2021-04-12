@@ -2,13 +2,13 @@
 <examples>
   <example>
     <code>
-PS C:\> $params = @{
+$params = @{
 	"ResourceUri"="http://xyz.cloudfront.net/image1.jpeg"
 	"KeyPairId"="AKIAIOSFODNN7EXAMPLE"
 	"PrivateKeyFile"="C:\pk-AKIAIOSFODNN7EXAMPLE.pem"
 	"ExpiresOn"=(Get-Date).AddYears(1)
 }
-PS C:\> New-CFSignedCookie @params
+New-CFSignedCookie @params
 
 Expires
 -------
@@ -18,8 +18,8 @@ Expires
   </example>
   <example>
     <code>
-PS C:\> $start = (Get-Date).AddHours(24)
-PS C:\> $params = @{
+$start = (Get-Date).AddHours(24)
+$params = @{
 	"ResourceUri"="http://xyz.cloudfront.net/content/*.jpeg"
 	"KeyPairId"="AKIAIOSFODNN7EXAMPLE"
 	"PrivateKeyFile"="C:\pk-AKIAIOSFODNN7EXAMPLE.pem"
@@ -27,7 +27,7 @@ PS C:\> $params = @{
     "ActiveFrom"=$start
 }
 
-PS C:\> New-CFSignedCookie @params
+New-CFSignedCookie @params
 	
 Policy
 ------
@@ -37,8 +37,8 @@ Policy
   </example>
   <example>
     <code>
-PS C:\> $start = (Get-Date).AddHours(24)
-PS C:\> $params = @{
+$start = (Get-Date).AddHours(24)
+$params = @{
 	"ResourceUri"="http://xyz.cloudfront.net/content/*.jpeg"
 	"KeyPairId"="AKIAIOSFODNN7EXAMPLE"
 	"PrivateKeyFile"="C:\pk-AKIAIOSFODNN7EXAMPLE.pem"
@@ -47,7 +47,7 @@ PS C:\> $params = @{
 	"IpRange"="192.0.2.0/24"
 }
 
-PS C:\> New-CFSignedCookie @params
+New-CFSignedCookie @params
 	
 Policy                                                                                                                                         ------                                                                                                                                         [CloudFront-Policy, eyJTd...wIjo...
 	</code>

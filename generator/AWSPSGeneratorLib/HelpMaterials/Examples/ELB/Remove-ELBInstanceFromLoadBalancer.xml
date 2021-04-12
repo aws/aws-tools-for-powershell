@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Remove-ELBInstanceFromLoadBalancer -LoadBalancerName my-load-balancer -Instance i-12345678
+    <code>Remove-ELBInstanceFromLoadBalancer -LoadBalancerName my-load-balancer -Instance i-12345678
     
 Confirm
 Are you sure you want to perform this action?

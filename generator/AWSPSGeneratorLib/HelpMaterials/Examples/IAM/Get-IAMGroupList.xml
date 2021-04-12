@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Get-IAMGroupList
+    <code>Get-IAMGroupList
 
 Arn        : arn:aws:iam::123456789012:group/Administrators
 CreateDate : 10/20/2014 10:06:24 AM

@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\>New-DDBTableSchema
+New-DDBTableSchema
 
 AttributeSchema                             KeySchema                                   LocalSecondaryIndexSchema
 ---------------                             ---------                                   -------------------------

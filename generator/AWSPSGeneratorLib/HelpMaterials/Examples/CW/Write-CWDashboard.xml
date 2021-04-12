@@ -2,7 +2,7 @@
 <examples>
     <example>
         <code>
-PS C:\> $dashBody = @"
+$dashBody = @"
 {
     "widgets":[
         {
@@ -51,7 +51,7 @@ PS C:\> $dashBody = @"
 }
 "@
 
-PS C:\> Write-CWDashboard -DashboardName Dashboard1 -DashboardBody $dashBody
+Write-CWDashboard -DashboardName Dashboard1 -DashboardBody $dashBody
         </code>
         <description>Creates or updates the dashboard named 'Dashboard1' to include two metric widgets side by side.</description>
     </example>

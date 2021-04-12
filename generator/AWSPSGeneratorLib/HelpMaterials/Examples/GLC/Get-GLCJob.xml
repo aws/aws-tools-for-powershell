@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\> Get-GLCJob -VaultName myvault -JobId "op1x...JSbthM"
+Get-GLCJob -VaultName myvault -JobId "op1x...JSbthM"
 
 
 Action                       : ArchiveRetrieval

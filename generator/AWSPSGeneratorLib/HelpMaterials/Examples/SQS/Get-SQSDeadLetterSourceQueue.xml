@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-SQSDeadLetterSourceQueue -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue
+    <code>Get-SQSDeadLetterSourceQueue -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue
 	
 https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
 https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyOtherQueue</code>

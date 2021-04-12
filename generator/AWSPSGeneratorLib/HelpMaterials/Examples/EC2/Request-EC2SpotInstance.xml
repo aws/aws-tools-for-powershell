@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> $n = New-Object Amazon.EC2.Model.InstanceNetworkInterfaceSpecification
-PS C:\> $n.DeviceIndex = 0
-PS C:\> $n.SubnetId = "subnet-12345678"
-PS C:\> $n.Groups.Add("sg-12345678")
-PS C:\> Request-EC2SpotInstance -InstanceCount 1 -SpotPrice 0.050 -Type one-time `
+    <code>$n = New-Object Amazon.EC2.Model.InstanceNetworkInterfaceSpecification
+$n.DeviceIndex = 0
+$n.SubnetId = "subnet-12345678"
+$n.Groups.Add("sg-12345678")
+Request-EC2SpotInstance -InstanceCount 1 -SpotPrice 0.050 -Type one-time `
 -IamInstanceProfile_Arn arn:aws:iam::123456789012:instance-profile/my-iam-role `
 -LaunchSpecification_ImageId ami-12345678 `
 -LaunchSpecification_InstanceType m3.medium `

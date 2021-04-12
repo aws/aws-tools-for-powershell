@@ -2,7 +2,7 @@
 <examples>
     <example>
         <code>
-PS C:\> Get-PLSAttributeValue -ServiceCode AmazonEC2 -AttributeName "volumeType" -region us-east-1
+Get-PLSAttributeValue -ServiceCode AmazonEC2 -AttributeName "volumeType" -region us-east-1
     
 Value
 -----

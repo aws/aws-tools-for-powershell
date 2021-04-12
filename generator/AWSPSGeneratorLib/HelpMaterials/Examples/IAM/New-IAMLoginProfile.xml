@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>New-IAMLoginProfile -UserName Bob -Password P@ssw0rd -PasswordResetRequired $true
+    <code>New-IAMLoginProfile -UserName Bob -Password P@ssw0rd -PasswordResetRequired $true
 
 CreateDate                    PasswordResetRequired                UserName
 ----------                    ---------------------                --------

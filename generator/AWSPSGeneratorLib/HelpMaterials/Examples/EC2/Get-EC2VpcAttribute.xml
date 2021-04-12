@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2VpcAttribute -VpcId vpc-12345678 -Attribute enableDnsSupport
+    <code>Get-EC2VpcAttribute -VpcId vpc-12345678 -Attribute enableDnsSupport
     
 EnableDnsSupport
 ----------------
@@ -9,7 +9,7 @@ True</code>
     <description>This example describes the 'enableDnsSupport' attribute.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2VpcAttribute -VpcId vpc-12345678 -Attribute enableDnsHostnames
+    <code>Get-EC2VpcAttribute -VpcId vpc-12345678 -Attribute enableDnsHostnames
     
 EnableDnsHostnames
 ------------------

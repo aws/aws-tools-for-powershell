@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>New-CCRepository -RepositoryName MyDemoRepo -RepositoryDescription "This is a repository for demonstration purposes."
+    <code>New-CCRepository -RepositoryName MyDemoRepo -RepositoryDescription "This is a repository for demonstration purposes."
 
 AccountId             : 80398EXAMPLE
 Arn                   : arn:aws:codecommit:us-east-1:80398EXAMPLE:MyDemoRepo

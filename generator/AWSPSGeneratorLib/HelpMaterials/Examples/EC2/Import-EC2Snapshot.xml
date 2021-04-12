@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
 	<example>
-		<code>PS C:\> $parms = @{
+		<code>$parms = @{
     "ClientToken"="idempotencyToken"
     "Description"="Disk Image Import"
     "DiskContainer_Description" = "Data disk"
@@ -10,7 +10,7 @@
     "DiskContainer_S3Key" = "datadiskimage.vmdk"
 }
 
-PS C:\> Import-EC2Snapshot @parms 
+Import-EC2Snapshot @parms 
 
 Description            ImportTaskId               SnapshotTaskDetail                                                          
 -----------------      --------------------       ------------------                                                          

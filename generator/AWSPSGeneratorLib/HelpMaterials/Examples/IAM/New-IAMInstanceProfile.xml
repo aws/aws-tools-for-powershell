@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>New-IAMInstanceProfile -InstanceProfileName ProfileForDevEC2Instance
+    <code>New-IAMInstanceProfile -InstanceProfileName ProfileForDevEC2Instance
       
 Arn                 : arn:aws:iam::123456789012:instance-profile/ProfileForDevEC2Instance
 CreateDate          : 4/14/2015 11:31:39 AM

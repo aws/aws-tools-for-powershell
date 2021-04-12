@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Complete-ASLifecycleAction -LifecycleHookName myLifecycleHook -AutoScalingGroupName my-asg -LifecycleActionResult CONTINUE -LifecycleActionToken bcd2f1b8-9a78-44d3-8a7a-4dd07d7cf635</code>
+    <code>Complete-ASLifecycleAction -LifecycleHookName myLifecycleHook -AutoScalingGroupName my-asg -LifecycleActionResult CONTINUE -LifecycleActionToken bcd2f1b8-9a78-44d3-8a7a-4dd07d7cf635</code>
     <description>This example completes the specified lifecycle action.</description>
   </example>
 </examples>

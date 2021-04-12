@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> $filter1 = @{Key="InstanceId";Value=@("i-0000293ffd8c57862")}
-PS C:\> Get-SSMAssociationList -AssociationFilterList $filter1
+        <code>$filter1 = @{Key="InstanceId";Value=@("i-0000293ffd8c57862")}
+Get-SSMAssociationList -AssociationFilterList $filter1
 
 AssociationId      : d8617c07-2079-4c18-9847-1655fc2698b0
 DocumentVersion    :
@@ -15,8 +15,8 @@ Targets            : {InstanceIds}</code>
         <description>This example lists all the associations for an instance. The syntax used by this example requires PowerShell version 3 or later.</description>
     </example>
 	    <example>
-        <code>PS C:\> $filter2 = @{Key="Name";Value=@("AWS-UpdateSSMAgent")}
-PS C:\> Get-SSMAssociationList -AssociationFilterList $filter2
+        <code>$filter2 = @{Key="Name";Value=@("AWS-UpdateSSMAgent")}
+Get-SSMAssociationList -AssociationFilterList $filter2
 
 AssociationId      : d8617c07-2079-4c18-9847-1655fc2698b0
 DocumentVersion    :
@@ -29,11 +29,11 @@ Targets            : {InstanceIds}</code>
         <description>This example lists all associations for a configuration document. The syntax used by this example requires PowerShell version 3 or later.</description>
     </example>
 	    <example>
-        <code>PS C:\> $filter1 = New-Object Amazon.SimpleSystemsManagement.Model.AssociationFilter
-PS C:\> $filter1.Key = "InstanceId"
-PS C:\> $filter1.Value = "i-0000293ffd8c57862"
+        <code>$filter1 = New-Object Amazon.SimpleSystemsManagement.Model.AssociationFilter
+$filter1.Key = "InstanceId"
+$filter1.Value = "i-0000293ffd8c57862"
 
-PS C:\> Get-SSMAssociationList -AssociationFilterList $filter1
+Get-SSMAssociationList -AssociationFilterList $filter1
 
 AssociationId      : d8617c07-2079-4c18-9847-1655fc2698b0
 DocumentVersion    :

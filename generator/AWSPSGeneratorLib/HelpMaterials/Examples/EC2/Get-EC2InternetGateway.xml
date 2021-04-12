@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Get-EC2InternetGateway -InternetGatewayId igw-1a2b3c4d
+    <code>Get-EC2InternetGateway -InternetGatewayId igw-1a2b3c4d
 
 Attachments       InternetGatewayId     Tags
 -----------       -----------------     ----
@@ -9,7 +9,7 @@ Attachments       InternetGatewayId     Tags
     <description>This example describes the specified Internet gateway.</description>
   </example>
   <example>
-    <code>PS C:\>Get-EC2InternetGateway
+    <code>Get-EC2InternetGateway
 
 Attachments       InternetGatewayId     Tags
 -----------       -----------------     ----

@@ -2,7 +2,7 @@
 <examples>
     <example>
         <code>
-PS C:\> Get-KINStream -StreamName "mystream"
+Get-KINStream -StreamName "mystream"
 
 HasMoreShards        : False
 RetentionPeriodHours : 24

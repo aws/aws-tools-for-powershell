@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMAssociation -InstanceId "i-0000293ffd8c57862" -Name "AWS-UpdateSSMAgent"
+        <code>Get-SSMAssociation -InstanceId "i-0000293ffd8c57862" -Name "AWS-UpdateSSMAgent"
 
 Name                  : AWS-UpdateSSMAgent
 InstanceId            : i-0000293ffd8c57862

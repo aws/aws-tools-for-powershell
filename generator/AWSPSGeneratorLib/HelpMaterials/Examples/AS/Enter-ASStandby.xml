@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Enter-ASStandby -InstanceId i-93633f9b -AutoScalingGroupName my-asg -ShouldDecrementDesiredCapacity $true
+    <code>Enter-ASStandby -InstanceId i-93633f9b -AutoScalingGroupName my-asg -ShouldDecrementDesiredCapacity $true
     
 ActivityId           : e36a5a54-ced6-4df8-bd19-708e2a59a649
 AutoScalingGroupName : my-asg
@@ -17,7 +17,7 @@ StatusMessage        :</code>
   	<description>This example puts the specified instance into standby mode and decreases the desired capacity so that Auto Scaling does not launch a replacement instance.</description>
   </example>
   <example>
-    <code>PS C:\> Enter-ASStandby -InstanceId i-93633f9b -AutoScalingGroupName my-asg -ShouldDecrementDesiredCapacity $false
+    <code>Enter-ASStandby -InstanceId i-93633f9b -AutoScalingGroupName my-asg -ShouldDecrementDesiredCapacity $false
     
 ActivityId           : e36a5a54-ced6-4df8-bd19-708e2a59a649
 AutoScalingGroupName : my-asg

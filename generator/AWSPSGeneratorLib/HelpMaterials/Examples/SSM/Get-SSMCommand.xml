@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
     <example>
-        <code>PS C:\> Get-SSMCommand
+        <code>Get-SSMCommand
 
 CommandId          : 4b75a163-d39a-4d97-87c9-98ae52c6be35
 Comment            : Apply association with id at update time: 4cc73e42-d5ae-4879-84f8-57e09c0efcd0
@@ -27,7 +27,7 @@ Targets            : {}</code>
         <description>This example lists all commands requested.</description>
     </example>
     <example>
-    <code>PS C:\> Get-SSMCommand -CommandId "4b75a163-d39a-4d97-87c9-98ae52c6be35"</code>
+    <code>Get-SSMCommand -CommandId "4b75a163-d39a-4d97-87c9-98ae52c6be35"</code>
     <description>This example gets the status of a specific command.</description>
     </example>
   <example>

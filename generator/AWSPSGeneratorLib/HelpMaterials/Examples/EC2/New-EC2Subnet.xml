@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> New-EC2Subnet -VpcId vpc-12345678 -CidrBlock 10.0.0.0/24
+    <code>New-EC2Subnet -VpcId vpc-12345678 -CidrBlock 10.0.0.0/24
 
 AvailabilityZone        : us-west-2c
 AvailableIpAddressCount : 251

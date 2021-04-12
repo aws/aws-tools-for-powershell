@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-ASAutoScalingGroup | format-table -property AutoScalingGroupName
+    <code>Get-ASAutoScalingGroup | format-table -property AutoScalingGroupName
 
 AutoScalingGroupName
 --------------------
@@ -14,7 +14,7 @@ my-asg-6</code>
     <description>This example lists the names of your Auto Scaling groups.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASAutoScalingGroup -AutoScalingGroupName my-asg-1
+    <code>Get-ASAutoScalingGroup -AutoScalingGroupName my-asg-1
     
 AutoScalingGroupARN     : arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:930d940e-891e-4781-a11a-7b0acd480
                           f03:autoScalingGroupName/my-asg-1
@@ -40,15 +40,15 @@ VPCZoneIdentifier       : subnet-e4f33493,subnet-5264e837</code>
     <description>This example describes the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASAutoScalingGroup -AutoScalingGroupName @("my-asg-1", "my-asg-2")</code>
+    <code>Get-ASAutoScalingGroup -AutoScalingGroupName @("my-asg-1", "my-asg-2")</code>
     <description>This example describes the specified two Auto Scaling groups.</description>
   </example>
   <example>
-    <code>PS C:\> (Get-ASAutoScalingGroup -AutoScalingGroupName my-asg-1).Instances</code>
+    <code>(Get-ASAutoScalingGroup -AutoScalingGroupName my-asg-1).Instances</code>
     <description>This example describes the Auto Scaling instances for the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASAutoScalingGroup</code>
+    <code>Get-ASAutoScalingGroup</code>
     <description>This example describes all your Auto Scaling groups.</description>
   </example>
   <example>
@@ -60,7 +60,7 @@ do {
     <description>This example describes all your Auto Scaling groups, in batches of 10.</description>
   </example>
   <example>
-    <code>PS C:\> (Get-ASAutoScalingGroup -AutoScalingGroupName my-ag-1).LaunchTemplate
+    <code>(Get-ASAutoScalingGroup -AutoScalingGroupName my-ag-1).LaunchTemplate
     
 LaunchTemplateId     LaunchTemplateName   Version
 ----------------     ------------------   -------

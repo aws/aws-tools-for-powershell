@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Edit-ELBLoadBalancerAttribute -LoadBalancerName my-load-balancer -CrossZoneLoadBalancing_Enabled $true</code>
+    <code>Edit-ELBLoadBalancerAttribute -LoadBalancerName my-load-balancer -CrossZoneLoadBalancing_Enabled $true</code>
     <description>This example enables cross-zone load balancing for the specified load balancer.</description>
   </example>
   <example>
-    <code>PS C:\> Edit-ELBLoadBalancerAttribute -LoadBalancerName my-load-balancer -ConnectionDraining_Enabled $false</code>
+    <code>Edit-ELBLoadBalancerAttribute -LoadBalancerName my-load-balancer -ConnectionDraining_Enabled $false</code>
     <description>This example disables connection draining for the specified load balancer.</description>
   </example>
   <example>
-    <code>PS C:\> Edit-ELBLoadBalancerAttribute -LoadBalancerName my-load-balancer `
+    <code>Edit-ELBLoadBalancerAttribute -LoadBalancerName my-load-balancer `
 >> -AccessLog_Enabled $true `
 >> -AccessLog_S3BucketName my-logs-bucket `
 >> -AccessLog_S3BucketPrefix my-app/prod `

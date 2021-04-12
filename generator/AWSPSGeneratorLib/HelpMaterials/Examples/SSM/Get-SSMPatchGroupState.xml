@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMPatchGroupState -PatchGroup "Production"
+        <code>Get-SSMPatchGroupState -PatchGroup "Production"
 
 Instances                          : 4
 InstancesWithFailedPatches         : 1

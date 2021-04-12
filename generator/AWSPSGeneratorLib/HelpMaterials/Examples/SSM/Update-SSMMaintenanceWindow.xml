@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Name "My-Renamed-MW"
+        <code>Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Name "My-Renamed-MW"
 
 AllowUnassociatedTargets : False
 Cutoff                   : 1
@@ -13,7 +13,7 @@ WindowId                 : mw-03eb9db42890fb82d</code>
         <description>This example updates the name of a maintenance window.</description>
     </example>
 	    <example>
-        <code>PS C:\> Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Enabled $true
+        <code>Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Enabled $true
 
 AllowUnassociatedTargets : False
 Cutoff                   : 1
@@ -25,7 +25,7 @@ WindowId                 : mw-03eb9db42890fb82d</code>
         <description>This example enables a maintenance window.</description>
     </example>
 	    <example>
-        <code>PS C:\> Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Enabled $false
+        <code>Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Enabled $false
 
 AllowUnassociatedTargets : False
 Cutoff                   : 1

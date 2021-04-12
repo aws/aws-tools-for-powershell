@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-      <code>PS C:\> Confirm-CPJob -JobId f570dc12-5ef3-44bc-945a-6e133EXAMPLE -Nonce 3
+      <code>Confirm-CPJob -JobId f570dc12-5ef3-44bc-945a-6e133EXAMPLE -Nonce 3
 
 Value
 -----

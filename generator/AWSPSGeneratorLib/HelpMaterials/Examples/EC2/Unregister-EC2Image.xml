@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Unregister-EC2Image -ImageId ami-12345678</code>
+    <code>Unregister-EC2Image -ImageId ami-12345678</code>
     <description>This example deregisters the specified AMI.</description>
   </example>
 </examples>

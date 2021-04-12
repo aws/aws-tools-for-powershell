@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-ASLaunchConfiguration | format-table -property LaunchConfigurationName
+    <code>Get-ASLaunchConfiguration | format-table -property LaunchConfigurationName
 
 LaunchConfigurationName
 -----------------------
@@ -13,7 +13,7 @@ my-lc-5</code>
     <description>This example lists the names of your launch configurations.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASLaunchConfiguration -LaunchConfigurationName my-lc-1
+    <code>Get-ASLaunchConfiguration -LaunchConfigurationName my-lc-1
     
 AssociatePublicIpAddress     : True
 BlockDeviceMappings          : {/dev/xvda}
@@ -38,11 +38,11 @@ UserData                     :</code>
     <description>This example describes the specified launch configuration.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASLaunchConfiguration -LaunchConfigurationName @("my-lc-1", "my-lc-2")</code>
+    <code>Get-ASLaunchConfiguration -LaunchConfigurationName @("my-lc-1", "my-lc-2")</code>
     <description>This example describes the specified two launch configurations.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASLaunchConfiguration</code>
+    <code>Get-ASLaunchConfiguration</code>
     <description>This example describes all your launch configurations.</description>
   </example>
   <example>

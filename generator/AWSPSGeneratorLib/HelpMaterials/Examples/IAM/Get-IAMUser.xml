@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Get-IAMUser -UserName David
+    <code>Get-IAMUser -UserName David
       
 Arn              : arn:aws:iam::123456789012:user/David
 CreateDate       : 12/10/2014 3:39:27 PM
@@ -12,7 +12,7 @@ UserName         : David</code>
     <description>This example retrieves details about the user named <code>David</code>.</description>
   </example>
   <example>
-    <code>PS C:\>Get-IAMUser
+    <code>Get-IAMUser
       
 Arn              : arn:aws:iam::123456789012:user/Bob
 CreateDate       : 10/16/2014 9:03:09 AM

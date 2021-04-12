@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Get-IAMAccountAlias
+    <code>Get-IAMAccountAlias
 
 ExampleCo</code>
     <description>This command returns the account alias for the AWS account.</description>

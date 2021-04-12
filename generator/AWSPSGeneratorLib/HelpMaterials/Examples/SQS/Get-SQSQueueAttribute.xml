@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-SQSQueueAttribute -AttributeName All -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
+    <code>Get-SQSQueueAttribute -AttributeName All -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
 	
 VisibilityTimeout                     : 30
 DelaySeconds                          : 0
@@ -23,7 +23,7 @@ Attributes                            : {[QueueArn, arn:aws:sqs:us-east-1:80398E
     <description>This example lists all attributes for the specified queue.</description>
   </example>
   <example>
-    <code>PS C:\> Get-SQSQueueAttribute -AttributeName MaximumMessageSize, VisibilityTimeout -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue 
+    <code>Get-SQSQueueAttribute -AttributeName MaximumMessageSize, VisibilityTimeout -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue 
 	
 VisibilityTimeout                     : 30
 DelaySeconds                          : 0

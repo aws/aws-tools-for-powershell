@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-CDDeploymentConfig -DeploymentConfigName ThreeQuartersHealthy
+    <code>Get-CDDeploymentConfig -DeploymentConfigName ThreeQuartersHealthy
 
 CreateTime              DeploymentConfigId                      DeploymentConfigName    MinimumHealthyHosts
 ----------              ------------------                      --------------------    -------------------
@@ -9,7 +9,7 @@ CreateTime              DeploymentConfigId                      DeploymentConfig
 	<description>This example gets summary information about the specified deployment configuration.</description>
   </example>
   <example>
-    <code>PS C:\> Write-Output ((Get-CDDeploymentConfig -DeploymentConfigName ThreeQuartersHealthy).MinimumHealthyHosts)
+    <code>Write-Output ((Get-CDDeploymentConfig -DeploymentConfigName ThreeQuartersHealthy).MinimumHealthyHosts)
 
 Type             Value
 ----             -----

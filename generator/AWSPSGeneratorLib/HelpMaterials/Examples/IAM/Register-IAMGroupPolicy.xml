@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Register-IAMGroupPolicy -GroupName Testers -PolicyArn arn:aws:iam::123456789012:policy/TesterPolicy</code>
+    <code>Register-IAMGroupPolicy -GroupName Testers -PolicyArn arn:aws:iam::123456789012:policy/TesterPolicy</code>
     <description>This example attaches the customer managed policy named <code>TesterPolicy</code> to the IAM group <code>Testers</code>. The users in that group are immediately affected by the permissions defined in the <b>default</b> version of that policy.</description>
   </example>
   <example>
-    <code>PS C:\>Register-IAMGroupPolicy -GroupName Admins -PolicyArn arn:aws:iam::aws:policy/AdministratorAccess</code>
+    <code>Register-IAMGroupPolicy -GroupName Admins -PolicyArn arn:aws:iam::aws:policy/AdministratorAccess</code>
     <description>This example attaches the AWS managed policy named <code>AdministratorAccess</code> to the IAM group <code>Admins</code>. The users in that group are immediately affected by the permissions defined in the <b>latest</b> version of that policy.</description>
   </example>
 </examples>

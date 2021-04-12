@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\>Get-STSSessionToken
+Get-STSSessionToken
 
 AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
 -----------                             ----------                              ---------------                        ------------
@@ -12,7 +12,7 @@ EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    
   </example>
   <example>
     <code>
-PS C:\>Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile
+Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile
 
 AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
 -----------                             ----------                              ---------------                        ------------
@@ -22,7 +22,7 @@ EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    
   </example>
   <example>
     <code>
-PS C:\>Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile -SerialNumber YourMFADeviceSerialNumber -TokenCode 123456
+Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile -SerialNumber YourMFADeviceSerialNumber -TokenCode 123456
 
 AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
 -----------                             ----------                              ---------------                        ------------

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Write-IAMRolePolicy -RoleName FedTesterRole -PolicyName FedTesterRolePolicy -PolicyDocument (Get-Content -Raw FedTesterPolicy.json)</code>
+    <code>Write-IAMRolePolicy -RoleName FedTesterRole -PolicyName FedTesterRolePolicy -PolicyDocument (Get-Content -Raw FedTesterPolicy.json)</code>
     <description>This example creates an inline policy named <code>FedTesterRolePolicy</code> and embeds it in the IAM role <code>FedTesterRole</code>. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes from the file <code>FedTesterPolicy.json</code>. Note that you must use the <code>-Raw</code> parameter to successfully process the content of the JSON file.</description>
   </example>
 </examples>

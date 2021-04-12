@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-CDDeploymentBatch -DeploymentId d-QZMRGSTEX, d-RR0T5KTEX
+    <code>Get-CDDeploymentBatch -DeploymentId d-QZMRGSTEX, d-RR0T5KTEX
 
 ApplicationName               : CodeDeployDemoApplication
 CompleteTime                  : 7/23/2015 11:26:04 PM

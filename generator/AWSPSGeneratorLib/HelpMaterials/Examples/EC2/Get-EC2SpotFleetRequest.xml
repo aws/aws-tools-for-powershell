@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2SpotFleetRequest -SpotFleetRequestId sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE | format-list
+    <code>Get-EC2SpotFleetRequest -SpotFleetRequestId sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE | format-list
     
 ConfigData            : Amazon.EC2.Model.SpotFleetRequestConfigData
 CreateTime            : 12/26/2015 8:23:33 AM
@@ -10,7 +10,7 @@ SpotFleetRequestState : active</code>
     <description>This example describes the specified Spot fleet request.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2SpotFleetRequest</code>
+    <code>Get-EC2SpotFleetRequest</code>
     <description>This example describes all your Spot fleet requests.</description>
   </example>
 </examples>

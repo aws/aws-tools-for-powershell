@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Join-ELBSecurityGroupToLoadBalancer -LoadBalancerName my-load-balancer -SecurityGroup sg-87654321
+    <code>Join-ELBSecurityGroupToLoadBalancer -LoadBalancerName my-load-balancer -SecurityGroup sg-87654321
     
 sg-87654321</code>
     <description>This example replaces the current security group for the specified load balancer with the specified security group.</description>
   </example>
   <example>
-    <code>PS C:\> Join-ELBSecurityGroupToLoadBalancer -LoadBalancerName my-load-balancer -SecurityGroup @("sg-12345678", "sg-87654321")
+    <code>Join-ELBSecurityGroupToLoadBalancer -LoadBalancerName my-load-balancer -SecurityGroup @("sg-12345678", "sg-87654321")
 
 sg-12345678
 sg-87654321</code>

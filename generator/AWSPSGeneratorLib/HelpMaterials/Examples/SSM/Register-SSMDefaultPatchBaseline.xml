@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Register-SSMDefaultPatchBaseline -BaselineId "pb-03da896ca3b68b639"
+        <code>Register-SSMDefaultPatchBaseline -BaselineId "pb-03da896ca3b68b639"
 		
 pb-03da896ca3b68b639</code>
         <description>This example registers a patch baseline as the default patch baseline.</description>

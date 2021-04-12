@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2Image -ImageId ami-12345678
+    <code>Get-EC2Image -ImageId ami-12345678
     
 Architecture        : x86_64
 BlockDeviceMappings : {/dev/xvda}
@@ -29,15 +29,15 @@ VirtualizationType  : hvm</code>
     <description>This example describes the specified AMI.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2Image -owner self</code>
+    <code>Get-EC2Image -owner self</code>
     <description>This example describes the AMIs that you own.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2Image -Filter @{ Name="platform"; Values="windows" }</code>
+    <code>Get-EC2Image -Filter @{ Name="platform"; Values="windows" }</code>
     <description>This example describes the public AMIs that run Microsoft Windows Server.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2Image -Region us-west-2</code>
+    <code>Get-EC2Image -Region us-west-2</code>
     <description>This example describes all public AMIs in the 'us-west-2' region.</description>
   </example>
 </examples>

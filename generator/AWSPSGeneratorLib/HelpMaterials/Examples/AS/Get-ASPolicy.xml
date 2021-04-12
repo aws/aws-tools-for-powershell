@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-ASPolicy -AutoScalingGroupName my-asg
+    <code>Get-ASPolicy -AutoScalingGroupName my-asg
     
 AdjustmentType          : ChangeInCapacity
 Alarms                  : {}
@@ -20,11 +20,11 @@ StepAdjustments         : {}</code>
     <description>This example describes all policies for the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASPolicy -AutoScalingGroupName my-asg -PolicyName @("myScaleOutPolicy", "myScaleInPolicy")</code>
+    <code>Get-ASPolicy -AutoScalingGroupName my-asg -PolicyName @("myScaleOutPolicy", "myScaleInPolicy")</code>
     <description>This example describes the specified policies for the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASPolicy</code>
+    <code>Get-ASPolicy</code>
     <description>This example describes all policies for all your Auto Scaling groups.</description>
   </example>
 </examples>

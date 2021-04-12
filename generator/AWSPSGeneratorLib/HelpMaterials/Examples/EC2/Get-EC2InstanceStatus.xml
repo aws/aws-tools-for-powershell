@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2InstanceStatus -InstanceId i-12345678
+    <code>Get-EC2InstanceStatus -InstanceId i-12345678
     
 AvailabilityZone : us-west-2a
 Events           : {}
@@ -10,20 +10,20 @@ InstanceState    : Amazon.EC2.Model.InstanceState
 Status           : Amazon.EC2.Model.InstanceStatusSummary
 SystemStatus     : Amazon.EC2.Model.InstanceStatusSummary
 
-PS C:\> $status = Get-EC2InstanceStatus -InstanceId i-12345678
-PS C:\> $status.InstanceState
+$status = Get-EC2InstanceStatus -InstanceId i-12345678
+$status.InstanceState
 
 Code    Name
 ----    ----
 16      running
 
-PS C:\> $status.Status
+$status.Status
 
 Details           Status
 -------           ------
 {reachability}    ok
 
-PS C:\> $status.SystemStatus
+$status.SystemStatus
 
 Details           Status
 -------           ------

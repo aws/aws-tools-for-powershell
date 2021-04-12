@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2ScheduledInstance -ScheduledInstanceId sci-1234-1234-1234-1234-123456789012
+    <code>Get-EC2ScheduledInstance -ScheduledInstanceId sci-1234-1234-1234-1234-123456789012
     
 AvailabilityZone            : us-west-2b
 CreateDate                  : 1/25/2016 1:43:38 PM
@@ -21,7 +21,7 @@ TotalScheduledInstanceHours : 1696</code>
     <description>This example describes the specified Scheduled Instance.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2ScheduledInstance</code>
+    <code>Get-EC2ScheduledInstance</code>
     <description>This example describes all your Scheduled Instances.</description>
   </example>
 </examples>

@@ -2,7 +2,7 @@
 <examples>
     <example>
         <code>
-PS C:\> Get-WKSWorkspace
+Get-WKSWorkspace
 
 BundleId                    : wsb-1a2b3c4d
 ComputerName                :
@@ -23,7 +23,7 @@ WorkspaceProperties         : Amazon.WorkSpaces.Model.WorkspaceProperties
     </example>
     <example>
         <code>
-        PS C:\> (Get-WKSWorkspace -Region us-west-2 -WorkSpaceId ws-xdaf7hc9s).WorkspaceProperties
+        (Get-WKSWorkspace -Region us-west-2 -WorkSpaceId ws-xdaf7hc9s).WorkspaceProperties
         
         ComputeTypeName                     : STANDARD
         RootVolumeSizeGib                   : 80
@@ -35,7 +35,7 @@ WorkspaceProperties         : Amazon.WorkSpaces.Model.WorkspaceProperties
     </example>
     <example>
         <code>
-        PS C:\> (Get-WKSWorkspace -Region us-west-2 -WorkSpaceId ws-xdaf7hc9s).WorkspaceProperties.RootVolumeSizeGib
+        (Get-WKSWorkspace -Region us-west-2 -WorkSpaceId ws-xdaf7hc9s).WorkspaceProperties.RootVolumeSizeGib
         
         80
         </code>

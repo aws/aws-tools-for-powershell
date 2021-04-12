@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-ELBLoadBalancer | format-table -property LoadBalancerName
+    <code>Get-ELBLoadBalancer | format-table -property LoadBalancerName
     
 LoadBalancerName
 ----------------
@@ -11,7 +11,7 @@ my-internal-load-balancer</code>
     <description>This example lists the names of your load balancers.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ELBLoadBalancer -LoadBalancerName my-load-balancer
+    <code>Get-ELBLoadBalancer -LoadBalancerName my-load-balancer
     
 AvailabilityZones         : {us-west-2a, us-west-2b}
 BackendServerDescriptions : {Amazon.ElasticLoadBalancing.Model.BackendServerDescription}
@@ -32,11 +32,11 @@ VPCId                     : vpc-a01106c2</code>
     <description>This example describes the specified load balancer.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ELBLoadBalancer</code>
+    <code>Get-ELBLoadBalancer</code>
     <description>This example describes all your load balancers in the current AWS region.</description>
   </example>
   <example>
-    <code>PS C:\> Get-AWSRegion | % { Get-ELBLoadBalancer -Region $_ }</code>
+    <code>Get-AWSRegion | % { Get-ELBLoadBalancer -Region $_ }</code>
     <description>This example describes all your load balancers across all available AWS regions.</description>
   </example>
 </examples>

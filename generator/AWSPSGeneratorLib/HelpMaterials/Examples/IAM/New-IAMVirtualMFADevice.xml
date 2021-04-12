@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>$Device = New-IAMVirtualMFADevice -VirtualMFADeviceName BobsMFADevice
-PS C:\>$SR = New-Object System.IO.StreamReader($Device.Base32StringSeed)
-PS C:\>$base32stringseed = $SR.ReadToEnd()
-PS C:\>$base32stringseed   
+    <code>$Device = New-IAMVirtualMFADevice -VirtualMFADeviceName BobsMFADevice
+$SR = New-Object System.IO.StreamReader($Device.Base32StringSeed)
+$base32stringseed = $SR.ReadToEnd()
+$base32stringseed   
 CZWZMCQNW4DEXAMPLE3VOUGXJFZYSUW7EXAMPLECR4NJFD65GX2SLUDW2EXAMPLE
 
 -- Pause here to enter base-32 string seed code into virtual MFA program to register account. --
 
-PS C:\>Enable-IAMMFADevice -SerialNumber $Device.SerialNumber -UserName Bob -AuthenticationCode1 123456 -AuthenticationCode2 789012</code>
+Enable-IAMMFADevice -SerialNumber $Device.SerialNumber -UserName Bob -AuthenticationCode1 123456 -AuthenticationCode2 789012</code>
     <description>This example creates a new virtual MFA device. Lines 2 and 3 extract the <code>Base32StringSeed</code> value that the virtual MFA software program needs to create an account (as an alternative to the QR code). After you configure the program with the value, get two sequential authentication codes from the program. Finally, use the last command to link the virtual MFA device to the IAM user <code>Bob</code> and synchronize the account with the two authentication codes.</description>
   </example>
   <example>
-    <code>PS C:\>$Device = New-IAMVirtualMFADevice -VirtualMFADeviceName BobsMFADevice
-PS C:\>$BR = New-Object System.IO.BinaryReader($Device.QRCodePNG)
-PS C:\>$BR.ReadBytes($BR.BaseStream.Length) | Set-Content -Encoding Byte -Path QRCode.png
+    <code>$Device = New-IAMVirtualMFADevice -VirtualMFADeviceName BobsMFADevice
+$BR = New-Object System.IO.BinaryReader($Device.QRCodePNG)
+$BR.ReadBytes($BR.BaseStream.Length) | Set-Content -Encoding Byte -Path QRCode.png
 
  -- Pause here to scan PNG with virtual MFA program to register account. -- 
 
-PS C:\>Enable-IAMMFADevice -SerialNumber $Device.SerialNumber -UserName Bob -AuthenticationCode1 123456 -AuthenticationCode2 789012</code>
+Enable-IAMMFADevice -SerialNumber $Device.SerialNumber -UserName Bob -AuthenticationCode1 123456 -AuthenticationCode2 789012</code>
     <description>This example creates a new virtual MFA device. Lines 2 and 3 extract the <code>QRCodePNG</code> value and write it to a file. This image can be scanned by the virtual MFA software program to create an account (as an alternative to manually entering the Base32StringSeed value). After you create the account in your virtual MFA program, get two sequential authentication codes and enter them in the last commands to link the virtual MFA device to the IAM user <code>Bob</code> and synchronize the account.</description>
   </example>
 </examples>

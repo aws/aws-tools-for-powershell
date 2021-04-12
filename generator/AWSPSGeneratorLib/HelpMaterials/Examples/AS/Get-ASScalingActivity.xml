@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-ASScalingActivity -AutoScalingGroupName my-asg
+    <code>Get-ASScalingActivity -AutoScalingGroupName my-asg
     
 ActivityId           : 063308ae-aa22-4a9b-94f4-9fae4EXAMPLE
 AutoScalingGroupName : my-asg
@@ -31,11 +31,11 @@ StatusMessage        :</code>
     <description>This example describes the scaling activities for the last six weeks for the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASScalingActivity -ActivityId "063308ae-aa22-4a9b-94f4-9fae4EXAMPLE"</code>
+    <code>Get-ASScalingActivity -ActivityId "063308ae-aa22-4a9b-94f4-9fae4EXAMPLE"</code>
     <description>This example describes the specified scaling activity.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASScalingActivity</code>
+    <code>Get-ASScalingActivity</code>
     <description>This example describes the scaling activities for the last six weeks for all your Auto Scaling groups.</description>
   </example>
 </examples>

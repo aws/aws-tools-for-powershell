@@ -2,7 +2,7 @@
 <examples>
   <example>
 	<code>
-PS C:\> Get-EC2ConsoleOutput -InstanceId i-0e19abcd47c123456
+Get-EC2ConsoleOutput -InstanceId i-0e19abcd47c123456
  
 InstanceId          Output
 ----------          ------
@@ -12,8 +12,8 @@ i-0e194d3c47c123637 WyAgICAwLjAwMDAwMF0gQ29tbW...bGU9dHR5UzAgc2Vs
   </example>
   <example>
 	<code>
-PS C:\> $Output_encoded = (Get-EC2ConsoleOutput -InstanceId i-0e19abcd47c123456).Output
-PS C:\> [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Output_encoded))
+$Output_encoded = (Get-EC2ConsoleOutput -InstanceId i-0e19abcd47c123456).Output
+[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Output_encoded))
 	</code>
 	<description>This example stores the encoded console output in a variable and then decodes it.</description>
   </example>

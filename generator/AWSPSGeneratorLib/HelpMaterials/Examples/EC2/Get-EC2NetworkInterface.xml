@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2NetworkInterface -NetworkInterfaceId eni-12345678
+    <code>Get-EC2NetworkInterface -NetworkInterfaceId eni-12345678
     
 Association        :
 Attachment         : Amazon.EC2.Model.NetworkInterfaceAttachment
@@ -24,7 +24,7 @@ VpcId              : vpc-12345678</code>
     <description>This example describes the specified network interface.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2NetworkInterface</code>
+    <code>Get-EC2NetworkInterface</code>
     <description>This example describes all your network interfaces.</description>
   </example>
 </examples>

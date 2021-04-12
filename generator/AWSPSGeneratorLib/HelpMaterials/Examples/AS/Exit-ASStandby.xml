@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Exit-ASStandby -InstanceId i-93633f9b -AutoScalingGroupName my-asg
+    <code>Exit-ASStandby -InstanceId i-93633f9b -AutoScalingGroupName my-asg
     
 ActivityId           : 1833d3e8-e32f-454e-b731-0670ad4c6934
 AutoScalingGroupName : my-asg

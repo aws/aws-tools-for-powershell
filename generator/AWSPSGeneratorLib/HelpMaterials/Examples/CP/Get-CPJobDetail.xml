@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-      <code>PS C:\> Get-CPJobDetail -JobId f570dc12-5ef3-44bc-945a-6e133EXAMPLE
+      <code>Get-CPJobDetail -JobId f570dc12-5ef3-44bc-945a-6e133EXAMPLE
 
 AccountId       Data                                 Id
 ---------       ----                                 --

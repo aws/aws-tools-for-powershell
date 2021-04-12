@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>New-IAMAccountAlias -AccountAlias mycompanyaws</code>
+    <code>New-IAMAccountAlias -AccountAlias mycompanyaws</code>
     <description>This example changes the account alias for your AWS account to <code>mycompanyaws</code>. The address of the user logon page chages to https://<b>mycompanyaws</b>.signin.aws.amazon.com/console. The original URL using your account ID number instead of the alias (https://<b>&lt;accountidnumber&gt;</b>.signin.aws.amazon.com/console) continues to work. However, any previously defined alias-based URLs stop working.</description>
   </example>
 </examples>

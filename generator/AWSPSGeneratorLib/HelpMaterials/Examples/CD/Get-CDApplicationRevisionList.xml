@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> ForEach ($revision in (Get-CDApplicationRevisionList -ApplicationName CodeDeployDemoApplication -Deployed Ignore)) {
+    <code>ForEach ($revision in (Get-CDApplicationRevisionList -ApplicationName CodeDeployDemoApplication -Deployed Ignore)) {
 >>   If ($revision.RevisionType -Eq "S3") {
 >>     Write-Output ("Type = S3, Bucket = " + $revision.S3Location.Bucket + ", BundleType = " + $revision.S3Location.BundleType + ", ETag = " + $revision.S3Location.ETag + ", Key = " + $revision.S3Location.Key)
 >>   }

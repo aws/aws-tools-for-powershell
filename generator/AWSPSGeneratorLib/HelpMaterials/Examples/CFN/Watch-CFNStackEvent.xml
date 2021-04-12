@@ -2,7 +2,7 @@
 <examples>
     <example>
         <code>
-PS C:\> Watch-CFNStackEvent -StackName MyStack 
+Watch-CFNStackEvent -StackName MyStack 
 
 ClientRequestToken   :
 EventId              : RootRole-CREATE_IN_PROGRESS-2017-05-31T22:32:39.313Z

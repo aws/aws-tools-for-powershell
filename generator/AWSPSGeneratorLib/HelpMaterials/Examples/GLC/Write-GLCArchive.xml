@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\> Write-GLCArchive -VaultName myvault -FilePath c:\temp\blue.bin
+Write-GLCArchive -VaultName myvault -FilePath c:\temp\blue.bin
 
 FilePath                    ArchiveId              Checksum
 --------                    ---------              --------
@@ -12,7 +12,7 @@ C:\temp\blue.bin            o9O9jUUs...TTX-TpIhQJw 79f3e...f4395b
   </example>
   <example>
     <code>
-PS C:\> Write-GLCArchive -VaultName myvault -FolderPath . -Recurse
+Write-GLCArchive -VaultName myvault -FolderPath . -Recurse
 
 FilePath                    ArchiveId              Checksum
 --------                    ---------              --------

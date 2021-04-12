@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Remove-IAMSAMLProvider -SAMLProviderArn arn:aws:iam::123456789012:saml-provider/SAMLADFSProvider</code>
+    <code>Remove-IAMSAMLProvider -SAMLProviderArn arn:aws:iam::123456789012:saml-provider/SAMLADFSProvider</code>
     <description>This example deletes the IAM SAML 2.0 provider whose ARN is <code>arn:aws:iam::123456789012:saml-provider/SAMLADFSProvider</code>.</description>
   </example>
 </examples>

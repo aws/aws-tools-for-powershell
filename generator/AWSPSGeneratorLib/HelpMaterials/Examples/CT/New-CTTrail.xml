@@ -6,13 +6,13 @@
   </example>
   <example>
     <code>
-PS C:\>$params = @{
+$params = @{
     Name="awscloudtrail-example"
     S3BucketName="mycloudtrailbucket"
     S3KeyPrefix="mylogs"
     SnsTopicName="mlog-deliverytopic"
 }      
-PS C:\>New-CTTrail @params
+New-CTTrail @params
     </code>
     <description>Creates a trail that will use the bucket 'mycloudtrailbucket' for log file storage. The S3 objects representing the logs will have a common key prefix of 'mylogs'. When new logs are delivered to the bucket a notification will be sent to the SNS topic 'mlog-deliverytopic'. This example using splatting to supply the parameter values to the cmdlet.</description>
   </example>

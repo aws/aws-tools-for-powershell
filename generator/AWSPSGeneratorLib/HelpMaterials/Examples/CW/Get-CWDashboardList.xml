@@ -2,7 +2,7 @@
 <examples>
     <example>
         <code>
-PS C:\> Get-CWDashboardList
+Get-CWDashboardList
 
 DashboardArn DashboardName LastModified        Size
 ------------ ------------- ------------        ----

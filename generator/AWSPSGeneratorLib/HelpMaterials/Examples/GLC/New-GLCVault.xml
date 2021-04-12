@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\> New-GLCVault -VaultName myvault
+New-GLCVault -VaultName myvault
 
 /01234567812/vaults/myvault
     </code>

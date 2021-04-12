@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Stop-ASInstanceInAutoScalingGroup -InstanceId i-93633f9b -ShouldDecrementDesiredCapacity $true
+    <code>Stop-ASInstanceInAutoScalingGroup -InstanceId i-93633f9b -ShouldDecrementDesiredCapacity $true
     
 ActivityId           : 2e40d9bd-1902-444c-abf3-6ea0002efdc5
 AutoScalingGroupName :
@@ -18,7 +18,7 @@ StatusMessage        :
     <description>This example terminates the specified instance and decreases the desired capacity of its Auto Scaling group so that Auto Scaling does not launch a replacement instance.</description>
   </example>
   <example>
-    <code>PS C:\> Stop-ASInstanceInAutoScalingGroup -InstanceId i-93633f9b -ShouldDecrementDesiredCapacity $false
+    <code>Stop-ASInstanceInAutoScalingGroup -InstanceId i-93633f9b -ShouldDecrementDesiredCapacity $false
     
 ActivityId           : 2e40d9bd-1902-444c-abf3-6ea0002efdc5
 AutoScalingGroupName :

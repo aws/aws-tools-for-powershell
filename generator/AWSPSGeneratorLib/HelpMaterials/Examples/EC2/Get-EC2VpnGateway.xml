@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2VpnGateway -VpnGatewayId vgw-1a2b3c4d
+    <code>Get-EC2VpnGateway -VpnGatewayId vgw-1a2b3c4d
     
 AvailabilityZone :
 State            : available
@@ -13,15 +13,15 @@ VpnGatewayId     : vgw-1a2b3c4d
     <description>This example describes the specified virtual private gateway.</description>
   </example>
   <example>
-    <code>PS C:\>$filter = New-Object Amazon.EC2.Model.Filter
-PS C:\> $filter.Name = "state"
-PS C:\> $filter.Values = @( "pending", "available" )
+    <code>$filter = New-Object Amazon.EC2.Model.Filter
+$filter.Name = "state"
+$filter.Values = @( "pending", "available" )
 
-PS C:\> Get-EC2VpnGateway -Filter $filter</code>
+Get-EC2VpnGateway -Filter $filter</code>
     <description>This example describes any virtual private gateway whose state is either pending or available.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2VpnGateway</code>
+    <code>Get-EC2VpnGateway</code>
     <description>This example describes all your virtual private gateways.</description>
   </example>
 </examples>

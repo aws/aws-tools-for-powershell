@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> $ResourceQuery = New-Object -TypeName Amazon.ResourceGroups.Model.ResourceQuery
+    <code>$ResourceQuery = New-Object -TypeName Amazon.ResourceGroups.Model.ResourceQuery
 $ResourceQuery.Type = "TAG_FILTERS_1_0"
 $ResourceQuery.Query = '{"ResourceTypeFilters":["AWS::EC2::Instance"],"TagFilters":[{"Key":"Name","Values":["test2"]}]}'
 $ResourceQuery

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Publish-IAMServerCertificate -ServerCertificateName MyTestCert -CertificateBody (Get-Content -Raw server.crt) -PrivateKey (Get-Content -Raw server.key)
+    <code>Publish-IAMServerCertificate -ServerCertificateName MyTestCert -CertificateBody (Get-Content -Raw server.crt) -PrivateKey (Get-Content -Raw server.key)
 
 Arn                   : arn:aws:iam::123456789012:server-certificate/MyTestCert
 Expiration            : 1/14/2018 9:52:36 AM

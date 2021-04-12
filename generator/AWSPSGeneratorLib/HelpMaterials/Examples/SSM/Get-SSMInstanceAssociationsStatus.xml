@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
     <example>
-        <code>PS C:\> Get-SSMInstanceAssociationsStatus -InstanceId "i-0000293ffd8c57862"
+        <code>Get-SSMInstanceAssociationsStatus -InstanceId "i-0000293ffd8c57862"
 
 AssociationId    : d8617c07-2079-4c18-9847-1655fc2698b0
 DetailedStatus   : Pending

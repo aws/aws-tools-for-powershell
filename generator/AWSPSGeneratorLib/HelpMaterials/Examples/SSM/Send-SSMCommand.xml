@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Send-SSMCommand -DocumentName "AWS-RunPowerShellScript" -Parameter @{commands = "echo helloWorld"} -Target @{Key="instanceids";Values=@("i-0cb2b964d3e14fd9f")}
+        <code>Send-SSMCommand -DocumentName "AWS-RunPowerShellScript" -Parameter @{commands = "echo helloWorld"} -Target @{Key="instanceids";Values=@("i-0cb2b964d3e14fd9f")}
 
 CommandId          : d8d190fc-32c1-4d65-a0df-ff5ff3965524
 Comment            : 

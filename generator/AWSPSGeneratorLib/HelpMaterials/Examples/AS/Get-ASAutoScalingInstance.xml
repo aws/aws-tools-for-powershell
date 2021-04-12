@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-ASAutoScalingInstance | format-table -property InstanceId
+    <code>Get-ASAutoScalingInstance | format-table -property InstanceId
     
 InstanceId
 ----------
@@ -11,7 +11,7 @@ i-abcd1234</code>
     <description>This example lists the IDs of your Auto Scaling instances.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASAutoScalingInstance -InstanceId i-12345678
+    <code>Get-ASAutoScalingInstance -InstanceId i-12345678
     
 AutoScalingGroupName    : my-asg
 AvailabilityZone        : us-west-2b
@@ -22,15 +22,15 @@ LifecycleState          : InService</code>
     <description>This example describes the specified Auto Scaling instance.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASAutoScalingInstance -InstanceId @("i-12345678", "i-87654321")</code>
+    <code>Get-ASAutoScalingInstance -InstanceId @("i-12345678", "i-87654321")</code>
     <description>This example describes the specified two Auto Scaling instances.</description>
   </example>
   <example>
-    <code>PS C:\> (Get-ASAutoScalingGroup -AutoScalingGroupName my-asg).Instances | Get-ASAutoScalingInstance</code>
+    <code>(Get-ASAutoScalingGroup -AutoScalingGroupName my-asg).Instances | Get-ASAutoScalingInstance</code>
     <description>This example describes the Auto Scaling instances for the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASAutoScalingInstance</code>
+    <code>Get-ASAutoScalingInstance</code>
     <description>This example describes all your Auto Scaling instances.</description>
   </example>
   <example>

@@ -2,7 +2,7 @@
 <examples>
     <example>
         <code>
-PS C:\> Get-PLSService -Region us-east-1
+Get-PLSService -Region us-east-1
 
 AttributeNames                                                  ServiceCode
 --------------                                                  -----------
@@ -18,7 +18,7 @@ AttributeNames                                                  ServiceCode
     </example>
     <example>
         <code>
-PS C:\> Get-PLSService -ServiceCode AmazonEC2 -Region us-east-1
+Get-PLSService -ServiceCode AmazonEC2 -Region us-east-1
 
 AttributeNames                                                         ServiceCode
 --------------                                                         -----------

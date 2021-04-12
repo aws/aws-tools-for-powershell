@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Remove-IAMClientIDToOpenIDConnectProvider -ClientID "my-application-ID" -OpenIDConnectProviderARN "arn:aws:iam::123456789012:oidc-provider/server.example.com"</code>
+    <code>Remove-IAMClientIDToOpenIDConnectProvider -ClientID "my-application-ID" -OpenIDConnectProviderARN "arn:aws:iam::123456789012:oidc-provider/server.example.com"</code>
     <description>This command removes the client ID (or audience) <code>my-application-ID</code> from the OIDC provider named <code>server.example.com</code>.</description>
   </example>
 </examples>

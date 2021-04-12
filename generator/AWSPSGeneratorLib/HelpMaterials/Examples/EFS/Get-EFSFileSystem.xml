@@ -2,7 +2,7 @@
 <examples>
     <example>
         <code>
-PS C:\> Get-EFSFileSystem
+Get-EFSFileSystem
 
 CreationTime         : 5/26/2015 4:02:38 PM
 CreationToken        : 1a2bff54-85e0-4747-bd95-7bc172c4f555

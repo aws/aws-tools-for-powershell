@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\> Get-C9EnvironmentMembershipList -EnvironmentId ffd88420d4824eeeaeaa8a04bfde8cEX
+Get-C9EnvironmentMembershipList -EnvironmentId ffd88420d4824eeeaeaa8a04bfde8cEX
     
 EnvironmentId : ffd88420d4824eeeaeaa8a04bfde8cEX
 LastAccess    : 1/1/0001 12:00:00 AM
@@ -20,7 +20,7 @@ UserId        : AIDAJ3LOROMOUXTBSU6EX
   </example>
   <example>
     <code>
-PS C:\> Get-C9EnvironmentMembershipList -EnvironmentId ffd88420d4824eeeaeaa8a04bfde8cEX -Permission owner
+Get-C9EnvironmentMembershipList -EnvironmentId ffd88420d4824eeeaeaa8a04bfde8cEX -Permission owner
     
 EnvironmentId : ffd88420d4824eeeaeaa8a04bfde8cEX
 LastAccess    : 1/1/0001 12:00:00 AM
@@ -32,7 +32,7 @@ UserId        : AIDAJ3LOROMOUXTBSU6EX
   </example>
   <example>
     <code>
-PS C:\> Get-C9EnvironmentMembershipList -UserArn arn:aws:iam::123456789012:user/MyDemoUser
+Get-C9EnvironmentMembershipList -UserArn arn:aws:iam::123456789012:user/MyDemoUser
     
 EnvironmentId : ffd88420d4824eeeaeaa8a04bfde8cEX
 LastAccess    : 1/17/2018 7:48:14 PM

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-ASScheduledAction -AutoScalingGroupName my-asg
+    <code>Get-ASScheduledAction -AutoScalingGroupName my-asg
     
 AutoScalingGroupName : my-asg
 DesiredCapacity      : 10
@@ -17,19 +17,19 @@ Time                 : 11/30/2015 8:00:00 AM</code>
     <description>This example describes the scheduled scaling actions for the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASScheduledAction -ScheduledActionName @("myScheduledScaleOut", "myScheduledScaleIn")</code>
+    <code>Get-ASScheduledAction -ScheduledActionName @("myScheduledScaleOut", "myScheduledScaleIn")</code>
     <description>This example describes the specified scheduled scaling actions.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASScheduledAction -StartTime "2015-12-01T08:00:00Z"</code>
+    <code>Get-ASScheduledAction -StartTime "2015-12-01T08:00:00Z"</code>
     <description>This example describes the scheduled scaling actions that start by the specified time.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASScheduledAction -EndTime "2015-12-30T08:00:00Z"</code>
+    <code>Get-ASScheduledAction -EndTime "2015-12-30T08:00:00Z"</code>
     <description>This example describes the scheduled scaling actions that end by the specified time.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASScheduledAction</code>
+    <code>Get-ASScheduledAction</code>
     <description>This example describes the scheduled scaling actions for all your Auto Scaling groups.</description>
   </example>
 </examples>

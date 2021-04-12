@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2DhcpOption
+    <code>Get-EC2DhcpOption
 
 DhcpConfigurations                    DhcpOptionsId    Tag
 ------------------                    -------------    ---
@@ -11,7 +11,7 @@ DhcpConfigurations                    DhcpOptionsId    Tag
     <description>This example lists your DHCP options sets.</description>
   </example>
   <example>
-    <code>PS C:\> (Get-EC2DhcpOption -DhcpOptionsId dopt-1a2b3c4d).DhcpConfigurations
+    <code>(Get-EC2DhcpOption -DhcpOptionsId dopt-1a2b3c4d).DhcpConfigurations
 
 Key                    Values
 ---                    ------

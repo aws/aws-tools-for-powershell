@@ -3,16 +3,16 @@
   <example>
     <code>
 # create the queue and topic to be associated
-PS C:\>$qurl = New-SQSQueue -QueueName "myQueue"
-PS C:\>$topicarn = New-SNSTopic -Name "myTopic"
+$qurl = New-SQSQueue -QueueName "myQueue"
+$topicarn = New-SNSTopic -Name "myTopic"
 
 # get the queue ARN to inject into the policy; it will be returned
 # in the output's QueueARN member but we need to put it into a variable
 # so text expansion in the policy string takes effect
-PS C:\>$qarn = (Get-SQSQueueAttribute -QueueUrl $qurl -AttributeName "QueueArn").QueueARN
+$qarn = (Get-SQSQueueAttribute -QueueUrl $qurl -AttributeName "QueueArn").QueueARN
 
 # construct the policy and inject arns
-PS C:\>$policy = @"
+$policy = @"
 {
   "Version": "2008-10-17",
   "Id": "$qarn/SQSPOLICY",
@@ -34,7 +34,7 @@ PS C:\>$policy = @"
 "@
 
 # set the policy
-PS C:\>Set-SQSQueueAttribute -QueueUrl $qurl -Attribute @{ Policy=$policy }
+Set-SQSQueueAttribute -QueueUrl $qurl -Attribute @{ Policy=$policy }
     </code>
     <description>This example shows how to set a policy subscribing a queue to an SNS topic. When a message is published to the topic, a message is sent to the subscribed queue.</description>
   </example>

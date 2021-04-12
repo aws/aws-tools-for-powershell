@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-CDOnPremiseInstance -InstanceName AssetTag12010298EX
+    <code>Get-CDOnPremiseInstance -InstanceName AssetTag12010298EX
 
 DeregisterTime : 1/1/0001 12:00:00 AM
 IamUserArn     : arn:aws:iam::80398EXAMPLE:user/CodeDeployDemoUser

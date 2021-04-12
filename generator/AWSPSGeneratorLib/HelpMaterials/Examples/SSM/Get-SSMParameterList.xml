@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMParameterList
+        <code>Get-SSMParameterList
 
 Description      :
 KeyId            :

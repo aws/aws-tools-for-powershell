@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Stop-EC2Instance -InstanceId i-12345678
+    <code>Stop-EC2Instance -InstanceId i-12345678
     
 CurrentState                      InstanceId    PreviousState
 ------------                      ----------    -------------

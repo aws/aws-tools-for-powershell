@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-      <code>PS C:\> Get-CPPipelineState -Name CodePipelineDemo
+      <code>Get-CPPipelineState -Name CodePipelineDemo
 
 Created         : 8/13/2015 10:17:54 PM
 PipelineName    : CodePipelineDemo

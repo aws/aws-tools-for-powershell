@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>$Details=Get-IAMAccountAuthorizationDetail
-PS C:\> $Details
+    <code>$Details=Get-IAMAccountAuthorizationDetail
+$Details
 
 GroupDetailList : {Administrators, Developers, Testers, Backup}
 IsTruncated     : False
@@ -10,7 +10,7 @@ Marker          :
 RoleDetailList  : {TestRole1, AdminRole, TesterRole, clirole...}
 UserDetailList  : {Administrator, Bob, BackupToS3, }
 
-PS C:\>$Details.UserDetailList
+$Details.UserDetailList
 
 Arn            : arn:aws:iam::123456789012:user/Administrator
 CreateDate     : 10/16/2014 9:03:09 AM

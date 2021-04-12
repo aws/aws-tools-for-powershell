@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Add-IAMUserToGroup -UserName "Bob" -GroupName "Admins"</code>
+    <code>Add-IAMUserToGroup -UserName "Bob" -GroupName "Admins"</code>
     <description>This command adds the user named <code>Bob</code> to the group named <code>Admins</code>.</description>
   </example>
 </examples>

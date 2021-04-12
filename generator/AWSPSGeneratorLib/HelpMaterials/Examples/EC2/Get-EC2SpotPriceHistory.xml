@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2SpotPriceHistory -InstanceType c3.large -AvailabilityZone us-west-2a -MaxResult 10
+    <code>Get-EC2SpotPriceHistory -InstanceType c3.large -AvailabilityZone us-west-2a -MaxResult 10
     
 AvailabilityZone   : us-west-2a
 InstanceType       : c3.large

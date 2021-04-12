@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Set-ASInstanceHealth -HealthStatus Unhealthy -InstanceId i-93633f9b</code>
+    <code>Set-ASInstanceHealth -HealthStatus Unhealthy -InstanceId i-93633f9b</code>
     <description>This example sets the status of the specified instance to 'Unhealthy', taking it out of service. Auto Scaling terminates and replaces the instance.</description>
   </example>
   <example>
-    <code>PS C:\> Set-ASInstanceHealth -HealthStatus Healthy -InstanceId i-93633f9b -ShouldRespectGracePeriod $false</code>
+    <code>Set-ASInstanceHealth -HealthStatus Healthy -InstanceId i-93633f9b -ShouldRespectGracePeriod $false</code>
     <description>This example sets the status of the specified instance to 'Healthy', keeping it in service. Any health check grace period for the Auto Scaling group is not honored.</description>
   </example>
 </examples>

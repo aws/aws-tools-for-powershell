@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Sync-IAMMFADevice -SerialNumber arn:aws:iam::123456789012:mfa/theresa -AuthenticationCode1 123456 -AuthenticationCode2 987654 -UserName Bob</code>
+    <code>Sync-IAMMFADevice -SerialNumber arn:aws:iam::123456789012:mfa/theresa -AuthenticationCode1 123456 -AuthenticationCode2 987654 -UserName Bob</code>
     <description>This example synchronizes the MFA device that is associated with the IAM user <code>Bob</code> and whose ARN is <code>arn:aws:iam::123456789012:mfa/bob</code> with an authenticator program that provided the two authentication codes.</description>
   </example>
   <example>
-    <code>PS C:\>Sync-IAMMFADevice -SerialNumber ABCD12345678 -AuthenticationCode1 123456 -AuthenticationCode2 987654 -UserName Theresa</code>
+    <code>Sync-IAMMFADevice -SerialNumber ABCD12345678 -AuthenticationCode1 123456 -AuthenticationCode2 987654 -UserName Theresa</code>
     <description>This example synchronizes the IAM MFA device that is associated with the IAM user <code>Theresa</code> with a physical device that has the serial number <code>ABCD12345678</code> and that provided the two authentication codes.</description>
   </example>
 </examples>

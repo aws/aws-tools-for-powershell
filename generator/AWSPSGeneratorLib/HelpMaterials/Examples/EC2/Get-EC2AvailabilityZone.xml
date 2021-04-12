@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2AvailabilityZone
+    <code>Get-EC2AvailabilityZone
 
 Messages    RegionName    State        ZoneName
 --------    ----------    -----        --------
@@ -11,15 +11,15 @@ Messages    RegionName    State        ZoneName
     <description>This example describes the Availability Zones for the current region that are available to you.</description>
   </example>
   <example>
-    <code>PS C:\>Get-EC2AvailabilityZone -Filter @{ Name="state";Values="impaired" }</code>
+    <code>Get-EC2AvailabilityZone -Filter @{ Name="state";Values="impaired" }</code>
     <description>This example describes any Availability Zones that are in an impaired state. The syntax used by this example requires PowerShell version 3 or higher.</description>
   </example>
   <example>
-    <code>PS C:\> $filter = New-Object Amazon.EC2.Model.Filter
-PS C:\> $filter.Name = "state"
-PS C:\> $filter.Values = "impaired"
+    <code>$filter = New-Object Amazon.EC2.Model.Filter
+$filter.Name = "state"
+$filter.Values = "impaired"
 
-PS C:\>Get-EC2AvailabilityZone -Filter $filter</code>
+Get-EC2AvailabilityZone -Filter $filter</code>
     <description>With PowerShell version 2, you must use New-Object to create the filter.</description>
   </example>
 </examples>

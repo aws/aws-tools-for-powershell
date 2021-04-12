@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-      <code>PS C:\> Get-CPPipeline -Name CodePipelineDemo -Version 1
+      <code>Get-CPPipeline -Name CodePipelineDemo -Version 1
 
 ArtifactStore : Amazon.CodePipeline.Model.ArtifactStore
 Name          : CodePipelineDemo

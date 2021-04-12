@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-CDOnPremiseInstanceBatch -InstanceName AssetTag12010298EX, AssetTag12010298EX-2
+    <code>Get-CDOnPremiseInstanceBatch -InstanceName AssetTag12010298EX, AssetTag12010298EX-2
 	
 DeregisterTime : 1/1/0001 12:00:00 AM
 IamUserArn     : arn:aws:iam::80398EXAMPLE:user/CodeDeployFRWUser

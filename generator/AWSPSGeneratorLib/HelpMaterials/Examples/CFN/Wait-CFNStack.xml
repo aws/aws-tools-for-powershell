@@ -6,7 +6,7 @@
     </example>
     <example>
         <code>
-PS C:\> Wait-CFNStack -StackName MyStack -Timeout 300 -Status CREATE_COMPLETE,ROLLBACK_COMPLETE
+Wait-CFNStack -StackName MyStack -Timeout 300 -Status CREATE_COMPLETE,ROLLBACK_COMPLETE
 
 Capabilities      : {CAPABILITY_IAM}
 ChangeSetId       :
@@ -30,7 +30,7 @@ TimeoutInMinutes  : 0
     </example>
     <example>
         <code>
-PS C:\> Wait-CFNStack -StackName MyStack -Status CREATE_COMPLETE,ROLLBACK_COMPLETE
+Wait-CFNStack -StackName MyStack -Status CREATE_COMPLETE,ROLLBACK_COMPLETE
 
 Wait-CFNStack : Timed out after 60 seconds waiting for CloudFormation stack MyStack in region us-west-2 to reach one of state(s): UPDATE_ROLLBACK_COMPLETE,CREATE_COMPLETE,ROLLBACK_COMPLETE,UPDATE_COMPLETE
 At line:1 char:1

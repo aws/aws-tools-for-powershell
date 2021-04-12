@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2KeyPair -KeyName my-key-pair
+    <code>Get-EC2KeyPair -KeyName my-key-pair
     
 KeyFingerprint                                              KeyName
 --------------                                              -------
@@ -9,7 +9,7 @@ KeyFingerprint                                              KeyName
     <description>This example describes the specified key pair.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2KeyPair</code>
+    <code>Get-EC2KeyPair</code>
     <description>This example describes all your key pairs.</description>
   </example>
 </examples>

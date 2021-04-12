@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\> Get-RGTResource
+Get-RGTResource
 ResourceARN                                                      Tags          
 -----------                                                      ----            
 arn:aws:dynamodb:us-west-2:123456789012:table/mytable            {stage, version}   
@@ -12,7 +12,7 @@ arn:aws:s3:::mybucket                                            {stage, version
   </example>
   <example>
     <code>
-PS C:\> Get-RGTResource -ResourceType "s3"
+Get-RGTResource -ResourceType "s3"
 ResourceARN                                                      Tags          
 -----------                                                      ----            
 arn:aws:s3:::mybucket                                            {stage, version, othertag}
@@ -21,7 +21,7 @@ arn:aws:s3:::mybucket                                            {stage, version
   </example>
   <example>
     <code>
-PS C:\> "dynamodb","s3" | Get-RGTResource
+"dynamodb","s3" | Get-RGTResource
 ResourceARN                                                      Tags          
 -----------                                                      ----            
 arn:aws:dynamodb:us-west-2:123456789012:table/mytable            {stage, version}   
@@ -31,7 +31,7 @@ arn:aws:s3:::mybucket                                            {stage, version
   </example>
   <example>
     <code>
-PS C:\> Get-RGTResource -TagFilter @{ Key="stage" }
+Get-RGTResource -TagFilter @{ Key="stage" }
 ResourceARN                                                      Tags          
 -----------                                                      ----            
 arn:aws:s3:::mybucket                                            {stage, version, othertag}
@@ -40,7 +40,7 @@ arn:aws:s3:::mybucket                                            {stage, version
   </example>
   <example>
     <code>
-PS C:\> Get-RGTResource -TagFilter @{ Key="stage" } -ResourceType "dynamodb"
+Get-RGTResource -TagFilter @{ Key="stage" } -ResourceType "dynamodb"
 ResourceARN                                                      Tags          
 -----------                                                      ----            
 arn:aws:dynamodb:us-west-2:123456789012:table/mytable            {stage, version}   
@@ -49,7 +49,7 @@ arn:aws:dynamodb:us-west-2:123456789012:table/mytable            {stage, version
   </example>
   <example>
     <code>
-PS C:\> Get-RGTResource -TagFilter @{ Key="stage"; Values=@("beta","gamma") }
+Get-RGTResource -TagFilter @{ Key="stage"; Values=@("beta","gamma") }
 ResourceARN                                                      Tags          
 -----------                                                      ----            
 arn:aws:dynamodb:us-west-2:123456789012:table/mytable            {stage, version}   

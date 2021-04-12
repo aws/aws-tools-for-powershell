@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2SpotDatafeedSubscription
+    <code>Get-EC2SpotDatafeedSubscription
     
 Bucket  : my-s3-bucket
 Fault   :

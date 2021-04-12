@@ -2,8 +2,8 @@
 <examples>
   <example>
     <code>
-PS C:\>$schema = New-DDBTableSchema
-PS C:\>$schema | Add-DDBKeySchema -KeyName "ForumName" -KeyDataType "S"
+$schema = New-DDBTableSchema
+$schema | Add-DDBKeySchema -KeyName "ForumName" -KeyDataType "S"
 
 AttributeSchema                             KeySchema                                   LocalSecondaryIndexSchema
 ---------------                             ---------                                   -------------------------
@@ -13,7 +13,7 @@ AttributeSchema                             KeySchema                           
   </example>
   <example>
     <code>
-PS C:\>New-DDBTableSchema | Add-DDBKeySchema -KeyName "ForumName" -KeyDataType "S"
+New-DDBTableSchema | Add-DDBKeySchema -KeyName "ForumName" -KeyDataType "S"
 
 AttributeSchema                             KeySchema                                   LocalSecondaryIndexSchema
 ---------------                             ---------                                   -------------------------

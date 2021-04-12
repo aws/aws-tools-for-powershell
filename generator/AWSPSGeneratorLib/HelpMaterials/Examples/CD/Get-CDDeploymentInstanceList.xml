@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-CDDeploymentInstanceList -DeploymentId d-QZMRGSTEX
+    <code>Get-CDDeploymentInstanceList -DeploymentId d-QZMRGSTEX
 
 i-254e22EX
 i-274e22EX

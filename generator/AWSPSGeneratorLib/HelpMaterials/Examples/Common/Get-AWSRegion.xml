@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\> Get-DefaultAWSRegion
+Get-DefaultAWSRegion
 
 Region         Name                      IsShellDefault
 ------         ----                      --------------
@@ -26,7 +26,7 @@ us-west-2      US West (Oregon)          True
   </example>
   <example>
     <code>
-PS C:\> Get-DefaultAWSRegion
+Get-DefaultAWSRegion
 
 Region         Name                      IsShellDefault
 ------         ----                      --------------
@@ -37,7 +37,7 @@ ap-south-1     Asia Pacific (Mumbai)     False
 us-west-1      US West (N. California)   False
 us-west-2      US West (Oregon)          True
 
-PS C:\> Get-EC2Instance -Region not-shown-above
+Get-EC2Instance -Region not-shown-above
     </code>
     <description>This example shows how to use a region that is not listed in the output of the Get-AWSRegion cmdlet, likely as the region was launched after the installed version of the module was released. To use the unlisted region, simply pass the 'system name' (eg us-east-1, us-west-2) to the -Region parameter of the cmdlet you want to run (in this example, Get-EC2Instance). In this example 'not-shown-above' is the fictional system code of a new region.</description>
   </example>

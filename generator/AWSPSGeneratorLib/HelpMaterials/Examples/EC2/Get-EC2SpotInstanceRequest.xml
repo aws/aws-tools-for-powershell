@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2SpotInstanceRequest -SpotInstanceRequestId sir-12345678
+    <code>Get-EC2SpotInstanceRequest -SpotInstanceRequestId sir-12345678
     
 ActualBlockHourlyPrice   :
 AvailabilityZoneGroup    :
@@ -22,7 +22,7 @@ Type                     : one-time</code>
     <description>This example describes the specified Spot instance request.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2SpotInstanceRequest</code>
+    <code>Get-EC2SpotInstanceRequest</code>
     <description>This example describes all your Spot instance requests.</description>
   </example>
 </examples>

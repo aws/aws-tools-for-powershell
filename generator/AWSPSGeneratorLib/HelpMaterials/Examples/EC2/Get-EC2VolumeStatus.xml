@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2VolumeStatus -VolumeId vol-12345678
+    <code>Get-EC2VolumeStatus -VolumeId vol-12345678
     
 Actions          : {}
 AvailabilityZone : us-west-2a
@@ -9,13 +9,13 @@ Events           : {}
 VolumeId         : vol-12345678
 VolumeStatus     : Amazon.EC2.Model.VolumeStatusInfo
 
-PS C:\> (Get-EC2VolumeStatus -VolumeId vol-12345678).VolumeStatus
+(Get-EC2VolumeStatus -VolumeId vol-12345678).VolumeStatus
 
 Details                         Status
 -------                         ------
 {io-enabled, io-performance}    ok
 
-PS C:\> (Get-EC2VolumeStatus -VolumeId vol-12345678).VolumeStatus.Details
+(Get-EC2VolumeStatus -VolumeId vol-12345678).VolumeStatus.Details
 
 Name                            Status
 ----                            ------

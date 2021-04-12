@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Remove-IAMLoginProfile -UserName Bob</code>
+    <code>Remove-IAMLoginProfile -UserName Bob</code>
     <description>This example deletes the login profile from the IAM user named <code>Bob</code>. This prevents the user from signing-in to the AWS console. It does not prevent the user from running any AWS CLI, PowerShell, or API calls using AWS access keys that might still be attached to the user account.</description>
   </example>
 </examples>

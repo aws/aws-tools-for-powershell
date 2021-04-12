@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>(Get-IAMGroup -GroupName MyTestGroup).Users | Remove-IAMUserFromGroup -GroupName MyTestGroup -Force
-PS C:\>Remove-IAMGroup -GroupName MyTestGroup -Force</code>
+    <code>(Get-IAMGroup -GroupName MyTestGroup).Users | Remove-IAMUserFromGroup -GroupName MyTestGroup -Force
+Remove-IAMGroup -GroupName MyTestGroup -Force</code>
     <description>This example deletes the IAM group named <code>MyTestGroup</code>. The first command removes any IAM users that are members of the group, and the second command deletes the IAM group. Both commands work without any prompts for confirmation.</description>
   </example>
 </examples>

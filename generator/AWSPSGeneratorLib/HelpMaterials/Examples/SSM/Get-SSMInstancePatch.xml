@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMInstancePatch -InstanceId "i-08ee91c0b17045407"</code>
+        <code>Get-SSMInstancePatch -InstanceId "i-08ee91c0b17045407"</code>
         <description>This example gets the patch compliance details for an instance.</description>
     </example>
 </examples>

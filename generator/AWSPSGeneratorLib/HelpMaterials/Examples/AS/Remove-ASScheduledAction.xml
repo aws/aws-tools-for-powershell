@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Remove-ASScheduledAction -AutoScalingGroupName my-asg -ScheduledAction "myScheduledAction"
+    <code>Remove-ASScheduledAction -AutoScalingGroupName my-asg -ScheduledAction "myScheduledAction"
     
 Confirm
 Are you sure you want to perform this action?
@@ -10,7 +10,7 @@ Performing operation "Remove-ASScheduledAction (DeleteScheduledAction)" on Targe
     <description>This example deletes the specified scheduled action for the specified Auto Scaling group. You are prompted for confirmation before the operation proceeds.</description>
   </example>
   <example>
-    <code>PS C:\> Remove-ASScheduledAction -AutoScalingGroupName my-asg -ScheduledAction "myScheduledAction" -Force</code>
+    <code>Remove-ASScheduledAction -AutoScalingGroupName my-asg -ScheduledAction "myScheduledAction" -Force</code>
     <description>If you specify the Force parameter, you are not prompted for confirmation before the operation proceeds.</description>
   </example>
 </examples>

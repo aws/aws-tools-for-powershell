@@ -2,7 +2,7 @@
 <examples>
     <example>
         <code>
-PS C:\> Get-EFSMountTargetSecurityGroup -MountTargetId fsmt-1a2b3c4d
+Get-EFSMountTargetSecurityGroup -MountTargetId fsmt-1a2b3c4d
 sg-1a2b3c4d
         </code>
         <description>Returns the ids of the security groups currently assigned to the network interface associated with the mount target.</description>

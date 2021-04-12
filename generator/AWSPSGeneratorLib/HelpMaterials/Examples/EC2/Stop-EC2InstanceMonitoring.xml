@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Stop-EC2InstanceMonitoring -InstanceId i-12345678
+    <code>Stop-EC2InstanceMonitoring -InstanceId i-12345678
     
 InstanceId    Monitoring
 ----------    ----------

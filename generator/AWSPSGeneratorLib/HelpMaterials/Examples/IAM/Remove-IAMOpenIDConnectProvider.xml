@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Remove-IAMOpenIDConnectProvider -OpenIDConnectProviderArn arn:aws:iam::123456789012:oidc-provider/example.oidcprovider.com</code>
+    <code>Remove-IAMOpenIDConnectProvider -OpenIDConnectProviderArn arn:aws:iam::123456789012:oidc-provider/example.oidcprovider.com</code>
     <description>This example deletes the IAM OIDC provider that connects to the provider <code>example.oidcprovider.com</code>. Ensure that you update or delete any roles that reference this provider in the <code>Principal</code> element of the role's trust policy.</description>
   </example>
 </examples>

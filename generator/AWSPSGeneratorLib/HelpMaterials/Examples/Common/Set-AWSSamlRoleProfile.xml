@@ -6,18 +6,18 @@
   </example>
   <example>
     <code>
-PS C:\> $credential = Get-Credential -Message "Enter user credentials for authentication" 
-PS C:\> Set-AWSSamlRoleProfile -StoreAs Role1 -EndpointName MyADFSEndpoint -NetworkCredential $credential
+$credential = Get-Credential -Message "Enter user credentials for authentication" 
+Set-AWSSamlRoleProfile -StoreAs Role1 -EndpointName MyADFSEndpoint -NetworkCredential $credential
 	</code>
     <description>Authenticates the specified user account against the specified endpoint (configured previously using Set-AWSSamlEndpoint). Following successful  authentication, if the user is authorized to assume only a single role the role details are stored in a profile named 'Role1'. If the user is authorized for more than one role a menu is presented for the desired  role to be associated with the profile to be selected.<br/><br/>The role profile can be used to obtain time-limited temporary AWS credentials by specifying it as the value of the -ProfileName parameter to the Set-AWSCredentials cmdlet or any cmdlet that makes calls to AWS service operations. Authentication prior to obtaining credentials is performed using the current user identity.</description>
   </example>
   <example>
 	<code>
-PS C:\> $params = @{
+$params = @{
     "PrincipalARN"="arn:aws:iam::012345678912:saml-provider/ADFS"
     "RoleARN"="arn:aws:iam::012345678912:role/ADFS-Dev"
 }
-PS C:\> Set-AWSSamlRoleProfile @params -StoreAs ADFS-Dev
+Set-AWSSamlRoleProfile @params -StoreAs ADFS-Dev
 	</code>
 	<description>This example shows how to create or update a role profile when the Amazon Resource Names (ARNs) for the role are known in advance. Following authentication for the currently logged in user the cmdlet will verify that the role is present in the set the user is authorized to assume and set up the role profile. If the role is not found the user is prompted to select the correct role.<br/><br/>To authenticate as a different user account add the -NetworkCredential parameter as shown in other examples.</description>
   </example>

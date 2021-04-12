@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\> Get-RGTTagKey -region us-west-2
+Get-RGTTagKey -region us-west-2
 version
 stage
     </code>

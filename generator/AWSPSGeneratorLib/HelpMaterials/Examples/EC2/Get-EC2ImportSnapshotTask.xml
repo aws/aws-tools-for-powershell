@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
 	<example>
-		<code>PS C:\>  Get-EC2ImportSnapshotTask -ImportTaskId import-snap-abcdefgh
+		<code> Get-EC2ImportSnapshotTask -ImportTaskId import-snap-abcdefgh
 
 Description             ImportTaskId               SnapshotTaskDetail                                                          
 -----------------       --------------------       ------------------                                                          
@@ -9,7 +9,7 @@ Disk Image Import 1     import-snap-abcdefgh       Amazon.EC2.Model.SnapshotTask
 		<description>This example describes the specified snapshot import task.</description>
 	</example>
 	<example>
-		<code>PS C:\>  Get-EC2ImportSnapshotTask
+		<code> Get-EC2ImportSnapshotTask
 
 Description             ImportTaskId               SnapshotTaskDetail                                                          
 -----------------       --------------------       ------------------                                                          

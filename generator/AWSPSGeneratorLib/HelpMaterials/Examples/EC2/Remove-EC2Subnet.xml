@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Remove-EC2Subnet -SubnetId subnet-1a2b3c4d
+    <code>Remove-EC2Subnet -SubnetId subnet-1a2b3c4d
     
 Confirm
 Are you sure you want to perform this action?

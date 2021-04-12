@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-SQSQueue
+    <code>Get-SQSQueue
 	
 https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
 https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/AnotherQueue
@@ -11,7 +11,7 @@ https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue</code>
     <description>This example lists all queues.</description>
   </example>
   <example>
-    <code>PS C:\> Get-SQSQueue -QueueNamePrefix My
+    <code>Get-SQSQueue -QueueNamePrefix My
 	
 https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
 https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyOtherQueue

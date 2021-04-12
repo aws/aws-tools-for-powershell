@@ -26,10 +26,10 @@
   </example>
   <example>
     <code>
-PS C:\> $keyVersions = @()
-PS C:\> $markers = (Get-S3Version -BucketName $BucketName).Versions | Where {$_.IsDeleteMarker -eq "True"}
-PS C:\> foreach ($marker in $markers) { $keyVersions += @{ Key = $marker.Key; VersionId = $marker.VersionId } }
-PS C:\> Remove-S3Object -BucketName $BucketName -KeyAndVersionCollection $keyVersions -Force
+$keyVersions = @()
+$markers = (Get-S3Version -BucketName $BucketName).Versions | Where {$_.IsDeleteMarker -eq "True"}
+foreach ($marker in $markers) { $keyVersions += @{ Key = $marker.Key; VersionId = $marker.VersionId } }
+Remove-S3Object -BucketName $BucketName -KeyAndVersionCollection $keyVersions -Force
     </code>
     <description>This script shows how to perform a batch delete of a set of objects (in this case delete markers) by constructing an array of objects to be used with the -KeyAndVersionCollection parameter.</description>
   </example>

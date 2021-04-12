@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5
+        <code>Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5
 
 AssociationId                        Content
 -------------                        -------
@@ -9,7 +9,7 @@ d8617c07-2079-4c18-9847-1655fc2698b0 {...</code>
         <description>This example describes the effective associations for an instance.</description>
     </example>
 	<example>
-	<code>PS C:\> (Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5).Content
+	<code>(Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5).Content
 	
 {
     "schemaVersion": "1.2",

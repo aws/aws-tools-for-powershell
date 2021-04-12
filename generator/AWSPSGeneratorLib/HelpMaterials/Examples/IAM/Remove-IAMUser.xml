@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Remove-IAMUser -UserName Bob</code>
+    <code>Remove-IAMUser -UserName Bob</code>
     <description>This example deletes the IAM user named <code>Bob</code>.</description>
   </example>
   <example>

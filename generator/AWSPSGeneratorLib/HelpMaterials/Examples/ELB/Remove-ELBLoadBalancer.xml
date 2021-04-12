@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Remove-ELBLoadBalancer -LoadBalancerName my-load-balancer
+    <code>Remove-ELBLoadBalancer -LoadBalancerName my-load-balancer
     
 Confirm
 Are you sure you want to perform this action?

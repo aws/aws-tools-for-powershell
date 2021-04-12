@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-CDDeploymentList -ApplicationName CodeDeployDemoApplication -DeploymentGroupName CodeDeployDemoFleet
+    <code>Get-CDDeploymentList -ApplicationName CodeDeployDemoApplication -DeploymentGroupName CodeDeployDemoFleet
 
 d-QZMRGSTEX
 d-RR0T5KTEX</code>

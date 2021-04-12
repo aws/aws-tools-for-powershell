@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMPatchBaselineDetail -BaselineId "pb-03da896ca3b68b639"
+        <code>Get-SSMPatchBaselineDetail -BaselineId "pb-03da896ca3b68b639"
 
 ApprovalRules   : Amazon.SimpleSystemsManagement.Model.PatchRuleGroup
 ApprovedPatches : {}

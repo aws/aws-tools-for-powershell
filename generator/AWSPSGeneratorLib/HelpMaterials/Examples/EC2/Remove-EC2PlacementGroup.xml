@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Remove-EC2PlacementGroup -GroupName my-placement-group
+    <code>Remove-EC2PlacementGroup -GroupName my-placement-group
     
 Confirm
 Are you sure you want to perform this action?

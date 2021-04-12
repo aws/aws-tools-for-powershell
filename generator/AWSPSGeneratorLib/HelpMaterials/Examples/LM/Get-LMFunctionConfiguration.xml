@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>PS C:\> Get-LMFunctionConfiguration -FunctionName "MylambdaFunction123" -Qualifier "PowershellAlias"          
+    <code>Get-LMFunctionConfiguration -FunctionName "MylambdaFunction123" -Qualifier "PowershellAlias"          
 
 CodeSha256                 : uWOW0R7z+f0VyLuUg7+/D08hkMFsq0SF4seuyUZJ/R8=
 CodeSize                   : 1426

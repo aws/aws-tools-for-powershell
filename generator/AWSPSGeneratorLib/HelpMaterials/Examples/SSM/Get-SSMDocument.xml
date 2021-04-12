@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMDocument -Name "RunShellScript"
+        <code>Get-SSMDocument -Name "RunShellScript"
 
 Content
 -------
@@ -9,7 +9,7 @@ Content
         <description>This example returns the content of a document.</description>
     </example>
 	<example>
-        <code>PS C:\> (Get-SSMDocument -Name "RunShellScript").Content
+        <code>(Get-SSMDocument -Name "RunShellScript").Content
 {
    "schemaVersion":"2.0",
    "description":"Run an updated script",

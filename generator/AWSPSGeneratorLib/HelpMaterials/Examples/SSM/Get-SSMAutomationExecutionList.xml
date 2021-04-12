@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
     <example>
-        <code>PS C:\> Get-SSMAutomationExecutionList
+        <code>Get-SSMAutomationExecutionList
 
 AutomationExecutionId     : 4105a4fc-f944-11e6-9d32-8fb2db27a909
 AutomationExecutionStatus : Failed

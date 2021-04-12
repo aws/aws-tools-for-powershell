@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Stop-CDDeployment -DeploymentId d-LJQNREYEX
+    <code>Stop-CDDeployment -DeploymentId d-LJQNREYEX
 
 Status     StatusMessage
 ------     -------------

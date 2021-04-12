@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Stop-SSMCommand -CommandId "9ded293e-e792-4440-8e3e-7b8ec5feaa38"</code>
+        <code>Stop-SSMCommand -CommandId "9ded293e-e792-4440-8e3e-7b8ec5feaa38"</code>
         <description>This example attempts to cancel a command. There is no output if the operation succeeds.</description>
     </example>
 </examples>

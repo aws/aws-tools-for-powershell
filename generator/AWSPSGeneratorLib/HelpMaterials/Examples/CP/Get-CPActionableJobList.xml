@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-      <code>PS C:\> Get-CPActionableJobList -ActionTypeId_Category Build -ActionTypeId_Owner Custom -ActionTypeId_Provider MyCustomProviderName -ActionTypeId_Version 1 -QueryParam @{"ProjectName" = "MyProjectName"}
+      <code>Get-CPActionableJobList -ActionTypeId_Category Build -ActionTypeId_Owner Custom -ActionTypeId_Provider MyCustomProviderName -ActionTypeId_Version 1 -QueryParam @{"ProjectName" = "MyProjectName"}
 	  
 AccountId       Data                                 Id                                      Nonce
 ---------       ----                                 --                                      -----

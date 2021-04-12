@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Start-EC2Instance -InstanceId i-12345678
+    <code>Start-EC2Instance -InstanceId i-12345678
     
 CurrentState                      InstanceId    PreviousState
 ------------                      ----------    -------------
@@ -9,19 +9,19 @@ Amazon.EC2.Model.InstanceState    i-12345678    Amazon.EC2.Model.InstanceState</
     <description>This example starts the specified instance.</description>
   </example>
   <example>
-    <code>PS C:\> @("i-12345678", "i-76543210") | Start-EC2Instance</code>
+    <code>@("i-12345678", "i-76543210") | Start-EC2Instance</code>
     <description>This example starts the specified instances.</description>
   </example>
   <example>
-    <code>PS C:\> (Get-EC2Instance -Filter @{ Name="instance-state-name"; Value="stopped"}).Instances | Start-EC2Instance</code>
+    <code>(Get-EC2Instance -Filter @{ Name="instance-state-name"; Value="stopped"}).Instances | Start-EC2Instance</code>
     <description>This example starts the set of instances that are currently stopped. The Instance objects returned by Get-EC2Instance are piped to Start-EC2Instance. The syntax used by this example requires PowerShell version 3 or higher.</description>
   </example>
   <example>
-    <code>PS C:\> $filter = New-Object Amazon.EC2.Model.Filter
-PS C:\> $filter.Name = "instance-state-name"
-PS C:\> $filter.Value = "stopped"
+    <code>$filter = New-Object Amazon.EC2.Model.Filter
+$filter.Name = "instance-state-name"
+$filter.Value = "stopped"
 
-PS C:\> (Get-EC2Instance -Filter $filter).Instances | Start-EC2Instance
+(Get-EC2Instance -Filter $filter).Instances | Start-EC2Instance
     </code>
     <description>With PowerShell version 2, you must use New-Object to create the filter for the Filter parameter.</description>
   </example>

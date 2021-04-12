@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-ASAccountLimit
+    <code>Get-ASAccountLimit
 
 MaxNumberOfAutoScalingGroups    : 20
 MaxNumberOfLaunchConfigurations : 100</code>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Get-CCRepository -RepositoryName MyDemoRepo
+    <code>Get-CCRepository -RepositoryName MyDemoRepo
 
 AccountId             : 80398EXAMPLE
 Arn                   : arn:aws:codecommit:us-east-1:80398EXAMPLE:MyDemoRepo

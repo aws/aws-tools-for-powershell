@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Set-ELBLoadBalancerPolicyOfListener -LoadBalancerName my-load-balancer -LoadBalancerPort 443 -PolicyName my-SSLNegotiation-policy</code>
+    <code>Set-ELBLoadBalancerPolicyOfListener -LoadBalancerName my-load-balancer -LoadBalancerPort 443 -PolicyName my-SSLNegotiation-policy</code>
     <description>This example replaces the policies for the specified listener with the specified policy.</description>
   </example>
   <example>
-    <code>PS C:\> Set-ELBLoadBalancerPolicyOfListener -LoadBalancerName my-load-balancer -LoadBalancerPort 443</code>
+    <code>Set-ELBLoadBalancerPolicyOfListener -LoadBalancerName my-load-balancer -LoadBalancerPort 443</code>
     <description>This example removes all policies associated with the specified listener.</description>
   </example>
 </examples>

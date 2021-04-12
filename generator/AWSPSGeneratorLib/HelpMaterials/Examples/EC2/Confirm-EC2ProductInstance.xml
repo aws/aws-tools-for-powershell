@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Confirm-EC2ProductInstance -ProductCode 774F4FF8 -InstanceId i-12345678</code>
+    <code>Confirm-EC2ProductInstance -ProductCode 774F4FF8 -InstanceId i-12345678</code>
     <description>This example determines whether the specified product code is associated with the specified instance.</description>
   </example>
 </examples>

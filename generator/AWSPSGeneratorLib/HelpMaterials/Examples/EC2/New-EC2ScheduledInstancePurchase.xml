@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> $request = New-Object Amazon.EC2.Model.PurchaseRequest
-PS C:\> $request.InstanceCount = 1
-PS C:\> $request.PurchaseToken = "eyJ2IjoiMSIsInMiOjEsImMiOi..."
-PS C:\> New-EC2ScheduledInstancePurchase -PurchaseRequest $request
+    <code>$request = New-Object Amazon.EC2.Model.PurchaseRequest
+$request.InstanceCount = 1
+$request.PurchaseToken = "eyJ2IjoiMSIsInMiOjEsImMiOi..."
+New-EC2ScheduledInstancePurchase -PurchaseRequest $request
 
 AvailabilityZone            : us-west-2b
 CreateDate                  : 1/25/2016 1:43:38 PM

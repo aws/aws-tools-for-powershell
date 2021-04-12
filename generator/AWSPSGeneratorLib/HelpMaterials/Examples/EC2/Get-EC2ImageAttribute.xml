@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2ImageAttribute -ImageId ami-12345678 -Attribute description
+    <code>Get-EC2ImageAttribute -ImageId ami-12345678 -Attribute description
     
 BlockDeviceMappings : {}
 Description         : My image description
@@ -14,7 +14,7 @@ SriovNetSupport     :</code>
     <description>This example gets the description for the specified AMI.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2ImageAttribute -ImageId ami-12345678 -Attribute launchPermission
+    <code>Get-EC2ImageAttribute -ImageId ami-12345678 -Attribute launchPermission
     
 BlockDeviceMappings : {}
 Description         :
@@ -27,7 +27,7 @@ SriovNetSupport     :</code>
     <description>This example gets the launch permissions for the specified AMI.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2ImageAttribute -ImageId ami-12345678 -Attribute sriovNetSupport
+    <code>Get-EC2ImageAttribute -ImageId ami-12345678 -Attribute sriovNetSupport
     
 BlockDeviceMappings : {}
 Description         :

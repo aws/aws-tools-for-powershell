@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\> Publish-LMFunction -Description "My C# Lambda Function" `
+Publish-LMFunction -Description "My C# Lambda Function" `
         -FunctionName MyFunction `
         -ZipFilename .\MyFunctionBinaries.zip `
         -Handler "AssemblyName::Namespace.ClassName::MethodName" `
@@ -31,8 +31,8 @@ VpcConfig        :
   </example>
   <example>
     <code>
-PS C:\> Write-S3Object -BucketName mybucket -Key MyFunctionBinaries.zip -File .\MyFunctionBinaries.zip    
-PS C:\> Publish-LMFunction -Description "My C# Lambda Function" `
+Write-S3Object -BucketName mybucket -Key MyFunctionBinaries.zip -File .\MyFunctionBinaries.zip    
+Publish-LMFunction -Description "My C# Lambda Function" `
         -FunctionName MyFunction `
         -BucketName mybucket `
         -Key MyFunctionBinaries.zip `

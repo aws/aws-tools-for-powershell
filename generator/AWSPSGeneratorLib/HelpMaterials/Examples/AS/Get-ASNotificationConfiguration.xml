@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-ASNotificationConfiguration -AutoScalingGroupName my-asg | format-list
+    <code>Get-ASNotificationConfiguration -AutoScalingGroupName my-asg | format-list
     
 AutoScalingGroupName : my-asg
 NotificationType     : autoscaling:EC2_INSTANCE_LAUNCH
@@ -13,7 +13,7 @@ TopicARN             : arn:aws:sns:us-west-2:123456789012:my-topic</code>
     <description>This example describes the notification actions associated with the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>PS C:\> Get-ASNotificationConfiguration</code>
+    <code>Get-ASNotificationConfiguration</code>
     <description>This example describes the notification actions associated with all your Auto Scaling groups.</description>
   </example>
 </examples>

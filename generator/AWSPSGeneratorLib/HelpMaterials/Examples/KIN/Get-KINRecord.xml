@@ -2,20 +2,20 @@
 <examples>
     <example>
         <code>
-PS C:\> $records = Get-KINRecord -ShardIterator "AAAAAAAAAAGIc....9VnbiRNaP"
-PS C:\> $records
+$records = Get-KINRecord -ShardIterator "AAAAAAAAAAGIc....9VnbiRNaP"
+$records
 
 MillisBehindLatest NextShardIterator            Records
 ------------------ -----------------            -------
 0                  AAAAAAAAAAERNIq...uDn11HuUs  {Key1, Key2}
 
-PS C:\> $records.Records[0]
+$records.Records[0]
 
 ApproximateArrivalTimestamp Data                   PartitionKey SequenceNumber
 --------------------------- ----                   ------------ --------------
 3/7/2016 5:14:33 PM         System.IO.MemoryStream Key1         4955986459776...931586
 
-PS C:\> [Text.Encoding]::UTF8.GetString($records.Records[0].Data.ToArray())
+[Text.Encoding]::UTF8.GetString($records.Records[0].Data.ToArray())
 
 test data from string
 </code>

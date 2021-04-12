@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMDocumentDescription -Name "RunShellScript"
+        <code>Get-SSMDocumentDescription -Name "RunShellScript"
 
 CreatedDate     : 2/24/2017 5:25:13 AM
 DefaultVersion  : 1

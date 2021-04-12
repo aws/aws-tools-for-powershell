@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\>Get-AWSCmdletName -ApiOperation describeinstances
+Get-AWSCmdletName -ApiOperation describeinstances
 
 CmdletName            ServiceOperation        ServiceName                            CmdletNounPrefix
 ----------            ----------------        -----------                            ----------------
@@ -13,7 +13,7 @@ Get-OPSInstances      DescribeInstances       AWS OpsWorks                      
   </example>
   <example>
     <code>
-PS C:\>Get-AWSCmdletName -ApiOperation describeinstances -Service ec2
+Get-AWSCmdletName -ApiOperation describeinstances -Service ec2
 
 CmdletName            ServiceOperation        ServiceName                            CmdletNounPrefix
 ----------            ----------------        -----------                            ----------------
@@ -23,7 +23,7 @@ Get-EC2Instance       DescribeInstances       Amazon Elastic Compute Cloud      
   </example>
   <example>
     <code>
-PS C:\>Get-AWSCmdletName -ApiOperation describeinstances -Service "compute cloud"
+Get-AWSCmdletName -ApiOperation describeinstances -Service "compute cloud"
 
 CmdletName            ServiceOperation        ServiceName                            CmdletNounPrefix
 ----------            ----------------        -----------                            ----------------
@@ -33,7 +33,7 @@ Get-EC2Instance       DescribeInstances       Amazon Elastic Compute Cloud      
   </example>
   <example>
     <code>
-PS C:\>Get-AWSCmdletName -ApiOperation securitygroup -MatchWithRegex
+Get-AWSCmdletName -ApiOperation securitygroup -MatchWithRegex
 
 CmdletName                              ServiceOperation                        ServiceName                            CmdletNounPrefix
 ----------                              ----------------                        -----------                            ----------------
@@ -55,7 +55,7 @@ Get-RSClusterSecurityGroups             DescribeClusterSecurityGroups           
   </example>
   <example>
     <code>
-PS C:\>Get-AWSCmdletName -ApiOperation securitygroup -MatchWithRegex -Service ec2
+Get-AWSCmdletName -ApiOperation securitygroup -MatchWithRegex -Service ec2
 
 CmdletName                          ServiceOperation                        ServiceName                            CmdletNounPrefix
 ----------                          ----------------                        -----------                            ----------------
@@ -68,7 +68,7 @@ Grant-EC2SecurityGroupIngress       AuthorizeSecurityGroupIngress           Amaz
   </example>
   <example>
     <code>
-PS C:\>Get-AWSCmdletName -ApiOperation listmetrics -Service cloudwatch
+Get-AWSCmdletName -ApiOperation listmetrics -Service cloudwatch
 
 CmdletName              ServiceOperation        ServiceName            CmdletNounPrefix
 ----------              ----------------        -----------            ----------------
@@ -78,7 +78,7 @@ Get-CWMetrics           ListMetrics             Amazon CloudWatch      CW
   </example>
   <example>
     <code>
-PS C:\>Get-AWSCmdletName -AwsCliCommand "aws ec2 describe-images"
+Get-AWSCmdletName -AwsCliCommand "aws ec2 describe-images"
 
 CmdletName              ServiceOperation        ServiceName                            CmdletNounPrefix
 ----------              ----------------        -----------                            ----------------
@@ -88,7 +88,7 @@ Get-EC2Image            DescribeImages          Amazon Elastic Compute Cloud    
   </example>
   <example>
 	<code>
-PS C:\> Get-AWSCmdletName -Service ec2
+Get-AWSCmdletName -Service ec2
 
 CmdletName                            ServiceOperation                       ServiceName
 ----------                            ----------------                       -----------
@@ -105,7 +105,7 @@ Get-ECSClusterService                 ListServices                           Ama
   </example>
   <example>
 	<code>
-PS C:\> Get-AWSCmdletName -Service compute
+Get-AWSCmdletName -Service compute
 
 CmdletName                            ServiceOperation                       ServiceName
 ----------                            ----------------                       -----------

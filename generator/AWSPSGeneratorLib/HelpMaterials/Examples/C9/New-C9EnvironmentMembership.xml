@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\> New-C9EnvironmentMembership -UserArn arn:aws:iam::123456789012:user/AnotherDemoUser -EnvironmentId ffd88420d4824eeeaeaa8a04bfde8cEX -Permission read-write
+New-C9EnvironmentMembership -UserArn arn:aws:iam::123456789012:user/AnotherDemoUser -EnvironmentId ffd88420d4824eeeaeaa8a04bfde8cEX -Permission read-write
     
 EnvironmentId : ffd88420d4824eeeaeaa8a04bfde8cEX
 LastAccess    : 1/1/0001 12:00:00 AM

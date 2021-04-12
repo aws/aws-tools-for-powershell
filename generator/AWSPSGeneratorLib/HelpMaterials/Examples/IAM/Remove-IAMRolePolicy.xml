@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Remove-IAMRolePolicy -PolicyName S3AccessPolicy -RoleName S3BackupRole</code>
+    <code>Remove-IAMRolePolicy -PolicyName S3AccessPolicy -RoleName S3BackupRole</code>
     <description>This example deletes the inline policy <code>S3AccessPolicy</code> that is embedded in the IAM role <code>S3BackupRole</code>.</description>
   </example>
 </examples>

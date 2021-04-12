@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMMaintenanceWindowTaskList -WindowId "mw-06cf17cbefcb4bf4f"
+        <code>Get-SSMMaintenanceWindowTaskList -WindowId "mw-06cf17cbefcb4bf4f"
 
 LoggingInfo    :
 MaxConcurrency : 1

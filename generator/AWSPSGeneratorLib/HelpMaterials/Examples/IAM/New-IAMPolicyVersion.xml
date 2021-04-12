@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>New-IAMPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyPolicy -PolicyDocument (Get-content -Raw NewPolicyVersion.json) -SetAsDefault $true
+    <code>New-IAMPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyPolicy -PolicyDocument (Get-content -Raw NewPolicyVersion.json) -SetAsDefault $true
 
 CreateDate                           Document                  IsDefaultVersion             VersionId
 ----------                           --------                  ----------------             ---------

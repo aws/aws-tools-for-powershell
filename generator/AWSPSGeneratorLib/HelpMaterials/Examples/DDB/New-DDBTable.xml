@@ -2,10 +2,10 @@
 <examples>
   <example>
     <code>
-PS C:\>$schema = New-DDBTableSchema
-PS C:\>$schema | Add-DDBKeySchema -KeyName "ForumName" -KeyDataType "S"
-PS C:\>$schema | Add-DDBKeySchema -KeyName "Subject" -KeyType RANGE -KeyDataType "S"
-PS C:\>$schema | New-DDBTable -TableName "Thread" -ReadCapacity 10 -WriteCapacity 5
+$schema = New-DDBTableSchema
+$schema | Add-DDBKeySchema -KeyName "ForumName" -KeyDataType "S"
+$schema | Add-DDBKeySchema -KeyName "Subject" -KeyType RANGE -KeyDataType "S"
+$schema | New-DDBTable -TableName "Thread" -ReadCapacity 10 -WriteCapacity 5
 
 AttributeDefinitions   : {ForumName, Subject}
 TableName              : Thread
@@ -21,11 +21,11 @@ LocalSecondaryIndexes  : {}
   </example>
   <example>
     <code>
-PS C:\>$schema = New-DDBTableSchema
-PS C:\>$schema | Add-DDBKeySchema -KeyName "ForumName" -KeyDataType "S"
-PS C:\>$schema | Add-DDBKeySchema -KeyName "Subject" -KeyDataType "S"
-PS C:\>$schema | Add-DDBIndexSchema -IndexName "LastPostIndex" -RangeKeyName "LastPostDateTime" -RangeKeyDataType "S" -ProjectionType "keys_only"
-PS C:\>$schema | New-DDBTable -TableName "Thread" -ReadCapacity 10 -WriteCapacity 5
+$schema = New-DDBTableSchema
+$schema | Add-DDBKeySchema -KeyName "ForumName" -KeyDataType "S"
+$schema | Add-DDBKeySchema -KeyName "Subject" -KeyDataType "S"
+$schema | Add-DDBIndexSchema -IndexName "LastPostIndex" -RangeKeyName "LastPostDateTime" -RangeKeyDataType "S" -ProjectionType "keys_only"
+$schema | New-DDBTable -TableName "Thread" -ReadCapacity 10 -WriteCapacity 5
 
 AttributeDefinitions   : {ForumName, LastPostDateTime, Subject}
 TableName              : Thread
@@ -41,7 +41,7 @@ LocalSecondaryIndexes  : {LastPostIndex}
   </example>
   <example>
     <code>
-PS C:\>New-DDBTableSchema |
+New-DDBTableSchema |
   Add-DDBKeySchema -KeyName "ForumName" -KeyDataType "S" |
   Add-DDBKeySchema -KeyName "Subject" -KeyDataType "S" |
   Add-DDBIndexSchema -IndexName "LastPostIndex" `

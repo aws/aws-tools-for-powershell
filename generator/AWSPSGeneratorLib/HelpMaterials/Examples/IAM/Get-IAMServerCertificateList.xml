@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Get-IAMServerCertificateList
+    <code>Get-IAMServerCertificateList
 
 Arn                   : arn:aws:iam::123456789012:server-certificate/Org1/Org2/MyServerCertificate
 Expiration            : 1/14/2018 9:52:36 AM

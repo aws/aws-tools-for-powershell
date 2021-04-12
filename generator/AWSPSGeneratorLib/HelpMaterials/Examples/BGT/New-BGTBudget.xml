@@ -2,25 +2,25 @@
 <examples>
   <example>
     <code>
-PS C:\> $notification = @{
+$notification = @{
     NotificationType = "ACTUAL"
     ComparisonOperator = "GREATER_THAN"
     Threshold = 80
 }
 
-PS C:\> $addressObject = @{
+$addressObject = @{
     Address = @("user@domain.com")
     SubscriptionType = "EMAIL"
 }
 
-PS C:\> $subscriber = New-Object Amazon.Budgets.Model.NotificationWithSubscribers
-PS C:\> $subscriber.Notification = $notification
-PS C:\> $subscriber.Subscribers.Add($addressObject)
+$subscriber = New-Object Amazon.Budgets.Model.NotificationWithSubscribers
+$subscriber.Notification = $notification
+$subscriber.Subscribers.Add($addressObject)
 
-PS C:\> $startDate = [datetime]::new(2017,09,25)
-PS C:\> $endDate = [datetime]::new(2017,10,25)
+$startDate = [datetime]::new(2017,09,25)
+$endDate = [datetime]::new(2017,10,25)
 
-PS C:\> New-BGTBudget -Budget_BudgetName "Tester" -Budget_BudgetType COST -CostTypes_IncludeTax $true -Budget_TimeUnit MONTHLY -BudgetLimit_Unit USD -TimePeriod_Start $startDate -TimePeriod_End $endDate -AccountId 123456789012 -BudgetLimit_Amount 200 -NotificationsWithSubscriber $subscriber
+New-BGTBudget -Budget_BudgetName "Tester" -Budget_BudgetType COST -CostTypes_IncludeTax $true -Budget_TimeUnit MONTHLY -BudgetLimit_Unit USD -TimePeriod_Start $startDate -TimePeriod_End $endDate -AccountId 123456789012 -BudgetLimit_Amount 200 -NotificationsWithSubscriber $subscriber
     </code>
 	<description>Creates a new budget with the specified budgetary and time constraints with email notifications.</description>
   </example>

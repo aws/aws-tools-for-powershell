@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMParameterValue -Name "Welcome"
+        <code>Get-SSMParameterValue -Name "Welcome"
 
 InvalidParameters Parameters
 ----------------- ----------
@@ -9,7 +9,7 @@ InvalidParameters Parameters
         <description>This example lists the values for a parameter.</description>
     </example>
 	<example>
-	<code>PS C:\> (Get-SSMParameterValue -Name "Welcome").Parameters
+	<code>(Get-SSMParameterValue -Name "Welcome").Parameters
 
 Name    Type   Value
 ----    ----   -----

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> New-EC2Snapshot -VolumeId vol-12345678 -Description "This is a test"
+    <code>New-EC2Snapshot -VolumeId vol-12345678 -Description "This is a test"
     
 DataEncryptionKeyId :
 Description         : This is a test

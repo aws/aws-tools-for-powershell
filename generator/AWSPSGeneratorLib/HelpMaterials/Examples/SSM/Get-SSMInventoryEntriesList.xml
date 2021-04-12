@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMInventoryEntriesList -InstanceId "i-0cb2b964d3e14fd9f" -TypeName "Custom:RackInfo"
+        <code>Get-SSMInventoryEntriesList -InstanceId "i-0cb2b964d3e14fd9f" -TypeName "Custom:RackInfo"
 		
 CaptureTime   : 2016-08-22T10:01:01Z
 Entries       : {Amazon.Runtime.Internal.Util.AlwaysSendDictionary`2[System.String,System.String]}
@@ -12,7 +12,7 @@ TypeName      : Custom:RackInfo</code>
         <description>This example lists all the custom inventory entries for an instance.</description>
     </example>
 	    <example>
-        <code>PS C:\> (Get-SSMInventoryEntriesList -InstanceId "i-0cb2b964d3e14fd9f" -TypeName "Custom:RackInfo").Entries
+        <code>(Get-SSMInventoryEntriesList -InstanceId "i-0cb2b964d3e14fd9f" -TypeName "Custom:RackInfo").Entries
 
 Key          Value
 ---          -----

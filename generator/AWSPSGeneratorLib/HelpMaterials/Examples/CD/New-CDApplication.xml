@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> New-CDApplication -ApplicationName MyNewApplication
+    <code>New-CDApplication -ApplicationName MyNewApplication
 
 f19e4b61-2231-4328-b0fd-e57f5EXAMPLE</code>
 	<description>This example creates a new application with the specified name.</description>

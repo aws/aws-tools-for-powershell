@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsHostnames $true</code>
+    <code>Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsHostnames $true</code>
     <description>This example enables support for DNS hostnames for the specified VPC.</description>
   </example>
   <example>
-    <code>PS C:\> Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsHostnames $false</code>
+    <code>Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsHostnames $false</code>
     <description>This example disables support for DNS hostnames for the specified VPC.</description>
   </example>
   <example>
-    <code>PS C:\> Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsSupport $true</code>
+    <code>Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsSupport $true</code>
     <description>This example enables support for DNS resolution for the specified VPC.</description>
   </example>
   <example>
-    <code>PS C:\> Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsSupport $false</code>
+    <code>Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsSupport $false</code>
     <description>This example disables support for DNS resolution for the specified VPC.</description>
   </example>
 </examples>

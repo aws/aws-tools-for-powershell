@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Get-IAMSigningCertificate -UserName Bob 
+    <code>Get-IAMSigningCertificate -UserName Bob 
 
 CertificateBody : -----BEGIN CERTIFICATE-----
                   MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMC

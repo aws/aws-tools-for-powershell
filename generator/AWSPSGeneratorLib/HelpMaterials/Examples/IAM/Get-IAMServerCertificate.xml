@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>$result = Get-IAMServerCertificate -ServerCertificateName MyServerCertificate
-PS C:\>$result | format-list
+    <code>$result = Get-IAMServerCertificate -ServerCertificateName MyServerCertificate
+$result | format-list
 
 CertificateBody           : -----BEGIN CERTIFICATE-----
                             MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMC
@@ -23,7 +23,7 @@ CertificateBody           : -----BEGIN CERTIFICATE-----
 CertificateChain          : 
 ServerCertificateMetadata : Amazon.IdentityManagement.Model.ServerCertificateMetadata
 
-PS C:\>$result.ServerCertificateMetadata
+$result.ServerCertificateMetadata
 
 Arn                   : arn:aws:iam::123456789012:server-certificate/Org1/Org2/MyServerCertificate
 Expiration            : 1/14/2018 9:52:36 AM

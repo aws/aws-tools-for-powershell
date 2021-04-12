@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Register-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -PrivateIpAddress 10.0.0.82</code>
+    <code>Register-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -PrivateIpAddress 10.0.0.82</code>
     <description>This example assigns the specified secondary private IP address to the specified network interface.</description>
   </example>
   <example>
-    <code>PS C:\> Register-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -SecondaryPrivateIpAddressCount 2</code>
+    <code>Register-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -SecondaryPrivateIpAddressCount 2</code>
     <description>This example creates two secondary private IP addresses and assigns them to the specified network interface.</description>
   </example>
 </examples>

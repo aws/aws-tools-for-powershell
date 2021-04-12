@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\>Measure-CFNTemplateCost -TemplateURL https://s3.amazonaws.com/mytemplates/templatefile.template `
+Measure-CFNTemplateCost -TemplateURL https://s3.amazonaws.com/mytemplates/templatefile.template `
                         -Region us-west-1 `
                         -Parameter @{ ParameterKey="KeyName"; ParameterValue="myKeyPairName" }
     </code>
@@ -10,7 +10,7 @@ PS C:\>Measure-CFNTemplateCost -TemplateURL https://s3.amazonaws.com/mytemplates
   </example>
   <example>
     <code>
-PS C:\>Measure-CFNTemplateCost -TemplateBody "{TEMPLATE CONTENT HERE}" `
+Measure-CFNTemplateCost -TemplateBody "{TEMPLATE CONTENT HERE}" `
                         -Parameter @( @{ ParameterKey="KeyName"; ParameterValue="myKeyPairName" },`
                                       @{ ParameterKey="InstanceType"; ParameterValue="m1.large" })
     </code>
@@ -18,15 +18,15 @@ PS C:\>Measure-CFNTemplateCost -TemplateBody "{TEMPLATE CONTENT HERE}" `
   </example>
   <example>
     <code>
-PS C:\>$p1 = New-Object -Type Amazon.CloudFormation.Model.Parameter
-PS C:\>$p1.ParameterKey = "KeyName"
-PS C:\>$p1.ParameterValue = "myKeyPairName"
+$p1 = New-Object -Type Amazon.CloudFormation.Model.Parameter
+$p1.ParameterKey = "KeyName"
+$p1.ParameterValue = "myKeyPairName"
 
-PS C:\>$p2 = New-Object -Type Amazon.CloudFormation.Model.Parameter
-PS C:\>$p2.ParameterKey = "InstanceType"
-PS C:\>$p2.ParameterValue = "m1.large"
+$p2 = New-Object -Type Amazon.CloudFormation.Model.Parameter
+$p2.ParameterKey = "InstanceType"
+$p2.ParameterValue = "m1.large"
 
-PS C:\>Measure-CFNTemplateCost -TemplateBody "{TEMPLATE CONTENT HERE}" -Parameter @( $p1, $p2 )
+Measure-CFNTemplateCost -TemplateBody "{TEMPLATE CONTENT HERE}" -Parameter @( $p1, $p2 )
     </code>
     <description>Uses New-Object to build the set of template parameters and returns an AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template. The template is parsed from the supplied content, with customization parameters (this example assumes the template content would have declared two parameters, 'KeyName' and 'InstanceType').</description>
   </example>

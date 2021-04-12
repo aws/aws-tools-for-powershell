@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Restart-EC2Instance -InstanceId i-12345678</code>
+    <code>Restart-EC2Instance -InstanceId i-12345678</code>
     <description>This example reboots the specified instance.</description>
   </example>
 </examples>

@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
 	<example>
-		<code>PS C:\> $container = New-Object Amazon.EC2.Model.ImageDiskContainer
-PS C:\> $container.Format="VMDK"
-PS C:\> $container.UserBucket = New-Object Amazon.EC2.Model.UserBucket
-PS C:\> $container.UserBucket.S3Bucket = "myVirtualMachineImages"
-PS C:\> $container.UserBucket.S3Key = "Win_2008_Server_Standard_SP2_64-bit-disk1.vmdk"
+		<code>$container = New-Object Amazon.EC2.Model.ImageDiskContainer
+$container.Format="VMDK"
+$container.UserBucket = New-Object Amazon.EC2.Model.UserBucket
+$container.UserBucket.S3Bucket = "myVirtualMachineImages"
+$container.UserBucket.S3Key = "Win_2008_Server_Standard_SP2_64-bit-disk1.vmdk"
 
-PS C:\> $parms = @{
+$parms = @{
     "ClientToken"="idempotencyToken"
     "Description"="Windows 2008 Standard Image Import"
     "Platform"="Windows"
     "LicenseType"="AWS"
 }
 
-PS C:\> Import-EC2Image -DiskContainer $container @parms 
+Import-EC2Image -DiskContainer $container @parms 
 
 Architecture    : 
 Description     : Windows 2008 Standard Image

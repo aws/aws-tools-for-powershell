@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
     <example>
-        <code>PS C:\> Get-ECRLoginCommand
+        <code>Get-ECRLoginCommand
    
 Username      : AWS
 Password      : eyJwYXlsb2Fk...kRBVEFfS0VZIn0=
@@ -12,7 +12,7 @@ Command       : docker login --username AWS --password eyJwYXlsb2Fk...kRBVEFfS0V
         <description>Returns a PSObject containing login information that can be used to authenticate to any Amazon ECR registry that your IAM principal has access to. The credentials and region endpoint required for the call to obtain the authorization token are obtained from the shell defaults (set up by the Set-AWSCredential/Set-DefaultAWSRegion or Initialize-AWSDefaultConfiguration cmdlets). You can use the Command property with Invoke-Expression to log in to the specified registry or use the returned credentials in other tools requiring login.</description>
     </example>
     <example>
-        <code>PS C:\> (Get-ECRLoginCommand).Password | docker login --username AWS --password-stdin 012345678910.dkr.ecr.us-east-1.amazonaws.com</code>
+        <code>(Get-ECRLoginCommand).Password | docker login --username AWS --password-stdin 012345678910.dkr.ecr.us-east-1.amazonaws.com</code>
         <description>Retrieves a PSObject containing login information that you use as an input to a docker login command. You can specify any Amazon ECR registry URI to authenticate to as long as your IAM principal has access to that registry.</description>
     </example>
 </examples>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMPatchBaselineForPatchGroup -PatchGroup "Production"
+        <code>Get-SSMPatchBaselineForPatchGroup -PatchGroup "Production"
 
 BaselineId           PatchGroup
 ----------           ----------

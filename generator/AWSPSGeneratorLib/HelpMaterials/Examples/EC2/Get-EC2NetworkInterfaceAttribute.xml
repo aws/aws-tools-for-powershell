@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute Attachment
+    <code>Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute Attachment
     
 Attachment         : Amazon.EC2.Model.NetworkInterfaceAttachment</code>
     <description>This example describes the specified network interface.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute Description
+    <code>Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute Description
     
 Description        : My description</code>
     <description>This example describes the specified network interface.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute GroupSet
+    <code>Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute GroupSet
     
 Groups             : {my-security-group}</code>
     <description>This example describes the specified network interface.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute SourceDestCheck
+    <code>Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute SourceDestCheck
     
 SourceDestCheck    : True</code>
     <description>This example describes the specified network interface.</description>

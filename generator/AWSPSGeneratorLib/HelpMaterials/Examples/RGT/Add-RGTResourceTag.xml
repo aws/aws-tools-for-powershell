@@ -2,19 +2,19 @@
 <examples>
   <example>
     <code>
-PS C:\> $arn1 = "arn:aws:s3:::mybucket"
-PS C:\> $arn2 = "arn:aws:dynamodb:us-west-2:123456789012:table/mytable"
+$arn1 = "arn:aws:s3:::mybucket"
+$arn2 = "arn:aws:dynamodb:us-west-2:123456789012:table/mytable"
 
-PS C:\> Add-RGTResourceTag -ResourceARNList $arn1,$arn2 -Tag @{ "stage"="beta"; "version"="preprod_test" }
+Add-RGTResourceTag -ResourceARNList $arn1,$arn2 -Tag @{ "stage"="beta"; "version"="preprod_test" }
     </code>
     <description>This example adds the tag keys "stage" and "version" with values "beta" and "preprod_test" to an Amazon S3 bucket and an Amazon DynamoDB table. A single call is made to the service to apply the tags.</description>
   </example>
   <example>
     <code>
-PS C:\> $arn1 = "arn:aws:s3:::mybucket"
-PS C:\> $arn2 = "arn:aws:dynamodb:us-west-2:123456789012:table/mytable"
+$arn1 = "arn:aws:s3:::mybucket"
+$arn2 = "arn:aws:dynamodb:us-west-2:123456789012:table/mytable"
 
-PS C:\> $arn1,$arn2 | Add-RGTResourceTag -Tag @{ "stage"="beta"; "version"="preprod_test" }
+$arn1,$arn2 | Add-RGTResourceTag -Tag @{ "stage"="beta"; "version"="preprod_test" }
     </code>
     <description>This example adds the specified tags and values to an Amazon S3 bucket and an Amazon DynamoDB table. Two calls are made to the service, one for each resource ARN piped into the cmdlet.</description>
   </example>

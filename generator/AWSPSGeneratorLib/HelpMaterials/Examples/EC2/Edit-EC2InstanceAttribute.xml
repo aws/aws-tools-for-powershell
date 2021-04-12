@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Edit-EC2InstanceAttribute -InstanceId i-12345678 -InstanceType m3.medium</code>
+    <code>Edit-EC2InstanceAttribute -InstanceId i-12345678 -InstanceType m3.medium</code>
     <description>This example modifies the instance type of the specified instance.</description>
   </example>
   <example>
-    <code>PS C:\> Edit-EC2InstanceAttribute -InstanceId i-12345678 -SriovNetSupport "simple"</code>
+    <code>Edit-EC2InstanceAttribute -InstanceId i-12345678 -SriovNetSupport "simple"</code>
     <description>This example enables enhanced networking for the specified instance, by specifying "simple" as the value of the single root I/O virtualization (SR-IOV) network support parameter, -SriovNetSupport..</description>
   </example>
   <example>
-    <code>PS C:\> Edit-EC2InstanceAttribute -InstanceId i-12345678 -Group @( "sg-12345678", "sg-45678901" )</code>
+    <code>Edit-EC2InstanceAttribute -InstanceId i-12345678 -Group @( "sg-12345678", "sg-45678901" )</code>
     <description>This example modifies the security groups for the specified instance. The instance must be in a VPC. You must specify the ID of each security group, not the name.</description>
   </example>
   <example>
-    <code>PS C:\> Edit-EC2InstanceAttribute -InstanceId i-12345678 -EbsOptimized $true</code>
+    <code>Edit-EC2InstanceAttribute -InstanceId i-12345678 -EbsOptimized $true</code>
     <description>This example enables EBS I/O optimization for the specified instance. This feature isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.</description>
   </example>
   <example>
-    <code>PS C:\> Edit-EC2InstanceAttribute -InstanceId i-12345678 -SourceDestCheck $true</code>
+    <code>Edit-EC2InstanceAttribute -InstanceId i-12345678 -SourceDestCheck $true</code>
     <description>This example enables source/destination checking for the specified instance. For a NAT instance to perform NAT, the value must be 'false'.</description>
   </example>
   <example>
-    <code>PS C:\> Edit-EC2InstanceAttribute -InstanceId i-12345678 -DisableApiTermination $true</code>
+    <code>Edit-EC2InstanceAttribute -InstanceId i-12345678 -DisableApiTermination $true</code>
     <description>This example disables termination for the specified instance.</description>
   </example>
   <example>
-    <code>PS C:\> Edit-EC2InstanceAttribute -InstanceId i-12345678 -InstanceInitiatedShutdownBehavior terminate</code>
+    <code>Edit-EC2InstanceAttribute -InstanceId i-12345678 -InstanceInitiatedShutdownBehavior terminate</code>
     <description>This example changes the specified instance so that it terminates when shutdown is initiated from the instance.</description>
   </example>
 </examples>

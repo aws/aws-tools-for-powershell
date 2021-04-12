@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Edit-EC2IdFormat -Resource instance -UseLongId $true</code>
+    <code>Edit-EC2IdFormat -Resource instance -UseLongId $true</code>
     <description>This example enables the longer ID format for the specified resource type.</description>
   </example>
   <example>
-    <code>PS C:\> Edit-EC2IdFormat -Resource instance -UseLongId $false</code>
+    <code>Edit-EC2IdFormat -Resource instance -UseLongId $false</code>
     <description>This example disables the longer ID format for the specified resource type.</description>
   </example>
 </examples>

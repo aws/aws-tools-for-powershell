@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>PS C:\>Get-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
+    <code>Get-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
 
 Arn              : arn:aws:iam::aws:policy/MySamplePolicy
 AttachmentCount  : 0

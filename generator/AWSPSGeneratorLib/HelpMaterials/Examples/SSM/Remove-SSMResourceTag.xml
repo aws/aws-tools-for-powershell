@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Remove-SSMResourceTag -ResourceId "mw-03eb9db42890fb82d" -ResourceType "MaintenanceWindow" -TagKey "Production"</code>
+        <code>Remove-SSMResourceTag -ResourceId "mw-03eb9db42890fb82d" -ResourceType "MaintenanceWindow" -TagKey "Production"</code>
         <description>This example removes a tag from a maintenance window. There is no output if the command succeeds.</description>
     </example>
 </examples>

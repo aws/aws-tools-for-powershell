@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Suspend-ASProcess -AutoScalingGroupName my-asg -ScalingProcess "AlarmNotification"</code>
+    <code>Suspend-ASProcess -AutoScalingGroupName my-asg -ScalingProcess "AlarmNotification"</code>
     <description>This example suspends the specified Auto Scaling process for the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>PS C:\> Suspend-ASProcess -AutoScalingGroupName my-asg</code>
+    <code>Suspend-ASProcess -AutoScalingGroupName my-asg</code>
     <description>This example suspends all Auto Scaling processes for the specified Auto Scaling group.</description>
   </example>
 </examples>

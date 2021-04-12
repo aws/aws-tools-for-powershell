@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
 	<example>
-		<code>PS C:\> Get-EC2ImportImageTask -ImportTaskId import-ami-hgfedcba
+		<code>Get-EC2ImportImageTask -ImportTaskId import-ami-hgfedcba
         
 Architecture    : x86_64
 Description     : Windows Image 2
@@ -17,7 +17,7 @@ StatusMessage   : </code>
 		<description>This example describes the specified image import task.</description>
 	</example>
 	<example>
-		<code>PS C:\> Get-EC2ImportImageTask
+		<code>Get-EC2ImportImageTask
         
 Architecture    :
 Description     : Windows Image 1

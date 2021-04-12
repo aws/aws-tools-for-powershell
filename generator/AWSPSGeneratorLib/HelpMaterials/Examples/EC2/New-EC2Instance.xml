@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> New-EC2Instance -ImageId ami-12345678 -MinCount 1 -MaxCount 1 -InstanceType m3.medium -KeyName my-key-pair -SecurityGroup my-security-group</code>
+    <code>New-EC2Instance -ImageId ami-12345678 -MinCount 1 -MaxCount 1 -InstanceType m3.medium -KeyName my-key-pair -SecurityGroup my-security-group</code>
     <description>This example launches a single instance of the specified AMI in EC2-Classic or a default VPC.</description>
   </example>
   <example>
-    <code>PS C:\> New-EC2Instance -ImageId ami-12345678 -MinCount 1 -MaxCount 1 -SubnetId subnet-12345678 -InstanceType t2.micro -KeyName my-key-pair -SecurityGroupId sg-12345678</code>
+    <code>New-EC2Instance -ImageId ami-12345678 -MinCount 1 -MaxCount 1 -SubnetId subnet-12345678 -InstanceType t2.micro -KeyName my-key-pair -SecurityGroupId sg-12345678</code>
     <description>This example launches a single instance of the specified AMI in a VPC.</description>
   </example>
   <example>
-    <code>PS C:\> $bdm = New-Object Amazon.EC2.Model.BlockDeviceMapping
-PS C:\> $bdm.VirtualName = "ephemeral0"
-PS C:\> $bdm.DeviceName = "/dev/sdf"
+    <code>$bdm = New-Object Amazon.EC2.Model.BlockDeviceMapping
+$bdm.VirtualName = "ephemeral0"
+$bdm.DeviceName = "/dev/sdf"
 
-PS C:\> New-EC2Instance -ImageId ami-12345678 -BlockDeviceMapping $bdm ...
+New-EC2Instance -ImageId ami-12345678 -BlockDeviceMapping $bdm ...
     </code>
     <description>To add an EBS volume or an instance store volume, define a block device mapping and add it to the command. This example adds an instance store volume.</description>
   </example>
   <example>
-    <code>PS C:\> $ami = Get-EC2ImageByName WINDOWS_2012R2_BASE
+    <code>$ami = Get-EC2ImageByName WINDOWS_2012R2_BASE
 
-PS C:\> New-EC2Instance -ImageId $ami.ImageId ...</code>
+New-EC2Instance -ImageId $ami.ImageId ...</code>
     <description>To specify one of the current Windows AMIs, get its AMI ID using Get-EC2ImageByName. This example launches an instance from the current base AMI for Windows Server 2012 R2.</description>
   </example>
   <example>
@@ -29,16 +29,16 @@ PS C:\> New-EC2Instance -ImageId $ami.ImageId ...</code>
   </example>
   <example>
     <code>
-PS C:\> $tag1 = @{ Key="webserver"; Value="production" }
-PS C:\> $tag2 = @{ Key="cost-center"; Value="cc123" }
+$tag1 = @{ Key="webserver"; Value="production" }
+$tag2 = @{ Key="cost-center"; Value="cc123" }
 
-PS C:\> $tagspec1 = new-object Amazon.EC2.Model.TagSpecification
-PS C:\> $tagspec1.ResourceType = "instance"
-PS C:\> $tagspec1.Tags.Add($tag1)
+$tagspec1 = new-object Amazon.EC2.Model.TagSpecification
+$tagspec1.ResourceType = "instance"
+$tagspec1.Tags.Add($tag1)
 
-PS C:\> $tagspec2 = new-object Amazon.EC2.Model.TagSpecification
-PS C:\> $tagspec2.ResourceType = "volume"
-PS C:\> $tagspec2.Tags.Add($tag2)
+$tagspec2 = new-object Amazon.EC2.Model.TagSpecification
+$tagspec2.ResourceType = "volume"
+$tagspec2.Tags.Add($tag2)
 
 New-EC2Instance -ImageId "ami-1a2b3c4d" -KeyName "my-key-pair" -MaxCount 2 -InstanceType "t2.large" -SubnetId "subnet-1a2b3c4d" -TagSpecification $tagspec1,$tagspec2
     </code>

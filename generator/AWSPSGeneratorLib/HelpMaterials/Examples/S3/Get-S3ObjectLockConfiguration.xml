@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>PS C:\>Get-S3ObjectLockConfiguration -BucketName 's3buckettesting' -Select ObjectLockConfiguration.ObjectLockEnabled
+    <code>Get-S3ObjectLockConfiguration -BucketName 's3buckettesting' -Select ObjectLockConfiguration.ObjectLockEnabled
 
 Value
 -----

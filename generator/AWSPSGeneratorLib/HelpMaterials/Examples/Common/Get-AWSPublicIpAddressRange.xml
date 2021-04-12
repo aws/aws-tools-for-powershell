@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\>Get-AWSPublicIpAddressRange
+Get-AWSPublicIpAddressRange
 
 IpPrefix                Region                Service
 --------                ------                -------
@@ -23,7 +23,7 @@ IpPrefix                Region                Service
   </example>
   <example>
     <code>
-PS C:\>Get-AWSPublicIpAddressRange -OutputServiceKeys
+Get-AWSPublicIpAddressRange -OutputServiceKeys
 
 AMAZON
 EC2
@@ -35,7 +35,7 @@ CLOUDFRONT
   </example>
   <example>
     <code>
-PS C:\>Get-AWSPublicIpAddressRange -OutputPublicationDate
+Get-AWSPublicIpAddressRange -OutputPublicationDate
 
 Monday, December 15, 2014 4:41:01 PM
     </code>

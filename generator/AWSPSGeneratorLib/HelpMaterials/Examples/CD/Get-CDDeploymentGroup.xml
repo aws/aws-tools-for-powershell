@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-CDDeploymentGroup -ApplicationName CodeDeployDemoApplication -DeploymentGroupName CodeDeployDemoFleet
+    <code>Get-CDDeploymentGroup -ApplicationName CodeDeployDemoApplication -DeploymentGroupName CodeDeployDemoFleet
 
 ApplicationName              : CodeDeployDemoApplication
 AutoScalingGroups            : {}

@@ -2,7 +2,7 @@
 <examples>
     <example>
         <code>
-PS C:\> Get-CWDashboard -DashboardName Dashboard1
+Get-CWDashboard -DashboardName Dashboard1
 
 DashboardArn                                          DashboardBody
 ------------                                          -------------

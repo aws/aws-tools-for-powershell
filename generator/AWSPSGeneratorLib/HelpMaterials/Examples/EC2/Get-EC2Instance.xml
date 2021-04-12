@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> (Get-EC2Instance -InstanceId i-12345678).Instances
+    <code>(Get-EC2Instance -InstanceId i-12345678).Instances
     
 AmiLaunchIndex        : 0
 Architecture          : x86_64
@@ -43,7 +43,7 @@ VpcId                 : vpc-12345678</code>
     <description>This example describes the specified instance.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2Instance
+    <code>Get-EC2Instance
     
 GroupNames    : {}
 Groups        : {}
@@ -63,7 +63,7 @@ ReservationId : r-63e65bab
   </example>
   <example>
     <code>
-PS C:\> (Get-EC2Instance -Filter @{Name="vpc-id";Values="vpc-1a2bc34d"},@{Name="subnet-id";Values="subnet-1a2b3c4d"}).Instances
+(Get-EC2Instance -Filter @{Name="vpc-id";Values="vpc-1a2bc34d"},@{Name="subnet-id";Values="subnet-1a2b3c4d"}).Instances
 
 InstanceId          InstanceType Platform PrivateIpAddress PublicIpAddress SecurityGroups SubnetId        VpcId
 ----------          ------------ -------- ---------------- --------------- -------------- --------        -----

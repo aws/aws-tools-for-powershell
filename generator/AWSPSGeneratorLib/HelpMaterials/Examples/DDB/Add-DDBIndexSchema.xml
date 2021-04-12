@@ -2,8 +2,8 @@
 <examples>
 	<example>
         <code>
-PS C:\>$schema = New-DDBTableSchema
-PS C:\>$schema | Add-DDBIndexSchema -IndexName "LastPostIndex" -RangeKeyName "LastPostDateTime" -RangeKeyDataType "S" -ProjectionType "keys_only"
+$schema = New-DDBTableSchema
+$schema | Add-DDBIndexSchema -IndexName "LastPostIndex" -RangeKeyName "LastPostDateTime" -RangeKeyDataType "S" -ProjectionType "keys_only"
 
 AttributeSchema                             KeySchema                                   LocalSecondaryIndexSchema
 ---------------                             ---------                                   -------------------------
@@ -13,7 +13,7 @@ AttributeSchema                             KeySchema                           
     </example>
 	<example>
         <code>
-PS C:\>New-DDBTableSchema | Add-DDBIndexSchema -IndexName "LastPostIndex" -RangeKeyName "LastPostDateTime" -RangeKeyDataType "S" -ProjectionType "keys_only"
+New-DDBTableSchema | Add-DDBIndexSchema -IndexName "LastPostIndex" -RangeKeyName "LastPostDateTime" -RangeKeyDataType "S" -ProjectionType "keys_only"
 
 AttributeSchema                             KeySchema                                   LocalSecondaryIndexSchema
 ---------------                             ---------                                   -------------------------

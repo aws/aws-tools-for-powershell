@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
   <example>
-    <code>PS C:\> New-SSMAssociation -InstanceId "i-0cb2b964d3e14fd9f" -Name "AWS-UpdateSSMAgent"
+    <code>New-SSMAssociation -InstanceId "i-0cb2b964d3e14fd9f" -Name "AWS-UpdateSSMAgent"
 
 Name                  : AWS-UpdateSSMAgent
 InstanceId            : i-0000293ffd8c57862
@@ -26,7 +26,7 @@ Status.AdditionalInfo :</code>
     <description>This example associates a configuration document with an instance, using targets.</description>
   </example>
   <example>
-    <code>PS C:\> $target = @{Key="instanceids";Values=@("i-0cb2b964d3e14fd9f")}
+    <code>$target = @{Key="instanceids";Values=@("i-0cb2b964d3e14fd9f")}
 $params = @{
   "action"="configure"
   "mode"="ec2"

@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-PS C:\> Get-ACMCertificateList
+Get-ACMCertificateList
 
 CertificateArn                                                                      DomainName
 --------------                                                                      ----------

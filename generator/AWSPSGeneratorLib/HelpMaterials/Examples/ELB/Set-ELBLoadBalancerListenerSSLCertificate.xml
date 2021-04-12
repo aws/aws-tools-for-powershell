@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Set-ELBLoadBalancerListenerSSLCertificate -LoadBalancerName my-load-balancer `
+    <code>Set-ELBLoadBalancerListenerSSLCertificate -LoadBalancerName my-load-balancer `
 >> -LoadBalancerPort 443 `
 >> -SSLCertificateId "arn:aws:iam::123456789012:server-certificate/new-server-cert"</code>
     <description>This example replaces the certificate that terminates the SSL connections for the specified listener.</description>

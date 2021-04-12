@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute sriovNetSupport</code>
+    <code>Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute sriovNetSupport</code>
     <description>This example resets the 'sriovNetSupport' attribute for the specified instance.</description>
   </example>
   <example>
-    <code>PS C:\> Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute ebsOptimized</code>
+    <code>Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute ebsOptimized</code>
     <description>This example resets the 'ebsOptimized' attribute for the specified instance.</description>
   </example>
   <example>
-    <code>PS C:\> Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute sourceDestCheck</code>
+    <code>Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute sourceDestCheck</code>
     <description>This example resets the 'sourceDestCheck' attribute for the specified instance.</description>
   </example>
   <example>
-    <code>PS C:\> Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute disableApiTermination</code>
+    <code>Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute disableApiTermination</code>
     <description>This example resets the 'disableApiTermination' attribute for the specified instance.</description>
   </example>
   <example>
-    <code>PS C:\> Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute instanceInitiatedShutdownBehavior</code>
+    <code>Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute instanceInitiatedShutdownBehavior</code>
     <description>This example resets the 'instanceInitiatedShutdownBehavior' attribute for the specified instance.</description>
   </example>
 </examples>

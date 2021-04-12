@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-CDOnPremiseInstanceList
+    <code>Get-CDOnPremiseInstanceList
 
 AssetTag12010298EX
 AssetTag12010298EX-2</code>

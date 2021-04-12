@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
     <example>
-        <code>PS C:\> Get-SSMInstanceInformation
+        <code>Get-SSMInstanceInformation
 
 ActivationId                           :
 AgentVersion                           : 2.0.672.0
@@ -27,7 +27,7 @@ ResourceType                           : EC2Instance</code>
     </example>
     <example>
         <code>
-PS C:\>$Filters = @{
+$Filters = @{
     Key="AgentVersion"
     Values="2.2.800.0"
 }

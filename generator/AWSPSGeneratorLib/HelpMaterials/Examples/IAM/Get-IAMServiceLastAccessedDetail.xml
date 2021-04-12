@@ -2,10 +2,10 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>PS C:\> Request-IAMServiceLastAccessedDetail -Arn arn:aws:iam::123456789012:user/TestUser
+    <code>Request-IAMServiceLastAccessedDetail -Arn arn:aws:iam::123456789012:user/TestUser
 Output:
 f0b7a819-eab0-929b-dc26-ca598911cb9f
-PS C:\> Get-IAMServiceLastAccessedDetail -JobId f0b7a819-eab0-929b-dc26-ca598911cb9f</code>
+Get-IAMServiceLastAccessedDetail -JobId f0b7a819-eab0-929b-dc26-ca598911cb9f</code>
     <description>This example provides details of the service last accessed by the IAM entity(user, group, role or policy) associated in Request call. </description>
   </example>
 </examples>

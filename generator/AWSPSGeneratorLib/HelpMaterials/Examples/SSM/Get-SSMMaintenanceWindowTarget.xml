@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>PS C:\> Get-SSMMaintenanceWindowTarget -WindowId "mw-06cf17cbefcb4bf4f"
+        <code>Get-SSMMaintenanceWindowTarget -WindowId "mw-06cf17cbefcb4bf4f"
 
 OwnerInformation : Single instance
 ResourceType     : INSTANCE

@@ -2,12 +2,12 @@
 <examples>
   <example>
     <code>
-PS C:\>$origin = New-Object Amazon.CloudFront.Model.Origin
-PS C:\>$origin.DomainName = "ps-cmdlet-sample.s3.amazonaws.com"
-PS C:\>$origin.Id = "UniqueOrigin1"
-PS C:\>$origin.S3OriginConfig = New-Object Amazon.CloudFront.Model.S3OriginConfig
-PS C:\>$origin.S3OriginConfig.OriginAccessIdentity = ""
-PS C:\>New-CFDistribution `
+$origin = New-Object Amazon.CloudFront.Model.Origin
+$origin.DomainName = "ps-cmdlet-sample.s3.amazonaws.com"
+$origin.Id = "UniqueOrigin1"
+$origin.S3OriginConfig = New-Object Amazon.CloudFront.Model.S3OriginConfig
+$origin.S3OriginConfig.OriginAccessIdentity = ""
+New-CFDistribution `
       -DistributionConfig_Enabled $true `
       -DistributionConfig_Comment "Test distribution" `
       -Origins_Item $origin `

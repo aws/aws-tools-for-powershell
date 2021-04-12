@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>$results = Get-IAMGroupPolicy -GroupName Testers -PolicyName PowerUserAccess-Testers
-PS C:\>$results
+    <code>$results = Get-IAMGroupPolicy -GroupName Testers -PolicyName PowerUserAccess-Testers
+$results
 
 GroupName     PolicyDocument                                              PolicyName
 ---------     --------------                                              ----------
 Testers       %7B%0A%20%20%22Version%22%3A%20%222012-10-17%22%2C%0A%20... PowerUserAccess-Testers
 
-PS C:\>[System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
-PS C:\>[System.Web.HttpUtility]::UrlDecode($results.PolicyDocument)
+[System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
+[System.Web.HttpUtility]::UrlDecode($results.PolicyDocument)
 {
   "Version": "2012-10-17",
   "Statement": [

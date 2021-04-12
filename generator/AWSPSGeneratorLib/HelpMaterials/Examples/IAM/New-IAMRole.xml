@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>$results = New-IAMRole -AssumeRolePolicyDocument (Get-Content -raw NewRoleTrustPolicy.json) -RoleName MyNewRole
-PS C:\>$results
+    <code>$results = New-IAMRole -AssumeRolePolicyDocument (Get-Content -raw NewRoleTrustPolicy.json) -RoleName MyNewRole
+$results
       
 Arn                      : arn:aws:iam::123456789012:role/MyNewRole
 AssumeRolePolicyDocument : %7B%0D%0A%20%20%22Version%22%3A%20%222012-10-17%22%2C%0D%0A%20%20%22Statement%22
@@ -17,8 +17,8 @@ Path                     : /
 RoleId                   : V5PAJI2KPN4EAEXAMPLE1
 RoleName                 : MyNewRole
 
-PS C:\>[System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
-PS C:\>[System.Web.HttpUtility]::UrlDecode($results.AssumeRolePolicyDocument)
+[System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
+[System.Web.HttpUtility]::UrlDecode($results.AssumeRolePolicyDocument)
 {
   "Version": "2012-10-17",
   "Statement": [

@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
     <example>
-        <code>PS C:\> Get-SSMDocumentList
+        <code>Get-SSMDocumentList
 
 DocumentType    : Command
 DocumentVersion : 1
