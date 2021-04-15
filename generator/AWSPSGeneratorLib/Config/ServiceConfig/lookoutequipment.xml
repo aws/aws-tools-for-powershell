@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>lookoutequipment</C2jFilename>
+    <AssemblyName>LookoutEquipment</AssemblyName>
+    <ServiceNounPrefix>L4E</ServiceNounPrefix>
+    <ServiceName>Amazon Lookout for Equipment</ServiceName>
+    <ServiceClientInterface>IAmazonLookoutEquipment</ServiceClientInterface>
+    <ServiceClient>AmazonLookoutEquipmentClient</ServiceClient>
+    <ServiceModuleGuid>6CCCE282-6B31-4EF1-B3DA-2097E7E09DCF</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateDataset" OutputProperty="*" Verb="New" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInferenceScheduler" OutputProperty="*" Verb="New" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateModel" OutputProperty="*" Verb="New" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInferenceScheduler" Verb="Remove" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteModel" Verb="Remove" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataIngestionJob" OutputProperty="*" Verb="Get" Noun="DataIngestionJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="DatasetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInferenceScheduler" OutputProperty="*" Verb="Get" Noun="InferenceScheduler" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModel" OutputProperty="*" Verb="Get" Noun="Model" PipelineParameter="ModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataIngestionJobs" OutputProperty="DataIngestionJobSummaries" Verb="Get" Noun="DataIngestionJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="DatasetSummaries" Verb="Get" Noun="DatasetList" PipelineParameter="DatasetNameBeginsWith" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInferenceExecutions" OutputProperty="InferenceExecutionSummaries" Verb="Get" Noun="InferenceExecutionList" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInferenceSchedulers" OutputProperty="InferenceSchedulerSummaries" Verb="Get" Noun="InferenceSchedulerList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModels" OutputProperty="ModelSummaries" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDataIngestionJob" OutputProperty="*" Verb="Start" Noun="DataIngestionJob" ShouldProcessTarget="DatasetName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartInferenceScheduler" OutputProperty="*" Verb="Start" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopInferenceScheduler" OutputProperty="*" Verb="Stop" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInferenceScheduler" Verb="Update" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

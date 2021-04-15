@@ -28,13 +28,16 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Provides the details for the Security Hub master account for the current member account.
+    /// This method is deprecated. Instead, use <code>GetAdministratorAccount</code>.
     /// 
     ///  
     /// <para>
-    /// Can be used by both member accounts that are in an organization and accounts that
-    /// were invited manually.
-    /// </para>
+    /// Provides the details for the Security Hub administrator account for the current member
+    /// account.
+    /// </para><para>
+    /// Can be used by both member accounts that are managed using Organizations and accounts
+    /// that were invited manually.
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "SHUBMasterAccount")]
     [OutputType("Amazon.SecurityHub.Model.Invitation")]
@@ -43,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         "This cmdlet returns an Amazon.SecurityHub.Model.Invitation object.",
         "The service call response (type Amazon.SecurityHub.Model.GetMasterAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API has been deprecated, use GetAdministratorAccount API instead.")]
     public partial class GetSHUBMasterAccountCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         

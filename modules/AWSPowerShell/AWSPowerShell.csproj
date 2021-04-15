@@ -310,6 +310,9 @@
     <Reference Include="AWSSDK.EC2">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EC2.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EC2InstanceConnect">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EC2InstanceConnect.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ECR">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ECR.dll</HintPath>
     </Reference>
@@ -385,6 +388,9 @@
     <Reference Include="AWSSDK.Glue">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Glue.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.GlueDataBrew">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GlueDataBrew.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Greengrass">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Greengrass.dll</HintPath>
     </Reference>
@@ -399,6 +405,9 @@
     </Reference>
     <Reference Include="AWSSDK.HealthLake">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.HealthLake.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Honeycode">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Honeycode.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IdentityManagement">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IdentityManagement.dll</HintPath>
@@ -504,6 +513,9 @@
     </Reference>
     <Reference Include="AWSSDK.LocationService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LocationService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LookoutEquipment">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LookoutEquipment.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LookoutforVision">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LookoutforVision.dll</HintPath>
@@ -691,6 +703,9 @@
     <Reference Include="AWSSDK.SavingsPlans">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SavingsPlans.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Schemas">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Schemas.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SecretsManager">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecretsManager.dll</HintPath>
     </Reference>
@@ -759,6 +774,12 @@
     </Reference>
     <Reference Include="AWSSDK.Textract">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Textract.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.TimestreamQuery">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TimestreamQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.TimestreamWrite">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TimestreamWrite.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.TranscribeService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TranscribeService.dll</HintPath>
@@ -1056,6 +1077,9 @@
     <Reference Include="AWSSDK.EC2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EC2.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EC2InstanceConnect">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EC2InstanceConnect.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ECR">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ECR.dll</HintPath>
     </Reference>
@@ -1131,6 +1155,9 @@
     <Reference Include="AWSSDK.Glue">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Glue.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.GlueDataBrew">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.GlueDataBrew.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Greengrass">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Greengrass.dll</HintPath>
     </Reference>
@@ -1145,6 +1172,9 @@
     </Reference>
     <Reference Include="AWSSDK.HealthLake">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.HealthLake.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Honeycode">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Honeycode.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IdentityManagement">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IdentityManagement.dll</HintPath>
@@ -1250,6 +1280,9 @@
     </Reference>
     <Reference Include="AWSSDK.LocationService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LocationService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LookoutEquipment">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LookoutEquipment.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LookoutforVision">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LookoutforVision.dll</HintPath>
@@ -1437,6 +1470,9 @@
     <Reference Include="AWSSDK.SavingsPlans">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SavingsPlans.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Schemas">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Schemas.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SecretsManager">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SecretsManager.dll</HintPath>
     </Reference>
@@ -1505,6 +1541,12 @@
     </Reference>
     <Reference Include="AWSSDK.Textract">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Textract.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.TimestreamQuery">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.TimestreamQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.TimestreamWrite">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.TimestreamWrite.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.TranscribeService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.TranscribeService.dll</HintPath>

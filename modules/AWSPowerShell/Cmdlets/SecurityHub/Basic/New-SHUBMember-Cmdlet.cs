@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Creates a member association in Security Hub between the specified accounts and the
-    /// account used to make the request, which is the master account. If you are integrated
-    /// with Organizations, then the master account is the Security Hub administrator account
-    /// that is designated by the organization management account.
+    /// account used to make the request, which is the administrator account. If you are integrated
+    /// with Organizations, then the administrator account is designated by the organization
+    /// management account.
     /// 
     ///  
     /// <para><code>CreateMembers</code> is always used to add accounts that are not organization
@@ -55,11 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// Accounts that are part of an organization do not receive an invitation. They automatically
     /// become a member account in Security Hub.
     /// </para><para>
-    /// A permissions policy is added that permits the master account to view the findings
+    /// A permissions policy is added that permits the administrator account to view the findings
     /// generated in the member account. When Security Hub is enabled in a member account,
-    /// findings are sent to both the member and master accounts. 
+    /// the member account findings are also visible to the administrator account. 
     /// </para><para>
-    /// To remove the association between the master and member accounts, use the <code><a>DisassociateFromMasterAccount</a></code> or <code><a>DisassociateMembers</a></code> operation.
+    /// To remove the association between the administrator and member accounts, use the <code><a>DisassociateFromMasterAccount</a></code> or <code><a>DisassociateMembers</a></code> operation.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SHUBMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AccountDetail
         /// <summary>
         /// <para>
-        /// <para>The list of accounts to associate with the Security Hub master account. For each account,
-        /// the list includes the account ID and optionally the email address.</para>
+        /// <para>The list of accounts to associate with the Security Hub administrator account. For
+        /// each account, the list includes the account ID and optionally the email address.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,12 +28,12 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Disassociates the specified member accounts from the associated master account.
+    /// Disassociates the specified member accounts from the associated administrator account.
     /// 
     ///  
     /// <para>
-    /// Can be used to disassociate both accounts that are in an organization and accounts
-    /// that were invited manually.
+    /// Can be used to disassociate both accounts that are managed using Organizations and
+    /// accounts that were invited manually.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SHUBMemberAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The account IDs of the member accounts to disassociate from the master account.</para>
+        /// <para>The account IDs of the member accounts to disassociate from the administrator account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

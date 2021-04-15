@@ -28,14 +28,16 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Disassociates the current Security Hub member account from the associated master account.
+    /// This method is deprecated. Instead, use <code>DisassociateFromAdministratorAccount</code>.
     /// 
     ///  
     /// <para>
+    /// Disassociates the current Security Hub member account from the associated administrator
+    /// account.
+    /// </para><para>
     /// This operation is only used by accounts that are not part of an organization. For
-    /// organization accounts, only the master account (the designated Security Hub administrator)
-    /// can disassociate a member account.
-    /// </para>
+    /// organization accounts, only the administrator account can disassociate a member account.
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "SHUBMasterAccountAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.DisassociateFromMasterAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API has been deprecated, use DisassociateFromAdministratorAccount API instead.")]
     public partial class RemoveSHUBMasterAccountAssociationCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         

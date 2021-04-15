@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public Amazon.GroundStation.Model.AntennaUplinkConfig ConfigData_AntennaUplinkConfig { get; set; }
         #endregion
         
+        #region Parameter S3RecordingConfig_BucketArn
+        /// <summary>
+        /// <para>
+        /// <para>ARN of the bucket to record to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigData_S3RecordingConfig_BucketArn")]
+        public System.String S3RecordingConfig_BucketArn { get; set; }
+        #endregion
+        
         #region Parameter ConfigData_DataflowEndpointConfig
         /// <summary>
         /// <para>
@@ -102,6 +113,28 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter S3RecordingConfig_Prefix
+        /// <summary>
+        /// <para>
+        /// <para>S3 Key prefix to prefice data files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigData_S3RecordingConfig_Prefix")]
+        public System.String S3RecordingConfig_Prefix { get; set; }
+        #endregion
+        
+        #region Parameter S3RecordingConfig_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>ARN of the role Ground Station assumes to write data to the bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigData_S3RecordingConfig_RoleArn")]
+        public System.String S3RecordingConfig_RoleArn { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -203,6 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.GS
             context.ConfigData_AntennaDownlinkDemodDecodeConfig = this.ConfigData_AntennaDownlinkDemodDecodeConfig;
             context.ConfigData_AntennaUplinkConfig = this.ConfigData_AntennaUplinkConfig;
             context.ConfigData_DataflowEndpointConfig = this.ConfigData_DataflowEndpointConfig;
+            context.S3RecordingConfig_BucketArn = this.S3RecordingConfig_BucketArn;
+            context.S3RecordingConfig_Prefix = this.S3RecordingConfig_Prefix;
+            context.S3RecordingConfig_RoleArn = this.S3RecordingConfig_RoleArn;
             context.ConfigData_TrackingConfig = this.ConfigData_TrackingConfig;
             context.ConfigData_UplinkEchoConfig = this.ConfigData_UplinkEchoConfig;
             context.Name = this.Name;
@@ -300,6 +336,51 @@ namespace Amazon.PowerShell.Cmdlets.GS
                 request.ConfigData.UplinkEchoConfig = requestConfigData_configData_UplinkEchoConfig;
                 requestConfigDataIsNull = false;
             }
+            Amazon.GroundStation.Model.S3RecordingConfig requestConfigData_configData_S3RecordingConfig = null;
+            
+             // populate S3RecordingConfig
+            var requestConfigData_configData_S3RecordingConfigIsNull = true;
+            requestConfigData_configData_S3RecordingConfig = new Amazon.GroundStation.Model.S3RecordingConfig();
+            System.String requestConfigData_configData_S3RecordingConfig_s3RecordingConfig_BucketArn = null;
+            if (cmdletContext.S3RecordingConfig_BucketArn != null)
+            {
+                requestConfigData_configData_S3RecordingConfig_s3RecordingConfig_BucketArn = cmdletContext.S3RecordingConfig_BucketArn;
+            }
+            if (requestConfigData_configData_S3RecordingConfig_s3RecordingConfig_BucketArn != null)
+            {
+                requestConfigData_configData_S3RecordingConfig.BucketArn = requestConfigData_configData_S3RecordingConfig_s3RecordingConfig_BucketArn;
+                requestConfigData_configData_S3RecordingConfigIsNull = false;
+            }
+            System.String requestConfigData_configData_S3RecordingConfig_s3RecordingConfig_Prefix = null;
+            if (cmdletContext.S3RecordingConfig_Prefix != null)
+            {
+                requestConfigData_configData_S3RecordingConfig_s3RecordingConfig_Prefix = cmdletContext.S3RecordingConfig_Prefix;
+            }
+            if (requestConfigData_configData_S3RecordingConfig_s3RecordingConfig_Prefix != null)
+            {
+                requestConfigData_configData_S3RecordingConfig.Prefix = requestConfigData_configData_S3RecordingConfig_s3RecordingConfig_Prefix;
+                requestConfigData_configData_S3RecordingConfigIsNull = false;
+            }
+            System.String requestConfigData_configData_S3RecordingConfig_s3RecordingConfig_RoleArn = null;
+            if (cmdletContext.S3RecordingConfig_RoleArn != null)
+            {
+                requestConfigData_configData_S3RecordingConfig_s3RecordingConfig_RoleArn = cmdletContext.S3RecordingConfig_RoleArn;
+            }
+            if (requestConfigData_configData_S3RecordingConfig_s3RecordingConfig_RoleArn != null)
+            {
+                requestConfigData_configData_S3RecordingConfig.RoleArn = requestConfigData_configData_S3RecordingConfig_s3RecordingConfig_RoleArn;
+                requestConfigData_configData_S3RecordingConfigIsNull = false;
+            }
+             // determine if requestConfigData_configData_S3RecordingConfig should be set to null
+            if (requestConfigData_configData_S3RecordingConfigIsNull)
+            {
+                requestConfigData_configData_S3RecordingConfig = null;
+            }
+            if (requestConfigData_configData_S3RecordingConfig != null)
+            {
+                request.ConfigData.S3RecordingConfig = requestConfigData_configData_S3RecordingConfig;
+                requestConfigDataIsNull = false;
+            }
              // determine if request.ConfigData should be set to null
             if (requestConfigDataIsNull)
             {
@@ -378,6 +459,9 @@ namespace Amazon.PowerShell.Cmdlets.GS
             public Amazon.GroundStation.Model.AntennaDownlinkDemodDecodeConfig ConfigData_AntennaDownlinkDemodDecodeConfig { get; set; }
             public Amazon.GroundStation.Model.AntennaUplinkConfig ConfigData_AntennaUplinkConfig { get; set; }
             public Amazon.GroundStation.Model.DataflowEndpointConfig ConfigData_DataflowEndpointConfig { get; set; }
+            public System.String S3RecordingConfig_BucketArn { get; set; }
+            public System.String S3RecordingConfig_Prefix { get; set; }
+            public System.String S3RecordingConfig_RoleArn { get; set; }
             public Amazon.GroundStation.Model.TrackingConfig ConfigData_TrackingConfig { get; set; }
             public Amazon.GroundStation.Model.UplinkEchoConfig ConfigData_UplinkEchoConfig { get; set; }
             public System.String Name { get; set; }

@@ -87,7 +87,7 @@ $GS_Completers = {
             ($_ -eq "Update-GSConfig/ConfigType")
         }
         {
-            $v = "antenna-downlink","antenna-downlink-demod-decode","antenna-uplink","dataflow-endpoint","tracking","uplink-echo"
+            $v = "antenna-downlink","antenna-downlink-demod-decode","antenna-uplink","dataflow-endpoint","s3-recording","tracking","uplink-echo"
             break
         }
 

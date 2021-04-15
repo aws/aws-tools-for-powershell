@@ -192,6 +192,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter LogDeliveryConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the destination, format and type of the logs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogDeliveryConfigurations")]
+        public Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest[] LogDeliveryConfiguration { get; set; }
+        #endregion
+        
         #region Parameter NotificationTopicArn
         /// <summary>
         /// <para>
@@ -207,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The initial number of cache nodes that the cluster has.</para><para>For clusters running Redis, this value must be 1. For clusters running Memcached,
-        /// this value must be between 1 and 20.</para><para>If you need more than 20 nodes for your Memcached cluster, please fill out the ElastiCache
+        /// this value must be between 1 and 40.</para><para>If you need more than 20 nodes for your Memcached cluster, please fill out the ElastiCache
         /// Limit Increase Request form at <a href="http://aws.amazon.com/contact-us/elasticache-node-limit-request/">http://aws.amazon.com/contact-us/elasticache-node-limit-request/</a>.</para>
         /// </para>
         /// </summary>
@@ -466,6 +477,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.CacheSubnetGroupName = this.CacheSubnetGroupName;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
+            if (this.LogDeliveryConfiguration != null)
+            {
+                context.LogDeliveryConfiguration = new List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest>(this.LogDeliveryConfiguration);
+            }
             context.NotificationTopicArn = this.NotificationTopicArn;
             context.NumCacheNode = this.NumCacheNode;
             context.OutpostMode = this.OutpostMode;
@@ -552,6 +567,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.LogDeliveryConfiguration != null)
+            {
+                request.LogDeliveryConfigurations = cmdletContext.LogDeliveryConfiguration;
             }
             if (cmdletContext.NotificationTopicArn != null)
             {
@@ -688,6 +707,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheSubnetGroupName { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
+            public List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest> LogDeliveryConfiguration { get; set; }
             public System.String NotificationTopicArn { get; set; }
             public System.Int32? NumCacheNode { get; set; }
             public Amazon.ElastiCache.OutpostMode OutpostMode { get; set; }

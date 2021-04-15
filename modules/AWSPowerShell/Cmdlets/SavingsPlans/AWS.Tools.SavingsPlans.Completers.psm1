@@ -83,7 +83,7 @@ $SP_Completers = {
         # Amazon.SavingsPlans.SavingsPlanProductType
         "Get-SPSavingsPlansOffering/ProductType"
         {
-            $v = "EC2","Fargate","Lambda"
+            $v = "EC2","Fargate","Lambda","SageMaker"
             break
         }
 

@@ -141,9 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>When using the AWS CLI or boto3, provide the path of the JSON file that contains the
-        /// table mappings. Precede the path with <code>file://</code>. When working with the
-        /// DMS API, provide the JSON as the parameter value, for example: <code>--table-mappings
-        /// file://mappingfile.json</code></para>
+        /// table mappings. Precede the path with <code>file://</code>. For example, <code>--table-mappings
+        /// file://mappingfile.json</code>. When working with the DMS API, provide the JSON as
+        /// the parameter value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

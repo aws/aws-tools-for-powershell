@@ -287,7 +287,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// to assume your IAM role, so that you can set your roles trust policy to require the
         /// <code>ExternalID</code>. If you use the Cognito Management Console to create a role
         /// for SMS MFA, Cognito will create a role with the required permissions and a trust
-        /// policy that demonstrates use of the <code>ExternalId</code>.</para>
+        /// policy that demonstrates use of the <code>ExternalId</code>.</para><para>For more information about the <code>ExternalId</code> of a role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html">How
+        /// to use an external ID when granting access to your AWS resources to a third party</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,7 +376,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>Can be one of the following values:</para><ul><li><para><code>OFF</code> - MFA tokens are not required and cannot be specified during user
         /// registration.</para></li><li><para><code>ON</code> - MFA tokens are required for all user registrations. You can only
-        /// specify required when you are initially creating a user pool.</para></li><li><para><code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</para></li></ul>
+        /// specify ON when you are initially creating a user pool. You can use the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html">SetUserPoolMfaConfig</a>
+        /// API operation to turn MFA "ON" for existing user pools. </para></li><li><para><code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

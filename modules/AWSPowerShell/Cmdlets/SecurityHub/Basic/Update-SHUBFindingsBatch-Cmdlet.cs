@@ -29,17 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Used by Security Hub customers to update information about their investigation into
-    /// a finding. Requested by master accounts or member accounts. Master accounts can update
-    /// findings for their account and their member accounts. Member accounts can update findings
-    /// for their account.
+    /// a finding. Requested by administrator accounts or member accounts. Administrator accounts
+    /// can update findings for their account and their member accounts. Member accounts can
+    /// update findings for their account.
     /// 
     ///  
     /// <para>
     /// Updates from <code>BatchUpdateFindings</code> do not affect the value of <code>UpdatedAt</code>
     /// for a finding.
     /// </para><para>
-    /// Master and member accounts can use <code>BatchUpdateFindings</code> to update the
-    /// following finding fields and objects.
+    /// Administrator and member accounts can use <code>BatchUpdateFindings</code> to update
+    /// the following finding fields and objects.
     /// </para><ul><li><para><code>Confidence</code></para></li><li><para><code>Criticality</code></para></li><li><para><code>Note</code></para></li><li><para><code>RelatedFindings</code></para></li><li><para><code>Severity</code></para></li><li><para><code>Types</code></para></li><li><para><code>UserDefinedFields</code></para></li><li><para><code>VerificationState</code></para></li><li><para><code>Workflow</code></para></li></ul><para>
     /// You can configure IAM policies to restrict access to fields and field values. For
     /// example, you might not want member accounts to be able to suppress findings or change

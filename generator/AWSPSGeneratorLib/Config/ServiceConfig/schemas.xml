@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>schemas</C2jFilename>
+    <AssemblyName>Schemas</AssemblyName>
+    <ServiceNounPrefix>SCHM</ServiceNounPrefix>
+    <ServiceName>Amazon EventBridge Schema Registry</ServiceName>
+    <ServiceClientInterface>IAmazonSchemas</ServiceClientInterface>
+    <ServiceClient>AmazonSchemasClient</ServiceClient>
+    <ServiceModuleGuid>AA545F40-FC60-42D8-A49E-416E329EC564</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateDiscoverer" OutputProperty="*" Verb="New" Noun="Discoverer" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRegistry" OutputProperty="*" Verb="New" Noun="Registry" ShouldProcessTarget="RegistryName" PipelineParameter="RegistryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSchema" OutputProperty="*" Verb="New" Noun="Schema" ShouldProcessTarget="SchemaName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDiscoverer" Verb="Remove" Noun="Discoverer" ShouldProcessTarget="DiscovererId" PipelineParameter="DiscovererId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRegistry" Verb="Remove" Noun="Registry" ShouldProcessTarget="RegistryName" PipelineParameter="RegistryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="RegistryName" PipelineParameter="RegistryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSchema" Verb="Remove" Noun="Schema" ShouldProcessTarget="SchemaName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSchemaVersion" Verb="Remove" Noun="SchemaVersion" ShouldProcessTarget="SchemaName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCodeBinding" OutputProperty="*" Verb="Get" Noun="CodeBinding" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDiscoverer" OutputProperty="*" Verb="Get" Noun="Discoverer" PipelineParameter="DiscovererId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRegistry" OutputProperty="*" Verb="Get" Noun="Registry" PipelineParameter="RegistryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSchema" OutputProperty="*" Verb="Get" Noun="Schema" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportSchema" OutputProperty="*" Verb="Export" Noun="Schema" ShouldProcessTarget="SchemaName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCodeBindingSource" OutputProperty="Body" Verb="Get" Noun="CodeBindingSource" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDiscoveredSchema" OutputProperty="Content" Verb="Get" Noun="DiscoveredSchema" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="RegistryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDiscoverers" OutputProperty="Discoverers" Verb="Get" Noun="DiscovererList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRegistries" OutputProperty="Registries" Verb="Get" Noun="RegistryList" PipelineParameter="RegistryNamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSchemas" OutputProperty="Schemas" Verb="Get" Noun="SchemaList" PipelineParameter="RegistryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSchemaVersions" OutputProperty="SchemaVersions" Verb="Get" Noun="SchemaVersionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutCodeBinding" OutputProperty="*" Verb="Write" Noun="CodeBinding" ShouldProcessTarget="SchemaName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="" PipelineParameter="Policy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchSchemas" OutputProperty="Schemas" Verb="Search" Noun="Schema" IgnoreSupportsShouldProcess="true" PipelineParameter="RegistryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDiscoverer" OutputProperty="*" Verb="Start" Noun="Discoverer" ShouldProcessTarget="DiscovererId" PipelineParameter="DiscovererId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDiscoverer" OutputProperty="*" Verb="Stop" Noun="Discoverer" ShouldProcessTarget="DiscovererId" PipelineParameter="DiscovererId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDiscoverer" OutputProperty="*" Verb="Update" Noun="Discoverer" ShouldProcessTarget="DiscovererId" PipelineParameter="DiscovererId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRegistry" OutputProperty="*" Verb="Update" Noun="Registry" ShouldProcessTarget="RegistryName" PipelineParameter="RegistryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSchema" OutputProperty="*" Verb="Update" Noun="Schema" ShouldProcessTarget="SchemaName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

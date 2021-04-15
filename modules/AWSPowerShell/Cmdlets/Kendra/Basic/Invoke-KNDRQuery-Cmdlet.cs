@@ -84,6 +84,24 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String SortingConfiguration_DocumentAttributeKey { get; set; }
         #endregion
         
+        #region Parameter DocumentRelevanceOverrideConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Overrides relevance tuning configurations of fields or attributes set at the index
+        /// level.</para><para>If you use this API to override the relevance tuning configured at the index level,
+        /// but there is no relevance tuning configured at the index level, then Amazon Kendra
+        /// does not apply any relevance tuning.</para><para>If there is relevance tuning configured at the index level, but you do not use this
+        /// API to override any relevance tuning in the index, then Amazon Kendra uses the relevance
+        /// tuning that is configured at the index level.</para><para>If there is relevance tuning configured for fields at the index level, but you use
+        /// this API to override only some of these fields, then for the fields you did not override,
+        /// the importance is set to 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DocumentRelevanceOverrideConfigurations")]
+        public Amazon.Kendra.Model.DocumentRelevanceConfiguration[] DocumentRelevanceOverrideConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Facet
         /// <summary>
         /// <para>
@@ -275,6 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AttributeFilter = this.AttributeFilter;
+            if (this.DocumentRelevanceOverrideConfiguration != null)
+            {
+                context.DocumentRelevanceOverrideConfiguration = new List<Amazon.Kendra.Model.DocumentRelevanceConfiguration>(this.DocumentRelevanceOverrideConfiguration);
+            }
             if (this.Facet != null)
             {
                 context.Facet = new List<Amazon.Kendra.Model.Facet>(this.Facet);
@@ -323,6 +345,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.AttributeFilter != null)
             {
                 request.AttributeFilter = cmdletContext.AttributeFilter;
+            }
+            if (cmdletContext.DocumentRelevanceOverrideConfiguration != null)
+            {
+                request.DocumentRelevanceOverrideConfigurations = cmdletContext.DocumentRelevanceOverrideConfiguration;
             }
             if (cmdletContext.Facet != null)
             {
@@ -466,6 +492,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Kendra.Model.AttributeFilter AttributeFilter { get; set; }
+            public List<Amazon.Kendra.Model.DocumentRelevanceConfiguration> DocumentRelevanceOverrideConfiguration { get; set; }
             public List<Amazon.Kendra.Model.Facet> Facet { get; set; }
             public System.String IndexId { get; set; }
             public System.Int32? PageNumber { get; set; }

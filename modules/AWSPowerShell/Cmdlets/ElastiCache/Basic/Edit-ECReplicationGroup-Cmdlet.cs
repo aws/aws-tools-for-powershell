@@ -158,6 +158,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter LogDeliveryConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the destination, format and type of the logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogDeliveryConfigurations")]
+        public Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest[] LogDeliveryConfiguration { get; set; }
+        #endregion
+        
         #region Parameter MultiAZEnabled
         /// <summary>
         /// <para>
@@ -408,6 +419,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.CacheSecurityGroupName = new List<System.String>(this.CacheSecurityGroupName);
             }
             context.EngineVersion = this.EngineVersion;
+            if (this.LogDeliveryConfiguration != null)
+            {
+                context.LogDeliveryConfiguration = new List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest>(this.LogDeliveryConfiguration);
+            }
             context.MultiAZEnabled = this.MultiAZEnabled;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.NodeGroupId = this.NodeGroupId;
@@ -491,6 +506,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.LogDeliveryConfiguration != null)
+            {
+                request.LogDeliveryConfigurations = cmdletContext.LogDeliveryConfiguration;
             }
             if (cmdletContext.MultiAZEnabled != null)
             {
@@ -624,6 +643,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheParameterGroupName { get; set; }
             public List<System.String> CacheSecurityGroupName { get; set; }
             public System.String EngineVersion { get; set; }
+            public List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest> LogDeliveryConfiguration { get; set; }
             public System.Boolean? MultiAZEnabled { get; set; }
             [System.ObsoleteAttribute]
             public System.String NodeGroupId { get; set; }

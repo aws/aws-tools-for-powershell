@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>timestream-write</C2jFilename>
+    <AssemblyName>TimestreamWrite</AssemblyName>
+    <ServiceNounPrefix>TSW</ServiceNounPrefix>
+    <ServiceName>Amazon Timestream Write</ServiceName>
+    <ServiceClientInterface>IAmazonTimestreamWrite</ServiceClientInterface>
+    <ServiceClient>AmazonTimestreamWriteClient</ServiceClient>
+    <ServiceModuleGuid>d5cf3f60-7864-4f05-bf98-13046df7e59c</ServiceModuleGuid>
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateDatabase" OutputProperty="Database" Verb="New" Noun="Database" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTable" OutputProperty="Table" Verb="New" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDatabase" Verb="Remove" Noun="Database" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTable" Verb="Remove" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDatabase" OutputProperty="Database" Verb="Get" Noun="Database" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTable" OutputProperty="Table" Verb="Get" Noun="Table" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDatabases" OutputProperty="Databases" Verb="Get" Noun="DatabaseList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTables" OutputProperty="Tables" Verb="Get" Noun="TableList" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDatabase" OutputProperty="Database" Verb="Update" Noun="Database" ShouldProcessTarget="DatabaseName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTable" OutputProperty="Table" Verb="Update" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="WriteRecords" Verb="Write" Noun="Record" ShouldProcessTarget="TableName"  PipelineParameter="Records" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

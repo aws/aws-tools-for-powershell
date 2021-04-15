@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-SHUBResourceTag', 
+        'Confirm-SHUBAdministratorInvitation', 
         'Confirm-SHUBInvitation', 
         'Deny-SHUBInvitation', 
         'Disable-SHUBImportFindingsForProduct', 
@@ -98,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Enable-SHUBSecurityHub', 
         'Enable-SHUBStandardsBatch', 
         'Get-SHUBActionTarget', 
+        'Get-SHUBAdministratorAccount', 
         'Get-SHUBEnabledProductsForImportList', 
         'Get-SHUBEnabledStandard', 
         'Get-SHUBFinding', 
@@ -120,6 +122,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-SHUBInsight', 
         'New-SHUBMember', 
         'Remove-SHUBActionTarget', 
+        'Remove-SHUBFromAdministratorAccount', 
         'Remove-SHUBInsight', 
         'Remove-SHUBInvitation', 
         'Remove-SHUBMasterAccountAssociation', 

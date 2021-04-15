@@ -314,7 +314,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// to assume your IAM role, so that you can set your roles trust policy to require the
         /// <code>ExternalID</code>. If you use the Cognito Management Console to create a role
         /// for SMS MFA, Cognito will create a role with the required permissions and a trust
-        /// policy that demonstrates use of the <code>ExternalId</code>.</para>
+        /// policy that demonstrates use of the <code>ExternalId</code>.</para><para>For more information about the <code>ExternalId</code> of a role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html">How
+        /// to use an external ID when granting access to your AWS resources to a third party</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

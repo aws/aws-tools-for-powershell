@@ -181,7 +181,8 @@ $SHUB_SelectCompleters = {
 }
 
 $SHUB_SelectMap = @{
-    "Select"=@("Confirm-SHUBInvitation",
+    "Select"=@("Confirm-SHUBAdministratorInvitation",
+               "Confirm-SHUBInvitation",
                "Disable-SHUBStandardsBatch",
                "Enable-SHUBStandardsBatch",
                "Import-SHUBFindingsBatch",
@@ -203,11 +204,13 @@ $SHUB_SelectMap = @{
                "Disable-SHUBImportFindingsForProduct",
                "Disable-SHUBOrganizationAdminAccount",
                "Disable-SHUBSecurityHub",
+               "Remove-SHUBFromAdministratorAccount",
                "Remove-SHUBMasterAccountAssociation",
                "Remove-SHUBMemberAssociation",
                "Enable-SHUBImportFindingsForProduct",
                "Enable-SHUBOrganizationAdminAccount",
                "Enable-SHUBSecurityHub",
+               "Get-SHUBAdministratorAccount",
                "Get-SHUBEnabledStandard",
                "Get-SHUBFinding",
                "Get-SHUBInsightResult",

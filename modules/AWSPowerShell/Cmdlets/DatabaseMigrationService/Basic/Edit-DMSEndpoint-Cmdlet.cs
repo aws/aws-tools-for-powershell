@@ -255,9 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KafkaSettings_Broker
         /// <summary>
         /// <para>
-        /// <para>The broker location and port of the Kafka broker that hosts your Kafka instance. Specify
-        /// the broker in the form <code><i>broker-hostname-or-ip</i>:<i>port</i></code>. For
-        /// example, <code>"ec2-12-345-678-901.compute-1.amazonaws.com:2345"</code>.</para>
+        /// <para>A comma-separated list of one or more broker locations in your Kafka cluster that
+        /// host your Kafka instance. Specify each broker location in the form <code><i>broker-hostname-or-ip</i>:<i>port</i></code>. For example, <code>"ec2-12-345-678-901.compute-1.amazonaws.com:2345"</code>.
+        /// For more information and examples of specifying a list of broker locations, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html">Using
+        /// Apache Kafka as a target for AWS Database Migration Service</a> in the <i>AWS Data
+        /// Migration Service User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -446,6 +448,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [Alias("OracleSettings_CharLengthSemantics")]
         [AWSConstantClassSource("Amazon.DatabaseMigrationService.CharLengthSemantics")]
         public Amazon.DatabaseMigrationService.CharLengthSemantics OracleSettings_CharLengthSemantic { get; set; }
+        #endregion
+        
+        #region Parameter MySQLSettings_CleanSourceMetadataOnMismatch
+        /// <summary>
+        /// <para>
+        /// <para>Adjusts the behavior of DMS when migrating from an SQL Server source database that
+        /// is hosted as part of an Always On availability group cluster. If you need DMS to poll
+        /// all the nodes in the Always On cluster for transaction backups, set this attribute
+        /// to <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MySQLSettings_CleanSourceMetadataOnMismatch { get; set; }
         #endregion
         
         #region Parameter S3Settings_CompressionType
@@ -1757,6 +1772,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? S3Settings_PreserveTransaction { get; set; }
         #endregion
         
+        #region Parameter MicrosoftSQLServerSettings_QuerySingleAlwaysOnNode
+        /// <summary>
+        /// <para>
+        /// <para>Cleans and recreates table metadata information on the replication instance when a
+        /// mismatch occurs. An example is a situation where running an alter DDL statement on
+        /// a table might result in different information about the table cached in the replication
+        /// instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MicrosoftSQLServerSettings_QuerySingleAlwaysOnNode { get; set; }
+        #endregion
+        
         #region Parameter OracleSettings_ReadAheadBlock
         /// <summary>
         /// <para>
@@ -1910,6 +1938,30 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DatabaseMigrationService.SafeguardPolicy")]
         public Amazon.DatabaseMigrationService.SafeguardPolicy MicrosoftSQLServerSettings_SafeguardPolicy { get; set; }
+        #endregion
+        
+        #region Parameter KafkaSettings_SaslPassword
+        /// <summary>
+        /// <para>
+        /// <para>The secure password you created when you first set up your MSK cluster to validate
+        /// a client identity and make an encrypted connection between server and client using
+        /// SASL-SSL authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KafkaSettings_SaslPassword { get; set; }
+        #endregion
+        
+        #region Parameter KafkaSettings_SaslUsername
+        /// <summary>
+        /// <para>
+        /// <para> The secure username you created when you first set up your MSK cluster to validate
+        /// a client identity and make an encrypted connection between server and client using
+        /// SASL-SSL authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KafkaSettings_SaslUsername { get; set; }
         #endregion
         
         #region Parameter DocDbSettings_SecretsManagerAccessRoleArn
@@ -2257,6 +2309,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String OracleSettings_SecurityDbEncryptionName { get; set; }
         #endregion
         
+        #region Parameter KafkaSettings_SecurityProtocol
+        /// <summary>
+        /// <para>
+        /// <para>Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS).
+        /// Options include <code>ssl-encryption</code>, <code>ssl-authentication</code>, and
+        /// <code>sasl-ssl</code>. <code>sasl-ssl</code> requires <code>SaslUsername</code> and
+        /// <code>SaslPassword</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.KafkaSecurityProtocol")]
+        public Amazon.DatabaseMigrationService.KafkaSecurityProtocol KafkaSettings_SecurityProtocol { get; set; }
+        #endregion
+        
         #region Parameter DocDbSettings_ServerName
         /// <summary>
         /// <para>
@@ -2461,7 +2527,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) used by the service access IAM role. It is a required
-        /// parameter that enables DMS to write and read objects from an 3S bucket.</para>
+        /// parameter that enables DMS to write and read objects from an S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2500,6 +2566,64 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PostgreSQLSettings_SlotName { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_SpatialDataOptionToGeoJsonFunctionName
+        /// <summary>
+        /// <para>
+        /// <para>Use this attribute to convert <code>SDO_GEOMETRY</code> to <code>GEOJSON</code> format.
+        /// By default, DMS calls the <code>SDO2GEOJSON</code> custom function if present and
+        /// accessible. Or you can create your own custom function that mimics the operation of
+        /// <code>SDOGEOJSON</code> and set <code>SpatialDataOptionToGeoJsonFunctionName</code>
+        /// to call it instead. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_SpatialDataOptionToGeoJsonFunctionName { get; set; }
+        #endregion
+        
+        #region Parameter KafkaSettings_SslCaCertificateArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) for the private Certification Authority (CA) cert
+        /// that AWS DMS uses to securely connect to your Kafka target endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KafkaSettings_SslCaCertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter KafkaSettings_SslClientCertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the client certificate used to securely connect
+        /// to a Kafka target endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KafkaSettings_SslClientCertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter KafkaSettings_SslClientKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the client private key used to securely connect
+        /// to a Kafka target endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KafkaSettings_SslClientKeyArn { get; set; }
+        #endregion
+        
+        #region Parameter KafkaSettings_SslClientKeyPassword
+        /// <summary>
+        /// <para>
+        /// <para> The password for the client private key used to securely connect to a Kafka target
+        /// endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KafkaSettings_SslClientKeyPassword { get; set; }
         #endregion
         
         #region Parameter SslMode
@@ -2755,6 +2879,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String Username { get; set; }
         #endregion
         
+        #region Parameter MicrosoftSQLServerSettings_UseThirdPartyBackupDevice
+        /// <summary>
+        /// <para>
+        /// <para>When this attribute is set to <code>Y</code>, DMS processes third-party transaction
+        /// log backups if they are created in native format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MicrosoftSQLServerSettings_UseThirdPartyBackupDevice { get; set; }
+        #endregion
+        
         #region Parameter RedshiftSettings_WriteBufferSize
         /// <summary>
         /// <para>
@@ -2879,6 +3014,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.KafkaSettings_MessageFormat = this.KafkaSettings_MessageFormat;
             context.KafkaSettings_MessageMaxByte = this.KafkaSettings_MessageMaxByte;
             context.KafkaSettings_PartitionIncludeSchemaTable = this.KafkaSettings_PartitionIncludeSchemaTable;
+            context.KafkaSettings_SaslPassword = this.KafkaSettings_SaslPassword;
+            context.KafkaSettings_SaslUsername = this.KafkaSettings_SaslUsername;
+            context.KafkaSettings_SecurityProtocol = this.KafkaSettings_SecurityProtocol;
+            context.KafkaSettings_SslCaCertificateArn = this.KafkaSettings_SslCaCertificateArn;
+            context.KafkaSettings_SslClientCertificateArn = this.KafkaSettings_SslClientCertificateArn;
+            context.KafkaSettings_SslClientKeyArn = this.KafkaSettings_SslClientKeyArn;
+            context.KafkaSettings_SslClientKeyPassword = this.KafkaSettings_SslClientKeyPassword;
             context.KafkaSettings_Topic = this.KafkaSettings_Topic;
             context.KinesisSettings_IncludeControlDetail = this.KinesisSettings_IncludeControlDetail;
             context.KinesisSettings_IncludeNullAndEmpty = this.KinesisSettings_IncludeNullAndEmpty;
@@ -2894,6 +3036,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MicrosoftSQLServerSettings_DatabaseName = this.MicrosoftSQLServerSettings_DatabaseName;
             context.MicrosoftSQLServerSettings_Password = this.MicrosoftSQLServerSettings_Password;
             context.MicrosoftSQLServerSettings_Port = this.MicrosoftSQLServerSettings_Port;
+            context.MicrosoftSQLServerSettings_QuerySingleAlwaysOnNode = this.MicrosoftSQLServerSettings_QuerySingleAlwaysOnNode;
             context.MicrosoftSQLServerSettings_ReadBackupOnly = this.MicrosoftSQLServerSettings_ReadBackupOnly;
             context.MicrosoftSQLServerSettings_SafeguardPolicy = this.MicrosoftSQLServerSettings_SafeguardPolicy;
             context.MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn = this.MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn;
@@ -2901,6 +3044,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MicrosoftSQLServerSettings_ServerName = this.MicrosoftSQLServerSettings_ServerName;
             context.MicrosoftSQLServerSettings_UseBcpFullLoad = this.MicrosoftSQLServerSettings_UseBcpFullLoad;
             context.MicrosoftSQLServerSettings_Username = this.MicrosoftSQLServerSettings_Username;
+            context.MicrosoftSQLServerSettings_UseThirdPartyBackupDevice = this.MicrosoftSQLServerSettings_UseThirdPartyBackupDevice;
             context.MongoDbSettings_AuthMechanism = this.MongoDbSettings_AuthMechanism;
             context.MongoDbSettings_AuthSource = this.MongoDbSettings_AuthSource;
             context.MongoDbSettings_AuthType = this.MongoDbSettings_AuthType;
@@ -2916,6 +3060,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MongoDbSettings_ServerName = this.MongoDbSettings_ServerName;
             context.MongoDbSettings_Username = this.MongoDbSettings_Username;
             context.MySQLSettings_AfterConnectScript = this.MySQLSettings_AfterConnectScript;
+            context.MySQLSettings_CleanSourceMetadataOnMismatch = this.MySQLSettings_CleanSourceMetadataOnMismatch;
             context.MySQLSettings_DatabaseName = this.MySQLSettings_DatabaseName;
             context.MySQLSettings_EventsPollInterval = this.MySQLSettings_EventsPollInterval;
             context.MySQLSettings_MaxFileSize = this.MySQLSettings_MaxFileSize;
@@ -2966,6 +3111,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.OracleSettings_SecurityDbEncryption = this.OracleSettings_SecurityDbEncryption;
             context.OracleSettings_SecurityDbEncryptionName = this.OracleSettings_SecurityDbEncryptionName;
             context.OracleSettings_ServerName = this.OracleSettings_ServerName;
+            context.OracleSettings_SpatialDataOptionToGeoJsonFunctionName = this.OracleSettings_SpatialDataOptionToGeoJsonFunctionName;
             context.OracleSettings_UseAlternateFolderForOnline = this.OracleSettings_UseAlternateFolderForOnline;
             context.OracleSettings_UsePathPrefix = this.OracleSettings_UsePathPrefix;
             context.OracleSettings_Username = this.OracleSettings_Username;
@@ -3521,6 +3667,76 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.KafkaSettings.PartitionIncludeSchemaTable = requestKafkaSettings_kafkaSettings_PartitionIncludeSchemaTable.Value;
                 requestKafkaSettingsIsNull = false;
             }
+            System.String requestKafkaSettings_kafkaSettings_SaslPassword = null;
+            if (cmdletContext.KafkaSettings_SaslPassword != null)
+            {
+                requestKafkaSettings_kafkaSettings_SaslPassword = cmdletContext.KafkaSettings_SaslPassword;
+            }
+            if (requestKafkaSettings_kafkaSettings_SaslPassword != null)
+            {
+                request.KafkaSettings.SaslPassword = requestKafkaSettings_kafkaSettings_SaslPassword;
+                requestKafkaSettingsIsNull = false;
+            }
+            System.String requestKafkaSettings_kafkaSettings_SaslUsername = null;
+            if (cmdletContext.KafkaSettings_SaslUsername != null)
+            {
+                requestKafkaSettings_kafkaSettings_SaslUsername = cmdletContext.KafkaSettings_SaslUsername;
+            }
+            if (requestKafkaSettings_kafkaSettings_SaslUsername != null)
+            {
+                request.KafkaSettings.SaslUsername = requestKafkaSettings_kafkaSettings_SaslUsername;
+                requestKafkaSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.KafkaSecurityProtocol requestKafkaSettings_kafkaSettings_SecurityProtocol = null;
+            if (cmdletContext.KafkaSettings_SecurityProtocol != null)
+            {
+                requestKafkaSettings_kafkaSettings_SecurityProtocol = cmdletContext.KafkaSettings_SecurityProtocol;
+            }
+            if (requestKafkaSettings_kafkaSettings_SecurityProtocol != null)
+            {
+                request.KafkaSettings.SecurityProtocol = requestKafkaSettings_kafkaSettings_SecurityProtocol;
+                requestKafkaSettingsIsNull = false;
+            }
+            System.String requestKafkaSettings_kafkaSettings_SslCaCertificateArn = null;
+            if (cmdletContext.KafkaSettings_SslCaCertificateArn != null)
+            {
+                requestKafkaSettings_kafkaSettings_SslCaCertificateArn = cmdletContext.KafkaSettings_SslCaCertificateArn;
+            }
+            if (requestKafkaSettings_kafkaSettings_SslCaCertificateArn != null)
+            {
+                request.KafkaSettings.SslCaCertificateArn = requestKafkaSettings_kafkaSettings_SslCaCertificateArn;
+                requestKafkaSettingsIsNull = false;
+            }
+            System.String requestKafkaSettings_kafkaSettings_SslClientCertificateArn = null;
+            if (cmdletContext.KafkaSettings_SslClientCertificateArn != null)
+            {
+                requestKafkaSettings_kafkaSettings_SslClientCertificateArn = cmdletContext.KafkaSettings_SslClientCertificateArn;
+            }
+            if (requestKafkaSettings_kafkaSettings_SslClientCertificateArn != null)
+            {
+                request.KafkaSettings.SslClientCertificateArn = requestKafkaSettings_kafkaSettings_SslClientCertificateArn;
+                requestKafkaSettingsIsNull = false;
+            }
+            System.String requestKafkaSettings_kafkaSettings_SslClientKeyArn = null;
+            if (cmdletContext.KafkaSettings_SslClientKeyArn != null)
+            {
+                requestKafkaSettings_kafkaSettings_SslClientKeyArn = cmdletContext.KafkaSettings_SslClientKeyArn;
+            }
+            if (requestKafkaSettings_kafkaSettings_SslClientKeyArn != null)
+            {
+                request.KafkaSettings.SslClientKeyArn = requestKafkaSettings_kafkaSettings_SslClientKeyArn;
+                requestKafkaSettingsIsNull = false;
+            }
+            System.String requestKafkaSettings_kafkaSettings_SslClientKeyPassword = null;
+            if (cmdletContext.KafkaSettings_SslClientKeyPassword != null)
+            {
+                requestKafkaSettings_kafkaSettings_SslClientKeyPassword = cmdletContext.KafkaSettings_SslClientKeyPassword;
+            }
+            if (requestKafkaSettings_kafkaSettings_SslClientKeyPassword != null)
+            {
+                request.KafkaSettings.SslClientKeyPassword = requestKafkaSettings_kafkaSettings_SslClientKeyPassword;
+                requestKafkaSettingsIsNull = false;
+            }
             System.String requestKafkaSettings_kafkaSettings_Topic = null;
             if (cmdletContext.KafkaSettings_Topic != null)
             {
@@ -3689,6 +3905,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.MicrosoftSQLServerSettings.Port = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Port.Value;
                 requestMicrosoftSQLServerSettingsIsNull = false;
             }
+            System.Boolean? requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_QuerySingleAlwaysOnNode = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_QuerySingleAlwaysOnNode != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_QuerySingleAlwaysOnNode = cmdletContext.MicrosoftSQLServerSettings_QuerySingleAlwaysOnNode.Value;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_QuerySingleAlwaysOnNode != null)
+            {
+                request.MicrosoftSQLServerSettings.QuerySingleAlwaysOnNode = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_QuerySingleAlwaysOnNode.Value;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
             System.Boolean? requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ReadBackupOnly = null;
             if (cmdletContext.MicrosoftSQLServerSettings_ReadBackupOnly != null)
             {
@@ -3757,6 +3983,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username != null)
             {
                 request.MicrosoftSQLServerSettings.Username = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
+            System.Boolean? requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_UseThirdPartyBackupDevice = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_UseThirdPartyBackupDevice != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_UseThirdPartyBackupDevice = cmdletContext.MicrosoftSQLServerSettings_UseThirdPartyBackupDevice.Value;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_UseThirdPartyBackupDevice != null)
+            {
+                request.MicrosoftSQLServerSettings.UseThirdPartyBackupDevice = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_UseThirdPartyBackupDevice.Value;
                 requestMicrosoftSQLServerSettingsIsNull = false;
             }
              // determine if request.MicrosoftSQLServerSettings should be set to null
@@ -3925,6 +4161,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMySQLSettings_mySQLSettings_AfterConnectScript != null)
             {
                 request.MySQLSettings.AfterConnectScript = requestMySQLSettings_mySQLSettings_AfterConnectScript;
+                requestMySQLSettingsIsNull = false;
+            }
+            System.Boolean? requestMySQLSettings_mySQLSettings_CleanSourceMetadataOnMismatch = null;
+            if (cmdletContext.MySQLSettings_CleanSourceMetadataOnMismatch != null)
+            {
+                requestMySQLSettings_mySQLSettings_CleanSourceMetadataOnMismatch = cmdletContext.MySQLSettings_CleanSourceMetadataOnMismatch.Value;
+            }
+            if (requestMySQLSettings_mySQLSettings_CleanSourceMetadataOnMismatch != null)
+            {
+                request.MySQLSettings.CleanSourceMetadataOnMismatch = requestMySQLSettings_mySQLSettings_CleanSourceMetadataOnMismatch.Value;
                 requestMySQLSettingsIsNull = false;
             }
             System.String requestMySQLSettings_mySQLSettings_DatabaseName = null;
@@ -4443,6 +4689,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestOracleSettings_oracleSettings_ServerName != null)
             {
                 request.OracleSettings.ServerName = requestOracleSettings_oracleSettings_ServerName;
+                requestOracleSettingsIsNull = false;
+            }
+            System.String requestOracleSettings_oracleSettings_SpatialDataOptionToGeoJsonFunctionName = null;
+            if (cmdletContext.OracleSettings_SpatialDataOptionToGeoJsonFunctionName != null)
+            {
+                requestOracleSettings_oracleSettings_SpatialDataOptionToGeoJsonFunctionName = cmdletContext.OracleSettings_SpatialDataOptionToGeoJsonFunctionName;
+            }
+            if (requestOracleSettings_oracleSettings_SpatialDataOptionToGeoJsonFunctionName != null)
+            {
+                request.OracleSettings.SpatialDataOptionToGeoJsonFunctionName = requestOracleSettings_oracleSettings_SpatialDataOptionToGeoJsonFunctionName;
                 requestOracleSettingsIsNull = false;
             }
             System.Boolean? requestOracleSettings_oracleSettings_UseAlternateFolderForOnline = null;
@@ -5436,6 +5692,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public Amazon.DatabaseMigrationService.MessageFormatValue KafkaSettings_MessageFormat { get; set; }
             public System.Int32? KafkaSettings_MessageMaxByte { get; set; }
             public System.Boolean? KafkaSettings_PartitionIncludeSchemaTable { get; set; }
+            public System.String KafkaSettings_SaslPassword { get; set; }
+            public System.String KafkaSettings_SaslUsername { get; set; }
+            public Amazon.DatabaseMigrationService.KafkaSecurityProtocol KafkaSettings_SecurityProtocol { get; set; }
+            public System.String KafkaSettings_SslCaCertificateArn { get; set; }
+            public System.String KafkaSettings_SslClientCertificateArn { get; set; }
+            public System.String KafkaSettings_SslClientKeyArn { get; set; }
+            public System.String KafkaSettings_SslClientKeyPassword { get; set; }
             public System.String KafkaSettings_Topic { get; set; }
             public System.Boolean? KinesisSettings_IncludeControlDetail { get; set; }
             public System.Boolean? KinesisSettings_IncludeNullAndEmpty { get; set; }
@@ -5451,6 +5714,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String MicrosoftSQLServerSettings_DatabaseName { get; set; }
             public System.String MicrosoftSQLServerSettings_Password { get; set; }
             public System.Int32? MicrosoftSQLServerSettings_Port { get; set; }
+            public System.Boolean? MicrosoftSQLServerSettings_QuerySingleAlwaysOnNode { get; set; }
             public System.Boolean? MicrosoftSQLServerSettings_ReadBackupOnly { get; set; }
             public Amazon.DatabaseMigrationService.SafeguardPolicy MicrosoftSQLServerSettings_SafeguardPolicy { get; set; }
             public System.String MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn { get; set; }
@@ -5458,6 +5722,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String MicrosoftSQLServerSettings_ServerName { get; set; }
             public System.Boolean? MicrosoftSQLServerSettings_UseBcpFullLoad { get; set; }
             public System.String MicrosoftSQLServerSettings_Username { get; set; }
+            public System.Boolean? MicrosoftSQLServerSettings_UseThirdPartyBackupDevice { get; set; }
             public Amazon.DatabaseMigrationService.AuthMechanismValue MongoDbSettings_AuthMechanism { get; set; }
             public System.String MongoDbSettings_AuthSource { get; set; }
             public Amazon.DatabaseMigrationService.AuthTypeValue MongoDbSettings_AuthType { get; set; }
@@ -5473,6 +5738,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String MongoDbSettings_ServerName { get; set; }
             public System.String MongoDbSettings_Username { get; set; }
             public System.String MySQLSettings_AfterConnectScript { get; set; }
+            public System.Boolean? MySQLSettings_CleanSourceMetadataOnMismatch { get; set; }
             public System.String MySQLSettings_DatabaseName { get; set; }
             public System.Int32? MySQLSettings_EventsPollInterval { get; set; }
             public System.Int32? MySQLSettings_MaxFileSize { get; set; }
@@ -5523,6 +5789,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String OracleSettings_SecurityDbEncryption { get; set; }
             public System.String OracleSettings_SecurityDbEncryptionName { get; set; }
             public System.String OracleSettings_ServerName { get; set; }
+            public System.String OracleSettings_SpatialDataOptionToGeoJsonFunctionName { get; set; }
             public System.Boolean? OracleSettings_UseAlternateFolderForOnline { get; set; }
             public System.String OracleSettings_UsePathPrefix { get; set; }
             public System.String OracleSettings_Username { get; set; }

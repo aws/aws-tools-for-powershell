@@ -141,15 +141,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// AWS::IAM::Role</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
         /// AWS::IAM::User</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
         /// AWS::IAM::UserToGroupAddition</a></para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
-        /// IAM Resources in AWS CloudFormation Templates</a>.</para></li><li><para><code>CAPABILITY_AUTO_EXPAND</code></para><para>Some templates contain macros. If your stack template contains one or more macros,
-        /// and you choose to update a stack directly from the processed template, without first
-        /// reviewing the resulting changes in a change set, you must acknowledge this capability.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using
-        /// AWS CloudFormation Macros to Perform Custom Processing on Templates</a>.</para><important><para>Stack sets do not currently support macros in stack templates. (This includes the
-        /// <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a>
+        /// IAM Resources in AWS CloudFormation Templates</a>.</para></li><li><para><code>CAPABILITY_AUTO_EXPAND</code></para><para>Some templates reference macros. If your stack set template references one or more
+        /// macros, you must update the stack set directly from the processed template, without
+        /// first reviewing the resulting changes in a change set. To update the stack set directly,
+        /// you must acknowledge this capability. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using
+        /// AWS CloudFormation Macros to Perform Custom Processing on Templates</a>.</para><important><para>Stack sets with service-managed permissions do not currently support the use of macros
+        /// in templates. (This includes the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a>
         /// and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
         /// transforms, which are macros hosted by AWS CloudFormation.) Even if you specify this
-        /// capability, if you include a macro in your template the stack set operation will fail.</para></important></li></ul>
+        /// capability for a stack set with service-managed permissions, if you reference a macro
+        /// in your template the stack set operation will fail.</para></important></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

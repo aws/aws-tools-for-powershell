@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-RSPartner', 
         'Approve-RSClusterSecurityGroupIngress', 
         'Approve-RSEndpointAccess', 
         'Approve-RSSnapshotAccess', 
@@ -132,6 +133,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RSLoggingStatus', 
         'Get-RSNodeConfigurationOption', 
         'Get-RSOrderableClusterOption', 
+        'Get-RSPartner', 
         'Get-RSReservedNode', 
         'Get-RSReservedNodeExchangeOffering', 
         'Get-RSReservedNodeOffering', 
@@ -167,6 +169,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-RSEventSubscription', 
         'Remove-RSHsmClientCertificate', 
         'Remove-RSHsmConfiguration', 
+        'Remove-RSPartner', 
         'Remove-RSResourceTag', 
         'Remove-RSScheduledAction', 
         'Remove-RSSnapshotCopyGrant', 
@@ -185,7 +188,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-RSCluster', 
         'Stop-RSResize', 
         'Switch-RSEncryptionKey', 
-        'Switch-RSReservedNode')
+        'Switch-RSReservedNode', 
+        'Update-RSPartnerStatus')
 
     # Variables to export from this module
     VariablesToExport = '*'

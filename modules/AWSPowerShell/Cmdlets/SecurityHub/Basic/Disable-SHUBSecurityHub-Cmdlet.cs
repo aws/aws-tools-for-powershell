@@ -34,13 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// 
     ///  
     /// <para>
-    /// When you disable Security Hub for a master account, it doesn't disable Security Hub
-    /// for any associated member accounts.
+    /// When you disable Security Hub for an administrator account, it doesn't disable Security
+    /// Hub for any associated member accounts.
     /// </para><para>
     /// When you disable Security Hub, your existing findings and insights and any Security
     /// Hub configuration settings are deleted after 90 days and cannot be recovered. Any
-    /// standards that were enabled are disabled, and your master and member account associations
-    /// are removed.
+    /// standards that were enabled are disabled, and your administrator and member account
+    /// associations are removed.
     /// </para><para>
     /// If you want to save your existing findings, you must export them before you disable
     /// Security Hub.

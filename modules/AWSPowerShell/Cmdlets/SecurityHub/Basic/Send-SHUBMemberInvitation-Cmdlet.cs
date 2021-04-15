@@ -28,8 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Invites other AWS accounts to become member accounts for the Security Hub master account
-    /// that the invitation is sent from.
+    /// Invites other AWS accounts to become member accounts for the Security Hub administrator
+    /// account that the invitation is sent from.
     /// 
     ///  
     /// <para>
@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// Before you can use this action to invite a member, you must first use the <code><a>CreateMembers</a></code> action to create the member account in Security Hub.
     /// </para><para>
     /// When the account owner enables Security Hub and accepts the invitation to become a
-    /// member account, the master account can view the findings generated from the member
-    /// account.
+    /// member account, the administrator account can view the findings generated from the
+    /// member account.
     /// </para>
     /// </summary>
     [Cmdlet("Send", "SHUBMemberInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

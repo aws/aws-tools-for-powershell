@@ -182,6 +182,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.KafkaSecurityProtocol
+        {
+            ($_ -eq "Edit-DMSEndpoint/KafkaSettings_SecurityProtocol") -Or
+            ($_ -eq "New-DMSEndpoint/KafkaSettings_SecurityProtocol")
+        }
+        {
+            $v = "plaintext","sasl-ssl","ssl-authentication","ssl-encryption"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.MessageFormatValue
         {
             ($_ -eq "Edit-DMSEndpoint/KafkaSettings_MessageFormat") -Or
@@ -290,6 +300,7 @@ $DMS_map = @{
     "DocDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "KafkaSettings_SecurityProtocol"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KinesisSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MicrosoftSQLServerSettings_SafeguardPolicy"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MigrationType"=@("Edit-DMSReplicationTask","Get-DMSApplicableIndividualAssessment","New-DMSReplicationTask")
@@ -383,6 +394,7 @@ $DMS_SelectMap = @{
                "Get-DMSCertificate",
                "Get-DMSConnection",
                "Get-DMSEndpoint",
+               "Get-DMSEndpointSetting",
                "Get-DMSEndpointType",
                "Get-DMSEventCategory",
                "Get-DMSEvent",

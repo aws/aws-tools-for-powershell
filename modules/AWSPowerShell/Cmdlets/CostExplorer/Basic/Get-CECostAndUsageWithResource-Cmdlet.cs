@@ -81,7 +81,13 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <code>MONTHLY</code>, <code>DAILY</code>, or <code>HOURLY</code>. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.CostExplorer.Granularity")]
         public Amazon.CostExplorer.Granularity Granularity { get; set; }
         #endregion
@@ -217,6 +223,12 @@ namespace Amazon.PowerShell.Cmdlets.CE
             }
             #endif
             context.Granularity = this.Granularity;
+            #if MODULAR
+            if (this.Granularity == null && ParameterWasBound(nameof(this.Granularity)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Granularity which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.GroupBy != null)
             {
                 context.GroupBy = new List<Amazon.CostExplorer.Model.GroupDefinition>(this.GroupBy);

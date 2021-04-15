@@ -186,13 +186,24 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter LogDeliveryConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the destination, format and type of the logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogDeliveryConfigurations")]
+        public Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest[] LogDeliveryConfiguration { get; set; }
+        #endregion
+        
         #region Parameter NewAvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The list of Availability Zones where the new Memcached cache nodes are created.</para><para>This parameter is only valid when <code>NumCacheNodes</code> in the request is greater
+        /// <note><para>This option is only supported on Memcached clusters.</para></note><para>The list of Availability Zones where the new Memcached cache nodes are created.</para><para>This parameter is only valid when <code>NumCacheNodes</code> in the request is greater
         /// than the sum of the number of active cache nodes and the number of cache nodes pending
         /// creation (which may be zero). The number of Availability Zones supplied in this list
-        /// must match the cache nodes being added in this request.</para><para>This option is only supported on Memcached clusters.</para><para>Scenarios:</para><ul><li><para><b>Scenario 1:</b> You have 3 active nodes and wish to add 2 nodes. Specify <code>NumCacheNodes=5</code>
+        /// must match the cache nodes being added in this request.</para><para>Scenarios:</para><ul><li><para><b>Scenario 1:</b> You have 3 active nodes and wish to add 2 nodes. Specify <code>NumCacheNodes=5</code>
         /// (3 + 2) and optionally specify two Availability Zones for the two new nodes.</para></li><li><para><b>Scenario 2:</b> You have 3 active nodes and 2 nodes pending creation (from the
         /// scenario 1 call) and want to add 1 more node. Specify <code>NumCacheNodes=6</code>
         /// ((3 + 2) + 1) and optionally specify an Availability Zone for the new node.</para></li><li><para><b>Scenario 3:</b> You want to cancel all pending operations. Specify <code>NumCacheNodes=3</code>
@@ -243,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// less than the number of existing cache nodes, nodes are removed. If the value is equal
         /// to the number of current cache nodes, any pending add or remove requests are canceled.</para><para>If you are removing cache nodes, you must use the <code>CacheNodeIdsToRemove</code>
         /// parameter to provide the IDs of the specific cache nodes to remove.</para><para>For clusters running Redis, this value must be 1. For clusters running Memcached,
-        /// this value must be between 1 and 20.</para><note><para>Adding or removing Memcached cache nodes can be applied immediately or as a pending
+        /// this value must be between 1 and 40.</para><note><para>Adding or removing Memcached cache nodes can be applied immediately or as a pending
         /// operation (see <code>ApplyImmediately</code>).</para><para>A pending operation to modify the number of cache nodes in a cluster during its maintenance
         /// window, whether by adding or removing nodes in accordance with the scale out architecture,
         /// is not queued. The customer's latest request to add or remove nodes to the cluster
@@ -397,6 +408,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.CacheSecurityGroupName = new List<System.String>(this.CacheSecurityGroupName);
             }
             context.EngineVersion = this.EngineVersion;
+            if (this.LogDeliveryConfiguration != null)
+            {
+                context.LogDeliveryConfiguration = new List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest>(this.LogDeliveryConfiguration);
+            }
             if (this.NewAvailabilityZone != null)
             {
                 context.NewAvailabilityZone = new List<System.String>(this.NewAvailabilityZone);
@@ -470,6 +485,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.LogDeliveryConfiguration != null)
+            {
+                request.LogDeliveryConfigurations = cmdletContext.LogDeliveryConfiguration;
             }
             if (cmdletContext.NewAvailabilityZone != null)
             {
@@ -575,6 +594,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheParameterGroupName { get; set; }
             public List<System.String> CacheSecurityGroupName { get; set; }
             public System.String EngineVersion { get; set; }
+            public List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest> LogDeliveryConfiguration { get; set; }
             public List<System.String> NewAvailabilityZone { get; set; }
             public System.String NotificationTopicArn { get; set; }
             public System.String NotificationTopicStatus { get; set; }

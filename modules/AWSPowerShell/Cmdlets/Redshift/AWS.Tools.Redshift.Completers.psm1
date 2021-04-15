@@ -98,6 +98,13 @@ $RS_Completers = {
             break
         }
 
+        # Amazon.Redshift.PartnerIntegrationStatus
+        "Update-RSPartnerStatus/Status"
+        {
+            $v = "Active","ConnectionFailure","Inactive","RuntimeFailure"
+            break
+        }
+
         # Amazon.Redshift.ScheduledActionTypeValues
         "Get-RSScheduledAction/TargetActionType"
         {
@@ -162,6 +169,7 @@ $RS_map = @{
     "LimitType"=@("New-RSUsageLimit")
     "Period"=@("New-RSUsageLimit")
     "SourceType"=@("Get-RSEvent")
+    "Status"=@("Update-RSPartnerStatus")
     "TargetActionType"=@("Get-RSScheduledAction")
 }
 
@@ -216,6 +224,7 @@ $RS_SelectCompleters = {
 
 $RS_SelectMap = @{
     "Select"=@("Switch-RSReservedNode",
+               "Add-RSPartner",
                "Approve-RSClusterSecurityGroupIngress",
                "Approve-RSEndpointAccess",
                "Approve-RSSnapshotAccess",
@@ -246,6 +255,7 @@ $RS_SelectMap = @{
                "Remove-RSEventSubscription",
                "Remove-RSHsmClientCertificate",
                "Remove-RSHsmConfiguration",
+               "Remove-RSPartner",
                "Remove-RSScheduledAction",
                "Remove-RSSnapshotCopyGrant",
                "Remove-RSSnapshotSchedule",
@@ -272,6 +282,7 @@ $RS_SelectMap = @{
                "Get-RSLoggingStatus",
                "Get-RSNodeConfigurationOption",
                "Get-RSOrderableClusterOption",
+               "Get-RSPartner",
                "Get-RSReservedNodeOffering",
                "Get-RSReservedNode",
                "Get-RSResize",
@@ -314,7 +325,8 @@ $RS_SelectMap = @{
                "Revoke-RSClusterSecurityGroupIngress",
                "Revoke-RSEndpointAccess",
                "Revoke-RSSnapshotAccess",
-               "Switch-RSEncryptionKey")
+               "Switch-RSEncryptionKey",
+               "Update-RSPartnerStatus")
 }
 
 _awsArgumentCompleterRegistration $RS_SelectCompleters $RS_SelectMap

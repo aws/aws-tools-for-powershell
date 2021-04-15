@@ -243,6 +243,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter LogDeliveryConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the destination, format and type of the logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogDeliveryConfigurations")]
+        public Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest[] LogDeliveryConfiguration { get; set; }
+        #endregion
+        
         #region Parameter MultiAZEnabled
         /// <summary>
         /// <para>
@@ -591,6 +602,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.EngineVersion = this.EngineVersion;
             context.GlobalReplicationGroupId = this.GlobalReplicationGroupId;
             context.KmsKeyId = this.KmsKeyId;
+            if (this.LogDeliveryConfiguration != null)
+            {
+                context.LogDeliveryConfiguration = new List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest>(this.LogDeliveryConfiguration);
+            }
             context.MultiAZEnabled = this.MultiAZEnabled;
             if (this.NodeGroupConfiguration != null)
             {
@@ -704,6 +719,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.LogDeliveryConfiguration != null)
+            {
+                request.LogDeliveryConfigurations = cmdletContext.LogDeliveryConfiguration;
             }
             if (cmdletContext.MultiAZEnabled != null)
             {
@@ -858,6 +877,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String EngineVersion { get; set; }
             public System.String GlobalReplicationGroupId { get; set; }
             public System.String KmsKeyId { get; set; }
+            public List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest> LogDeliveryConfiguration { get; set; }
             public System.Boolean? MultiAZEnabled { get; set; }
             public List<Amazon.ElastiCache.Model.NodeGroupConfiguration> NodeGroupConfiguration { get; set; }
             public System.String NotificationTopicArn { get; set; }

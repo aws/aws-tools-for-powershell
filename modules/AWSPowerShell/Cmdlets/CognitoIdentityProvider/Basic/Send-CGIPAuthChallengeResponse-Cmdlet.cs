@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// attributes, <code>USERNAME</code>. </para></li><li><para><code>SOFTWARE_TOKEN_MFA</code>: <code>USERNAME</code> and <code>SOFTWARE_TOKEN_MFA_CODE</code>
         /// are required attributes.</para></li><li><para><code>DEVICE_SRP_AUTH</code> requires <code>USERNAME</code>, <code>DEVICE_KEY</code>,
         /// <code>SRP_A</code> (and <code>SECRET_HASH</code>).</para></li><li><para><code>DEVICE_PASSWORD_VERIFIER</code> requires everything that <code>PASSWORD_VERIFIER</code>
-        /// requires plus <code>DEVICE_KEY</code>.</para></li></ul>
+        /// requires plus <code>DEVICE_KEY</code>.</para></li><li><para><code>MFA_SETUP</code> requires <code>USERNAME</code>, plus you need to use the session
+        /// value returned by <code>VerifySoftwareToken</code> in the <code>Session</code> parameter.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

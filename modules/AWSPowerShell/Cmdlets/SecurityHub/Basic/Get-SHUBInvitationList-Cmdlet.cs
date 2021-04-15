@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// 
     ///  
     /// <para>
-    /// This operation is only used by accounts that do not belong to an organization. Organization
-    /// accounts do not receive invitations.
+    /// This operation is only used by accounts that are managed by invitation. Accounts that
+    /// are managed using the integration with AWS Organizations do not receive invitations.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBInvitationList")]

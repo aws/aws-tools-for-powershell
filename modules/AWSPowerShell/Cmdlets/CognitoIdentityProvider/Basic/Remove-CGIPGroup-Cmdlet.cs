@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Deletes a group. Currently only groups with no members can be deleted.
+    /// Deletes a group.
     /// 
     ///  
     /// <para>

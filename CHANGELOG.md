@@ -1,4 +1,41 @@
-﻿### 4.1.11.0 (2021-04-14)
+﻿### 4.1.12.0 (2021-04-22)
+  * Removed "PS C:\> " from one-line PowerShell API cmdlet examples.
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.19.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Database Migration Service
+    * Added cmdlet Get-DMSEndpointSetting leveraging the DescribeEndpointSettings service API.
+    * Modified cmdlet Edit-DMSEndpoint: added parameters KafkaSettings_SaslPassword, KafkaSettings_SaslUsername, KafkaSettings_SecurityProtocol, KafkaSettings_SslCaCertificateArn, KafkaSettings_SslClientCertificateArn, KafkaSettings_SslClientKeyArn, KafkaSettings_SslClientKeyPassword, MicrosoftSQLServerSettings_QuerySingleAlwaysOnNode, MicrosoftSQLServerSettings_UseThirdPartyBackupDevice, MySQLSettings_CleanSourceMetadataOnMismatch and OracleSettings_SpatialDataOptionToGeoJsonFunctionName.
+    * Modified cmdlet New-DMSEndpoint: added parameters KafkaSettings_SaslPassword, KafkaSettings_SaslUsername, KafkaSettings_SecurityProtocol, KafkaSettings_SslCaCertificateArn, KafkaSettings_SslClientCertificateArn, KafkaSettings_SslClientKeyArn, KafkaSettings_SslClientKeyPassword, MicrosoftSQLServerSettings_QuerySingleAlwaysOnNode, MicrosoftSQLServerSettings_UseThirdPartyBackupDevice, MySQLSettings_CleanSourceMetadataOnMismatch and OracleSettings_SpatialDataOptionToGeoJsonFunctionName.
+  * Amazon EC2 Instance Connect. Added cmdlets to support the service. Cmdlets for the service have the noun prefix EC2IC and can be listed using the command 'Get-AWSCmdletName -Service EC2IC'.
+  * Amazon ElastiCache
+    * Modified cmdlet Edit-ECCacheCluster: added parameter LogDeliveryConfiguration.
+    * Modified cmdlet Edit-ECReplicationGroup: added parameter LogDeliveryConfiguration.
+    * Modified cmdlet New-ECCacheCluster: added parameter LogDeliveryConfiguration.
+    * Modified cmdlet New-ECReplicationGroup: added parameter LogDeliveryConfiguration.
+  * Amazon EventBridge Schema Registry. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SCHM and can be listed using the command 'Get-AWSCmdletName -Service SCHM'.
+  * Amazon Glue DataBrew. Added cmdlets to support the service. Cmdlets for the service have the noun prefix GDB and can be listed using the command 'Get-AWSCmdletName -Service GDB'.
+  * Amazon Ground Station
+    * Modified cmdlet New-GSConfig: added parameters S3RecordingConfig_BucketArn, S3RecordingConfig_Prefix and S3RecordingConfig_RoleArn.
+    * Modified cmdlet Update-GSConfig: added parameters S3RecordingConfig_BucketArn, S3RecordingConfig_Prefix and S3RecordingConfig_RoleArn.
+  * Amazon Honeycode. Added cmdlets to support the service. Cmdlets for the service have the noun prefix HC and can be listed using the command 'Get-AWSCmdletName -Service HC'.
+  * Amazon Kendra
+    * Modified cmdlet Invoke-KNDRQuery: added parameter DocumentRelevanceOverrideConfiguration.
+  * LMBV2
+    * [Breaking Change] Removed cmdlet Build-LMBV2BotLocale.
+    * Added cmdlet Invoke-LMBV2BuildBotLocale leveraging the BuildBotLocale service API.
+  * Amazon Lookout for Equipment. Added cmdlets to support the service. Cmdlets for the service have the noun prefix L4E and can be listed using the command 'Get-AWSCmdletName -Service L4E'.
+  * Amazon Redshift
+    * Added cmdlet Add-RSPartner leveraging the AddPartner service API.
+    * Added cmdlet Get-RSPartner leveraging the DescribePartners service API.
+    * Added cmdlet Remove-RSPartner leveraging the DeletePartner service API.
+    * Added cmdlet Update-RSPartnerStatus leveraging the UpdatePartnerStatus service API.
+  * Amazon Security Hub
+    * Added cmdlet Confirm-SHUBAdministratorInvitation leveraging the AcceptAdministratorInvitation service API.
+    * Added cmdlet Get-SHUBAdministratorAccount leveraging the GetAdministratorAccount service API.
+    * Added cmdlet Remove-SHUBFromAdministratorAccount leveraging the DisassociateFromAdministratorAccount service API.
+  * Amazon Timestream Query. Added cmdlets to support the service. Cmdlets for the service have the noun prefix TSQ and can be listed using the command 'Get-AWSCmdletName -Service TSQ'.
+  * Amazon Timestream Write. Added cmdlets to support the service. Cmdlets for the service have the noun prefix TSW and can be listed using the command 'Get-AWSCmdletName -Service TSW'.
+
+### 4.1.11.0 (2021-04-14)
   * Version bump for AWS.Tools.Installer.
   * Documentation examples for DS CmdLets
   * Add Get-EC2Address tag filtering example.

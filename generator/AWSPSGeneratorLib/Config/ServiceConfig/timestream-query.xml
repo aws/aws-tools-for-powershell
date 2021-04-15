@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>timestream-query</C2jFilename>
+    <AssemblyName>TimestreamQuery</AssemblyName>
+    <ServiceNounPrefix>TSQ</ServiceNounPrefix>
+    <ServiceName>Amazon Timestream Query</ServiceName>
+    <ServiceClientInterface>IAmazonTimestreamQuery</ServiceClientInterface>
+    <ServiceClient>AmazonTimestreamQueryClient</ServiceClient>
+    <ServiceModuleGuid>1e182d35-38b6-4473-bebe-cc229e37ca20</ServiceModuleGuid>
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="Query" Verb="Invoke" OutputProperty="Rows" Noun="Query" PipelineParameter="QueryString" IgnoreSupportsShouldProcess="true" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelQuery" OutputProperty="CancellationMessage" Verb="Stop" Noun="Query" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

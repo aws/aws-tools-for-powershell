@@ -28,7 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Lists details about all member accounts for the current Security Hub master account.
+    /// Lists details about all member accounts for the current Security Hub administrator
+    /// account.
     /// 
     ///  
     /// <para>
@@ -50,8 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>Specifies which member accounts to include in the response based on their relationship
-        /// status with the master account. The default value is <code>TRUE</code>.</para><para>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes
-        /// member accounts whose relationship status with the master is set to <code>ENABLED</code>.</para><para>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes
+        /// status with the administrator account. The default value is <code>TRUE</code>.</para><para>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes
+        /// member accounts whose relationship status with the administrator account is set to
+        /// <code>ENABLED</code>.</para><para>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes
         /// all existing member accounts. </para>
         /// </para>
         /// </summary>

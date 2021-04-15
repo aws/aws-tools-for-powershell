@@ -42,7 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MfaConfiguration
         /// <summary>
         /// <para>
-        /// <para>The MFA configuration. Valid values include:</para><ul><li><para><code>OFF</code> MFA will not be used for any users.</para></li><li><para><code>ON</code> MFA is required for all users to sign in.</para></li><li><para><code>OPTIONAL</code> MFA will be required only for individual users who have an
+        /// <para>The MFA configuration. Users who don't have an MFA factor set up won't be able to
+        /// sign-in if you set the MfaConfiguration value to ‘ON’. See <a href="cognito/latest/developerguide/user-pool-settings-mfa.html">Adding
+        /// Multi-Factor Authentication (MFA) to a User Pool</a> to learn more. Valid values include:</para><ul><li><para><code>OFF</code> MFA will not be used for any users.</para></li><li><para><code>ON</code> MFA is required for all users to sign in.</para></li><li><para><code>OPTIONAL</code> MFA will be required only for individual users who have an
         /// MFA factor enabled.</para></li></ul>
         /// </para>
         /// </summary>

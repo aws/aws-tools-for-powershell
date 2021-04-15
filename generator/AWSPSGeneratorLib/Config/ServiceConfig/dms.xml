@@ -105,6 +105,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpointSettings" OutputProperty="EndpointSettings" Verb="Get" Noun="EndpointSetting" PipelineParameter="EngineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeEndpointTypes" OutputProperty="SupportedEndpointTypes" Verb="Get" Noun="EndpointType" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

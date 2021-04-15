@@ -28,16 +28,18 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Accepts the invitation to be a member account and be monitored by the Security Hub
-    /// master account that the invitation was sent from.
+    /// This method is deprecated. Instead, use <code>AcceptAdministratorInvitation</code>.
     /// 
     ///  
     /// <para>
+    /// Accepts the invitation to be a member account and be monitored by the Security Hub
+    /// administrator account that the invitation was sent from.
+    /// </para><para>
     /// This operation is only used by member accounts that are not added through Organizations.
     /// </para><para>
-    /// When the member account accepts the invitation, permission is granted to the master
+    /// When the member account accepts the invitation, permission is granted to the administrator
     /// account to view findings generated in the member account.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Confirm", "SHUBInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,13 +48,14 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.AcceptInvitationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API has been deprecated, use AcceptAdministratorInvitation API instead.")]
     public partial class ConfirmSHUBInvitationCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
         #region Parameter InvitationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the invitation sent from the Security Hub master account.</para>
+        /// <para>The identifier of the invitation sent from the Security Hub administrator account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter MasterId
         /// <summary>
         /// <para>
-        /// <para>The account ID of the Security Hub master account that sent the invitation.</para>
+        /// <para>The account ID of the Security Hub administrator account that sent the invitation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptAdministratorInvitation" Verb="Confirm" Noun="AdministratorInvitation" ShouldProcessTarget="InvitationId" PipelineParameter="InvitationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AcceptInvitation" Verb="Confirm" Noun="Invitation" ShouldProcessTarget="InvitationId" PipelineParameter="InvitationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -107,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateFromAdministratorAccount" Verb="Remove" Noun="FromAdministratorAccount" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateFromMasterAccount" Verb="Remove" Noun="MasterAccountAssociation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -124,6 +132,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableSecurityHub" Verb="Enable" Noun="SecurityHub" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAdministratorAccount" OutputProperty="Administrator" Verb="Get" Noun="AdministratorAccount" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
