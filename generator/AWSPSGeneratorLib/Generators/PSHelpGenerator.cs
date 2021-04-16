@@ -380,7 +380,6 @@ namespace AWSPowerShellGenerator.Generators
 
         private const string exampleTitleFormat = "-------------------------- EXAMPLE {0} --------------------------";
         private const string remarksFormat = "<para>Description</para><para>-----------</para>{0}<para /><para />";
-        private const string psCmdlinePrefix = "PS C:\\&gt;";
         
         private void WriteExamples(XmlWriter writer, string cmdletName)
         {
@@ -414,16 +413,8 @@ namespace AWSPowerShellGenerator.Generators
                             {
                                 Logger.LogError("Unable to find examples <code> tag for cmdlet " + cmdletName);
                             }
-                            // if the sample is a one-liner, auto-inject 'PS C:\>' at the start if not already
-                            // present so we match what some other modules do
-                            var codeSample = code.InnerXml;
-                            if (codeSample.IndexOfAny(new [] {'\n', '\r'}) == -1)
-                            {
-                                if (!codeSample.StartsWith(psCmdlinePrefix))
-                                    codeSample = string.Concat(psCmdlinePrefix, codeSample);
-                            }
-
-                            writer.WriteRawElementString("code", codeSample);
+                            
+                            writer.WriteRawElementString("code", code.InnerXml);
 
                             // remarks tag MUST HAVE PARA TAGS
                             var description = example.SelectSingleNode("description");

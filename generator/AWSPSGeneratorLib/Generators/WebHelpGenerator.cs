@@ -369,8 +369,6 @@ namespace AWSPowerShellGenerator.Generators
             
         }
 
-        private const string psCmdlinePrefix = "PS C:\\>";
-
         private void WriteExamples(CmdletPageWriter writer, string cmdletName)
         {
             XmlDocument document;
@@ -397,11 +395,6 @@ namespace AWSPowerShellGenerator.Generators
                     Logger.LogError("Unable to find examples <code> tag for cmdlet " + cmdletName);
 
                 var codeSample = code.InnerText.Trim('\r', '\n');
-                if (codeSample.IndexOfAny(new [] { '\n', '\r' }) == -1)
-                {
-                    if (!codeSample.StartsWith(psCmdlinePrefix))
-                        codeSample = string.Concat(psCmdlinePrefix, codeSample);
-                }
                 
                 codeSample = codeSample.Replace(Environment.NewLine, "<br/>");
                 sb.AppendFormat("<div class=\"code\">{0}</div>", codeSample);
