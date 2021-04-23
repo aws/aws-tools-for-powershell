@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     /// with that job.
     /// </para><para>
     /// The credentials of a given job, including its manifest file and unlock code, expire
-    /// 90 days after the job is created.
+    /// 360 days after the job is created.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SNOWJobManifest")]

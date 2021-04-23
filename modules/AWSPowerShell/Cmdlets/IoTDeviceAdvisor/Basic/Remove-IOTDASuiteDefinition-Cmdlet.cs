@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Deletes a Device Advisor test suite with defined suite Id.</para>
+        /// <para>Suite definition Id of the test suite to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to the resource.</para>
+        /// <para>The tags to add to the resource. You can add up to 50 tags at a time. The tag keys
+        /// can be no longer than 128 characters. The tag values can be no longer than 256 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

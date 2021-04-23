@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the geofence collection to be disassociated from
-        /// the tracker resource. Used when you need to specify a resource across all AWS. </para><ul><li><para>Format example: <code>arn:partition:service:region:account-id:resource-type:resource-id</code></para></li></ul>
+        /// the tracker resource. Used when you need to specify a resource across all AWS. </para><ul><li><para>Format example: <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

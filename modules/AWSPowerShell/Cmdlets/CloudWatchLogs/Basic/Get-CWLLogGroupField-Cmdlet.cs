@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The time to set as the center of the query. If you specify <code>time</code>, the
-        /// 8 minutes before and 8 minutes after this time are searched. If you omit <code>time</code>,
-        /// the past 15 minutes are queried.</para><para>The <code>time</code> value is specified as epoch time, the number of seconds since
+        /// 15 minutes before this time are queries. If you omit <code>time</code> the 8 minutes
+        /// before and 8 minutes after this time are searched.</para><para>The <code>time</code> value is specified as epoch time, the number of seconds since
         /// January 1, 1970, 00:00:00 UTC.</para>
         /// </para>
         /// </summary>

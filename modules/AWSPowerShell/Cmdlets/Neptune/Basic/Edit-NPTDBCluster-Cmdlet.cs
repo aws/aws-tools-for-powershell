@@ -47,12 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>A value that specifies whether the modifications in this request and any pending modifications
         /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
         /// setting for the DB cluster. If this parameter is set to <code>false</code>, changes
-        /// to the DB cluster are applied during the next maintenance window.</para><para>The <code>ApplyImmediately</code> parameter only affects the <code>NewDBClusterIdentifier</code>
-        /// and <code>MasterUserPassword</code> values. If you set the <code>ApplyImmediately</code>
-        /// parameter value to false, then changes to the <code>NewDBClusterIdentifier</code>
-        /// and <code>MasterUserPassword</code> values are applied during the next maintenance
-        /// window. All other changes are applied immediately, regardless of the value of the
-        /// <code>ApplyImmediately</code> parameter.</para><para>Default: <code>false</code></para>
+        /// to the DB cluster are applied during the next maintenance window.</para><para>The <code>ApplyImmediately</code> parameter only affects <code>NewDBClusterIdentifier</code>
+        /// values. If you set the <code>ApplyImmediately</code> parameter value to false, then
+        /// changes to <code>NewDBClusterIdentifier</code> values are applied during the next
+        /// maintenance window. All other changes are applied immediately, regardless of the value
+        /// of the <code>ApplyImmediately</code> parameter.</para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,6 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? BackupRetentionPeriod { get; set; }
+        #endregion
+        
+        #region Parameter CopyTagsToSnapshot
+        /// <summary>
+        /// <para>
+        /// <para><i>If set to <code>true</code>, tags are copied to any snapshot of the DB cluster
+        /// that is created.</i></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CopyTagsToSnapshot { get; set; }
         #endregion
         
         #region Parameter DBClusterIdentifier
@@ -123,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-        /// accounts, and otherwise false.</para><para>Default: <code>false</code></para>
+        /// <para>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to
+        /// database accounts, and otherwise false.</para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,8 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The new password for the master database user. This password can contain any printable
-        /// ASCII character except "/", """, or "@".</para><para>Constraints: Must contain from 8 to 41 characters.</para>
+        /// <para>Not supported by Neptune.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para><i>(Not supported by Neptune)</i></para>
+        /// <para><i>Not supported by Neptune.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
         /// are enabled, using the <code>BackupRetentionPeriod</code> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region.</para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// for each Amazon Region.</para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
         /// Time (UTC).</para><para>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region, occurring on a random day of the week.</para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
+        /// for each Amazon Region, occurring on a random day of the week.</para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -303,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 context.CloudwatchLogsExportConfiguration_EnableLogType = new List<System.String>(this.CloudwatchLogsExportConfiguration_EnableLogType);
             }
+            context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             #if MODULAR
             if (this.DBClusterIdentifier == null && ParameterWasBound(nameof(this.DBClusterIdentifier)))
@@ -376,6 +386,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (requestCloudwatchLogsExportConfigurationIsNull)
             {
                 request.CloudwatchLogsExportConfiguration = null;
+            }
+            if (cmdletContext.CopyTagsToSnapshot != null)
+            {
+                request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
             if (cmdletContext.DBClusterIdentifier != null)
             {
@@ -490,6 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.Int32? BackupRetentionPeriod { get; set; }
             public List<System.String> CloudwatchLogsExportConfiguration_DisableLogType { get; set; }
             public List<System.String> CloudwatchLogsExportConfiguration_EnableLogType { get; set; }
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }

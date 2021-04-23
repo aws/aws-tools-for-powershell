@@ -89,6 +89,22 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public System.Boolean? TestingData_AutoCreate { get; set; }
         #endregion
         
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for your AWS Key Management Service (AWS KMS) customer master key (CMK).
+        /// You can supply the Amazon Resource Name (ARN) of your CMK, the ID of your CMK, or
+        /// an alias for your CMK. The key is used to encrypt training and test images copied
+        /// into the service for model training. Your source images are unaffected. The key is
+        /// also used to encrypt training results and manifest files written to the output Amazon
+        /// S3 bucket (<code>OutputConfig</code>).</para><para>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service
+        /// are encrypted using a key that AWS owns and manages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter ProjectArn
         /// <summary>
         /// <para>
@@ -216,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 context.Select = (response, cmdlet) => this.VersionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.KmsKeyId = this.KmsKeyId;
             context.OutputConfig_S3Bucket = this.OutputConfig_S3Bucket;
             context.OutputConfig_S3KeyPrefix = this.OutputConfig_S3KeyPrefix;
             context.ProjectArn = this.ProjectArn;
@@ -265,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             // create request
             var request = new Amazon.Rekognition.Model.CreateProjectVersionRequest();
             
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
             
              // populate OutputConfig
             var requestOutputConfigIsNull = true;
@@ -415,6 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String KmsKeyId { get; set; }
             public System.String OutputConfig_S3Bucket { get; set; }
             public System.String OutputConfig_S3KeyPrefix { get; set; }
             public System.String ProjectArn { get; set; }

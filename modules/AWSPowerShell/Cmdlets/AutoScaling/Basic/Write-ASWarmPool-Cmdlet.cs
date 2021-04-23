@@ -28,10 +28,11 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Adds a warm pool to the specified Auto Scaling group. A warm pool is a pool of pre-initialized
-    /// EC2 instances that sits alongside the Auto Scaling group. Whenever your application
-    /// needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new
-    /// desired capacity. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm
+    /// Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is
+    /// a pool of pre-initialized EC2 instances that sits alongside the Auto Scaling group.
+    /// Whenever your application needs to scale out, the Auto Scaling group can draw on the
+    /// warm pool to meet its new desired capacity. For more information and example configurations,
+    /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm
     /// pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// 
     ///  
@@ -75,18 +76,20 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxGroupPreparedCapacity
         /// <summary>
         /// <para>
-        /// <para>Specifies the total maximum number of instances that are allowed to be in the warm
-        /// pool or in any state except <code>Terminated</code> for the Auto Scaling group. This
-        /// is an optional property. Specify it only if the warm pool size should not be determined
-        /// by the difference between the group's maximum capacity and its desired capacity. </para><important><para>Amazon EC2 Auto Scaling will launch and maintain either the difference between the
-        /// group's maximum capacity and its desired capacity, if a value for <code>MaxGroupPreparedCapacity</code>
-        /// is not specified, or the difference between the <code>MaxGroupPreparedCapacity</code>
-        /// and the desired capacity, if a value for <code>MaxGroupPreparedCapacity</code> is
-        /// specified. </para><para>The size of the warm pool is dynamic. Only when <code>MaxGroupPreparedCapacity</code>
+        /// <para>Specifies the maximum number of instances that are allowed to be in the warm pool
+        /// or in any state except <code>Terminated</code> for the Auto Scaling group. This is
+        /// an optional property. Specify it only if you do not want the warm pool size to be
+        /// determined by the difference between the group's maximum capacity and its desired
+        /// capacity. </para><important><para>If a value for <code>MaxGroupPreparedCapacity</code> is not specified, Amazon EC2
+        /// Auto Scaling launches and maintains the difference between the group's maximum capacity
+        /// and its desired capacity. If you specify a value for <code>MaxGroupPreparedCapacity</code>,
+        /// Amazon EC2 Auto Scaling uses the difference between the <code>MaxGroupPreparedCapacity</code>
+        /// and the desired capacity instead. </para><para>The size of the warm pool is dynamic. Only when <code>MaxGroupPreparedCapacity</code>
         /// and <code>MinSize</code> are set to the same value does the warm pool have an absolute
         /// size.</para></important><para>If the desired capacity of the Auto Scaling group is higher than the <code>MaxGroupPreparedCapacity</code>,
-        /// the capacity of the warm pool is 0. To remove a value that you previously set, include
-        /// the property but specify -1 for the value. </para>
+        /// the capacity of the warm pool is 0, unless you specify a value for <code>MinSize</code>.
+        /// To remove a value that you previously set, include the property but specify -1 for
+        /// the value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PoolState
         /// <summary>
         /// <para>
-        /// <para>Sets the instance state to transition to after the lifecycle hooks finish. Valid values
-        /// are: <code>Stopped</code> (default) or <code>Running</code>.</para>
+        /// <para>Sets the instance state to transition to after the lifecycle actions are complete.
+        /// Default is <code>Stopped</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

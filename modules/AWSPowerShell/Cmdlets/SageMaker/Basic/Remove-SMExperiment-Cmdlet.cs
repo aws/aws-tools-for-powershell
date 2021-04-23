@@ -28,8 +28,8 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deletes an Amazon SageMaker experiment. All trials associated with the experiment
-    /// must be deleted first. Use the <a>ListTrials</a> API to get a list of the trials associated
+    /// Deletes an SageMaker experiment. All trials associated with the experiment must be
+    /// deleted first. Use the <a>ListTrials</a> API to get a list of the trials associated
     /// with the experiment.
     /// </summary>
     [Cmdlet("Remove", "SMExperiment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

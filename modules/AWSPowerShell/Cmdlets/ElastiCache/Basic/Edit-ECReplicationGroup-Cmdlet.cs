@@ -316,7 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter UserGroupIdsToAdd
         /// <summary>
         /// <para>
-        /// <para>A list of user group IDs.</para>
+        /// <para>The user group you are associating with the replication group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -326,8 +326,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter UserGroupIdsToRemove
         /// <summary>
         /// <para>
-        /// <para>A list of users groups to remove, meaning the users in the group no longer can access
-        /// thereplication group.</para>
+        /// <para>The user group to remove, meaning the users in the group no longer can access the
+        /// replication group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

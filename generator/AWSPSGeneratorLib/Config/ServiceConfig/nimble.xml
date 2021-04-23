@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>nimble</C2jFilename>
+    <AssemblyName>NimbleStudio</AssemblyName>
+    <ServiceNounPrefix>NS</ServiceNounPrefix>
+    <ServiceName>Amazon Nimble Studio</ServiceName>
+    <ServiceClientInterface>IAmazonNimbleStudio</ServiceClientInterface>
+    <ServiceClient>AmazonNimbleStudioClient</ServiceClient>
+    <ServiceModuleGuid>d0975c53-093b-4810-bdc0-0de24d2a4e55</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptEulas" OutputProperty="EulaAcceptances" Verb="Approve" Noun="Eula" ShouldProcessTarget="StudioId" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLaunchProfile" OutputProperty="LaunchProfile" Verb="New" Noun="LaunchProfile" ShouldProcessTarget="Name" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStreamingImage" OutputProperty="StreamingImage" Verb="New" Noun="StreamingImage" ShouldProcessTarget="Name" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStreamingSession" OutputProperty="Session" Verb="New" Noun="StreamingSession" ShouldProcessTarget="StudioId" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStreamingSessionStream" OutputProperty="Stream" Verb="New" Noun="StreamingSessionStream" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStudio" OutputProperty="Studio" Verb="New" Noun="Studio" ShouldProcessTarget="StudioName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStudioComponent" OutputProperty="StudioComponent" Verb="New" Noun="StudioComponent" ShouldProcessTarget="Name" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLaunchProfile" OutputProperty="LaunchProfile" Verb="Remove" Noun="LaunchProfile" ShouldProcessTarget="LaunchProfileId" PipelineParameter="LaunchProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLaunchProfileMember" Verb="Remove" Noun="LaunchProfileMember" ShouldProcessTarget="PrincipalId" PipelineParameter="PrincipalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStreamingImage" OutputProperty="StreamingImage" Verb="Remove" Noun="StreamingImage" ShouldProcessTarget="StreamingImageId" PipelineParameter="StreamingImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStreamingSession" OutputProperty="Session" Verb="Remove" Noun="StreamingSession" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStudio" OutputProperty="Studio" Verb="Remove" Noun="Studio" ShouldProcessTarget="StudioId" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStudioComponent" OutputProperty="StudioComponent" Verb="Remove" Noun="StudioComponent" ShouldProcessTarget="StudioComponentId" PipelineParameter="StudioComponentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStudioMember" Verb="Remove" Noun="StudioMember" ShouldProcessTarget="PrincipalId" PipelineParameter="PrincipalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEula" OutputProperty="Eula" Verb="Get" Noun="Eula" PipelineParameter="EulaId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLaunchProfile" OutputProperty="LaunchProfile" Verb="Get" Noun="LaunchProfile" PipelineParameter="LaunchProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLaunchProfileDetails" OutputProperty="*" Verb="Get" Noun="LaunchProfileDetail" PipelineParameter="LaunchProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLaunchProfileInitialization" OutputProperty="LaunchProfileInitialization" Verb="Get" Noun="LaunchProfileInitialization" PipelineParameter="LaunchProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLaunchProfileMember" OutputProperty="Member" Verb="Get" Noun="LaunchProfileMember" PipelineParameter="PrincipalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStreamingImage" OutputProperty="StreamingImage" Verb="Get" Noun="StreamingImage" PipelineParameter="StreamingImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStreamingSession" OutputProperty="Session" Verb="Get" Noun="StreamingSession" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStreamingSessionStream" OutputProperty="Stream" Verb="Get" Noun="StreamingSessionStream" PipelineParameter="StreamId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStudio" OutputProperty="Studio" Verb="Get" Noun="Studio" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStudioComponent" OutputProperty="StudioComponent" Verb="Get" Noun="StudioComponent" PipelineParameter="StudioComponentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStudioMember" OutputProperty="Member" Verb="Get" Noun="StudioMember" PipelineParameter="PrincipalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEulaAcceptances" OutputProperty="EulaAcceptances" Verb="Get" Noun="EulaAcceptanceList" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEulas" OutputProperty="Eulas" Verb="Get" Noun="EulaList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLaunchProfileMembers" OutputProperty="Members" Verb="Get" Noun="LaunchProfileMemberList" PipelineParameter="LaunchProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLaunchProfiles" OutputProperty="LaunchProfiles" Verb="Get" Noun="LaunchProfileList" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStreamingImages" OutputProperty="StreamingImages" Verb="Get" Noun="StreamingImageList" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStreamingSessions" OutputProperty="Sessions" Verb="Get" Noun="StreamingSessionList" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStudioComponents" OutputProperty="StudioComponents" Verb="Get" Noun="StudioComponentList" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStudioMembers" OutputProperty="Members" Verb="Get" Noun="StudioMemberList" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStudios" OutputProperty="Studios" Verb="Get" Noun="StudioList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLaunchProfileMembers" Verb="Write" Noun="LaunchProfileMember" ShouldProcessTarget="LaunchProfileId" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutStudioMembers" Verb="Write" Noun="StudioMember" ShouldProcessTarget="StudioId" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartStudioSSOConfigurationRepair" OutputProperty="Studio" Verb="Start" Noun="StudioSSOConfigurationRepair" ShouldProcessTarget="StudioId" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLaunchProfile" OutputProperty="LaunchProfile" Verb="Update" Noun="LaunchProfile" ShouldProcessTarget="LaunchProfileId" PipelineParameter="LaunchProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLaunchProfileMember" OutputProperty="Member" Verb="Update" Noun="LaunchProfileMember" ShouldProcessTarget="PrincipalId" PipelineParameter="LaunchProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStreamingImage" OutputProperty="StreamingImage" Verb="Update" Noun="StreamingImage" ShouldProcessTarget="StreamingImageId" PipelineParameter="StreamingImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStudio" OutputProperty="Studio" Verb="Update" Noun="Studio" ShouldProcessTarget="StudioId" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStudioComponent" OutputProperty="StudioComponent" Verb="Update" Noun="StudioComponent" ShouldProcessTarget="StudioComponentId" PipelineParameter="StudioComponentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// initial and final state of the case.
     /// 
     ///  <note><ul><li><para>
-    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// You must have a Business or Enterprise Support plan to use the AWS Support API. 
     /// </para></li><li><para>
     /// If you call the AWS Support API from an account that does not have a Business or Enterprise
-    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// Support plan, the <code>SubscriptionRequiredException</code> error message appears.
     /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
     /// Support</a>.
     /// </para></li></ul></note>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter CaseId
         /// <summary>
         /// <para>
-        /// <para>The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric
+        /// <para>The support case ID requested or returned in the call. The case ID is an alphanumeric
         /// string formatted as shown in this example: case-<i>12345678910-2013-c4c1d2bf33c5cf47</i></para>
         /// </para>
         /// </summary>

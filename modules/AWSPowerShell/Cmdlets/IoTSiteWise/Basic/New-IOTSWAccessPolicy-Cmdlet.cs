@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter IamRole_Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.htmll#identifiers-arns">IAM
+        /// <para>The ARN of the IAM role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
         /// ARNs</a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>

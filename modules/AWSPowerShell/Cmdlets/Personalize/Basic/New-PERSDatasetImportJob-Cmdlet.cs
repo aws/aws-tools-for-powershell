@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The path to the Amazon S3 bucket where the data that you want to upload to your dataset
-        /// is stored. For example: </para><para><code>s3://bucket-name/training-data.csv</code></para>
+        /// is stored. For example: </para><para><code>s3://bucket-name/folder-name/</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -91,20 +91,30 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         public Amazon.KinesisAnalyticsV2.Model.CloudWatchLoggingOptionUpdate[] CloudWatchLoggingOptionUpdate { get; set; }
         #endregion
         
+        #region Parameter ConditionalToken
+        /// <summary>
+        /// <para>
+        /// <para>A value you use to implement strong concurrency for application updates. You must
+        /// provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>.
+        /// You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>.
+        /// For better concurrency support, use the <code>ConditionalToken</code> parameter instead
+        /// of <code>CurrentApplicationVersionId</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConditionalToken { get; set; }
+        #endregion
+        
         #region Parameter CurrentApplicationVersionId
         /// <summary>
         /// <para>
-        /// <para>The current application version ID. You can retrieve the application version ID using
-        /// <a>DescribeApplication</a>.</para>
+        /// <para>The current application version ID. You must provide the <code>CurrentApplicationVersionId</code>
+        /// or the <code>ConditionalToken</code>.You can retrieve the application version ID using
+        /// <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code>
+        /// parameter instead of <code>CurrentApplicationVersionId</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int64? CurrentApplicationVersionId { get; set; }
         #endregion
         
@@ -201,13 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             {
                 context.CloudWatchLoggingOptionUpdate = new List<Amazon.KinesisAnalyticsV2.Model.CloudWatchLoggingOptionUpdate>(this.CloudWatchLoggingOptionUpdate);
             }
+            context.ConditionalToken = this.ConditionalToken;
             context.CurrentApplicationVersionId = this.CurrentApplicationVersionId;
-            #if MODULAR
-            if (this.CurrentApplicationVersionId == null && ParameterWasBound(nameof(this.CurrentApplicationVersionId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CurrentApplicationVersionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.RunConfigurationUpdate = this.RunConfigurationUpdate;
             context.ServiceExecutionRoleUpdate = this.ServiceExecutionRoleUpdate;
             
@@ -237,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             if (cmdletContext.CloudWatchLoggingOptionUpdate != null)
             {
                 request.CloudWatchLoggingOptionUpdates = cmdletContext.CloudWatchLoggingOptionUpdate;
+            }
+            if (cmdletContext.ConditionalToken != null)
+            {
+                request.ConditionalToken = cmdletContext.ConditionalToken;
             }
             if (cmdletContext.CurrentApplicationVersionId != null)
             {
@@ -314,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             public Amazon.KinesisAnalyticsV2.Model.ApplicationConfigurationUpdate ApplicationConfigurationUpdate { get; set; }
             public System.String ApplicationName { get; set; }
             public List<Amazon.KinesisAnalyticsV2.Model.CloudWatchLoggingOptionUpdate> CloudWatchLoggingOptionUpdate { get; set; }
+            public System.String ConditionalToken { get; set; }
             public System.Int64? CurrentApplicationVersionId { get; set; }
             public Amazon.KinesisAnalyticsV2.Model.RunConfigurationUpdate RunConfigurationUpdate { get; set; }
             public System.String ServiceExecutionRoleUpdate { get; set; }

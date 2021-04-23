@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DGURUAccountOverview', 
         'Get-DGURUAnomaliesForInsightList', 
         'Get-DGURUAnomaly', 
+        'Get-DGURUCostEstimation', 
         'Get-DGURUEventList', 
         'Get-DGURUFeedback', 
         'Get-DGURUInsight', 
@@ -102,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DGURUServiceIntegration', 
         'Remove-DGURUNotificationChannel', 
         'Search-DGURUInsight', 
+        'Start-DGURUCostEstimation', 
         'Update-DGURUResourceCollection', 
         'Update-DGURUServiceIntegration', 
         'Write-DGURUFeedback')

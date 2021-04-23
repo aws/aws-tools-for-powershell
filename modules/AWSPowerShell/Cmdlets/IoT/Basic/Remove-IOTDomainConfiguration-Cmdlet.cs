@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Deletes the specified domain configuration.
-    /// 
-    ///  <note><para>
-    /// The domain configuration feature is in public preview and is subject to change.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "IOTDomainConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -118,6 +118,21 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.Collections.Hashtable FieldFolder { get; set; }
         #endregion
         
+        #region Parameter RowLevelPermissionDataSet_FormatVersion
+        /// <summary>
+        /// <para>
+        /// <para>The user or group rules associated with the dataset that contains permissions for
+        /// RLS.</para><para>By default, <code>FormatVersion</code> is <code>VERSION_1</code>. When <code>FormatVersion</code>
+        /// is <code>VERSION_1</code>, <code>UserName</code> and <code>GroupName</code> are required.
+        /// When <code>FormatVersion</code> is <code>VERSION_2</code>, <code>UserARN</code> and
+        /// <code>GroupARN</code> are required, and <code>Namespace</code> must not exist.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.RowLevelPermissionFormatVersion")]
+        public Amazon.QuickSight.RowLevelPermissionFormatVersion RowLevelPermissionDataSet_FormatVersion { get; set; }
+        #endregion
+        
         #region Parameter ImportMode
         /// <summary>
         /// <para>
@@ -329,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             #endif
             context.RowLevelPermissionDataSet_Arn = this.RowLevelPermissionDataSet_Arn;
+            context.RowLevelPermissionDataSet_FormatVersion = this.RowLevelPermissionDataSet_FormatVersion;
             context.RowLevelPermissionDataSet_Namespace = this.RowLevelPermissionDataSet_Namespace;
             context.RowLevelPermissionDataSet_PermissionPolicy = this.RowLevelPermissionDataSet_PermissionPolicy;
             
@@ -395,6 +411,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_Arn != null)
             {
                 request.RowLevelPermissionDataSet.Arn = requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_Arn;
+                requestRowLevelPermissionDataSetIsNull = false;
+            }
+            Amazon.QuickSight.RowLevelPermissionFormatVersion requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_FormatVersion = null;
+            if (cmdletContext.RowLevelPermissionDataSet_FormatVersion != null)
+            {
+                requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_FormatVersion = cmdletContext.RowLevelPermissionDataSet_FormatVersion;
+            }
+            if (requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_FormatVersion != null)
+            {
+                request.RowLevelPermissionDataSet.FormatVersion = requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_FormatVersion;
                 requestRowLevelPermissionDataSetIsNull = false;
             }
             System.String requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_Namespace = null;
@@ -493,6 +519,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String Name { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.PhysicalTable> PhysicalTableMap { get; set; }
             public System.String RowLevelPermissionDataSet_Arn { get; set; }
+            public Amazon.QuickSight.RowLevelPermissionFormatVersion RowLevelPermissionDataSet_FormatVersion { get; set; }
             public System.String RowLevelPermissionDataSet_Namespace { get; set; }
             public Amazon.QuickSight.RowLevelPermissionPolicy RowLevelPermissionDataSet_PermissionPolicy { get; set; }
             public System.Func<Amazon.QuickSight.Model.UpdateDataSetResponse, UpdateQSDataSetCmdlet, object> Select { get; set; } =

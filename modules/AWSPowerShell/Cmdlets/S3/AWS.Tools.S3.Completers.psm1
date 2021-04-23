@@ -89,7 +89,9 @@ $S3_Completers = {
 
         # Amazon.S3.EncodingType
         {
+            ($_ -eq "Get-S3MultipartUpload/Encoding") -Or
             ($_ -eq "Get-S3Object/Encoding") -Or
+            ($_ -eq "Get-S3ObjectV2/Encoding") -Or
             ($_ -eq "Get-S3Version/Encoding")
         }
         {
@@ -197,6 +199,7 @@ $S3_Completers = {
             ($_ -eq "Get-S3ObjectMetadata/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectRetention/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectTagSet/RequestPayer") -Or
+            ($_ -eq "Get-S3ObjectV2/RequestPayer") -Or
             ($_ -eq "Restore-S3Object/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLegalHold/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLockConfiguration/RequestPayer") -Or
@@ -295,7 +298,7 @@ $S3_map = @{
     "CannedACL"=@("Set-S3ACL")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Write-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
-    "Encoding"=@("Get-S3Object","Get-S3Version")
+    "Encoding"=@("Get-S3MultipartUpload","Get-S3Object","Get-S3ObjectV2","Get-S3Version")
     "ExpressionType"=@("Select-S3ObjectContent")
     "IntelligentTieringConfiguration_Status"=@("Write-S3BucketIntelligentTieringConfiguration")
     "InventoryConfiguration_Destination_S3BucketDestination_InventoryFormat"=@("Write-S3BucketInventoryConfiguration")
@@ -311,7 +314,7 @@ $S3_map = @{
     "OutputLocation_S3_StorageClass"=@("Restore-S3Object")
     "ReplicationStatus"=@("Write-S3GetObjectResponse")
     "RequestCharged"=@("Write-S3GetObjectResponse")
-    "RequestPayer"=@("Get-S3Object","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Restore-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "RequestPayer"=@("Get-S3Object","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Restore-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "RestoreRequestType"=@("Restore-S3Object")
     "Retention_Mode"=@("Write-S3ObjectRetention")
     "RetrievalTier"=@("Restore-S3Object")
@@ -421,6 +424,7 @@ $S3_SelectMap = @{
                "Get-S3BucketMetricsConfigurationList",
                "Get-S3Bucket",
                "Get-S3Object",
+               "Get-S3ObjectV2",
                "Get-S3Version",
                "Set-S3ACL",
                "Write-S3BucketAccelerateConfiguration",
@@ -449,6 +453,7 @@ $S3_SelectMap = @{
                "Select-S3ObjectContent",
                "Write-S3GetObjectResponse",
                "Copy-S3Object",
+               "Get-S3MultipartUpload",
                "Get-S3PreSignedURL",
                "New-S3Bucket",
                "Read-S3Object",

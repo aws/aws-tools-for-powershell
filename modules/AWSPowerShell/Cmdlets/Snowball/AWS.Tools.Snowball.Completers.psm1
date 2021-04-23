@@ -90,6 +90,13 @@ $SNOW_Completers = {
             break
         }
 
+        # Amazon.Snowball.LongTermPricingType
+        "New-SNOWLongTermPricing/LongTermPricingType"
+        {
+            $v = "OneYear","ThreeYear"
+            break
+        }
+
         # Amazon.Snowball.ShipmentState
         "Update-SNOWJobShipmentState/ShipmentState"
         {
@@ -116,17 +123,18 @@ $SNOW_Completers = {
             ($_ -eq "Update-SNOWJob/SnowballCapacityPreference")
         }
         {
-            $v = "NoPreference","T100","T42","T50","T8","T80","T98"
+            $v = "NoPreference","T100","T14","T42","T50","T8","T80","T98"
             break
         }
 
         # Amazon.Snowball.SnowballType
         {
             ($_ -eq "New-SNOWCluster/SnowballType") -Or
-            ($_ -eq "New-SNOWJob/SnowballType")
+            ($_ -eq "New-SNOWJob/SnowballType") -Or
+            ($_ -eq "New-SNOWLongTermPricing/SnowballType")
         }
         {
-            $v = "EDGE","EDGE_C","EDGE_CG","EDGE_S","SNC1_HDD","STANDARD"
+            $v = "EDGE","EDGE_C","EDGE_CG","EDGE_S","SNC1_HDD","SNC1_SSD","STANDARD"
             break
         }
 
@@ -140,10 +148,11 @@ $SNOW_Completers = {
 
 $SNOW_map = @{
     "JobType"=@("New-SNOWCluster","New-SNOWJob")
+    "LongTermPricingType"=@("New-SNOWLongTermPricing")
     "ShipmentState"=@("Update-SNOWJobShipmentState")
     "ShippingOption"=@("New-SNOWCluster","New-SNOWJob","New-SNOWReturnShippingLabel","Update-SNOWCluster","Update-SNOWJob")
     "SnowballCapacityPreference"=@("New-SNOWJob","Update-SNOWJob")
-    "SnowballType"=@("New-SNOWCluster","New-SNOWJob")
+    "SnowballType"=@("New-SNOWCluster","New-SNOWJob","New-SNOWLongTermPricing")
 }
 
 _awsArgumentCompleterRegistration $SNOW_Completers $SNOW_map
@@ -201,6 +210,7 @@ $SNOW_SelectMap = @{
                "New-SNOWAddress",
                "New-SNOWCluster",
                "New-SNOWJob",
+               "New-SNOWLongTermPricing",
                "New-SNOWReturnShippingLabel",
                "Get-SNOWAddress",
                "Get-SNOWAddressList",
@@ -215,9 +225,11 @@ $SNOW_SelectMap = @{
                "Get-SNOWClusterList",
                "Get-SNOWCompatibleImageList",
                "Get-SNOWJobList",
+               "Get-SNOWLongTermPricing",
                "Update-SNOWCluster",
                "Update-SNOWJob",
-               "Update-SNOWJobShipmentState")
+               "Update-SNOWJobShipmentState",
+               "Update-SNOWLongTermPricing")
 }
 
 _awsArgumentCompleterRegistration $SNOW_SelectCompleters $SNOW_SelectMap

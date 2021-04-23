@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID specifying the EFS resource that you want to create a tag for. </para>
+        /// <para>The ID specifying the EFS resource that you want to create a tag for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>An array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value
+        /// pair.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

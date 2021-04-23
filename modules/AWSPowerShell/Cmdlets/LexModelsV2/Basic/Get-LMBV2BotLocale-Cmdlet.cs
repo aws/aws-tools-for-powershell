@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the locale to describe. The string must match one of the
-        /// supported locales. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.
-        /// </para>
+        /// supported locales. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported
+        /// languages</a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

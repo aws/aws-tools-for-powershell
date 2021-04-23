@@ -97,7 +97,7 @@ $SD_Completers = {
         # Amazon.ServiceDiscovery.HealthStatusFilter
         "Find-SDInstance/HealthStatus"
         {
-            $v = "ALL","HEALTHY","UNHEALTHY"
+            $v = "ALL","HEALTHY","HEALTHY_OR_ELSE_ALL","UNHEALTHY"
             break
         }
 

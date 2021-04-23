@@ -28,12 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Creates a use case for an AppIntegration association.
-    /// </para>
     /// </summary>
     [Cmdlet("New", "CONNUseCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateUseCaseResponse")]
@@ -76,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IntegrationAssociationId { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>One or more tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter UseCaseType
@@ -171,6 +177,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter IntegrationAssociationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.UseCaseType = this.UseCaseType;
             #if MODULAR
             if (this.UseCaseType == null && ParameterWasBound(nameof(this.UseCaseType)))
@@ -201,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.IntegrationAssociationId != null)
             {
                 request.IntegrationAssociationId = cmdletContext.IntegrationAssociationId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.UseCaseType != null)
             {
@@ -269,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             public System.String InstanceId { get; set; }
             public System.String IntegrationAssociationId { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Connect.UseCaseType UseCaseType { get; set; }
             public System.Func<Amazon.Connect.Model.CreateUseCaseResponse, NewCONNUseCaseCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Creates a domain configuration.
-    /// 
-    ///  <note><para>
-    /// The domain configuration feature is in public preview and is subject to change.
-    /// </para></note>
     /// </summary>
     [Cmdlet("New", "IOTDomainConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.CreateDomainConfigurationResponse")]

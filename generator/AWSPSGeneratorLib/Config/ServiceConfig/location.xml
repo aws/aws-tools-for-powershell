@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteDevicePositionHistory" OutputProperty="*" Verb="Remove" Noun="DevicePositionHistoryBatch" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDeleteGeofence" OutputProperty="*" Verb="Remove" Noun="GeofenceBatch" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -42,6 +46,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CalculateRoute" OutputProperty="*" Verb="Get" Noun="Route" PipelineParameter="CalculatorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGeofenceCollection" OutputProperty="*" Verb="New" Noun="GeofenceCollection" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -51,6 +59,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePlaceIndex" OutputProperty="*" Verb="New" Noun="PlaceIndex" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRouteCalculator" OutputProperty="*" Verb="New" Noun="RouteCalculator" ShouldProcessTarget="CalculatorName" PipelineParameter="CalculatorName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -70,6 +82,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRouteCalculator" Verb="Remove" Noun="RouteCalculator" ShouldProcessTarget="CalculatorName" PipelineParameter="CalculatorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTracker" Verb="Remove" Noun="Tracker" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -83,6 +99,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribePlaceIndex" OutputProperty="*" Verb="Get" Noun="PlaceIndex" PipelineParameter="IndexName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRouteCalculator" OutputProperty="*" Verb="Get" Noun="RouteCalculator" PipelineParameter="CalculatorName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -122,6 +142,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDevicePositions" OutputProperty="Entries" Verb="Get" Noun="DevicePositionList" PipelineParameter="TrackerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListGeofenceCollections" OutputProperty="Entries" Verb="Get" Noun="GeofenceCollectionList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -135,6 +159,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPlaceIndexes" OutputProperty="Entries" Verb="Get" Noun="PlaceIndexList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRouteCalculators" OutputProperty="Entries" Verb="Get" Noun="RouteCalculatorList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagSet" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -155,6 +187,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchPlaceIndexForText" OutputProperty="*" Verb="Search" Noun="PlaceIndexForText" IgnoreSupportsShouldProcess="true" PipelineParameter="IndexName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTagSet" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTagSet" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

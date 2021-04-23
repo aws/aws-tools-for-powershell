@@ -75,6 +75,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceTree" Verb="Remove" Noun="ResourceTree" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="DatasetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html">identity</a>
-        /// to which the policy is attached.</para>
+        /// to which the policy is attached. For example, a thing group or a certificate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

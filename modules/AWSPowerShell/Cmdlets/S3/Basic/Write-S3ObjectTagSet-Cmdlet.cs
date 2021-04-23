@@ -43,16 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The bucket name containing the object.</para><para>When using this API with an access point, you must direct requests to the access point hostname. 
-        /// The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. 
-        /// When using this operation with an access point through the AWS SDKs, you provide the access point 
-        /// ARN in place of the bucket name. For more information about access point ARNs, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> 
-        /// in the <i>Amazon Simple Storage Service Developer Guide</i>.</para><para>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. 
-        /// The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. 
-        /// When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. 
-        /// For more information about S3 on Outposts ARNs, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</para>
+        /// <para>The bucket name containing the object. </para><para>When using this action with an access point, you must direct requests to the access
+        /// point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+        /// When using this action with an access point through the AWS SDKs, you provide the
+        /// access point ARN in place of the bucket name. For more information about access point
+        /// ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>When using this action with Amazon S3 on Outposts, you must direct requests to the
+        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com.
+        /// When using this action using S3 on Outposts through the AWS SDKs, you provide the
+        /// Outposts bucket ARN in place of the bucket name. For more information about S3 on
+        /// Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+        /// S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -62,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the bucket is owned by a different
+        /// account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// VersionId used to reference a specific version of the object.
+        /// <para>The versionId of the object that the tag-set will be added to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,14 +175,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Key = this.Key;
+            context.RequestPayer = this.RequestPayer;
             if (this.Tagging_TagSet != null)
             {
                 context.Tagging_TagSet = new List<Amazon.S3.Model.Tag>(this.Tagging_TagSet);
             }
             context.VersionId = this.VersionId;
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
-            context.RequestPayer = this.RequestPayer;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -202,9 +203,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.BucketName = cmdletContext.BucketName;
             }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
             if (cmdletContext.Key != null)
             {
                 request.Key = cmdletContext.Key;
+            }
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
             }
             
              // populate Tagging
@@ -228,14 +237,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.VersionId != null)
             {
                 request.VersionId = cmdletContext.VersionId;
-            }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
-            }
-            if (cmdletContext.RequestPayer != null)
-            {
-                request.RequestPayer = cmdletContext.RequestPayer;
             }
             
             CmdletOutput output;
@@ -299,11 +300,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.String Key { get; set; }
+            public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public List<Amazon.S3.Model.Tag> Tagging_TagSet { get; set; }
             public System.String VersionId { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
-            public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.Func<Amazon.S3.Model.PutObjectTaggingResponse, WriteS3ObjectTagSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.VersionId;
         }

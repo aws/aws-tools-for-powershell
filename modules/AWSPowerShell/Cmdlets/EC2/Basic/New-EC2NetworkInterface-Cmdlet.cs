@@ -174,6 +174,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// Idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'NetworkInterface'.
@@ -235,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.SubnetId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             if (this.Group != null)
             {
@@ -279,6 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.CreateNetworkInterfaceRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -380,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public List<System.String> Group { get; set; }
             public Amazon.EC2.NetworkInterfaceCreationType InterfaceType { get; set; }

@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.LOM
 {
     /// <summary>
     /// Describes a dataset.
+    /// 
+    ///  
+    /// <para>
+    /// Amazon Lookout for Metrics API actions are eventually consistent. If you do a read
+    /// operation on a resource immediately after creating or modifying it, use retries to
+    /// allow time for the write operation to complete.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "LOMMetricSet")]
     [OutputType("Amazon.LookoutMetrics.Model.DescribeMetricSetResponse")]

@@ -30,13 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// <summary>
     /// Creates a map resource in your AWS account, which provides map tiles of different
     /// styles sourced from global location data providers.
-    /// 
-    ///  <note><para>
-    /// By using Maps, you agree that AWS may transmit your API queries to your selected third
-    /// party provider for processing, which may be outside the AWS region you are currently
-    /// using. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS
-    /// Service Terms</a> for Amazon Location Service. 
-    /// </para></note>
     /// </summary>
     [Cmdlet("New", "LOCMap", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.CreateMapResponse")]
@@ -96,11 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Configuration_Style
         /// <summary>
         /// <para>
-        /// <para>Specifies the map style selected from an available data provider.</para><para>Valid styles: <code>VectorEsriStreets</code>, <code>VectorEsriTopographic</code>,
+        /// <para>Specifies the map style selected from an available data provider.</para><para>Valid styles: <code>RasterEsriImagery</code>, <code>VectorEsriStreets</code>, <code>VectorEsriTopographic</code>,
         /// <code>VectorEsriNavigation</code>, <code>VectorEsriDarkGrayCanvas</code>, <code>VectorEsriLightGrayCanvas</code>,
         /// <code>VectorHereBerlin</code>.</para><note><para>When using HERE as your data provider, and selecting the Style <code>VectorHereBerlin</code>,
         /// you may not use HERE Maps for Asset Management. See the <a href="https://aws.amazon.com/service-terms/">AWS
-        /// Service Terms</a> for Amazon Location Service. </para></note>
+        /// Service Terms</a> for Amazon Location Service.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -112,6 +105,19 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Configuration_Style { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Applies one or more tags to the map resource. A tag is a key-value pair helps manage,
+        /// identify, search, and filter your resources by labelling them.</para><para>Format: <code>"key" : "value"</code></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
+        /// = . _ : / @. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -197,6 +203,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 WriteWarning("You are passing $null as a value for parameter PricingPlan which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -243,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.PricingPlan != null)
             {
                 request.PricingPlan = cmdletContext.PricingPlan;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -309,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public System.String Description { get; set; }
             public System.String MapName { get; set; }
             public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.LocationService.Model.CreateMapResponse, NewLOCMapCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

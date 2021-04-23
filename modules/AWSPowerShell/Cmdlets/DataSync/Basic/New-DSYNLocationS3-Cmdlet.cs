@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>If you are using DataSync on an AWS Outpost, specify the Amazon Resource Names (ARNs)
         /// of the DataSync agents deployed on your Outpost. For more information about launching
-        /// a DataSync agent on an AWS Outpost, see <a>outposts-agent</a>.</para>
+        /// a DataSync agent on an AWS Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy
+        /// your DataSync agent on AWS Outposts</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter S3Config_BucketAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket to access. This bucket is used as a parameter in the <a>CreateLocationS3</a>
+        /// <para>The Amazon S3 bucket to access. This bucket is used as a parameter in the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationS3.html">CreateLocationS3</a>
         /// operation. </para>
         /// </para>
         /// </summary>
@@ -102,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// is used as a task destination. For buckets in AWS Regions, the storage class defaults
         /// to Standard. For buckets on AWS Outposts, the storage class defaults to AWS S3 Outposts.</para><para>For more information about S3 storage classes, see <a href="http://aws.amazon.com/s3/storage-classes/">Amazon
         /// S3 Storage Classes</a>. Some storage classes have behaviors that can affect your S3
-        /// storage cost. For detailed information, see <a>using-storage-classes</a>.</para>
+        /// storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
+        /// when working with S3 storage classes in DataSync</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

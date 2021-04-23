@@ -28,7 +28,7 @@ using Amazon.MWAA.Model;
 namespace Amazon.PowerShell.Cmdlets.MWAA
 {
     /// <summary>
-    /// Update an MWAA environment.
+    /// Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
     /// </summary>
     [Cmdlet("Update", "MWAAEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -43,7 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter AirflowConfigurationOption
         /// <summary>
         /// <para>
-        /// <para>The Airflow Configuration Options to update of your Amazon MWAA environment.</para>
+        /// <para>A list of key-value pairs containing the Apache Airflow configuration options you
+        /// want to attach to your environment. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html">Apache
+        /// Airflow configuration options</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter AirflowVersion
         /// <summary>
         /// <para>
-        /// <para>The Airflow Version to update of your Amazon MWAA environment.</para>
+        /// <para>The Apache Airflow version for your environment. For example, <code>v1.10.12</code>.
+        /// If no value is specified, defaults to the latest version. Valid values: <code>v1.10.12</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter DagS3Path
         /// <summary>
         /// <para>
-        /// <para>The Dags folder S3 Path to update of your Amazon MWAA environment.</para>
+        /// <para>The relative path to the DAGs folder on your Amazon S3 bucket. For example, <code>dags</code>.
+        /// To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html">Adding
+        /// or updating DAGs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter DagProcessingLogs_Enabled
         /// <summary>
         /// <para>
-        /// <para>Defines that the logging module is enabled.</para>
+        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>)
+        /// in CloudWatch Logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter SchedulerLogs_Enabled
         /// <summary>
         /// <para>
-        /// <para>Defines that the logging module is enabled.</para>
+        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>)
+        /// in CloudWatch Logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter TaskLogs_Enabled
         /// <summary>
         /// <para>
-        /// <para>Defines that the logging module is enabled.</para>
+        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>)
+        /// in CloudWatch Logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter WebserverLogs_Enabled
         /// <summary>
         /// <para>
-        /// <para>Defines that the logging module is enabled.</para>
+        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>)
+        /// in CloudWatch Logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter WorkerLogs_Enabled
         /// <summary>
         /// <para>
-        /// <para>Defines that the logging module is enabled.</para>
+        /// <para>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>)
+        /// in CloudWatch Logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter EnvironmentClass
         /// <summary>
         /// <para>
-        /// <para>The Environment Class to update of your Amazon MWAA environment.</para>
+        /// <para>The environment class type. Valid values: <code>mw1.small</code>, <code>mw1.medium</code>,
+        /// <code>mw1.large</code>. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon
+        /// MWAA environment class</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter ExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Executio Role ARN to update of your Amazon MWAA environment.</para>
+        /// <para>The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access
+        /// AWS resources in your environment. For example, <code>arn:aws:iam::123456789:role/my-execution-role</code>.
+        /// To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html">Amazon
+        /// MWAA Execution role</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter DagProcessingLogs_LogLevel
         /// <summary>
         /// <para>
-        /// <para>Defines the log level, which can be CRITICAL, ERROR, WARNING, or INFO.</para>
+        /// <para>Defines the Apache Airflow logs to send for the log type (e.g. <code>DagProcessingLogs</code>)
+        /// to CloudWatch Logs. Valid values: <code>CRITICAL</code>, <code>ERROR</code>, <code>WARNING</code>,
+        /// <code>INFO</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter SchedulerLogs_LogLevel
         /// <summary>
         /// <para>
-        /// <para>Defines the log level, which can be CRITICAL, ERROR, WARNING, or INFO.</para>
+        /// <para>Defines the Apache Airflow logs to send for the log type (e.g. <code>DagProcessingLogs</code>)
+        /// to CloudWatch Logs. Valid values: <code>CRITICAL</code>, <code>ERROR</code>, <code>WARNING</code>,
+        /// <code>INFO</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter TaskLogs_LogLevel
         /// <summary>
         /// <para>
-        /// <para>Defines the log level, which can be CRITICAL, ERROR, WARNING, or INFO.</para>
+        /// <para>Defines the Apache Airflow logs to send for the log type (e.g. <code>DagProcessingLogs</code>)
+        /// to CloudWatch Logs. Valid values: <code>CRITICAL</code>, <code>ERROR</code>, <code>WARNING</code>,
+        /// <code>INFO</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter WebserverLogs_LogLevel
         /// <summary>
         /// <para>
-        /// <para>Defines the log level, which can be CRITICAL, ERROR, WARNING, or INFO.</para>
+        /// <para>Defines the Apache Airflow logs to send for the log type (e.g. <code>DagProcessingLogs</code>)
+        /// to CloudWatch Logs. Valid values: <code>CRITICAL</code>, <code>ERROR</code>, <code>WARNING</code>,
+        /// <code>INFO</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter WorkerLogs_LogLevel
         /// <summary>
         /// <para>
-        /// <para>Defines the log level, which can be CRITICAL, ERROR, WARNING, or INFO.</para>
+        /// <para>Defines the Apache Airflow logs to send for the log type (e.g. <code>DagProcessingLogs</code>)
+        /// to CloudWatch Logs. Valid values: <code>CRITICAL</code>, <code>ERROR</code>, <code>WARNING</code>,
+        /// <code>INFO</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,7 +234,11 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter MaxWorker
         /// <summary>
         /// <para>
-        /// <para>The maximum number of workers to update of your Amazon MWAA environment.</para>
+        /// <para>The maximum number of workers that you want to run in your environment. MWAA scales
+        /// the number of Apache Airflow workers up to the number you specify in the <code>MaxWorkers</code>
+        /// field. For example, <code>20</code>. When there are no more tasks running, and no
+        /// more in the queue, MWAA disposes of the extra workers leaving the one worker that
+        /// is included with your environment, or the number you specify in <code>MinWorkers</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -220,7 +249,11 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter MinWorker
         /// <summary>
         /// <para>
-        /// <para>The minimum number of workers to update of your Amazon MWAA environment.</para>
+        /// <para>The minimum number of workers that you want to run in your environment. MWAA scales
+        /// the number of Apache Airflow workers up to the number you specify in the <code>MaxWorkers</code>
+        /// field. When there are no more tasks running, and no more in the queue, MWAA disposes
+        /// of the extra workers leaving the worker count you specify in the <code>MinWorkers</code>
+        /// field. For example, <code>2</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of your Amazon MWAA environment that you wish to update.</para>
+        /// <para>The name of your Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -248,7 +281,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter PluginsS3ObjectVersion
         /// <summary>
         /// <para>
-        /// <para>The Plugins.zip S3 Object Version to update of your Amazon MWAA environment.</para>
+        /// <para>The version of the plugins.zip file on your Amazon S3 bucket. A version must be specified
+        /// each time a plugins.zip file is updated. To learn more, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
+        /// S3 Versioning works</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -258,7 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter PluginsS3Path
         /// <summary>
         /// <para>
-        /// <para>The Plugins.zip S3 Path to update of your Amazon MWAA environment.</para>
+        /// <para>The relative path to the <code>plugins.zip</code> file on your Amazon S3 bucket. For
+        /// example, <code>plugins.zip</code>. If specified, then the plugins.zip version is required.
+        /// To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html">Installing
+        /// custom plugins</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -268,7 +306,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter RequirementsS3ObjectVersion
         /// <summary>
         /// <para>
-        /// <para>The Requirements.txt S3 ObjectV ersion to update of your Amazon MWAA environment.</para>
+        /// <para>The version of the requirements.txt file on your Amazon S3 bucket. A version must
+        /// be specified each time a requirements.txt file is updated. To learn more, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
+        /// S3 Versioning works</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,18 +318,33 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter RequirementsS3Path
         /// <summary>
         /// <para>
-        /// <para>The Requirements.txt S3 Path to update of your Amazon MWAA environment.</para>
+        /// <para>The relative path to the <code>requirements.txt</code> file on your Amazon S3 bucket.
+        /// For example, <code>requirements.txt</code>. If specified, then a file version is required.
+        /// To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html">Installing
+        /// Python dependencies</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RequirementsS3Path { get; set; }
         #endregion
         
+        #region Parameter Scheduler
+        /// <summary>
+        /// <para>
+        /// <para>The number of Apache Airflow schedulers to run in your Amazon MWAA environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Schedulers")]
+        public System.Int32? Scheduler { get; set; }
+        #endregion
+        
         #region Parameter NetworkConfiguration_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>Provide a JSON list of 1 or more security groups IDs by name, in the same VPC as the
-        /// subnets.</para>
+        /// <para>A list of 1 or more security group IDs. Accepts up to 5 security group IDs. A security
+        /// group must be attached to the same VPC as the subnets. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html">Security
+        /// in your VPC on Amazon MWAA</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -300,7 +355,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter SourceBucketArn
         /// <summary>
         /// <para>
-        /// <para>The S3 Source Bucket ARN to update of your Amazon MWAA environment.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting
+        /// files are stored. For example, <code>arn:aws:s3:::my-airflow-bucket-unique-name</code>.
+        /// To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html">Create
+        /// an Amazon S3 bucket for Amazon MWAA</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -310,7 +368,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter WebserverAccessMode
         /// <summary>
         /// <para>
-        /// <para>The Webserver Access Mode to update of your Amazon MWAA environment.</para>
+        /// <para>The Apache Airflow <i>Web server</i> access mode. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache
+        /// Airflow access modes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -321,7 +380,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter WeeklyMaintenanceWindowStart
         /// <summary>
         /// <para>
-        /// <para>The Weekly Maintenance Window Start to update of your Amazon MWAA environment.</para>
+        /// <para>The day and time of the week to start weekly maintenance updates of your environment
+        /// in the following format: <code>DAY:HH:MM</code>. For example: <code>TUE:03:30</code>.
+        /// You can specify a start time in 30 minute increments only. Supported input includes
+        /// the following:</para><ul><li><para>MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\d|2[0-3]):(00|30)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -428,6 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             context.PluginsS3Path = this.PluginsS3Path;
             context.RequirementsS3ObjectVersion = this.RequirementsS3ObjectVersion;
             context.RequirementsS3Path = this.RequirementsS3Path;
+            context.Scheduler = this.Scheduler;
             context.SourceBucketArn = this.SourceBucketArn;
             context.WebserverAccessMode = this.WebserverAccessMode;
             context.WeeklyMaintenanceWindowStart = this.WeeklyMaintenanceWindowStart;
@@ -698,6 +761,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             {
                 request.RequirementsS3Path = cmdletContext.RequirementsS3Path;
             }
+            if (cmdletContext.Scheduler != null)
+            {
+                request.Schedulers = cmdletContext.Scheduler.Value;
+            }
             if (cmdletContext.SourceBucketArn != null)
             {
                 request.SourceBucketArn = cmdletContext.SourceBucketArn;
@@ -794,6 +861,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             public System.String PluginsS3Path { get; set; }
             public System.String RequirementsS3ObjectVersion { get; set; }
             public System.String RequirementsS3Path { get; set; }
+            public System.Int32? Scheduler { get; set; }
             public System.String SourceBucketArn { get; set; }
             public Amazon.MWAA.WebserverAccessMode WebserverAccessMode { get; set; }
             public System.String WeeklyMaintenanceWindowStart { get; set; }

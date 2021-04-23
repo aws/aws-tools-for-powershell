@@ -80,17 +80,24 @@ $KINA2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.KinesisAnalyticsV2.ApplicationMode
+        "New-KINA2Application/ApplicationMode"
+        {
+            $v = "INTERACTIVE","STREAMING"
+            break
+        }
+
         # Amazon.KinesisAnalyticsV2.RuntimeEnvironment
         "New-KINA2Application/RuntimeEnvironment"
         {
-            $v = "FLINK-1_11","FLINK-1_6","FLINK-1_8","SQL-1_0"
+            $v = "FLINK-1_11","FLINK-1_6","FLINK-1_8","SQL-1_0","ZEPPELIN-FLINK-1_0"
             break
         }
 
         # Amazon.KinesisAnalyticsV2.UrlType
         "New-KINA2ApplicationPresignedUrl/UrlType"
         {
-            $v = "FLINK_DASHBOARD_URL"
+            $v = "FLINK_DASHBOARD_URL","ZEPPELIN_UI_URL"
             break
         }
 
@@ -103,6 +110,7 @@ $KINA2_Completers = {
 }
 
 $KINA2_map = @{
+    "ApplicationMode"=@("New-KINA2Application")
     "RuntimeEnvironment"=@("New-KINA2Application")
     "UrlType"=@("New-KINA2ApplicationPresignedUrl")
 }
@@ -175,15 +183,19 @@ $KINA2_SelectMap = @{
                "Remove-KINA2ApplicationVpcConfiguration",
                "Get-KINA2Application",
                "Get-KINA2ApplicationSnapshot",
+               "Get-KINA2ApplicationVersion",
                "Find-KINA2InputSchema",
                "Get-KINA2ApplicationList",
                "Get-KINA2ApplicationSnapshotList",
+               "Get-KINA2ApplicationVersionList",
                "Get-KINA2ResourceTag",
+               "Undo-KINA2Application",
                "Start-KINA2Application",
                "Stop-KINA2Application",
                "Add-KINA2ResourceTag",
                "Remove-KINA2ResourceTag",
-               "Update-KINA2Application")
+               "Update-KINA2Application",
+               "Update-KINA2ApplicationMaintenanceConfiguration")
 }
 
 _awsArgumentCompleterRegistration $KINA2_SelectCompleters $KINA2_SelectMap

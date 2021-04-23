@@ -14,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -96,8 +95,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLedgerPermissionsMode" OutputProperty="*" Verb="Update" Noun="LedgerPermissionsMode" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

@@ -35,12 +35,15 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// the AWS Region to us-east-1.
     /// 
     ///  <note><ul><li><para>
-    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// You must have a Business or Enterprise Support plan to use the AWS Support API. 
     /// </para></li><li><para>
     /// If you call the AWS Support API from an account that does not have a Business or Enterprise
-    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// Support plan, the <code>SubscriptionRequiredException</code> error message appears.
     /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
     /// Support</a>.
+    /// </para></li><li><para>
+    /// The names and descriptions for Trusted Advisor checks are subject to change. We recommend
+    /// that you specify the check ID in your code to uniquely identify a check.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Get", "ASATrustedAdvisorCheck")]

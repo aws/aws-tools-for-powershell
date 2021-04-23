@@ -247,13 +247,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LaunchType
         /// <summary>
         /// <para>
-        /// <para>The launch type on which to run your service. The accepted values are <code>FARGATE</code>
-        /// and <code>EC2</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
-        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>When a value of <code>FARGATE</code> is specified, your tasks are launched on AWS
-        /// Fargate On-Demand infrastructure. To use Fargate Spot, you must use a capacity provider
-        /// strategy with the <code>FARGATE_SPOT</code> capacity provider.</para><para>When a value of <code>EC2</code> is specified, your tasks are launched on Amazon EC2
-        /// instances registered to your cluster.</para><para>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
-        /// parameter must be omitted.</para>
+        /// <para>The infrastructure on which to run your service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>The <code>FARGATE</code> launch type runs your tasks on AWS Fargate On-Demand infrastructure.</para><note><para>Fargate Spot infrastructure is available for use but a capacity provider strategy
+        /// must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">AWS
+        /// Fargate capacity providers</a> in the <i>Amazon ECS User Guide for AWS Fargate</i>.</para></note><para>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered
+        /// to your cluster.</para><para>The <code>EXTERNAL</code> launch type runs your tasks on your on-premise server or
+        /// virtual machine (VM) capacity registered to your cluster.</para><para>A service can use either a launch type or a capacity provider strategy. If a <code>launchType</code>
+        /// is specified, the <code>capacityProviderStrategy</code> parameter must be omitted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -489,9 +489,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and
-        /// hyphens are allowed. Service names must be unique within a cluster, but you can have
-        /// similarly named services in multiple clusters within a Region or across multiple Regions.</para>
+        /// <para>The name of your service. Up to 255 letters (uppercase and lowercase), numbers, underscores,
+        /// and hyphens are allowed. Service names must be unique within a cluster, but you can
+        /// have similarly named services in multiple clusters within a Region or across multiple
+        /// Regions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -508,11 +509,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ServiceRegistry
         /// <summary>
         /// <para>
-        /// <para>The details of the service discovery registries to assign to this service. For more
-        /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
-        /// discovery</a>.</para><note><para>Service discovery is supported for Fargate tasks if you are using platform version
-        /// v1.1.0 or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
-        /// Fargate platform versions</a>.</para></note>
+        /// <para>The details of the service discovery registry to associate with this service. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+        /// discovery</a>.</para><note><para>Each service may be associated with one service registry. Multiple service registries
+        /// per service isn't supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

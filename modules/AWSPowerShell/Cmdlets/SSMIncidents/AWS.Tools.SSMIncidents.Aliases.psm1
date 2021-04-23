@@ -1,0 +1,3 @@
+﻿# SSMIncidents
+
+Export-ModuleMember -Alias *

@@ -19,11 +19,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateAccess" OutputProperty="*" Verb="New" Noun="Access" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateServer" OutputProperty="ServerId" Verb="New" Noun="Server" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateUser" OutputProperty="*" Verb="New" Noun="User" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccess" Verb="Remove" Noun="Access" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -36,6 +44,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccess" OutputProperty="*" Verb="Get" Noun="Access" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -52,6 +64,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ImportSshPublicKey" OutputProperty="*" Verb="Import" Noun="SshPublicKey" ShouldProcessTarget="UserName" PipelineParameter="SshPublicKeyBody" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccesses" OutputProperty="*" Verb="Get" Noun="AccessList" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -88,6 +104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccess" OutputProperty="*" Verb="Update" Noun="Access" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

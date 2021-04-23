@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>iotevents-data</C2jFilename>
     <AssemblyName>IoTEventsData</AssemblyName>
@@ -13,13 +14,32 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchAcknowledgeAlarm" OutputProperty="ErrorEntries" Verb="Send" Noun="AcknowledgeAlarm" ShouldProcessTarget="AcknowledgeActionRequests" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDisableAlarm" OutputProperty="ErrorEntries" Verb="Send" Noun="DisableAlarm" ShouldProcessTarget="DisableActionRequests" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchEnableAlarm" OutputProperty="ErrorEntries" Verb="Send" Noun="EnableAlarm" ShouldProcessTarget="EnableActionRequests" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchPutMessage" OutputProperty="BatchPutMessageErrorEntries" Verb="Send" Noun="MessageBatch" ShouldProcessTarget="Messages" PipelineParameter="Messages" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchResetAlarm" OutputProperty="ErrorEntries" Verb="Send" Noun="ResetAlarm" ShouldProcessTarget="ResetActionRequests" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchSnoozeAlarm" OutputProperty="ErrorEntries" Verb="Send" Noun="SnoozeAlarm" ShouldProcessTarget="SnoozeActionRequests" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -27,7 +47,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAlarm" OutputProperty="Alarm" Verb="Get" Noun="Alarm" PipelineParameter="AlarmModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDetector" OutputProperty="Detector" Verb="Get" Noun="Detector" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAlarms" OutputProperty="AlarmSummaries" Verb="Get" Noun="AlarmList" PipelineParameter="AlarmModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -36,7 +64,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

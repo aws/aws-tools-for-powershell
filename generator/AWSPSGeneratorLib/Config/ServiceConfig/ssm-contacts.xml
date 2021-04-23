@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>ssm-contacts</C2jFilename>
+    <AssemblyName>SSMContacts</AssemblyName>
+    <ServiceNounPrefix>SMC</ServiceNounPrefix>
+    <ServiceName>AWS System Manager Contacts</ServiceName>
+    <ServiceClientInterface>IAmazonSSMContacts</ServiceClientInterface>
+    <ServiceClient>AmazonSSMContactsClient</ServiceClient>
+    <ServiceModuleGuid>A96E6967-EF0A-45B7-B52E-8B83A45FFDD4</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptPage" Verb="Confirm" Noun="Page" ShouldProcessTarget="PageId" PipelineParameter="PageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ActivateContactChannel" Verb="Enable" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateContact" OutputProperty="ContactArn" Verb="New" Noun="Contact" ShouldProcessTarget="Alias" PipelineParameter="Alias" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateContactChannel" OutputProperty="ContactChannelArn" Verb="New" Noun="ContactChannel" ShouldProcessTarget="Name" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeactivateContactChannel" Verb="Disable" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContact" Verb="Remove" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContactChannel" Verb="Remove" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEngagement" OutputProperty="*" Verb="Get" Noun="Engagement" PipelineParameter="EngagementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePage" OutputProperty="*" Verb="Get" Noun="Page" PipelineParameter="PageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContact" OutputProperty="*" Verb="Get" Noun="Contact" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContactChannel" OutputProperty="*" Verb="Get" Noun="ContactChannel" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContactPolicy" OutputProperty="*" Verb="Get" Noun="ContactPolicy" PipelineParameter="ContactArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContactChannels" OutputProperty="ContactChannels" Verb="Get" Noun="ContactChannelList" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContacts" OutputProperty="Contacts" Verb="Get" Noun="ContactList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEngagements" OutputProperty="Engagements" Verb="Get" Noun="EngagementList" PipelineParameter="IncidentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPageReceipts" OutputProperty="Receipts" Verb="Get" Noun="PageReceiptList" PipelineParameter="PageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPagesByContact" OutputProperty="Pages" Verb="Get" Noun="PagesByContactList" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPagesByEngagement" OutputProperty="Pages" Verb="Get" Noun="PagesByEngagementList" PipelineParameter="EngagementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutContactPolicy" Verb="Write" Noun="ContactPolicy" ShouldProcessTarget="ContactArn" PipelineParameter="ContactArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendActivationCode" Verb="Send" Noun="ActivationCode" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartEngagement" OutputProperty="EngagementArn" Verb="Start" Noun="Engagement" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopEngagement" Verb="Stop" Noun="Engagement" ShouldProcessTarget="EngagementId" PipelineParameter="EngagementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContact" Verb="Update" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContactChannel" Verb="Update" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

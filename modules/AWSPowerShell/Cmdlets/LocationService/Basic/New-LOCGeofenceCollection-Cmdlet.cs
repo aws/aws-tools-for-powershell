@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter CollectionName
         /// <summary>
         /// <para>
-        /// <para>A custom name for the geofence collection.</para><para>Requirements:</para><ul><li><para>Contain only alphanumeric characters (A–Z, a–z, 0-9), hyphens (-), periods (.), and
+        /// <para>A custom name for the geofence collection.</para><para>Requirements:</para><ul><li><para>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and
         /// underscores (_). </para></li><li><para>Must be a unique geofence collection name.</para></li><li><para>No spaces allowed. For example, <code>ExampleGeofenceCollection</code>.</para></li></ul>
         /// </para>
         /// </summary>
@@ -67,10 +67,21 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS
+        /// KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>Specifies the pricing plan for your geofence collection.</para><para>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
+        /// <para>Specifies the pricing plan for the geofence collection.</para><para>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
         /// Location Service pricing page</a>.</para>
         /// </para>
         /// </summary>
@@ -88,15 +99,29 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlanDataSource
         /// <summary>
         /// <para>
-        /// <para>Specifies the plan data source. Required if the Mobile Asset Tracking (MAT) or the
-        /// Mobile Asset Management (MAM) pricing plan is selected.</para><para>Billing is determined by the resource usage, the associated pricing plan, and the
-        /// data source that was specified. For more information about each pricing plan option
-        /// and restrictions, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
-        /// Location Service pricing page</a>.</para><para>Valid Values: <code>Esri </code>| <code>Here</code></para>
+        /// <para>Specifies the data provider for the geofence collection.</para><ul><li><para>Required value for the following pricing plans: <code>MobileAssetTracking </code>|
+        /// <code>MobileAssetManagement</code></para></li></ul><para>For more information about <a href="https://aws.amazon.com/location/data-providers/">Data
+        /// Providers</a>, and <a href="https://aws.amazon.com/location/pricing/">Pricing plans</a>,
+        /// see the Amazon Location Service product page.</para><note><para>Amazon Location Service only uses <code>PricingPlanDataSource</code> to calculate
+        /// billing for your geofence collection. Your data won't be shared with the data provider,
+        /// and will remain in your AWS account or Region unless you move it.</para></note><para>Valid Values: <code>Esri </code>| <code>Here</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PricingPlanDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Applies one or more tags to the geofence collection. A tag is a key-value pair helps
+        /// manage, identify, search, and filter your resources by labelling them.</para><para>Format: <code>"key" : "value"</code></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
+        /// = . _ : / @. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -168,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             #endif
             context.Description = this.Description;
+            context.KmsKeyId = this.KmsKeyId;
             context.PricingPlan = this.PricingPlan;
             #if MODULAR
             if (this.PricingPlan == null && ParameterWasBound(nameof(this.PricingPlan)))
@@ -176,6 +202,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             #endif
             context.PricingPlanDataSource = this.PricingPlanDataSource;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -200,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
             if (cmdletContext.PricingPlan != null)
             {
                 request.PricingPlan = cmdletContext.PricingPlan;
@@ -207,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.PricingPlanDataSource != null)
             {
                 request.PricingPlanDataSource = cmdletContext.PricingPlanDataSource;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -271,8 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             public System.String CollectionName { get; set; }
             public System.String Description { get; set; }
+            public System.String KmsKeyId { get; set; }
             public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
             public System.String PricingPlanDataSource { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.LocationService.Model.CreateGeofenceCollectionResponse, NewLOCGeofenceCollectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

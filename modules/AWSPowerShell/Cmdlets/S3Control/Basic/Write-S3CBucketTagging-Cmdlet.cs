@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <note><para>
     /// This action puts tags on an Amazon S3 on Outposts bucket. To put tags on an S3 bucket,
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a>
-    /// in the <i>Amazon Simple Storage Service API</i>. 
+    /// in the <i>Amazon S3 API Reference</i>. 
     /// </para></note><para>
     /// Sets the tags for an S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
-    /// Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+    /// Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
     /// Use tags to organize your AWS bill to reflect your own cost structure. To do this,
     /// sign up to get your AWS account bill with tag key values included. Then, to see the

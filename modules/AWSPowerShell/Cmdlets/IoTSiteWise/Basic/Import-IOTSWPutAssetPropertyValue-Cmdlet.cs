@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.
     /// </para></li></ul><important><para>
     /// With respect to Unix epoch time, AWS IoT SiteWise accepts only TQVs that have a timestamp
-    /// of no more than 7 days in the past and no more than 5 minutes in the future. AWS IoT
-    /// SiteWise rejects timestamps outside of the inclusive range of [-7 days, +5 minutes]
+    /// of no more than 7 days in the past and no more than 10 minutes in the future. AWS
+    /// IoT SiteWise rejects timestamps outside of the inclusive range of [-7 days, +10 minutes]
     /// and returns a <code>TimestampOutOfRangeException</code> error.
     /// </para><para>
     /// For each asset property, AWS IoT SiteWise overwrites TQVs with duplicate timestamps

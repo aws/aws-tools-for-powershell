@@ -29,7 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
     /// Removes one or more tags from an Amazon Rekognition collection, stream processor,
-    /// or Custom Labels model.
+    /// or Custom Labels model. 
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permissions to perform the <code>rekognition:UntagResource</code>
+    /// action. 
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "REKResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

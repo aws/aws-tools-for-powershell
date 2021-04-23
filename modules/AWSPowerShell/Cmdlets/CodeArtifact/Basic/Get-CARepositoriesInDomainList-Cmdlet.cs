@@ -28,9 +28,9 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Returns a list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html"><code>RepositorySummary</code></a> objects. Each <code>RepositorySummary</code> contains
-    /// information about a repository in the specified domain and that matches the input
-    /// parameters.
+    /// Returns a list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
+    /// objects. Each <code>RepositorySummary</code> contains information about a repository
+    /// in the specified domain and that matches the input parameters.
     /// </summary>
     [Cmdlet("Get", "CARepositoriesInDomainList")]
     [OutputType("Amazon.CodeArtifact.Model.RepositorySummary")]

@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <note><para>
     /// This action gets an Amazon S3 on Outposts bucket's tags. To get an S3 bucket tags,
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html">GetBucketTagging</a>
-    /// in the <i>Amazon Simple Storage Service API</i>. 
+    /// in the <i>Amazon S3 API Reference</i>. 
     /// </para></note><para>
     /// Returns the tag set associated with the Outposts bucket. For more information, see
     /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
-    /// Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+    /// Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
     /// To use this action, you must have permission to perform the <code>GetBucketTagging</code>
     /// action. By default, the bucket owner has this permission and can grant this permission

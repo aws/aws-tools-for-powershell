@@ -151,6 +151,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetInterpolatedAssetPropertyValues" OutputProperty="InterpolatedAssetPropertyValues" Verb="Get" Noun="InterpolatedAssetPropertyValue" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAccessPolicies" OutputProperty="AccessPolicySummaries" Verb="Get" Noun="AccessPolicyList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

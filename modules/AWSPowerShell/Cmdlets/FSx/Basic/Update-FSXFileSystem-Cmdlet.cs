@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// </para></li><li><para>
     /// DailyAutomaticBackupStartTime
     /// </para></li><li><para>
+    /// DataCompressionType
+    /// </para></li><li><para>
     /// StorageCapacity
     /// </para></li><li><para>
     /// WeeklyMaintenanceStartTime

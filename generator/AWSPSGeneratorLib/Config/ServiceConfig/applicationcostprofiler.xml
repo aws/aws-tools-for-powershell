@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>applicationcostprofiler</C2jFilename>
+    <AssemblyName>ApplicationCostProfiler</AssemblyName>
+    <ServiceNounPrefix>ACP</ServiceNounPrefix>
+    <ServiceName>Amazon ApplicationCostProfiler</ServiceName>
+    <ServiceClientInterface>IAmazonApplicationCostProfiler</ServiceClientInterface>
+    <ServiceClient>AmazonApplicationCostProfilerClient</ServiceClient>
+    <ServiceModuleGuid>4094555B-D7BC-486A-87CB-E9D3635CFBB3</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteReportDefinition" OutputProperty="ReportId" Verb="Remove" Noun="ReportDefinition" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReportDefinition" OutputProperty="*" Verb="Get" Noun="ReportDefinition" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportApplicationUsage" OutputProperty="ImportId" Verb="Import" Noun="ApplicationUsage" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReportDefinitions" OutputProperty="ReportDefinitions" Verb="Get" Noun="ReportDefinitionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutReportDefinition" OutputProperty="ReportId" Verb="Write" Noun="ReportDefinition" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReportDefinition" OutputProperty="ReportId" Verb="Update" Noun="ReportDefinition" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

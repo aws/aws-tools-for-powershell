@@ -39,9 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </para><note><para>
     /// To call this operation, you must meet the following requirements:
     /// </para><ul><li><para>
-    /// You must have a Business or Enterprise support plan from <a href="http://aws.amazon.com/premiumsupport/">AWS
+    /// You must have a Business or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">AWS
     /// Support</a> to use the AWS Health API. If you call the AWS Health API from an AWS
-    /// account that doesn't have a Business or Enterprise support plan, you receive a <code>SubscriptionRequiredException</code>
+    /// account that doesn't have a Business or Enterprise Support plan, you receive a <code>SubscriptionRequiredException</code>
     /// error.
     /// </para></li><li><para>
     /// You must have permission to call this operation from the organization's management

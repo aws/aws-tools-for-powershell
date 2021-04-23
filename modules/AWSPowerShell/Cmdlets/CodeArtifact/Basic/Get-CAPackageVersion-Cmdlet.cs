@@ -28,8 +28,8 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html"><code>PackageVersionDescription</code></a> object that contains information about
-    /// the requested package version.
+    /// Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
+    /// object that contains information about the requested package version.
     /// </summary>
     [Cmdlet("Get", "CAPackageVersion")]
     [OutputType("Amazon.CodeArtifact.Model.PackageVersionDescription")]

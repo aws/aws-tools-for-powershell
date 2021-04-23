@@ -81,9 +81,12 @@ $QLDB_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.QLDB.PermissionsMode
-        "New-QLDBLedger/PermissionsMode"
         {
-            $v = "ALLOW_ALL"
+            ($_ -eq "New-QLDBLedger/PermissionsMode") -Or
+            ($_ -eq "Update-QLDBLedgerPermissionsMode/PermissionsMode")
+        }
+        {
+            $v = "ALLOW_ALL","STANDARD"
             break
         }
 
@@ -103,7 +106,7 @@ $QLDB_Completers = {
 }
 
 $QLDB_map = @{
-    "PermissionsMode"=@("New-QLDBLedger")
+    "PermissionsMode"=@("New-QLDBLedger","Update-QLDBLedgerPermissionsMode")
     "S3ExportConfiguration_EncryptionConfiguration_ObjectEncryptionType"=@("Export-QLDBJournalToS3")
 }
 
@@ -175,7 +178,8 @@ $QLDB_SelectMap = @{
                "Start-QLDBStreamJournalToKinesi",
                "Add-QLDBResourceTag",
                "Remove-QLDBResourceTag",
-               "Update-QLDBLedger")
+               "Update-QLDBLedger",
+               "Update-QLDBLedgerPermissionsMode")
 }
 
 _awsArgumentCompleterRegistration $QLDB_SelectCompleters $QLDB_SelectMap

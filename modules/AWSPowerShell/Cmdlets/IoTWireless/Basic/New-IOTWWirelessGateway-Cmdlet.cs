@@ -72,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String LoRaWAN_GatewayEui { get; set; }
         #endregion
         
+        #region Parameter LoRaWAN_JoinEuiFilter
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_JoinEuiFilters")]
+        public System.String[][] LoRaWAN_JoinEuiFilter { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -82,6 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter LoRaWAN_NetIdFilter
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_NetIdFilters")]
+        public System.String[] LoRaWAN_NetIdFilter { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_RfRegion
         /// <summary>
         /// <para>
@@ -90,6 +112,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LoRaWAN_RfRegion { get; set; }
+        #endregion
+        
+        #region Parameter LoRaWAN_SubBand
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_SubBands")]
+        public System.Int32[] LoRaWAN_SubBand { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -168,7 +201,23 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.ClientRequestToken = this.ClientRequestToken;
             context.Description = this.Description;
             context.LoRaWAN_GatewayEui = this.LoRaWAN_GatewayEui;
+            if (this.LoRaWAN_JoinEuiFilter != null)
+            {
+                context.LoRaWAN_JoinEuiFilter = new List<List<System.String>>();
+                foreach (var innerList in this.LoRaWAN_JoinEuiFilter)
+                {
+                    context.LoRaWAN_JoinEuiFilter.Add(new List<System.String>(innerList));
+                }
+            }
+            if (this.LoRaWAN_NetIdFilter != null)
+            {
+                context.LoRaWAN_NetIdFilter = new List<System.String>(this.LoRaWAN_NetIdFilter);
+            }
             context.LoRaWAN_RfRegion = this.LoRaWAN_RfRegion;
+            if (this.LoRaWAN_SubBand != null)
+            {
+                context.LoRaWAN_SubBand = new List<System.Int32>(this.LoRaWAN_SubBand);
+            }
             context.Name = this.Name;
             if (this.Tag != null)
             {
@@ -212,6 +261,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 request.LoRaWAN.GatewayEui = requestLoRaWAN_loRaWAN_GatewayEui;
                 requestLoRaWANIsNull = false;
             }
+            List<List<System.String>> requestLoRaWAN_loRaWAN_JoinEuiFilter = null;
+            if (cmdletContext.LoRaWAN_JoinEuiFilter != null)
+            {
+                requestLoRaWAN_loRaWAN_JoinEuiFilter = cmdletContext.LoRaWAN_JoinEuiFilter;
+            }
+            if (requestLoRaWAN_loRaWAN_JoinEuiFilter != null)
+            {
+                request.LoRaWAN.JoinEuiFilters = requestLoRaWAN_loRaWAN_JoinEuiFilter;
+                requestLoRaWANIsNull = false;
+            }
+            List<System.String> requestLoRaWAN_loRaWAN_NetIdFilter = null;
+            if (cmdletContext.LoRaWAN_NetIdFilter != null)
+            {
+                requestLoRaWAN_loRaWAN_NetIdFilter = cmdletContext.LoRaWAN_NetIdFilter;
+            }
+            if (requestLoRaWAN_loRaWAN_NetIdFilter != null)
+            {
+                request.LoRaWAN.NetIdFilters = requestLoRaWAN_loRaWAN_NetIdFilter;
+                requestLoRaWANIsNull = false;
+            }
             System.String requestLoRaWAN_loRaWAN_RfRegion = null;
             if (cmdletContext.LoRaWAN_RfRegion != null)
             {
@@ -220,6 +289,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_RfRegion != null)
             {
                 request.LoRaWAN.RfRegion = requestLoRaWAN_loRaWAN_RfRegion;
+                requestLoRaWANIsNull = false;
+            }
+            List<System.Int32> requestLoRaWAN_loRaWAN_SubBand = null;
+            if (cmdletContext.LoRaWAN_SubBand != null)
+            {
+                requestLoRaWAN_loRaWAN_SubBand = cmdletContext.LoRaWAN_SubBand;
+            }
+            if (requestLoRaWAN_loRaWAN_SubBand != null)
+            {
+                request.LoRaWAN.SubBands = requestLoRaWAN_loRaWAN_SubBand;
                 requestLoRaWANIsNull = false;
             }
              // determine if request.LoRaWAN should be set to null
@@ -299,7 +378,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String ClientRequestToken { get; set; }
             public System.String Description { get; set; }
             public System.String LoRaWAN_GatewayEui { get; set; }
+            public List<List<System.String>> LoRaWAN_JoinEuiFilter { get; set; }
+            public List<System.String> LoRaWAN_NetIdFilter { get; set; }
             public System.String LoRaWAN_RfRegion { get; set; }
+            public List<System.Int32> LoRaWAN_SubBand { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.IoTWireless.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.IoTWireless.Model.CreateWirelessGatewayResponse, NewIOTWWirelessGatewayCmdlet, object> Select { get; set; } =

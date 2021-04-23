@@ -62,8 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     /// </para></li><li><para><code>StoppingCondition</code> - To help cap training costs, use <code>MaxRuntimeInSeconds</code>
     /// to set a time limit for training. Use <code>MaxWaitTimeInSeconds</code> to specify
-    /// how long you are willing to wait for a managed spot training job to complete. 
+    /// how long a managed spot training job has to complete. 
     /// </para></li><li><para><code>Environment</code> - The environment variables to set in the Docker container.
+    /// </para></li><li><para><code>RetryStrategy</code> - The number of times to retry the job when the job fails
+    /// due to an <code>InternalServerError</code>.
     /// </para></li></ul><para>
     ///  For more information about Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
     /// It Works</a>. 
@@ -265,12 +267,24 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String TensorBoardOutputConfig_LocalPath { get; set; }
         #endregion
         
+        #region Parameter RetryStrategy_MaximumRetryAttempt
+        /// <summary>
+        /// <para>
+        /// <para>The number of times to retry the job. When the job is retried, it's <code>SecondaryStatus</code>
+        /// is changed to <code>STARTING</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetryStrategy_MaximumRetryAttempts")]
+        public System.Int32? RetryStrategy_MaximumRetryAttempt { get; set; }
+        #endregion
+        
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that the training or compilation job can run.
-        /// If job does not complete during this time, Amazon SageMaker ends the job. If value
-        /// is not specified, default value is 1 day. The maximum value is 28 days.</para>
+        /// <para>The maximum length of time, in seconds, that a training or compilation job can run.
+        /// If the job does not complete during this time, Amazon SageMaker ends the job.</para><para>When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
+        /// specifies the maximum time for all of the attempts in total, not each individual attempt.</para><para>The default value is 1 day. The maximum value is 28 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -281,10 +295,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxWaitTimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, how long you are willing to wait for a managed
-        /// spot training job to complete. It is the amount of time spent waiting for Spot capacity
-        /// plus the amount of time the training job runs. It must be equal to or greater than
-        /// <code>MaxRuntimeInSeconds</code>. </para>
+        /// <para>The maximum length of time, in seconds, that a managed Spot training job has to complete.
+        /// It is the amount of time spent waiting for Spot capacity plus the amount of time the
+        /// job can run. It must be equal to or greater than <code>MaxRuntimeInSeconds</code>.
+        /// If the job does not complete during this time, Amazon SageMaker ends the job.</para><para>When <code>RetryStrategy</code> is specified in the job request, <code>MaxWaitTimeInSeconds</code>
+        /// specifies the maximum time for all of the attempts in total, not each individual attempt.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -657,6 +672,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ResourceConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RetryStrategy_MaximumRetryAttempt = this.RetryStrategy_MaximumRetryAttempt;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -903,6 +919,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.ResourceConfig = cmdletContext.ResourceConfig;
             }
+            
+             // populate RetryStrategy
+            var requestRetryStrategyIsNull = true;
+            request.RetryStrategy = new Amazon.SageMaker.Model.RetryStrategy();
+            System.Int32? requestRetryStrategy_retryStrategy_MaximumRetryAttempt = null;
+            if (cmdletContext.RetryStrategy_MaximumRetryAttempt != null)
+            {
+                requestRetryStrategy_retryStrategy_MaximumRetryAttempt = cmdletContext.RetryStrategy_MaximumRetryAttempt.Value;
+            }
+            if (requestRetryStrategy_retryStrategy_MaximumRetryAttempt != null)
+            {
+                request.RetryStrategy.MaximumRetryAttempts = requestRetryStrategy_retryStrategy_MaximumRetryAttempt.Value;
+                requestRetryStrategyIsNull = false;
+            }
+             // determine if request.RetryStrategy should be set to null
+            if (requestRetryStrategyIsNull)
+            {
+                request.RetryStrategy = null;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -1086,6 +1121,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ProfilerConfig_S3OutputPath { get; set; }
             public List<Amazon.SageMaker.Model.ProfilerRuleConfiguration> ProfilerRuleConfiguration { get; set; }
             public Amazon.SageMaker.Model.ResourceConfig ResourceConfig { get; set; }
+            public System.Int32? RetryStrategy_MaximumRetryAttempt { get; set; }
             public System.String RoleArn { get; set; }
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }

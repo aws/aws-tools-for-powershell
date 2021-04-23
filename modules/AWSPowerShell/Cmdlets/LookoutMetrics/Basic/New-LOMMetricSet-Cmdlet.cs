@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter AppFlowConfig_FlowName
         /// <summary>
         /// <para>
-        /// <para>The name of the flow.</para>
+        /// <para> name of the flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

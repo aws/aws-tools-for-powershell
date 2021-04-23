@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>ssmincidents</C2jFilename>
+    <AssemblyName>SSMIncidents</AssemblyName>
+    <ServiceNounPrefix>SSMI</ServiceNounPrefix>
+    <ServiceName>AWS Systems Manager Incident Manager</ServiceName>
+    <ServiceClientInterface>IAmazonSSMIncidents</ServiceClientInterface>
+    <ServiceClient>AmazonSSMIncidentsClient</ServiceClient>
+    <ServiceModuleGuid>ed29d782-d8be-4ebc-8eae-b3d62b0cdff2</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateReplicationSet" OutputProperty="Arn" Verb="New" Noun="ReplicationSet" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Regions" NewName="ReplicationSetRegions" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResponsePlan" OutputProperty="Arn" Verb="New" Noun="ResponsePlan" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTimelineEvent" OutputProperty="*" Verb="New" Noun="TimelineEvent" ShouldProcessTarget="IncidentRecordArn" PipelineParameter="IncidentRecordArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIncidentRecord" Verb="Remove" Noun="IncidentRecord" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationSet" Verb="Remove" Noun="ReplicationSet" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResponsePlan" Verb="Remove" Noun="ResponsePlan" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTimelineEvent" Verb="Remove" Noun="TimelineEvent" ShouldProcessTarget="EventId" PipelineParameter="EventId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIncidentRecord" OutputProperty="IncidentRecord" Verb="Get" Noun="IncidentRecord" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReplicationSet" OutputProperty="ReplicationSet" Verb="Get" Noun="ReplicationSet" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicies" OutputProperty="ResourcePolicies" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResponsePlan" OutputProperty="*" Verb="Get" Noun="ResponsePlan" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTimelineEvent" OutputProperty="Event" Verb="Get" Noun="TimelineEvent" PipelineParameter="EventId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIncidentRecords" OutputProperty="IncidentRecordSummaries" Verb="Get" Noun="IncidentRecordList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRelatedItems" OutputProperty="RelatedItems" Verb="Get" Noun="RelatedItemList" PipelineParameter="IncidentRecordArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReplicationSets" OutputProperty="ReplicationSetArns" Verb="Get" Noun="ReplicationSetList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResponsePlans" OutputProperty="ResponsePlanSummaries" Verb="Get" Noun="ResponsePlanList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTimelineEvents" OutputProperty="EventSummaries" Verb="Get" Noun="TimelineEventList" PipelineParameter="IncidentRecordArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="PolicyId" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartIncident" OutputProperty="IncidentRecordArn" Verb="Start" Noun="Incident" ShouldProcessTarget="ResponsePlanArn" PipelineParameter="ResponsePlanArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDeletionProtection" Verb="Update" Noun="DeletionProtection" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIncidentRecord" Verb="Update" Noun="IncidentRecord" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRelatedItems" Verb="Update" Noun="RelatedItem" ShouldProcessTarget="IncidentRecordArn" PipelineParameter="IncidentRecordArn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="RelatedItemsUpdate_ItemToAdd_Identifier_Value_Arn" NewName="RelatedItemsUpdate_ItemToAdd_Identifier_Value_Arn" />
+                <Param Name="RelatedItemsUpdate_ItemToRemove_Value_Arn" NewName="RelatedItemsUpdate_ItemToRemove_Value_Arn" />
+                <Param Name="RelatedItemsUpdate_ItemToAdd_Identifier_Value_MetricDefinition" NewName="RelatedItemsUpdate_ItemToAdd_Identifier_Value_MetricDefinition" />
+                <Param Name="RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition" NewName="RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition" />
+                <Param Name="RelatedItemsUpdate_ItemToAdd_Identifier_Value_Url" NewName="RelatedItemsUpdate_ItemToAdd_Identifier_Value_Url" />
+                <Param Name="RelatedItemsUpdate_ItemToRemove_Value_Url" NewName="RelatedItemsUpdate_ItemToRemove_Value_Url" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReplicationSet" Verb="Update" Noun="ReplicationSet" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResponsePlan" Verb="Update" Noun="ResponsePlan" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTimelineEvent" Verb="Update" Noun="TimelineEvent" ShouldProcessTarget="EventId" PipelineParameter="EventId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

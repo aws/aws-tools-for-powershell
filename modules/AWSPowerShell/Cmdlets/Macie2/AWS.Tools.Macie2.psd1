@@ -130,6 +130,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-MAC2Invitation', 
         'Remove-MAC2Member', 
         'Remove-MAC2ResourceTag', 
+        'Search-MAC2Resource', 
         'Test-MAC2CustomDataIdentifier', 
         'Unregister-MAC2FromAdministratorAccount', 
         'Unregister-MAC2FromMasterAccount', 

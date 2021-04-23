@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// <summary>
     /// Lists the Amazon Chime accounts under the administrator's AWS account. You can filter
     /// accounts by account name prefix. To find out which Amazon Chime account a user belongs
-    /// to, toucan filter by the user's email address, which returns one account result.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// to, you can filter by the user's email address, which returns one account result.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CHMAccountList")]
     [OutputType("Amazon.Chime.Model.Account")]

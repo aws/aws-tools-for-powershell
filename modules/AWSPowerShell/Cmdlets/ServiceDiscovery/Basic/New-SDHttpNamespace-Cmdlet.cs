@@ -28,9 +28,9 @@ using Amazon.ServiceDiscovery.Model;
 namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
-    /// Creates an HTTP namespace. Service instances that you register using an HTTP namespace
-    /// can be discovered using a <code>DiscoverInstances</code> request but can't be discovered
-    /// using DNS. 
+    /// Creates an HTTP namespace. Service instances registered using an HTTP namespace can
+    /// be discovered using a <code>DiscoverInstances</code> request but can't be discovered
+    /// using DNS.
     /// 
     ///  
     /// <para>
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed <code>CreateHttpNamespace</code>
-        /// requests to be retried without the risk of executing the operation twice. <code>CreatorRequestId</code>
-        /// can be any unique string, for example, a date/time stamp.</para>
+        /// requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code>
+        /// can be any unique string (for example, a date/time stamp).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to the namespace. Each tag consists of a key and an optional value,
-        /// both of which you define. Tag keys can have a maximum character length of 128 characters,
-        /// and tag values can have a maximum length of 256 characters.</para>
+        /// <para>The tags to add to the namespace. Each tag consists of a key and an optional value
+        /// that you define. Tags keys can be up to 128 characters in length, and tag values can
+        /// be up to 256 characters in length.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

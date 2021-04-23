@@ -179,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
             context.MetricsId = this.MetricsId;
-            context.MetricsConfiguration_MetricsId = this.MetricsConfiguration_MetricsId;
             context.MetricsFilter_MetricsFilterPredicate = this.MetricsFilter_MetricsFilterPredicate;
+            context.MetricsConfiguration_MetricsId = this.MetricsConfiguration_MetricsId;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
@@ -317,8 +317,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public System.String MetricsId { get; set; }
-            public System.String MetricsConfiguration_MetricsId { get; set; }
             public Amazon.S3.Model.MetricsFilterPredicate MetricsFilter_MetricsFilterPredicate { get; set; }
+            public System.String MetricsConfiguration_MetricsId { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketMetricsConfigurationResponse, WriteS3BucketMetricsConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

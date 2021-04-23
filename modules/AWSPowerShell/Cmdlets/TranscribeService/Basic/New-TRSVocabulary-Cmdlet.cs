@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code of the vocabulary entries.</para>
+        /// <para>The language code of the vocabulary entries. For a list of languages and their corresponding
+        /// language codes, see <a>what-is-transcribe</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>The S3 location of the text file that contains the definition of the custom vocabulary.
         /// The URI must be in the same region as the API endpoint that you are calling. The general
         /// form is </para><para>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
-        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>For more information about custom vocabularies, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary">Custom
+        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>For more information about custom vocabularies, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary">Custom
         /// Vocabularies</a>.</para>
         /// </para>
         /// </summary>

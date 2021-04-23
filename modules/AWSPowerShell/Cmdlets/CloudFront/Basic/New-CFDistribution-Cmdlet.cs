@@ -84,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>The unique identifier of the cache policy that is attached to the default cache behavior.
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
         /// cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using
-        /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para>
+        /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>A <code>DefaultCacheBehavior</code> must include either a <code>CachePolicyId</code>
+        /// or <code>ForwardedValues</code>. We recommend that you use a <code>CachePolicyId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,9 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_Comment
         /// <summary>
         /// <para>
-        /// <para>Any comments you want to include about the distribution.</para><para>If you don't want to specify a comment, include an empty <code>Comment</code> element.</para><para>To delete an existing comment, update the distribution configuration and include an
-        /// empty <code>Comment</code> element.</para><para>To add or change a comment, update the distribution configuration and specify the
-        /// new comment.</para>
+        /// <para>An optional comment to describe the distribution. The comment cannot be longer than
+        /// 128 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -438,6 +438,19 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String[] QueryStringCacheKeys_Item { get; set; }
         #endregion
         
+        #region Parameter FunctionAssociations_Item
+        /// <summary>
+        /// <para>
+        /// <para>The CloudFront functions that are associated with a cache behavior in a CloudFront
+        /// distribution. CloudFront functions must be published to the <code>LIVE</code> stage
+        /// to associate them with a cache behavior.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfig_DefaultCacheBehavior_FunctionAssociations_Items")]
+        public Amazon.CloudFront.Model.FunctionAssociation[] FunctionAssociations_Item { get; set; }
+        #endregion
+        
         #region Parameter LambdaFunctionAssociations_Item
         /// <summary>
         /// <para>
@@ -684,6 +697,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Quantity")]
         public System.Int32? QueryStringCacheKeys_Quantity { get; set; }
+        #endregion
+        
+        #region Parameter FunctionAssociations_Quantity
+        /// <summary>
+        /// <para>
+        /// <para>The number of CloudFront functions in the list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfig_DefaultCacheBehavior_FunctionAssociations_Quantity")]
+        public System.Int32? FunctionAssociations_Quantity { get; set; }
         #endregion
         
         #region Parameter LambdaFunctionAssociations_Quantity
@@ -1118,6 +1142,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.QueryStringCacheKeys_Item = new List<System.String>(this.QueryStringCacheKeys_Item);
             }
             context.QueryStringCacheKeys_Quantity = this.QueryStringCacheKeys_Quantity;
+            if (this.FunctionAssociations_Item != null)
+            {
+                context.FunctionAssociations_Item = new List<Amazon.CloudFront.Model.FunctionAssociation>(this.FunctionAssociations_Item);
+            }
+            context.FunctionAssociations_Quantity = this.FunctionAssociations_Quantity;
             if (this.LambdaFunctionAssociations_Item != null)
             {
                 context.LambdaFunctionAssociations_Item = new List<Amazon.CloudFront.Model.LambdaFunctionAssociation>(this.LambdaFunctionAssociations_Item);
@@ -1813,6 +1842,41 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.ViewerProtocolPolicy = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_ViewerProtocolPolicy;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            Amazon.CloudFront.Model.FunctionAssociations requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations = null;
+            
+             // populate FunctionAssociations
+            var requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociationsIsNull = true;
+            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations = new Amazon.CloudFront.Model.FunctionAssociations();
+            List<Amazon.CloudFront.Model.FunctionAssociation> requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations_functionAssociations_Item = null;
+            if (cmdletContext.FunctionAssociations_Item != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations_functionAssociations_Item = cmdletContext.FunctionAssociations_Item;
+            }
+            if (requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations_functionAssociations_Item != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations.Items = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations_functionAssociations_Item;
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociationsIsNull = false;
+            }
+            System.Int32? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations_functionAssociations_Quantity = null;
+            if (cmdletContext.FunctionAssociations_Quantity != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations_functionAssociations_Quantity = cmdletContext.FunctionAssociations_Quantity.Value;
+            }
+            if (requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations_functionAssociations_Quantity != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations.Quantity = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations_functionAssociations_Quantity.Value;
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociationsIsNull = false;
+            }
+             // determine if requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations should be set to null
+            if (requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociationsIsNull)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations = null;
+            }
+            if (requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior.FunctionAssociations = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_FunctionAssociations;
+                requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
             Amazon.CloudFront.Model.LambdaFunctionAssociations requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations = null;
             
              // populate LambdaFunctionAssociations
@@ -2266,6 +2330,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Boolean? ForwardedValues_QueryString { get; set; }
             public List<System.String> QueryStringCacheKeys_Item { get; set; }
             public System.Int32? QueryStringCacheKeys_Quantity { get; set; }
+            public List<Amazon.CloudFront.Model.FunctionAssociation> FunctionAssociations_Item { get; set; }
+            public System.Int32? FunctionAssociations_Quantity { get; set; }
             public List<Amazon.CloudFront.Model.LambdaFunctionAssociation> LambdaFunctionAssociations_Item { get; set; }
             public System.Int32? LambdaFunctionAssociations_Quantity { get; set; }
             [System.ObsoleteAttribute]

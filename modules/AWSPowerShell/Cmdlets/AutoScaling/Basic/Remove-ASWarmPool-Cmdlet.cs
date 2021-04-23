@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ForceDelete
         /// <summary>
         /// <para>
-        /// <para>Specifies that the warm pool is to be deleted along with all instances associated
-        /// with the warm pool, without waiting for all instances to be terminated. This parameter
-        /// also deletes any outstanding lifecycle actions associated with the warm pool instances.</para>
+        /// <para>Specifies that the warm pool is to be deleted along with all of its associated instances,
+        /// without waiting for all instances to be terminated. This parameter also deletes any
+        /// outstanding lifecycle actions associated with the warm pool instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

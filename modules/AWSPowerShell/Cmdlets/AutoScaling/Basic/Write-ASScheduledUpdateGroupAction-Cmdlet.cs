@@ -34,6 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled
     /// scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// </para><para>
+    /// You can view the scheduled actions for an Auto Scaling group using the <a>DescribeScheduledActions</a>
+    /// API call. If you are no longer using a scheduled action, you can delete it by calling
+    /// the <a>DeleteScheduledAction</a> API.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASScheduledUpdateGroupAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

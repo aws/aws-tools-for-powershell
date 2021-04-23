@@ -122,7 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// these options to preserve metadata such as user ID (UID) and group ID (GID), file
         /// permissions, data integrity verification, and so on.</para><para>For each individual task execution, you can override these options by specifying the
         /// <code>OverrideOptions</code> before starting the task execution. For more information,
-        /// see the operation. </para>
+        /// see the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>
+        /// operation. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

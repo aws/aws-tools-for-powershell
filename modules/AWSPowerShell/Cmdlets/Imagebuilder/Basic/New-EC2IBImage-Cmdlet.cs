@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
     /// Creates a new image. This request will create a new image along with all of the configured
-    /// output resources defined in the distribution configuration.
+    /// output resources defined in the distribution configuration. You must specify exactly
+    /// one recipe for your image, using either a ContainerRecipeArn or an ImageRecipeArn.
     /// </summary>
     [Cmdlet("New", "EC2IBImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter FromPhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The phone number that a user calls from.</para>
+        /// <para>The phone number that a user calls from. This is a phone number in your Amazon Chime
+        /// phone number inventory.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ToPhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The phone number that the user dials in order to connect to a meeting.</para>
+        /// <para>The phone number that the service should call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -115,6 +115,18 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.Int32? MaxLatency { get; set; }
         #endregion
         
+        #region Parameter MediaStreamOutputConfiguration
+        /// <summary>
+        /// <para>
+        /// The media streams that
+        /// are associated with the output, and the parameters for those associations.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MediaStreamOutputConfigurations")]
+        public Amazon.MediaConnect.Model.MediaStreamOutputConfigurationRequest[] MediaStreamOutputConfiguration { get; set; }
+        #endregion
+        
         #region Parameter MinLatency
         /// <summary>
         /// <para>
@@ -287,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             }
             #endif
             context.MaxLatency = this.MaxLatency;
+            if (this.MediaStreamOutputConfiguration != null)
+            {
+                context.MediaStreamOutputConfiguration = new List<Amazon.MediaConnect.Model.MediaStreamOutputConfigurationRequest>(this.MediaStreamOutputConfiguration);
+            }
             context.MinLatency = this.MinLatency;
             context.OutputArn = this.OutputArn;
             #if MODULAR
@@ -340,6 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.MaxLatency != null)
             {
                 request.MaxLatency = cmdletContext.MaxLatency.Value;
+            }
+            if (cmdletContext.MediaStreamOutputConfiguration != null)
+            {
+                request.MediaStreamOutputConfigurations = cmdletContext.MediaStreamOutputConfiguration;
             }
             if (cmdletContext.MinLatency != null)
             {
@@ -455,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public Amazon.MediaConnect.Model.UpdateEncryption Encryption { get; set; }
             public System.String FlowArn { get; set; }
             public System.Int32? MaxLatency { get; set; }
+            public List<Amazon.MediaConnect.Model.MediaStreamOutputConfigurationRequest> MediaStreamOutputConfiguration { get; set; }
             public System.Int32? MinLatency { get; set; }
             public System.String OutputArn { get; set; }
             public System.Int32? Port { get; set; }

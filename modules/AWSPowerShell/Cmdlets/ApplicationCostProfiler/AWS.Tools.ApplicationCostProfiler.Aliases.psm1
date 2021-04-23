@@ -1,0 +1,3 @@
+﻿# ApplicationCostProfiler
+
+Export-ModuleMember -Alias *

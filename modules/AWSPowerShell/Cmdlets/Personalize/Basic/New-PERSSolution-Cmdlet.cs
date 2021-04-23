@@ -136,6 +136,18 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public Amazon.Personalize.Model.IntegerHyperParameterRange[] AlgorithmHyperParameterRanges_IntegerHyperParameterRange { get; set; }
         #endregion
         
+        #region Parameter OptimizationObjective_ItemAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The numerical metadata column in an Items dataset related to the optimization objective.
+        /// For example, VIDEO_LENGTH (to maximize streaming minutes), or PRICE (to maximize revenue).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SolutionConfig_OptimizationObjective_ItemAttribute")]
+        public System.String OptimizationObjective_ItemAttribute { get; set; }
+        #endregion
+        
         #region Parameter HpoResourceConfig_MaxNumberOfTrainingJob
         /// <summary>
         /// <para>
@@ -208,6 +220,19 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter OptimizationObjective_ObjectiveSensitivity
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how Amazon Personalize balances the importance of your optimization objective
+        /// versus relevance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SolutionConfig_OptimizationObjective_ObjectiveSensitivity")]
+        [AWSConstantClassSource("Amazon.Personalize.ObjectiveSensitivity")]
+        public Amazon.Personalize.ObjectiveSensitivity OptimizationObjective_ObjectiveSensitivity { get; set; }
         #endregion
         
         #region Parameter PerformAutoML
@@ -388,6 +413,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             context.HpoObjective_Type = this.HpoObjective_Type;
             context.HpoResourceConfig_MaxNumberOfTrainingJob = this.HpoResourceConfig_MaxNumberOfTrainingJob;
             context.HpoResourceConfig_MaxParallelTrainingJob = this.HpoResourceConfig_MaxParallelTrainingJob;
+            context.OptimizationObjective_ItemAttribute = this.OptimizationObjective_ItemAttribute;
+            context.OptimizationObjective_ObjectiveSensitivity = this.OptimizationObjective_ObjectiveSensitivity;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -495,6 +522,41 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestSolutionConfig_solutionConfig_AutoMLConfig != null)
             {
                 request.SolutionConfig.AutoMLConfig = requestSolutionConfig_solutionConfig_AutoMLConfig;
+                requestSolutionConfigIsNull = false;
+            }
+            Amazon.Personalize.Model.OptimizationObjective requestSolutionConfig_solutionConfig_OptimizationObjective = null;
+            
+             // populate OptimizationObjective
+            var requestSolutionConfig_solutionConfig_OptimizationObjectiveIsNull = true;
+            requestSolutionConfig_solutionConfig_OptimizationObjective = new Amazon.Personalize.Model.OptimizationObjective();
+            System.String requestSolutionConfig_solutionConfig_OptimizationObjective_optimizationObjective_ItemAttribute = null;
+            if (cmdletContext.OptimizationObjective_ItemAttribute != null)
+            {
+                requestSolutionConfig_solutionConfig_OptimizationObjective_optimizationObjective_ItemAttribute = cmdletContext.OptimizationObjective_ItemAttribute;
+            }
+            if (requestSolutionConfig_solutionConfig_OptimizationObjective_optimizationObjective_ItemAttribute != null)
+            {
+                requestSolutionConfig_solutionConfig_OptimizationObjective.ItemAttribute = requestSolutionConfig_solutionConfig_OptimizationObjective_optimizationObjective_ItemAttribute;
+                requestSolutionConfig_solutionConfig_OptimizationObjectiveIsNull = false;
+            }
+            Amazon.Personalize.ObjectiveSensitivity requestSolutionConfig_solutionConfig_OptimizationObjective_optimizationObjective_ObjectiveSensitivity = null;
+            if (cmdletContext.OptimizationObjective_ObjectiveSensitivity != null)
+            {
+                requestSolutionConfig_solutionConfig_OptimizationObjective_optimizationObjective_ObjectiveSensitivity = cmdletContext.OptimizationObjective_ObjectiveSensitivity;
+            }
+            if (requestSolutionConfig_solutionConfig_OptimizationObjective_optimizationObjective_ObjectiveSensitivity != null)
+            {
+                requestSolutionConfig_solutionConfig_OptimizationObjective.ObjectiveSensitivity = requestSolutionConfig_solutionConfig_OptimizationObjective_optimizationObjective_ObjectiveSensitivity;
+                requestSolutionConfig_solutionConfig_OptimizationObjectiveIsNull = false;
+            }
+             // determine if requestSolutionConfig_solutionConfig_OptimizationObjective should be set to null
+            if (requestSolutionConfig_solutionConfig_OptimizationObjectiveIsNull)
+            {
+                requestSolutionConfig_solutionConfig_OptimizationObjective = null;
+            }
+            if (requestSolutionConfig_solutionConfig_OptimizationObjective != null)
+            {
+                request.SolutionConfig.OptimizationObjective = requestSolutionConfig_solutionConfig_OptimizationObjective;
                 requestSolutionConfigIsNull = false;
             }
             Amazon.Personalize.Model.HPOConfig requestSolutionConfig_solutionConfig_HpoConfig = null;
@@ -722,6 +784,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String HpoObjective_Type { get; set; }
             public System.String HpoResourceConfig_MaxNumberOfTrainingJob { get; set; }
             public System.String HpoResourceConfig_MaxParallelTrainingJob { get; set; }
+            public System.String OptimizationObjective_ItemAttribute { get; set; }
+            public Amazon.Personalize.ObjectiveSensitivity OptimizationObjective_ObjectiveSensitivity { get; set; }
             public System.Func<Amazon.Personalize.Model.CreateSolutionResponse, NewPERSSolutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SolutionArn;
         }

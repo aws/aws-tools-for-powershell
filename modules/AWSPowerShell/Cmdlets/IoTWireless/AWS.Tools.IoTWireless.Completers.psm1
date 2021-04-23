@@ -90,6 +90,23 @@ $IOTW_Completers = {
             break
         }
 
+        # Amazon.IoTWireless.LogLevel
+        {
+            ($_ -eq "Update-IOTWLogLevelsByResourceType/DefaultLogLevel") -Or
+            ($_ -eq "Write-IOTWResourceLogLevel/LogLevel")
+        }
+        {
+            $v = "DISABLED","ERROR","INFO"
+            break
+        }
+
+        # Amazon.IoTWireless.MessageType
+        "Send-IOTWDataToWirelessDevice/WirelessMetadata_Sidewalk_MessageType"
+        {
+            $v = "CUSTOM_COMMAND_ID_GET","CUSTOM_COMMAND_ID_NOTIFY","CUSTOM_COMMAND_ID_RESP","CUSTOM_COMMAND_ID_SET"
+            break
+        }
+
         # Amazon.IoTWireless.PartnerType
         {
             ($_ -eq "Get-IOTWPartnerAccount/PartnerType") -Or
@@ -148,13 +165,16 @@ $IOTW_Completers = {
 }
 
 $IOTW_map = @{
+    "DefaultLogLevel"=@("Update-IOTWLogLevelsByResourceType")
     "ExpressionType"=@("New-IOTWDestination","Update-IOTWDestination")
     "IdentifierType"=@("Get-IOTWWirelessDevice","Get-IOTWWirelessGateway")
+    "LogLevel"=@("Write-IOTWResourceLogLevel")
     "PartnerType"=@("Get-IOTWPartnerAccount","Split-IOTWAwsAccountFromPartnerAccount","Update-IOTWPartnerAccount")
     "ServiceType"=@("Get-IOTWServiceEndpoint")
     "TaskDefinitionType"=@("Get-IOTWWirelessGatewayTaskDefinitionList")
     "Type"=@("New-IOTWWirelessDevice")
     "WirelessDeviceType"=@("Get-IOTWWirelessDeviceList")
+    "WirelessMetadata_Sidewalk_MessageType"=@("Send-IOTWDataToWirelessDevice")
 }
 
 _awsArgumentCompleterRegistration $IOTW_Completers $IOTW_map
@@ -231,7 +251,9 @@ $IOTW_SelectMap = @{
                "Split-IOTWWirelessGatewayFromThing",
                "Get-IOTWDestination",
                "Get-IOTWDeviceProfile",
+               "Get-IOTWLogLevelsByResourceType",
                "Get-IOTWPartnerAccount",
+               "Get-IOTWResourceLogLevel",
                "Get-IOTWServiceEndpoint",
                "Get-IOTWServiceProfile",
                "Get-IOTWWirelessDevice",
@@ -250,11 +272,15 @@ $IOTW_SelectMap = @{
                "Get-IOTWWirelessDeviceList",
                "Get-IOTWWirelessGatewayList",
                "Get-IOTWWirelessGatewayTaskDefinitionList",
+               "Write-IOTWResourceLogLevel",
+               "Reset-IOTWAllResourceLogLevel",
+               "Reset-IOTWResourceLogLevel",
                "Send-IOTWDataToWirelessDevice",
                "Add-IOTWResourceTag",
                "Test-IOTWWirelessDevice",
                "Remove-IOTWResourceTag",
                "Update-IOTWDestination",
+               "Update-IOTWLogLevelsByResourceType",
                "Update-IOTWPartnerAccount",
                "Update-IOTWWirelessDevice",
                "Update-IOTWWirelessGateway")

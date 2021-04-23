@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Lists Place index resources in your AWS account.
+    /// Lists place index resources in your AWS account.
     /// </summary>
     [Cmdlet("Get", "LOCPlaceIndexList")]
     [OutputType("Amazon.LocationService.Model.ListPlaceIndexesResponseEntry")]

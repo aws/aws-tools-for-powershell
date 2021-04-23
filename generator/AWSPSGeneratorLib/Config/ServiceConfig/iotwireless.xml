@@ -130,7 +130,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetLogLevelsByResourceTypes" OutputProperty="*" Verb="Get" Noun="LogLevelsByResourceType" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPartnerAccount" OutputProperty="*" Verb="Get" Noun="PartnerAccount" PipelineParameter="PartnerAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceLogLevel" OutputProperty="LogLevel" Verb="Get" Noun="ResourceLogLevel" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -206,6 +214,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutResourceLogLevel" Verb="Write" Noun="ResourceLogLevel" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetAllResourceLogLevels" Verb="Reset" Noun="AllResourceLogLevel" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetResourceLogLevel" Verb="Reset" Noun="ResourceLogLevel" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SendDataToWirelessDevice" OutputProperty="MessageId" Verb="Send" Noun="DataToWirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -223,6 +243,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDestination" Verb="Update" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLogLevelsByResourceTypes" Verb="Update" Noun="LogLevelsByResourceType" ShouldProcessTarget="DefaultLogLevel" PipelineParameter="DefaultLogLevel" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

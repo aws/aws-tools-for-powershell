@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
     /// Returns metadata about a self-managed object storage server location. For more information
-    /// about self-managed object storage locations, see <a>create-object-location</a>.
+    /// about self-managed object storage locations, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating
+    /// a location for object storage</a>.
     /// </summary>
     [Cmdlet("Get", "DSYNLocationObjectStorage")]
     [OutputType("Amazon.DataSync.Model.DescribeLocationObjectStorageResponse")]

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Requests suite definition Id with GetSuiteDefinition API call.</para>
+        /// <para>Suite definition Id of the test suite to get.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionVersion
         /// <summary>
         /// <para>
-        /// <para>Requests the suite definition version of a test suite.</para>
+        /// <para>Suite definition version of the test suite to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

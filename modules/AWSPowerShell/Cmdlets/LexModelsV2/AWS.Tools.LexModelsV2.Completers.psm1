@@ -115,10 +115,45 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.Effect
+        "New-LMBV2ResourcePolicyStatement/Effect"
+        {
+            $v = "Allow","Deny"
+            break
+        }
+
+        # Amazon.LexModelsV2.ExportSortAttribute
+        "Get-LMBV2ExportList/SortBy_Attribute"
+        {
+            $v = "LastUpdatedDateTime"
+            break
+        }
+
+        # Amazon.LexModelsV2.ImportExportFileFormat
+        "New-LMBV2Export/FileFormat"
+        {
+            $v = "LexJson"
+            break
+        }
+
+        # Amazon.LexModelsV2.ImportSortAttribute
+        "Get-LMBV2ImportList/SortBy_Attribute"
+        {
+            $v = "LastUpdatedDateTime"
+            break
+        }
+
         # Amazon.LexModelsV2.IntentSortAttribute
         "Get-LMBV2IntentList/SortBy_Attribute"
         {
             $v = "IntentName","LastUpdatedDateTime"
+            break
+        }
+
+        # Amazon.LexModelsV2.MergeStrategy
+        "Start-LMBV2Import/MergeStrategy"
+        {
+            $v = "FailOnConflict","Overwrite"
             break
         }
 
@@ -173,6 +208,8 @@ $LMBV2_Completers = {
             ($_ -eq "Get-LMBV2BotVersionList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BuiltInIntentList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BuiltInSlotTypeList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2ExportList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2ImportList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2IntentList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2SlotList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2SlotTypeList/SortBy_Order")
@@ -191,9 +228,12 @@ $LMBV2_Completers = {
 }
 
 $LMBV2_map = @{
+    "Effect"=@("New-LMBV2ResourcePolicyStatement")
+    "FileFormat"=@("New-LMBV2Export")
+    "MergeStrategy"=@("Start-LMBV2Import")
     "ObfuscationSetting_ObfuscationSettingType"=@("New-LMBV2Slot","Update-LMBV2Slot")
-    "SortBy_Attribute"=@("Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
-    "SortBy_Order"=@("Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
+    "SortBy_Attribute"=@("Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
+    "SortBy_Order"=@("Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
     "ValueElicitationSetting_SlotConstraint"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueSelectionSetting_ResolutionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
 }
@@ -253,21 +293,32 @@ $LMBV2_SelectMap = @{
                "New-LMBV2BotAlias",
                "New-LMBV2BotLocale",
                "New-LMBV2BotVersion",
+               "New-LMBV2Export",
                "New-LMBV2Intent",
+               "New-LMBV2ResourcePolicy",
+               "New-LMBV2ResourcePolicyStatement",
                "New-LMBV2Slot",
                "New-LMBV2SlotType",
+               "New-LMBV2UploadUrl",
                "Remove-LMBV2Bot",
                "Remove-LMBV2BotAlias",
                "Remove-LMBV2BotLocale",
                "Remove-LMBV2BotVersion",
+               "Remove-LMBV2Export",
+               "Remove-LMBV2Import",
                "Remove-LMBV2Intent",
+               "Remove-LMBV2ResourcePolicy",
+               "Remove-LMBV2ResourcePolicyStatement",
                "Remove-LMBV2Slot",
                "Remove-LMBV2SlotType",
                "Get-LMBV2Bot",
                "Get-LMBV2BotAlias",
                "Get-LMBV2BotLocale",
                "Get-LMBV2BotVersion",
+               "Get-LMBV2Export",
+               "Get-LMBV2Import",
                "Get-LMBV2Intent",
+               "Get-LMBV2ResourcePolicy",
                "Get-LMBV2Slot",
                "Get-LMBV2SlotType",
                "Get-LMBV2BotAliasList",
@@ -276,16 +327,21 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2BotVersionList",
                "Get-LMBV2BuiltInIntentList",
                "Get-LMBV2BuiltInSlotTypeList",
+               "Get-LMBV2ExportList",
+               "Get-LMBV2ImportList",
                "Get-LMBV2IntentList",
                "Get-LMBV2SlotList",
                "Get-LMBV2SlotTypeList",
                "Get-LMBV2ResourceTag",
+               "Start-LMBV2Import",
                "Add-LMBV2ResourceTag",
                "Remove-LMBV2ResourceTag",
                "Update-LMBV2Bot",
                "Update-LMBV2BotAlias",
                "Update-LMBV2BotLocale",
+               "Update-LMBV2Export",
                "Update-LMBV2Intent",
+               "Update-LMBV2ResourcePolicy",
                "Update-LMBV2Slot",
                "Update-LMBV2SlotType")
 }

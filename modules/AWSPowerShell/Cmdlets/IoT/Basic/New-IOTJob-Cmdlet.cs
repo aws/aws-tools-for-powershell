@@ -62,9 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>The job document.</para><note><para>If the job document resides in an S3 bucket, you must use a placeholder link when
-        /// specifying the document.</para><para>The placeholder link is of the following form:</para><para><code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code></para><para>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket
-        /// to which you are linking.</para></note>
+        /// <para>The job document. Required if you don't specify a value for <code>documentSource</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter DocumentSource
         /// <summary>
         /// <para>
-        /// <para>An S3 link to the job document.</para>
+        /// <para>An S3 link to the job document. Required if you don't specify a value for <code>document</code>.</para><note><para>If the job document resides in an S3 bucket, you must use a placeholder link when
+        /// specifying the document.</para><para>The placeholder link is of the following form:</para><para><code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code></para><para>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket
+        /// to which you are linking.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,6 +136,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String JobId { get; set; }
+        #endregion
+        
+        #region Parameter JobTemplateArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the job template used to create the job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String JobTemplateArn { get; set; }
         #endregion
         
         #region Parameter JobExecutionsRolloutConfig_MaximumPerMinute
@@ -293,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.JobTemplateArn = this.JobTemplateArn;
             context.NamespaceId = this.NamespaceId;
             context.PresignedUrlConfig_ExpiresInSec = this.PresignedUrlConfig_ExpiresInSec;
             context.PresignedUrlConfig_RoleArn = this.PresignedUrlConfig_RoleArn;
@@ -391,6 +402,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.JobId != null)
             {
                 request.JobId = cmdletContext.JobId;
+            }
+            if (cmdletContext.JobTemplateArn != null)
+            {
+                request.JobTemplateArn = cmdletContext.JobTemplateArn;
             }
             if (cmdletContext.NamespaceId != null)
             {
@@ -524,6 +539,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public Amazon.IoT.Model.ExponentialRolloutRate JobExecutionsRolloutConfig_ExponentialRate { get; set; }
             public System.Int32? JobExecutionsRolloutConfig_MaximumPerMinute { get; set; }
             public System.String JobId { get; set; }
+            public System.String JobTemplateArn { get; set; }
             public System.String NamespaceId { get; set; }
             public System.Int64? PresignedUrlConfig_ExpiresInSec { get; set; }
             public System.String PresignedUrlConfig_RoleArn { get; set; }

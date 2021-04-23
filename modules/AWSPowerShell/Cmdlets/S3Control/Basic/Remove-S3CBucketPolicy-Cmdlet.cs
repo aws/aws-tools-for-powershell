@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <note><para>
     /// This action deletes an Amazon S3 on Outposts bucket policy. To delete an S3 bucket
     /// policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketPolicy.html">DeleteBucketPolicy</a>
-    /// in the <i>Amazon Simple Storage Service API</i>. 
+    /// in the <i>Amazon S3 API Reference</i>. 
     /// </para></note><para>
     /// This implementation of the DELETE action uses the policy subresource to delete the
     /// policy of a specified Amazon S3 on Outposts bucket. If you are using an identity other
@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// have the <code>s3-outposts:DeleteBucketPolicy</code> permissions on the specified
     /// Outposts bucket and belong to the bucket owner's account to use this action. For more
     /// information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
-    /// Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service User Guide</i>.
+    /// Amazon S3 on Outposts</a> in <i>Amazon S3 User Guide</i>.
     /// </para><para>
     /// If you don't have <code>DeleteBucketPolicy</code> permissions, Amazon S3 returns a
     /// <code>403 Access Denied</code> error. If you have the correct permissions, but you're

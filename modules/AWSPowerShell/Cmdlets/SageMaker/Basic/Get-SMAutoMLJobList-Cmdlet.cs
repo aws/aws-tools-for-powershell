@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The parameter by which to sort the results. The default is AutoMLJobName.</para>
+        /// <para>The parameter by which to sort the results. The default is <code>Name</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order for the results. The default is Descending.</para>
+        /// <para>The sort order for the results. The default is <code>Descending</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.ServiceDiscovery.Model;
 namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
-    /// Creates a service, which defines the configuration for the following entities:
+    /// Creates a service. This action defines the configuration for the following entities:
     /// 
     ///  <ul><li><para>
     /// For public and private DNS namespaces, one of the following combinations of DNS records
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed <code>CreateService</code>
-        /// requests to be retried without the risk of executing the operation twice. <code>CreatorRequestId</code>
-        /// can be any unique string, for example, a date/time stamp.</para>
+        /// requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code>
+        /// can be any unique string (for example, a date/timestamp).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health checks that an endpoint must pass or fail for Route 53
-        /// to change the current status of the endpoint from unhealthy to healthy or vice versa.
-        /// For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
+        /// to change the current status of the endpoint from unhealthy to healthy or the other
+        /// way around. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
         /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer
         /// Guide</i>.</para>
         /// </para>
@@ -118,13 +118,14 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>The name that you want to assign to the service.</para><para>If you want AWS Cloud Map to create an <code>SRV</code> record when you register an
-        /// instance, and if you're using a system that requires a specific <code>SRV</code> format,
-        /// such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</para><ul><li><para>Start the name with an underscore (_), such as <code>_exampleservice</code></para></li><li><para>End the name with <i>._protocol</i>, such as <code>._tcp</code></para></li></ul><para>When you register an instance, AWS Cloud Map creates an <code>SRV</code> record and
-        /// assigns a name to the record by concatenating the service name and the namespace name,
-        /// for example:</para><para><code>_exampleservice._tcp.example.com</code></para><note><para>For a single DNS namespace, you cannot create two services with names that differ
-        /// only by case (such as EXAMPLE and example). Otherwise, these services will have the
-        /// same DNS name. However, you can create multiple HTTP services with names that differ
-        /// only by case because HTTP services are case sensitive.</para></note>
+        /// instance and you're using a system that requires a specific <code>SRV</code> format,
+        /// such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</para><ul><li><para>Start the name with an underscore (_), such as <code>_exampleservice</code>.</para></li><li><para>End the name with <i>._protocol</i>, such as <code>._tcp</code>.</para></li></ul><para>When you register an instance, AWS Cloud Map creates an <code>SRV</code> record and
+        /// assigns a name to the record by concatenating the service name and the namespace name
+        /// (for example,</para><para><code>_exampleservice._tcp.example.com</code>).</para><note><para>For services that are accessible by DNS queries, you can't create multiple services
+        /// with names that differ only by case (such as EXAMPLE and example). Otherwise, these
+        /// services have the same DNS name and can't be distinguished. However, if you use a
+        /// namespace that's only accessible by API calls, then you can create services that with
+        /// names that differ only by case.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -141,7 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter NamespaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the namespace that you want to use to create the service.</para>
+        /// <para>The ID of the namespace that you want to use to create the service. The namespace
+        /// ID must be specified, but it can be specified either here or in the <code>DnsConfig</code>
+        /// object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>The path that you want Route 53 to request when performing health checks. The path
-        /// can be any value for which your endpoint will return an HTTP status code of 2xx or
-        /// 3xx when the endpoint is healthy, such as the file <code>/docs/route53-health-check.html</code>.
+        /// can be any value that your endpoint returns an HTTP status code of a 2xx or 3xx format
+        /// for when the endpoint is healthy. An example file is <code>/docs/route53-health-check.html</code>.
         /// Route 53 automatically adds the DNS name for the service. If you don't specify a value
         /// for <code>ResourcePath</code>, the default value is <code>/</code>.</para><para>If you specify <code>TCP</code> for <code>Type</code>, you must <i>not</i> specify
         /// a value for <code>ResourcePath</code>.</para>
@@ -166,9 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to the service. Each tag consists of a key and an optional value,
-        /// both of which you define. Tag keys can have a maximum character length of 128 characters,
-        /// and tag values can have a maximum length of 256 characters.</para>
+        /// <para>The tags to add to the service. Each tag consists of a key and an optional value that
+        /// you define. Tags keys can be up to 128 characters in length, and tag values can be
+        /// up to 256 characters in length.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,8 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>If present, specifies that the service instances are only discoverable using the <code>DiscoverInstances</code>
-        /// API operation. No DNS records will be registered for the service instances. The only
-        /// valid value is <code>HTTP</code>.</para>
+        /// API operation. No DNS records is registered for the service instances. The only valid
+        /// value is <code>HTTP</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

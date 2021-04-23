@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>You can use <code>NextToken</code> in a subsequent request to fetch the next page
-        /// of access point descriptions if the response payload was paginated.</para>
+        /// <para>(Optional) You can use <code>NextToken</code> in a subsequent request to fetch the
+        /// next page of access point descriptions if the response payload was paginated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

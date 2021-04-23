@@ -80,6 +80,13 @@ $CGR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CodeGuruReviewer.EncryptionOption
+        "Register-CGRRepository/KMSKeyDetails_EncryptionOption"
+        {
+            $v = "AWS_OWNED_CMK","CUSTOMER_MANAGED_CMK"
+            break
+        }
+
         # Amazon.CodeGuruReviewer.Type
         "Get-CGRCodeReviewList/Type"
         {
@@ -96,6 +103,7 @@ $CGR_Completers = {
 }
 
 $CGR_map = @{
+    "KMSKeyDetails_EncryptionOption"=@("Register-CGRRepository")
     "Type"=@("Get-CGRCodeReviewList")
 }
 

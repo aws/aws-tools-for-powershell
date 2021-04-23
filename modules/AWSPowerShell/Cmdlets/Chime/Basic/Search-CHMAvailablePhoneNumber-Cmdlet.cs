@@ -28,7 +28,11 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Searches phone numbers that can be ordered.
+    /// Searches for phone numbers that can be ordered. For US numbers, provide at least one
+    /// of the following search filters: <code>AreaCode</code>, <code>City</code>, <code>State</code>,
+    /// or <code>TollFreePrefix</code>. If you provide <code>City</code>, you must also provide
+    /// <code>State</code>. Numbers outside the US only support the <code>PhoneNumberType</code>
+    /// filter, which you must use.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "CHMAvailablePhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -43,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AreaCode
         /// <summary>
         /// <para>
-        /// <para>The area code used to filter results.</para>
+        /// <para>The area code used to filter results. Only applies to the US.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter City
         /// <summary>
         /// <para>
-        /// <para>The city used to filter results.</para>
+        /// <para>The city used to filter results. Only applies to the US.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,17 +67,29 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Country
         /// <summary>
         /// <para>
-        /// <para>The country used to filter results.</para>
+        /// <para>The country used to filter results. Defaults to the US Format: ISO 3166-1 alpha-2.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Country { get; set; }
         #endregion
         
+        #region Parameter PhoneNumberType
+        /// <summary>
+        /// <para>
+        /// <para>The phone number type used to filter results. Required for non-US numbers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Chime.PhoneNumberType")]
+        public Amazon.Chime.PhoneNumberType PhoneNumberType { get; set; }
+        #endregion
+        
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>The state used to filter results.</para>
+        /// <para>The state used to filter results. Required only if you provide <code>City</code>.
+        /// Only applies to the US.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter TollFreePrefix
         /// <summary>
         /// <para>
-        /// <para>The toll-free prefix that you use to filter results.</para>
+        /// <para>The toll-free prefix that you use to filter results. Only applies to the US.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to use to retrieve the next page of results.</para>
+        /// <para>The token used to retrieve the next page of results.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,6 +152,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         public SwitchParameter Force { get; set; }
         #endregion
         
+        #region Parameter NoAutoIteration
+        /// <summary>
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// as the start point.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter NoAutoIteration { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -157,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             context.Country = this.Country;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.PhoneNumberType = this.PhoneNumberType;
             context.State = this.State;
             context.TollFreePrefix = this.TollFreePrefix;
             
@@ -172,7 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            var useParameterSelect = this.Select.StartsWith("^");
+            
+            // create request and set iteration invariants
             var request = new Amazon.Chime.Model.SearchAvailablePhoneNumbersRequest();
             
             if (cmdletContext.AreaCode != null)
@@ -191,9 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.NextToken != null)
+            if (cmdletContext.PhoneNumberType != null)
             {
-                request.NextToken = cmdletContext.NextToken;
+                request.PhoneNumberType = cmdletContext.PhoneNumberType;
             }
             if (cmdletContext.State != null)
             {
@@ -204,27 +237,51 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 request.TollFreePrefix = cmdletContext.TollFreePrefix;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.NextToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.NextToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -269,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             public System.String Country { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.Chime.PhoneNumberType PhoneNumberType { get; set; }
             public System.String State { get; set; }
             public System.String TollFreePrefix { get; set; }
             public System.Func<Amazon.Chime.Model.SearchAvailablePhoneNumbersResponse, SearchCHMAvailablePhoneNumberCmdlet, object> Select { get; set; } =

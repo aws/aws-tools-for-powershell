@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// A 429 error occurs in two situations:
     /// </para><ul><li><para>
     /// API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code>
-    /// exception from the API Gateway.
+    /// exception.
     /// </para></li><li><para>
     /// The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">quota
     /// for concurrent active chats</a> is exceeded. Active chat throttling returns a <code>LimitExceededException</code>.

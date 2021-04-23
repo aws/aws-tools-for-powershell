@@ -83,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.String CharacterSetName { get; set; }
         #endregion
         
+        #region Parameter CopyTagsToSnapshot
+        /// <summary>
+        /// <para>
+        /// <para><i>If set to <code>true</code>, tags are copied to any snapshot of the DB cluster
+        /// that is created.</i></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CopyTagsToSnapshot { get; set; }
+        #endregion
+        
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
@@ -158,7 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>Not supported by Neptune.</para>
+        /// <para>If set to <code>true</code>, enables Amazon Identity and Access Management (IAM) authentication
+        /// for the entire DB cluster (this cannot be set at an instance level).</para><para>Default: <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,16 +207,16 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier for an encrypted DB cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
-        /// If you are creating a DB cluster with the same AWS account that owns the KMS encryption
+        /// <para>The Amazon KMS key identifier for an encrypted DB cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
+        /// If you are creating a DB cluster with the same Amazon account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
         /// of the ARN for the KMS encryption key.</para><para>If an encryption key is not specified in <code>KmsKeyId</code>:</para><ul><li><para>If <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then Amazon
         /// Neptune will use the encryption key used to encrypt the source. Otherwise, Amazon
         /// Neptune will use your default encryption key.</para></li><li><para>If the <code>StorageEncrypted</code> parameter is true and <code>ReplicationSourceIdentifier</code>
-        /// is not specified, then Amazon Neptune will use your default encryption key.</para></li></ul><para>AWS KMS creates the default encryption key for your AWS account. Your AWS account
-        /// has a different default encryption key for each AWS Region.</para><para>If you create a Read Replica of an encrypted DB cluster in another AWS Region, you
-        /// must set <code>KmsKeyId</code> to a KMS key ID that is valid in the destination AWS
-        /// Region. This key is used to encrypt the Read Replica in that AWS Region.</para>
+        /// is not specified, then Amazon Neptune will use your default encryption key.</para></li></ul><para>Amazon KMS creates the default encryption key for your Amazon account. Your Amazon
+        /// account has a different default encryption key for each Amazon Region.</para><para>If you create a Read Replica of an encrypted DB cluster in another Amazon Region,
+        /// you must set <code>KmsKeyId</code> to a KMS key ID that is valid in the destination
+        /// Amazon Region. This key is used to encrypt the Read Replica in that Amazon Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para>The name of the master user for the DB cluster.</para><para>Constraints:</para><ul><li><para>Must be 1 to 16 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul>
+        /// <para>Not supported by Neptune.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,8 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the master database user. This password can contain any printable
-        /// ASCII character except "/", """, or "@".</para><para>Constraints: Must contain from 8 to 41 characters.</para>
+        /// <para>Not supported by Neptune.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
         /// are enabled using the <code>BackupRetentionPeriod</code> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region. To see the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
+        /// for each Amazon Region. To see the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
         /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Neptune User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
@@ -270,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
         /// Time (UTC).</para><para>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region, occurring on a random day of the week. To see the time blocks
+        /// for each Amazon Region, occurring on a random day of the week. To see the time blocks
         /// available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
         /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Neptune User Guide.</i></para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
@@ -412,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             }
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.CharacterSetName = this.CharacterSetName;
+            context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DatabaseName = this.DatabaseName;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             #if MODULAR
@@ -485,6 +497,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.CharacterSetName != null)
             {
                 request.CharacterSetName = cmdletContext.CharacterSetName;
+            }
+            if (cmdletContext.CopyTagsToSnapshot != null)
+            {
+                request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
             if (cmdletContext.DatabaseName != null)
             {
@@ -635,6 +651,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public List<System.String> AvailabilityZone { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
             public System.String CharacterSetName { get; set; }
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }

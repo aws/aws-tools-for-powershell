@@ -210,12 +210,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
             context.AnalyticsId = this.AnalyticsId;
-            context.AnalyticsConfiguration_AnalyticsId = this.AnalyticsConfiguration_AnalyticsId;
             context.AnalyticsFilter_AnalyticsFilterPredicate = this.AnalyticsFilter_AnalyticsFilterPredicate;
+            context.AnalyticsConfiguration_AnalyticsId = this.AnalyticsConfiguration_AnalyticsId;
             context.DataExport_OutputSchemaVersion = this.DataExport_OutputSchemaVersion;
-            context.S3BucketDestination_Format = this.S3BucketDestination_Format;
             context.S3BucketDestination_BucketAccountId = this.S3BucketDestination_BucketAccountId;
             context.S3BucketDestination_BucketName = this.S3BucketDestination_BucketName;
+            context.S3BucketDestination_Format = this.S3BucketDestination_Format;
             context.S3BucketDestination_Prefix = this.S3BucketDestination_Prefix;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
@@ -311,16 +311,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
              // populate S3BucketDestination
             var requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestinationIsNull = true;
             requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination = new Amazon.S3.Model.AnalyticsS3BucketDestination();
-            System.String requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_s3BucketDestination_Format = null;
-            if (cmdletContext.S3BucketDestination_Format != null)
-            {
-                requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_s3BucketDestination_Format = cmdletContext.S3BucketDestination_Format;
-            }
-            if (requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_s3BucketDestination_Format != null)
-            {
-                requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination.Format = requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_s3BucketDestination_Format;
-                requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestinationIsNull = false;
-            }
             System.String requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_s3BucketDestination_BucketAccountId = null;
             if (cmdletContext.S3BucketDestination_BucketAccountId != null)
             {
@@ -339,6 +329,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_s3BucketDestination_BucketName != null)
             {
                 requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination.BucketName = requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_s3BucketDestination_BucketName;
+                requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestinationIsNull = false;
+            }
+            System.String requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_s3BucketDestination_Format = null;
+            if (cmdletContext.S3BucketDestination_Format != null)
+            {
+                requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_s3BucketDestination_Format = cmdletContext.S3BucketDestination_Format;
+            }
+            if (requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_s3BucketDestination_Format != null)
+            {
+                requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination.Format = requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_s3BucketDestination_Format;
                 requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestinationIsNull = false;
             }
             System.String requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_s3BucketDestination_Prefix = null;
@@ -463,12 +463,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public System.String AnalyticsId { get; set; }
-            public System.String AnalyticsConfiguration_AnalyticsId { get; set; }
             public Amazon.S3.Model.AnalyticsFilterPredicate AnalyticsFilter_AnalyticsFilterPredicate { get; set; }
+            public System.String AnalyticsConfiguration_AnalyticsId { get; set; }
             public Amazon.S3.StorageClassAnalysisSchemaVersion DataExport_OutputSchemaVersion { get; set; }
-            public System.String S3BucketDestination_Format { get; set; }
             public System.String S3BucketDestination_BucketAccountId { get; set; }
             public System.String S3BucketDestination_BucketName { get; set; }
+            public System.String S3BucketDestination_Format { get; set; }
             public System.String S3BucketDestination_Prefix { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketAnalyticsConfigurationResponse, WriteS3BucketAnalyticsConfigurationCmdlet, object> Select { get; set; } =

@@ -230,15 +230,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// are <code>None</code> and <code>Input</code>. The default value is <code>None</code>,
         /// which specifies not to join the input with the transformed data. If you want the batch
         /// transform job to join the original input data with the transformed data, set <code>JoinSource</code>
-        /// to <code>Input</code>. </para><para>For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker adds the transformed
+        /// to <code>Input</code>. You can specify <code>OutputFilter</code> as an additional
+        /// filter to select a portion of the joined dataset and store it in the output file.</para><para>For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker adds the transformed
         /// data to the input JSON object in an attribute called <code>SageMakerOutput</code>.
         /// The joined result for JSON must be a key-value pair object. If the input is not a
         /// key-value pair object, Amazon SageMaker creates a new JSON file. In the new JSON file,
         /// and the input data is stored under the <code>SageMakerInput</code> key and the results
-        /// are stored in <code>SageMakerOutput</code>.</para><para>For CSV files, Amazon SageMaker combines the transformed data with the input data
-        /// at the end of the input data and stores it in the output file. The joined data has
-        /// the joined input data followed by the transformed data and the output is a CSV file.
-        /// </para>
+        /// are stored in <code>SageMakerOutput</code>.</para><para>For CSV data, Amazon SageMaker takes each row as a JSON array and joins the transformed
+        /// data with the input by appending each transformed row to the end of the input. The
+        /// joined data has the original input data followed by the transformed data and the output
+        /// is a CSV file.</para><para>For information on how joining in applied, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow">Workflow
+        /// for Associating Inferences with Input Records</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -423,7 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// value of <code>BatchStrategy</code> is set to <code>SingleRecord</code>. Padding is
         /// not removed if the value of <code>BatchStrategy</code> is set to <code>MultiRecord</code>.</para><para>For more information about <code>RecordIO</code>, see <a href="https://mxnet.apache.org/api/faq/recordio">Create
         /// a Dataset Using RecordIO</a> in the MXNet documentation. For more information about
-        /// <code>TFRecord</code>, see <a href="https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data">Consuming
+        /// <code>TFRecord</code>, see <a href="https://www.tensorflow.org/guide/data#consuming_tfrecord_data">Consuming
         /// TFRecord data</a> in the TensorFlow documentation.</para></note>
         /// </para>
         /// </summary>

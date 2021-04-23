@@ -38,8 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
     ///  
     /// <para>
     /// For example, you cannot start the ChangeSet described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a>
-    /// below because it contains two changes to execute the same change type (<code>AddRevisions</code>)
-    /// against the same entity (<code>entity-id@1)</code>.
+    /// later in this topic, because it contains two changes to execute the same change type
+    /// (<code>AddRevisions</code>) against the same entity (<code>entity-id@1)</code>.
+    /// </para><para>
+    /// For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">
+    /// Working with change sets</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "MCATChangeSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// Deletes a geofence collection from your AWS account.
     /// 
     ///  <note><para>
-    /// This action deletes the resource permanently. You can't undo this action. If the geofence
-    /// collection is the target of a tracker resource, the devices will no longer be monitored.
+    /// This operation deletes the resource permanently. If the geofence collection is the
+    /// target of a tracker resource, the devices will no longer be monitored.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "LOCGeofenceCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

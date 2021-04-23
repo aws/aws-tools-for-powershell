@@ -86,17 +86,27 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-LKFLFTagsToResource', 
         'Get-LKFDataLakeSetting', 
         'Get-LKFEffectivePermissionsForPath', 
+        'Get-LKFLFTag', 
+        'Get-LKFLFTagList', 
         'Get-LKFPermissionList', 
         'Get-LKFResource', 
+        'Get-LKFResourceLFTag', 
         'Get-LKFResourceList', 
         'Grant-LKFPermission', 
         'Grant-LKFPermissionBatch', 
+        'New-LKFLFTag', 
         'Register-LKFResource', 
+        'Remove-LKFLFTag', 
+        'Remove-LKFLFTagsFromResource', 
         'Revoke-LKFPermission', 
         'Revoke-LKFPermissionBatch', 
+        'Search-LKFDatabasesByLFTag', 
+        'Search-LKFTablesByLFTag', 
         'Unregister-LKFResource', 
+        'Update-LKFLFTag', 
         'Update-LKFResource', 
         'Write-LKFDataLakeSetting')
 

@@ -91,6 +91,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplicationVersion" OutputProperty="ApplicationVersionDetail" Verb="Get" Noun="ApplicationVersion" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DiscoverInputSchema" OutputProperty="*" Verb="Find" Noun="InputSchema" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -103,7 +107,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListApplicationVersions" OutputProperty="ApplicationVersionSummaries" Verb="Get" Noun="ApplicationVersionList" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RollbackApplication" OutputProperty="ApplicationDetail" Verb="Undo" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -126,6 +138,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateApplication" OutputProperty="ApplicationDetail" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplicationMaintenanceConfiguration" OutputProperty="*" Verb="Update" Noun="ApplicationMaintenanceConfiguration" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

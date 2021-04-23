@@ -65,6 +65,18 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.Model.GrantEntitlementRequest[] Entitlement { get; set; }
         #endregion
         
+        #region Parameter MediaStream
+        /// <summary>
+        /// <para>
+        /// The media streams that you want to add to
+        /// the flow. You can associate these media streams with sources and outputs on the flow.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MediaStreams")]
+        public Amazon.MediaConnect.Model.AddMediaStreamRequest[] MediaStream { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -202,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             {
                 context.Entitlement = new List<Amazon.MediaConnect.Model.GrantEntitlementRequest>(this.Entitlement);
             }
+            if (this.MediaStream != null)
+            {
+                context.MediaStream = new List<Amazon.MediaConnect.Model.AddMediaStreamRequest>(this.MediaStream);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -246,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.Entitlement != null)
             {
                 request.Entitlements = cmdletContext.Entitlement;
+            }
+            if (cmdletContext.MediaStream != null)
+            {
+                request.MediaStreams = cmdletContext.MediaStream;
             }
             if (cmdletContext.Name != null)
             {
@@ -355,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         {
             public System.String AvailabilityZone { get; set; }
             public List<Amazon.MediaConnect.Model.GrantEntitlementRequest> Entitlement { get; set; }
+            public List<Amazon.MediaConnect.Model.AddMediaStreamRequest> MediaStream { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.MediaConnect.Model.AddOutputRequest> Output { get; set; }
             public System.Int32? SourceFailoverConfig_RecoveryWindow { get; set; }

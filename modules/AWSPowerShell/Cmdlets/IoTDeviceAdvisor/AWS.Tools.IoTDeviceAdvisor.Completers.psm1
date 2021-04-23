@@ -131,8 +131,8 @@ $IOTDA_SelectMap = @{
                "Get-IOTDASuiteDefinitionList",
                "Get-IOTDASuiteRunList",
                "Get-IOTDAResourceTag",
-               "Get-IOTDATestCaseList",
                "Start-IOTDASuiteRun",
+               "Stop-IOTDASuiteRun",
                "Add-IOTDAResourceTag",
                "Remove-IOTDAResourceTag",
                "Update-IOTDASuiteDefinition")

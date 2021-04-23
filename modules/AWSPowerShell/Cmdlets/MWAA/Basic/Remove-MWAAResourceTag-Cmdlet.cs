@@ -28,7 +28,8 @@ using Amazon.MWAA.Model;
 namespace Amazon.PowerShell.Cmdlets.MWAA
 {
     /// <summary>
-    /// Remove a tag from the MWAA environments.
+    /// Removes key-value tag pairs associated to your Amazon Managed Workflows for Apache
+    /// Airflow (MWAA) environment. For example, <code>"Environment": "Staging"</code>.
     /// </summary>
     [Cmdlet("Remove", "MWAAResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The tag resource ARN of the MWAA environments.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The tag resource key of the MWAA environments.</para>
+        /// <para>The key-value tag pair you want to remove. For example, <code>"Environment": "Staging"</code>.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

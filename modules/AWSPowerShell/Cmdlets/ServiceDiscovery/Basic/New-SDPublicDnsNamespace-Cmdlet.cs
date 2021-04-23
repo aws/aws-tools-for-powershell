@@ -28,13 +28,14 @@ using Amazon.ServiceDiscovery.Model;
 namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
-    /// Creates a public namespace based on DNS, which will be visible on the internet. The
-    /// namespace defines your service naming scheme. For example, if you name your namespace
-    /// <code>example.com</code> and name your service <code>backend</code>, the resulting
-    /// DNS name for the service will be <code>backend.example.com</code>. For the current
-    /// quota on the number of namespaces that you can create using the same AWS account,
-    /// see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
-    /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
+    /// Creates a public namespace based on DNS, which is visible on the internet. The namespace
+    /// defines your service naming scheme. For example, if you name your namespace <code>example.com</code>
+    /// and name your service <code>backend</code>, the resulting DNS name for the service
+    /// is <code>backend.example.com</code>. You can discover instances that were registered
+    /// with a public DNS namespace by using either a <code>DiscoverInstances</code> request
+    /// or using DNS. For the current quota on the number of namespaces that you can create
+    /// using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
+    /// Cloud Map Quotas</a>in the <i>AWS Cloud Map Developer Guide</i>.
     /// </summary>
     [Cmdlet("New", "SDPublicDnsNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -50,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed <code>CreatePublicDnsNamespace</code>
-        /// requests to be retried without the risk of executing the operation twice. <code>CreatorRequestId</code>
-        /// can be any unique string, for example, a date/time stamp.</para>
+        /// requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code>
+        /// can be any unique string (for example, a date/timestamp).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to the namespace. Each tag consists of a key and an optional value,
-        /// both of which you define. Tag keys can have a maximum character length of 128 characters,
-        /// and tag values can have a maximum length of 256 characters.</para>
+        /// <para>The tags to add to the namespace. Each tag consists of a key and an optional value
+        /// that you define. Tags keys can be up to 128 characters in length, and tag values can
+        /// be up to 256 characters in length.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

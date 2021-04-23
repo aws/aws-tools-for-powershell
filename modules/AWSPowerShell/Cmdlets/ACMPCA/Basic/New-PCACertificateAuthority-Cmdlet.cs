@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// 
     ///  
     /// <para>
-    /// ACM Private CAA assets that are stored in Amazon S3 can be protected with encryption.
+    /// ACM Private CA assets that are stored in Amazon S3 can be protected with encryption.
     /// For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting
     /// Your CRLs</a>.
     /// </para><note><para>
@@ -108,6 +108,22 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IdempotencyToken { get; set; }
+        #endregion
+        
+        #region Parameter KeyStorageSecurityStandard
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a cryptographic key management compliance standard used for handling CA
+        /// keys.</para><para>Default: FIPS_140_2_LEVEL_3_OR_HIGHER</para><para>Note: <code>FIPS_140_2_LEVEL_3_OR_HIGHER</code> is not supported in Region ap-northeast-3.
+        /// When creating a CA in the ap-northeast-3, you must provide <code>FIPS_140_2_LEVEL_2_OR_HIGHER</code>
+        /// as the argument for <code>KeyStorageSecurityStandard</code>. Failure to do this results
+        /// in an <code>InvalidArgsException</code> with the message, "A certificate authority
+        /// cannot be created in this region with the specified security standard."</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ACMPCA.KeyStorageSecurityStandard")]
+        public Amazon.ACMPCA.KeyStorageSecurityStandard KeyStorageSecurityStandard { get; set; }
         #endregion
         
         #region Parameter RevocationConfiguration
@@ -195,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             }
             #endif
             context.IdempotencyToken = this.IdempotencyToken;
+            context.KeyStorageSecurityStandard = this.KeyStorageSecurityStandard;
             context.RevocationConfiguration = this.RevocationConfiguration;
             if (this.Tag != null)
             {
@@ -227,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             if (cmdletContext.IdempotencyToken != null)
             {
                 request.IdempotencyToken = cmdletContext.IdempotencyToken;
+            }
+            if (cmdletContext.KeyStorageSecurityStandard != null)
+            {
+                request.KeyStorageSecurityStandard = cmdletContext.KeyStorageSecurityStandard;
             }
             if (cmdletContext.RevocationConfiguration != null)
             {
@@ -300,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             public Amazon.ACMPCA.Model.CertificateAuthorityConfiguration CertificateAuthorityConfiguration { get; set; }
             public Amazon.ACMPCA.CertificateAuthorityType CertificateAuthorityType { get; set; }
             public System.String IdempotencyToken { get; set; }
+            public Amazon.ACMPCA.KeyStorageSecurityStandard KeyStorageSecurityStandard { get; set; }
             public Amazon.ACMPCA.Model.RevocationConfiguration RevocationConfiguration { get; set; }
             public List<Amazon.ACMPCA.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ACMPCA.Model.CreateCertificateAuthorityResponse, NewPCACertificateAuthorityCmdlet, object> Select { get; set; } =

@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code of the vocabulary entries.</para>
+        /// <para>The language code of the vocabulary entries. For a list of languages and their corresponding
+        /// language codes, see <a>what-is-transcribe</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

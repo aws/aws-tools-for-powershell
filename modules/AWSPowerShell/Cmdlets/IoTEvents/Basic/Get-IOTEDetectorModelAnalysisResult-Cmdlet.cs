@@ -28,7 +28,12 @@ using Amazon.IoTEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTE
 {
     /// <summary>
-    /// Retrieves one or more analysis results of the detector model.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves one or more analysis results of the detector model.
+    /// 
+    ///  <note><para>
+    /// After AWS IoT Events starts analyzing your detector model, you have up to 24 hours
+    /// to retrieve the analysis results.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTEDetectorModelAnalysisResult")]
     [OutputType("Amazon.IoTEvents.Model.AnalysisResult")]

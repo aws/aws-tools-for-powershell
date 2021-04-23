@@ -75,12 +75,28 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String Certificate { get; set; }
         #endregion
         
+        #region Parameter IdentityProviderDetails_DirectoryId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the AWS Directory Service directory that you want to stop sharing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityProviderDetails_DirectoryId { get; set; }
+        #endregion
+        
         #region Parameter EndpointType
         /// <summary>
         /// <para>
-        /// <para>The type of endpoint that you want your server to connect to. You can choose to connect
-        /// to the public internet or a VPC endpoint. With a VPC endpoint, you can restrict access
-        /// to your server and resources only within your VPC.</para><note><para>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>.
+        /// <para>The type of endpoint that you want your server to use. You can choose to make your
+        /// server's endpoint publicly accessible (PUBLIC) or host it inside your VPC. With an
+        /// endpoint that is hosted in a VPC, you can restrict access to your server and resources
+        /// only within your VPC or choose to make it internet facing by attaching Elastic IP
+        /// addresses directly to it.</para><note><para> After March 31, 2021, you won't be able to create a server using <code>EndpointType=VPC_ENDPOINT</code>
+        /// in your AWS account if your account hasn't already done so before March 31, 2021.
+        /// If you have already created servers with <code>EndpointType=VPC_ENDPOINT</code> in
+        /// your AWS account on or before March 31, 2021, you will not be affected. After this
+        /// date, use <code>EndpointType</code>=<code>VPC</code>.</para><para>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</para><para>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>.
         /// With this endpoint type, you have the option to directly associate up to three Elastic
         /// IPv4 addresses (BYO IP included) with your server's endpoint and use VPC security
         /// groups to restrict traffic by the client's public IP address. This is not possible
@@ -118,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter LoggingRole
         /// <summary>
         /// <para>
-        /// <para>Changes the AWS Identity and Access Management (IAM) role that allows Amazon S3 events
-        /// to be logged in Amazon CloudWatch, turning logging on or off.</para>
+        /// <para>Changes the AWS Identity and Access Management (IAM) role that allows Amazon S3 or
+        /// Amazon EFS events to be logged in Amazon CloudWatch, turning logging on or off.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// Manager (ACM) which will be used to identify your server when clients connect to it
         /// over FTPS.</para><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
         /// the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code>
-        /// must be <code>API_GATEWAY</code>.</para><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
+        /// must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</para><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
         /// cannot be associated.</para><para>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
         /// can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be
         /// set to <code>SERVICE_MANAGED</code>.</para></note>
@@ -148,9 +164,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of security groups IDs that are available to attach to your server's endpoint.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>.</para><para>You can only edit the <code>SecurityGroupIds</code> property in the <code>UpdateServer</code>
-        /// API and only if you are changing the <code>EndpointType</code> from <code>PUBLIC</code>
-        /// or <code>VPC_ENDPOINT</code> to <code>VPC</code>.</para></note>
+        /// <para>A list of security groups IDs that are available to attach to your server's endpoint.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>.</para><para>You can edit the <code>SecurityGroupIds</code> property in the <a href="https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html">UpdateServer</a>
+        /// API only if you are changing the <code>EndpointType</code> from <code>PUBLIC</code>
+        /// or <code>VPC_ENDPOINT</code> to <code>VPC</code>. To change security groups associated
+        /// with your server's VPC endpoint after creation, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html">ModifyVpcEndpoint</a>
+        /// API.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_VpcEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC endpoint.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC_ENDPOINT</code>.</para></note>
+        /// <para>The ID of the VPC endpoint.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC_ENDPOINT</code>.</para><para>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -305,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.EndpointDetails_VpcId = this.EndpointDetails_VpcId;
             context.EndpointType = this.EndpointType;
             context.HostKey = this.HostKey;
+            context.IdentityProviderDetails_DirectoryId = this.IdentityProviderDetails_DirectoryId;
             context.IdentityProviderDetails_InvocationRole = this.IdentityProviderDetails_InvocationRole;
             context.IdentityProviderDetails_Url = this.IdentityProviderDetails_Url;
             context.LoggingRole = this.LoggingRole;
@@ -411,6 +430,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
              // populate IdentityProviderDetails
             var requestIdentityProviderDetailsIsNull = true;
             request.IdentityProviderDetails = new Amazon.Transfer.Model.IdentityProviderDetails();
+            System.String requestIdentityProviderDetails_identityProviderDetails_DirectoryId = null;
+            if (cmdletContext.IdentityProviderDetails_DirectoryId != null)
+            {
+                requestIdentityProviderDetails_identityProviderDetails_DirectoryId = cmdletContext.IdentityProviderDetails_DirectoryId;
+            }
+            if (requestIdentityProviderDetails_identityProviderDetails_DirectoryId != null)
+            {
+                request.IdentityProviderDetails.DirectoryId = requestIdentityProviderDetails_identityProviderDetails_DirectoryId;
+                requestIdentityProviderDetailsIsNull = false;
+            }
             System.String requestIdentityProviderDetails_identityProviderDetails_InvocationRole = null;
             if (cmdletContext.IdentityProviderDetails_InvocationRole != null)
             {
@@ -521,6 +550,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String EndpointDetails_VpcId { get; set; }
             public Amazon.Transfer.EndpointType EndpointType { get; set; }
             public System.String HostKey { get; set; }
+            public System.String IdentityProviderDetails_DirectoryId { get; set; }
             public System.String IdentityProviderDetails_InvocationRole { get; set; }
             public System.String IdentityProviderDetails_Url { get; set; }
             public System.String LoggingRole { get; set; }

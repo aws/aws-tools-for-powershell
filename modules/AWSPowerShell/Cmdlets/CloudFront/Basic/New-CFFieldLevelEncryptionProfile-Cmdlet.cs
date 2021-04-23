@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter FieldLevelEncryptionProfileConfig_Comment
         /// <summary>
         /// <para>
-        /// <para>An optional comment for the field-level encryption profile.</para>
+        /// <para>An optional comment for the field-level encryption profile. The comment cannot be
+        /// longer than 128 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

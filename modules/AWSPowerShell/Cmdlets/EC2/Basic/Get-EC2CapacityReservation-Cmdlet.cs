@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Reservation reserves capacity.</para></li><li><para><code>availability-zone</code> - The Availability Zone ID of the Capacity Reservation.</para></li><li><para><code>tenancy</code> - Indicates the tenancy of the Capacity Reservation. A Capacity
         /// Reservation can have one of the following tenancy settings:</para><ul><li><para><code>default</code> - The Capacity Reservation is created on hardware that is shared
         /// with other AWS accounts.</para></li><li><para><code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware
-        /// that is dedicated to a single AWS account.</para></li></ul></li><li><para><code>state</code> - The current state of the Capacity Reservation. A Capacity Reservation
+        /// that is dedicated to a single AWS account.</para></li></ul></li><li><para><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost on which
+        /// the Capacity Reservation was created.</para></li><li><para><code>state</code> - The current state of the Capacity Reservation. A Capacity Reservation
         /// can be in one of the following states:</para><ul><li><para><code>active</code>- The Capacity Reservation is active and the capacity is available
         /// for your use.</para></li><li><para><code>expired</code> - The Capacity Reservation expired automatically at the date
         /// and time specified in your request. The reserved capacity is no longer available for

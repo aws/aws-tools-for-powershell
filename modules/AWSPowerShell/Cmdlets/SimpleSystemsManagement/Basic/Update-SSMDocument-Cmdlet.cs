@@ -68,6 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String Content { get; set; }
         #endregion
         
+        #region Parameter DisplayName
+        /// <summary>
+        /// <para>
+        /// <para>The friendly name of the Systems Manager document that you want to update. This value
+        /// can differ for each version of the document. If you do not specify a value for this
+        /// parameter in your request, the existing value is applied to the new document version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DisplayName { get; set; }
+        #endregion
+        
         #region Parameter DocumentFormat
         /// <summary>
         /// <para>
@@ -95,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the document that you want to update.</para>
+        /// <para>The name of the Systems Manager document that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -203,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 WriteWarning("You are passing $null as a value for parameter Content which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DisplayName = this.DisplayName;
             context.DocumentFormat = this.DocumentFormat;
             context.DocumentVersion = this.DocumentVersion;
             context.Name = this.Name;
@@ -237,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Content != null)
             {
                 request.Content = cmdletContext.Content;
+            }
+            if (cmdletContext.DisplayName != null)
+            {
+                request.DisplayName = cmdletContext.DisplayName;
             }
             if (cmdletContext.DocumentFormat != null)
             {
@@ -321,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             public List<Amazon.SimpleSystemsManagement.Model.AttachmentsSource> Attachment { get; set; }
             public System.String Content { get; set; }
+            public System.String DisplayName { get; set; }
             public Amazon.SimpleSystemsManagement.DocumentFormat DocumentFormat { get; set; }
             public System.String DocumentVersion { get; set; }
             public System.String Name { get; set; }

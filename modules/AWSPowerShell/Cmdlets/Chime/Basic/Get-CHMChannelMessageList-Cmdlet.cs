@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>.
-    /// By default, sorted by creation timestamp in descending order .
+    /// By default, sorted by creation timestamp in descending order.
     /// 
     ///  <note><para>
     /// Redacted messages appear in the results as empty, since they are only redacted, not

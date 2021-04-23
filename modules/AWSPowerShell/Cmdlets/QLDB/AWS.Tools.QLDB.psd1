@@ -104,7 +104,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-QLDBResourceTag', 
         'Start-QLDBStreamJournalToKinesi', 
         'Stop-QLDBJournalKinesisStream', 
-        'Update-QLDBLedger')
+        'Update-QLDBLedger', 
+        'Update-QLDBLedgerPermissionsMode')
 
     # Variables to export from this module
     VariablesToExport = '*'

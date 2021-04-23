@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return at one time.</para>
+        /// <para>The maximum number of results to be returned per request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results.</para>
+        /// <para>The token that you can use to return the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

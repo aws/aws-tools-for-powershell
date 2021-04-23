@@ -119,6 +119,13 @@ $TRS_Completers = {
             break
         }
 
+        # Amazon.TranscribeService.MedicalContentIdentificationType
+        "Start-TRSMedicalTranscriptionJob/ContentIdentificationType"
+        {
+            $v = "PHI"
+            break
+        }
+
         # Amazon.TranscribeService.ModelStatus
         "Get-TRSLanguageModelList/StatusEquals"
         {
@@ -191,6 +198,7 @@ $TRS_Completers = {
 
 $TRS_map = @{
     "BaseModelName"=@("New-TRSLanguageModel")
+    "ContentIdentificationType"=@("Start-TRSMedicalTranscriptionJob")
     "ContentRedaction_RedactionOutput"=@("Start-TRSTranscriptionJob")
     "ContentRedaction_RedactionType"=@("Start-TRSTranscriptionJob")
     "LanguageCode"=@("New-TRSLanguageModel","New-TRSMedicalVocabulary","New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob","Update-TRSMedicalVocabulary","Update-TRSVocabulary")

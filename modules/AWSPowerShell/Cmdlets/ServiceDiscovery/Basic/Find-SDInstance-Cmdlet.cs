@@ -45,7 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter HealthStatus
         /// <summary>
         /// <para>
-        /// <para>The health status of the instances that you want to discover.</para>
+        /// <para>The health status of the instances that you want to discover. This parameter is ignored
+        /// for services that don't have a health check configured, and all instances are returned.</para><dl><dt>HEALTHY</dt><dd><para>Returns healthy instances.</para></dd><dt>UNHEALTHY</dt><dd><para>Returns unhealthy instances.</para></dd><dt>ALL</dt><dd><para>Returns all instances.</para></dd><dt>HEALTHY_OR_ELSE_ALL</dt><dd><para>Returns healthy instances, unless none are reporting a healthy state. In that case,
+        /// return all instances. This is also called failing open.</para></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter NamespaceName
         /// <summary>
         /// <para>
-        /// <para>The name of the namespace that you specified when you registered the instance.</para>
+        /// <para>The <code>HttpName</code> name of the namespace. It's found in the <code>HttpProperties</code>
+        /// member of the <code>Properties</code> member of the namespace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <para>
         /// <para>Opportunistic filters to scope the results based on custom attributes. If there are
         /// instances that match both the filters specified in both the <code>QueryParameters</code>
-        /// parameter and this parameter, they are returned. Otherwise, these filters are ignored
-        /// and only instances that match the filters specified in the <code>QueryParameters</code>
-        /// parameter are returned.</para>
+        /// parameter and this parameter, all of these instances are returned. Otherwise, the
+        /// filters are ignored, and only instances that match the filters that are specified
+        /// in the <code>QueryParameters</code> parameter are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter QueryParameter
         /// <summary>
         /// <para>
-        /// <para>Filters to scope the results based on custom attributes for the instance. For example,
-        /// <code>{version=v1, az=1a}</code>. Only instances that match all the specified key-value
-        /// pairs will be returned.</para>
+        /// <para>Filters to scope the results based on custom attributes for the instance (for example,
+        /// <code>{version=v1, az=1a}</code>). Only instances that match all the specified key-value
+        /// pairs are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

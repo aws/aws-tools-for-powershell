@@ -67,6 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String Id { get; set; }
         #endregion
         
+        #region Parameter JoinEuiFilter
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JoinEuiFilters")]
+        public System.String[][] JoinEuiFilter { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -75,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter NetIdFilter
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetIdFilters")]
+        public System.String[] NetIdFilter { get; set; }
         #endregion
         
         #region Parameter Select
@@ -145,7 +167,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.JoinEuiFilter != null)
+            {
+                context.JoinEuiFilter = new List<List<System.String>>();
+                foreach (var innerList in this.JoinEuiFilter)
+                {
+                    context.JoinEuiFilter.Add(new List<System.String>(innerList));
+                }
+            }
             context.Name = this.Name;
+            if (this.NetIdFilter != null)
+            {
+                context.NetIdFilter = new List<System.String>(this.NetIdFilter);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,9 +204,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             {
                 request.Id = cmdletContext.Id;
             }
+            if (cmdletContext.JoinEuiFilter != null)
+            {
+                request.JoinEuiFilters = cmdletContext.JoinEuiFilter;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NetIdFilter != null)
+            {
+                request.NetIdFilters = cmdletContext.NetIdFilter;
             }
             
             CmdletOutput output;
@@ -237,7 +279,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         {
             public System.String Description { get; set; }
             public System.String Id { get; set; }
+            public List<List<System.String>> JoinEuiFilter { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> NetIdFilter { get; set; }
             public System.Func<Amazon.IoTWireless.Model.UpdateWirelessGatewayResponse, UpdateIOTWWirelessGatewayCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

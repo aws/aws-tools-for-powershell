@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// Retrieves a device's most recent position according to its sample time.
     /// 
     ///  <note><para>
-    /// Device positions are deleted after one year.
+    /// Device positions are deleted after 30 days.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "LOCDevicePosition")]

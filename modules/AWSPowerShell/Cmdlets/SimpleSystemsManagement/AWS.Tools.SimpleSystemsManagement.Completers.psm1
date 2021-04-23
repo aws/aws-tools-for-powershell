@@ -163,7 +163,7 @@ $SSM_Completers = {
         # Amazon.SimpleSystemsManagement.DocumentType
         "New-SSMDocument/DocumentType"
         {
-            $v = "ApplicationConfiguration","ApplicationConfigurationSchema","Automation","Automation.ChangeTemplate","ChangeCalendar","Command","DeploymentStrategy","Package","Policy","Session"
+            $v = "ApplicationConfiguration","ApplicationConfigurationSchema","Automation","Automation.ChangeTemplate","ChangeCalendar","Command","DeploymentStrategy","Package","Policy","ProblemAnalysis","ProblemAnalysisTemplate","Session"
             break
         }
 
@@ -412,6 +412,7 @@ $SSM_SelectCompleters = {
 
 $SSM_SelectMap = @{
     "Select"=@("Add-SSMResourceTag",
+               "Register-SSMOpsItemRelatedItem",
                "Stop-SSMCommand",
                "Stop-SSMMaintenanceWindowExecution",
                "New-SSMActivation",
@@ -469,6 +470,7 @@ $SSM_SelectMap = @{
                "Get-SSMPatchGroupState",
                "Get-SSMPatchProperty",
                "Get-SSMSession",
+               "Unregister-SSMOpsItemRelatedItem",
                "Get-SSMAutomationExecution",
                "Get-SSMCalendarState",
                "Get-SSMCommandInvocationDetail",
@@ -505,6 +507,7 @@ $SSM_SelectMap = @{
                "Get-SSMDocumentVersionList",
                "Get-SSMInventoryEntryList",
                "Get-SSMOpsItemEvent",
+               "Get-SSMOpsItemRelatedItem",
                "Get-SSMOpsMetadataList",
                "Get-SSMResourceComplianceSummaryList",
                "Get-SSMResourceDataSync",

@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Simple Notification Service (SNS)
 
 
+$SNS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SimpleNotificationService.LanguageCodeString
+        "New-SNSSMSSandboxPhoneNumber/LanguageCode"
+        {
+            $v = "de-DE","en-GB","en-US","es-419","es-ES","fr-CA","fr-FR","it-IT","ja-JP","kr-KR","pt-BR","zh-CN","zh-TW"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SNS_map = @{
+    "LanguageCode"=@("New-SNSSMSSandboxPhoneNumber")
+}
+
+_awsArgumentCompleterRegistration $SNS_Completers $SNS_map
+
 $SNS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -128,18 +154,23 @@ $SNS_SelectMap = @{
                "Confirm-SNSSubscription",
                "New-SNSPlatformApplication",
                "New-SNSPlatformEndpoint",
+               "New-SNSSMSSandboxPhoneNumber",
                "New-SNSTopic",
                "Remove-SNSEndpoint",
                "Remove-SNSPlatformApplication",
+               "Remove-SNSSMSSandboxPhoneNumber",
                "Remove-SNSTopic",
                "Get-SNSEndpointAttribute",
                "Get-SNSPlatformApplicationAttribute",
                "Get-SNSSMSAttribute",
+               "Get-SNSSMSSandboxAccountStatus",
                "Get-SNSSubscriptionAttribute",
                "Get-SNSTopicAttribute",
                "Get-SNSEndpointsByPlatformApplication",
+               "Get-SNSOriginationNumber",
                "Get-SNSPhoneNumbersOptedOut",
                "Get-SNSPlatformApplicationList",
+               "Get-SNSSMSSandboxPhoneNumber",
                "Get-SNSSubscription",
                "Get-SNSSubscriptionByTopic",
                "Get-SNSResourceTag",
@@ -155,7 +186,8 @@ $SNS_SelectMap = @{
                "Connect-SNSNotification",
                "Add-SNSResourceTag",
                "Disconnect-SNSNotification",
-               "Remove-SNSResourceTag")
+               "Remove-SNSResourceTag",
+               "Confirm-SNSSMSSandboxPhoneNumber")
 }
 
 _awsArgumentCompleterRegistration $SNS_SelectCompleters $SNS_SelectMap

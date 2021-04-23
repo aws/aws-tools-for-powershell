@@ -27,7 +27,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateClassificationJob" OutputProperty="*" Verb="New" Noun="ClassificationJob" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="S3JobDefinition_BucketCriteria_Excludes_And" NewName="S3JobDefinition_BucketCriteria_Excludes_And" AutoApplyAlias="false" />
+                <Param Name="S3JobDefinition_BucketCriteria_Includes_And" NewName="S3JobDefinition_BucketCriteria_Includes_And" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomDataIdentifier" OutputProperty="CustomDataIdentifierId" Verb="New" Noun="CustomDataIdentifier" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
@@ -203,6 +206,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutFindingsPublicationConfiguration" Verb="Write" Noun="FindingsPublicationConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchResources" OutputProperty="MatchingResources" Verb="Search" Noun="Resource" ShouldProcessTarget="SortCriteria_AttributeName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

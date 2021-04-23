@@ -32,6 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  
     /// <para>
+    /// If you do not specify a <code>QueueTypes</code> parameter, both standard and agent
+    /// queues are returned. This might cause an unexpected truncation of results if you have
+    /// more than 1000 agents and you limit the number of results of the API call in code.
+    /// </para><para>
     /// For more information about queues, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html">Queues:
     /// Standard and Agent</a> in the <i>Amazon Connect Administrator Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

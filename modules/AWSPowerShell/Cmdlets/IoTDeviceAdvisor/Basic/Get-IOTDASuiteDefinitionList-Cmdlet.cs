@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Request the list of all the Device Advisor test suites.</para>
+        /// <para>The maximum number of results to return at once.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Requests the Device Advisor test suites next token.</para>
+        /// <para>A token used to get the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

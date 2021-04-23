@@ -119,6 +119,20 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String AutomationTargetParameterName { get; set; }
         #endregion
         
+        #region Parameter CalendarName
+        /// <summary>
+        /// <para>
+        /// <para>The names or Amazon Resource Names (ARNs) of the Systems Manager Change Calendar type
+        /// documents you want to gate your associations under. The associations only run when
+        /// that Change Calendar is open. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">AWS
+        /// Systems Manager Change Calendar</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CalendarNames")]
+        public System.String[] CalendarName { get; set; }
+        #endregion
+        
         #region Parameter ComplianceSeverity
         /// <summary>
         /// <para>
@@ -361,6 +375,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.AssociationName = this.AssociationName;
             context.AssociationVersion = this.AssociationVersion;
             context.AutomationTargetParameterName = this.AutomationTargetParameterName;
+            if (this.CalendarName != null)
+            {
+                context.CalendarName = new List<System.String>(this.CalendarName);
+            }
             context.ComplianceSeverity = this.ComplianceSeverity;
             context.DocumentVersion = this.DocumentVersion;
             context.MaxConcurrency = this.MaxConcurrency;
@@ -434,6 +452,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.AutomationTargetParameterName != null)
             {
                 request.AutomationTargetParameterName = cmdletContext.AutomationTargetParameterName;
+            }
+            if (cmdletContext.CalendarName != null)
+            {
+                request.CalendarNames = cmdletContext.CalendarName;
             }
             if (cmdletContext.ComplianceSeverity != null)
             {
@@ -595,6 +617,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String AssociationName { get; set; }
             public System.String AssociationVersion { get; set; }
             public System.String AutomationTargetParameterName { get; set; }
+            public List<System.String> CalendarName { get; set; }
             public Amazon.SimpleSystemsManagement.AssociationComplianceSeverity ComplianceSeverity { get; set; }
             public System.String DocumentVersion { get; set; }
             public System.String MaxConcurrency { get; set; }

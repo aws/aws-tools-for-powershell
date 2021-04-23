@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
     /// Gets an Amazon S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">
-    /// Using Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+    /// Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.
     /// 
     ///  
     /// <para>

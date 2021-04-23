@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchCreateChannelMembership" OutputProperty="*" Verb="New" Noun="CreateChannelMembership" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchCreateRoomMembership" OutputProperty="Errors" Verb="New" Noun="RoomMembershipBatch" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -532,6 +536,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListSipRules" OutputProperty="SipRules" Verb="Get" Noun="SipRuleList" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSupportedPhoneNumberCountries" OutputProperty="PhoneNumberCountries" Verb="Get" Noun="SupportedPhoneNumberCountryList" PipelineParameter="ProductType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

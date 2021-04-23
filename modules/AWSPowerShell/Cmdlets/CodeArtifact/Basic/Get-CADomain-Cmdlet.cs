@@ -28,8 +28,8 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html"><code>DomainDescription</code></a> object that contains information about the requested
-    /// domain.
+    /// Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html">DomainDescription</a>
+    /// object that contains information about the requested domain.
     /// </summary>
     [Cmdlet("Get", "CADomain")]
     [OutputType("Amazon.CodeArtifact.Model.DomainDescription")]

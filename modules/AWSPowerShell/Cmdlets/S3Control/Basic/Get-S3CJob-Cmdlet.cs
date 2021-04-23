@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <summary>
     /// Retrieves the configuration parameters and status for a Batch Operations job. For
     /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3
-    /// Batch Operations</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+    /// Batch Operations</a> in the <i>Amazon S3 User Guide</i>.
     /// 
     ///   
     /// <para>

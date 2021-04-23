@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter PublicKeyConfig_Comment
         /// <summary>
         /// <para>
-        /// <para>A comment to describe the public key.</para>
+        /// <para>A comment to describe the public key. The comment cannot be longer than 128 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -96,18 +96,21 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SNOWJobList', 
         'Get-SNOWJobManifest', 
         'Get-SNOWJobUnlockCode', 
+        'Get-SNOWLongTermPricing', 
         'Get-SNOWReturnShippingLabel', 
         'Get-SNOWSnowballUsage', 
         'Get-SNOWSoftwareUpdate', 
         'New-SNOWAddress', 
         'New-SNOWCluster', 
         'New-SNOWJob', 
+        'New-SNOWLongTermPricing', 
         'New-SNOWReturnShippingLabel', 
         'Stop-SNOWCluster', 
         'Stop-SNOWJob', 
         'Update-SNOWCluster', 
         'Update-SNOWJob', 
-        'Update-SNOWJobShipmentState')
+        'Update-SNOWJobShipmentState', 
+        'Update-SNOWLongTermPricing')
 
     # Variables to export from this module
     VariablesToExport = '*'

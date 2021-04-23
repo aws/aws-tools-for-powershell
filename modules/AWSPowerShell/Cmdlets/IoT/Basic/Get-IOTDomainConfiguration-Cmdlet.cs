@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Gets summary information about a domain configuration.
-    /// 
-    ///  <note><para>
-    /// The domain configuration feature is in public preview and is subject to change.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "IOTDomainConfiguration")]
     [OutputType("Amazon.IoT.Model.DescribeDomainConfigurationResponse")]

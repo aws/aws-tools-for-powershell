@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter UserProfileName
         /// <summary>
         /// <para>
-        /// <para>The user profile name.</para>
+        /// <para>The user profile name. This value is not case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

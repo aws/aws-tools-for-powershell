@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter PhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The phone number to opt in.</para>
+        /// <para>The phone number to opt in. Use E.164 format.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

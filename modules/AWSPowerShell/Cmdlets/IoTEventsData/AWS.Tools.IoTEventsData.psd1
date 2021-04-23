@@ -86,9 +86,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Get-IOTEDAlarm', 
+        'Get-IOTEDAlarmList', 
         'Get-IOTEDDetector', 
         'Get-IOTEDDetectorList', 
+        'Send-IOTEDAcknowledgeAlarm', 
+        'Send-IOTEDDisableAlarm', 
+        'Send-IOTEDEnableAlarm', 
         'Send-IOTEDMessageBatch', 
+        'Send-IOTEDResetAlarm', 
+        'Send-IOTEDSnoozeAlarm', 
         'Update-IOTEDDetectorBatch')
 
     # Variables to export from this module

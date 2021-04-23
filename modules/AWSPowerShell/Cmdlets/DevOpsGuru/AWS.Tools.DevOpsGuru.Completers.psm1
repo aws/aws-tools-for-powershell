@@ -101,13 +101,20 @@ $DGURU_Completers = {
             break
         }
 
+        # Amazon.DevOpsGuru.Locale
+        "Get-DGURURecommendationList/Locale"
+        {
+            $v = "DE_DE","EN_GB","EN_US","ES_ES","FR_FR","IT_IT","JA_JP","KO_KR","PT_BR","ZH_CN","ZH_TW"
+            break
+        }
+
         # Amazon.DevOpsGuru.ResourceCollectionType
         {
             ($_ -eq "Get-DGURUResourceCollection/ResourceCollectionType") -Or
             ($_ -eq "Get-DGURUResourceCollectionHealth/ResourceCollectionType")
         }
         {
-            $v = "AWS_CLOUD_FORMATION"
+            $v = "AWS_CLOUD_FORMATION","AWS_SERVICE"
             break
         }
 
@@ -130,6 +137,7 @@ $DGURU_map = @{
     "Action"=@("Update-DGURUResourceCollection")
     "Filters_DataSource"=@("Get-DGURUEventList")
     "Filters_EventClass"=@("Get-DGURUEventList")
+    "Locale"=@("Get-DGURURecommendationList")
     "ResourceCollectionType"=@("Get-DGURUResourceCollection","Get-DGURUResourceCollectionHealth")
     "Type"=@("Search-DGURUInsight")
 }
@@ -192,6 +200,7 @@ $DGURU_SelectMap = @{
                "Get-DGURUInsight",
                "Get-DGURUResourceCollectionHealth",
                "Get-DGURUServiceIntegration",
+               "Get-DGURUCostEstimation",
                "Get-DGURUResourceCollection",
                "Get-DGURUAnomaliesForInsightList",
                "Get-DGURUEventList",
@@ -201,6 +210,7 @@ $DGURU_SelectMap = @{
                "Write-DGURUFeedback",
                "Remove-DGURUNotificationChannel",
                "Search-DGURUInsight",
+               "Start-DGURUCostEstimation",
                "Update-DGURUResourceCollection",
                "Update-DGURUServiceIntegration")
 }

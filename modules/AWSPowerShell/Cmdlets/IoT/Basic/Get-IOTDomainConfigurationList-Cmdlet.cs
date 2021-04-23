@@ -29,11 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Gets a list of domain configurations for the user. This list is sorted alphabetically
-    /// by domain configuration name.
-    /// 
-    ///  <note><para>
-    /// The domain configuration feature is in public preview and is subject to change.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// by domain configuration name.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTDomainConfigurationList")]
     [OutputType("Amazon.IoT.Model.DomainConfigurationSummary")]

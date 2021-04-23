@@ -123,7 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter LoggingConfig_TargetPrefix
         /// <summary>
         /// <para>
-        /// This element lets you specify a prefix for the keys that the log files will be stored under.
+        /// <para>A prefix for all log object keys. If you store log files from multiple Amazon S3 buckets
+        /// in a single bucket, you can use a prefix to distinguish which log files came from
+        /// which bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

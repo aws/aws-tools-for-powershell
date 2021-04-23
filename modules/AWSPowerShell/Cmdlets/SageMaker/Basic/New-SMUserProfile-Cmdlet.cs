@@ -91,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Each tag consists of a key and an optional value. Tag keys must be unique per resource.</para>
+        /// <para>Each tag consists of a key and an optional value. Tag keys must be unique per resource.</para><para>Tags that you specify for the User Profile are also added to all Apps that the User
+        /// Profile launches.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter UserProfileName
         /// <summary>
         /// <para>
-        /// <para>A name for the UserProfile.</para>
+        /// <para>A name for the UserProfile. This value is not case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

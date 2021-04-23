@@ -68,22 +68,32 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         public System.String ApplicationName { get; set; }
         #endregion
         
+        #region Parameter ConditionalToken
+        /// <summary>
+        /// <para>
+        /// <para>A value you use to implement strong concurrency for application updates. You must
+        /// provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
+        /// You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>.
+        /// For better concurrency support, use the <code>ConditionalToken</code> parameter instead
+        /// of <code>CurrentApplicationVersionId</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConditionalToken { get; set; }
+        #endregion
+        
         #region Parameter CurrentApplicationVersionId
         /// <summary>
         /// <para>
         /// <para>The version of the application to which you want to add the VPC configuration. You
-        /// can use the <a>DescribeApplication</a> operation to get the current application version.
-        /// If the version specified is not the current version, the <code>ConcurrentModificationException</code>
-        /// is returned.</para>
+        /// must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>.
+        /// You can use the <a>DescribeApplication</a> operation to get the current application
+        /// version. If the version specified is not the current version, the <code>ConcurrentModificationException</code>
+        /// is returned. For better concurrency support, use the <code>ConditionalToken</code>
+        /// parameter instead of <code>CurrentApplicationVersionId</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int64? CurrentApplicationVersionId { get; set; }
         #endregion
         
@@ -193,13 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
                 WriteWarning("You are passing $null as a value for parameter ApplicationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ConditionalToken = this.ConditionalToken;
             context.CurrentApplicationVersionId = this.CurrentApplicationVersionId;
-            #if MODULAR
-            if (this.CurrentApplicationVersionId == null && ParameterWasBound(nameof(this.CurrentApplicationVersionId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CurrentApplicationVersionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.VpcConfiguration_SecurityGroupId != null)
             {
                 context.VpcConfiguration_SecurityGroupId = new List<System.String>(this.VpcConfiguration_SecurityGroupId);
@@ -239,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             if (cmdletContext.ApplicationName != null)
             {
                 request.ApplicationName = cmdletContext.ApplicationName;
+            }
+            if (cmdletContext.ConditionalToken != null)
+            {
+                request.ConditionalToken = cmdletContext.ConditionalToken;
             }
             if (cmdletContext.CurrentApplicationVersionId != null)
             {
@@ -335,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationName { get; set; }
+            public System.String ConditionalToken { get; set; }
             public System.Int64? CurrentApplicationVersionId { get; set; }
             public List<System.String> VpcConfiguration_SecurityGroupId { get; set; }
             public List<System.String> VpcConfiguration_SubnetId { get; set; }

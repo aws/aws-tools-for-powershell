@@ -125,6 +125,29 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.Int32? MaxLatency { get; set; }
         #endregion
         
+        #region Parameter MaxSyncBuffer
+        /// <summary>
+        /// <para>
+        /// The size of the buffer (in milliseconds)
+        /// to use to sync incoming source data.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxSyncBuffer { get; set; }
+        #endregion
+        
+        #region Parameter MediaStreamSourceConfiguration
+        /// <summary>
+        /// <para>
+        /// The media streams that
+        /// are associated with the source, and the parameters for those associations.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MediaStreamSourceConfigurations")]
+        public Amazon.MediaConnect.Model.MediaStreamSourceConfigurationRequest[] MediaStreamSourceConfiguration { get; set; }
+        #endregion
+        
         #region Parameter MinLatency
         /// <summary>
         /// <para>
@@ -181,8 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter VpcInterfaceName
         /// <summary>
         /// <para>
-        /// The name of the VPC Interface to configure
-        /// this Source with.
+        /// The name of the VPC interface to use
+        /// for this source.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,6 +298,11 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.IngestPort = this.IngestPort;
             context.MaxBitrate = this.MaxBitrate;
             context.MaxLatency = this.MaxLatency;
+            context.MaxSyncBuffer = this.MaxSyncBuffer;
+            if (this.MediaStreamSourceConfiguration != null)
+            {
+                context.MediaStreamSourceConfiguration = new List<Amazon.MediaConnect.Model.MediaStreamSourceConfigurationRequest>(this.MediaStreamSourceConfiguration);
+            }
             context.MinLatency = this.MinLatency;
             context.Protocol = this.Protocol;
             context.SourceArn = this.SourceArn;
@@ -330,6 +358,14 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.MaxLatency != null)
             {
                 request.MaxLatency = cmdletContext.MaxLatency.Value;
+            }
+            if (cmdletContext.MaxSyncBuffer != null)
+            {
+                request.MaxSyncBuffer = cmdletContext.MaxSyncBuffer.Value;
+            }
+            if (cmdletContext.MediaStreamSourceConfiguration != null)
+            {
+                request.MediaStreamSourceConfigurations = cmdletContext.MediaStreamSourceConfiguration;
             }
             if (cmdletContext.MinLatency != null)
             {
@@ -423,6 +459,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.Int32? IngestPort { get; set; }
             public System.Int32? MaxBitrate { get; set; }
             public System.Int32? MaxLatency { get; set; }
+            public System.Int32? MaxSyncBuffer { get; set; }
+            public List<Amazon.MediaConnect.Model.MediaStreamSourceConfigurationRequest> MediaStreamSourceConfiguration { get; set; }
             public System.Int32? MinLatency { get; set; }
             public Amazon.MediaConnect.Protocol Protocol { get; set; }
             public System.String SourceArn { get; set; }

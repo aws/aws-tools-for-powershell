@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     ///  
     /// <para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para><code>resource-groups:SearchResources</code></para></li></ul><br/><br/>In the AWS.Tools.ResourceGroups module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><ul><li><para><code>resource-groups:SearchResources</code></para></li><li><para><code>cloudformation:DescribeStacks</code></para></li><li><para><code>cloudformation:ListStackResources</code></para></li><li><para><code>tag:GetResources</code></para></li></ul><br/><br/>In the AWS.Tools.ResourceGroups module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Find", "RGResource")]
     [OutputType("Amazon.ResourceGroups.Model.SearchResourcesResponse")]

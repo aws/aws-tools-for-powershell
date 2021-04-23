@@ -15,7 +15,7 @@
     <NounMappings />
     <Params />
     <CustomAliases />
-    <LegacyAliases >
+    <LegacyAliases>
         <AliasSet Cmdlet="Invoke-LMBV2BuildBotLocale">Build-LMBV2BotLocale</AliasSet>
     </LegacyAliases>
     <ParamEmitters />
@@ -41,7 +41,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateExport" OutputProperty="*" Verb="New" Noun="Export" ShouldProcessTarget="" PipelineParameter="FileFormat" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateIntent" OutputProperty="*" Verb="New" Noun="Intent" ShouldProcessTarget="IntentName" PipelineParameter="IntentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourcePolicy" OutputProperty="*" Verb="New" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourcePolicyStatement" OutputProperty="*" Verb="New" Noun="ResourcePolicyStatement" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -50,6 +62,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSlotType" OutputProperty="*" Verb="New" Noun="SlotType" ShouldProcessTarget="SlotTypeName" PipelineParameter="SlotTypeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUploadUrl" OutputProperty="*" Verb="New" Noun="UploadUrl" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -69,7 +85,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExport" OutputProperty="*" Verb="Remove" Noun="Export" ShouldProcessTarget="ExportId" PipelineParameter="ExportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteImport" OutputProperty="*" Verb="Remove" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="ImportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteIntent" Verb="Remove" Noun="Intent" ShouldProcessTarget="IntentId" PipelineParameter="IntentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" OutputProperty="*" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicyStatement" OutputProperty="*" Verb="Remove" Noun="ResourcePolicyStatement" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -97,7 +129,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExport" OutputProperty="*" Verb="Get" Noun="Export" PipelineParameter="ExportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImport" OutputProperty="*" Verb="Get" Noun="Import" PipelineParameter="ImportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeIntent" OutputProperty="*" Verb="Get" Noun="Intent" PipelineParameter="IntentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -133,6 +177,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListExports" OutputProperty="*" Verb="Get" Noun="ExportList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImports" OutputProperty="*" Verb="Get" Noun="ImportList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListIntents" OutputProperty="*" Verb="Get" Noun="IntentList" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -146,6 +198,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartImport" OutputProperty="*" Verb="Start" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="ImportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -169,7 +225,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateExport" OutputProperty="*" Verb="Update" Noun="Export" ShouldProcessTarget="ExportId" PipelineParameter="ExportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateIntent" OutputProperty="*" Verb="Update" Noun="Intent" ShouldProcessTarget="IntentId" PipelineParameter="IntentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourcePolicy" OutputProperty="*" Verb="Update" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

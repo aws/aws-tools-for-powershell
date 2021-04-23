@@ -55,7 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>One or more documents to add to the index. </para><para>Documents have the following file size limits.</para><ul><li><para>5 MB total size for inline documents</para></li><li><para>50 MB total size for files from an S3 bucket</para></li><li><para>5 MB extracted text for any file</para></li></ul><para>For more information about file size and transaction per second quotas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</para>
+        /// <para>One or more documents to add to the index.</para><para>Documents can include custom attributes. For example, 'DataSourceId' and 'DataSourceSyncJobId'
+        /// are custom attributes that provide information on the synchronization of documents
+        /// running on a data source. Note, 'DataSourceSyncJobId' could be an optional custom
+        /// attribute as Amazon Kendra will use the ID of a running sync job.</para><para>Documents have the following file size limits.</para><ul><li><para>5 MB total size for inline documents</para></li><li><para>50 MB total size for files from an S3 bucket</para></li><li><para>5 MB extracted text for any file</para></li></ul><para>For more information about file size and transaction per second quotas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

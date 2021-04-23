@@ -518,7 +518,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter UserGroupId
         /// <summary>
         /// <para>
-        /// <para>The list of user groups to associate with the replication group.</para>
+        /// <para>The user group to associate with the replication group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

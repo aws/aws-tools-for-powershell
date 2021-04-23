@@ -53,6 +53,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCostEstimation" OutputProperty="*" Verb="Get" Noun="CostEstimation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetResourceCollection" OutputProperty="ResourceCollection" Verb="Get" Noun="ResourceCollection" PipelineParameter="ResourceCollectionType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -100,6 +104,10 @@
                 <Type>Amazon.DevOpsGuru.Model.StartTimeRange</Type>
                 <Type>Amazon.DevOpsGuru.Model.ResourceCollection</Type>
             </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCostEstimation" Verb="Start" Noun="CostEstimation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateResourceCollection" Verb="Update" Noun="ResourceCollection" ShouldProcessTarget="ResourceCollection" PipelineParameter="ResourceCollection" NoPipelineParameter="false">
             <Params />

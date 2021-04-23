@@ -28,7 +28,14 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes one or more Auto Scaling groups.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes one or more Auto Scaling groups.
+    /// 
+    ///  
+    /// <para>
+    /// This operation returns information about instances in Auto Scaling groups. To retrieve
+    /// information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a>
+    /// API. 
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASAutoScalingGroup")]
     [OutputType("Amazon.AutoScaling.Model.AutoScalingGroup")]

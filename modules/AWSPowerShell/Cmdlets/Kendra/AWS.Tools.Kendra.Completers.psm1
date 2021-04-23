@@ -108,6 +108,13 @@ $KNDR_Completers = {
             break
         }
 
+        # Amazon.Kendra.Mode
+        "Update-KNDRQuerySuggestionsConfig/Mode"
+        {
+            $v = "ENABLED","LEARN_ONLY"
+            break
+        }
+
         # Amazon.Kendra.QueryResultType
         "Invoke-KNDRQuery/QueryResultTypeFilter"
         {
@@ -143,6 +150,7 @@ $KNDR_Completers = {
 $KNDR_map = @{
     "Edition"=@("New-KNDRIndex")
     "FileFormat"=@("New-KNDRFaq")
+    "Mode"=@("Update-KNDRQuerySuggestionsConfig")
     "QueryResultTypeFilter"=@("Invoke-KNDRQuery")
     "SortingConfiguration_SortOrder"=@("Invoke-KNDRQuery")
     "StatusFilter"=@("Get-KNDRDataSourceSyncJobList")
@@ -202,22 +210,29 @@ $KNDR_SelectCompleters = {
 $KNDR_SelectMap = @{
     "Select"=@("Remove-KNDRDocumentBatch",
                "Write-KNDRDocumentBatch",
+               "Clear-KNDRQuerySuggestion",
                "New-KNDRDataSource",
                "New-KNDRFaq",
                "New-KNDRIndex",
+               "New-KNDRQuerySuggestionsBlockList",
                "New-KNDRThesaurus",
                "Remove-KNDRDataSource",
                "Remove-KNDRFaq",
                "Remove-KNDRIndex",
+               "Remove-KNDRQuerySuggestionsBlockList",
                "Remove-KNDRThesaurus",
                "Get-KNDRDataSource",
                "Get-KNDRFaq",
                "Get-KNDRIndex",
+               "Get-KNDRQuerySuggestionsBlockList",
+               "Get-KNDRQuerySuggestionsConfig",
                "Get-KNDRThesaurus",
+               "Get-KNDRQuerySuggestion",
                "Get-KNDRDataSourceList",
                "Get-KNDRDataSourceSyncJobList",
                "Get-KNDRFaqList",
                "Get-KNDRIndexList",
+               "Get-KNDRQuerySuggestionsBlockListList",
                "Get-KNDRResourceTag",
                "Get-KNDRThesauriList",
                "Invoke-KNDRQuery",
@@ -228,6 +243,8 @@ $KNDR_SelectMap = @{
                "Remove-KNDRResourceTag",
                "Update-KNDRDataSource",
                "Update-KNDRIndex",
+               "Update-KNDRQuerySuggestionsBlockList",
+               "Update-KNDRQuerySuggestionsConfig",
                "Update-KNDRThesaurus")
 }
 

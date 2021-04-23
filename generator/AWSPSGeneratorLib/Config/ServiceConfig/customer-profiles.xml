@@ -62,6 +62,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMatches" OutputProperty="*" Verb="Get" Noun="Match" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetProfileObjectType" OutputProperty="*" Verb="Get" Noun="ProfileObjectType" PipelineParameter="ObjectTypeName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -95,6 +99,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="MergeProfiles" OutputProperty="Message" Verb="Merge" Noun="Profile" ShouldProcessTarget="MainProfileId" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

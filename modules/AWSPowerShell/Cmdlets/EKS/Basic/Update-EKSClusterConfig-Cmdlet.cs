@@ -49,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// EKS Cluster Endpoint Access Control</a> in the <i><i>Amazon EKS User Guide</i></i>.
     /// 
     /// </para><important><para>
-    /// At this time, you can not update the subnets or security group IDs for an existing
-    /// cluster.
+    /// You can't update the subnets or security group IDs for an existing cluster.
     /// </para></important><para>
     /// Cluster updates are asynchronous, and they should finish within a few minutes. During
     /// an update, the cluster status moves to <code>UPDATING</code> (this status transition

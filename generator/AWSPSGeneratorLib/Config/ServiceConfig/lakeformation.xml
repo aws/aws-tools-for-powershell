@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>lakeformation</C2jFilename>
     <AssemblyName>LakeFormation</AssemblyName>
@@ -13,17 +14,28 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AddLFTagsToResource" OutputProperty="Failures" Verb="Add" Noun="LFTagsToResource" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGrantPermissions" OutputProperty="Failures" Verb="Grant" Noun="PermissionBatch" ShouldProcessTarget="CatalogId" PipelineParameter="Entries" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchRevokePermissions" OutputProperty="Failures" Verb="Revoke" Noun="PermissionBatch" ShouldProcessTarget="CatalogId" PipelineParameter="Entries" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLFTag" Verb="New" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLFTag" Verb="Remove" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -43,7 +55,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetLFTag" OutputProperty="*" Verb="Get" Noun="LFTag" PipelineParameter="TagKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceLFTags" OutputProperty="*" Verb="Get" Noun="ResourceLFTag" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GrantPermissions" Verb="Grant" Noun="Permission" ShouldProcessTarget="CatalogId" PipelineParameter="Permissions" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLFTags" OutputProperty="LFTags" Verb="Get" Noun="LFTagList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,7 +87,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RemoveLFTagsFromResource" OutputProperty="Failures" Verb="Remove" Noun="LFTagsFromResource" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RevokePermissions" Verb="Revoke" Noun="Permission" ShouldProcessTarget="CatalogId" PipelineParameter="Permissions" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchDatabasesByLFTags" OutputProperty="DatabaseList" Verb="Search" Noun="DatabasesByLFTag" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchTablesByLFTags" OutputProperty="TableList" Verb="Search" Noun="TablesByLFTag" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLFTag" Verb="Update" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -72,7 +112,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

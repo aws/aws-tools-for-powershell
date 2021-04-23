@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-        /// accounts, and otherwise false.</para><para>Default: <code>false</code></para>
+        /// <para>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to
+        /// database accounts, and otherwise false.</para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,9 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
-        /// DB cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
-        /// If you are restoring a DB cluster with the same AWS account that owns the KMS encryption
+        /// <para>The Amazon KMS key identifier to use when restoring an encrypted DB cluster from an
+        /// encrypted DB cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
+        /// If you are restoring a DB cluster with the same Amazon account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
         /// of the ARN for the KMS encryption key.</para><para>You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key
         /// that is different than the KMS key used to encrypt the source DB cluster. The new

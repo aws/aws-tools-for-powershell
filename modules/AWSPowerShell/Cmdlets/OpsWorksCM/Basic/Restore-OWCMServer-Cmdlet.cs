@@ -51,11 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </para>
     /// </summary>
     [Cmdlet("Restore", "OWCMServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.OpsWorksCM.Model.RestoreServerResponse")]
     [AWSCmdlet("Calls the AWS OpsWorksCM RestoreServer API operation.", Operation = new[] {"RestoreServer"}, SelectReturnType = typeof(Amazon.OpsWorksCM.Model.RestoreServerResponse))]
-    [AWSCmdletOutput("None or Amazon.OpsWorksCM.Model.RestoreServerResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorksCM.Model.RestoreServerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.OpsWorksCM.Model.RestoreServerResponse",
+        "This cmdlet returns an Amazon.OpsWorksCM.Model.RestoreServerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RestoreOWCMServerCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
@@ -121,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpsWorksCM.Model.RestoreServerResponse).
+        /// Specifying the name of a property of type Amazon.OpsWorksCM.Model.RestoreServerResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -293,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             public System.String KeyPair { get; set; }
             public System.String ServerName { get; set; }
             public System.Func<Amazon.OpsWorksCM.Model.RestoreServerResponse, RestoreOWCMServerCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

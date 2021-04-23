@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// to KMS which might incur charges after Free Tier. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How
         /// Does the Data Key Reuse Period Work?</a>. </para></li></ul><para>The following attribute applies only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO
         /// (first-in-first-out) queues</a>:</para><ul><li><para><code>ContentBasedDeduplication</code> – Enables content-based deduplication. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">Exactly-Once
-        /// Processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>. Note the
+        /// more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once
+        /// processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>. Note the
         /// following: </para><ul><li><para>Every message must have a unique <code>MessageDeduplicationId</code>.</para><ul><li><para>You may provide a <code>MessageDeduplicationId</code> explicitly.</para></li><li><para>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable
         /// <code>ContentBasedDeduplication</code> for your queue, Amazon SQS uses a SHA-256 hash
         /// to generate the <code>MessageDeduplicationId</code> using the body of the message
@@ -108,18 +108,15 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// one copy of the message is delivered.</para></li><li><para>If you send one message with <code>ContentBasedDeduplication</code> enabled and then
         /// another message with a <code>MessageDeduplicationId</code> that is the same as the
         /// one generated for the first <code>MessageDeduplicationId</code>, the two messages
-        /// are treated as duplicates and only one copy of the message is delivered. </para></li></ul></li></ul><para><b>Preview: High throughput for FIFO queues</b></para><para><b>High throughput for Amazon SQS FIFO queues is in preview release and is subject
-        /// to change.</b> This feature provides a high number of transactions per second (TPS)
-        /// for messages in FIFO queues. For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas
-        /// related to messages</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para><para>This preview includes two new attributes:</para><ul><li><para><code>DeduplicationScope</code> – Specifies whether message deduplication occurs
+        /// are treated as duplicates and only one copy of the message is delivered. </para></li></ul></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high
+        /// throughput for FIFO queues</a>:</para><ul><li><para><code>DeduplicationScope</code> – Specifies whether message deduplication occurs
         /// at the message group or queue level. Valid values are <code>messageGroup</code> and
         /// <code>queue</code>.</para></li><li><para><code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput quota
         /// applies to the entire queue or per message group. Valid values are <code>perQueue</code>
         /// and <code>perMessageGroupId</code>. The <code>perMessageGroupId</code> value is allowed
         /// only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</para></li></ul><para>To enable high throughput for FIFO queues, do the following:</para><ul><li><para>Set <code>DeduplicationScope</code> to <code>messageGroup</code>.</para></li><li><para>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</para></li></ul><para>If you set these attributes to anything other than the values shown for enabling high
-        /// throughput, standard throughput is in effect and deduplication occurs as specified.</para><para>This preview is available in the following AWS Regions:</para><ul><li><para>US East (Ohio); us-east-2</para></li><li><para>US East (N. Virginia); us-east-1</para></li><li><para>US West (Oregon); us-west-2</para></li><li><para>Europe (Ireland); eu-west-1</para></li></ul><para>For more information about high throughput for FIFO queues, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">Preview:
-        /// High throughput for FIFO queues</a> in the <i>Amazon Simple Queue Service Developer
-        /// Guide</i>.</para>
+        /// throughput, normal throughput is in effect and deduplication occurs as specified.</para><para>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas
+        /// related to messages</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -166,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.BucketName = this.BucketName;
             context.MfaCodes_SerialNumber = this.MfaCodes_SerialNumber;
             context.MfaCodes_AuthenticationValue = this.MfaCodes_AuthenticationValue;
-            context.VersioningConfig_Status = this.VersioningConfig_Status;
             context.VersioningConfig_EnableMfaDelete = this.VersioningConfig_EnableMfaDelete;
+            context.VersioningConfig_Status = this.VersioningConfig_Status;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
@@ -222,16 +222,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
              // populate VersioningConfig
             var requestVersioningConfigIsNull = true;
             request.VersioningConfig = new Amazon.S3.Model.S3BucketVersioningConfig();
-            Amazon.S3.VersionStatus requestVersioningConfig_versioningConfig_Status = null;
-            if (cmdletContext.VersioningConfig_Status != null)
-            {
-                requestVersioningConfig_versioningConfig_Status = cmdletContext.VersioningConfig_Status;
-            }
-            if (requestVersioningConfig_versioningConfig_Status != null)
-            {
-                request.VersioningConfig.Status = requestVersioningConfig_versioningConfig_Status;
-                requestVersioningConfigIsNull = false;
-            }
             System.Boolean? requestVersioningConfig_versioningConfig_EnableMfaDelete = null;
             if (cmdletContext.VersioningConfig_EnableMfaDelete != null)
             {
@@ -240,6 +230,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestVersioningConfig_versioningConfig_EnableMfaDelete != null)
             {
                 request.VersioningConfig.EnableMfaDelete = requestVersioningConfig_versioningConfig_EnableMfaDelete.Value;
+                requestVersioningConfigIsNull = false;
+            }
+            Amazon.S3.VersionStatus requestVersioningConfig_versioningConfig_Status = null;
+            if (cmdletContext.VersioningConfig_Status != null)
+            {
+                requestVersioningConfig_versioningConfig_Status = cmdletContext.VersioningConfig_Status;
+            }
+            if (requestVersioningConfig_versioningConfig_Status != null)
+            {
+                request.VersioningConfig.Status = requestVersioningConfig_versioningConfig_Status;
                 requestVersioningConfigIsNull = false;
             }
              // determine if request.VersioningConfig should be set to null
@@ -315,8 +315,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String BucketName { get; set; }
             public System.String MfaCodes_SerialNumber { get; set; }
             public System.String MfaCodes_AuthenticationValue { get; set; }
-            public Amazon.S3.VersionStatus VersioningConfig_Status { get; set; }
             public System.Boolean? VersioningConfig_EnableMfaDelete { get; set; }
+            public Amazon.S3.VersionStatus VersioningConfig_Status { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketVersioningResponse, WriteS3BucketVersioningCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

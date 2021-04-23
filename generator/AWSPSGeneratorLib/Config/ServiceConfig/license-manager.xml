@@ -51,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLicenseManagerReportGenerator" OutputProperty="LicenseManagerReportGeneratorArn" Verb="New" Noun="LicenseManagerReportGenerator" ShouldProcessTarget="ReportGeneratorName" PipelineParameter="ReportGeneratorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLicenseVersion" OutputProperty="*" Verb="New" Noun="LicenseVersion" ShouldProcessTarget="LicenseArn" PipelineParameter="LicenseArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -68,6 +72,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLicenseConfiguration" Verb="Remove" Noun="LicenseConfiguration" ShouldProcessTarget="LicenseConfigurationArn" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLicenseManagerReportGenerator" Verb="Remove" Noun="LicenseManagerReportGenerator" ShouldProcessTarget="LicenseManagerReportGeneratorArn" PipelineParameter="LicenseManagerReportGeneratorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,6 +103,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetLicenseManagerReportGenerator" OutputProperty="ReportGenerator" Verb="Get" Noun="LicenseManagerReportGenerator" PipelineParameter="LicenseManagerReportGeneratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLicenseUsage" OutputProperty="LicenseUsage" Verb="Get" Noun="LicenseUsage" PipelineParameter="LicenseArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -116,6 +128,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListLicenseConfigurations" OutputProperty="LicenseConfigurations" Verb="Get" Noun="LicenseConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLicenseManagerReportGenerators" OutputProperty="ReportGenerators" Verb="Get" Noun="LicenseManagerReportGeneratorList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -168,6 +184,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLicenseConfiguration" Verb="Update" Noun="LicenseConfiguration" ShouldProcessTarget="LicenseConfigurationArn" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLicenseManagerReportGenerator" Verb="Update" Noun="LicenseManagerReportGenerator" ShouldProcessTarget="LicenseManagerReportGeneratorArn" PipelineParameter="LicenseManagerReportGeneratorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

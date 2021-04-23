@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
     /// Returns the <code>UnlockCode</code> code value for the specified job. A particular
-    /// <code>UnlockCode</code> value can be accessed for up to 90 days after the associated
+    /// <code>UnlockCode</code> value can be accessed for up to 360 days after the associated
     /// job has been created.
     /// 
     ///  

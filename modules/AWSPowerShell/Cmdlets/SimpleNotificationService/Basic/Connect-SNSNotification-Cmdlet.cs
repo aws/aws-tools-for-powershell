@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// (for example, when the service that powers the subscribed endpoint becomes unavailable)
         /// are held in the dead-letter queue for further analysis or reprocessing.</para></li></ul><para>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream
         /// subscriptions:</para><ul><li><para><code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</para><ul><li><para>Permission to write to the Kinesis Data Firehose delivery stream</para></li><li><para>Amazon SNS listed as a trusted entity</para></li></ul><para>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery
-        /// stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html">Fanout
+        /// stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout
         /// to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</para></li></ul>
         /// </para>
         /// </summary>

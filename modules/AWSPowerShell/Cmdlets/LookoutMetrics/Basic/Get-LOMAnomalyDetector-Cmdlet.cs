@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.LOM
 {
     /// <summary>
     /// Describes a detector.
+    /// 
+    ///  
+    /// <para>
+    /// Amazon Lookout for Metrics API actions are eventually consistent. If you do a read
+    /// operation on a resource immediately after creating or modifying it, use retries to
+    /// allow time for the write operation to complete.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "LOMAnomalyDetector")]
     [OutputType("Amazon.LookoutMetrics.Model.DescribeAnomalyDetectorResponse")]

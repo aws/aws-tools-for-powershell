@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>apprunner</C2jFilename>
+    <AssemblyName>AppRunner</AssemblyName>
+    <ServiceNounPrefix>AAR</ServiceNounPrefix>
+    <ServiceName>AWS App Runner</ServiceName>
+    <ServiceClientInterface>IAmazonAppRunner</ServiceClientInterface>
+    <ServiceClient>AmazonAppRunnerClient</ServiceClient>
+    <ServiceModuleGuid>356021c6-4ae6-4f72-8556-e8bdb0d20555</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateCustomDomain" OutputProperty="*" Verb="Add" Noun="CustomDomain" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="New" Noun="AutoScalingConfiguration" ShouldProcessTarget="AutoScalingConfigurationName" PipelineParameter="AutoScalingConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnection" OutputProperty="Connection" Verb="New" Noun="Connection" ShouldProcessTarget="ConnectionName" PipelineParameter="ConnectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateService" OutputProperty="*" Verb="New" Noun="Service" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="Remove" Noun="AutoScalingConfiguration" ShouldProcessTarget="AutoScalingConfigurationArn" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnection" OutputProperty="Connection" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionArn" PipelineParameter="ConnectionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteService" OutputProperty="*" Verb="Remove" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="Get" Noun="AutoScalingConfiguration" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCustomDomains" OutputProperty="*" Verb="Get" Noun="CustomDomain" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeService" OutputProperty="Service" Verb="Get" Noun="Service" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateCustomDomain" OutputProperty="*" Verb="Remove" Noun="CustomDomain" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutoScalingConfigurations" OutputProperty="AutoScalingConfigurationSummaryList" Verb="Get" Noun="AutoScalingConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnections" OutputProperty="ConnectionSummaryList" Verb="Get" Noun="ConnectionList" PipelineParameter="ConnectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOperations" OutputProperty="OperationSummaryList" Verb="Get" Noun="OperationList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServices" OutputProperty="ServiceSummaryList" Verb="Get" Noun="ServiceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PauseService" OutputProperty="*" Verb="Suspend" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResumeService" OutputProperty="*" Verb="Resume" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDeployment" OutputProperty="OperationId" Verb="Start" Noun="Deployment" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateService" OutputProperty="*" Verb="Update" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

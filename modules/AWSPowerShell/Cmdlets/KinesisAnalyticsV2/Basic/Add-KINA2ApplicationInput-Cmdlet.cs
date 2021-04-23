@@ -70,8 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter CurrentApplicationVersionId
         /// <summary>
         /// <para>
-        /// <para>The current version of your application. You can use the <a>DescribeApplication</a>
-        /// operation to find the current application version.</para>
+        /// <para>The current version of your application. You must provide the <code>ApplicationVersionID</code>
+        /// or the <code>ConditionalToken</code>.You can use the <a>DescribeApplication</a> operation
+        /// to find the current application version.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

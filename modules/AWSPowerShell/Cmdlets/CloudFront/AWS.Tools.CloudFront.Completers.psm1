@@ -128,6 +128,28 @@ $CF_Completers = {
             break
         }
 
+        # Amazon.CloudFront.FunctionRuntime
+        {
+            ($_ -eq "New-CFFunction/FunctionConfig_Runtime") -Or
+            ($_ -eq "Update-CFFunction/FunctionConfig_Runtime")
+        }
+        {
+            $v = "cloudfront-js-1.0"
+            break
+        }
+
+        # Amazon.CloudFront.FunctionStage
+        {
+            ($_ -eq "Get-CFFunction/Stage") -Or
+            ($_ -eq "Get-CFFunctionList/Stage") -Or
+            ($_ -eq "Get-CFFunctionSummary/Stage") -Or
+            ($_ -eq "Test-CFFunction/Stage")
+        }
+        {
+            $v = "DEVELOPMENT","LIVE"
+            break
+        }
+
         # Amazon.CloudFront.GeoRestrictionType
         {
             ($_ -eq "New-CFDistribution/DistributionConfig_Restrictions_GeoRestriction_RestrictionType") -Or
@@ -280,10 +302,12 @@ $CF_map = @{
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CertificateSource"=@("New-CFDistributionWithTag")
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_MinimumProtocolVersion"=@("New-CFDistributionWithTag")
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_SSLSupportMethod"=@("New-CFDistributionWithTag")
+    "FunctionConfig_Runtime"=@("New-CFFunction","Update-CFFunction")
     "MonitoringSubscription_RealtimeMetricsSubscriptionConfig_RealtimeMetricsSubscriptionStatus"=@("New-CFMonitoringSubscription")
     "OriginRequestPolicyConfig_CookiesConfig_CookieBehavior"=@("New-CFOriginRequestPolicy","Update-CFOriginRequestPolicy")
     "OriginRequestPolicyConfig_HeadersConfig_HeaderBehavior"=@("New-CFOriginRequestPolicy","Update-CFOriginRequestPolicy")
     "OriginRequestPolicyConfig_QueryStringsConfig_QueryStringBehavior"=@("New-CFOriginRequestPolicy","Update-CFOriginRequestPolicy")
+    "Stage"=@("Get-CFFunction","Get-CFFunctionList","Get-CFFunctionSummary","Test-CFFunction")
     "StreamingDistributionConfig_PriceClass"=@("New-CFStreamingDistribution","Update-CFStreamingDistribution")
     "StreamingDistributionConfigWithTags_StreamingDistributionConfig_PriceClass"=@("New-CFStreamingDistributionWithTag")
     "Type"=@("Get-CFCachePolicyList","Get-CFOriginRequestPolicyList")
@@ -345,6 +369,7 @@ $CF_SelectMap = @{
                "New-CFDistributionWithTag",
                "New-CFFieldLevelEncryptionConfig",
                "New-CFFieldLevelEncryptionProfile",
+               "New-CFFunction",
                "New-CFInvalidation",
                "New-CFKeyGroup",
                "New-CFMonitoringSubscription",
@@ -358,12 +383,14 @@ $CF_SelectMap = @{
                "Remove-CFDistribution",
                "Remove-CFFieldLevelEncryptionConfig",
                "Remove-CFFieldLevelEncryptionProfile",
+               "Remove-CFFunction",
                "Remove-CFKeyGroup",
                "Remove-CFMonitoringSubscription",
                "Remove-CFOriginRequestPolicy",
                "Remove-CFPublicKey",
                "Remove-CFRealtimeLogConfig",
                "Remove-CFStreamingDistribution",
+               "Get-CFFunctionSummary",
                "Get-CFCachePolicy",
                "Get-CFCachePolicyConfig",
                "Get-CFCloudFrontOriginAccessIdentity",
@@ -374,6 +401,7 @@ $CF_SelectMap = @{
                "Get-CFFieldLevelEncryptionConfig",
                "Get-CFFieldLevelEncryptionProfile",
                "Get-CFFieldLevelEncryptionProfileConfig",
+               "Get-CFFunction",
                "Get-CFInvalidation",
                "Get-CFKeyGroup",
                "Get-CFKeyGroupConfig",
@@ -395,6 +423,7 @@ $CF_SelectMap = @{
                "Get-CFDistributionListByWebACLId",
                "Get-CFFieldLevelEncryptionConfigList",
                "Get-CFFieldLevelEncryptionProfileList",
+               "Get-CFFunctionList",
                "Get-CFInvalidationList",
                "Get-CFKeyGroupList",
                "Get-CFOriginRequestPolicyList",
@@ -402,13 +431,16 @@ $CF_SelectMap = @{
                "Get-CFRealtimeLogConfigList",
                "Get-CFStreamingDistributionList",
                "Get-CFResourceTag",
+               "Publish-CFFunction",
                "Add-CFResourceTag",
+               "Test-CFFunction",
                "Remove-CFResourceTag",
                "Update-CFCachePolicy",
                "Update-CFCloudFrontOriginAccessIdentity",
                "Update-CFDistribution",
                "Update-CFFieldLevelEncryptionConfig",
                "Update-CFFieldLevelEncryptionProfile",
+               "Update-CFFunction",
                "Update-CFKeyGroup",
                "Update-CFOriginRequestPolicy",
                "Update-CFPublicKey",

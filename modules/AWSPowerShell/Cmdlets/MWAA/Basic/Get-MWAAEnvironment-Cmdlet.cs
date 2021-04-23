@@ -28,7 +28,7 @@ using Amazon.MWAA.Model;
 namespace Amazon.PowerShell.Cmdlets.MWAA
 {
     /// <summary>
-    /// Get details of an existing environment.
+    /// Retrieves the details of an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
     /// </summary>
     [Cmdlet("Get", "MWAAEnvironment")]
     [OutputType("Amazon.MWAA.Model.Environment")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the environment to retrieve.</para>
+        /// <para>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

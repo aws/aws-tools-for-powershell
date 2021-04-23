@@ -80,6 +80,16 @@ $IOTE_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoTEvents.ComparisonOperator
+        {
+            ($_ -eq "New-IOTEAlarmModel/AlarmRule_SimpleRule_ComparisonOperator") -Or
+            ($_ -eq "Update-IOTEAlarmModel/AlarmRule_SimpleRule_ComparisonOperator")
+        }
+        {
+            $v = "EQUAL","GREATER","GREATER_OR_EQUAL","LESS","LESS_OR_EQUAL","NOT_EQUAL"
+            break
+        }
+
         # Amazon.IoTEvents.EvaluationMethod
         {
             ($_ -eq "New-IOTEDetectorModel/EvaluationMethod") -Or
@@ -106,6 +116,7 @@ $IOTE_Completers = {
 }
 
 $IOTE_map = @{
+    "AlarmRule_SimpleRule_ComparisonOperator"=@("New-IOTEAlarmModel","Update-IOTEAlarmModel")
     "EvaluationMethod"=@("New-IOTEDetectorModel","Update-IOTEDetectorModel")
     "LoggingOptions_Level"=@("Write-IOTELoggingOption")
 }
@@ -160,23 +171,30 @@ $IOTE_SelectCompleters = {
 }
 
 $IOTE_SelectMap = @{
-    "Select"=@("New-IOTEDetectorModel",
+    "Select"=@("New-IOTEAlarmModel",
+               "New-IOTEDetectorModel",
                "New-IOTEInput",
+               "Remove-IOTEAlarmModel",
                "Remove-IOTEDetectorModel",
                "Remove-IOTEInput",
+               "Get-IOTEAlarmModel",
                "Get-IOTEDetectorModel",
                "Get-IOTEDetectorModelAnalysis",
                "Get-IOTEInput",
                "Get-IOTELoggingOption",
                "Get-IOTEDetectorModelAnalysisResult",
+               "Get-IOTEAlarmModelList",
+               "Get-IOTEAlarmModelVersionList",
                "Get-IOTEDetectorModelList",
                "Get-IOTEDetectorModelVersionList",
+               "Get-IOTEInputRoutingList",
                "Get-IOTEInputList",
                "Get-IOTEResourceTag",
                "Write-IOTELoggingOption",
                "Start-IOTEDetectorModelAnalysis",
                "Add-IOTEResourceTag",
                "Remove-IOTEResourceTag",
+               "Update-IOTEAlarmModel",
                "Update-IOTEDetectorModel",
                "Update-IOTEInput")
 }

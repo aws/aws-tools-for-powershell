@@ -37,15 +37,15 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// three objects:
     /// </para><ul><li><para><a>TrustedAdvisorCategorySpecificSummary</a></para></li><li><para><a>TrustedAdvisorResourceDetail</a></para></li><li><para><a>TrustedAdvisorResourcesSummary</a></para></li></ul><para>
     /// In addition, the response contains these fields:
-    /// </para><ul><li><para><b>status</b> - The alert status of the check: "ok" (green), "warning" (yellow),
-    /// "error" (red), or "not_available".
+    /// </para><ul><li><para><b>status</b> - The alert status of the check can be <code>ok</code> (green), <code>warning</code>
+    /// (yellow), <code>error</code> (red), or <code>not_available</code>.
     /// </para></li><li><para><b>timestamp</b> - The time of the last refresh of the check.
     /// </para></li><li><para><b>checkId</b> - The unique identifier for the check.
     /// </para></li></ul><note><ul><li><para>
-    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// You must have a Business or Enterprise Support plan to use the AWS Support API. 
     /// </para></li><li><para>
     /// If you call the AWS Support API from an account that does not have a Business or Enterprise
-    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// Support plan, the <code>SubscriptionRequiredException</code> error message appears.
     /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
     /// Support</a>.
     /// </para></li></ul></note>

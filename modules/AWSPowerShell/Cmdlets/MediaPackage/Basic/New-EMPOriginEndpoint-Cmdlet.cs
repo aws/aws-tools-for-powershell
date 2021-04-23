@@ -82,6 +82,20 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         public System.String ChannelId { get; set; }
         #endregion
         
+        #region Parameter Encryption_ConstantInitializationVector
+        /// <summary>
+        /// <para>
+        /// An optional 128-bit, 16-byte
+        /// hex value represented by a 32-character string, used in conjunction with the key for
+        /// encrypting blocks. If you don't specify a value, then MediaPackage creates the constant
+        /// initialization vector (IV).
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CmafPackage_Encryption_ConstantInitializationVector")]
+        public System.String Encryption_ConstantInitializationVector { get; set; }
+        #endregion
+        
         #region Parameter DashPackage
         /// <summary>
         /// <para>
@@ -446,6 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
                 WriteWarning("You are passing $null as a value for parameter ChannelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Encryption_ConstantInitializationVector = this.Encryption_ConstantInitializationVector;
             context.Encryption_KeyRotationIntervalSecond = this.Encryption_KeyRotationIntervalSecond;
             context.SpekeKeyProvider_CertificateArn = this.SpekeKeyProvider_CertificateArn;
             context.EncryptionContractConfiguration_PresetSpeke20Audio = this.EncryptionContractConfiguration_PresetSpeke20Audio;
@@ -581,6 +596,16 @@ namespace Amazon.PowerShell.Cmdlets.EMP
              // populate Encryption
             var requestCmafPackage_cmafPackage_EncryptionIsNull = true;
             requestCmafPackage_cmafPackage_Encryption = new Amazon.MediaPackage.Model.CmafEncryption();
+            System.String requestCmafPackage_cmafPackage_Encryption_encryption_ConstantInitializationVector = null;
+            if (cmdletContext.Encryption_ConstantInitializationVector != null)
+            {
+                requestCmafPackage_cmafPackage_Encryption_encryption_ConstantInitializationVector = cmdletContext.Encryption_ConstantInitializationVector;
+            }
+            if (requestCmafPackage_cmafPackage_Encryption_encryption_ConstantInitializationVector != null)
+            {
+                requestCmafPackage_cmafPackage_Encryption.ConstantInitializationVector = requestCmafPackage_cmafPackage_Encryption_encryption_ConstantInitializationVector;
+                requestCmafPackage_cmafPackage_EncryptionIsNull = false;
+            }
             System.Int32? requestCmafPackage_cmafPackage_Encryption_encryption_KeyRotationIntervalSecond = null;
             if (cmdletContext.Encryption_KeyRotationIntervalSecond != null)
             {
@@ -859,6 +884,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             public System.String Authorization_CdnIdentifierSecret { get; set; }
             public System.String Authorization_SecretsRoleArn { get; set; }
             public System.String ChannelId { get; set; }
+            public System.String Encryption_ConstantInitializationVector { get; set; }
             public System.Int32? Encryption_KeyRotationIntervalSecond { get; set; }
             public System.String SpekeKeyProvider_CertificateArn { get; set; }
             public Amazon.MediaPackage.PresetSpeke20Audio EncryptionContractConfiguration_PresetSpeke20Audio { get; set; }

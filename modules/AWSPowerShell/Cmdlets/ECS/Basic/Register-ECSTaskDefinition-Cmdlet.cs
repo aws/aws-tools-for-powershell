@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>You must specify a <code>family</code> for a task definition, which allows you to
         /// track multiple versions of the same task definition. The <code>family</code> is used
         /// as a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers,
-        /// and hyphens are allowed.</para>
+        /// underscores, and hyphens are allowed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -313,6 +313,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String[] RequiresCompatibility { get; set; }
         #endregion
         
+        #region Parameter EphemeralStorage_SizeInGiB
+        /// <summary>
+        /// <para>
+        /// <para>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported
+        /// value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EphemeralStorage_SizeInGiB { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -439,6 +450,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             #endif
             context.Cpu = this.Cpu;
+            context.EphemeralStorage_SizeInGiB = this.EphemeralStorage_SizeInGiB;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.Family = this.Family;
             #if MODULAR
@@ -501,6 +513,25 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Cpu != null)
             {
                 request.Cpu = cmdletContext.Cpu;
+            }
+            
+             // populate EphemeralStorage
+            var requestEphemeralStorageIsNull = true;
+            request.EphemeralStorage = new Amazon.ECS.Model.EphemeralStorage();
+            System.Int32? requestEphemeralStorage_ephemeralStorage_SizeInGiB = null;
+            if (cmdletContext.EphemeralStorage_SizeInGiB != null)
+            {
+                requestEphemeralStorage_ephemeralStorage_SizeInGiB = cmdletContext.EphemeralStorage_SizeInGiB.Value;
+            }
+            if (requestEphemeralStorage_ephemeralStorage_SizeInGiB != null)
+            {
+                request.EphemeralStorage.SizeInGiB = requestEphemeralStorage_ephemeralStorage_SizeInGiB.Value;
+                requestEphemeralStorageIsNull = false;
+            }
+             // determine if request.EphemeralStorage should be set to null
+            if (requestEphemeralStorageIsNull)
+            {
+                request.EphemeralStorage = null;
             }
             if (cmdletContext.ExecutionRoleArn != null)
             {
@@ -652,6 +683,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public List<Amazon.ECS.Model.ContainerDefinition> ContainerDefinition { get; set; }
             public System.String Cpu { get; set; }
+            public System.Int32? EphemeralStorage_SizeInGiB { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.String Family { get; set; }
             public List<Amazon.ECS.Model.InferenceAccelerator> InferenceAccelerator { get; set; }

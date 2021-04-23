@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>A Unicode range of characters to download glyphs for. Each response will contain 256
-        /// characters. For example, 0-255 includes all characters from range <code>U+0000</code>
+        /// characters. For example, 0–255 includes all characters from range <code>U+0000</code>
         /// to <code>00FF</code>. Must be aligned to multiples of 256.</para>
         /// </para>
         /// </summary>

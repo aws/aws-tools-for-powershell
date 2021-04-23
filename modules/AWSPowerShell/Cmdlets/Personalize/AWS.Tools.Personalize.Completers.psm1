@@ -80,6 +80,20 @@ $PERS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Personalize.IngestionMode
+        "New-PERSDatasetExportJob/IngestionMode"
+        {
+            $v = "ALL","BULK","PUT"
+            break
+        }
+
+        # Amazon.Personalize.ObjectiveSensitivity
+        "New-PERSSolution/SolutionConfig_OptimizationObjective_ObjectiveSensitivity"
+        {
+            $v = "HIGH","LOW","MEDIUM","OFF"
+            break
+        }
+
         # Amazon.Personalize.RecipeProvider
         "Get-PERSRecipeList/RecipeProvider"
         {
@@ -103,7 +117,9 @@ $PERS_Completers = {
 }
 
 $PERS_map = @{
+    "IngestionMode"=@("New-PERSDatasetExportJob")
     "RecipeProvider"=@("Get-PERSRecipeList")
+    "SolutionConfig_OptimizationObjective_ObjectiveSensitivity"=@("New-PERSSolution")
     "TrainingMode"=@("New-PERSSolutionVersion")
 }
 
@@ -160,6 +176,7 @@ $PERS_SelectMap = @{
     "Select"=@("New-PERSBatchInferenceJob",
                "New-PERSCampaign",
                "New-PERSDataset",
+               "New-PERSDatasetExportJob",
                "New-PERSDatasetGroup",
                "New-PERSDatasetImportJob",
                "New-PERSEventTracker",
@@ -178,6 +195,7 @@ $PERS_SelectMap = @{
                "Get-PERSBatchInferenceJob",
                "Get-PERSCampaign",
                "Get-PERSDataset",
+               "Get-PERSDatasetExportJob",
                "Get-PERSDatasetGroup",
                "Get-PERSDatasetImportJob",
                "Get-PERSEventTracker",
@@ -190,6 +208,7 @@ $PERS_SelectMap = @{
                "Get-PERSSolutionMetric",
                "Get-PERSBatchInferenceJobList",
                "Get-PERSCampaignList",
+               "Get-PERSDatasetExportJobList",
                "Get-PERSDatasetGroupList",
                "Get-PERSDatasetImportJobList",
                "Get-PERSDatasetList",
@@ -199,6 +218,7 @@ $PERS_SelectMap = @{
                "Get-PERSSchemaList",
                "Get-PERSSolutionList",
                "Get-PERSSolutionVersionList",
+               "Stop-PERSSolutionVersionCreation",
                "Update-PERSCampaign")
 }
 

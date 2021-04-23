@@ -174,6 +174,7 @@ $FRC_SelectMap = @{
                "Remove-FRCForecastExportJob",
                "Remove-FRCPredictor",
                "Remove-FRCPredictorBacktestExportJob",
+               "Remove-FRCResourceTree",
                "Get-FRCDataset",
                "Get-FRCDatasetGroup",
                "Get-FRCDatasetImportJob",

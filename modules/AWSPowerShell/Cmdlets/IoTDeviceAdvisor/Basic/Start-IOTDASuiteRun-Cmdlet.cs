@@ -50,17 +50,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         public System.String PrimaryDevice_CertificateArn { get; set; }
         #endregion
         
-        #region Parameter SecondaryDevice_CertificateArn
-        /// <summary>
-        /// <para>
-        /// <para>Lists devices certificate arn</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("SuiteRunConfiguration_SecondaryDevice_CertificateArn")]
-        public System.String SecondaryDevice_CertificateArn { get; set; }
-        #endregion
-        
         #region Parameter SuiteRunConfiguration_SelectedTestList
         /// <summary>
         /// <para>
@@ -74,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Request to start suite run based on suite definition Id.</para>
+        /// <para>Suite definition Id of the test suite.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionVersion
         /// <summary>
         /// <para>
-        /// <para>Request to start suite run based on suite definition version.</para>
+        /// <para>Suite definition version of the test suite.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,17 +107,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SuiteRunConfiguration_PrimaryDevice_ThingArn")]
         public System.String PrimaryDevice_ThingArn { get; set; }
-        #endregion
-        
-        #region Parameter SecondaryDevice_ThingArn
-        /// <summary>
-        /// <para>
-        /// <para>Lists devices thing arn</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("SuiteRunConfiguration_SecondaryDevice_ThingArn")]
-        public System.String SecondaryDevice_ThingArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -202,8 +180,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             context.SuiteDefinitionVersion = this.SuiteDefinitionVersion;
             context.PrimaryDevice_CertificateArn = this.PrimaryDevice_CertificateArn;
             context.PrimaryDevice_ThingArn = this.PrimaryDevice_ThingArn;
-            context.SecondaryDevice_CertificateArn = this.SecondaryDevice_CertificateArn;
-            context.SecondaryDevice_ThingArn = this.SecondaryDevice_ThingArn;
             if (this.SuiteRunConfiguration_SelectedTestList != null)
             {
                 context.SuiteRunConfiguration_SelectedTestList = new List<System.String>(this.SuiteRunConfiguration_SelectedTestList);
@@ -289,41 +265,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
                 request.SuiteRunConfiguration.PrimaryDevice = requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice;
                 requestSuiteRunConfigurationIsNull = false;
             }
-            Amazon.IoTDeviceAdvisor.Model.DeviceUnderTest requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice = null;
-            
-             // populate SecondaryDevice
-            var requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDeviceIsNull = true;
-            requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice = new Amazon.IoTDeviceAdvisor.Model.DeviceUnderTest();
-            System.String requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_CertificateArn = null;
-            if (cmdletContext.SecondaryDevice_CertificateArn != null)
-            {
-                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_CertificateArn = cmdletContext.SecondaryDevice_CertificateArn;
-            }
-            if (requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_CertificateArn != null)
-            {
-                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice.CertificateArn = requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_CertificateArn;
-                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDeviceIsNull = false;
-            }
-            System.String requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_ThingArn = null;
-            if (cmdletContext.SecondaryDevice_ThingArn != null)
-            {
-                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_ThingArn = cmdletContext.SecondaryDevice_ThingArn;
-            }
-            if (requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_ThingArn != null)
-            {
-                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice.ThingArn = requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice_secondaryDevice_ThingArn;
-                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDeviceIsNull = false;
-            }
-             // determine if requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice should be set to null
-            if (requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDeviceIsNull)
-            {
-                requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice = null;
-            }
-            if (requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice != null)
-            {
-                request.SuiteRunConfiguration.SecondaryDevice = requestSuiteRunConfiguration_suiteRunConfiguration_SecondaryDevice;
-                requestSuiteRunConfigurationIsNull = false;
-            }
              // determine if request.SuiteRunConfiguration should be set to null
             if (requestSuiteRunConfigurationIsNull)
             {
@@ -398,8 +339,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             public System.String SuiteDefinitionVersion { get; set; }
             public System.String PrimaryDevice_CertificateArn { get; set; }
             public System.String PrimaryDevice_ThingArn { get; set; }
-            public System.String SecondaryDevice_CertificateArn { get; set; }
-            public System.String SecondaryDevice_ThingArn { get; set; }
             public List<System.String> SuiteRunConfiguration_SelectedTestList { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.IoTDeviceAdvisor.Model.StartSuiteRunResponse, StartIOTDASuiteRunCmdlet, object> Select { get; set; } =

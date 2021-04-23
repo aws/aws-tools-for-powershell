@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-KNDRResourceTag', 
+        'Clear-KNDRQuerySuggestion', 
         'Get-KNDRDataSource', 
         'Get-KNDRDataSourceList', 
         'Get-KNDRDataSourceSyncJobList', 
@@ -94,6 +95,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-KNDRFaqList', 
         'Get-KNDRIndex', 
         'Get-KNDRIndexList', 
+        'Get-KNDRQuerySuggestion', 
+        'Get-KNDRQuerySuggestionsBlockList', 
+        'Get-KNDRQuerySuggestionsBlockListList', 
+        'Get-KNDRQuerySuggestionsConfig', 
         'Get-KNDRResourceTag', 
         'Get-KNDRThesauriList', 
         'Get-KNDRThesaurus', 
@@ -101,11 +106,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-KNDRDataSource', 
         'New-KNDRFaq', 
         'New-KNDRIndex', 
+        'New-KNDRQuerySuggestionsBlockList', 
         'New-KNDRThesaurus', 
         'Remove-KNDRDataSource', 
         'Remove-KNDRDocumentBatch', 
         'Remove-KNDRFaq', 
         'Remove-KNDRIndex', 
+        'Remove-KNDRQuerySuggestionsBlockList', 
         'Remove-KNDRResourceTag', 
         'Remove-KNDRThesaurus', 
         'Send-KNDRFeedback', 
@@ -113,6 +120,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-KNDRDataSourceSyncJob', 
         'Update-KNDRDataSource', 
         'Update-KNDRIndex', 
+        'Update-KNDRQuerySuggestionsBlockList', 
+        'Update-KNDRQuerySuggestionsConfig', 
         'Update-KNDRThesaurus', 
         'Write-KNDRDocumentBatch')
 

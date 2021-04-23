@@ -83,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>The identifier of the language and locale that will be deleted. The string must match
-        /// one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</para>
+        /// one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported
+        /// languages</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

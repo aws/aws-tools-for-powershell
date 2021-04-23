@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
     /// account where its CodeGuru Reviewer code reviews are configured.
     /// </para><para>
     /// Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar Connections
-    /// to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/reviewer-ug/step-one.html#select-repository-source-provider">Connect
-    /// to a repository source provider</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i></para><note><para>
+    /// to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html">Associate
+    /// a repository</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i></para><note><para>
     ///  You cannot use the CodeGuru Reviewer SDK or the AWS CLI to associate a GitHub repository
     /// with Amazon CodeGuru Reviewer. To associate a GitHub repository, use the console.
     /// For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html">Getting
@@ -92,6 +92,28 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Repository_GitHubEnterpriseServer_ConnectionArn")]
         public System.String GitHubEnterpriseServer_ConnectionArn { get; set; }
+        #endregion
+        
+        #region Parameter KMSKeyDetails_EncryptionOption
+        /// <summary>
+        /// <para>
+        /// <para>The encryption option for a repository association. It is either owned by AWS Key
+        /// Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed (<code>CUSTOMER_MANAGED_CMK</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeGuruReviewer.EncryptionOption")]
+        public Amazon.CodeGuruReviewer.EncryptionOption KMSKeyDetails_EncryptionOption { get; set; }
+        #endregion
+        
+        #region Parameter KMSKeyDetails_KMSKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AWS KMS key that is associated with a respository association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KMSKeyDetails_KMSKeyId { get; set; }
         #endregion
         
         #region Parameter Bitbucket_Name
@@ -229,6 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.KMSKeyDetails_EncryptionOption = this.KMSKeyDetails_EncryptionOption;
+            context.KMSKeyDetails_KMSKeyId = this.KMSKeyDetails_KMSKeyId;
             context.Bitbucket_ConnectionArn = this.Bitbucket_ConnectionArn;
             context.Bitbucket_Name = this.Bitbucket_Name;
             context.Bitbucket_Owner = this.Bitbucket_Owner;
@@ -263,6 +287,35 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            
+             // populate KMSKeyDetails
+            var requestKMSKeyDetailsIsNull = true;
+            request.KMSKeyDetails = new Amazon.CodeGuruReviewer.Model.KMSKeyDetails();
+            Amazon.CodeGuruReviewer.EncryptionOption requestKMSKeyDetails_kMSKeyDetails_EncryptionOption = null;
+            if (cmdletContext.KMSKeyDetails_EncryptionOption != null)
+            {
+                requestKMSKeyDetails_kMSKeyDetails_EncryptionOption = cmdletContext.KMSKeyDetails_EncryptionOption;
+            }
+            if (requestKMSKeyDetails_kMSKeyDetails_EncryptionOption != null)
+            {
+                request.KMSKeyDetails.EncryptionOption = requestKMSKeyDetails_kMSKeyDetails_EncryptionOption;
+                requestKMSKeyDetailsIsNull = false;
+            }
+            System.String requestKMSKeyDetails_kMSKeyDetails_KMSKeyId = null;
+            if (cmdletContext.KMSKeyDetails_KMSKeyId != null)
+            {
+                requestKMSKeyDetails_kMSKeyDetails_KMSKeyId = cmdletContext.KMSKeyDetails_KMSKeyId;
+            }
+            if (requestKMSKeyDetails_kMSKeyDetails_KMSKeyId != null)
+            {
+                request.KMSKeyDetails.KMSKeyId = requestKMSKeyDetails_kMSKeyDetails_KMSKeyId;
+                requestKMSKeyDetailsIsNull = false;
+            }
+             // determine if request.KMSKeyDetails should be set to null
+            if (requestKMSKeyDetailsIsNull)
+            {
+                request.KMSKeyDetails = null;
             }
             
              // populate Repository
@@ -454,6 +507,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public Amazon.CodeGuruReviewer.EncryptionOption KMSKeyDetails_EncryptionOption { get; set; }
+            public System.String KMSKeyDetails_KMSKeyId { get; set; }
             public System.String Bitbucket_ConnectionArn { get; set; }
             public System.String Bitbucket_Name { get; set; }
             public System.String Bitbucket_Owner { get; set; }

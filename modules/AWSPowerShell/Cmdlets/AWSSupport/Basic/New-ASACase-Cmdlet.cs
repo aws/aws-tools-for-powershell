@@ -52,10 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// the <a href="https://console.aws.amazon.com/support">AWS Support Center</a>. Use the
     /// <a>DescribeCases</a> operation to get the <code>displayId</code>.
     /// </para><note><ul><li><para>
-    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// You must have a Business or Enterprise Support plan to use the AWS Support API. 
     /// </para></li><li><para>
     /// If you call the AWS Support API from an account that does not have a Business or Enterprise
-    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// Support plan, the <code>SubscriptionRequiredException</code> error message appears.
     /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
     /// Support</a>.
     /// </para></li></ul></note>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter CategoryCode
         /// <summary>
         /// <para>
-        /// <para>The category of problem for the AWS Support case. You also use the <a>DescribeServices</a>
+        /// <para>The category of problem for the support case. You also use the <a>DescribeServices</a>
         /// operation to get the category code for a service. Each AWS service defines its own
         /// set of category codes.</para>
         /// </para>
@@ -176,8 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter Subject
         /// <summary>
         /// <para>
-        /// <para>The title of the AWS Support case. The title appears in the <b>Subject</b> field on
-        /// the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
+        /// <para>The title of the support case. The title appears in the <b>Subject</b> field on the
+        /// AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
         /// Case</a> page.</para>
         /// </para>
         /// </summary>

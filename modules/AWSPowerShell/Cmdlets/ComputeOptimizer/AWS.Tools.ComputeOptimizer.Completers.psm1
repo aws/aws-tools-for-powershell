@@ -83,7 +83,9 @@ $CO_Completers = {
         # Amazon.ComputeOptimizer.FileFormat
         {
             ($_ -eq "Export-COAutoScalingGroupRecommendation/FileFormat") -Or
-            ($_ -eq "Export-COEC2InstanceRecommendation/FileFormat")
+            ($_ -eq "Export-COEBSVolumeRecommendation/FileFormat") -Or
+            ($_ -eq "Export-COEC2InstanceRecommendation/FileFormat") -Or
+            ($_ -eq "Export-COLambdaFunctionRecommendation/FileFormat")
         }
         {
             $v = "Csv"
@@ -113,7 +115,7 @@ $CO_Completers = {
 }
 
 $CO_map = @{
-    "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEC2InstanceRecommendation")
+    "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COLambdaFunctionRecommendation")
     "Stat"=@("Get-COEC2RecommendationProjectedMetric")
     "Status"=@("Update-COEnrollmentStatus")
 }
@@ -170,7 +172,9 @@ $CO_SelectCompleters = {
 $CO_SelectMap = @{
     "Select"=@("Get-CORecommendationExportJob",
                "Export-COAutoScalingGroupRecommendation",
+               "Export-COEBSVolumeRecommendation",
                "Export-COEC2InstanceRecommendation",
+               "Export-COLambdaFunctionRecommendation",
                "Get-COAutoScalingGroupRecommendation",
                "Get-COEBSVolumeRecommendation",
                "Get-COEC2InstanceRecommendation",

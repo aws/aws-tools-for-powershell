@@ -81,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>The identifier of the language and locale that the bot will be used in. The string
         /// must match one of the supported locales. All of the intents, slot types, and slots
-        /// used in the bot must have the same locale. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</para>
+        /// used in the bot must have the same locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported
+        /// languages</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -151,6 +151,16 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.RowLevelPermissionFormatVersion
+        {
+            ($_ -eq "New-QSDataSet/RowLevelPermissionDataSet_FormatVersion") -Or
+            ($_ -eq "Update-QSDataSet/RowLevelPermissionDataSet_FormatVersion")
+        }
+        {
+            $v = "VERSION_1","VERSION_2"
+            break
+        }
+
         # Amazon.QuickSight.RowLevelPermissionPolicy
         {
             ($_ -eq "New-QSDataSet/RowLevelPermissionDataSet_PermissionPolicy") -Or
@@ -195,6 +205,7 @@ $QS_map = @{
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
     "ImportMode"=@("New-QSDataSet","Update-QSDataSet")
     "Role"=@("Update-QSUser")
+    "RowLevelPermissionDataSet_FormatVersion"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
     "Type"=@("Get-QSThemeList","New-QSDataSource")
     "UserRole"=@("Register-QSUser")

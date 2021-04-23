@@ -160,10 +160,18 @@ $MAC2_Completers = {
             ($_ -eq "Get-MAC2ClassificationJobList/SortCriteria_OrderBy") -Or
             ($_ -eq "Get-MAC2Finding/SortCriteria_OrderBy") -Or
             ($_ -eq "Get-MAC2FindingList/SortCriteria_OrderBy") -Or
-            ($_ -eq "Get-MAC2FindingStatistic/SortCriteria_OrderBy")
+            ($_ -eq "Get-MAC2FindingStatistic/SortCriteria_OrderBy") -Or
+            ($_ -eq "Search-MAC2Resource/SortCriteria_OrderBy")
         }
         {
             $v = "ASC","DESC"
+            break
+        }
+
+        # Amazon.Macie2.SearchResourcesSortAttributeName
+        "Search-MAC2Resource/SortCriteria_AttributeName"
+        {
+            $v = "ACCOUNT_ID","RESOURCE_NAME","S3_CLASSIFIABLE_OBJECT_COUNT","S3_CLASSIFIABLE_SIZE_IN_BYTES"
             break
         }
 
@@ -198,8 +206,8 @@ $MAC2_map = @{
     "ScheduleFrequency_WeeklySchedule_DayOfWeek"=@("New-MAC2ClassificationJob")
     "SortBy_Key"=@("Get-MAC2UsageStatistic")
     "SortBy_OrderBy"=@("Get-MAC2UsageStatistic")
-    "SortCriteria_AttributeName"=@("Get-MAC2ClassificationJobList","Get-MAC2FindingStatistic")
-    "SortCriteria_OrderBy"=@("Get-MAC2Bucket","Get-MAC2ClassificationJobList","Get-MAC2Finding","Get-MAC2FindingList","Get-MAC2FindingStatistic")
+    "SortCriteria_AttributeName"=@("Get-MAC2ClassificationJobList","Get-MAC2FindingStatistic","Search-MAC2Resource")
+    "SortCriteria_OrderBy"=@("Get-MAC2Bucket","Get-MAC2ClassificationJobList","Get-MAC2Finding","Get-MAC2FindingList","Get-MAC2FindingStatistic","Search-MAC2Resource")
     "Status"=@("Enable-MAC2Macie","Update-MAC2MacieSession","Update-MAC2MemberSession")
     "TimeRange"=@("Get-MAC2UsageStatistic")
 }
@@ -301,6 +309,7 @@ $MAC2_SelectMap = @{
                "Get-MAC2ResourceTag",
                "Write-MAC2ClassificationExportConfiguration",
                "Write-MAC2FindingsPublicationConfiguration",
+               "Search-MAC2Resource",
                "Add-MAC2ResourceTag",
                "Test-MAC2CustomDataIdentifier",
                "Remove-MAC2ResourceTag",

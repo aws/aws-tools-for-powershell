@@ -85,6 +85,7 @@ $WKS_Completers = {
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeAndroid") -Or
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeChromeOs") -Or
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeIos") -Or
+            ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeLinux") -Or
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeOsx") -Or
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeWeb") -Or
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeWindows") -Or
@@ -184,6 +185,7 @@ $WKS_map = @{
     "WorkspaceAccessProperties_DeviceTypeAndroid"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeChromeOs"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeIos"=@("Edit-WKSWorkspaceAccessProperty")
+    "WorkspaceAccessProperties_DeviceTypeLinux"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeOsx"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeWeb"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeWindows"=@("Edit-WKSWorkspaceAccessProperty")

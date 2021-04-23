@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Lists the runs of the specified Device Advisor test suite based on suite definition
-        /// Id.</para>
+        /// <para>Lists the test suite runs of the specified test suite based on suite definition Id.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -55,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionVersion
         /// <summary>
         /// <para>
-        /// <para>Lists the runs of the specified Device Advisor test suite based on suite definition
-        /// version.</para>
+        /// <para>Must be passed along with suiteDefinitionId. Lists the test suite runs of the specified
+        /// test suite based on suite definition version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>MaxResults for list suite run API request.</para>
+        /// <para>The maximum number of results to return at once.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Next pagination token for list suite run request.</para>
+        /// <para>A token to retrieve the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

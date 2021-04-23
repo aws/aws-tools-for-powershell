@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// Deletes a batch of geofences from a geofence collection.
     /// 
     ///  <note><para>
-    /// This action deletes the resource permanently. You can't undo this action.
+    /// This operation deletes the resource permanently.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "LOCGeofenceBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

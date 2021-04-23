@@ -198,13 +198,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LaunchType
         /// <summary>
         /// <para>
-        /// <para>The launch type on which to run your task. The accepted values are <code>FARGATE</code>
-        /// and <code>EC2</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
-        /// ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>When a value of <code>FARGATE</code> is specified, your tasks are launched on AWS
-        /// Fargate On-Demand infrastructure. To use Fargate Spot, you must use a capacity provider
-        /// strategy with the <code>FARGATE_SPOT</code> capacity provider.</para><para>When a value of <code>EC2</code> is specified, your tasks are launched on Amazon EC2
-        /// instances registered to your cluster.</para><para>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
-        /// parameter must be omitted.</para>
+        /// <para>The infrastructure on which to run your standalone task. For more information, see
+        /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>The <code>FARGATE</code> launch type runs your tasks on AWS Fargate On-Demand infrastructure.</para><note><para>Fargate Spot infrastructure is available for use but a capacity provider strategy
+        /// must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">AWS
+        /// Fargate capacity providers</a> in the <i>Amazon ECS User Guide for AWS Fargate</i>.</para></note><para>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered
+        /// to your cluster.</para><para>The <code>EXTERNAL</code> launch type runs your tasks on your on-premise server or
+        /// virtual machine (VM) capacity registered to your cluster.</para><para>A task can use either a launch type or a capacity provider strategy. If a <code>launchType</code>
+        /// is specified, the <code>capacityProviderStrategy</code> parameter must be omitted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,6 +298,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NetworkConfiguration_AwsvpcConfiguration_SecurityGroups")]
         public System.String[] AwsvpcConfiguration_SecurityGroup { get; set; }
+        #endregion
+        
+        #region Parameter EphemeralStorage_SizeInGiB
+        /// <summary>
+        /// <para>
+        /// <para>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported
+        /// value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Overrides_EphemeralStorage_SizeInGiB")]
+        public System.Int32? EphemeralStorage_SizeInGiB { get; set; }
         #endregion
         
         #region Parameter StartedBy
@@ -462,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.Overrides_ContainerOverride = new List<Amazon.ECS.Model.ContainerOverride>(this.Overrides_ContainerOverride);
             }
             context.Overrides_Cpu = this.Overrides_Cpu;
+            context.EphemeralStorage_SizeInGiB = this.EphemeralStorage_SizeInGiB;
             context.Overrides_ExecutionRoleArn = this.Overrides_ExecutionRoleArn;
             if (this.Overrides_InferenceAcceleratorOverride != null)
             {
@@ -654,6 +668,31 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 request.Overrides.TaskRoleArn = requestOverrides_overrides_TaskRoleArn;
                 requestOverridesIsNull = false;
             }
+            Amazon.ECS.Model.EphemeralStorage requestOverrides_overrides_EphemeralStorage = null;
+            
+             // populate EphemeralStorage
+            var requestOverrides_overrides_EphemeralStorageIsNull = true;
+            requestOverrides_overrides_EphemeralStorage = new Amazon.ECS.Model.EphemeralStorage();
+            System.Int32? requestOverrides_overrides_EphemeralStorage_ephemeralStorage_SizeInGiB = null;
+            if (cmdletContext.EphemeralStorage_SizeInGiB != null)
+            {
+                requestOverrides_overrides_EphemeralStorage_ephemeralStorage_SizeInGiB = cmdletContext.EphemeralStorage_SizeInGiB.Value;
+            }
+            if (requestOverrides_overrides_EphemeralStorage_ephemeralStorage_SizeInGiB != null)
+            {
+                requestOverrides_overrides_EphemeralStorage.SizeInGiB = requestOverrides_overrides_EphemeralStorage_ephemeralStorage_SizeInGiB.Value;
+                requestOverrides_overrides_EphemeralStorageIsNull = false;
+            }
+             // determine if requestOverrides_overrides_EphemeralStorage should be set to null
+            if (requestOverrides_overrides_EphemeralStorageIsNull)
+            {
+                requestOverrides_overrides_EphemeralStorage = null;
+            }
+            if (requestOverrides_overrides_EphemeralStorage != null)
+            {
+                request.Overrides.EphemeralStorage = requestOverrides_overrides_EphemeralStorage;
+                requestOverridesIsNull = false;
+            }
              // determine if request.Overrides should be set to null
             if (requestOverridesIsNull)
             {
@@ -764,6 +803,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public List<System.String> AwsvpcConfiguration_Subnet { get; set; }
             public List<Amazon.ECS.Model.ContainerOverride> Overrides_ContainerOverride { get; set; }
             public System.String Overrides_Cpu { get; set; }
+            public System.Int32? EphemeralStorage_SizeInGiB { get; set; }
             public System.String Overrides_ExecutionRoleArn { get; set; }
             public List<Amazon.ECS.Model.InferenceAcceleratorOverride> Overrides_InferenceAcceleratorOverride { get; set; }
             public System.String Overrides_Memory { get; set; }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>sns</C2jFilename>
     <AssemblyName>SimpleNotificationService</AssemblyName>
@@ -21,7 +22,6 @@
         <Map From="Topics" To="Topic" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -54,6 +54,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSMSSandboxPhoneNumber" Verb="New" Noun="SMSSandboxPhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTopic" OutputProperty="TopicArn" Verb="New" Noun="Topic" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +67,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePlatformApplication" Verb="Remove" Noun="PlatformApplication" ShouldProcessTarget="PlatformApplicationArn" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSMSSandboxPhoneNumber" Verb="Remove" Noun="SMSSandboxPhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -86,6 +94,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSMSSandboxAccountStatus" OutputProperty="IsInSandbox" Verb="Get" Noun="SMSSandboxAccountStatus" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSubscriptionAttributes" OutputProperty="Attributes" Verb="Get" Noun="SubscriptionAttribute" PipelineParameter="SubscriptionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -98,11 +110,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListOriginationNumbers" OutputProperty="PhoneNumbers" Verb="Get" Noun="OriginationNumber" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPhoneNumbersOptedOut" OutputProperty="PhoneNumbers" Verb="Get" Noun="PhoneNumbersOptedOut" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPlatformApplications" OutputProperty="PlatformApplications" Verb="Get" Noun="PlatformApplicationList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-SNSPlatformApplications">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSMSSandboxPhoneNumbers" OutputProperty="PhoneNumbers" Verb="Get" Noun="SMSSandboxPhoneNumber" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -178,8 +198,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="VerifySMSSandboxPhoneNumber" Verb="Confirm" Noun="SMSSandboxPhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

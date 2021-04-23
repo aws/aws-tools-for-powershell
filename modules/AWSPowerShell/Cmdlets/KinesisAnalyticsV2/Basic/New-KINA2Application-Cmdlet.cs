@@ -62,6 +62,19 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         public System.String ApplicationDescription { get; set; }
         #endregion
         
+        #region Parameter ApplicationMode
+        /// <summary>
+        /// <para>
+        /// <para>Use the <code>STREAMING</code> mode to create a Kinesis Data Analytics Studio notebook.
+        /// To create a Kinesis Data Analytics Studio notebook, use the <code>INTERACTIVE</code>
+        /// mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KinesisAnalyticsV2.ApplicationMode")]
+        public Amazon.KinesisAnalyticsV2.ApplicationMode ApplicationMode { get; set; }
+        #endregion
+        
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
@@ -94,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter RuntimeEnvironment
         /// <summary>
         /// <para>
-        /// <para>The runtime environment for the application (<code>SQL-1.0</code>, <code>FLINK-1_6</code>,
-        /// or <code>FLINK-1_8</code>).</para>
+        /// <para>The runtime environment for the application (<code>SQL-1_0</code>, <code>FLINK-1_6</code>,
+        /// <code>FLINK-1_8</code>, or <code>FLINK-1_11</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -205,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ApplicationConfiguration = this.ApplicationConfiguration;
             context.ApplicationDescription = this.ApplicationDescription;
+            context.ApplicationMode = this.ApplicationMode;
             context.ApplicationName = this.ApplicationName;
             #if MODULAR
             if (this.ApplicationName == null && ParameterWasBound(nameof(this.ApplicationName)))
@@ -257,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             if (cmdletContext.ApplicationDescription != null)
             {
                 request.ApplicationDescription = cmdletContext.ApplicationDescription;
+            }
+            if (cmdletContext.ApplicationMode != null)
+            {
+                request.ApplicationMode = cmdletContext.ApplicationMode;
             }
             if (cmdletContext.ApplicationName != null)
             {
@@ -341,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         {
             public Amazon.KinesisAnalyticsV2.Model.ApplicationConfiguration ApplicationConfiguration { get; set; }
             public System.String ApplicationDescription { get; set; }
+            public Amazon.KinesisAnalyticsV2.ApplicationMode ApplicationMode { get; set; }
             public System.String ApplicationName { get; set; }
             public List<Amazon.KinesisAnalyticsV2.Model.CloudWatchLoggingOption> CloudWatchLoggingOption { get; set; }
             public Amazon.KinesisAnalyticsV2.RuntimeEnvironment RuntimeEnvironment { get; set; }

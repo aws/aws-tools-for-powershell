@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
 {
     /// <summary>
     /// Deletes the specified human loop for a flow definition.
+    /// 
+    ///  
+    /// <para>
+    /// If the human loop was deleted, this operation will return a <code>ResourceNotFoundException</code>.
+    /// 
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "A2IRHumanLoop", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -27,6 +27,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ClearQuerySuggestions" Verb="Clear" Noun="QuerySuggestion" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDataSource" OutputProperty="Id" Verb="New" Noun="DataSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -36,6 +40,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIndex" OutputProperty="Id" Verb="New" Noun="Index" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateQuerySuggestionsBlockList" OutputProperty="Id" Verb="New" Noun="QuerySuggestionsBlockList" ShouldProcessTarget="Name" PipelineParameter="IndexId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -55,6 +63,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteQuerySuggestionsBlockList" Verb="Remove" Noun="QuerySuggestionsBlockList" ShouldProcessTarget="Id" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteThesaurus" Verb="Remove" Noun="Thesaurus" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -71,7 +83,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeQuerySuggestionsBlockList" OutputProperty="*" Verb="Get" Noun="QuerySuggestionsBlockList" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeQuerySuggestionsConfig" OutputProperty="*" Verb="Get" Noun="QuerySuggestionsConfig" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeThesaurus" OutputProperty="*" Verb="Get" Noun="Thesaurus" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQuerySuggestions" OutputProperty="*" Verb="Get" Noun="QuerySuggestion" PipelineParameter="IndexId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -88,6 +112,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListIndices" OutputProperty="IndexConfigurationSummaryItems" Verb="Get" Noun="IndexList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQuerySuggestionsBlockLists" OutputProperty="BlockListSummaryItems" Verb="Get" Noun="QuerySuggestionsBlockListList" PipelineParameter="IndexId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -128,6 +156,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIndex" Verb="Update" Noun="Index" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQuerySuggestionsBlockList" Verb="Update" Noun="QuerySuggestionsBlockList" ShouldProcessTarget="Id" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQuerySuggestionsConfig" Verb="Update" Noun="QuerySuggestionsConfig" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

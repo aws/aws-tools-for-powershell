@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
-    /// configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
-    /// Access Permissions to Your Amazon S3 Resources</a>.
+    /// configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
+    /// your storage lifecycle</a>.
     /// 
     ///  <note><para>
     /// Bucket lifecycle configuration now supports specifying a lifecycle rule using an object
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the bucket to have the lifecycle configuration applied.
+        /// <para>The name of the bucket for which to set the configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -104,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the bucket is owned by a different
+        /// account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

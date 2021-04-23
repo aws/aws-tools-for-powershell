@@ -77,6 +77,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String Content { get; set; }
         #endregion
         
+        #region Parameter DisplayName
+        /// <summary>
+        /// <para>
+        /// <para>An optional field where you can specify a friendly name for the Systems Manager document.
+        /// This value can differ for each version of the document. You can update this value
+        /// at a later time using the <a>UpdateDocument</a> action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DisplayName { get; set; }
+        #endregion
+        
         #region Parameter DocumentFormat
         /// <summary>
         /// <para>
@@ -248,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 WriteWarning("You are passing $null as a value for parameter Content which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DisplayName = this.DisplayName;
             context.DocumentFormat = this.DocumentFormat;
             context.DocumentType = this.DocumentType;
             context.Name = this.Name;
@@ -290,6 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Content != null)
             {
                 request.Content = cmdletContext.Content;
+            }
+            if (cmdletContext.DisplayName != null)
+            {
+                request.DisplayName = cmdletContext.DisplayName;
             }
             if (cmdletContext.DocumentFormat != null)
             {
@@ -382,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             public List<Amazon.SimpleSystemsManagement.Model.AttachmentsSource> Attachment { get; set; }
             public System.String Content { get; set; }
+            public System.String DisplayName { get; set; }
             public Amazon.SimpleSystemsManagement.DocumentFormat DocumentFormat { get; set; }
             public Amazon.SimpleSystemsManagement.DocumentType DocumentType { get; set; }
             public System.String Name { get; set; }

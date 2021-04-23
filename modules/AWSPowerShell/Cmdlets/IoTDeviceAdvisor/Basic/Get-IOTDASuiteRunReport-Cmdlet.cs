@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Device Advisor suite definition Id.</para>
+        /// <para>Suite definition Id of the test suite.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteRunId
         /// <summary>
         /// <para>
-        /// <para>Device Advisor suite run Id.</para>
+        /// <para>Suite run Id of the test suite run.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

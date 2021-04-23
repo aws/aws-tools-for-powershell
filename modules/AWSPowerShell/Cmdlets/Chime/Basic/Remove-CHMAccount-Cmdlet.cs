@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// restore deleted account from your <code>Disabled</code> accounts list, you must contact
     /// AWS Support.
     /// </para><para>
-    ///  After 90 days, deleted accounts are permanently removed from your <code>Disabled</code>
-    /// accounts list. 
+    /// After 90 days, deleted accounts are permanently removed from your <code>Disabled</code>
+    /// accounts list.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CHMAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

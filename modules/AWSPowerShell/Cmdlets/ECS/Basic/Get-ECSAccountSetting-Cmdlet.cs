@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The ARN of the principal, which can be an IAM user, IAM role, or the root user. If
         /// this field is omitted, the account settings are listed only for the authenticated
-        /// user.</para>
+        /// user.</para><note><para>Federated users assume the account setting of the root user and can't have explicit
+        /// account settings set for them.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

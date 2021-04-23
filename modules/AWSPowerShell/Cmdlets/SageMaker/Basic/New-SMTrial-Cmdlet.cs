@@ -28,16 +28,14 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates an Amazon SageMaker <i>trial</i>. A trial is a set of steps called <i>trial
-    /// components</i> that produce a machine learning model. A trial is part of a single
-    /// Amazon SageMaker <i>experiment</i>.
+    /// Creates an SageMaker <i>trial</i>. A trial is a set of steps called <i>trial components</i>
+    /// that produce a machine learning model. A trial is part of a single SageMaker <i>experiment</i>.
     /// 
     ///  
     /// <para>
-    /// When you use Amazon SageMaker Studio or the Amazon SageMaker Python SDK, all experiments,
-    /// trials, and trial components are automatically tracked, logged, and indexed. When
-    /// you use the AWS SDK for Python (Boto), you must use the logging APIs provided by the
-    /// SDK.
+    /// When you use SageMaker Studio or the SageMaker Python SDK, all experiments, trials,
+    /// and trial components are automatically tracked, logged, and indexed. When you use
+    /// the AWS SDK for Python (Boto), you must use the logging APIs provided by the SDK.
     /// </para><para>
     /// You can add tags to a trial and then use the <a>Search</a> API to search for the tags.
     /// </para><para>

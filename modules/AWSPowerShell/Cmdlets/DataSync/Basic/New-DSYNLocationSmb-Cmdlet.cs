@@ -149,7 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The user who can mount the share, has the permissions to access files and folders
-        /// in the SMB share.</para>
+        /// in the SMB share.</para><para>For information about choosing a user name that ensures sufficient permissions to
+        /// files, folders, and metadata, see <a href="create-smb-location.html#SMBuser">user</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

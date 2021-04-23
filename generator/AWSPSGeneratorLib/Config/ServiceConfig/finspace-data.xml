@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>finspace-data</C2jFilename>
+    <AssemblyName>FinSpaceData</AssemblyName>
+    <ServiceNounPrefix>FNSP</ServiceNounPrefix>
+    <ServiceName>FinSpace Public API</ServiceName>
+    <ServiceClientInterface>IAmazonFinSpaceData</ServiceClientInterface>
+    <ServiceClient>AmazonFinSpaceDataClient</ServiceClient>
+    <ServiceModuleGuid>91a29f3e-7210-41f8-abcb-9717a24eb250</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateChangeset" OutputProperty="Changeset" Verb="New" Noun="Changeset" ShouldProcessTarget="DatasetId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProgrammaticAccessCredentials" OutputProperty="*" Verb="Get" Noun="ProgrammaticAccessCredential" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkingLocation" OutputProperty="*" Verb="Get" Noun="WorkingLocation" PipelineParameter="LocationType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

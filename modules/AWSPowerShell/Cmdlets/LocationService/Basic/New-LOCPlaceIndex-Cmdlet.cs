@@ -28,18 +28,8 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Creates a Place index resource in your AWS account, which supports Places functions
-    /// with geospatial data sourced from your chosen data provider.
-    /// 
-    ///  <note><para>
-    /// By using Places, you agree that AWS may transmit your API queries to your selected
-    /// third party provider for processing, which may be outside the AWS region you are currently
-    /// using. 
-    /// </para><para>
-    /// Because of licensing limitations, you may not use HERE to store results for locations
-    /// in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS
-    /// Service Terms</a> for Amazon Location Service.
-    /// </para></note>
+    /// Creates a place index resource in your AWS account, which supports functions with
+    /// geospatial data sourced from your chosen data provider.
     /// </summary>
     [Cmdlet("New", "LOCPlaceIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.CreatePlaceIndexResponse")]
@@ -54,7 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specifies the data provider of geospatial data.</para><note><para>This field is case-sensitive. Enter the valid values as shown. For example, entering
-        /// <code>HERE</code> will return an error.</para></note><para>Valid values include:</para><ul><li><para><code>Esri</code></para></li><li><para><code>Here</code></para></li></ul><para>For additional details on data providers, see the <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon
+        /// <code>HERE</code> will return an error.</para></note><para>Valid values include:</para><ul><li><para><code>Esri</code></para></li><li><para><code>Here</code></para><important><para>Place index resources using HERE as a data provider can't be used to <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store</a>
+        /// results for locations in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS
+        /// Service Terms</a> for Amazon Location Service.</para></important></li></ul><para>For additional details on data providers, see the <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon
         /// Location Service data providers page</a>.</para>
         /// </para>
         /// </summary>
@@ -72,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The optional description for the Place index resource.</para>
+        /// <para>The optional description for the place index resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter IndexName
         /// <summary>
         /// <para>
-        /// <para>The name of the Place index resource. </para><para>Requirements:</para><ul><li><para>Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and
-        /// underscores (_).</para></li><li><para>Must be a unique Place index resource name.</para></li><li><para>No spaces allowed. For example, <code>ExamplePlaceIndex</code>.</para></li></ul>
+        /// <para>The name of the place index resource. </para><para>Requirements:</para><ul><li><para>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and
+        /// underscores (_).</para></li><li><para>Must be a unique place index resource name.</para></li><li><para>No spaces allowed. For example, <code>ExamplePlaceIndex</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter DataSourceConfiguration_IntendedUse
         /// <summary>
         /// <para>
-        /// <para>Specifies how the results of an operation will be stored by the caller. </para><para>Valid values include:</para><ul><li><para><code>SingleUse</code> specifies that the results won't be stored. </para></li><li><para><code>Storage</code> specifies that the result can be cached or stored in a database.</para></li></ul><para>Default value: <code>SingleUse</code></para>
+        /// <para>Specifies how the results of an operation will be stored by the caller. </para><para>Valid values include:</para><ul><li><para><code>SingleUse</code> specifies that the results won't be stored. </para></li><li><para><code>Storage</code> specifies that the result can be cached or stored in a database.</para><important><para>Place index resources using HERE as a data provider can't be configured to store results
+        /// for locations in Japan when choosing <code>Storage</code> for the <code>IntendedUse</code>
+        /// parameter.</para></important></li></ul><para>Default value: <code>SingleUse</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>Specifies the pricing plan for your Place index resource.</para><para>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
+        /// <para>Specifies the pricing plan for your place index resource.</para><para>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
         /// Location Service pricing page</a>.</para>
         /// </para>
         /// </summary>
@@ -124,6 +118,19 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.LocationService.PricingPlan")]
         public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Applies one or more tags to the place index resource. A tag is a key-value pair helps
+        /// manage, identify, search, and filter your resources by labelling them.</para><para>Format: <code>"key" : "value"</code></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
+        /// = . _ : / @. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -210,6 +217,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 WriteWarning("You are passing $null as a value for parameter PricingPlan which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -260,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.PricingPlan != null)
             {
                 request.PricingPlan = cmdletContext.PricingPlan;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -327,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public System.String Description { get; set; }
             public System.String IndexName { get; set; }
             public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.LocationService.Model.CreatePlaceIndexResponse, NewLOCPlaceIndexCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

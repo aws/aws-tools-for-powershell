@@ -28,7 +28,7 @@ using Amazon.Neptune.Model;
 namespace Amazon.PowerShell.Cmdlets.NPT
 {
     /// <summary>
-    /// Starts an Amazon Neptune DB cluster that was stopped using the AWS console, the AWS
+    /// Starts an Amazon Neptune DB cluster that was stopped using the AWS console, the Amazon
     /// CLI stop-db-cluster command, or the StopDBCluster API.
     /// </summary>
     [Cmdlet("Start", "NPTDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

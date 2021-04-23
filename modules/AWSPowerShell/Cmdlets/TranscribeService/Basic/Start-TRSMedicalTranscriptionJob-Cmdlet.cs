@@ -55,6 +55,19 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.Boolean? Settings_ChannelIdentification { get; set; }
         #endregion
         
+        #region Parameter ContentIdentificationType
+        /// <summary>
+        /// <para>
+        /// <para>You can configure Amazon Transcribe Medical to label content in the transcription
+        /// output. If you specify <code>PHI</code>, Amazon Transcribe Medical labels the personal
+        /// health information (PHI) that it identifies in the transcription output.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TranscribeService.MedicalContentIdentificationType")]
+        public Amazon.TranscribeService.MedicalContentIdentificationType ContentIdentificationType { get; set; }
+        #endregion
+        
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
@@ -357,6 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 context.Select = (response, cmdlet) => this.MedicalTranscriptionJobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ContentIdentificationType = this.ContentIdentificationType;
             context.LanguageCode = this.LanguageCode;
             #if MODULAR
             if (this.LanguageCode == null && ParameterWasBound(nameof(this.LanguageCode)))
@@ -419,6 +433,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             // create request
             var request = new Amazon.TranscribeService.Model.StartMedicalTranscriptionJobRequest();
             
+            if (cmdletContext.ContentIdentificationType != null)
+            {
+                request.ContentIdentificationType = cmdletContext.ContentIdentificationType;
+            }
             if (cmdletContext.LanguageCode != null)
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
@@ -604,6 +622,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.TranscribeService.MedicalContentIdentificationType ContentIdentificationType { get; set; }
             public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
             public System.String Media_MediaFileUri { get; set; }
             public Amazon.TranscribeService.MediaFormat MediaFormat { get; set; }

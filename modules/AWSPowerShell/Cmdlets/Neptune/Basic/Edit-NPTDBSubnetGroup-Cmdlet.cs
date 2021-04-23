@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
 {
     /// <summary>
     /// Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet
-    /// in at least two AZs in the AWS Region.
+    /// in at least two AZs in the Amazon Region.
     /// </summary>
     [Cmdlet("Edit", "NPTDBSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Neptune.Model.DBSubnetGroup")]

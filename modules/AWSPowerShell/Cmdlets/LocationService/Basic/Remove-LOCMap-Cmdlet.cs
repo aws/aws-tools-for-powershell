@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// Deletes a map resource from your AWS account.
     /// 
     ///  <note><para>
-    /// This action deletes the resource permanently. You cannot undo this action. If the
-    /// map is being used in an application, the map may not render.
+    /// This operation deletes the resource permanently. If the map is being used in an application,
+    /// the map may not render.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "LOCMap", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

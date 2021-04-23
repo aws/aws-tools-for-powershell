@@ -69,13 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The maximum number of contacts that can be in the queue before it is considered full.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("MaxContacts")]
         public System.Int32? MaxContact { get; set; }
         #endregion
@@ -165,12 +159,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.MaxContact = this.MaxContact;
-            #if MODULAR
-            if (this.MaxContact == null && ParameterWasBound(nameof(this.MaxContact)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MaxContact which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.QueueId = this.QueueId;
             #if MODULAR
             if (this.QueueId == null && ParameterWasBound(nameof(this.QueueId)))

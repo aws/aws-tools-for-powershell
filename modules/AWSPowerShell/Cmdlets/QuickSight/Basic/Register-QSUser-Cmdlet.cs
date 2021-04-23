@@ -58,6 +58,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AwsAccountId { get; set; }
         #endregion
         
+        #region Parameter CustomFederationProviderUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let
+        /// a user federate into QuickSight with an associated AWS Identity and Access Management
+        /// (IAM) role. This parameter should only be used when <code>ExternalLoginFederationProviderType</code>
+        /// parameter is set to <code>CUSTOM_OIDC</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomFederationProviderUrl { get; set; }
+        #endregion
+        
         #region Parameter CustomPermissionsName
         /// <summary>
         /// <para>
@@ -92,6 +105,32 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Email { get; set; }
+        #endregion
+        
+        #region Parameter ExternalLoginFederationProviderType
+        /// <summary>
+        /// <para>
+        /// <para>The type of supported external login provider that provides identity to let a user
+        /// federate into Amazon QuickSight with an associated AWS Identity and Access Management
+        /// (IAM) role. The type of supported external login provider can be one of the following.</para><ul><li><para><code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.
+        /// When choosing the <code>COGNITO</code> provider type, don’t use the "CustomFederationProviderUrl"
+        /// parameter which is only needed when the external provider is custom.</para></li><li><para><code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM_OIDC</code>
+        /// type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom
+        /// OIDC provider URL.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExternalLoginFederationProviderType { get; set; }
+        #endregion
+        
+        #region Parameter ExternalLoginId
+        /// <summary>
+        /// <para>
+        /// <para>The identity ID for a user in the external login provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExternalLoginId { get; set; }
         #endregion
         
         #region Parameter IamArn
@@ -251,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CustomFederationProviderUrl = this.CustomFederationProviderUrl;
             context.CustomPermissionsName = this.CustomPermissionsName;
             context.Email = this.Email;
             #if MODULAR
@@ -259,6 +299,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter Email which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExternalLoginFederationProviderType = this.ExternalLoginFederationProviderType;
+            context.ExternalLoginId = this.ExternalLoginId;
             context.IamArn = this.IamArn;
             context.IdentityType = this.IdentityType;
             #if MODULAR
@@ -303,6 +345,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.AwsAccountId = cmdletContext.AwsAccountId;
             }
+            if (cmdletContext.CustomFederationProviderUrl != null)
+            {
+                request.CustomFederationProviderUrl = cmdletContext.CustomFederationProviderUrl;
+            }
             if (cmdletContext.CustomPermissionsName != null)
             {
                 request.CustomPermissionsName = cmdletContext.CustomPermissionsName;
@@ -310,6 +356,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.Email != null)
             {
                 request.Email = cmdletContext.Email;
+            }
+            if (cmdletContext.ExternalLoginFederationProviderType != null)
+            {
+                request.ExternalLoginFederationProviderType = cmdletContext.ExternalLoginFederationProviderType;
+            }
+            if (cmdletContext.ExternalLoginId != null)
+            {
+                request.ExternalLoginId = cmdletContext.ExternalLoginId;
             }
             if (cmdletContext.IamArn != null)
             {
@@ -397,8 +451,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AwsAccountId { get; set; }
+            public System.String CustomFederationProviderUrl { get; set; }
             public System.String CustomPermissionsName { get; set; }
             public System.String Email { get; set; }
+            public System.String ExternalLoginFederationProviderType { get; set; }
+            public System.String ExternalLoginId { get; set; }
             public System.String IamArn { get; set; }
             public Amazon.QuickSight.IdentityType IdentityType { get; set; }
             public System.String Namespace { get; set; }

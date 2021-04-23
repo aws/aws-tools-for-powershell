@@ -28,7 +28,8 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Returns a list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html"><code>AssetSummary</code></a> objects for assets in a package version.
+    /// Returns a list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a>
+    /// objects for assets in a package version.
     /// </summary>
     [Cmdlet("Get", "CAPackageVersionAssetList")]
     [OutputType("Amazon.CodeArtifact.Model.ListPackageVersionAssetsResponse")]

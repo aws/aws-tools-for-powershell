@@ -110,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ASMetricCollectionType', 
         'Get-ASNotificationConfiguration', 
         'Get-ASPolicy', 
+        'Get-ASPredictiveScalingForecast', 
         'Get-ASScalingActivity', 
         'Get-ASScalingProcessType', 
         'Get-ASScheduledAction', 

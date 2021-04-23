@@ -34,10 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// 
     ///  
     /// <para>
-    /// For toll-free numbers, you must use the Amazon Chime Voice Connector product type.
+    /// For toll-free numbers, you cannot use the Amazon Chime Business Calling product type.
+    /// For numbers outside the U.S., you must use the Amazon Chime SIP Media Application
+    /// Dial-In product type.
     /// </para><para>
-    /// Updates to outbound calling names can take up to 72 hours to complete. Pending updates
-    /// to outbound calling names must be complete before you can request another update.
+    /// Updates to outbound calling names can take 72 hours to complete. Pending updates to
+    /// outbound calling names must be complete before you can request another update.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CHMPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

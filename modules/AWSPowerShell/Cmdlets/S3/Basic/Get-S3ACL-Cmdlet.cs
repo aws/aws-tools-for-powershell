@@ -132,9 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Key = this.Key;
             context.VersionId = this.VersionId;
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -155,6 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.BucketName = cmdletContext.BucketName;
             }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
             if (cmdletContext.Key != null)
             {
                 request.Key = cmdletContext.Key;
@@ -162,10 +166,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.VersionId != null)
             {
                 request.VersionId = cmdletContext.VersionId;
-            }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -229,9 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.String Key { get; set; }
             public System.String VersionId { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.GetACLResponse, GetS3ACLCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AccessControlList;
         }

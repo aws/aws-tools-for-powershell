@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
-        /// <para>The new amount of storage (in gibibytes) to allocate for the DB instance.</para><para>Not applicable. Storage is managed by the DB Cluster.</para>
+        /// <para>Not supported by Neptune.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,9 +254,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-        /// accounts, and otherwise false.</para><para>You can enable IAM database authentication for the following database engines</para><para>Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB
-        /// cluster. For more information, see <a>ModifyDBCluster</a>.</para><para>Default: <code>false</code></para>
+        /// <para>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to
+        /// database accounts, and otherwise false.</para><para>You can enable IAM database authentication for the following database engines</para><para>Not applicable. Mapping Amazon IAM accounts to database accounts is managed by the
+        /// DB cluster. For more information, see <a>ModifyDBCluster</a>.</para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -312,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter LicenseModel
         /// <summary>
         /// <para>
-        /// <para>Not supported.</para>
+        /// <para>Not supported by Neptune.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -322,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>Not applicable.</para>
+        /// <para>Not supported by Neptune.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

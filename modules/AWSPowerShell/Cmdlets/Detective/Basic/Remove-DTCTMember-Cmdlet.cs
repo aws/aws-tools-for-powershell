@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         /// <summary>
         /// <para>
         /// <para>The list of AWS account identifiers for the member accounts to delete from the behavior
-        /// graph.</para>
+        /// graph. You can delete up to 50 member accounts at a time.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.MWAA.Model;
 namespace Amazon.PowerShell.Cmdlets.MWAA
 {
     /// <summary>
-    /// List Amazon MWAA Environments.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the Amazon Managed Workflows for Apache Airflow (MWAA) environments.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MWAAEnvironmentList")]
     [OutputType("System.String")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum results when listing MWAA environments.</para>
+        /// <para>The maximum number of results to retrieve per page. For example, <code>5</code> environments
+        /// per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The Next Token when listing MWAA environments.</para>
+        /// <para>Retrieves the next page of the results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

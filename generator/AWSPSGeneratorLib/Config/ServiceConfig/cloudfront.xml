@@ -47,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateFunction" OutputProperty="*" Verb="New" Noun="Function" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateInvalidation" OutputProperty="*" Verb="New" Noun="Invalidation" ShouldProcessTarget="DistributionId" PipelineParameter="DistributionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -99,6 +103,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFunction" Verb="Remove" Noun="Function" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteKeyGroup" Verb="Remove" Noun="KeyGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -120,6 +128,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteStreamingDistribution" Verb="Remove" Noun="StreamingDistribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFunction" OutputProperty="FunctionSummary" Verb="Get" Noun="FunctionSummary" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -160,6 +172,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetFieldLevelEncryptionProfileConfig" OutputProperty="FieldLevelEncryptionProfileConfig" Verb="Get" Noun="FieldLevelEncryptionProfileConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFunction" OutputProperty="*" Verb="Get" Noun="Function" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -247,6 +263,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFunctions" OutputProperty="FunctionList" Verb="Get" Noun="FunctionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListInvalidations" OutputProperty="InvalidationList.Items" OutputWrapper="InvalidationList" Verb="Get" Noun="InvalidationList" PipelineParameter="DistributionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CFInvalidations">
             <Params />
             <TypesNotToFlatten />
@@ -275,10 +295,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PublishFunction" OutputProperty="FunctionSummary" Verb="Publish" Noun="Function" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false">
             <Params>
                 <Param Name="Tags_Items" NewName="Tag" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestFunction" OutputProperty="TestResult" Verb="Test" Noun="Function" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false">
@@ -304,6 +332,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFieldLevelEncryptionProfile" OutputProperty="FieldLevelEncryptionProfile" Verb="Update" Noun="FieldLevelEncryptionProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFunction" OutputProperty="FunctionSummary" Verb="Update" Noun="Function" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

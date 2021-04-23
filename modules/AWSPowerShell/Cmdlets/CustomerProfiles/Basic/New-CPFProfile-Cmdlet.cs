@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter AdditionalInformation
         /// <summary>
         /// <para>
-        /// <para>Any additional information relevant to the customer's profile.</para>
+        /// <para>Any additional information relevant to the customer’s profile.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -240,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter BirthDate
         /// <summary>
         /// <para>
-        /// <para>The customer’s birth date.</para>
+        /// <para>The customer’s birth date. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -417,8 +417,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter EmailAddress
         /// <summary>
         /// <para>
-        /// <para>The customer's email address, which has not been specified as a personal or business
-        /// address.</para>
+        /// <para>The customer’s email address, which has not been specified as a personal or business
+        /// address. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -438,7 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter Gender
         /// <summary>
         /// <para>
-        /// <para>The gender with which the customer identifies.</para>
+        /// <para>The gender with which the customer identifies. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -510,8 +510,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter PhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The customer's phone number, which has not been specified as a mobile, home, or business
-        /// number.</para>
+        /// <para>The customer’s phone number, which has not been specified as a mobile, home, or business
+        /// number. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

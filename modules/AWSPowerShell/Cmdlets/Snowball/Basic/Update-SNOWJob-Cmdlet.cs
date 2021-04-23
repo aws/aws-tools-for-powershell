@@ -171,7 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>The updated <code>SnowballCapacityPreference</code> of this job's <a>JobMetadata</a>
-        /// object. The 50 TB Snowballs are only available in the US regions.</para>
+        /// object. The 50 TB Snowballs are only available in the US regions.</para><para>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

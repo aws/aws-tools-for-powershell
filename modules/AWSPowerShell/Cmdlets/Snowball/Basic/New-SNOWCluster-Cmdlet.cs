@@ -116,7 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>The type of job for this cluster. Currently, the only job type supported for clusters
-        /// is <code>LOCAL_USE</code>.</para>
+        /// is <code>LOCAL_USE</code>.</para><para>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -224,10 +226,18 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>The type of AWS Snow Family device to use for this cluster. </para><note><para>For cluster jobs, AWS Snow Family currently supports only the <code>EDGE</code> device
-        /// type.</para></note>
+        /// type.</para></note><para>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Snowball.SnowballType")]
         public Amazon.Snowball.SnowballType SnowballType { get; set; }
         #endregion
@@ -357,6 +367,12 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             }
             #endif
             context.SnowballType = this.SnowballType;
+            #if MODULAR
+            if (this.SnowballType == null && ParameterWasBound(nameof(this.SnowballType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SnowballType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.IND_GSTIN = this.IND_GSTIN;
             
             // allow further manipulation of loaded context prior to processing

@@ -142,6 +142,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.Quality
+        "Get-IOTSWInterpolatedAssetPropertyValue/Quality"
+        {
+            $v = "BAD","GOOD","UNCERTAIN"
+            break
+        }
+
         # Amazon.IoTSiteWise.ResourceType
         "Get-IOTSWAccessPolicyList/ResourceType"
         {
@@ -191,6 +198,7 @@ $IOTSW_map = @{
     "PortalLogoImage_File_Type"=@("Update-IOTSWPortal")
     "PortalLogoImageFile_Type"=@("New-IOTSWPortal")
     "PropertyNotificationState"=@("Update-IOTSWAssetProperty")
+    "Quality"=@("Get-IOTSWInterpolatedAssetPropertyValue")
     "ResourceType"=@("Get-IOTSWAccessPolicyList")
     "TimeOrdering"=@("Get-IOTSWAssetPropertyAggregate","Get-IOTSWAssetPropertyValueHistory")
     "TraversalDirection"=@("Get-IOTSWAssociatedAssetList")
@@ -280,6 +288,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetPropertyAggregate",
                "Get-IOTSWAssetPropertyValue",
                "Get-IOTSWAssetPropertyValueHistory",
+               "Get-IOTSWInterpolatedAssetPropertyValue",
                "Get-IOTSWAccessPolicyList",
                "Get-IOTSWAssetModelList",
                "Get-IOTSWAssetRelationshipList",

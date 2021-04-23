@@ -211,6 +211,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String InstanceType { get; set; }
         #endregion
         
+        #region Parameter OutpostArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutpostArn { get; set; }
+        #endregion
+        
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
@@ -338,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter InstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OutpostArn = this.OutpostArn;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -402,6 +413,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceType != null)
             {
                 request.InstanceType = cmdletContext.InstanceType;
+            }
+            if (cmdletContext.OutpostArn != null)
+            {
+                request.OutpostArn = cmdletContext.OutpostArn;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -483,6 +498,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.InstanceMatchCriteria InstanceMatchCriterion { get; set; }
             public Amazon.EC2.CapacityReservationInstancePlatform InstancePlatform { get; set; }
             public System.String InstanceType { get; set; }
+            public System.String OutpostArn { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.CapacityReservationTenancy Tenancy { get; set; }
             public System.Func<Amazon.EC2.Model.CreateCapacityReservationResponse, AddEC2CapacityReservationCmdlet, object> Select { get; set; } =

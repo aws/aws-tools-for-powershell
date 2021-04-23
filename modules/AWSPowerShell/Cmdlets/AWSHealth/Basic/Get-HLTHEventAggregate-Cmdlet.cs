@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>A list of AWS availability zones.</para>
+        /// <para>A list of AWS Availability Zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Region
         /// <summary>
         /// <para>
-        /// <para>A list of AWS regions.</para>
+        /// <para>A list of AWS Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

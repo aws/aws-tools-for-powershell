@@ -87,6 +87,13 @@ $EFS_Completers = {
             break
         }
 
+        # Amazon.ElasticFileSystem.ResourceIdType
+        "Write-EFSAccountPreference/ResourceIdType"
+        {
+            $v = "LONG_ID","SHORT_ID"
+            break
+        }
+
         # Amazon.ElasticFileSystem.Status
         "Write-EFSBackupPolicy/BackupPolicy_Status"
         {
@@ -115,6 +122,7 @@ $EFS_Completers = {
 $EFS_map = @{
     "BackupPolicy_Status"=@("Write-EFSBackupPolicy")
     "PerformanceMode"=@("New-EFSFileSystem")
+    "ResourceIdType"=@("Write-EFSAccountPreference")
     "ThroughputMode"=@("New-EFSFileSystem","Update-EFSFileSystem")
 }
 
@@ -178,6 +186,7 @@ $EFS_SelectMap = @{
                "Remove-EFSMountTarget",
                "Remove-EFSTag",
                "Get-EFSAccessPoint",
+               "Get-EFSAccountPreference",
                "Get-EFSBackupPolicy",
                "Get-EFSFileSystemPolicy",
                "Get-EFSFileSystem",
@@ -187,6 +196,7 @@ $EFS_SelectMap = @{
                "Get-EFSTag",
                "Get-EFSResourceTag",
                "Edit-EFSMountTargetSecurityGroup",
+               "Write-EFSAccountPreference",
                "Write-EFSBackupPolicy",
                "Write-EFSFileSystemPolicy",
                "Write-EFSLifecycleConfiguration",

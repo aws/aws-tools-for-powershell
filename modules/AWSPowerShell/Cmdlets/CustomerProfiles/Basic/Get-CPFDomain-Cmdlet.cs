@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>A unique name for the domain.</para>
+        /// <para>The unique name of the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

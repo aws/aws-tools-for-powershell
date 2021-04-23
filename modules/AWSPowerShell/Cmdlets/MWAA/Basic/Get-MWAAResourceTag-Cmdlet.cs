@@ -28,7 +28,8 @@ using Amazon.MWAA.Model;
 namespace Amazon.PowerShell.Cmdlets.MWAA
 {
     /// <summary>
-    /// List the tags for MWAA environments.
+    /// Lists the key-value tag pairs associated to the Amazon Managed Workflows for Apache
+    /// Airflow (MWAA) environment. For example, <code>"Environment": "Staging"</code>.
     /// </summary>
     [Cmdlet("Get", "MWAAResourceTag")]
     [OutputType("System.String")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the MWAA environment.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

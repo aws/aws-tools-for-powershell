@@ -46,6 +46,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class NewIOTSWPortalCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        #region Parameter Alarms_AlarmRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
+        /// of the IAM role that allows the alarm to perform actions and access AWS resources,
+        /// including AWS IoT Events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Alarms_AlarmRoleArn { get; set; }
+        #endregion
+        
         #region Parameter PortalLogoImageFile_Data
         /// <summary>
         /// <para>
@@ -57,6 +69,31 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
         public byte[] PortalLogoImageFile_Data { get; set; }
+        #endregion
+        
+        #region Parameter Alarms_NotificationLambdaArn
+        /// <summary>
+        /// <para>
+        /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
+        /// of the AWS Lambda function that manages alarm notifications. For more information,
+        /// see <a href="https://docs.aws.amazon.com/">Managing alarm notifications</a> in the
+        /// <i>AWS IoT Events Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Alarms_NotificationLambdaArn { get; set; }
+        #endregion
+        
+        #region Parameter NotificationSenderEmail
+        /// <summary>
+        /// <para>
+        /// <para>The email address that sends alarm notifications.</para><important><para>If you use the AWS IoT Events managed AWS Lambda function to manage your emails, you
+        /// must <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">verify
+        /// the sender email address in Amazon SES</a>.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NotificationSenderEmail { get; set; }
         #endregion
         
         #region Parameter PortalAuthMode
@@ -216,7 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.CreatePortalResponse, NewIOTSWPortalCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Alarms_AlarmRoleArn = this.Alarms_AlarmRoleArn;
+            context.Alarms_NotificationLambdaArn = this.Alarms_NotificationLambdaArn;
             context.ClientToken = this.ClientToken;
+            context.NotificationSenderEmail = this.NotificationSenderEmail;
             context.PortalAuthMode = this.PortalAuthMode;
             context.PortalContactEmail = this.PortalContactEmail;
             #if MODULAR
@@ -270,9 +310,42 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 // create request
                 var request = new Amazon.IoTSiteWise.Model.CreatePortalRequest();
                 
+                
+                 // populate Alarms
+                var requestAlarmsIsNull = true;
+                request.Alarms = new Amazon.IoTSiteWise.Model.Alarms();
+                System.String requestAlarms_alarms_AlarmRoleArn = null;
+                if (cmdletContext.Alarms_AlarmRoleArn != null)
+                {
+                    requestAlarms_alarms_AlarmRoleArn = cmdletContext.Alarms_AlarmRoleArn;
+                }
+                if (requestAlarms_alarms_AlarmRoleArn != null)
+                {
+                    request.Alarms.AlarmRoleArn = requestAlarms_alarms_AlarmRoleArn;
+                    requestAlarmsIsNull = false;
+                }
+                System.String requestAlarms_alarms_NotificationLambdaArn = null;
+                if (cmdletContext.Alarms_NotificationLambdaArn != null)
+                {
+                    requestAlarms_alarms_NotificationLambdaArn = cmdletContext.Alarms_NotificationLambdaArn;
+                }
+                if (requestAlarms_alarms_NotificationLambdaArn != null)
+                {
+                    request.Alarms.NotificationLambdaArn = requestAlarms_alarms_NotificationLambdaArn;
+                    requestAlarmsIsNull = false;
+                }
+                 // determine if request.Alarms should be set to null
+                if (requestAlarmsIsNull)
+                {
+                    request.Alarms = null;
+                }
                 if (cmdletContext.ClientToken != null)
                 {
                     request.ClientToken = cmdletContext.ClientToken;
+                }
+                if (cmdletContext.NotificationSenderEmail != null)
+                {
+                    request.NotificationSenderEmail = cmdletContext.NotificationSenderEmail;
                 }
                 if (cmdletContext.PortalAuthMode != null)
                 {
@@ -397,7 +470,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Alarms_AlarmRoleArn { get; set; }
+            public System.String Alarms_NotificationLambdaArn { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String NotificationSenderEmail { get; set; }
             public Amazon.IoTSiteWise.AuthMode PortalAuthMode { get; set; }
             public System.String PortalContactEmail { get; set; }
             public System.String PortalDescription { get; set; }

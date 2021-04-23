@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter SNSConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>THe ARN of the IAM role that has access to the target SNS topic.</para>
+        /// <para>The ARN of the IAM role that has access to the target SNS topic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

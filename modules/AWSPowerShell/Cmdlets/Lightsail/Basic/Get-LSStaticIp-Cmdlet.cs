@@ -28,7 +28,7 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Returns information about a specific static IP.
+    /// Returns information about an Amazon Lightsail static IP.
     /// </summary>
     [Cmdlet("Get", "LSStaticIp")]
     [OutputType("Amazon.Lightsail.Model.StaticIp")]

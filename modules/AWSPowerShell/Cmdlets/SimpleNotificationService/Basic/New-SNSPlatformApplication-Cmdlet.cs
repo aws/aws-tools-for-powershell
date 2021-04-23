@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a></para>
+        /// <para>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

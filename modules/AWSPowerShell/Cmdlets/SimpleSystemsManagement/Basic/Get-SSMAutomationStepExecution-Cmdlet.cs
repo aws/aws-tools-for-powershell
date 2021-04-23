@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ReverseOrder
         /// <summary>
         /// <para>
-        /// <para>A boolean that indicates whether to list step executions in reverse order by start
-        /// time. The default value is 'false'.</para>
+        /// <para>Indicates whether to list step executions in reverse order by start time. The default
+        /// value is 'false'.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

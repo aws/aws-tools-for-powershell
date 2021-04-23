@@ -220,6 +220,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String CheckpointConfig_LocalPath { get; set; }
         #endregion
         
+        #region Parameter RetryStrategy_MaximumRetryAttempt
+        /// <summary>
+        /// <para>
+        /// <para>The number of times to retry the job. When the job is retried, it's <code>SecondaryStatus</code>
+        /// is changed to <code>STARTING</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinition_RetryStrategy_MaximumRetryAttempts")]
+        public System.Int32? RetryStrategy_MaximumRetryAttempt { get; set; }
+        #endregion
+        
         #region Parameter ResourceLimits_MaxNumberOfTrainingJob
         /// <summary>
         /// <para>
@@ -258,9 +270,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that the training or compilation job can run.
-        /// If job does not complete during this time, Amazon SageMaker ends the job. If value
-        /// is not specified, default value is 1 day. The maximum value is 28 days.</para>
+        /// <para>The maximum length of time, in seconds, that a training or compilation job can run.
+        /// If the job does not complete during this time, Amazon SageMaker ends the job.</para><para>When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
+        /// specifies the maximum time for all of the attempts in total, not each individual attempt.</para><para>The default value is 1 day. The maximum value is 28 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,10 +283,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxWaitTimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, how long you are willing to wait for a managed
-        /// spot training job to complete. It is the amount of time spent waiting for Spot capacity
-        /// plus the amount of time the training job runs. It must be equal to or greater than
-        /// <code>MaxRuntimeInSeconds</code>. </para>
+        /// <para>The maximum length of time, in seconds, that a managed Spot training job has to complete.
+        /// It is the amount of time spent waiting for Spot capacity plus the amount of time the
+        /// job can run. It must be equal to or greater than <code>MaxRuntimeInSeconds</code>.
+        /// If the job does not complete during this time, Amazon SageMaker ends the job.</para><para>When <code>RetryStrategy</code> is specified in the job request, <code>MaxWaitTimeInSeconds</code>
+        /// specifies the maximum time for all of the attempts in total, not each individual attempt.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -715,6 +728,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.TrainingJobDefinition_OutputDataConfig = this.TrainingJobDefinition_OutputDataConfig;
             context.TrainingJobDefinition_ResourceConfig = this.TrainingJobDefinition_ResourceConfig;
+            context.RetryStrategy_MaximumRetryAttempt = this.RetryStrategy_MaximumRetryAttempt;
             context.TrainingJobDefinition_RoleArn = this.TrainingJobDefinition_RoleArn;
             if (this.TrainingJobDefinition_StaticHyperParameter != null)
             {
@@ -1030,6 +1044,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestTrainingJobDefinition_trainingJobDefinition_StaticHyperParameter != null)
             {
                 request.TrainingJobDefinition.StaticHyperParameters = requestTrainingJobDefinition_trainingJobDefinition_StaticHyperParameter;
+                requestTrainingJobDefinitionIsNull = false;
+            }
+            Amazon.SageMaker.Model.RetryStrategy requestTrainingJobDefinition_trainingJobDefinition_RetryStrategy = null;
+            
+             // populate RetryStrategy
+            var requestTrainingJobDefinition_trainingJobDefinition_RetryStrategyIsNull = true;
+            requestTrainingJobDefinition_trainingJobDefinition_RetryStrategy = new Amazon.SageMaker.Model.RetryStrategy();
+            System.Int32? requestTrainingJobDefinition_trainingJobDefinition_RetryStrategy_retryStrategy_MaximumRetryAttempt = null;
+            if (cmdletContext.RetryStrategy_MaximumRetryAttempt != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_RetryStrategy_retryStrategy_MaximumRetryAttempt = cmdletContext.RetryStrategy_MaximumRetryAttempt.Value;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_RetryStrategy_retryStrategy_MaximumRetryAttempt != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_RetryStrategy.MaximumRetryAttempts = requestTrainingJobDefinition_trainingJobDefinition_RetryStrategy_retryStrategy_MaximumRetryAttempt.Value;
+                requestTrainingJobDefinition_trainingJobDefinition_RetryStrategyIsNull = false;
+            }
+             // determine if requestTrainingJobDefinition_trainingJobDefinition_RetryStrategy should be set to null
+            if (requestTrainingJobDefinition_trainingJobDefinition_RetryStrategyIsNull)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_RetryStrategy = null;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_RetryStrategy != null)
+            {
+                request.TrainingJobDefinition.RetryStrategy = requestTrainingJobDefinition_trainingJobDefinition_RetryStrategy;
                 requestTrainingJobDefinitionIsNull = false;
             }
             Amazon.SageMaker.Model.CheckpointConfig requestTrainingJobDefinition_trainingJobDefinition_CheckpointConfig = null;
@@ -1399,6 +1438,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<Amazon.SageMaker.Model.Channel> TrainingJobDefinition_InputDataConfig { get; set; }
             public Amazon.SageMaker.Model.OutputDataConfig TrainingJobDefinition_OutputDataConfig { get; set; }
             public Amazon.SageMaker.Model.ResourceConfig TrainingJobDefinition_ResourceConfig { get; set; }
+            public System.Int32? RetryStrategy_MaximumRetryAttempt { get; set; }
             public System.String TrainingJobDefinition_RoleArn { get; set; }
             public Dictionary<System.String, System.String> TrainingJobDefinition_StaticHyperParameter { get; set; }
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }

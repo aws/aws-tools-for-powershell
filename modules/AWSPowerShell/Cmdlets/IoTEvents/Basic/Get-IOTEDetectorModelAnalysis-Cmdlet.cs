@@ -28,7 +28,12 @@ using Amazon.IoTEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTE
 {
     /// <summary>
-    /// Retrieves execution information about a detector model analysis
+    /// Retrieves runtime information about a detector model analysis.
+    /// 
+    ///  <note><para>
+    /// After AWS IoT Events starts analyzing your detector model, you have up to 24 hours
+    /// to retrieve the analysis results.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "IOTEDetectorModelAnalysis")]
     [OutputType("Amazon.IoTEvents.AnalysisStatus")]

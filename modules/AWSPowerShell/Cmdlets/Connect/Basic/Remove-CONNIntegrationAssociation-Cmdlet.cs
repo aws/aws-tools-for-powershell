@@ -28,13 +28,8 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Deletes an AppIntegration association from an Amazon Connect instance. The association
     /// must not have any use cases associated with it.
-    /// </para>
     /// </summary>
     [Cmdlet("Remove", "CONNIntegrationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

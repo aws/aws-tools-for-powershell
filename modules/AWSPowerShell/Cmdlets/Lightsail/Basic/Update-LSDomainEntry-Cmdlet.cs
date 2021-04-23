@@ -100,9 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainEntry_Target
         /// <summary>
         /// <para>
-        /// <para>The target AWS name server (e.g., <code>ns-111.awsdns-22.com.</code>).</para><para>For Lightsail load balancers, the value looks like <code>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</code>.
+        /// <para>The target IP address (e.g., <code>192.0.2.0</code>), or AWS name server (e.g., <code>ns-111.awsdns-22.com.</code>).</para><para>For Lightsail load balancers, the value looks like <code>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</code>.
+        /// For Lightsail distributions, the value looks like <code>exampled1182ne.cloudfront.net</code>.
+        /// For Lightsail container services, the value looks like <code>container-service-1.example23scljs.us-west-2.cs.amazonlightsail.com</code>.
         /// Be sure to also set <code>isAlias</code> to <code>true</code> when setting up an A
-        /// record for a load balancer.</para>
+        /// record for a Lightsail load balancer, distribution, or container service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainEntry_Type
         /// <summary>
         /// <para>
-        /// <para>The type of domain entry, such as address (A), canonical name (CNAME), mail exchanger
-        /// (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT).</para><para>The following domain entry types can be used:</para><ul><li><para><code>A</code></para></li><li><para><code>CNAME</code></para></li><li><para><code>MX</code></para></li><li><para><code>NS</code></para></li><li><para><code>SOA</code></para></li><li><para><code>SRV</code></para></li><li><para><code>TXT</code></para></li></ul>
+        /// <para>The type of domain entry, such as address for IPv4 (A), address for IPv6 (AAAA), canonical
+        /// name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service
+        /// locator (SRV), or text (TXT).</para><para>The following domain entry types can be used:</para><ul><li><para><code>A</code></para></li><li><para><code>AAA</code></para></li><li><para><code>CNAME</code></para></li><li><para><code>MX</code></para></li><li><para><code>NS</code></para></li><li><para><code>SOA</code></para></li><li><para><code>SRV</code></para></li><li><para><code>TXT</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

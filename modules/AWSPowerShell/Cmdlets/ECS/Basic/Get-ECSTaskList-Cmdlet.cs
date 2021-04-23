@@ -28,15 +28,14 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Returns a list of tasks for a specified cluster. You can filter the results by family
-    /// name, by a particular container instance, or by the desired status of the task with
-    /// the <code>family</code>, <code>containerInstance</code>, and <code>desiredStatus</code>
-    /// parameters.
+    /// Returns a list of tasks. You can filter the results by cluster, task definition family,
+    /// container instance, launch type, what IAM principal started the task, or by the desired
+    /// status of the task.
     /// 
     ///  
     /// <para>
     /// Recently stopped tasks might appear in the returned results. Currently, stopped tasks
-    /// appear in the returned results for at least one hour. 
+    /// appear in the returned results for at least one hour.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECSTaskList")]
@@ -52,8 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Cluster
         /// <summary>
         /// <para>
-        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks
-        /// to list. If you do not specify a cluster, the default cluster is assumed.</para>
+        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster to use when filtering
+        /// the <code>ListTasks</code> results. If you do not specify a cluster, the default cluster
+        /// is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ContainerInstance
         /// <summary>
         /// <para>
-        /// <para>The container instance ID or full ARN of the container instance with which to filter
+        /// <para>The container instance ID or full ARN of the container instance to use when filtering
         /// the <code>ListTasks</code> results. Specifying a <code>containerInstance</code> limits
         /// the results to tasks that belong to that container instance.</para>
         /// </para>
@@ -75,12 +75,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DesiredStatus
         /// <summary>
         /// <para>
-        /// <para>The task desired status with which to filter the <code>ListTasks</code> results. Specifying
-        /// a <code>desiredStatus</code> of <code>STOPPED</code> limits the results to tasks that
-        /// Amazon ECS has set the desired status to <code>STOPPED</code>. This can be useful
-        /// for debugging tasks that are not starting properly or have died or finished. The default
-        /// status filter is <code>RUNNING</code>, which shows tasks that Amazon ECS has set the
-        /// desired status to <code>RUNNING</code>.</para><note><para>Although you can filter results based on a desired status of <code>PENDING</code>,
+        /// <para>The task desired status to use when filtering the <code>ListTasks</code> results.
+        /// Specifying a <code>desiredStatus</code> of <code>STOPPED</code> limits the results
+        /// to tasks that Amazon ECS has set the desired status to <code>STOPPED</code>. This
+        /// can be useful for debugging tasks that are not starting properly or have died or finished.
+        /// The default status filter is <code>RUNNING</code>, which shows tasks that Amazon ECS
+        /// has set the desired status to <code>RUNNING</code>.</para><note><para>Although you can filter results based on a desired status of <code>PENDING</code>,
         /// this does not return any results. Amazon ECS never sets the desired status of a task
         /// to that value (only a task's <code>lastStatus</code> may have a value of <code>PENDING</code>).</para></note>
         /// </para>
@@ -93,8 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Family
         /// <summary>
         /// <para>
-        /// <para>The name of the family with which to filter the <code>ListTasks</code> results. Specifying
-        /// a <code>family</code> limits the results to tasks that belong to that family.</para>
+        /// <para>The name of the task definition family to use when filtering the <code>ListTasks</code>
+        /// results. Specifying a <code>family</code> limits the results to tasks that belong
+        /// to that family.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LaunchType
         /// <summary>
         /// <para>
-        /// <para>The launch type for services to list.</para>
+        /// <para>The launch type to use when filtering the <code>ListTasks</code> results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The name of the service with which to filter the <code>ListTasks</code> results. Specifying
-        /// a <code>serviceName</code> limits the results to tasks that belong to that service.</para>
+        /// <para>The name of the service to use when filtering the <code>ListTasks</code> results.
+        /// Specifying a <code>serviceName</code> limits the results to tasks that belong to that
+        /// service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

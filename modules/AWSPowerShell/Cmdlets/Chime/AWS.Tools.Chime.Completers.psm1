@@ -83,7 +83,8 @@ $CHM_Completers = {
         # Amazon.Chime.ChannelMembershipType
         {
             ($_ -eq "Get-CHMChannelMembershipList/Type") -Or
-            ($_ -eq "New-CHMChannelMembership/Type")
+            ($_ -eq "New-CHMChannelMembership/Type") -Or
+            ($_ -eq "New-CHMCreateChannelMembership/Type")
         }
         {
             $v = "DEFAULT","HIDDEN"
@@ -155,11 +156,12 @@ $CHM_Completers = {
         # Amazon.Chime.PhoneNumberProductType
         {
             ($_ -eq "Get-CHMPhoneNumberList/ProductType") -Or
+            ($_ -eq "Get-CHMSupportedPhoneNumberCountryList/ProductType") -Or
             ($_ -eq "New-CHMPhoneNumberOrder/ProductType") -Or
             ($_ -eq "Update-CHMPhoneNumber/ProductType")
         }
         {
-            $v = "BusinessCalling","VoiceConnector"
+            $v = "BusinessCalling","SipMediaApplicationDialIn","VoiceConnector"
             break
         }
 
@@ -167,6 +169,13 @@ $CHM_Completers = {
         "Get-CHMPhoneNumberList/Status"
         {
             $v = "AcquireFailed","AcquireInProgress","Assigned","DeleteFailed","DeleteInProgress","ReleaseFailed","ReleaseInProgress","Unassigned"
+            break
+        }
+
+        # Amazon.Chime.PhoneNumberType
+        "Search-CHMAvailablePhoneNumber/PhoneNumberType"
+        {
+            $v = "Local","TollFree"
             break
         }
 
@@ -236,13 +245,14 @@ $CHM_map = @{
     "Mode"=@("New-CHMChannel","Update-CHMChannel")
     "NumberSelectionBehavior"=@("New-CHMProxySession")
     "Persistence"=@("Send-CHMChannelMessage")
+    "PhoneNumberType"=@("Search-CHMAvailablePhoneNumber")
     "Privacy"=@("Get-CHMChannelList","New-CHMChannel")
-    "ProductType"=@("Get-CHMPhoneNumberList","New-CHMPhoneNumberOrder","Update-CHMPhoneNumber")
+    "ProductType"=@("Get-CHMPhoneNumberList","Get-CHMSupportedPhoneNumberCountryList","New-CHMPhoneNumberOrder","Update-CHMPhoneNumber")
     "Role"=@("New-CHMRoomMembership","Update-CHMRoomMembership")
     "SortOrder"=@("Get-CHMChannelMessageList")
     "Status"=@("Get-CHMPhoneNumberList","Get-CHMProxySessionList")
     "TriggerType"=@("New-CHMSipRule")
-    "Type"=@("Get-CHMChannelMembershipList","New-CHMChannelMembership","Send-CHMChannelMessage")
+    "Type"=@("Get-CHMChannelMembershipList","New-CHMChannelMembership","New-CHMCreateChannelMembership","Send-CHMChannelMessage")
     "UserType"=@("Get-CHMUserList","New-CHMUser","Send-CHMUserInvitation","Update-CHMUser")
 }
 
@@ -301,6 +311,7 @@ $CHM_SelectMap = @{
                "Add-CHMPhoneNumberToUser",
                "Add-CHMSigninDelegateGroupsToAccount",
                "New-CHMAttendeeBatch",
+               "New-CHMCreateChannelMembership",
                "New-CHMRoomMembershipBatch",
                "Remove-CHMPhoneNumberBatch",
                "Enable-CHMUserSuspensionBatch",
@@ -425,6 +436,7 @@ $CHM_SelectMap = @{
                "Get-CHMRoomList",
                "Get-CHMSipMediaApplicationList",
                "Get-CHMSipRuleList",
+               "Get-CHMSupportedPhoneNumberCountryList",
                "Get-CHMResourceTag",
                "Get-CHMUserList",
                "Get-CHMVoiceConnectorGroupList",

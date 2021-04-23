@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AddFlowMediaStreams" OutputProperty="*" Verb="Add" Noun="FlowMediaStream" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AddFlowOutputs" OutputProperty="Outputs" Verb="Add" Noun="FlowOutput" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -84,6 +88,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RemoveFlowMediaStream" OutputProperty="*" Verb="Remove" Noun="FlowMediaStream" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RemoveFlowOutput" OutputProperty="*" Verb="Remove" Noun="FlowOutput" ShouldProcessTarget="OutputArn" PipelineParameter="OutputArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -121,6 +129,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFlowEntitlement" OutputProperty="Entitlement" Verb="Update" Noun="FlowEntitlement" ShouldProcessTarget="EntitlementArn" PipelineParameter="EntitlementArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFlowMediaStream" OutputProperty="*" Verb="Update" Noun="FlowMediaStream" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

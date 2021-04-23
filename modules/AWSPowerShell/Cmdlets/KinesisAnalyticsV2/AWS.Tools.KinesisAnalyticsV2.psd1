@@ -98,6 +98,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-KINA2ApplicationList', 
         'Get-KINA2ApplicationSnapshot', 
         'Get-KINA2ApplicationSnapshotList', 
+        'Get-KINA2ApplicationVersion', 
+        'Get-KINA2ApplicationVersionList', 
         'Get-KINA2ResourceTag', 
         'New-KINA2Application', 
         'New-KINA2ApplicationPresignedUrl', 
@@ -112,7 +114,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-KINA2ResourceTag', 
         'Start-KINA2Application', 
         'Stop-KINA2Application', 
-        'Update-KINA2Application')
+        'Undo-KINA2Application', 
+        'Update-KINA2Application', 
+        'Update-KINA2ApplicationMaintenanceConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

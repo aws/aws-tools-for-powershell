@@ -48,6 +48,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMAutoMLJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter ModelDeployConfig_AutoGenerateEndpointName
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>True</code> to automatically generate an endpoint name for a one-click
+        /// Autopilot model deployment; set to <code>False</code> otherwise. The default value
+        /// is <code>True</code>.</para><note><para>If you set <code>AutoGenerateEndpointName</code> to <code>True</code>, do not specify
+        /// the <code>EndpointName</code>; otherwise a 400 error is thrown.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ModelDeployConfig_AutoGenerateEndpointName { get; set; }
+        #endregion
+        
         #region Parameter AutoMLJobName
         /// <summary>
         /// <para>
@@ -74,6 +87,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AutoMLJobConfig_SecurityConfig_EnableInterContainerTrafficEncryption")]
         public System.Boolean? SecurityConfig_EnableInterContainerTrafficEncryption { get; set; }
+        #endregion
+        
+        #region Parameter ModelDeployConfig_EndpointName
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the endpoint name to use for a one-click Autopilot model deployment if the
+        /// endpoint name is not generated automatically.</para><note><para>Specify the <code>EndpointName</code> if and only if you set <code>AutoGenerateEndpointName</code>
+        /// to <code>False</code>; otherwise a 400 error is thrown.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelDeployConfig_EndpointName { get; set; }
         #endregion
         
         #region Parameter GenerateCandidateDefinitionsOnly
@@ -157,23 +182,23 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// learning system. This metric is optimized during training to provide the best estimate
         /// for model parameter values from data.</para><para>Here are the options:</para><ul><li><para><code>MSE</code>: The mean squared error (MSE) is the average of the squared differences
         /// between the predicted and actual values. It is used for regression. MSE values are
-        /// always positive, the better a model is at predicting the actual values the smaller
-        /// the MSE value. When the data contains outliers, they tend to dominate the MSE which
-        /// might cause subpar prediction performance.</para></li><li><para><code>Accuracy</code>: The ratio of the number correctly classified items to the
-        /// total number (correctly and incorrectly) classified. It is used for binary and multiclass
-        /// classification. Measures how close the predicted class values are to the actual values.
-        /// Accuracy values vary between zero and one, one being perfect accuracy and zero perfect
-        /// inaccuracy.</para></li><li><para><code>F1</code>: The F1 score is the harmonic mean of the precision and recall. It
+        /// always positive: the better a model is at predicting the actual values, the smaller
+        /// the MSE value. When the data contains outliers, they tend to dominate the MSE, which
+        /// might cause subpar prediction performance.</para></li><li><para><code>Accuracy</code>: The ratio of the number of correctly classified items to the
+        /// total number of (correctly and incorrectly) classified items. It is used for binary
+        /// and multiclass classification. It measures how close the predicted class values are
+        /// to the actual values. Accuracy values vary between zero and one: one indicates perfect
+        /// accuracy and zero indicates perfect inaccuracy.</para></li><li><para><code>F1</code>: The F1 score is the harmonic mean of the precision and recall. It
         /// is used for binary classification into classes traditionally referred to as positive
         /// and negative. Predictions are said to be true when they match their actual (correct)
-        /// class; false when they do not. Precision is the ratio of the true positive predictions
+        /// class and false when they do not. Precision is the ratio of the true positive predictions
         /// to all positive predictions (including the false positives) in a data set and measures
         /// the quality of the prediction when it predicts the positive class. Recall (or sensitivity)
         /// is the ratio of the true positive predictions to all actual positive instances and
         /// measures how completely a model predicts the actual class members in a data set. The
         /// standard F1 score weighs precision and recall equally. But which metric is paramount
         /// typically depends on specific aspects of a problem. F1 scores vary between zero and
-        /// one, one being the best possible performance and zero the worst.</para></li><li><para><code>AUC</code>: The area under the curve (AUC) metric is used to compare and evaluate
+        /// one: one indicates the best possible performance and zero the worst.</para></li><li><para><code>AUC</code>: The area under the curve (AUC) metric is used to compare and evaluate
         /// binary classification by algorithms such as logistic regression that return probabilities.
         /// A threshold is needed to map the probabilities into classifications. The relevant
         /// curve is the receiver operating characteristic curve that plots the true positive
@@ -184,15 +209,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// measure of the model performance across all possible classification thresholds. The
         /// AUC score can also be interpreted as the probability that a randomly selected positive
         /// data point is more likely to be predicted positive than a randomly selected negative
-        /// example. AUC scores vary between zero and one, one being perfect accuracy and one
-        /// half not better than a random classifier. Values less that one half predict worse
-        /// than a random predictor and such consistently bad predictors can be inverted to obtain
-        /// better than random predictors.</para></li><li><para><code>F1macro</code>: The F1macro score applies F1 scoring to multiclass classification.
+        /// example. AUC scores vary between zero and one: a score of one indicates perfect accuracy
+        /// and a score of one half indicates that the prediction is not better than a random
+        /// classifier. Values under one half predict less accurately than a random predictor.
+        /// But such consistently bad predictors can simply be inverted to obtain better than
+        /// random predictors.</para></li><li><para><code>F1macro</code>: The F1macro score applies F1 scoring to multiclass classification.
         /// In this context, you have multiple classes to predict. You just calculate the precision
         /// and recall for each class as you did for the positive class in binary classification.
-        /// Then used these values to calculate the F1 score for each class and average them to
-        /// obtain the F1macro score. F1macro scores vary between zero and one, one being the
-        /// best possible performance and zero the worst.</para></li></ul><para>If you do not specify a metric explicitly, the default behavior is to automatically
+        /// Then, use these values to calculate the F1 score for each class and average them to
+        /// obtain the F1macro score. F1macro scores vary between zero and one: one indicates
+        /// the best possible performance and zero the worst.</para></li></ul><para>If you do not specify a metric explicitly, the default behavior is to automatically
         /// use:</para><ul><li><para><code>MSE</code>: for regression.</para></li><li><para><code>F1</code>: for binary classification</para></li><li><para><code>Accuracy</code>: for multiclass classification.</para></li></ul>
         /// </para>
         /// </summary>
@@ -205,8 +231,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Defines the type of supervised learning available for the candidates. Options include:
-        /// BinaryClassification, MulticlassClassification, and Regression. For more information,
-        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
+        /// <code>BinaryClassification</code>, <code>MulticlassClassification</code>, and <code>Regression</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
         /// Amazon SageMaker Autopilot problem types and algorithm support</a>.</para>
         /// </para>
         /// </summary>
@@ -218,7 +244,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the role that is used to access the data.</para>
+        /// <para>The ARN of the role that is used to access the data.</para><para>&lt;para&gt;Specifies whether to automatically deploy the best &amp;ATP; model to
+        /// an endpoint and the name of that endpoint if deployed automatically.&lt;/para&gt;</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -389,6 +416,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter InputDataConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ModelDeployConfig_AutoGenerateEndpointName = this.ModelDeployConfig_AutoGenerateEndpointName;
+            context.ModelDeployConfig_EndpointName = this.ModelDeployConfig_EndpointName;
             context.OutputDataConfig_KmsKeyId = this.OutputDataConfig_KmsKeyId;
             context.OutputDataConfig_S3OutputPath = this.OutputDataConfig_S3OutputPath;
             #if MODULAR
@@ -581,6 +610,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.InputDataConfig = cmdletContext.InputDataConfig;
             }
             
+             // populate ModelDeployConfig
+            var requestModelDeployConfigIsNull = true;
+            request.ModelDeployConfig = new Amazon.SageMaker.Model.ModelDeployConfig();
+            System.Boolean? requestModelDeployConfig_modelDeployConfig_AutoGenerateEndpointName = null;
+            if (cmdletContext.ModelDeployConfig_AutoGenerateEndpointName != null)
+            {
+                requestModelDeployConfig_modelDeployConfig_AutoGenerateEndpointName = cmdletContext.ModelDeployConfig_AutoGenerateEndpointName.Value;
+            }
+            if (requestModelDeployConfig_modelDeployConfig_AutoGenerateEndpointName != null)
+            {
+                request.ModelDeployConfig.AutoGenerateEndpointName = requestModelDeployConfig_modelDeployConfig_AutoGenerateEndpointName.Value;
+                requestModelDeployConfigIsNull = false;
+            }
+            System.String requestModelDeployConfig_modelDeployConfig_EndpointName = null;
+            if (cmdletContext.ModelDeployConfig_EndpointName != null)
+            {
+                requestModelDeployConfig_modelDeployConfig_EndpointName = cmdletContext.ModelDeployConfig_EndpointName;
+            }
+            if (requestModelDeployConfig_modelDeployConfig_EndpointName != null)
+            {
+                request.ModelDeployConfig.EndpointName = requestModelDeployConfig_modelDeployConfig_EndpointName;
+                requestModelDeployConfigIsNull = false;
+            }
+             // determine if request.ModelDeployConfig should be set to null
+            if (requestModelDeployConfigIsNull)
+            {
+                request.ModelDeployConfig = null;
+            }
+            
              // populate OutputDataConfig
             var requestOutputDataConfigIsNull = true;
             request.OutputDataConfig = new Amazon.SageMaker.Model.AutoMLOutputDataConfig();
@@ -693,6 +751,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.AutoMLMetricEnum AutoMLJobObjective_MetricName { get; set; }
             public System.Boolean? GenerateCandidateDefinitionsOnly { get; set; }
             public List<Amazon.SageMaker.Model.AutoMLChannel> InputDataConfig { get; set; }
+            public System.Boolean? ModelDeployConfig_AutoGenerateEndpointName { get; set; }
+            public System.String ModelDeployConfig_EndpointName { get; set; }
             public System.String OutputDataConfig_KmsKeyId { get; set; }
             public System.String OutputDataConfig_S3OutputPath { get; set; }
             public Amazon.SageMaker.ProblemType ProblemType { get; set; }

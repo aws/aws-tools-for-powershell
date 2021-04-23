@@ -50,11 +50,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestCases" OutputProperty="*" Verb="Get" Noun="TestCaseList" PipelineParameter="IntendedForQualification" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartSuiteRun" OutputProperty="*" Verb="Start" Noun="SuiteRun" ShouldProcessTarget="SuiteDefinitionId" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSuiteRun" OutputProperty="*" Verb="Start" Noun="SuiteRun" ShouldProcessTarget="SuiteDefinitionId" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopSuiteRun" Verb="Stop" Noun="SuiteRun" ShouldProcessTarget="SuiteRunId" PipelineParameter="SuiteRunId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

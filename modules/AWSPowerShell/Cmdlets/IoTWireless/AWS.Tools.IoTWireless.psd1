@@ -91,8 +91,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTWDestinationList', 
         'Get-IOTWDeviceProfile', 
         'Get-IOTWDeviceProfileList', 
+        'Get-IOTWLogLevelsByResourceType', 
         'Get-IOTWPartnerAccount', 
         'Get-IOTWPartnerAccountList', 
+        'Get-IOTWResourceLogLevel', 
         'Get-IOTWResourceTag', 
         'Get-IOTWServiceEndpoint', 
         'Get-IOTWServiceProfile', 
@@ -127,6 +129,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-IOTWWirelessGateway', 
         'Remove-IOTWWirelessGatewayTask', 
         'Remove-IOTWWirelessGatewayTaskDefinition', 
+        'Reset-IOTWAllResourceLogLevel', 
+        'Reset-IOTWResourceLogLevel', 
         'Send-IOTWDataToWirelessDevice', 
         'Split-IOTWAwsAccountFromPartnerAccount', 
         'Split-IOTWWirelessDeviceFromThing', 
@@ -134,9 +138,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Split-IOTWWirelessGatewayFromThing', 
         'Test-IOTWWirelessDevice', 
         'Update-IOTWDestination', 
+        'Update-IOTWLogLevelsByResourceType', 
         'Update-IOTWPartnerAccount', 
         'Update-IOTWWirelessDevice', 
-        'Update-IOTWWirelessGateway')
+        'Update-IOTWWirelessGateway', 
+        'Write-IOTWResourceLogLevel')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -42,21 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The bucket name containing the object to restore. </para><para>When using this API with an access point, you must direct requests to 
-        /// the access point hostname. The access point hostname takes the 
-        /// form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. 
-        /// When using this operation with an access point through the AWS SDKs, 
-        /// you provide the access point ARN in place of the bucket name.
-        /// For more information about access point ARNs, 
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">
-        /// Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</para><p>When using this API with Amazon S3 on Outposts, you must direct requests to the 
-        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form 
-        /// <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. 
-        /// When using this operation using S3 on Outposts through the AWS SDKs, 
-        /// you provide the Outposts bucket ARN in place of the bucket name. 
-        /// For more information about S3 on Outposts ARNs, 
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using S3 on 
-        /// Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+        /// <para>The bucket name containing the object to restore. </para><para>When using this action with an access point, you must direct requests to the access
+        /// point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+        /// When using this action with an access point through the AWS SDKs, you provide the
+        /// access point ARN in place of the bucket name. For more information about access point
+        /// ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>When using this action with Amazon S3 on Outposts, you must direct requests to the
+        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com.
+        /// When using this action using S3 on Outposts through the AWS SDKs, you provide the
+        /// Outposts bucket ARN in place of the bucket name. For more information about S3 on
+        /// Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+        /// S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -135,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the bucket is owned by a different
+        /// account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,14 +368,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
-            context.Key = this.Key;
             context.CopyLifetimeInDays = this.CopyLifetimeInDays;
-            context.VersionId = this.VersionId;
-            context.RequestPayer = this.RequestPayer;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.Description = this.Description;
+            context.Key = this.Key;
             context.Tier = this.Tier;
             context.RetrievalTier = this.RetrievalTier;
             context.RestoreRequestType = this.RestoreRequestType;
-            context.Description = this.Description;
             context.SelectParameter = this.SelectParameter;
             context.S3_BucketName = this.S3_BucketName;
             context.S3_Prefix = this.S3_Prefix;
@@ -399,7 +394,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             context.S3_UserMetadata = this.S3_UserMetadata;
             context.S3_StorageClass = this.S3_StorageClass;
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.RequestPayer = this.RequestPayer;
+            context.VersionId = this.VersionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -420,21 +416,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.BucketName = cmdletContext.BucketName;
             }
-            if (cmdletContext.Key != null)
-            {
-                request.Key = cmdletContext.Key;
-            }
             if (cmdletContext.CopyLifetimeInDays != null)
             {
                 request.Days = cmdletContext.CopyLifetimeInDays.Value;
             }
-            if (cmdletContext.VersionId != null)
+            if (cmdletContext.ExpectedBucketOwner != null)
             {
-                request.VersionId = cmdletContext.VersionId;
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
-            if (cmdletContext.RequestPayer != null)
+            if (cmdletContext.Description != null)
             {
-                request.RequestPayer = cmdletContext.RequestPayer;
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Key != null)
+            {
+                request.Key = cmdletContext.Key;
             }
             if (cmdletContext.Tier != null)
             {
@@ -447,10 +443,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.RestoreRequestType != null)
             {
                 request.RestoreRequestType = cmdletContext.RestoreRequestType;
-            }
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
             }
             if (cmdletContext.SelectParameter != null)
             {
@@ -660,9 +652,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.OutputLocation = null;
             }
-            if (cmdletContext.ExpectedBucketOwner != null)
+            if (cmdletContext.RequestPayer != null)
             {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+                request.RequestPayer = cmdletContext.RequestPayer;
+            }
+            if (cmdletContext.VersionId != null)
+            {
+                request.VersionId = cmdletContext.VersionId;
             }
             
             CmdletOutput output;
@@ -726,14 +722,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
-            public System.String Key { get; set; }
             public System.Int32? CopyLifetimeInDays { get; set; }
-            public System.String VersionId { get; set; }
-            public Amazon.S3.RequestPayer RequestPayer { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
+            public System.String Description { get; set; }
+            public System.String Key { get; set; }
             public Amazon.S3.GlacierJobTier Tier { get; set; }
             public Amazon.S3.GlacierJobTier RetrievalTier { get; set; }
             public Amazon.S3.RestoreRequestType RestoreRequestType { get; set; }
-            public System.String Description { get; set; }
             public Amazon.S3.Model.SelectParameters SelectParameter { get; set; }
             public System.String S3_BucketName { get; set; }
             public System.String S3_Prefix { get; set; }
@@ -747,7 +742,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public List<Amazon.S3.Model.Tag> Tagging_TagSet { get; set; }
             public Amazon.S3.Model.MetadataCollection S3_UserMetadata { get; set; }
             public Amazon.S3.S3StorageClass S3_StorageClass { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
+            public Amazon.S3.RequestPayer RequestPayer { get; set; }
+            public System.String VersionId { get; set; }
             public System.Func<Amazon.S3.Model.RestoreObjectResponse, RestoreS3ObjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

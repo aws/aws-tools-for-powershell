@@ -28,7 +28,8 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Lists the services that are running in a specified cluster.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of services. You can filter the results by cluster, launch type, and
+    /// scheduling strategy.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECSClusterService")]
     [OutputType("System.String")]
@@ -43,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Cluster
         /// <summary>
         /// <para>
-        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the services
-        /// to list. If you do not specify a cluster, the default cluster is assumed.</para>
+        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster to use when filtering
+        /// the <code>ListServices</code> results. If you do not specify a cluster, the default
+        /// cluster is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LaunchType
         /// <summary>
         /// <para>
-        /// <para>The launch type for the services to list.</para>
+        /// <para>The launch type to use when filtering the <code>ListServices</code> results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter SchedulingStrategy
         /// <summary>
         /// <para>
-        /// <para>The scheduling strategy for services to list.</para>
+        /// <para>The scheduling strategy to use when filtering the <code>ListServices</code> results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

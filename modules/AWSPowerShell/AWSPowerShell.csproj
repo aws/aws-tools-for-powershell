@@ -94,6 +94,9 @@
     <Reference Include="AWSSDK.ApplicationAutoScaling">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApplicationAutoScaling.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ApplicationCostProfiler">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApplicationCostProfiler.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ApplicationDiscoveryService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApplicationDiscoveryService.dll</HintPath>
     </Reference>
@@ -105,6 +108,9 @@
     </Reference>
     <Reference Include="AWSSDK.AppRegistry">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppRegistry.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AppRunner">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppRunner.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppStream">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppStream.dll</HintPath>
@@ -358,6 +364,12 @@
     <Reference Include="AWSSDK.EventBridge">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EventBridge.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Finspace">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Finspace.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.FinSpaceData">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.FinSpaceData.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.FIS">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.FIS.dll</HintPath>
     </Reference>
@@ -595,6 +607,9 @@
     <Reference Include="AWSSDK.NetworkManager">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkManager.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.NimbleStudio">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NimbleStudio.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OpsWorks.dll</HintPath>
     </Reference>
@@ -754,6 +769,12 @@
     <Reference Include="AWSSDK.SQS">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SQS.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SSMContacts">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSMContacts.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SSMIncidents">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSMIncidents.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SSO">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSO.dll</HintPath>
     </Reference>
@@ -861,6 +882,9 @@
     <Reference Include="AWSSDK.ApplicationAutoScaling">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ApplicationAutoScaling.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ApplicationCostProfiler">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ApplicationCostProfiler.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ApplicationDiscoveryService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ApplicationDiscoveryService.dll</HintPath>
     </Reference>
@@ -872,6 +896,9 @@
     </Reference>
     <Reference Include="AWSSDK.AppRegistry">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppRegistry.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AppRunner">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppRunner.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppStream">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppStream.dll</HintPath>
@@ -1125,6 +1152,12 @@
     <Reference Include="AWSSDK.EventBridge">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EventBridge.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Finspace">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Finspace.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.FinSpaceData">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.FinSpaceData.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.FIS">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.FIS.dll</HintPath>
     </Reference>
@@ -1362,6 +1395,9 @@
     <Reference Include="AWSSDK.NetworkManager">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkManager.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.NimbleStudio">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NimbleStudio.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.OpsWorks.dll</HintPath>
     </Reference>
@@ -1520,6 +1556,12 @@
     </Reference>
     <Reference Include="AWSSDK.SQS">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SQS.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SSMContacts">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SSMContacts.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SSMIncidents">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SSMIncidents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SSO">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SSO.dll</HintPath>

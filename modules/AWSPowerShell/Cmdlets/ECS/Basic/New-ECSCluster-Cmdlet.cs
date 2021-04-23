@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The name of your cluster. If you do not specify a name for your cluster, you create
         /// a cluster named <code>default</code>. Up to 255 letters (uppercase and lowercase),
-        /// numbers, and hyphens are allowed. </para>
+        /// numbers, underscores, and hyphens are allowed. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

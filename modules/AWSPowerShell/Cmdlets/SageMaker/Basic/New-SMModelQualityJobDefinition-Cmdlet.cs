@@ -262,7 +262,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum runtime allowed in seconds.</para>
+        /// <para>The maximum runtime allowed in seconds.</para><note><para>The <code>MaxRuntimeInSeconds</code> cannot exceed the frequency of the job. For data
+        /// quality and model explainability, this can be up to 3600 seconds for an hourly schedule.
+        /// For model bias and model quality hourly schedules, this can be up to 1800 seconds.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -368,7 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3
-        /// key. Defauts to <code>FullyReplicated</code></para>
+        /// key. Defaults to <code>FullyReplicated</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

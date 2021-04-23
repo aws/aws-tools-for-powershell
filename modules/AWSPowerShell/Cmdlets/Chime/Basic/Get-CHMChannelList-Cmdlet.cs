@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Privacy
         /// <summary>
         /// <para>
-        /// <para> The privacy setting. <code>PUBLIC</code> retrieves all the public channels. <code>PRIVATE</code>
+        /// <para>The privacy setting. <code>PUBLIC</code> retrieves all the public channels. <code>PRIVATE</code>
         /// retrieves private channels. Only an <code>AppInstanceAdmin</code> can retrieve private
         /// channels. </para>
         /// </para>

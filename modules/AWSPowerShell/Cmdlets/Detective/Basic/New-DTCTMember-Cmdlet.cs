@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         /// <summary>
         /// <para>
         /// <para>The list of AWS accounts to invite to become member accounts in the behavior graph.
-        /// For each invited account, the account list contains the account identifier and the
-        /// AWS account root user email address.</para>
+        /// You can invite up to 50 accounts at a time. For each invited account, the account
+        /// list contains the account identifier and the AWS account root user email address.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

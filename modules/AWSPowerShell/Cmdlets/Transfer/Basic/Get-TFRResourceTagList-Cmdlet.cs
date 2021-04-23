@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Lists all of the tags associated with the Amazon Resource Number (ARN) you specify.
+    /// Lists all of the tags associated with the Amazon Resource Name (ARN) that you specify.
     /// The resource can be a user, server, or role.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TFRResourceTagList")]

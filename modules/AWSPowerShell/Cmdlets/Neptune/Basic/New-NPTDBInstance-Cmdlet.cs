@@ -43,9 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
-        /// <para>The amount of storage (in gibibytes) to allocate for the DB instance.</para><para>Type: Integer</para><para>Not applicable. Neptune cluster volumes automatically grow as the amount of data in
-        /// your database increases, though you are only charged for the space that you use in
-        /// a Neptune cluster volume.</para>
+        /// <para>Not supported by Neptune.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para> The EC2 Availability Zone that the DB instance is created in</para><para>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</para><para> Example: <code>us-east-1d</code></para><para> Constraint: The AvailabilityZone parameter can't be specified if the MultiAZ parameter
-        /// is set to <code>true</code>. The specified Availability Zone must be in the same AWS
+        /// <para> The EC2 Availability Zone that the DB instance is created in</para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Region.</para><para> Example: <code>us-east-1d</code></para><para> Constraint: The AvailabilityZone parameter can't be specified if the MultiAZ parameter
+        /// is set to <code>true</code>. The specified Availability Zone must be in the same Amazon
         /// Region as the current endpoint.</para>
         /// </para>
         /// </summary>
@@ -121,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
-        /// Not all DB instance classes are available in all AWS Regions.</para>
+        /// Not all DB instance classes are available in all Amazon Regions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -243,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>True to enable AWS Identity and Access Management (IAM) authentication for Neptune.</para><para>Default: <code>false</code></para>
+        /// <para>Not supported by Neptune (ignored).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -303,14 +301,14 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier for an encrypted DB instance.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
-        /// If you are creating a DB instance with the same AWS account that owns the KMS encryption
+        /// <para>The Amazon KMS key identifier for an encrypted DB instance.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
+        /// If you are creating a DB instance with the same Amazon account that owns the KMS encryption
         /// key used to encrypt the new DB instance, then you can use the KMS key alias instead
         /// of the ARN for the KM encryption key.</para><para>Not applicable. The KMS key identifier is managed by the DB cluster. For more information,
         /// see <a>CreateDBCluster</a>.</para><para>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value
         /// for the <code>KmsKeyId</code> parameter, then Amazon Neptune will use your default
-        /// encryption key. AWS KMS creates the default encryption key for your AWS account. Your
-        /// AWS account has a different default encryption key for each AWS Region.</para>
+        /// encryption key. Amazon KMS creates the default encryption key for your Amazon account.
+        /// Your Amazon account has a different default encryption key for each Amazon Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -331,7 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para>The name for the master user. Not used.</para>
+        /// <para>Not supported by Neptune.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -341,8 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the master user. The password can include any printable ASCII character
-        /// except "/", """, or "@".</para><para> Not used.</para>
+        /// <para>Not supported by Neptune.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -431,7 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The time range each week during which system maintenance can occur, in Universal Coordinated
         /// Time (UTC).</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region, occurring on a random day of the week.</para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
+        /// for each Amazon Region, occurring on a random day of the week.</para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,13 +28,15 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
+    /// <note><para>
+    /// DEPRECATED - The DeleteTags action is deprecated and not maintained. Please use the
+    /// API action to remove tags from EFS resources.
+    /// </para></note><para>
     /// Returns the tags associated with a file system. The order of tags returned in the
     /// response of one <code>DescribeTags</code> call and the order of tags returned across
     /// the responses of a multiple-call iteration (when using pagination) is unspecified.
     /// 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     ///  This operation requires permissions for the <code>elasticfilesystem:DescribeTags</code>
     /// action. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.

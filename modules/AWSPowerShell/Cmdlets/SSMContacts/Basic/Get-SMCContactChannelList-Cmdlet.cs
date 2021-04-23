@@ -22,37 +22,45 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoTDeviceAdvisor;
-using Amazon.IoTDeviceAdvisor.Model;
+using Amazon.SSMContacts;
+using Amazon.SSMContacts.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOTDA
+namespace Amazon.PowerShell.Cmdlets.SMC
 {
     /// <summary>
-    /// Lists all the test cases in the test suite.
+    /// Lists all contact channels for the specified contact.
     /// </summary>
-    [Cmdlet("Get", "IOTDATestCaseList")]
-    [OutputType("Amazon.IoTDeviceAdvisor.Model.ListTestCasesResponse")]
-    [AWSCmdlet("Calls the AWS IoT Core Device Advisor ListTestCases API operation.", Operation = new[] {"ListTestCases"}, SelectReturnType = typeof(Amazon.IoTDeviceAdvisor.Model.ListTestCasesResponse))]
-    [AWSCmdletOutput("Amazon.IoTDeviceAdvisor.Model.ListTestCasesResponse",
-        "This cmdlet returns an Amazon.IoTDeviceAdvisor.Model.ListTestCasesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SMCContactChannelList")]
+    [OutputType("Amazon.SSMContacts.Model.ContactChannel")]
+    [AWSCmdlet("Calls the AWS System Manager Contacts ListContactChannels API operation.", Operation = new[] {"ListContactChannels"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ListContactChannelsResponse))]
+    [AWSCmdletOutput("Amazon.SSMContacts.Model.ContactChannel or Amazon.SSMContacts.Model.ListContactChannelsResponse",
+        "This cmdlet returns a collection of Amazon.SSMContacts.Model.ContactChannel objects.",
+        "The service call response (type Amazon.SSMContacts.Model.ListContactChannelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetIOTDATestCaseListCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
+    public partial class GetSMCContactChannelListCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
-        #region Parameter IntendedForQualification
+        #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>Lists all the qualification test cases in the test suite.</para>
+        /// <para>The Amazon Resource Name (ARN) of the contact. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.Boolean? IntendedForQualification { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ContactId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Requests the test cases max results.</para>
+        /// <para>The maximum number of contact channels per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Requests the test cases next token.</para>
+        /// <para>The pagination token to continue to the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,21 +80,21 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTDeviceAdvisor.Model.ListTestCasesResponse).
-        /// Specifying the name of a property of type Amazon.IoTDeviceAdvisor.Model.ListTestCasesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ContactChannels'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SSMContacts.Model.ListContactChannelsResponse).
+        /// Specifying the name of a property of type Amazon.SSMContacts.Model.ListContactChannelsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ContactChannels";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the IntendedForQualification parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^IntendedForQualification' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ContactId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IntendedForQualification' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -103,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTDeviceAdvisor.Model.ListTestCasesResponse, GetIOTDATestCaseListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SSMContacts.Model.ListContactChannelsResponse, GetSMCContactChannelListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -112,10 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.IntendedForQualification;
+                context.Select = (response, cmdlet) => this.ContactId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IntendedForQualification = this.IntendedForQualification;
+            context.ContactId = this.ContactId;
+            #if MODULAR
+            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -132,11 +146,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoTDeviceAdvisor.Model.ListTestCasesRequest();
+            var request = new Amazon.SSMContacts.Model.ListContactChannelsRequest();
             
-            if (cmdletContext.IntendedForQualification != null)
+            if (cmdletContext.ContactId != null)
             {
-                request.IntendedForQualification = cmdletContext.IntendedForQualification.Value;
+                request.ContactId = cmdletContext.ContactId;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -179,15 +193,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTDeviceAdvisor.Model.ListTestCasesResponse CallAWSServiceOperation(IAmazonIoTDeviceAdvisor client, Amazon.IoTDeviceAdvisor.Model.ListTestCasesRequest request)
+        private Amazon.SSMContacts.Model.ListContactChannelsResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.ListContactChannelsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT Core Device Advisor", "ListTestCases");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "ListContactChannels");
             try
             {
                 #if DESKTOP
-                return client.ListTestCases(request);
+                return client.ListContactChannels(request);
                 #elif CORECLR
-                return client.ListTestCasesAsync(request).GetAwaiter().GetResult();
+                return client.ListContactChannelsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -207,11 +221,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? IntendedForQualification { get; set; }
+            public System.String ContactId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.IoTDeviceAdvisor.Model.ListTestCasesResponse, GetIOTDATestCaseListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.SSMContacts.Model.ListContactChannelsResponse, GetSMCContactChannelListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ContactChannels;
         }
         
     }

@@ -68,6 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String Id { get; set; }
         #endregion
         
+        #region Parameter Sidewalk_MessageType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WirelessMetadata_Sidewalk_MessageType")]
+        [AWSConstantClassSource("Amazon.IoTWireless.MessageType")]
+        public Amazon.IoTWireless.MessageType Sidewalk_MessageType { get; set; }
+        #endregion
+        
         #region Parameter PayloadData
         /// <summary>
         /// <para>
@@ -196,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             }
             #endif
             context.LoRaWAN_FPort = this.LoRaWAN_FPort;
+            context.Sidewalk_MessageType = this.Sidewalk_MessageType;
             context.Sidewalk_Seq = this.Sidewalk_Seq;
             
             // allow further manipulation of loaded context prior to processing
@@ -259,6 +272,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
              // populate Sidewalk
             var requestWirelessMetadata_wirelessMetadata_SidewalkIsNull = true;
             requestWirelessMetadata_wirelessMetadata_Sidewalk = new Amazon.IoTWireless.Model.SidewalkSendDataToDevice();
+            Amazon.IoTWireless.MessageType requestWirelessMetadata_wirelessMetadata_Sidewalk_sidewalk_MessageType = null;
+            if (cmdletContext.Sidewalk_MessageType != null)
+            {
+                requestWirelessMetadata_wirelessMetadata_Sidewalk_sidewalk_MessageType = cmdletContext.Sidewalk_MessageType;
+            }
+            if (requestWirelessMetadata_wirelessMetadata_Sidewalk_sidewalk_MessageType != null)
+            {
+                requestWirelessMetadata_wirelessMetadata_Sidewalk.MessageType = requestWirelessMetadata_wirelessMetadata_Sidewalk_sidewalk_MessageType;
+                requestWirelessMetadata_wirelessMetadata_SidewalkIsNull = false;
+            }
             System.Int32? requestWirelessMetadata_wirelessMetadata_Sidewalk_sidewalk_Seq = null;
             if (cmdletContext.Sidewalk_Seq != null)
             {
@@ -349,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String PayloadData { get; set; }
             public System.Int32? TransmitMode { get; set; }
             public System.Int32? LoRaWAN_FPort { get; set; }
+            public Amazon.IoTWireless.MessageType Sidewalk_MessageType { get; set; }
             public System.Int32? Sidewalk_Seq { get; set; }
             public System.Func<Amazon.IoTWireless.Model.SendDataToWirelessDeviceResponse, SendIOTWDataToWirelessDeviceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MessageId;

@@ -98,7 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter InventoryConfiguration_IncludedObjectVersion
         /// <summary>
         /// <para>
-        /// Specifies which object version(s) to included in the inventory results.
+        /// <para>Object versions to include in the inventory list. If set to <code>All</code>, the
+        /// list includes all the object versions, which adds the version-related fields <code>VersionId</code>,
+        /// <code>IsLatest</code>, and <code>DeleteMarker</code> to the list. If set to <code>Current</code>,
+        /// the list does not contain these version-related fields.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter InventoryConfiguration_IsEnabled
         /// <summary>
         /// <para>
-        /// Specifies whether the inventory is enabled or disabled.
+        /// <para>Specifies whether the inventory is enabled or disabled. If set to <code>True</code>,
+        /// an inventory list is generated. If set to <code>False</code>, no inventory list is
+        /// generated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,10 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.S3BucketDestination_InventoryFormat = this.S3BucketDestination_InventoryFormat;
             context.InventoryEncryption_SSES3 = this.InventoryEncryption_SSES3;
             context.SSEKMS_KeyId = this.SSEKMS_KeyId;
-            context.InventoryConfiguration_IsEnabled = this.InventoryConfiguration_IsEnabled;
             context.InventoryFilter_InventoryFilterPredicate = this.InventoryFilter_InventoryFilterPredicate;
             context.InventoryConfiguration_InventoryId = this.InventoryConfiguration_InventoryId;
             context.InventoryConfiguration_IncludedObjectVersion = this.InventoryConfiguration_IncludedObjectVersion;
+            context.InventoryConfiguration_IsEnabled = this.InventoryConfiguration_IsEnabled;
             if (this.InventoryConfiguration_InventoryOptionalField != null)
             {
                 context.InventoryConfiguration_InventoryOptionalField = new List<Amazon.S3.InventoryOptionalField>(this.InventoryConfiguration_InventoryOptionalField);
@@ -311,16 +316,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
              // populate InventoryConfiguration
             var requestInventoryConfigurationIsNull = true;
             request.InventoryConfiguration = new Amazon.S3.Model.InventoryConfiguration();
-            System.Boolean? requestInventoryConfiguration_inventoryConfiguration_IsEnabled = null;
-            if (cmdletContext.InventoryConfiguration_IsEnabled != null)
-            {
-                requestInventoryConfiguration_inventoryConfiguration_IsEnabled = cmdletContext.InventoryConfiguration_IsEnabled.Value;
-            }
-            if (requestInventoryConfiguration_inventoryConfiguration_IsEnabled != null)
-            {
-                request.InventoryConfiguration.IsEnabled = requestInventoryConfiguration_inventoryConfiguration_IsEnabled.Value;
-                requestInventoryConfigurationIsNull = false;
-            }
             System.String requestInventoryConfiguration_inventoryConfiguration_InventoryId = null;
             if (cmdletContext.InventoryConfiguration_InventoryId != null)
             {
@@ -339,6 +334,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestInventoryConfiguration_inventoryConfiguration_IncludedObjectVersion != null)
             {
                 request.InventoryConfiguration.IncludedObjectVersions = requestInventoryConfiguration_inventoryConfiguration_IncludedObjectVersion;
+                requestInventoryConfigurationIsNull = false;
+            }
+            System.Boolean? requestInventoryConfiguration_inventoryConfiguration_IsEnabled = null;
+            if (cmdletContext.InventoryConfiguration_IsEnabled != null)
+            {
+                requestInventoryConfiguration_inventoryConfiguration_IsEnabled = cmdletContext.InventoryConfiguration_IsEnabled.Value;
+            }
+            if (requestInventoryConfiguration_inventoryConfiguration_IsEnabled != null)
+            {
+                request.InventoryConfiguration.IsEnabled = requestInventoryConfiguration_inventoryConfiguration_IsEnabled.Value;
                 requestInventoryConfigurationIsNull = false;
             }
             List<Amazon.S3.InventoryOptionalField> requestInventoryConfiguration_inventoryConfiguration_InventoryOptionalField = null;
@@ -599,10 +604,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public Amazon.S3.InventoryFormat S3BucketDestination_InventoryFormat { get; set; }
             public Amazon.S3.Model.SSES3 InventoryEncryption_SSES3 { get; set; }
             public System.String SSEKMS_KeyId { get; set; }
-            public System.Boolean? InventoryConfiguration_IsEnabled { get; set; }
             public Amazon.S3.Model.InventoryFilterPredicate InventoryFilter_InventoryFilterPredicate { get; set; }
             public System.String InventoryConfiguration_InventoryId { get; set; }
             public Amazon.S3.InventoryIncludedObjectVersions InventoryConfiguration_IncludedObjectVersion { get; set; }
+            public System.Boolean? InventoryConfiguration_IsEnabled { get; set; }
             public List<Amazon.S3.InventoryOptionalField> InventoryConfiguration_InventoryOptionalField { get; set; }
             public Amazon.S3.InventoryFrequency Schedule_Frequency { get; set; }
             public System.String ExpectedBucketOwner { get; set; }

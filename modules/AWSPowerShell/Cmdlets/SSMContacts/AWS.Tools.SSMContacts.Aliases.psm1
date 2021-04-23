@@ -1,0 +1,3 @@
+﻿# SSMContacts
+
+Export-ModuleMember -Alias *

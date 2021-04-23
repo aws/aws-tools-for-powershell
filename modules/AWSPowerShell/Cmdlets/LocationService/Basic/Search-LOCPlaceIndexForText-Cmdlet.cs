@@ -38,15 +38,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// You can search for places near a given position using <code>BiasPosition</code>, or
     /// filter results within a bounding box using <code>FilterBBox</code>. Providing both
     /// parameters simultaneously returns an error.
-    /// </para></note><note><para>
-    /// By using Places, you agree that AWS may transmit your API queries to your selected
-    /// third party provider for processing, which may be outside the AWS region you are currently
-    /// using. 
-    /// </para><para>
-    /// Also, when using HERE as your data provider, you may not (a) use HERE Places for Asset
-    /// Management, or (b) select the <code>Storage</code> option for the <code>IntendedUse</code>
-    /// parameter when requesting Places in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS
-    /// Service Terms</a> for Amazon Location Service.
     /// </para></note>
     /// </summary>
     [Cmdlet("Search", "LOCPlaceIndexForText")]
@@ -99,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter IndexName
         /// <summary>
         /// <para>
-        /// <para>The name of the Place index resource you want to use for the search.</para>
+        /// <para>The name of the place index resource you want to use for the search.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

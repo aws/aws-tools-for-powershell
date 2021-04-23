@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter JoinToken
         /// <summary>
         /// <para>
-        /// <para>Token used by the Amazon Chime SDK attendee. Call the <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Attendee.htmlCreateAttendee">CreateAttendee</a>
+        /// <para>Token used by the Amazon Chime SDK attendee. Call the <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html">CreateAttendee</a>
         /// action to get a join token.</para>
         /// </para>
         /// </summary>

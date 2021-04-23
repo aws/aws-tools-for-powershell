@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeIo { get; set; }
         #endregion
         
+        #region Parameter WorkspaceAccessProperties_DeviceTypeLinux
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether users can use Linux clients to access their WorkSpaces.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpaces.AccessPropertyValue")]
+        public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeLinux { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceAccessProperties_DeviceTypeOsx
         /// <summary>
         /// <para>
@@ -214,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             context.WorkspaceAccessProperties_DeviceTypeAndroid = this.WorkspaceAccessProperties_DeviceTypeAndroid;
             context.WorkspaceAccessProperties_DeviceTypeChromeOs = this.WorkspaceAccessProperties_DeviceTypeChromeOs;
             context.WorkspaceAccessProperties_DeviceTypeIo = this.WorkspaceAccessProperties_DeviceTypeIo;
+            context.WorkspaceAccessProperties_DeviceTypeLinux = this.WorkspaceAccessProperties_DeviceTypeLinux;
             context.WorkspaceAccessProperties_DeviceTypeOsx = this.WorkspaceAccessProperties_DeviceTypeOsx;
             context.WorkspaceAccessProperties_DeviceTypeWeb = this.WorkspaceAccessProperties_DeviceTypeWeb;
             context.WorkspaceAccessProperties_DeviceTypeWindow = this.WorkspaceAccessProperties_DeviceTypeWindow;
@@ -270,6 +282,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeIo != null)
             {
                 request.WorkspaceAccessProperties.DeviceTypeIos = requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeIo;
+                requestWorkspaceAccessPropertiesIsNull = false;
+            }
+            Amazon.WorkSpaces.AccessPropertyValue requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeLinux = null;
+            if (cmdletContext.WorkspaceAccessProperties_DeviceTypeLinux != null)
+            {
+                requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeLinux = cmdletContext.WorkspaceAccessProperties_DeviceTypeLinux;
+            }
+            if (requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeLinux != null)
+            {
+                request.WorkspaceAccessProperties.DeviceTypeLinux = requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeLinux;
                 requestWorkspaceAccessPropertiesIsNull = false;
             }
             Amazon.WorkSpaces.AccessPropertyValue requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeOsx = null;
@@ -382,6 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeAndroid { get; set; }
             public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeChromeOs { get; set; }
             public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeIo { get; set; }
+            public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeLinux { get; set; }
             public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeOsx { get; set; }
             public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeWeb { get; set; }
             public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeWindow { get; set; }

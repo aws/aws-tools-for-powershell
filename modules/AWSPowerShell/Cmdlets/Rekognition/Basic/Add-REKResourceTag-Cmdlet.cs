@@ -30,7 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// <summary>
     /// Adds one or more key-value tags to an Amazon Rekognition collection, stream processor,
     /// or Custom Labels model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-    /// AWS Resources</a>.
+    /// AWS Resources</a>. 
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permissions to perform the <code>rekognition:TagResource</code>
+    /// action. 
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "REKResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

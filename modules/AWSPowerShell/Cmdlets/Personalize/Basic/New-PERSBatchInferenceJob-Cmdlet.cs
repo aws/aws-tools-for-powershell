@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The ARN of the filter to apply to the batch inference job. For more information on
-        /// using filters, see Using Filters with Amazon Personalize.</para>
+        /// using filters, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html">Filtering
+        /// Batch Recommendations</a>..</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <para>A string to string map specifying the exploration configuration hyperparameters, including
         /// <code>explorationWeight</code> and <code>explorationItemAgeCutOff</code>, you want
         /// to use to configure the amount of item exploration Amazon Personalize uses when recommending
-        /// items. See <a>native-recipe-new-item-USER_PERSONALIZATION</a>.</para>
+        /// items. See <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The ARN of the Amazon Identity and Access Management role that has permissions to
-        /// read and write to your input and out Amazon S3 buckets respectively.</para>
+        /// read and write to your input and output Amazon S3 buckets respectively.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

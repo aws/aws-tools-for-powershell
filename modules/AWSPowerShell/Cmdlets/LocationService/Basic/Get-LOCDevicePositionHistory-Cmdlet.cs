@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// of time.
     /// 
     ///  <note><para>
-    /// Device positions are deleted after 1 year.
+    /// Device positions are deleted after 30 days.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "LOCDevicePositionHistory")]

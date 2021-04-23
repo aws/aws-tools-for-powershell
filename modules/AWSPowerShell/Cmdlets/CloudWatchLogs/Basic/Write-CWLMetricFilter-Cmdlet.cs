@@ -35,7 +35,23 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     ///  
     /// <para>
     /// The maximum number of metric filters that can be associated with a log group is 100.
-    /// </para>
+    /// </para><para>
+    /// When you create a metric filter, you can also optionally assign a unit and dimensions
+    /// to the metric that is created.
+    /// </para><important><para>
+    /// Metrics extracted from log events are charged as custom metrics. To prevent unexpected
+    /// high charges, do not specify high-cardinality fields such as <code>IPAddress</code>
+    /// or <code>requestID</code> as dimensions. Each different value found for a dimension
+    /// is treated as a separate metric and accrues charges as a separate custom metric. 
+    /// </para><para>
+    /// To help prevent accidental high charges, Amazon disables a metric filter if it generates
+    /// 1000 different name/value pairs for the dimensions that you have specified within
+    /// a certain amount of time.
+    /// </para><para>
+    /// You can also set up a billing alarm to alert you if your charges are higher than expected.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html">
+    /// Creating a Billing Alarm to Monitor Your Estimated AWS Charges</a>. 
+    /// </para></important>
     /// </summary>
     [Cmdlet("Write", "CWLMetricFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>True to include manual DB cluster snapshots that are public and can be copied or restored
-        /// by any AWS account, and otherwise false. The default is <code>false</code>. The default
-        /// is false.</para><para>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a>
+        /// by any Amazon account, and otherwise false. The default is <code>false</code>. The
+        /// default is false.</para><para>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a>
         /// API action.</para>
         /// </para>
         /// </summary>
@@ -92,10 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter IncludeShared
         /// <summary>
         /// <para>
-        /// <para>True to include shared manual DB cluster snapshots from other AWS accounts that this
-        /// AWS account has been given permission to copy or restore, and otherwise false. The
-        /// default is <code>false</code>.</para><para>You can give an AWS account permission to restore a manual DB cluster snapshot from
-        /// another AWS account by the <a>ModifyDBClusterSnapshotAttribute</a> API action.</para>
+        /// <para>True to include shared manual DB cluster snapshots from other Amazon accounts that
+        /// this AWS account has been given permission to copy or restore, and otherwise false.
+        /// The default is <code>false</code>.</para><para>You can give an Amazon account permission to restore a manual DB cluster snapshot
+        /// from another Amazon account by the <a>ModifyDBClusterSnapshotAttribute</a> API action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,9 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The type of DB cluster snapshots to be returned. You can specify one of the following
         /// values:</para><ul><li><para><code>automated</code> - Return all DB cluster snapshots that have been automatically
-        /// taken by Amazon Neptune for my AWS account.</para></li><li><para><code>manual</code> - Return all DB cluster snapshots that have been taken by my
+        /// taken by Amazon Neptune for my Amazon account.</para></li><li><para><code>manual</code> - Return all DB cluster snapshots that have been taken by my
         /// AWS account.</para></li><li><para><code>shared</code> - Return all manual DB cluster snapshots that have been shared
-        /// to my AWS account.</para></li><li><para><code>public</code> - Return all DB cluster snapshots that have been marked as public.</para></li></ul><para>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
+        /// to my Amazon account.</para></li><li><para><code>public</code> - Return all DB cluster snapshots that have been marked as public.</para></li></ul><para>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
         /// DB cluster snapshots are returned. You can include shared DB cluster snapshots with
         /// these results by setting the <code>IncludeShared</code> parameter to <code>true</code>.
         /// You can include public DB cluster snapshots with these results by setting the <code>IncludePublic</code>

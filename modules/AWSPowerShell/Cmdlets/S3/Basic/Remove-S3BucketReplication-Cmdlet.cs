@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// It can take a while for the deletion of a replication configuration to fully propagate.
     /// </para></note><para>
     ///  For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a>
-    /// in the <i>Amazon S3 Developer Guide</i>. 
+    /// in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
     /// The following operations are related to <code>DeleteBucketReplication</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html">PutBucketReplication</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html">GetBucketReplication</a></para></li></ul>
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the bucket is owned by a different
+        /// account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

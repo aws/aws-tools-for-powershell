@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The tag keys associated with the tags to remove from the resource.</para>
+        /// <para>The tag keys associated with the tags to remove from the resource. You can remove
+        /// up to 50 tags at a time.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

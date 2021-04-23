@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// <summary>
     /// Updates some of the parameters of a previously created location for Server Message
     /// Block (SMB) file system access. For information about creating an SMB location, see
-    /// <a>create-smb-location</a>.
+    /// <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Creating
+    /// a location for SMB</a>.
     /// </summary>
     [Cmdlet("Update", "DSYNLocationSmb", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

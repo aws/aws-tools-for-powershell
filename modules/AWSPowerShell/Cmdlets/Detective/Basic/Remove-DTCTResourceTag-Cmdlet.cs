@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The tag keys of the tags to remove from the behavior graph.</para>
+        /// <para>The tag keys of the tags to remove from the behavior graph. You can remove up to 50
+        /// tags at a time.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

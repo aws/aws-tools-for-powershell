@@ -219,6 +219,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Boolean? CognitoOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter ColdStorageOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>True to enable cold storage for an Elasticsearch domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ElasticsearchClusterConfig_ColdStorageOptions_Enabled")]
+        public System.Boolean? ColdStorageOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter NodeToNodeEncryptionOptions_Enabled
         /// <summary>
         /// <para>
@@ -659,6 +670,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             context.EBSOptions_Iops = this.EBSOptions_Iops;
             context.EBSOptions_VolumeSize = this.EBSOptions_VolumeSize;
             context.EBSOptions_VolumeType = this.EBSOptions_VolumeType;
+            context.ColdStorageOptions_Enabled = this.ColdStorageOptions_Enabled;
             context.ElasticsearchClusterConfig_DedicatedMasterCount = this.ElasticsearchClusterConfig_DedicatedMasterCount;
             context.ElasticsearchClusterConfig_DedicatedMasterEnabled = this.ElasticsearchClusterConfig_DedicatedMasterEnabled;
             context.ElasticsearchClusterConfig_DedicatedMasterType = this.ElasticsearchClusterConfig_DedicatedMasterType;
@@ -1190,6 +1202,31 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.ElasticsearchClusterConfig.ZoneAwarenessEnabled = requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessEnabled.Value;
                 requestElasticsearchClusterConfigIsNull = false;
             }
+            Amazon.Elasticsearch.Model.ColdStorageOptions requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptions = null;
+            
+             // populate ColdStorageOptions
+            var requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptionsIsNull = true;
+            requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptions = new Amazon.Elasticsearch.Model.ColdStorageOptions();
+            System.Boolean? requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptions_coldStorageOptions_Enabled = null;
+            if (cmdletContext.ColdStorageOptions_Enabled != null)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptions_coldStorageOptions_Enabled = cmdletContext.ColdStorageOptions_Enabled.Value;
+            }
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptions_coldStorageOptions_Enabled != null)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptions.Enabled = requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptions_coldStorageOptions_Enabled.Value;
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptionsIsNull = false;
+            }
+             // determine if requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptions should be set to null
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptionsIsNull)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptions = null;
+            }
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptions != null)
+            {
+                request.ElasticsearchClusterConfig.ColdStorageOptions = requestElasticsearchClusterConfig_elasticsearchClusterConfig_ColdStorageOptions;
+                requestElasticsearchClusterConfigIsNull = false;
+            }
             Amazon.Elasticsearch.Model.ZoneAwarenessConfig requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfig = null;
             
              // populate ZoneAwarenessConfig
@@ -1388,6 +1425,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public System.Int32? EBSOptions_Iops { get; set; }
             public System.Int32? EBSOptions_VolumeSize { get; set; }
             public Amazon.Elasticsearch.VolumeType EBSOptions_VolumeType { get; set; }
+            public System.Boolean? ColdStorageOptions_Enabled { get; set; }
             public System.Int32? ElasticsearchClusterConfig_DedicatedMasterCount { get; set; }
             public System.Boolean? ElasticsearchClusterConfig_DedicatedMasterEnabled { get; set; }
             public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_DedicatedMasterType { get; set; }

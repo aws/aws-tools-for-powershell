@@ -61,7 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter DataSourceSyncJobMetricTarget_DataSourceSyncJobId
         /// <summary>
         /// <para>
-        /// <para>The ID of the sync job that is running on the data source.</para>
+        /// <para>The ID of the sync job that is running on the data source.</para><para>If the ID of a sync job is not provided and there is a sync job running, then the
+        /// ID of this sync job is used and metrics are generated for this sync job.</para><para>If the ID of a sync job is not provided and there is no sync job running, then no
+        /// metrics are generated and documents are indexed/deleted at the index level without
+        /// sync job metrics included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

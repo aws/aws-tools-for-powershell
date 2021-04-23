@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group.
         /// For information about creating an ARN, see <a href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
-        /// Constructing an Amazon Resource Name (ARN)</a>.</para><para>Constraints:</para><ul><li><para>Must specify a valid DB cluster parameter group.</para></li><li><para>If the source DB cluster parameter group is in the same AWS Region as the copy, specify
-        /// a valid DB parameter group identifier, for example <code>my-db-cluster-param-group</code>,
-        /// or a valid ARN.</para></li><li><para>If the source DB parameter group is in a different AWS Region than the copy, specify
+        /// Constructing an Amazon Resource Name (ARN)</a>.</para><para>Constraints:</para><ul><li><para>Must specify a valid DB cluster parameter group.</para></li><li><para>If the source DB cluster parameter group is in the same Amazon Region as the copy,
+        /// specify a valid DB parameter group identifier, for example <code>my-db-cluster-param-group</code>,
+        /// or a valid ARN.</para></li><li><para>If the source DB parameter group is in a different Amazon Region than the copy, specify
         /// a valid DB cluster parameter group ARN, for example <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</para></li></ul>
         /// </para>
         /// </summary>

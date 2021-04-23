@@ -30,10 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// Updates values stored in the domain configuration. Domain configurations for default
     /// endpoints can't be updated.
-    /// 
-    ///  <note><para>
-    /// The domain configuration feature is in public preview and is subject to change.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "IOTDomainConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.UpdateDomainConfigurationResponse")]

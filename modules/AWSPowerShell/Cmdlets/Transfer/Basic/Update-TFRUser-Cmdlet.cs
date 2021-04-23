@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter PosixProfile_Gid
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The POSIX group ID used for all EFS operations by this user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,20 +71,23 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter HomeDirectoryMapping
         /// <summary>
         /// <para>
-        /// <para>Logical directory mappings that specify what Amazon S3 paths and keys should be visible
-        /// to your user and how you want to make them visible. You will need to specify the "<code>Entry</code>"
-        /// and "<code>Target</code>" pair, where <code>Entry</code> shows how the path is made
-        /// visible and <code>Target</code> is the actual Amazon S3 path. If you only specify
-        /// a target, it will be displayed as is. You will need to also make sure that your IAM
-        /// role provides access to paths in <code>Target</code>. The following is an example.</para><para><code>'[ "/bucket2/documentation", { "Entry": "your-personal-report.pdf", "Target":
-        /// "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]'</code></para><para>In most cases, you can use this value instead of the scope-down policy to lock your
-        /// user down to the designated home directory ("chroot"). To do this, you can set <code>Entry</code>
-        /// to '/' and set <code>Target</code> to the HomeDirectory parameter value.</para><note><para>If the target of a logical directory entry does not exist in Amazon S3, the entry
-        /// will be ignored. As a workaround, you can use the Amazon S3 API to create 0 byte objects
-        /// as place holders for your directory. If using the CLI, use the <code>s3api</code>
-        /// call instead of <code>s3</code> so you can use the put-object operation. For example,
-        /// you use the following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>.
-        /// Make sure that the end of the key name ends in a / for it to be considered a folder.</para></note>
+        /// <para>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys
+        /// should be visible to your user and how you want to make them visible. You will need
+        /// to specify the "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code>
+        /// shows how the path is made visible and <code>Target</code> is the actual Amazon S3
+        /// or Amazon EFS path. If you only specify a target, it will be displayed as is. You
+        /// will need to also make sure that your IAM role provides access to paths in <code>Target</code>.
+        /// The following is an example.</para><para><code>'[ "/bucket2/documentation", { "Entry": "your-personal-report.pdf", "Target":
+        /// "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]'</code></para><para>In most cases, you can use this value instead of the scope-down policy to lock down
+        /// your user to the designated home directory ("<code>chroot</code>"). To do this, you
+        /// can set <code>Entry</code> to '/' and set <code>Target</code> to the HomeDirectory
+        /// parameter value.</para><note><para>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the
+        /// entry will be ignored. As a workaround, you can use the Amazon S3 API or EFS API to
+        /// create 0-byte objects as place holders for your directory. If using the AWS CLI, use
+        /// the <code>s3api</code> or <code>efsapi</code> call instead of <code>s3</code><code>efs</code>
+        /// so you can use the put-object operation. For example, you use the following: <code>aws
+        /// s3api put-object --bucket bucketname --key path/to/folder/</code>. Make sure that
+        /// the end of the key name ends in a / for it to be considered a folder.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,9 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>The type of landing directory (folder) you want your users' home directory to be when
         /// they log into the server. If you set it to <code>PATH</code>, the user will see the
-        /// absolute Amazon S3 bucket paths as is in their file transfer protocol clients. If
-        /// you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code>
-        /// for how you want to make Amazon S3 paths visible to your users.</para>
+        /// absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients.
+        /// If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code>
+        /// for how you want to make Amazon S3 or EFS paths visible to your users.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,10 +131,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>The IAM role that controls your users' access to your Amazon S3 bucket. The policies
-        /// attached to this role will determine the level of access you want to provide your
-        /// users when transferring files into and out of your Amazon S3 bucket or buckets. The
-        /// IAM role should also contain a trust relationship that allows the server to access
-        /// your resources when servicing your users' transfer requests.</para>
+        /// attached to this role determine the level of access you want to provide your users
+        /// when transferring files into and out of your S3 bucket or buckets. The IAM role should
+        /// also contain a trust relationship that allows the server to access your resources
+        /// when servicing your users' transfer requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter PosixProfile_SecondaryGid
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The secondary POSIX group IDs used for all EFS operations by this user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter PosixProfile_Uid
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The POSIX user ID used for all EFS operations by this user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

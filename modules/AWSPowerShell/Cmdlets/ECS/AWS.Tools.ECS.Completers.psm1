@@ -143,7 +143,7 @@ $ECS_Completers = {
             ($_ -eq "New-ECSTaskSet/LaunchType")
         }
         {
-            $v = "EC2","FARGATE"
+            $v = "EC2","EXTERNAL","FARGATE"
             break
         }
 

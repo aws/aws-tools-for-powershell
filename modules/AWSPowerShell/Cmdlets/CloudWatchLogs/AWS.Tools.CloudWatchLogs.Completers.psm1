@@ -104,7 +104,7 @@ $CWL_Completers = {
         # Amazon.CloudWatchLogs.QueryStatus
         "Get-CWLQuery/Status"
         {
-            $v = "Cancelled","Complete","Failed","Running","Scheduled"
+            $v = "Cancelled","Complete","Failed","Running","Scheduled","Timeout","Unknown"
             break
         }
 

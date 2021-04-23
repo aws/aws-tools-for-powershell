@@ -28,7 +28,7 @@ using Amazon.MWAA.Model;
 namespace Amazon.PowerShell.Cmdlets.MWAA
 {
     /// <summary>
-    /// Delete an existing environment.
+    /// Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
     /// </summary>
     [Cmdlet("Remove", "MWAAEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the environment to delete.</para>
+        /// <para>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

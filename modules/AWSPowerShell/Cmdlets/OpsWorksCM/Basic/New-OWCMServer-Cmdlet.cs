@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>
         /// <para> The major release version of the engine that you want to use. For a Chef server,
         /// the valid value for EngineVersion is currently <code>2</code>. For a Puppet server,
-        /// the valid value is <code>2017</code>. </para>
+        /// valid values are <code>2019</code> or <code>2017</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

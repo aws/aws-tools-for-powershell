@@ -503,7 +503,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputConfig_SnsTopicArn
         /// <summary>
         /// <para>
-        /// <para>An Amazon Simple Notification Service (Amazon SNS) output topic ARN.</para><para>If you provide an <code>SnsTopicArn</code> in <code>OutputConfig</code>, when workers
+        /// <para>An Amazon Simple Notification Service (Amazon SNS) output topic ARN. Provide a <code>SnsTopicArn</code>
+        /// if you want to do real time chaining to another streaming job and receive an Amazon
+        /// SNS notifications each time a data object is submitted by a worker.</para><para>If you provide an <code>SnsTopicArn</code> in <code>OutputConfig</code>, when workers
         /// complete labeling tasks, Ground Truth will send labeling task output data to the SNS
         /// output topic you specify here. </para><para>To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-output-data">Receive
         /// Output Data from a Streaming Labeling Job</a>. </para>

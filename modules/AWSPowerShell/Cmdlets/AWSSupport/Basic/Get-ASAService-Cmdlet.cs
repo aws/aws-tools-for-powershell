@@ -41,10 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// the service codes and categories that the <code>DescribeServices</code> operation
     /// returns, so that you have the most recent set of service and category codes.
     /// </para><note><ul><li><para>
-    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// You must have a Business or Enterprise Support plan to use the AWS Support API. 
     /// </para></li><li><para>
     /// If you call the AWS Support API from an account that does not have a Business or Enterprise
-    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// Support plan, the <code>SubscriptionRequiredException</code> error message appears.
     /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
     /// Support</a>.
     /// </para></li></ul></note>

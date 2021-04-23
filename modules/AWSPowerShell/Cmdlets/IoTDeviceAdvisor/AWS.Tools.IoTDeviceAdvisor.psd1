@@ -93,11 +93,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTDASuiteRun', 
         'Get-IOTDASuiteRunList', 
         'Get-IOTDASuiteRunReport', 
-        'Get-IOTDATestCaseList', 
         'New-IOTDASuiteDefinition', 
         'Remove-IOTDAResourceTag', 
         'Remove-IOTDASuiteDefinition', 
         'Start-IOTDASuiteRun', 
+        'Stop-IOTDASuiteRun', 
         'Update-IOTDASuiteDefinition')
 
     # Variables to export from this module

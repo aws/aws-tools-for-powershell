@@ -106,6 +106,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter Matching_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>The flag that enables the matching process of duplicate profiles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Matching_Enabled { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -194,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Matching_Enabled = this.Matching_Enabled;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -233,6 +244,25 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
+            }
+            
+             // populate Matching
+            var requestMatchingIsNull = true;
+            request.Matching = new Amazon.CustomerProfiles.Model.MatchingRequest();
+            System.Boolean? requestMatching_matching_Enabled = null;
+            if (cmdletContext.Matching_Enabled != null)
+            {
+                requestMatching_matching_Enabled = cmdletContext.Matching_Enabled.Value;
+            }
+            if (requestMatching_matching_Enabled != null)
+            {
+                request.Matching.Enabled = requestMatching_matching_Enabled.Value;
+                requestMatchingIsNull = false;
+            }
+             // determine if request.Matching should be set to null
+            if (requestMatchingIsNull)
+            {
+                request.Matching = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -303,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String DefaultEncryptionKey { get; set; }
             public System.Int32? DefaultExpirationDay { get; set; }
             public System.String DomainName { get; set; }
+            public System.Boolean? Matching_Enabled { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.CreateDomainResponse, NewCPFDomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -132,6 +132,16 @@ $LICM_Completers = {
             break
         }
 
+        # Amazon.LicenseManager.ReportFrequencyType
+        {
+            ($_ -eq "New-LICMLicenseManagerReportGenerator/ReportFrequency_Period") -Or
+            ($_ -eq "Update-LICMLicenseManagerReportGenerator/ReportFrequency_Period")
+        }
+        {
+            $v = "DAY","MONTH","WEEK"
+            break
+        }
+
 
     }
 
@@ -146,6 +156,7 @@ $LICM_map = @{
     "DigitalSignatureMethod"=@("Invoke-LICMLicenseCheckoutBorrow")
     "LicenseConfigurationStatus"=@("Update-LICMLicenseConfiguration")
     "LicenseCountingType"=@("New-LICMLicenseConfiguration")
+    "ReportFrequency_Period"=@("New-LICMLicenseManagerReportGenerator","Update-LICMLicenseManagerReportGenerator")
     "Status"=@("New-LICMGrantVersion","New-LICMLicenseVersion")
 }
 
@@ -207,23 +218,27 @@ $LICM_SelectMap = @{
                "New-LICMGrantVersion",
                "New-LICMLicense",
                "New-LICMLicenseConfiguration",
+               "New-LICMLicenseManagerReportGenerator",
                "New-LICMLicenseVersion",
                "New-LICMToken",
                "Remove-LICMGrant",
                "Remove-LICMLicense",
                "Remove-LICMLicenseConfiguration",
+               "Remove-LICMLicenseManagerReportGenerator",
                "Remove-LICMToken",
                "Invoke-LICMExtendLicenseConsumption",
                "Get-LICMAccessToken",
                "Get-LICMGrant",
                "Get-LICMLicense",
                "Get-LICMLicenseConfiguration",
+               "Get-LICMLicenseManagerReportGenerator",
                "Get-LICMLicenseUsage",
                "Get-LICMServiceSetting",
                "Get-LICMAssociationsForLicenseConfigurationList",
                "Get-LICMDistributedGrantList",
                "Get-LICMFailuresForLicenseConfigurationOperationList",
                "Get-LICMLicenseConfigurationList",
+               "Get-LICMLicenseManagerReportGeneratorList",
                "Get-LICMLicenseList",
                "Get-LICMLicenseSpecificationsForResourceList",
                "Get-LICMLicenseVersionList",
@@ -237,6 +252,7 @@ $LICM_SelectMap = @{
                "Add-LICMResourceTag",
                "Remove-LICMResourceTag",
                "Update-LICMLicenseConfiguration",
+               "Update-LICMLicenseManagerReportGenerator",
                "Update-LICMLicenseSpecificationsForResource",
                "Update-LICMServiceSetting")
 }

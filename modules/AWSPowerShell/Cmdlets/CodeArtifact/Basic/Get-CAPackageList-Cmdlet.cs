@@ -28,8 +28,8 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Returns a list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html"><code>PackageSummary</code></a> objects for packages in a repository that match the
-    /// request parameters.
+    /// Returns a list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a>
+    /// objects for packages in a repository that match the request parameters.
     /// </summary>
     [Cmdlet("Get", "CAPackageList")]
     [OutputType("Amazon.CodeArtifact.Model.PackageSummary")]

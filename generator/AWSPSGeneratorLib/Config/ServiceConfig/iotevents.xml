@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateAlarmModel" OutputProperty="*" Verb="New" Noun="AlarmModel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDetectorModel" OutputProperty="DetectorModelConfiguration" Verb="New" Noun="DetectorModel" ShouldProcessTarget="DetectorModelName" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -27,11 +31,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAlarmModel" Verb="Remove" Noun="AlarmModel" ShouldProcessTarget="AlarmModelName" PipelineParameter="AlarmModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDetectorModel" Verb="Remove" Noun="DetectorModel" ShouldProcessTarget="DetectorModelName" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteInput" Verb="Remove" Noun="Input" ShouldProcessTarget="InputName" PipelineParameter="InputName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAlarmModel" OutputProperty="*" Verb="Get" Noun="AlarmModel" PipelineParameter="AlarmModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -55,11 +67,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAlarmModels" OutputProperty="AlarmModelSummaries" Verb="Get" Noun="AlarmModelList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAlarmModelVersions" OutputProperty="AlarmModelVersionSummaries" Verb="Get" Noun="AlarmModelVersionList" PipelineParameter="AlarmModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDetectorModels" OutputProperty="DetectorModelSummaries" Verb="Get" Noun="DetectorModelList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDetectorModelVersions" OutputProperty="DetectorModelVersionSummaries" Verb="Get" Noun="DetectorModelVersionList" PipelineParameter="DetectorModelName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInputRoutings" OutputProperty="RoutedResources" Verb="Get" Noun="InputRoutingList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -84,6 +108,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAlarmModel" OutputProperty="*" Verb="Update" Noun="AlarmModel" AnonymousShouldProcessTarget="true" PipelineParameter="AlarmModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

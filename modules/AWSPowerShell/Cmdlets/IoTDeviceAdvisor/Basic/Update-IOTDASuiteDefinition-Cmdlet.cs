@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Updates a Device Advisor test suite with suite definition id.</para>
+        /// <para>Suite definition Id of the test suite to be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

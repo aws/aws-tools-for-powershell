@@ -99,7 +99,9 @@ $TFR_Completers = {
 
         # Amazon.Transfer.HomeDirectoryType
         {
+            ($_ -eq "New-TFRAccess/HomeDirectoryType") -Or
             ($_ -eq "New-TFRUser/HomeDirectoryType") -Or
+            ($_ -eq "Update-TFRAccess/HomeDirectoryType") -Or
             ($_ -eq "Update-TFRUser/HomeDirectoryType")
         }
         {
@@ -110,7 +112,7 @@ $TFR_Completers = {
         # Amazon.Transfer.IdentityProviderType
         "New-TFRServer/IdentityProviderType"
         {
-            $v = "API_GATEWAY","SERVICE_MANAGED"
+            $v = "API_GATEWAY","AWS_DIRECTORY_SERVICE","SERVICE_MANAGED"
             break
         }
 
@@ -132,7 +134,7 @@ $TFR_Completers = {
 $TFR_map = @{
     "Domain"=@("New-TFRServer")
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
-    "HomeDirectoryType"=@("New-TFRUser","Update-TFRUser")
+    "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderType"=@("New-TFRServer")
     "ServerProtocol"=@("Test-TFRIdentityProvider")
 }
@@ -187,15 +189,19 @@ $TFR_SelectCompleters = {
 }
 
 $TFR_SelectMap = @{
-    "Select"=@("New-TFRServer",
+    "Select"=@("New-TFRAccess",
+               "New-TFRServer",
                "New-TFRUser",
+               "Remove-TFRAccess",
                "Remove-TFRServer",
                "Remove-TFRSshPublicKey",
                "Remove-TFRUser",
+               "Get-TFRAccess",
                "Get-TFRSecurityPolicy",
                "Get-TFRServer",
                "Get-TFRUser",
                "Import-TFRSshPublicKey",
+               "Get-TFRAccessList",
                "Get-TFRSecurityPolicyList",
                "Get-TFRServerList",
                "Get-TFRResourceTagList",
@@ -205,6 +211,7 @@ $TFR_SelectMap = @{
                "Add-TFRResourceTag",
                "Test-TFRIdentityProvider",
                "Remove-TFRResourceTag",
+               "Update-TFRAccess",
                "Update-TFRServer",
                "Update-TFRUser")
 }

@@ -36,6 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon
     /// Kinesis. It also does not allow for any configurations on features, such as Contact
     /// Lens for Amazon Connect. 
+    /// </para><para>
+    /// Amazon Connect enforces a limit on the total number of instances that you can create
+    /// or delete in 30 days. If you exceed this limit, you will get an error message indicating
+    /// there has been an excessive number of attempts at creating or deleting instances.
+    /// You must wait 30 days before you can restart creating and deleting instances in your
+    /// account.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CONNInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -92,6 +92,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-PERSCampaign', 
         'Get-PERSCampaignList', 
         'Get-PERSDataset', 
+        'Get-PERSDatasetExportJob', 
+        'Get-PERSDatasetExportJobList', 
         'Get-PERSDatasetGroup', 
         'Get-PERSDatasetGroupList', 
         'Get-PERSDatasetImportJob', 
@@ -114,6 +116,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-PERSBatchInferenceJob', 
         'New-PERSCampaign', 
         'New-PERSDataset', 
+        'New-PERSDatasetExportJob', 
         'New-PERSDatasetGroup', 
         'New-PERSDatasetImportJob', 
         'New-PERSEventTracker', 
@@ -128,6 +131,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-PERSFilter', 
         'Remove-PERSSchema', 
         'Remove-PERSSolution', 
+        'Stop-PERSSolutionVersionCreation', 
         'Update-PERSCampaign')
 
     # Variables to export from this module

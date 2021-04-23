@@ -80,10 +80,24 @@ $EMCN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MediaConnect.Colorimetry
+        "Update-EMCNFlowMediaStream/Attributes_Fmtp_Colorimetry"
+        {
+            $v = "BT2020","BT2100","BT601","BT709","ST2065-1","ST2065-3","XYZ"
+            break
+        }
+
         # Amazon.MediaConnect.EntitlementStatus
         "Update-EMCNFlowEntitlement/EntitlementStatus"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.MediaConnect.MediaStreamType
+        "Update-EMCNFlowMediaStream/MediaStreamType"
+        {
+            $v = "ancillary-data","audio","video"
             break
         }
 
@@ -93,7 +107,21 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNFlowSource/Protocol")
         }
         {
-            $v = "rist","rtp","rtp-fec","srt-listener","zixi-pull","zixi-push"
+            $v = "cdi","rist","rtp","rtp-fec","srt-listener","st2110-jpegxs","zixi-pull","zixi-push"
+            break
+        }
+
+        # Amazon.MediaConnect.Range
+        "Update-EMCNFlowMediaStream/Attributes_Fmtp_Range"
+        {
+            $v = "FULL","FULLPROTECT","NARROW"
+            break
+        }
+
+        # Amazon.MediaConnect.ScanMode
+        "Update-EMCNFlowMediaStream/Attributes_Fmtp_ScanMode"
+        {
+            $v = "interlace","progressive","progressive-segmented-frame"
             break
         }
 
@@ -107,6 +135,13 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.Tcs
+        "Update-EMCNFlowMediaStream/Attributes_Fmtp_Tcs"
+        {
+            $v = "BT2100LINHLG","BT2100LINPQ","DENSITY","HLG","LINEAR","PQ","SDR","ST2065-1","ST428-1"
+            break
+        }
+
 
     }
 
@@ -116,7 +151,12 @@ $EMCN_Completers = {
 }
 
 $EMCN_map = @{
+    "Attributes_Fmtp_Colorimetry"=@("Update-EMCNFlowMediaStream")
+    "Attributes_Fmtp_Range"=@("Update-EMCNFlowMediaStream")
+    "Attributes_Fmtp_ScanMode"=@("Update-EMCNFlowMediaStream")
+    "Attributes_Fmtp_Tcs"=@("Update-EMCNFlowMediaStream")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
+    "MediaStreamType"=@("Update-EMCNFlowMediaStream")
     "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
     "SourceFailoverConfig_State"=@("New-EMCNFlow","Update-EMCNFlow")
 }
@@ -171,7 +211,8 @@ $EMCN_SelectCompleters = {
 }
 
 $EMCN_SelectMap = @{
-    "Select"=@("Add-EMCNFlowOutput",
+    "Select"=@("Add-EMCNFlowMediaStream",
+               "Add-EMCNFlowOutput",
                "Add-EMCNFlowSource",
                "Add-EMCNFlowVpcInterface",
                "New-EMCNFlow",
@@ -186,6 +227,7 @@ $EMCN_SelectMap = @{
                "Get-EMCNReservationList",
                "Get-EMCNResourceTag",
                "New-EMCNOffering",
+               "Remove-EMCNFlowMediaStream",
                "Remove-EMCNFlowOutput",
                "Remove-EMCNFlowSource",
                "Remove-EMCNFlowVpcInterface",
@@ -196,6 +238,7 @@ $EMCN_SelectMap = @{
                "Remove-EMCNResourceTag",
                "Update-EMCNFlow",
                "Update-EMCNFlowEntitlement",
+               "Update-EMCNFlowMediaStream",
                "Update-EMCNFlowOutput",
                "Update-EMCNFlowSource")
 }

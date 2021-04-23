@@ -58,6 +58,17 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         public System.String InsightId { get; set; }
         #endregion
         
+        #region Parameter Locale
+        /// <summary>
+        /// <para>
+        /// <para>A locale that specifies the language to use for recommendations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DevOpsGuru.Locale")]
+        public Amazon.DevOpsGuru.Locale Locale { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
@@ -135,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
                 WriteWarning("You are passing $null as a value for parameter InsightId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Locale = this.Locale;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -159,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (cmdletContext.InsightId != null)
             {
                 request.InsightId = cmdletContext.InsightId;
+            }
+            if (cmdletContext.Locale != null)
+            {
+                request.Locale = cmdletContext.Locale;
             }
             
             // Initialize loop variant and commence piping
@@ -246,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String InsightId { get; set; }
+            public Amazon.DevOpsGuru.Locale Locale { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.DevOpsGuru.Model.ListRecommendationsResponse, GetDGURURecommendationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Recommendations;

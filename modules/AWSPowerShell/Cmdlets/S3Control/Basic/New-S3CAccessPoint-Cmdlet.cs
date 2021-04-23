@@ -30,15 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <summary>
     /// Creates an access point and associates it with the specified bucket. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing
-    /// Data Access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service
-    /// User Guide</i>.
+    /// Data Access with Amazon S3 Access Points</a> in the <i>Amazon S3 User Guide</i>.
     /// 
     ///   <note><para>
-    /// S3 on Outposts only supports VPC-style Access Points. 
+    /// S3 on Outposts only supports VPC-style access points. 
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">
-    /// Accessing Amazon S3 on Outposts using virtual private cloud (VPC) only Access Points</a>
-    /// in the <i>Amazon Simple Storage Service User Guide</i>.
+    /// Accessing Amazon S3 on Outposts using virtual private cloud (VPC) only access points</a>
+    /// in the <i>Amazon S3 User Guide</i>.
     /// </para></note><para>
     /// All Amazon S3 on Outposts REST API requests for this action require an additional
     /// parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3

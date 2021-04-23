@@ -138,6 +138,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateJobTemplate" OutputProperty="*" Verb="New" Noun="JobTemplate" ShouldProcessTarget="JobTemplateId" PipelineParameter="JobTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateKeysAndCertificate" OutputProperty="*" Verb="New" Noun="KeysAndCertificate" ShouldProcessTarget="SetAsActive" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -258,6 +262,10 @@
             <Params>
                 <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteJobTemplate" Verb="Remove" Noun="JobTemplate" ShouldProcessTarget="JobTemplateId" PipelineParameter="JobTemplateId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteMitigationAction" Verb="Remove" Noun="MitigationAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false">
@@ -405,6 +413,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeJobExecution" OutputProperty="Execution" Verb="Get" Noun="JobExecution" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeJobTemplate" OutputProperty="*" Verb="Get" Noun="JobTemplate" PipelineParameter="JobTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -637,6 +649,10 @@
         <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobTemplates" OutputProperty="JobTemplates" Verb="Get" Noun="JobTemplateList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMitigationActions" OutputProperty="ActionIdentifiers" Verb="Get" Noun="MitigationActionList" PipelineParameter="ActionType" NoPipelineParameter="false">

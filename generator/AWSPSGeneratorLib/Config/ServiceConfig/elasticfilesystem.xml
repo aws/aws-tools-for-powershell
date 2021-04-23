@@ -64,6 +64,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountPreferences" OutputProperty="ResourceIdPreference" Verb="Get" Noun="AccountPreference" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeBackupPolicy" OutputProperty="BackupPolicy" Verb="Get" Noun="BackupPolicy" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -97,6 +101,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyMountTargetSecurityGroups" Verb="Edit" Noun="MountTargetSecurityGroup" ShouldProcessTarget="MountTargetId" PipelineParameter="SecurityGroups" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAccountPreferences" OutputProperty="ResourceIdPreference" Verb="Write" Noun="AccountPreference" ShouldProcessTarget="ResourceIdType" PipelineParameter="ResourceIdType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

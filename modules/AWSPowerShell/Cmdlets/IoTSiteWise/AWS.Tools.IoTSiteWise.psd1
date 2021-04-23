@@ -109,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTSWGateway', 
         'Get-IOTSWGatewayCapabilityConfiguration', 
         'Get-IOTSWGatewayList', 
+        'Get-IOTSWInterpolatedAssetPropertyValue', 
         'Get-IOTSWLoggingOption', 
         'Get-IOTSWPortal', 
         'Get-IOTSWPortalList', 

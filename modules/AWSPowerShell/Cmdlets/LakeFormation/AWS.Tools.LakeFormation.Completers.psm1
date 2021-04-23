@@ -83,7 +83,28 @@ $LKF_Completers = {
         # Amazon.LakeFormation.DataLakeResourceType
         "Get-LKFPermissionList/ResourceType"
         {
-            $v = "CATALOG","DATABASE","DATA_LOCATION","TABLE"
+            $v = "CATALOG","DATABASE","DATA_LOCATION","LF_TAG","LF_TAG_POLICY","LF_TAG_POLICY_DATABASE","LF_TAG_POLICY_TABLE","TABLE"
+            break
+        }
+
+        # Amazon.LakeFormation.ResourceShareType
+        "Get-LKFLFTagList/ResourceShareType"
+        {
+            $v = "ALL","FOREIGN"
+            break
+        }
+
+        # Amazon.LakeFormation.ResourceType
+        {
+            ($_ -eq "Add-LKFLFTagsToResource/Resource_LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Get-LKFPermissionList/Resource_LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Get-LKFResourceLFTag/Resource_LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Grant-LKFPermission/Resource_LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Remove-LKFLFTagsFromResource/Resource_LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Revoke-LKFPermission/Resource_LFTagPolicy_ResourceType")
+        }
+        {
+            $v = "DATABASE","TABLE"
             break
         }
 
@@ -96,6 +117,8 @@ $LKF_Completers = {
 }
 
 $LKF_map = @{
+    "Resource_LFTagPolicy_ResourceType"=@("Add-LKFLFTagsToResource","Get-LKFPermissionList","Get-LKFResourceLFTag","Grant-LKFPermission","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
+    "ResourceShareType"=@("Get-LKFLFTagList")
     "ResourceType"=@("Get-LKFPermissionList")
 }
 
@@ -149,18 +172,28 @@ $LKF_SelectCompleters = {
 }
 
 $LKF_SelectMap = @{
-    "Select"=@("Grant-LKFPermissionBatch",
+    "Select"=@("Add-LKFLFTagsToResource",
+               "Grant-LKFPermissionBatch",
                "Revoke-LKFPermissionBatch",
+               "New-LKFLFTag",
+               "Remove-LKFLFTag",
                "Unregister-LKFResource",
                "Get-LKFResource",
                "Get-LKFDataLakeSetting",
                "Get-LKFEffectivePermissionsForPath",
+               "Get-LKFLFTag",
+               "Get-LKFResourceLFTag",
                "Grant-LKFPermission",
+               "Get-LKFLFTagList",
                "Get-LKFPermissionList",
                "Get-LKFResourceList",
                "Write-LKFDataLakeSetting",
                "Register-LKFResource",
+               "Remove-LKFLFTagsFromResource",
                "Revoke-LKFPermission",
+               "Search-LKFDatabasesByLFTag",
+               "Search-LKFTablesByLFTag",
+               "Update-LKFLFTag",
                "Update-LKFResource")
 }
 

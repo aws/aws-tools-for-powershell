@@ -101,6 +101,13 @@ $PCA_Completers = {
             break
         }
 
+        # Amazon.ACMPCA.KeyStorageSecurityStandard
+        "New-PCACertificateAuthority/KeyStorageSecurityStandard"
+        {
+            $v = "FIPS_140_2_LEVEL_2_OR_HIGHER","FIPS_140_2_LEVEL_3_OR_HIGHER"
+            break
+        }
+
         # Amazon.ACMPCA.ResourceOwner
         "Get-PCACertificateAuthorityList/ResourceOwner"
         {
@@ -133,6 +140,7 @@ $PCA_Completers = {
 $PCA_map = @{
     "AuditReportResponseFormat"=@("New-PCACertificateAuthorityAuditReport")
     "CertificateAuthorityType"=@("New-PCACertificateAuthority")
+    "KeyStorageSecurityStandard"=@("New-PCACertificateAuthority")
     "ResourceOwner"=@("Get-PCACertificateAuthorityList")
     "RevocationReason"=@("Revoke-PCACertificate")
     "SigningAlgorithm"=@("New-PCACertificate")

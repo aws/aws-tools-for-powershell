@@ -50,12 +50,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The bucket name containing the object that you want to place a Legal Hold on.</para><para>When using this API with an access point, you must direct requests to the access point hostname. 
-        /// The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. 
-        /// When using this operation with an access point through the AWS SDKs, you provide the access point 
-        /// ARN in place of the bucket name. For more information about access point ARNs, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> 
-        /// in the <i>Amazon Simple Storage Service Developer Guide</i>.</para>
+        /// <para>The bucket name containing the object that you want to place a Legal Hold on. </para><para>When using this action with an access point, you must direct requests to the access
+        /// point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+        /// When using this action with an access point through the AWS SDKs, you provide the
+        /// access point ARN in place of the bucket name. For more information about access point
+        /// ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentMD5
         /// <summary>
         /// <para>
-        /// <para>The MD5 signature for the configuration included in your request.</para>
+        /// <para>The MD5 hash for the request body.</para><para>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field
+        /// is calculated automatically.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the bucket is owned by a different
+        /// account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,11 +189,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
             context.ContentMD5 = this.ContentMD5;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Key = this.Key;
             context.LegalHold_Status = this.LegalHold_Status;
             context.RequestPayer = this.RequestPayer;
             context.VersionId = this.VersionId;
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -216,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ContentMD5 != null)
             {
                 request.ContentMD5 = cmdletContext.ContentMD5;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             if (cmdletContext.Key != null)
             {
@@ -247,10 +252,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.VersionId != null)
             {
                 request.VersionId = cmdletContext.VersionId;
-            }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -315,11 +316,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public System.String ContentMD5 { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.String Key { get; set; }
             public Amazon.S3.ObjectLockLegalHoldStatus LegalHold_Status { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.String VersionId { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutObjectLegalHoldResponse, WriteS3ObjectLegalHoldCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RequestCharged;
         }

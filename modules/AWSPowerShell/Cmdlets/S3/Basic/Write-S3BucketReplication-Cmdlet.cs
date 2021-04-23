@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// Creates a replication configuration or replaces an existing one. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a>
-    /// in the <i>Amazon S3 Developer Guide</i>. 
+    /// in the <i>Amazon S3 User Guide</i>. 
     /// 
     ///  <note><para>
     /// To perform this operation, the user or role performing the action must have the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the bucket to have the replication configuration applied.
+        /// <para>The name of the bucket</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. 
-        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// <para>The account ID of the expected bucket owner. If the bucket is owned by a different
+        /// account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Token
         /// <summary>
         /// <para>
-        /// A token to allow Object Lock to be enabled for an existing bucket.
+        /// <para>A token to allow Object Lock to be enabled for an existing bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,13 +201,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Configuration_Role = this.Configuration_Role;
             if (this.Configuration_Rule != null)
             {
                 context.Configuration_Rule = new List<Amazon.S3.Model.ReplicationRule>(this.Configuration_Rule);
             }
             context.Token = this.Token;
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -227,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
              // populate Configuration
@@ -260,10 +264,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.Token != null)
             {
                 request.Token = cmdletContext.Token;
-            }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -327,10 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.String Configuration_Role { get; set; }
             public List<Amazon.S3.Model.ReplicationRule> Configuration_Rule { get; set; }
             public System.String Token { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketReplicationResponse, WriteS3BucketReplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

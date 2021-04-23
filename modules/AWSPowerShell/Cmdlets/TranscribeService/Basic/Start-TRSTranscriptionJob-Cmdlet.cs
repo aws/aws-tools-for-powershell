@@ -98,7 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code for the language used in the input media file.</para>
+        /// <para>The language code for the language used in the input media file.</para><para>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must
+        /// be encoded at a sample rate of 16000 Hz or higher.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

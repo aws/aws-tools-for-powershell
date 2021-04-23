@@ -304,10 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The subnets to use for the Auto Scaling group that is created for your node group.
-        /// These subnets must have the tag key <code>kubernetes.io/cluster/CLUSTER_NAME</code>
-        /// with a value of <code>shared</code>, where <code>CLUSTER_NAME</code> is replaced with
-        /// the name of your cluster. If you specify <code>launchTemplate</code>, then don't specify
-        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html"><code>SubnetId</code></a> in your launch template, or the node group deployment will
+        /// If you specify <code>launchTemplate</code>, then don't specify <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html"><code>SubnetId</code></a> in your launch template, or the node group deployment will
         /// fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the Amazon EKS User Guide.</para>
         /// </para>
@@ -336,6 +333,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Taint
+        /// <summary>
+        /// <para>
+        /// <para>The Kubernetes taints to be applied to the nodes in the node group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Taints")]
+        public Amazon.EKS.Model.Taint[] Taint { get; set; }
         #endregion
         
         #region Parameter LaunchTemplate_Version
@@ -491,6 +499,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 {
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
+            }
+            if (this.Taint != null)
+            {
+                context.Taint = new List<Amazon.EKS.Model.Taint>(this.Taint);
             }
             context.Version = this.Version;
             
@@ -664,6 +676,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.Taint != null)
+            {
+                request.Taints = cmdletContext.Taint;
+            }
             if (cmdletContext.Version != null)
             {
                 request.Version = cmdletContext.Version;
@@ -749,6 +765,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.Int32? ScalingConfig_MinSize { get; set; }
             public List<System.String> Subnet { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public List<Amazon.EKS.Model.Taint> Taint { get; set; }
             public System.String Version { get; set; }
             public System.Func<Amazon.EKS.Model.CreateNodegroupResponse, NewEKSNodegroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Nodegroup;

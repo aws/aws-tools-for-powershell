@@ -27,7 +27,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExportEBSVolumeRecommendations" OutputProperty="*" Verb="Export" Noun="EBSVolumeRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ExportEC2InstanceRecommendations" OutputProperty="*" Verb="Export" Noun="EC2InstanceRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportLambdaFunctionRecommendations" OutputProperty="*" Verb="Export" Noun="LambdaFunctionRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Collections.Hashtable Labels_AddOrUpdateLabel { get; set; }
         #endregion
         
+        #region Parameter Taints_AddOrUpdateTaint
+        /// <summary>
+        /// <para>
+        /// <para>Kubernetes taints to be added or updated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Taints_AddOrUpdateTaints")]
+        public Amazon.EKS.Model.Taint[] Taints_AddOrUpdateTaint { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -142,6 +153,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Labels_RemoveLabels")]
         public System.String[] Labels_RemoveLabel { get; set; }
+        #endregion
+        
+        #region Parameter Taints_RemoveTaint
+        /// <summary>
+        /// <para>
+        /// <para>Kubernetes taints to be removed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Taints_RemoveTaints")]
+        public Amazon.EKS.Model.Taint[] Taints_RemoveTaint { get; set; }
         #endregion
         
         #region Parameter Select
@@ -235,6 +257,14 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             context.ScalingConfig_DesiredSize = this.ScalingConfig_DesiredSize;
             context.ScalingConfig_MaxSize = this.ScalingConfig_MaxSize;
             context.ScalingConfig_MinSize = this.ScalingConfig_MinSize;
+            if (this.Taints_AddOrUpdateTaint != null)
+            {
+                context.Taints_AddOrUpdateTaint = new List<Amazon.EKS.Model.Taint>(this.Taints_AddOrUpdateTaint);
+            }
+            if (this.Taints_RemoveTaint != null)
+            {
+                context.Taints_RemoveTaint = new List<Amazon.EKS.Model.Taint>(this.Taints_RemoveTaint);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -332,6 +362,35 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 request.ScalingConfig = null;
             }
             
+             // populate Taints
+            var requestTaintsIsNull = true;
+            request.Taints = new Amazon.EKS.Model.UpdateTaintsPayload();
+            List<Amazon.EKS.Model.Taint> requestTaints_taints_AddOrUpdateTaint = null;
+            if (cmdletContext.Taints_AddOrUpdateTaint != null)
+            {
+                requestTaints_taints_AddOrUpdateTaint = cmdletContext.Taints_AddOrUpdateTaint;
+            }
+            if (requestTaints_taints_AddOrUpdateTaint != null)
+            {
+                request.Taints.AddOrUpdateTaints = requestTaints_taints_AddOrUpdateTaint;
+                requestTaintsIsNull = false;
+            }
+            List<Amazon.EKS.Model.Taint> requestTaints_taints_RemoveTaint = null;
+            if (cmdletContext.Taints_RemoveTaint != null)
+            {
+                requestTaints_taints_RemoveTaint = cmdletContext.Taints_RemoveTaint;
+            }
+            if (requestTaints_taints_RemoveTaint != null)
+            {
+                request.Taints.RemoveTaints = requestTaints_taints_RemoveTaint;
+                requestTaintsIsNull = false;
+            }
+             // determine if request.Taints should be set to null
+            if (requestTaintsIsNull)
+            {
+                request.Taints = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -400,6 +459,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.Int32? ScalingConfig_DesiredSize { get; set; }
             public System.Int32? ScalingConfig_MaxSize { get; set; }
             public System.Int32? ScalingConfig_MinSize { get; set; }
+            public List<Amazon.EKS.Model.Taint> Taints_AddOrUpdateTaint { get; set; }
+            public List<Amazon.EKS.Model.Taint> Taints_RemoveTaint { get; set; }
             public System.Func<Amazon.EKS.Model.UpdateNodegroupConfigResponse, UpdateEKSNodegroupConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Update;
         }

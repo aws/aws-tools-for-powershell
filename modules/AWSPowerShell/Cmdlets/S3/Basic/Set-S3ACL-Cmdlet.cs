@@ -203,17 +203,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = (response, cmdlet) => this.BucketName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CannedACL = this.CannedACL;
             context.Owner_DisplayName = this.Owner_DisplayName;
             context.Owner_Id = this.Owner_Id;
             if (this.AccessControlList_Grant != null)
             {
                 context.AccessControlList_Grant = new List<Amazon.S3.Model.S3Grant>(this.AccessControlList_Grant);
             }
+            context.CannedACL = this.CannedACL;
             context.BucketName = this.BucketName;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Key = this.Key;
             context.VersionId = this.VersionId;
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -230,10 +230,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // create request
             var request = new Amazon.S3.Model.PutACLRequest();
             
-            if (cmdletContext.CannedACL != null)
-            {
-                request.CannedACL = cmdletContext.CannedACL;
-            }
             
              // populate AccessControlList
             var requestAccessControlListIsNull = true;
@@ -288,9 +284,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.AccessControlList = null;
             }
+            if (cmdletContext.CannedACL != null)
+            {
+                request.CannedACL = cmdletContext.CannedACL;
+            }
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             if (cmdletContext.Key != null)
             {
@@ -299,10 +303,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.VersionId != null)
             {
                 request.VersionId = cmdletContext.VersionId;
-            }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -365,14 +365,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.S3.S3CannedACL CannedACL { get; set; }
             public System.String Owner_DisplayName { get; set; }
             public System.String Owner_Id { get; set; }
             public List<Amazon.S3.Model.S3Grant> AccessControlList_Grant { get; set; }
+            public Amazon.S3.S3CannedACL CannedACL { get; set; }
             public System.String BucketName { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.String Key { get; set; }
             public System.String VersionId { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutACLResponse, SetS3ACLCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -80,6 +80,20 @@ $LOC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.LocationService.DimensionUnit
+        "Get-LOCRoute/TruckModeOptions_Dimensions_Unit"
+        {
+            $v = "Feet","Meters"
+            break
+        }
+
+        # Amazon.LocationService.DistanceUnit
+        "Get-LOCRoute/DistanceUnit"
+        {
+            $v = "Kilometers","Miles"
+            break
+        }
+
         # Amazon.LocationService.IntendedUse
         "New-LOCPlaceIndex/DataSourceConfiguration_IntendedUse"
         {
@@ -92,10 +106,25 @@ $LOC_Completers = {
             ($_ -eq "New-LOCGeofenceCollection/PricingPlan") -Or
             ($_ -eq "New-LOCMap/PricingPlan") -Or
             ($_ -eq "New-LOCPlaceIndex/PricingPlan") -Or
+            ($_ -eq "New-LOCRouteCalculator/PricingPlan") -Or
             ($_ -eq "New-LOCTracker/PricingPlan")
         }
         {
             $v = "MobileAssetManagement","MobileAssetTracking","RequestBasedUsage"
+            break
+        }
+
+        # Amazon.LocationService.TravelMode
+        "Get-LOCRoute/TravelMode"
+        {
+            $v = "Car","Truck","Walking"
+            break
+        }
+
+        # Amazon.LocationService.VehicleWeightUnit
+        "Get-LOCRoute/TruckModeOptions_Weight_Unit"
+        {
+            $v = "Kilograms","Pounds"
             break
         }
 
@@ -109,7 +138,11 @@ $LOC_Completers = {
 
 $LOC_map = @{
     "DataSourceConfiguration_IntendedUse"=@("New-LOCPlaceIndex")
-    "PricingPlan"=@("New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCTracker")
+    "DistanceUnit"=@("Get-LOCRoute")
+    "PricingPlan"=@("New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCRouteCalculator","New-LOCTracker")
+    "TravelMode"=@("Get-LOCRoute")
+    "TruckModeOptions_Dimensions_Unit"=@("Get-LOCRoute")
+    "TruckModeOptions_Weight_Unit"=@("Get-LOCRoute")
 }
 
 _awsArgumentCompleterRegistration $LOC_Completers $LOC_map
@@ -163,22 +196,27 @@ $LOC_SelectCompleters = {
 
 $LOC_SelectMap = @{
     "Select"=@("Register-LOCTrackerConsumer",
+               "Remove-LOCDevicePositionHistoryBatch",
                "Remove-LOCGeofenceBatch",
                "Submit-LOCGeofenceEvaluationBatch",
                "Get-LOCDevicePositionBatch",
                "Set-LOCGeofenceBatch",
                "Set-LOCDevicePositionBatch",
+               "Get-LOCRoute",
                "New-LOCGeofenceCollection",
                "New-LOCMap",
                "New-LOCPlaceIndex",
+               "New-LOCRouteCalculator",
                "New-LOCTracker",
                "Remove-LOCGeofenceCollection",
                "Remove-LOCMap",
                "Remove-LOCPlaceIndex",
+               "Remove-LOCRouteCalculator",
                "Remove-LOCTracker",
                "Get-LOCGeofenceCollection",
                "Get-LOCMap",
                "Get-LOCPlaceIndex",
+               "Get-LOCRouteCalculator",
                "Get-LOCTracker",
                "Unregister-LOCTrackerConsumer",
                "Get-LOCDevicePosition",
@@ -188,15 +226,20 @@ $LOC_SelectMap = @{
                "Get-LOCMapSprite",
                "Get-LOCMapStyleDescriptor",
                "Get-LOCMapTile",
+               "Get-LOCDevicePositionList",
                "Get-LOCGeofenceCollectionList",
                "Get-LOCGeofenceList",
                "Get-LOCMapList",
                "Get-LOCPlaceIndexList",
+               "Get-LOCRouteCalculatorList",
+               "Get-LOCResourceTagSet",
                "Get-LOCTrackerConsumerList",
                "Get-LOCTrackerList",
                "Set-LOCGeofence",
                "Search-LOCPlaceIndexForPosition",
-               "Search-LOCPlaceIndexForText")
+               "Search-LOCPlaceIndexForText",
+               "Add-LOCResourceTagSet",
+               "Remove-LOCResourceTagSet")
 }
 
 _awsArgumentCompleterRegistration $LOC_SelectCompleters $LOC_SelectMap

@@ -229,6 +229,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPredictiveScalingForecast" OutputProperty="*" Verb="Get" Noun="PredictiveScalingForecast" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutLifecycleHook" Verb="Write" Noun="LifecycleHook" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

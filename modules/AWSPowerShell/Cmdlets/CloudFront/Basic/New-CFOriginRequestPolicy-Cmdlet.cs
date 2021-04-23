@@ -66,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter OriginRequestPolicyConfig_Comment
         /// <summary>
         /// <para>
-        /// <para>A comment to describe the origin request policy.</para>
+        /// <para>A comment to describe the origin request policy. The comment cannot be longer than
+        /// 128 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -69,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter CloudFrontOriginAccessIdentityConfig_Comment
         /// <summary>
         /// <para>
-        /// <para>Any comments you want to include about the origin access identity. </para>
+        /// <para>A comment to describe the origin access identity. The comment cannot be longer than
+        /// 128 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

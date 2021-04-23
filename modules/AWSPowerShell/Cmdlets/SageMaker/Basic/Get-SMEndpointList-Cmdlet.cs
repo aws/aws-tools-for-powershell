@@ -132,7 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of endpoints to return in the response.</para>
+        /// <para>The maximum number of endpoints to return in the response. This value defaults to
+        /// 10.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

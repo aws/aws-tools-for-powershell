@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Tags to associated with the Domain. Each tag consists of a key and an optional value.
         /// Tag keys must be unique per resource. Tags are searchable using the <code>Search</code>
-        /// API.</para>
+        /// API.</para><para>Tags that you specify for the Domain are also added to all Apps that the Domain launches.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// of one or more instances that are associated with a specified service.
     /// 
     ///  <note><para>
-    /// There is a brief delay between when you register an instance and when the health status
+    /// There's a brief delay between when you register an instance and when the health status
     /// for the instance is available. 
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

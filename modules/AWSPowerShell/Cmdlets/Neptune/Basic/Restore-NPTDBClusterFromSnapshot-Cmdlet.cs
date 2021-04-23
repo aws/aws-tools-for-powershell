@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.String[] AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter CopyTagsToSnapshot
+        /// <summary>
+        /// <para>
+        /// <para><i>If set to <code>true</code>, tags are copied to any snapshot of the restored DB
+        /// cluster that is created.</i></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CopyTagsToSnapshot { get; set; }
+        #endregion
+        
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
@@ -136,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-        /// accounts, and otherwise false.</para><para>Default: <code>false</code></para>
+        /// <para>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to
+        /// database accounts, and otherwise false.</para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,9 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier to use when restoring an encrypted DB cluster from a DB
-        /// snapshot or DB cluster snapshot.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
-        /// If you are restoring a DB cluster with the same AWS account that owns the KMS encryption
+        /// <para>The Amazon KMS key identifier to use when restoring an encrypted DB cluster from a
+        /// DB snapshot or DB cluster snapshot.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
+        /// If you are restoring a DB cluster with the same Amazon account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
         /// of the ARN for the KMS encryption key.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
         /// will occur:</para><ul><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is encrypted,
@@ -314,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
             }
+            context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DatabaseName = this.DatabaseName;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             #if MODULAR
@@ -375,6 +387,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZones = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.CopyTagsToSnapshot != null)
+            {
+                request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
             if (cmdletContext.DatabaseName != null)
             {
@@ -498,6 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AvailabilityZone { get; set; }
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }

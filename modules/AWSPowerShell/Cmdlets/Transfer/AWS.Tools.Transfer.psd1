@@ -87,6 +87,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-TFRResourceTag', 
+        'Get-TFRAccess', 
+        'Get-TFRAccessList', 
         'Get-TFRResourceTagList', 
         'Get-TFRSecurityPolicy', 
         'Get-TFRSecurityPolicyList', 
@@ -95,8 +97,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-TFRUser', 
         'Get-TFRUserList', 
         'Import-TFRSshPublicKey', 
+        'New-TFRAccess', 
         'New-TFRServer', 
         'New-TFRUser', 
+        'Remove-TFRAccess', 
         'Remove-TFRResourceTag', 
         'Remove-TFRServer', 
         'Remove-TFRSshPublicKey', 
@@ -104,6 +108,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-TFRServer', 
         'Stop-TFRServer', 
         'Test-TFRIdentityProvider', 
+        'Update-TFRAccess', 
         'Update-TFRServer', 
         'Update-TFRUser')
 

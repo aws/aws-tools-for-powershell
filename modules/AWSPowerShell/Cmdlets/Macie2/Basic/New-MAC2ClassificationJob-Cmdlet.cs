@@ -39,11 +39,36 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     public partial class NewMAC2ClassificationJobCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {
         
+        #region Parameter S3JobDefinition_BucketCriteria_Excludes_And
+        /// <summary>
+        /// <para>
+        /// <para>An array of conditions, one for each condition that determines which buckets to include
+        /// or exclude from the job. If you specify more than one condition, Amazon Macie uses
+        /// AND logic to join the conditions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Macie2.Model.CriteriaForJob[] S3JobDefinition_BucketCriteria_Excludes_And { get; set; }
+        #endregion
+        
+        #region Parameter S3JobDefinition_BucketCriteria_Includes_And
+        /// <summary>
+        /// <para>
+        /// <para>An array of conditions, one for each condition that determines which buckets to include
+        /// or exclude from the job. If you specify more than one condition, Amazon Macie uses
+        /// AND logic to join the conditions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Macie2.Model.CriteriaForJob[] S3JobDefinition_BucketCriteria_Includes_And { get; set; }
+        #endregion
+        
         #region Parameter Excludes_And
         /// <summary>
         /// <para>
         /// <para>An array of conditions, one for each condition that determines which objects to include
-        /// or exclude from the job.</para>
+        /// or exclude from the job. If you specify more than one condition, Amazon Macie uses
+        /// AND logic to join the conditions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <summary>
         /// <para>
         /// <para>An array of conditions, one for each condition that determines which objects to include
-        /// or exclude from the job.</para>
+        /// or exclude from the job. If you specify more than one condition, Amazon Macie uses
+        /// AND logic to join the conditions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,9 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter S3JobDefinition_BucketDefinition
         /// <summary>
         /// <para>
-        /// <para>An array of objects, one for each AWS account that owns buckets to analyze. Each object
-        /// specifies the account ID for an account and one or more buckets to analyze for the
-        /// account.</para>
+        /// <para>An array of objects, one for each AWS account that owns specific S3 buckets to analyze.
+        /// Each object specifies the account ID for an account and one or more buckets to analyze
+        /// for that account. A job's definition can contain a bucketDefinitions array or a bucketCriteria
+        /// object, not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,6 +307,14 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.S3JobDefinition_BucketCriteria_Excludes_And != null)
+            {
+                context.S3JobDefinition_BucketCriteria_Excludes_And = new List<Amazon.Macie2.Model.CriteriaForJob>(this.S3JobDefinition_BucketCriteria_Excludes_And);
+            }
+            if (this.S3JobDefinition_BucketCriteria_Includes_And != null)
+            {
+                context.S3JobDefinition_BucketCriteria_Includes_And = new List<Amazon.Macie2.Model.CriteriaForJob>(this.S3JobDefinition_BucketCriteria_Includes_And);
+            }
             if (this.S3JobDefinition_BucketDefinition != null)
             {
                 context.S3JobDefinition_BucketDefinition = new List<Amazon.Macie2.Model.S3BucketDefinitionForJob>(this.S3JobDefinition_BucketDefinition);
@@ -356,6 +391,71 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (requestS3JobDefinition_s3JobDefinition_BucketDefinition != null)
             {
                 request.S3JobDefinition.BucketDefinitions = requestS3JobDefinition_s3JobDefinition_BucketDefinition;
+                requestS3JobDefinitionIsNull = false;
+            }
+            Amazon.Macie2.Model.S3BucketCriteriaForJob requestS3JobDefinition_s3JobDefinition_BucketCriteria = null;
+            
+             // populate BucketCriteria
+            var requestS3JobDefinition_s3JobDefinition_BucketCriteriaIsNull = true;
+            requestS3JobDefinition_s3JobDefinition_BucketCriteria = new Amazon.Macie2.Model.S3BucketCriteriaForJob();
+            Amazon.Macie2.Model.CriteriaBlockForJob requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Excludes = null;
+            
+             // populate Excludes
+            var requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_ExcludesIsNull = true;
+            requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Excludes = new Amazon.Macie2.Model.CriteriaBlockForJob();
+            List<Amazon.Macie2.Model.CriteriaForJob> requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Excludes_s3JobDefinition_BucketCriteria_Excludes_And = null;
+            if (cmdletContext.S3JobDefinition_BucketCriteria_Excludes_And != null)
+            {
+                requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Excludes_s3JobDefinition_BucketCriteria_Excludes_And = cmdletContext.S3JobDefinition_BucketCriteria_Excludes_And;
+            }
+            if (requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Excludes_s3JobDefinition_BucketCriteria_Excludes_And != null)
+            {
+                requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Excludes.And = requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Excludes_s3JobDefinition_BucketCriteria_Excludes_And;
+                requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_ExcludesIsNull = false;
+            }
+             // determine if requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Excludes should be set to null
+            if (requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_ExcludesIsNull)
+            {
+                requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Excludes = null;
+            }
+            if (requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Excludes != null)
+            {
+                requestS3JobDefinition_s3JobDefinition_BucketCriteria.Excludes = requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Excludes;
+                requestS3JobDefinition_s3JobDefinition_BucketCriteriaIsNull = false;
+            }
+            Amazon.Macie2.Model.CriteriaBlockForJob requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Includes = null;
+            
+             // populate Includes
+            var requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_IncludesIsNull = true;
+            requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Includes = new Amazon.Macie2.Model.CriteriaBlockForJob();
+            List<Amazon.Macie2.Model.CriteriaForJob> requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Includes_s3JobDefinition_BucketCriteria_Includes_And = null;
+            if (cmdletContext.S3JobDefinition_BucketCriteria_Includes_And != null)
+            {
+                requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Includes_s3JobDefinition_BucketCriteria_Includes_And = cmdletContext.S3JobDefinition_BucketCriteria_Includes_And;
+            }
+            if (requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Includes_s3JobDefinition_BucketCriteria_Includes_And != null)
+            {
+                requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Includes.And = requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Includes_s3JobDefinition_BucketCriteria_Includes_And;
+                requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_IncludesIsNull = false;
+            }
+             // determine if requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Includes should be set to null
+            if (requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_IncludesIsNull)
+            {
+                requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Includes = null;
+            }
+            if (requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Includes != null)
+            {
+                requestS3JobDefinition_s3JobDefinition_BucketCriteria.Includes = requestS3JobDefinition_s3JobDefinition_BucketCriteria_s3JobDefinition_BucketCriteria_Includes;
+                requestS3JobDefinition_s3JobDefinition_BucketCriteriaIsNull = false;
+            }
+             // determine if requestS3JobDefinition_s3JobDefinition_BucketCriteria should be set to null
+            if (requestS3JobDefinition_s3JobDefinition_BucketCriteriaIsNull)
+            {
+                requestS3JobDefinition_s3JobDefinition_BucketCriteria = null;
+            }
+            if (requestS3JobDefinition_s3JobDefinition_BucketCriteria != null)
+            {
+                request.S3JobDefinition.BucketCriteria = requestS3JobDefinition_s3JobDefinition_BucketCriteria;
                 requestS3JobDefinitionIsNull = false;
             }
             Amazon.Macie2.Model.Scoping requestS3JobDefinition_s3JobDefinition_Scoping = null;
@@ -572,6 +672,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             public System.Boolean? InitialRun { get; set; }
             public Amazon.Macie2.JobType JobType { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.Macie2.Model.CriteriaForJob> S3JobDefinition_BucketCriteria_Excludes_And { get; set; }
+            public List<Amazon.Macie2.Model.CriteriaForJob> S3JobDefinition_BucketCriteria_Includes_And { get; set; }
             public List<Amazon.Macie2.Model.S3BucketDefinitionForJob> S3JobDefinition_BucketDefinition { get; set; }
             public List<Amazon.Macie2.Model.JobScopeTerm> Excludes_And { get; set; }
             public List<Amazon.Macie2.Model.JobScopeTerm> Includes_And { get; set; }

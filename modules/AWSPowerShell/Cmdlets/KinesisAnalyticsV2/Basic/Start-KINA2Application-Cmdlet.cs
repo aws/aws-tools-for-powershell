@@ -64,13 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         /// <para>Identifies the run configuration (start parameters) of a Kinesis Data Analytics application.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.KinesisAnalyticsV2.Model.RunConfiguration RunConfiguration { get; set; }
         #endregion
         
@@ -142,12 +136,6 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             }
             #endif
             context.RunConfiguration = this.RunConfiguration;
-            #if MODULAR
-            if (this.RunConfiguration == null && ParameterWasBound(nameof(this.RunConfiguration)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RunConfiguration which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

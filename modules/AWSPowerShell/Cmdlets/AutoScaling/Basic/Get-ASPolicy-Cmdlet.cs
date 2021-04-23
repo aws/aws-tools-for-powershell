@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>,
-        /// and <code>TargetTrackingScaling</code>.</para>
+        /// <code>TargetTrackingScaling</code>, and <code>PredictiveScaling</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

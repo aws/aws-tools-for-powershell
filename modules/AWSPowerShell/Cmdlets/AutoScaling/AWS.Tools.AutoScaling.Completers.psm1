@@ -108,6 +108,20 @@ $AS_Completers = {
             break
         }
 
+        # Amazon.AutoScaling.PredictiveScalingMaxCapacityBreachBehavior
+        "Write-ASScalingPolicy/PredictiveScalingConfiguration_MaxCapacityBreachBehavior"
+        {
+            $v = "HonorMaxCapacity","IncreaseMaxCapacity"
+            break
+        }
+
+        # Amazon.AutoScaling.PredictiveScalingMode
+        "Write-ASScalingPolicy/PredictiveScalingConfiguration_Mode"
+        {
+            $v = "ForecastAndScale","ForecastOnly"
+            break
+        }
+
         # Amazon.AutoScaling.RefreshStrategy
         "Start-ASInstanceRefresh/Strategy"
         {
@@ -134,6 +148,8 @@ $AS_map = @{
     "MetadataOptions_HttpEndpoint"=@("New-ASLaunchConfiguration")
     "MetadataOptions_HttpTokens"=@("New-ASLaunchConfiguration")
     "PoolState"=@("Write-ASWarmPool")
+    "PredictiveScalingConfiguration_MaxCapacityBreachBehavior"=@("Write-ASScalingPolicy")
+    "PredictiveScalingConfiguration_Mode"=@("Write-ASScalingPolicy")
     "Strategy"=@("Start-ASInstanceRefresh")
     "TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic"=@("Write-ASScalingPolicy")
     "TargetTrackingConfiguration_PredefinedMetricSpecification_PredefinedMetricType"=@("Write-ASScalingPolicy")
@@ -235,6 +251,7 @@ $AS_SelectMap = @{
                "Enter-ASStandby",
                "Start-ASPolicy",
                "Exit-ASStandby",
+               "Get-ASPredictiveScalingForecast",
                "Write-ASLifecycleHook",
                "Write-ASNotificationConfiguration",
                "Write-ASScalingPolicy",
