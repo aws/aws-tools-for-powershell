@@ -86,6 +86,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter Force { get; set; }
         #endregion
 
+        #region Parameter ObjectLockEnabledForBucket
+        /// <summary>
+        /// Specifies whether you want S3 Object Lock to be enabled for the new bucket.
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public bool? ObjectLockEnabledForBucket { get; set; }
+        #endregion
+
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output.
@@ -123,6 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.CannedACL = S3CannedACL.PublicReadWrite;
 #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
 
+            context.ObjectLockEnabledForBucket = this.ObjectLockEnabledForBucket;
+
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
         }
@@ -144,6 +154,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // with the cmdlet; this will prevent S3 issuing the "unspecified location constraint 
             // didn't match" message, potentially confusing new users.
             request.BucketRegionName = _RegionEndpoint.SystemName;
+
+            if (cmdletContext.ObjectLockEnabledForBucket != null)
+            {
+                request.ObjectLockEnabledForBucket = cmdletContext.ObjectLockEnabledForBucket.Value;
+            }
 
             ServiceCalls.PushServiceRequest(request, this.MyInvocation);
 
@@ -212,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public String BucketName { get; set; }
             public S3CannedACL CannedACL { get; set; }
+            public bool? ObjectLockEnabledForBucket { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketResponse, NewS3BucketCmdlet, object> Select { get; set; } =
                 // since S3 bucket has only a name and a creation date, take a simple route to
                 // emit the instance rather than a ListBuckets/search approach
