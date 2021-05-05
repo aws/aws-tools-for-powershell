@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Common
         /// regular expression can always be supplied for the parameter value.
         /// </para>
         /// </summary>
-        [Parameter(ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public string Service { get; set; }
         protected override void ProcessRecord()
         {
