@@ -282,8 +282,15 @@
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxKeys" ServicePageSize="1000" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjectsV2" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
-            <Params />
+        <ServiceOperation MethodName="ListObjectsV2" OutputProperty="S3Objects" Verb="Get" Noun="ObjectV2" PositionalParameters="Prefix" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" DefaultParameterSet="GetMultipleObjects">
+            <Params>
+                <Param Name="BucketName" Mandatory="true" />
+                <Param Name="Delimiter" ParameterSetName="GetMultipleObjects" />
+                <Param Name="MaxKeys" NewName="MaxKey" ParameterSetName="GetMultipleObjects" />
+                <Param Name="ContinuationToken" ParameterSetName="GetMultipleObjects" />
+                <Param Name="Prefix" ParameterSetName="GetMultipleObjects" />
+            </Params>
+            <AutoIterate Start="ContinuationToken" Next="NextContinuationToken" EmitLimit="MaxKeys" ServicePageSize="1000" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListParts" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
