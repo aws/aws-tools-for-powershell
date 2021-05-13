@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.3.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AWSPSGeneratorLib\AWSPSGeneratorLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="XmlTests\InvalidSchema\overrides.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="XmlTests\InvalidXML\overrides.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="XmlTests\Valid\overrides.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="CopySchemaForTests" AfterTargets="Build">
+    <Message Text="Copying current overrides.xsd to unit test folders that require it" />
+    <Copy SourceFiles="..\..\XmlSchemas\ConfigurationOverrides\overrides.xsd" DestinationFolder="$(OutputPath)XmlTests\InvalidXML\XmlSchemas\ConfigurationOverrides\" />
+    <Copy SourceFiles="..\..\XmlSchemas\ConfigurationOverrides\overrides.xsd" DestinationFolder="$(OutputPath)XmlTests\InvalidSchema\XmlSchemas\ConfigurationOverrides\" />
+    <Copy SourceFiles="..\..\XmlSchemas\ConfigurationOverrides\overrides.xsd" DestinationFolder="$(OutputPath)XmlTests\Valid\XmlSchemas\ConfigurationOverrides\" />
+  </Target>
+
+</Project>

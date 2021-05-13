@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace AWSPowerShellGenerator.ServiceConfig
 {
-    class XmlOverridesMerger
+    public class XmlOverridesMerger
     {
         public class OverrideDescription
         {
@@ -140,7 +140,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
             }
         }
 
-        private static Dictionary<string, XmlElement> ReadOverrides(string folderPath, out string errorMessage)
+        public static Dictionary<string, XmlElement> ReadOverrides(string folderPath, out string errorMessage)
         {
             errorMessage = null;
             var fileName = Path.Combine(folderPath, "overrides.xml");

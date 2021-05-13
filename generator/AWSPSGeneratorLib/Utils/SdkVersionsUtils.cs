@@ -143,7 +143,7 @@ namespace AWSPowerShellGenerator.Utils
             }
         }
 
-        private static JObject ReadSdkVersionFile(string sdkAssembliesFolder)
+        internal static JObject ReadSdkVersionFile(string sdkAssembliesFolder)
         {
             var versionsFilePath = Path.Combine(sdkAssembliesFolder, "..", "_sdk-versions.json");
             try

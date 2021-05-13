@@ -11,6 +11,7 @@ using AWSPowerShellGenerator.Writers;
 using AWSPowerShellGenerator.Writers.SourceCode;
 using System.Text;
 using System.Threading;
+using Newtonsoft.Json.Linq;
 
 namespace AWSPowerShellGenerator.Generators
 {
@@ -220,7 +221,7 @@ namespace AWSPowerShellGenerator.Generators
                     SetupOutputDir(project.Key);
                 }
             }
-
+            
             foreach (var configModel in ModelCollection.ConfigModels.Values)
             {
                 // hold some state to model under work so we can make use of
@@ -251,6 +252,8 @@ namespace AWSPowerShellGenerator.Generators
                     AnalysisError.ExceptionWhileGeneratingForService(CurrentModel, e);
                 }
             }
+
+            VerifyAllAssembliesHaveConfiguration(SdkVersionsUtils.ReadSdkVersionFile(SdkAssembliesFolder), ModelCollection);
 
             if (!Options.SkipCmdletGeneration)
             {
@@ -290,6 +293,37 @@ namespace AWSPowerShellGenerator.Generators
                           .SelectMany(operation => operation.AnalysisErrors)))
                 {
                     Logger.LogError(error.ToString());
+                }
+            }
+        }
+
+        /// <summary>
+        /// Verifies that all services included in the SDK's _sdk-version.json either have a
+        /// PowerShell configuration or were intentionally omitted.
+        /// </summary>
+        /// <param name="sdkAssembliesFolder">location of the SDK assemblies to generate against</param>
+        /// <param name="modelCollection">PowerShell configuration, assumes ConfigModels and IncludeLibrariesList have been fully instantiated</param>
+        public static void VerifyAllAssembliesHaveConfiguration(JObject sdkVersionsJson, ConfigModelCollection modelCollection)
+        {
+            var intentionallySkippedModules = new HashSet<string>();
+            var configuredAssemblies = new HashSet<string>();
+
+            foreach (var module in modelCollection.IncludeLibrariesList)
+            {
+                intentionallySkippedModules.Add(module.Name);
+            }
+            foreach (var configuredService in modelCollection.ConfigModels.Values)
+            {
+                configuredAssemblies.Add(configuredService.AssemblyName);
+            }
+
+            foreach (var service in sdkVersionsJson["ServiceVersions"])
+            {
+                var assemblyName = ((JProperty)service).Name;
+
+                if (!configuredAssemblies.Contains(assemblyName) && !intentionallySkippedModules.Contains("AWSSDK." + assemblyName))
+                {
+                    throw new Exception("Missing XML configuration for " + assemblyName);
                 }
             }
         }
