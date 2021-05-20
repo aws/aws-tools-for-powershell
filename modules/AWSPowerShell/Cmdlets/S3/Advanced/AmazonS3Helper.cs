@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             request.UploadDirectoryFileRequestEvent += (s, e) =>
             {
                 var uploadRequest = e.UploadRequest;
-                SetMetadataAndHeaders(uploadRequest, cmdletContext.Metadata, cmdletContext.Metadata);
+                SetMetadataAndHeaders(uploadRequest, cmdletContext.Metadata, cmdletContext.Headers);
 
                 if (cmdletContext.ServerSideEncryptionCustomerMethod != null)
                     uploadRequest.ServerSideEncryptionCustomerMethod = cmdletContext.ServerSideEncryptionCustomerMethod;
