@@ -32,7 +32,7 @@
             <h2>
                 <div>Available in <a
                         href="https://www.powershellgallery.com/packages/AWS.Tools.Installer/"
-                        target="_blank" rel="noopener">AWS.Tools.Installer</a></div>
+                        target="_blank" rel="noopener noreferrer">AWS.Tools.Installer</a></div>
             </h2>
         </div>
     </div>
@@ -84,7 +84,7 @@
             </div>
             <div class="sectionbody">
                 <div class="syntax">
-                    <pre><div class="syntaxblock"><div class="cmdlet">Uninstall-AWSToolsModule</div><div class="paramlist"><div class="wrappedParam">-Name &lt;String&gt;</div><div class="wrappedParam">-MinimumVersion &lt;System.Version&gt;</div><div class="wrappedParam">-RequiredVersion &lt;System.Version&gt;</div><div class="wrappedParam">-MaximumVersion &lt;System.Version&gt;</div><div class="wrappedParam">-ExceptVersion &lt;System.Version&gt;</div><div class="wrappedParam">-Force &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div></pre>
+                    <pre><div class="syntaxblock"><div class="cmdlet">Uninstall-AWSToolsModule</div><div class="paramlist"><div class="wrappedParam">-MinimumVersion &lt;System.Version&gt;</div><div class="wrappedParam">-RequiredVersion &lt;System.Version&gt;</div><div class="wrappedParam">-MaximumVersion &lt;System.Version&gt;</div><div class="wrappedParam">-ExceptVersion &lt;System.Version&gt;</div><div class="wrappedParam">-Force &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div></pre>
                 </div>
             </div>
         </div>
@@ -107,9 +107,10 @@
             <div class="sectionbody">
                 <div class="parameters">
                     <div class="parameter">
-                        <div class="parameterName">-MinimumVersion &lt;<a
-                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
-                                target="_blank" rel="noopener">Version</a>&gt;</div>
+                        <div class="parameterName">
+                            -MinimumVersion &lt;<a href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
+                                                   target="_blank" rel="noopener noreferrer">Version</a>&gt;
+                        </div>
                         <div class="parameterDescription">Specifies the minimum version of the modules to uninstall.</div>
                         <div class="parameterAttributes">
                             <table>
@@ -128,9 +129,11 @@
                             </table>
                         </div>
                     </div>
-                    <div class="parameterName">-RequiredVersion &lt;<a
-                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
-                                target="_blank" rel="noopener">Version</a>&gt;</div>
+                    <div class="parameter">
+                        <div class="parameterName">
+                            -RequiredVersion &lt;<a href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
+                                                    target="_blank" rel="noopener noreferrer">Version</a>&gt;
+                        </div>
                         <div class="parameterDescription">Specifies exact version number of the module to uninstall.</div>
                         <div class="parameterAttributes">
                             <table>
@@ -150,9 +153,10 @@
                         </div>
                     </div>
                     <div class="parameter">
-                        <div class="parameterName">-MaximumVersion &lt;<a
-                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
-                                target="_blank" rel="noopener">Version</a>&gt;</div>
+                        <div class="parameterName">
+                            -MaximumVersion &lt;<a href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
+                                                   target="_blank" rel="noopener noreferrer">Version</a>&gt;
+                        </div>
                         <div class="parameterDescription">Specifies the maximum version of the modules to uninstall.</div>
                         <div class="parameterAttributes">
                             <table>
@@ -172,9 +176,10 @@
                         </div>
                     </div>
                     <div class="parameter">
-                        <div class="parameterName">-ExceptVersion &lt;<a
-                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
-                                target="_blank" rel="noopener">Version</a>&gt;</div>
+                        <div class="parameterName">
+                            -ExceptVersion &lt;<a href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
+                                                  target="_blank" rel="noopener noreferrer">Version</a>&gt;
+                        </div>
                         <div class="parameterDescription">Specifies that you want to uninstall all of the other available versions of AWS Tools except this one.</div>
                         <div class="parameterAttributes">
                             <table>
@@ -236,13 +241,13 @@
                 <div class="sectionbody">
                     <div class="related">
                         <div class="relatedLink"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/"
-                                target=_blank>Service User Guide</a></div>
+                                target="_parent">Service User Guide</a></div>
                         <div class="relatedLink"><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/"
-                                target=_blank>Service API Reference</a></div>
+                                target="_parent">Service API Reference</a></div>
                         <div class="relatedLink"><a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/"
-                                target=_blank>Microsoft Windows Guide</a></div>
+                                target="_parent">Microsoft Windows Guide</a></div>
                         <div class="relatedLink"><a href="http://docs.aws.amazon.com/powershell/latest/userguide/"
-                                target=_blank>AWS Tools for PowerShell User Guide</a></div>
+                               target="_parent">AWS Tools for PowerShell User Guide</a></div>
                     </div>
                 </div>
             </div>
@@ -266,11 +271,11 @@
                 <!-- BEGIN-FEEDBACK-SECTION --><span class="feedback"><span class="feedbackLinks">
                         <!-- BEGIN-FEEDBACK-SECTION -->Did this page help you?&nbsp;&nbsp;<a
                             href="http://docs.aws.amazon.com/powershell/latest/reference/feedbackyes.html?topic_id=Uninstall-AWSToolsModule"
-                            target="_blank">Yes</a>&nbsp;&nbsp;<a
+                            target="_parent">Yes</a>&nbsp;&nbsp;<a
                             href="http://docs.aws.amazon.com/powershell/latest/reference/feedbackno.html?topic_id=Uninstall-AWSToolsModule"
-                            target="_blank">No</a>&nbsp;&nbsp;&nbsp;<a
+                            target="_parent">No</a>&nbsp;&nbsp;&nbsp;<a
                             href="https://docs.aws.amazon.com/forms/aws-doc-feedback?service_name=PowerShell-Ref&amp;topic_url=https://docs.aws.amazon.com/powershell/latest/reference/items/Uninstall-AWSToolsModule.html"
-                            target="_blank">Tell us about it...</a><!-- END-FEEDBACK-SECTION --></span></span>
+                            target="_parent">Tell us about it...</a><!-- END-FEEDBACK-SECTION --></span></span>
                 <!-- END-FEEDBACK-SECTION -->
                 <div id="awsdocs-legal-zone-copyright"></div>
             </div>

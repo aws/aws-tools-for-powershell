@@ -285,7 +285,16 @@ namespace AWSPowerShellGenerator.Generators
                 var inputTypeDocLink = PredictHtmlDocsLink(typeName);
                 if (!string.IsNullOrEmpty(inputTypeDocLink))
                 {
-                    sb.Append($"<div class=\"parameterName\">-{property.Name} &lt;<a href=\"{inputTypeDocLink}\"{(RequiresLinkTarget(typeName) ? " target=\"_blank\"" : "")}>{GetTypeDisplayName(property.PropertyType, false)}</a>&gt;</div>");
+                    if (_msdnDocLinks.ContainsKey(typeName))
+                    {
+                        // Open the MSDN links with _blank to open in a new tab
+                        sb.Append($"<div class=\"parameterName\">-{property.Name} &lt;<a href=\"{inputTypeDocLink}\"{(RequiresLinkTarget(typeName) ? " target=\"blank\" rel=\"noopener noreferrer\"" : "")}>{GetTypeDisplayName(property.PropertyType, false)}</a>&gt;</div>");
+                    }
+                    else
+                    {
+                        // For links to elsewhere in PowerShell or the SDK, open in the same tab via _parent to preserve the referrer for analytics
+                        sb.Append($"<div class=\"parameterName\">-{property.Name} &lt;<a href=\"{inputTypeDocLink}\"{(RequiresLinkTarget(typeName) ? " target=\"_parent\"" : "")}>{GetTypeDisplayName(property.PropertyType, false)}</a>&gt;</div>");
+                    }
                 }
                 else
                 {
@@ -361,7 +370,7 @@ namespace AWSPowerShellGenerator.Generators
             {
                 return WebUtility.HtmlEncode(text);
             }
-            return $"<a href=\"{uri}\"{(RequiresLinkTarget(text) ? " target=\"_blank\"" : "")}>{WebUtility.HtmlEncode(text)}</a>";
+            return $"<a href=\"{uri}\"{(RequiresLinkTarget(text) ? " target=\"_parent\"" : "")}>{WebUtility.HtmlEncode(text)}</a>";
         }
 
         private static void WriteNotes(CmdletPageWriter writer)
@@ -465,7 +474,7 @@ namespace AWSPowerShellGenerator.Generators
         private void AppendLink(StringBuilder sb, string linkText, string linkAddress)
         {
             sb.Append("<div class=\"relatedLink\">");
-            sb.AppendFormat("<a href=\"{1}\" target=_blank>{0}</a>", linkText, linkAddress);
+            sb.AppendFormat("<a href=\"{1}\" target=\"_parent\">{0}</a>", linkText, linkAddress);
             sb.Append("</div>");
         }
 

@@ -193,9 +193,9 @@ namespace AWSPowerShellGenerator.Writers.Help
             string feedbackContentFormat = "<span class=\"feedbackLinks\">" +
                                             "<!-- BEGIN-FEEDBACK-SECTION -->" +
                                             "Did this page help you?&nbsp;&nbsp;" +
-                                            "<a href=\"http://docs.aws.amazon.com/powershell/latest/reference/feedbackyes.html?topic_id={0}\" target=\"_blank\">Yes</a>&nbsp;&nbsp;" +
-                                            "<a href=\"http://docs.aws.amazon.com/powershell/latest/reference/feedbackno.html?topic_id={0}\" target=\"_blank\">No</a>&nbsp;&nbsp;&nbsp;" +
-                                            "<a href=\"{1}\" target=\"_blank\">Tell us about it...</a>" +
+                                            "<a href=\"http://docs.aws.amazon.com/powershell/latest/reference/feedbackyes.html?topic_id={0}\" target=\"_parent\">Yes</a>&nbsp;&nbsp;" +
+                                            "<a href=\"http://docs.aws.amazon.com/powershell/latest/reference/feedbackno.html?topic_id={0}\" target=\"_parent\">No</a>&nbsp;&nbsp;&nbsp;" +
+                                            "<a href=\"{1}\" target=\"_parent\">Tell us about it...</a>" +
                                             "<!-- END-FEEDBACK-SECTION -->" +
                                             "</span>";
             string feedbackContent = string.Format(feedbackContentFormat, filename, fullUrl);
@@ -290,17 +290,17 @@ namespace AWSPowerShellGenerator.Writers.Help
             var text = new StringBuilder("Available in ");
             if (inModular)
             {
-                text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWS.Tools.{moduleName}/\" target=\"_blank\" rel=\"noopener\">AWS.Tools.{moduleName}</a>");
+                text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWS.Tools.{moduleName}/\" target=\"_blank\" rel=\"noopener noreferrer\">AWS.Tools.{moduleName}</a>");
             }
             if (inMonolithic)
             {
                 text.Append(inModular ? ", " : " and ");
-                text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWSPowerShell.NetCore/\" target=\"_blank\" rel=\"noopener\">AWSPowerShell.NetCore</a>");
+                text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWSPowerShell.NetCore/\" target=\"_blank\" rel=\"noopener noreferrer\">AWSPowerShell.NetCore</a>");
                 if (inModular)
                 {
                     text.Append(" and ");
                 }
-                text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWSPowerShell/\" target=\"_blank\" rel=\"noopener\">AWSPowerShell</a>");
+                text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWSPowerShell/\" target=\"_blank\" rel=\"noopener noreferrer\">AWSPowerShell</a>");
             }
             return text.ToString();
         }
