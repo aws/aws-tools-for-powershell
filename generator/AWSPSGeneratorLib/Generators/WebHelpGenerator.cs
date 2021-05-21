@@ -664,7 +664,9 @@ namespace AWSPowerShellGenerator.Generators
 
                     var aliases = _legacyAliasesByService[service];
                     WriteLegacyAliasesForService(aliasTables, service, aliases);
-                }   
+                }
+
+                finalBody = finalBody.Replace("{LEGACY_ALIASES_SNIPPET}", aliasTables.ToString());
 
                 var filename = Path.Combine(OutputFolder, "items", templateFilename);
                 using (var writer = new StreamWriter(filename))
