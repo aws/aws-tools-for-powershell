@@ -357,6 +357,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.Int32? ConcurrentServiceRequest { get; set; }
         #endregion
 
+        #region Parameter CalculateContentMD5Header
+        /// <summary>
+        /// This property determines whether the Content-MD5 header should be calculated for upload.
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public bool CalculateContentMD5Header { get; set; }
+        #endregion
+
         #endregion
 
         #region Parameter Force
@@ -452,6 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.Metadata = this.Metadata;
             context.Headers = this.HeaderCollection;
             context.TagSet = this.TagSet;
+            context.CalculateContentMD5Header = this.CalculateContentMD5Header;
 
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -517,6 +526,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.TagSet != null)
                 request.TagSet = new List<Tag>(cmdletContext.TagSet);
 
+            request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
+
             AmazonS3Helper.SetMetadataAndHeaders(request, cmdletContext.Metadata, cmdletContext.Headers);
 
             CmdletOutput output;
@@ -577,6 +588,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (cmdletContext.TagSet != null)
                     request.TagSet = new List<Tag>(cmdletContext.TagSet);
 
+                request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
+
                 var transferUtilityConfig = new TransferUtilityConfig();
                 if (cmdletContext.ConcurrentServiceRequests.HasValue)
                     transferUtilityConfig.ConcurrentServiceRequests = cmdletContext.ConcurrentServiceRequests.Value;
@@ -635,6 +648,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
             if (cmdletContext.TagSet != null)
                 request.TagSet = new List<Tag>(cmdletContext.TagSet);
+
+            request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
 
             AmazonS3Helper.SetExtraRequestFields(request, cmdletContext);
 
@@ -715,6 +730,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public Tag[] TagSet { get; set; }
 
             public int? ConcurrentServiceRequests { get; set; }
+
+            public bool CalculateContentMD5Header { get; set; }
         }
 
         #region Progress Trackers
