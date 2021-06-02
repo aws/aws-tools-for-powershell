@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>The type of domain entry, such as address for IPv4 (A), address for IPv6 (AAAA), canonical
         /// name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service
-        /// locator (SRV), or text (TXT).</para><para>The following domain entry types can be used:</para><ul><li><para><code>A</code></para></li><li><para><code>AAA</code></para></li><li><para><code>CNAME</code></para></li><li><para><code>MX</code></para></li><li><para><code>NS</code></para></li><li><para><code>SOA</code></para></li><li><para><code>SRV</code></para></li><li><para><code>TXT</code></para></li></ul>
+        /// locator (SRV), or text (TXT).</para><para>The following domain entry types can be used:</para><ul><li><para><code>A</code></para></li><li><para><code>AAAA</code></para></li><li><para><code>CNAME</code></para></li><li><para><code>MX</code></para></li><li><para><code>NS</code></para></li><li><para><code>SOA</code></para></li><li><para><code>SRV</code></para></li><li><para><code>TXT</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

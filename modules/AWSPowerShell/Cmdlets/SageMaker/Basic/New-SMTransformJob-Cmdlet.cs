@@ -186,8 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The ML compute instance type for the transform job. If you are using built-in algorithms
-        /// to transform moderately sized datasets, we recommend using ml.m4.xlarge or <code>ml.m5.large</code>
-        /// instance types.</para>
+        /// to transform moderately sized datasets, we recommend using ml.m4.xlarge or <code>ml.m5.large</code>instance
+        /// types.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -491,7 +491,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
         /// model data on the storage volume attached to the ML compute instance(s) that run the
-        /// batch transform job. The <code>VolumeKmsKeyId</code> can be any of the following formats:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
+        /// batch transform job.</para><note><para>Certain Nitro-based instances include local storage, dependent on the instance type.
+        /// Local storage volumes are encrypted using a hardware module on the instance. You can't
+        /// request a <code>VolumeKmsKeyId</code> when using an instance type with local storage.</para><para>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance
+        /// Store Volumes</a>.</para><para>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
+        /// Instance Store Volumes</a>.</para></note><para> The <code>VolumeKmsKeyId</code> can be any of the following formats:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

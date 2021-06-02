@@ -54,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter S3Destination_BucketOwner
         /// <summary>
         /// <para>
-        /// <para>The AWS account identifier of the owner of the Amazon S3 bucket. This allows report
-        /// data to be exported to an Amazon S3 bucket that is owned by an account other than
-        /// the account running the build.</para>
+        /// <para>The Amazon Web Services account identifier of the owner of the Amazon S3 bucket. This
+        /// allows report data to be exported to an Amazon S3 bucket that is owned by an account
+        /// other than the account running the build.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,9 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter S3Destination_Packaging
         /// <summary>
         /// <para>
-        /// <para> The type of build output artifact to create. Valid values include: </para><ul><li><para><code>NONE</code>: AWS CodeBuild creates the raw data in the output bucket. This
-        /// is the default if packaging is not specified. </para></li><li><para><code>ZIP</code>: AWS CodeBuild creates a ZIP file with the raw data in the output
-        /// bucket. </para></li></ul>
+        /// <para> The type of build output artifact to create. Valid values include: </para><ul><li><para><code>NONE</code>: CodeBuild creates the raw data in the output bucket. This is the
+        /// default if packaging is not specified. </para></li><li><para><code>ZIP</code>: CodeBuild creates a ZIP file with the raw data in the output bucket.
+        /// </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> A list of tag key and value pairs associated with this report group. </para><para>These tags are available for use by AWS services that support AWS CodeBuild report
-        /// group tags.</para>
+        /// <para> A list of tag key and value pairs associated with this report group. </para><para>These tags are available for use by Amazon Web Services services that support CodeBuild
+        /// report group tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

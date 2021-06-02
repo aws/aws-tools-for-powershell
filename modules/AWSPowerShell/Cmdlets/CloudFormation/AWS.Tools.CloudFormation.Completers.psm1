@@ -104,6 +104,13 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.Category
+        "Get-CFNTypeList/Filters_Category"
+        {
+            $v = "ACTIVATED","AWS_TYPES","REGISTERED","THIRD_PARTY"
+            break
+        }
+
         # Amazon.CloudFormation.ChangeSetType
         "New-CFNChangeSet/ChangeSetType"
         {
@@ -124,7 +131,7 @@ $CFN_Completers = {
         # Amazon.CloudFormation.HandlerErrorCode
         "Write-CFNHandlerProgress/ErrorCode"
         {
-            $v = "AccessDenied","AlreadyExists","GeneralServiceException","InternalFailure","InvalidCredentials","InvalidRequest","NetworkFailure","NotFound","NotStabilized","NotUpdatable","ResourceConflict","ServiceInternalError","ServiceLimitExceeded","Throttling"
+            $v = "AccessDenied","AlreadyExists","GeneralServiceException","InternalFailure","InvalidCredentials","InvalidRequest","InvalidTypeConfiguration","NetworkFailure","NotFound","NotStabilized","NotUpdatable","ResourceConflict","ServiceInternalError","ServiceLimitExceeded","Throttling"
             break
         }
 
@@ -215,6 +222,26 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.ThirdPartyType
+        {
+            ($_ -eq "Disable-CFNType/Type") -Or
+            ($_ -eq "Enable-CFNType/Type") -Or
+            ($_ -eq "Publish-CFNType/Type") -Or
+            ($_ -eq "Set-CFNTypeConfiguration/Type") -Or
+            ($_ -eq "Test-CFNType/Type")
+        }
+        {
+            $v = "MODULE","RESOURCE"
+            break
+        }
+
+        # Amazon.CloudFormation.VersionBump
+        "Enable-CFNType/VersionBump"
+        {
+            $v = "MAJOR","MINOR"
+            break
+        }
+
         # Amazon.CloudFormation.Visibility
         "Get-CFNTypeList/Visibility"
         {
@@ -236,6 +263,7 @@ $CFN_map = @{
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
     "DeprecatedStatus"=@("Get-CFNTypeList","Get-CFNTypeVersion")
     "ErrorCode"=@("Write-CFNHandlerProgress")
+    "Filters_Category"=@("Get-CFNTypeList")
     "OnFailure"=@("New-CFNStack")
     "OperationStatus"=@("Write-CFNHandlerProgress")
     "PermissionModel"=@("New-CFNStackSet","Update-CFNStackSet")
@@ -243,7 +271,8 @@ $CFN_map = @{
     "RegistrationStatusFilter"=@("Get-CFNTypeRegistrationList")
     "Status"=@("Get-CFNStackSetList","Send-CFNResourceSignal","Test-CFNStack","Wait-CFNStack")
     "TemplateStage"=@("Get-CFNTemplate")
-    "Type"=@("Get-CFNType","Get-CFNTypeList","Get-CFNTypeRegistrationList","Get-CFNTypeVersion","Register-CFNType","Set-CFNTypeDefaultVersion","Unregister-CFNType")
+    "Type"=@("Disable-CFNType","Enable-CFNType","Get-CFNType","Get-CFNTypeList","Get-CFNTypeRegistrationList","Get-CFNTypeVersion","Publish-CFNType","Register-CFNType","Set-CFNTypeConfiguration","Set-CFNTypeDefaultVersion","Test-CFNType","Unregister-CFNType")
+    "VersionBump"=@("Enable-CFNType")
     "Visibility"=@("Get-CFNTypeList")
 }
 
@@ -297,12 +326,15 @@ $CFN_SelectCompleters = {
 }
 
 $CFN_SelectMap = @{
-    "Select"=@("Stop-CFNUpdateStack",
+    "Select"=@("Enable-CFNType",
+               "Get-CFNDescribeTypeConfiguration",
+               "Stop-CFNUpdateStack",
                "Resume-CFNUpdateRollback",
                "New-CFNChangeSet",
                "New-CFNStack",
                "New-CFNStackInstance",
                "New-CFNStackSet",
+               "Disable-CFNType",
                "Remove-CFNChangeSet",
                "Remove-CFNStack",
                "Remove-CFNStackInstance",
@@ -310,6 +342,7 @@ $CFN_SelectMap = @{
                "Unregister-CFNType",
                "Get-CFNAccountLimit",
                "Get-CFNChangeSet",
+               "Get-CFNPublisher",
                "Get-CFNStackDriftDetectionStatus",
                "Get-CFNStackEvent",
                "Get-CFNStackInstance",
@@ -341,12 +374,16 @@ $CFN_SelectMap = @{
                "Get-CFNTypeRegistrationList",
                "Get-CFNTypeList",
                "Get-CFNTypeVersion",
+               "Publish-CFNType",
                "Write-CFNHandlerProgress",
+               "Register-CFNPublisher",
                "Register-CFNType",
                "Set-CFNStackPolicy",
+               "Set-CFNTypeConfiguration",
                "Set-CFNTypeDefaultVersion",
                "Send-CFNResourceSignal",
                "Stop-CFNStackSetOperation",
+               "Test-CFNType",
                "Update-CFNStack",
                "Update-CFNStackInstance",
                "Update-CFNStackSet",

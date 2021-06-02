@@ -80,6 +80,13 @@ $FRC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ForecastService.AutoMLOverrideStrategy
+        "New-FRCPredictor/AutoMLOverrideStrategy"
+        {
+            $v = "LatencyOptimized"
+            break
+        }
+
         # Amazon.ForecastService.DatasetType
         "New-FRCDataset/DatasetType"
         {
@@ -106,6 +113,7 @@ $FRC_Completers = {
 }
 
 $FRC_map = @{
+    "AutoMLOverrideStrategy"=@("New-FRCPredictor")
     "DatasetType"=@("New-FRCDataset")
     "Domain"=@("New-FRCDataset","New-FRCDatasetGroup")
 }

@@ -28,12 +28,23 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a NAT gateway in the specified public subnet. This action creates a network
-    /// interface in the specified subnet with a private IP address from the IP address range
-    /// of the subnet. Internet-bound traffic from a private subnet can be routed to the NAT
-    /// gateway, therefore enabling instances in the private subnet to connect to the internet.
+    /// Creates a NAT gateway in the specified subnet. This action creates a network interface
+    /// in the specified subnet with a private IP address from the IP address range of the
+    /// subnet. You can create either a public NAT gateway or a private NAT gateway.
+    /// 
+    ///  
+    /// <para>
+    /// With a public NAT gateway, internet-bound traffic from a private subnet can be routed
+    /// to the NAT gateway, so that instances in a private subnet can connect to the internet.
+    /// </para><para>
+    /// With a private NAT gateway, private communication is routed across VPCs and on-premises
+    /// networks through a transit gateway or virtual private gateway. Common use cases include
+    /// running large workloads behind a small pool of allowlisted IPv4 addresses, preserving
+    /// private IPv4 addresses, and communicating between overlapping networks.
+    /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT
     /// Gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "EC2NatGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateNatGatewayResponse")]
@@ -47,20 +58,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AllocationId
         /// <summary>
         /// <para>
-        /// <para>The allocation ID of an Elastic IP address to associate with the NAT gateway. If the
-        /// Elastic IP address is associated with another resource, you must first disassociate
-        /// it.</para>
+        /// <para>[Public NAT gateways only] The allocation ID of an Elastic IP address to associate
+        /// with the NAT gateway. You cannot specify an Elastic IP address with a private NAT
+        /// gateway. If the Elastic IP address is associated with another resource, you must first
+        /// disassociate it.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AllocationId { get; set; }
+        #endregion
+        
+        #region Parameter ConnectivityType
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the NAT gateway supports public or private connectivity. The default
+        /// is public connectivity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.ConnectivityType")]
+        public Amazon.EC2.ConnectivityType ConnectivityType { get; set; }
         #endregion
         
         #region Parameter SubnetId
@@ -165,13 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AllocationId = this.AllocationId;
-            #if MODULAR
-            if (this.AllocationId == null && ParameterWasBound(nameof(this.AllocationId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AllocationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ClientToken = this.ClientToken;
+            context.ConnectivityType = this.ConnectivityType;
             context.SubnetId = this.SubnetId;
             #if MODULAR
             if (this.SubnetId == null && ParameterWasBound(nameof(this.SubnetId)))
@@ -206,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.ConnectivityType != null)
+            {
+                request.ConnectivityType = cmdletContext.ConnectivityType;
             }
             if (cmdletContext.SubnetId != null)
             {
@@ -278,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String AllocationId { get; set; }
             public System.String ClientToken { get; set; }
+            public Amazon.EC2.ConnectivityType ConnectivityType { get; set; }
             public System.String SubnetId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateNatGatewayResponse, NewEC2NatGatewayCmdlet, object> Select { get; set; } =

@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes your managed prefix lists and any AWS-managed prefix lists.
+    /// Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.
     /// 
     ///  
     /// <para>

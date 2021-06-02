@@ -148,24 +148,34 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use. The --engine-version will default
-        /// to the latest major engine version. For production workloads, we recommend explicitly
-        /// declaring this parameter with the intended major engine version.</para>
+        /// <para>The version number of the database engine to use. The <code>--engine-version</code>
+        /// will default to the latest major engine version. For production workloads, we recommend
+        /// explicitly declaring this parameter with the intended major engine version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter GlobalClusterIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The cluster identifier of the new global cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GlobalClusterIdentifier { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier for an encrypted cluster.</para><para>The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS encryption
-        /// key. If you are creating a cluster using the same AWS account that owns the AWS KMS
-        /// encryption key that is used to encrypt the new cluster, you can use the AWS KMS key
-        /// alias instead of the ARN for the AWS KMS encryption key.</para><para>If an encryption key is not specified in <code>KmsKeyId</code>: </para><ul><li><para>If the <code>StorageEncrypted</code> parameter is <code>true</code>, Amazon DocumentDB
-        /// uses your default encryption key. </para></li></ul><para>AWS KMS creates the default encryption key for your AWS account. Your AWS account
-        /// has a different default encryption key for each AWS Region.</para>
+        /// <para>The KMS key identifier for an encrypted cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
+        /// If you are creating a cluster using the same account that owns the KMS encryption
+        /// key that is used to encrypt the new cluster, you can use the KMS key alias instead
+        /// of the ARN for the KMS encryption key.</para><para>If an encryption key is not specified in <code>KmsKeyId</code>: </para><ul><li><para>If the <code>StorageEncrypted</code> parameter is <code>true</code>, Amazon DocumentDB
+        /// uses your default encryption key. </para></li></ul><para>KMS creates the default encryption key for your account. Your account has a different
+        /// default encryption key for each Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,14 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>The name of the master user for the cluster.</para><para>Constraints:</para><ul><li><para>Must be from 1 to 63 letters or numbers.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine. </para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MasterUsername { get; set; }
         #endregion
         
@@ -196,14 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// ASCII character except forward slash (/), double quote ("), or the "at" symbol (@).</para><para>Constraints: Must contain from 8 to 100 characters.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MasterUserPassword { get; set; }
         #endregion
         
@@ -222,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
         /// are enabled using the <code>BackupRetentionPeriod</code> parameter. </para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region. </para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window. </para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// for each Region. </para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window. </para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
         /// Time (UTC).</para><para>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region, occurring on a random day of the week.</para><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
+        /// for each Region, occurring on a random day of the week.</para><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -384,21 +380,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             }
             #endif
             context.EngineVersion = this.EngineVersion;
+            context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
             context.KmsKeyId = this.KmsKeyId;
             context.MasterUsername = this.MasterUsername;
-            #if MODULAR
-            if (this.MasterUsername == null && ParameterWasBound(nameof(this.MasterUsername)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MasterUsername which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MasterUserPassword = this.MasterUserPassword;
-            #if MODULAR
-            if (this.MasterUserPassword == null && ParameterWasBound(nameof(this.MasterUserPassword)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MasterUserPassword which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
@@ -467,6 +452,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.GlobalClusterIdentifier != null)
+            {
+                request.GlobalClusterIdentifier = cmdletContext.GlobalClusterIdentifier;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -579,6 +568,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.String GlobalClusterIdentifier { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }

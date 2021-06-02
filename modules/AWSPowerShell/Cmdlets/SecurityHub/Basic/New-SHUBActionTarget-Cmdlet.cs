@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID for the custom action target.</para>
+        /// <para>The ID for the custom action target. Can contain up to 20 alphanumeric characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the custom action target.</para>
+        /// <para>The name of the custom action target. Can contain up to 20 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

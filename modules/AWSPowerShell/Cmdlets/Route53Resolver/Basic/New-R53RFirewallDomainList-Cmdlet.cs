@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows you to retry failed requests
-        /// without the risk of executing the operation twice. <code>CreatorRequestId</code> can
+        /// without the risk of running the operation twice. <code>CreatorRequestId</code> can
         /// be any unique string, for example, a date/time stamp. </para>
         /// </para>
         /// </summary>

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
     /// Updates the configuration of the firewall behavior provided by DNS Firewall for a
-    /// single Amazon virtual private cloud (VPC).
+    /// single VPC from Amazon Virtual Private Cloud (Amazon VPC).
     /// </summary>
     [Cmdlet("Edit", "R53RFirewallConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53Resolver.Model.FirewallConfig")]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon virtual private cloud (VPC) that the configuration is for.</para>
+        /// <para>The ID of the VPC that the configuration is for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -338,9 +338,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group
-        /// uses to call other AWS services on your behalf. By default, Amazon EC2 Auto Scaling
-        /// uses a service-linked role named AWSServiceRoleForAutoScaling, which it creates if
-        /// it does not exist. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked
+        /// uses to call other Amazon Web Services on your behalf. By default, Amazon EC2 Auto
+        /// Scaling uses a service-linked role named AWSServiceRoleForAutoScaling, which it creates
+        /// if it does not exist. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked
         /// roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>

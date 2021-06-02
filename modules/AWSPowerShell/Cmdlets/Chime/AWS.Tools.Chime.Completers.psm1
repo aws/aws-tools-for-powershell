@@ -133,7 +133,10 @@ $CHM_Completers = {
         }
 
         # Amazon.Chime.License
-        "Update-CHMUser/LicenseType"
+        {
+            ($_ -eq "Update-CHMAccount/DefaultLicense") -Or
+            ($_ -eq "Update-CHMUser/LicenseType")
+        }
         {
             $v = "Basic","Plus","Pro","ProTrial"
             break
@@ -239,6 +242,7 @@ $CHM_Completers = {
 
 $CHM_map = @{
     "AwsRegion"=@("New-CHMVoiceConnector")
+    "DefaultLicense"=@("Update-CHMAccount")
     "FilterName"=@("Get-CHMPhoneNumberList")
     "GeoMatchLevel"=@("New-CHMProxySession")
     "LicenseType"=@("Update-CHMUser")
@@ -484,6 +488,7 @@ $CHM_SelectMap = @{
                "Update-CHMRoom",
                "Update-CHMRoomMembership",
                "Update-CHMSipMediaApplication",
+               "Update-CHMSipMediaApplicationCall",
                "Update-CHMSipRule",
                "Update-CHMUser",
                "Update-CHMUserSetting",

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>kms</C2jFilename>
     <AssemblyName>KeyManagementService</AssemblyName>
@@ -16,7 +17,6 @@
     </VerbMappings>
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -175,6 +175,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ReplicateKey" OutputProperty="*" Verb="New" Noun="ReplicaKey" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RetireGrant" Verb="Disable" Noun="Grant" ShouldProcessTarget="GrantToken" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -211,12 +215,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePrimaryRegion" Verb="Update" Noun="PrimaryRegion" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="Verify" OutputProperty="SignatureValid" Verb="Test" Noun="Signature" PipelineParameter="Message" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

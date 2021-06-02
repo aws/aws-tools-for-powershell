@@ -97,7 +97,7 @@ $LICM_Completers = {
         # Amazon.LicenseManager.GrantStatus
         "New-LICMGrantVersion/Status"
         {
-            $v = "ACTIVE","DELETED","DISABLED","FAILED_WORKFLOW","PENDING_ACCEPT","PENDING_DELETE","PENDING_WORKFLOW","REJECTED"
+            $v = "ACTIVE","DELETED","DISABLED","FAILED_WORKFLOW","PENDING_ACCEPT","PENDING_DELETE","PENDING_WORKFLOW","REJECTED","WORKFLOW_COMPLETED"
             break
         }
 

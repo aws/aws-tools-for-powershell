@@ -28,8 +28,8 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Lists the file transfer protocol-enabled servers that are associated with your AWS
-    /// account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the file transfer protocol-enabled servers that are associated with your Amazon
+    /// Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TFRServerList")]
     [OutputType("Amazon.Transfer.Model.ListedServer")]

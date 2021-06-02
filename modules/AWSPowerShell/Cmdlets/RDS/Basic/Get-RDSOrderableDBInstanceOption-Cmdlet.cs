@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Availability Zone group associated with a Local Zone. Specify this parameter to
-        /// retrieve available offerings for the Local Zones in the group.</para><para>Omit this parameter to show the available offerings in the specified AWS Region.</para>
+        /// retrieve available offerings for the Local Zones in the group.</para><para>Omit this parameter to show the available offerings in the specified Amazon Web Services
+        /// Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the engine to retrieve DB instance options for.</para><para>Valid Values: </para><ul><li><para><code>aurora</code> (for MySQL 5.6-compatible Aurora)</para></li><li><para><code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se1</code></para></li><li><para><code>oracle-se</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
+        /// <para>The name of the engine to retrieve DB instance options for.</para><para>Valid Values: </para><ul><li><para><code>aurora</code> (for MySQL 5.6-compatible Aurora)</para></li><li><para><code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,9 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Returns all grants in which the specified principal is the <code>RetiringPrincipal</code>
-    /// in the grant. 
+    /// Returns information about all grants in the AWS account and Region that have the specified
+    /// retiring principal. For more information about grants, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a>
+    /// in the <i><i>AWS Key Management Service Developer Guide</i></i>.
     /// 
     ///  
     /// <para>

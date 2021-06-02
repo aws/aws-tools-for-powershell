@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed requests to be
-        /// retried without the risk of executing the operation twice. <code>CreatorRequestId</code>
+        /// retried without the risk of running the operation twice. <code>CreatorRequestId</code>
         /// can be any unique string, for example, a date/time stamp. </para>
         /// </para>
         /// </summary>
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The IPs that you want Resolver to forward DNS queries to. You can specify only IPv4
-        /// addresses. Separate IP addresses with a comma.</para><para><code>TargetIps</code> is available only when the value of <code>Rule type</code>
+        /// addresses. Separate IP addresses with a space.</para><para><code>TargetIps</code> is available only when the value of <code>Rule type</code>
         /// is <code>FORWARD</code>.</para>
         /// </para>
         /// </summary>

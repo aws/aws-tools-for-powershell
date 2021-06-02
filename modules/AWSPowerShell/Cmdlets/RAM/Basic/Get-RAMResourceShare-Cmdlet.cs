@@ -51,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter PermissionArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS RAM permission that is associated with the
+        /// resource share.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PermissionArn { get; set; }
+        #endregion
+        
         #region Parameter ResourceOwner
         /// <summary>
         /// <para>
@@ -71,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceShareArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of the resource shares.</para>
+        /// <para>The ARNs of the resource shares.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             #endif
             context.Name = this.Name;
             context.NextToken = this.NextToken;
+            context.PermissionArn = this.PermissionArn;
             context.ResourceOwner = this.ResourceOwner;
             #if MODULAR
             if (this.ResourceOwner == null && ParameterWasBound(nameof(this.ResourceOwner)))
@@ -251,6 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PermissionArn != null)
+            {
+                request.PermissionArn = cmdletContext.PermissionArn;
             }
             if (cmdletContext.ResourceOwner != null)
             {
@@ -326,6 +342,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PermissionArn != null)
+            {
+                request.PermissionArn = cmdletContext.PermissionArn;
             }
             if (cmdletContext.ResourceOwner != null)
             {
@@ -469,6 +489,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             public int? MaxResult { get; set; }
             public System.String Name { get; set; }
             public System.String NextToken { get; set; }
+            public System.String PermissionArn { get; set; }
             public Amazon.RAM.ResourceOwner ResourceOwner { get; set; }
             public List<System.String> ResourceShareArn { get; set; }
             public Amazon.RAM.ResourceShareStatus ResourceShareStatus { get; set; }

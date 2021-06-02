@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The action that DNS Firewall should take on a DNS query when it matches one of the
-        /// domains in the rule's domain list:</para><ul><li><para><code>ALLOW</code> - Permit the request to go through.</para></li><li><para><code>ALERT</code> - Permit the request and send metrics and log to Cloud Watch.</para></li><li><para><code>BLOCK</code> - Disallow the request. This option requires additional details
+        /// domains in the rule's domain list:</para><ul><li><para><code>ALLOW</code> - Permit the request to go through.</para></li><li><para><code>ALERT</code> - Permit the request and send metrics and logs to Cloud Watch.</para></li><li><para><code>BLOCK</code> - Disallow the request. This option requires additional details
         /// in the rule's <code>BlockResponse</code>. </para></li></ul>
         /// </para>
         /// </summary>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter BlockResponse
         /// <summary>
         /// <para>
-        /// <para>The way that you want DNS Firewall to block the request, used with the rule aciton
+        /// <para>The way that you want DNS Firewall to block the request, used with the rule action
         /// setting <code>BLOCK</code>. </para><ul><li><para><code>NODATA</code> - Respond indicating that the query was successful, but no response
         /// is available for it.</para></li><li><para><code>NXDOMAIN</code> - Respond indicating that the domain name that's in the query
         /// doesn't exist.</para></li><li><para><code>OVERRIDE</code> - Provide a custom override in the response. This option requires
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows you to retry failed requests
-        /// without the risk of executing the operation twice. <code>CreatorRequestId</code> can
+        /// without the risk of running the operation twice. <code>CreatorRequestId</code> can
         /// be any unique string, for example, a date/time stamp. </para>
         /// </para>
         /// </summary>

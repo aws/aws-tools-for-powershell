@@ -91,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         public System.String DbUser { get; set; }
         #endregion
         
+        #region Parameter Parameter
+        /// <summary>
+        /// <para>
+        /// <para>The parameters for the SQL statement.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Parameters")]
+        public Amazon.RedshiftDataAPIService.Model.SqlParameter[] Parameter { get; set; }
+        #endregion
+        
         #region Parameter SecretArn
         /// <summary>
         /// <para>
@@ -191,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             #endif
             context.Database = this.Database;
             context.DbUser = this.DbUser;
+            if (this.Parameter != null)
+            {
+                context.Parameter = new List<Amazon.RedshiftDataAPIService.Model.SqlParameter>(this.Parameter);
+            }
             context.SecretArn = this.SecretArn;
             context.Sql = this.Sql;
             #if MODULAR
@@ -228,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             if (cmdletContext.DbUser != null)
             {
                 request.DbUser = cmdletContext.DbUser;
+            }
+            if (cmdletContext.Parameter != null)
+            {
+                request.Parameters = cmdletContext.Parameter;
             }
             if (cmdletContext.SecretArn != null)
             {
@@ -309,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             public System.String ClusterIdentifier { get; set; }
             public System.String Database { get; set; }
             public System.String DbUser { get; set; }
+            public List<Amazon.RedshiftDataAPIService.Model.SqlParameter> Parameter { get; set; }
             public System.String SecretArn { get; set; }
             public System.String Sql { get; set; }
             public System.String StatementName { get; set; }

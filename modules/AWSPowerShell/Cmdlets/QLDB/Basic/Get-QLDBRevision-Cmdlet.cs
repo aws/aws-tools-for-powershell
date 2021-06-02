@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter DocumentId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the document to be verified.</para>
+        /// <para>The UUID (represented in Base62-encoded text) of the document to be verified.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

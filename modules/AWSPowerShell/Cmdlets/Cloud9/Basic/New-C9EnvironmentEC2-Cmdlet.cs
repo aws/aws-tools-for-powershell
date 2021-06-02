@@ -28,8 +28,8 @@ using Amazon.Cloud9.Model;
 namespace Amazon.PowerShell.Cmdlets.C9
 {
     /// <summary>
-    /// Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute
-    /// Cloud (Amazon EC2) instance, and then connects from the instance to the environment.
+    /// Creates an Cloud9 development environment, launches an Amazon Elastic Compute Cloud
+    /// (Amazon EC2) instance, and then connects from the instance to the environment.
     /// </summary>
     [Cmdlet("New", "C9EnvironmentEC2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.C9
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes
-        /// no more than one time.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Client
+        /// <para>A unique, case-sensitive string that helps Cloud9 to ensure this operation completes
+        /// no more than one time.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Client
         /// Tokens</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>
@@ -70,8 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// <para>
         /// <para>The connection type used for connecting to an Amazon EC2 environment. Valid values
         /// are <code>CONNECT_SSH</code> (default) and <code>CONNECT_SSM</code> (connected through
-        /// AWS Systems Manager).</para><para>For more information, see <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html">Accessing
-        /// no-ingress EC2 instances with AWS Systems Manager</a> in the <i>AWS Cloud9 User Guide</i>.</para>
+        /// Amazon EC2 Systems Manager).</para><para>For more information, see <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html">Accessing
+        /// no-ingress EC2 instances with Amazon EC2 Systems Manager</a> in the <i>Cloud9 User
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,9 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// <summary>
         /// <para>
         /// <para>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
-        /// To choose an AMI for the instance, you must specify a valid AMI alias or a valid AWS
-        /// Systems Manager (SSM) path.</para><para>The default AMI is used if the parameter isn't explicitly assigned a value in the
-        /// request. </para><para><b>AMI aliases </b></para><ul><li><para><b>Amazon Linux (default): <code>amazonlinux-1-x86_64</code></b></para></li><li><para>Amazon Linux 2: <code>amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code></para></li></ul><para><b>SSM paths</b></para><ul><li><para><b>Amazon Linux (default): <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code></b></para></li><li><para>Amazon Linux 2: <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code></para></li></ul>
+        /// To choose an AMI for the instance, you must specify a valid AMI alias or a valid Amazon
+        /// EC2 Systems Manager (SSM) path.</para><para>The default AMI is used if the parameter isn't explicitly assigned a value in the
+        /// request. Because Amazon Linux AMI has ended standard support as of December 31, 2020,
+        /// we recommend you choose Amazon Linux 2, which includes long term support through 2023.</para><para><b>AMI aliases </b></para><ul><li><para><b>Amazon Linux (default): <code>amazonlinux-1-x86_64</code></b></para></li><li><para>Amazon Linux 2: <code>amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code></para></li></ul><para><b>SSM paths</b></para><ul><li><para><b>Amazon Linux (default): <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code></b></para></li><li><para>Amazon Linux 2: <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code></para></li><li><para>Ubuntu 18.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the environment to create.</para><para>This name is visible to other AWS IAM users in the same AWS account.</para>
+        /// <para>The name of the environment to create.</para><para>This name is visible to other IAM users in the same Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of
-        /// any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's
+        /// any IAM principal. If this value is not specified, the ARN defaults to this environment's
         /// creator.</para>
         /// </para>
         /// </summary>
@@ -151,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.C9
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the
-        /// Amazon EC2 instance.</para>
+        /// <para>The ID of the subnet in Amazon VPC that Cloud9 will use to communicate with the Amazon
+        /// EC2 instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs that will be associated with the new AWS Cloud9 development
+        /// <para>An array of key-value pairs that will be associated with the new Cloud9 development
         /// environment.</para>
         /// </para>
         /// </summary>

@@ -120,6 +120,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-KMSGrant', 
         'New-KMSKey', 
         'New-KMSRandom', 
+        'New-KMSReplicaKey', 
         'Remove-KMSAlias', 
         'Remove-KMSCustomKeyStore', 
         'Remove-KMSImportedKeyMaterial', 
@@ -131,6 +132,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-KMSAlias', 
         'Update-KMSCustomKeyStore', 
         'Update-KMSKeyDescription', 
+        'Update-KMSPrimaryRegion', 
         'Write-KMSKeyPolicy')
 
     # Variables to export from this module

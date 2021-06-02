@@ -56,6 +56,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RestoreRDSDBClusterToPointInTimeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        #region Parameter ScalingConfiguration_AutoPause
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to allow or disallow automatic pause for an Aurora
+        /// DB cluster in <code>serverless</code> DB engine mode. A DB cluster can be paused only
+        /// when it's idle (it has no connections).</para><note><para>If a DB cluster is paused for more than seven days, the DB cluster might be backed
+        /// up with a snapshot. In this case, the DB cluster is restored when there is a request
+        /// to connect to it. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ScalingConfiguration_AutoPause { get; set; }
+        #endregion
+        
         #region Parameter BacktrackWindow
         /// <summary>
         /// <para>
@@ -169,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable mapping of AWS Identity and Access Management
-        /// (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
+        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -178,23 +192,65 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
+        #region Parameter EngineMode
+        /// <summary>
+        /// <para>
+        /// <para>The engine mode of the new cluster. Specify <code>provisioned</code> or <code>serverless</code>,
+        /// depending on the type of the cluster you are creating. You can create an Aurora Serverless
+        /// clone from a provisioned cluster, or a provisioned clone from an Aurora Serverless
+        /// cluster. To create a clone that is an Aurora Serverless cluster, the original cluster
+        /// must be an Aurora Serverless cluster or an encrypted provisioned cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EngineMode { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
-        /// DB cluster.</para><para>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the
-        /// AWS KMS customer master key (CMK). To use a CMK in a different AWS account, specify
-        /// the key ARN or alias ARN.</para><para>You can restore to a new DB cluster and encrypt the new DB cluster with a AWS KMS
-        /// CMK that is different than the AWS KMS key used to encrypt the source DB cluster.
-        /// The new DB cluster is encrypted with the AWS KMS CMK identified by the <code>KmsKeyId</code>
-        /// parameter.</para><para>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the following
+        /// <para>The Amazon Web Services KMS key identifier to use when restoring an encrypted DB cluster
+        /// from an encrypted DB cluster.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the Amazon Web Services KMS customer master key (CMK). To use a CMK in a
+        /// different Amazon Web Services account, specify the key ARN or alias ARN.</para><para>You can restore to a new DB cluster and encrypt the new DB cluster with a Amazon Web
+        /// Services KMS CMK that is different than the Amazon Web Services KMS key used to encrypt
+        /// the source DB cluster. The new DB cluster is encrypted with the Amazon Web Services
+        /// KMS CMK identified by the <code>KmsKeyId</code> parameter.</para><para>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the following
         /// occurs:</para><ul><li><para>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the
-        /// AWS KMS CMK that was used to encrypt the source DB cluster.</para></li><li><para>If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.</para></li></ul><para>If <code>DBClusterIdentifier</code> refers to a DB cluster that isn't encrypted, then
+        /// Amazon Web Services KMS CMK that was used to encrypt the source DB cluster.</para></li><li><para>If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.</para></li></ul><para>If <code>DBClusterIdentifier</code> refers to a DB cluster that isn't encrypted, then
         /// the restore request is rejected.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter ScalingConfiguration_MaxCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The maximum capacity for an Aurora DB cluster in <code>serverless</code> DB engine
+        /// mode.</para><para>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>,
+        /// <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>,
+        /// and <code>256</code>.</para><para>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>,
+        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</para><para>The maximum capacity must be greater than or equal to the minimum capacity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ScalingConfiguration_MaxCapacity { get; set; }
+        #endregion
+        
+        #region Parameter ScalingConfiguration_MinCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The minimum capacity for an Aurora DB cluster in <code>serverless</code> DB engine
+        /// mode.</para><para>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>,
+        /// <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>,
+        /// and <code>256</code>.</para><para>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>,
+        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</para><para>The minimum capacity must be less than or equal to the maximum capacity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ScalingConfiguration_MinCapacity { get; set; }
         #endregion
         
         #region Parameter OptionGroupName
@@ -241,6 +297,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String RestoreType { get; set; }
         #endregion
         
+        #region Parameter ScalingConfiguration_SecondsUntilAutoPause
+        /// <summary>
+        /// <para>
+        /// <para>The time, in seconds, before an Aurora DB cluster in <code>serverless</code> mode
+        /// is paused.</para><para>Specify a value between 300 and 86,400 seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ScalingConfiguration_SecondsUntilAutoPause { get; set; }
+        #endregion
+        
         #region Parameter SourceDBClusterIdentifier
         /// <summary>
         /// <para>
@@ -267,6 +334,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ScalingConfiguration_TimeoutAction
+        /// <summary>
+        /// <para>
+        /// <para>The action to take when the timeout is reached, either <code>ForceApplyCapacityChange</code>
+        /// or <code>RollbackCapacityChange</code>.</para><para><code>ForceApplyCapacityChange</code> sets the capacity to the specified value as
+        /// soon as possible.</para><para><code>RollbackCapacityChange</code>, the default, ignores the capacity change if
+        /// a scaling point isn't found in the timeout period.</para><important><para>If you specify <code>ForceApplyCapacityChange</code>, connections that prevent Aurora
+        /// Serverless from finding a scaling point might be dropped.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
+        /// Autoscaling for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ScalingConfiguration_TimeoutAction { get; set; }
         #endregion
         
         #region Parameter UseLatestRestorableTime
@@ -389,11 +471,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.EnableCloudwatchLogsExport = new List<System.String>(this.EnableCloudwatchLogsExport);
             }
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
+            context.EngineMode = this.EngineMode;
             context.KmsKeyId = this.KmsKeyId;
             context.OptionGroupName = this.OptionGroupName;
             context.Port = this.Port;
             context.UtcRestoreToTime = this.UtcRestoreToTime;
             context.RestoreType = this.RestoreType;
+            context.ScalingConfiguration_AutoPause = this.ScalingConfiguration_AutoPause;
+            context.ScalingConfiguration_MaxCapacity = this.ScalingConfiguration_MaxCapacity;
+            context.ScalingConfiguration_MinCapacity = this.ScalingConfiguration_MinCapacity;
+            context.ScalingConfiguration_SecondsUntilAutoPause = this.ScalingConfiguration_SecondsUntilAutoPause;
+            context.ScalingConfiguration_TimeoutAction = this.ScalingConfiguration_TimeoutAction;
             context.SourceDBClusterIdentifier = this.SourceDBClusterIdentifier;
             #if MODULAR
             if (this.SourceDBClusterIdentifier == null && ParameterWasBound(nameof(this.SourceDBClusterIdentifier)))
@@ -469,6 +557,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
+            if (cmdletContext.EngineMode != null)
+            {
+                request.EngineMode = cmdletContext.EngineMode;
+            }
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
@@ -488,6 +580,65 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.RestoreType != null)
             {
                 request.RestoreType = cmdletContext.RestoreType;
+            }
+            
+             // populate ScalingConfiguration
+            var requestScalingConfigurationIsNull = true;
+            request.ScalingConfiguration = new Amazon.RDS.Model.ScalingConfiguration();
+            System.Boolean? requestScalingConfiguration_scalingConfiguration_AutoPause = null;
+            if (cmdletContext.ScalingConfiguration_AutoPause != null)
+            {
+                requestScalingConfiguration_scalingConfiguration_AutoPause = cmdletContext.ScalingConfiguration_AutoPause.Value;
+            }
+            if (requestScalingConfiguration_scalingConfiguration_AutoPause != null)
+            {
+                request.ScalingConfiguration.AutoPause = requestScalingConfiguration_scalingConfiguration_AutoPause.Value;
+                requestScalingConfigurationIsNull = false;
+            }
+            System.Int32? requestScalingConfiguration_scalingConfiguration_MaxCapacity = null;
+            if (cmdletContext.ScalingConfiguration_MaxCapacity != null)
+            {
+                requestScalingConfiguration_scalingConfiguration_MaxCapacity = cmdletContext.ScalingConfiguration_MaxCapacity.Value;
+            }
+            if (requestScalingConfiguration_scalingConfiguration_MaxCapacity != null)
+            {
+                request.ScalingConfiguration.MaxCapacity = requestScalingConfiguration_scalingConfiguration_MaxCapacity.Value;
+                requestScalingConfigurationIsNull = false;
+            }
+            System.Int32? requestScalingConfiguration_scalingConfiguration_MinCapacity = null;
+            if (cmdletContext.ScalingConfiguration_MinCapacity != null)
+            {
+                requestScalingConfiguration_scalingConfiguration_MinCapacity = cmdletContext.ScalingConfiguration_MinCapacity.Value;
+            }
+            if (requestScalingConfiguration_scalingConfiguration_MinCapacity != null)
+            {
+                request.ScalingConfiguration.MinCapacity = requestScalingConfiguration_scalingConfiguration_MinCapacity.Value;
+                requestScalingConfigurationIsNull = false;
+            }
+            System.Int32? requestScalingConfiguration_scalingConfiguration_SecondsUntilAutoPause = null;
+            if (cmdletContext.ScalingConfiguration_SecondsUntilAutoPause != null)
+            {
+                requestScalingConfiguration_scalingConfiguration_SecondsUntilAutoPause = cmdletContext.ScalingConfiguration_SecondsUntilAutoPause.Value;
+            }
+            if (requestScalingConfiguration_scalingConfiguration_SecondsUntilAutoPause != null)
+            {
+                request.ScalingConfiguration.SecondsUntilAutoPause = requestScalingConfiguration_scalingConfiguration_SecondsUntilAutoPause.Value;
+                requestScalingConfigurationIsNull = false;
+            }
+            System.String requestScalingConfiguration_scalingConfiguration_TimeoutAction = null;
+            if (cmdletContext.ScalingConfiguration_TimeoutAction != null)
+            {
+                requestScalingConfiguration_scalingConfiguration_TimeoutAction = cmdletContext.ScalingConfiguration_TimeoutAction;
+            }
+            if (requestScalingConfiguration_scalingConfiguration_TimeoutAction != null)
+            {
+                request.ScalingConfiguration.TimeoutAction = requestScalingConfiguration_scalingConfiguration_TimeoutAction;
+                requestScalingConfigurationIsNull = false;
+            }
+             // determine if request.ScalingConfiguration should be set to null
+            if (requestScalingConfigurationIsNull)
+            {
+                request.ScalingConfiguration = null;
             }
             if (cmdletContext.SourceDBClusterIdentifier != null)
             {
@@ -586,11 +737,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DomainIAMRoleName { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
+            public System.String EngineMode { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
             public System.DateTime? UtcRestoreToTime { get; set; }
             public System.String RestoreType { get; set; }
+            public System.Boolean? ScalingConfiguration_AutoPause { get; set; }
+            public System.Int32? ScalingConfiguration_MaxCapacity { get; set; }
+            public System.Int32? ScalingConfiguration_MinCapacity { get; set; }
+            public System.Int32? ScalingConfiguration_SecondsUntilAutoPause { get; set; }
+            public System.String ScalingConfiguration_TimeoutAction { get; set; }
             public System.String SourceDBClusterIdentifier { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }

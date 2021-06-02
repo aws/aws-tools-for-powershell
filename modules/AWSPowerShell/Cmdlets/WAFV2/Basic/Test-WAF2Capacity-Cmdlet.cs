@@ -34,12 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// 
     ///  
     /// <para>
-    /// AWS WAF uses WCUs to calculate and control the operating resources that are used to
-    /// run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently
-    /// for each rule type, to reflect the relative cost of each rule. Simple rules that cost
-    /// little to run use fewer WCUs than more complex rules that use more processing power.
-    /// Rule group capacity is fixed at creation, which helps users plan their web ACL WCU
-    /// usage when they use a rule group. The WCU limit for web ACLs is 1,500. 
+    /// WAF uses WCUs to calculate and control the operating resources that are used to run
+    /// your rules, rule groups, and web ACLs. WAF calculates capacity differently for each
+    /// rule type, to reflect the relative cost of each rule. Simple rules that cost little
+    /// to run use fewer WCUs than more complex rules that use more processing power. Rule
+    /// group capacity is fixed at creation, which helps users plan their web ACL WCU usage
+    /// when they use a rule group. The WCU limit for web ACLs is 1,500. 
     /// </para>
     /// </summary>
     [Cmdlet("Test", "WAF2Capacity")]
@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this is for an AWS CloudFront distribution or for a regional application.
-        /// A regional application can be an Application Load Balancer (ALB), an API Gateway REST
-        /// API, or an AppSync GraphQL API. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
+        /// application. A regional application can be an Application Load Balancer (ALB), an
+        /// Amazon API Gateway REST API, or an AppSync GraphQL API. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
         /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>

@@ -89,6 +89,20 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String Report_Bucket { get; set; }
         #endregion
         
+        #region Parameter S3PutObjectCopy_BucketKeyEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with
+        /// server-side encryption using AWS KMS (SSE-KMS). Setting this header to <code>true</code>
+        /// causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</para><para>Specifying this header with an <i>object</i> action doesn’t affect <i>bucket-level</i>
+        /// settings for S3 Bucket Key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Operation_S3PutObjectCopy_BucketKeyEnabled")]
+        public System.Boolean? S3PutObjectCopy_BucketKeyEnabled { get; set; }
+        #endregion
+        
         #region Parameter S3PutObjectRetention_BypassGovernanceRetention
         /// <summary>
         /// <para>
@@ -858,6 +872,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             {
                 context.S3PutObjectCopy_AccessControlGrant = new List<Amazon.S3Control.Model.S3Grant>(this.S3PutObjectCopy_AccessControlGrant);
             }
+            context.S3PutObjectCopy_BucketKeyEnabled = this.S3PutObjectCopy_BucketKeyEnabled;
             context.S3PutObjectCopy_CannedAccessControlList = this.S3PutObjectCopy_CannedAccessControlList;
             context.S3PutObjectCopy_MetadataDirective = this.S3PutObjectCopy_MetadataDirective;
             context.S3PutObjectCopy_ModifiedSinceConstraint = this.S3PutObjectCopy_ModifiedSinceConstraint;
@@ -1365,6 +1380,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 requestOperation_operation_S3PutObjectCopy.AccessControlGrants = requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_AccessControlGrant;
                 requestOperation_operation_S3PutObjectCopyIsNull = false;
             }
+            System.Boolean? requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_BucketKeyEnabled = null;
+            if (cmdletContext.S3PutObjectCopy_BucketKeyEnabled != null)
+            {
+                requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_BucketKeyEnabled = cmdletContext.S3PutObjectCopy_BucketKeyEnabled.Value;
+            }
+            if (requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_BucketKeyEnabled != null)
+            {
+                requestOperation_operation_S3PutObjectCopy.BucketKeyEnabled = requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_BucketKeyEnabled.Value;
+                requestOperation_operation_S3PutObjectCopyIsNull = false;
+            }
             Amazon.S3Control.S3CannedAccessControlList requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_CannedAccessControlList = null;
             if (cmdletContext.S3PutObjectCopy_CannedAccessControlList != null)
             {
@@ -1795,6 +1820,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.String Owner_ID { get; set; }
             public Amazon.S3Control.S3CannedAccessControlList AccessControlPolicy_CannedAccessControlList { get; set; }
             public List<Amazon.S3Control.Model.S3Grant> S3PutObjectCopy_AccessControlGrant { get; set; }
+            public System.Boolean? S3PutObjectCopy_BucketKeyEnabled { get; set; }
             public Amazon.S3Control.S3CannedAccessControlList S3PutObjectCopy_CannedAccessControlList { get; set; }
             public Amazon.S3Control.S3MetadataDirective S3PutObjectCopy_MetadataDirective { get; set; }
             public System.DateTime? S3PutObjectCopy_ModifiedSinceConstraint { get; set; }

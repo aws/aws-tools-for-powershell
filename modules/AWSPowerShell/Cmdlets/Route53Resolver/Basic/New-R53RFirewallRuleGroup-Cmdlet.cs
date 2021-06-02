@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A unique string defined by you to identify the request. This allows you to retry failed
-        /// requests without the risk of executing the operation twice. This can be any unique
-        /// string, for example, a timestamp. </para>
+        /// requests without the risk of running the operation twice. This can be any unique string,
+        /// for example, a timestamp. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

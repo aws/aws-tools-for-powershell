@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
     /// Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB
-    /// for this AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// for this account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DOCCertificate")]
     [OutputType("Amazon.DocDB.Model.Certificate")]

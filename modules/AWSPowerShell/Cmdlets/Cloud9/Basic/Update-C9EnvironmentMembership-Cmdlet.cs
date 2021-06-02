@@ -28,8 +28,7 @@ using Amazon.Cloud9.Model;
 namespace Amazon.PowerShell.Cmdlets.C9
 {
     /// <summary>
-    /// Changes the settings of an existing environment member for an AWS Cloud9 development
-    /// environment.
+    /// Changes the settings of an existing environment member for an Cloud9 development environment.
     /// </summary>
     [Cmdlet("Update", "C9EnvironmentMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Cloud9.Model.EnvironmentMember")]

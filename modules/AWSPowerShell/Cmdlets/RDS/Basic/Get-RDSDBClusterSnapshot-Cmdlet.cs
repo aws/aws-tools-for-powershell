@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to include manual DB cluster snapshots that are public
-        /// and can be copied or restored by any AWS account. By default, the public snapshots
-        /// are not included.</para><para>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a>
+        /// and can be copied or restored by any Amazon Web Services account. By default, the
+        /// public snapshots are not included.</para><para>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a>
         /// API action.</para>
         /// </para>
         /// </summary>
@@ -101,9 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to include shared manual DB cluster snapshots from
-        /// other AWS accounts that this AWS account has been given permission to copy or restore.
-        /// By default, these snapshots are not included.</para><para>You can give an AWS account permission to restore a manual DB cluster snapshot from
-        /// another AWS account by the <code>ModifyDBClusterSnapshotAttribute</code> API action.</para>
+        /// other Amazon Web Services accounts that this Amazon Web Services account has been
+        /// given permission to copy or restore. By default, these snapshots are not included.</para><para>You can give an Amazon Web Services account permission to restore a manual DB cluster
+        /// snapshot from another Amazon Web Services account by the <code>ModifyDBClusterSnapshotAttribute</code>
+        /// API action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,9 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The type of DB cluster snapshots to be returned. You can specify one of the following
         /// values:</para><ul><li><para><code>automated</code> - Return all DB cluster snapshots that have been automatically
-        /// taken by Amazon RDS for my AWS account.</para></li><li><para><code>manual</code> - Return all DB cluster snapshots that have been taken by my
-        /// AWS account.</para></li><li><para><code>shared</code> - Return all manual DB cluster snapshots that have been shared
-        /// to my AWS account.</para></li><li><para><code>public</code> - Return all DB cluster snapshots that have been marked as public.</para></li></ul><para>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
+        /// taken by Amazon RDS for my Amazon Web Services account.</para></li><li><para><code>manual</code> - Return all DB cluster snapshots that have been taken by my
+        /// Amazon Web Services account.</para></li><li><para><code>shared</code> - Return all manual DB cluster snapshots that have been shared
+        /// to my Amazon Web Services account.</para></li><li><para><code>public</code> - Return all DB cluster snapshots that have been marked as public.</para></li></ul><para>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
         /// DB cluster snapshots are returned. You can include shared DB cluster snapshots with
         /// these results by enabling the <code>IncludeShared</code> parameter. You can include
         /// public DB cluster snapshots with these results by enabling the <code>IncludePublic</code>

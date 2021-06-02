@@ -81,8 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter GrantToken
         /// <summary>
         /// <para>
-        /// <para>A list of grant tokens.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
-        /// Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
+        /// <para>A list of grant tokens.</para><para>Use a grant token when your permission to call this operation comes from a new grant
+        /// that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// token</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Describes the specified customer master key (CMK). </para><para>If you specify a predefined AWS alias (an AWS alias with no key ID), KMS associates
         /// the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">AWS
-        /// managed CMK</a> and returns its <code>KeyId</code> and <code>Arn</code> in the response.</para><para>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias
-        /// ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a
-        /// CMK in a different AWS account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.
+        /// managed CMK</a> and returns its <code>KeyId</code> and <code>Arn</code> in the response.</para><para>To specify a CMK, use its key ID, key ARN, alias name, or alias ARN. When using an
+        /// alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different
+        /// AWS account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>

@@ -28,7 +28,8 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Retrieves a paginated list of all versions for a component.
+    /// Retrieves a paginated list of all versions for a component. Greater versions are listed
+    /// first.
     /// </summary>
     [Cmdlet("Get", "GGV2ComponentVersionList")]
     [OutputType("Amazon.GreengrassV2.Model.ComponentVersionListItem")]

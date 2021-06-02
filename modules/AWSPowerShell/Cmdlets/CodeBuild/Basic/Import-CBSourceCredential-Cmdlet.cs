@@ -28,8 +28,8 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Imports the source repository credentials for an AWS CodeBuild project that has its
-    /// source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository.
+    /// Imports the source repository credentials for an CodeBuild project that has its source
+    /// code stored in a GitHub, GitHub Enterprise, or Bitbucket repository.
     /// </summary>
     [Cmdlet("Import", "CBSourceCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
         /// repository. An OAUTH connection is not supported by the API and must be created using
-        /// the AWS CodeBuild console. </para>
+        /// the CodeBuild console. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

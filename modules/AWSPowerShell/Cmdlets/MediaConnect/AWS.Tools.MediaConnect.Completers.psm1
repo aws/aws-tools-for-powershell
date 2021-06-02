@@ -94,6 +94,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.FailoverMode
+        {
+            ($_ -eq "New-EMCNFlow/SourceFailoverConfig_FailoverMode") -Or
+            ($_ -eq "Update-EMCNFlow/SourceFailoverConfig_FailoverMode")
+        }
+        {
+            $v = "FAILOVER","MERGE"
+            break
+        }
+
         # Amazon.MediaConnect.MediaStreamType
         "Update-EMCNFlowMediaStream/MediaStreamType"
         {
@@ -158,6 +168,7 @@ $EMCN_map = @{
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
     "MediaStreamType"=@("Update-EMCNFlowMediaStream")
     "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
+    "SourceFailoverConfig_FailoverMode"=@("New-EMCNFlow","Update-EMCNFlow")
     "SourceFailoverConfig_State"=@("New-EMCNFlow","Update-EMCNFlow")
 }
 

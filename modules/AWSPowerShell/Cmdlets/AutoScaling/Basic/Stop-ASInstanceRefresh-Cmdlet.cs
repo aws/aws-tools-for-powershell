@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing
-    /// Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto
-    /// Scaling User Guide</i>.
+    /// This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance
+    /// refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in
+    /// your Auto Scaling group after you make configuration changes.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "ASInstanceRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

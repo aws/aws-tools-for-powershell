@@ -83,6 +83,7 @@ $PI_Completers = {
         # Amazon.PI.ServiceType
         {
             ($_ -eq "Get-PIDimensionKey/ServiceType") -Or
+            ($_ -eq "Get-PIDimensionKeyDetail/ServiceType") -Or
             ($_ -eq "Get-PIResourceMetric/ServiceType")
         }
         {
@@ -99,7 +100,7 @@ $PI_Completers = {
 }
 
 $PI_map = @{
-    "ServiceType"=@("Get-PIDimensionKey","Get-PIResourceMetric")
+    "ServiceType"=@("Get-PIDimensionKey","Get-PIDimensionKeyDetail","Get-PIResourceMetric")
 }
 
 _awsArgumentCompleterRegistration $PI_Completers $PI_map
@@ -153,6 +154,7 @@ $PI_SelectCompleters = {
 
 $PI_SelectMap = @{
     "Select"=@("Get-PIDimensionKey",
+               "Get-PIDimensionKeyDetail",
                "Get-PIResourceMetric")
 }
 

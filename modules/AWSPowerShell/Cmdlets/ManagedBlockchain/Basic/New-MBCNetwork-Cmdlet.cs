@@ -162,6 +162,22 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         public System.String FrameworkVersion { get; set; }
         #endregion
         
+        #region Parameter MemberConfiguration_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the customer managed key in AWS Key Management Service
+        /// (AWS KMS) to use for encryption at rest in the member. This parameter is inherited
+        /// by any nodes that this member creates.</para><para>Use one of the following options to specify this parameter:</para><ul><li><para><b>Undefined or empty string</b> - The member uses an AWS owned KMS key for encryption
+        /// by default.</para></li><li><para><b>A valid symmetric customer managed KMS key</b> - The member uses the specified
+        /// key for encryption.</para><para>Amazon Managed Blockchain doesn't support asymmetric keys. For more information, see
+        /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
+        /// symmetric and asymmetric keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</para><para>The following is an example of a KMS key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MemberConfiguration_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter MemberConfiguration_Name
         /// <summary>
         /// <para>
@@ -350,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             context.MemberConfiguration_Description = this.MemberConfiguration_Description;
             context.Fabric_AdminPassword = this.Fabric_AdminPassword;
             context.Fabric_AdminUsername = this.Fabric_AdminUsername;
+            context.MemberConfiguration_KmsKeyArn = this.MemberConfiguration_KmsKeyArn;
             context.Cloudwatch_Enabled = this.Cloudwatch_Enabled;
             context.MemberConfiguration_Name = this.MemberConfiguration_Name;
             #if MODULAR
@@ -462,6 +479,16 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             if (requestMemberConfiguration_memberConfiguration_Description != null)
             {
                 request.MemberConfiguration.Description = requestMemberConfiguration_memberConfiguration_Description;
+                requestMemberConfigurationIsNull = false;
+            }
+            System.String requestMemberConfiguration_memberConfiguration_KmsKeyArn = null;
+            if (cmdletContext.MemberConfiguration_KmsKeyArn != null)
+            {
+                requestMemberConfiguration_memberConfiguration_KmsKeyArn = cmdletContext.MemberConfiguration_KmsKeyArn;
+            }
+            if (requestMemberConfiguration_memberConfiguration_KmsKeyArn != null)
+            {
+                request.MemberConfiguration.KmsKeyArn = requestMemberConfiguration_memberConfiguration_KmsKeyArn;
                 requestMemberConfigurationIsNull = false;
             }
             System.String requestMemberConfiguration_memberConfiguration_Name = null;
@@ -740,6 +767,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             public System.String MemberConfiguration_Description { get; set; }
             public System.String Fabric_AdminPassword { get; set; }
             public System.String Fabric_AdminUsername { get; set; }
+            public System.String MemberConfiguration_KmsKeyArn { get; set; }
             public System.Boolean? Cloudwatch_Enabled { get; set; }
             public System.String MemberConfiguration_Name { get; set; }
             public Dictionary<System.String, System.String> MemberConfiguration_Tag { get; set; }

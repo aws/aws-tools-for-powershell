@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the service setting to reset. For example, <code>arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled</code>.
-        /// The setting ID can be one of the following.</para><ul><li><para><code>/ssm/automation/customer-script-log-destination</code></para></li><li><para><code>/ssm/automation/customer-script-log-group-name</code></para></li><li><para><code>/ssm/parameter-store/default-parameter-tier</code></para></li><li><para><code>/ssm/parameter-store/high-throughput-enabled</code></para></li><li><para><code>/ssm/managed-instance/activation-tier</code></para></li></ul>
+        /// The setting ID can be one of the following.</para><ul><li><para><code>/ssm/automation/customer-script-log-destination</code></para></li><li><para><code>/ssm/automation/customer-script-log-group-name</code></para></li><li><para><code>/ssm/documents/console/public-sharing-permission</code></para></li><li><para><code>/ssm/parameter-store/default-parameter-tier</code></para></li><li><para><code>/ssm/parameter-store/high-throughput-enabled</code></para></li><li><para><code>/ssm/managed-instance/activation-tier</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// setting ID, the setting value can be one of the following.</para><ul><li><para>Standard</para></li><li><para>Advanced</para></li><li><para>Intelligent-Tiering</para></li></ul><para>For the <code>/ssm/parameter-store/high-throughput-enabled</code>, and <code>/ssm/managed-instance/activation-tier</code>
         /// setting IDs, the setting value can be true or false.</para><para>For the <code>/ssm/automation/customer-script-log-destination</code> setting ID, the
         /// setting value can be CloudWatch.</para><para>For the <code>/ssm/automation/customer-script-log-group-name</code> setting ID, the
-        /// setting value can be the name of a CloudWatch Logs log group.</para>
+        /// setting value can be the name of a CloudWatch Logs log group.</para><para>For the <code>/ssm/documents/console/public-sharing-permission</code> setting ID,
+        /// the setting value can be Enable or Disable.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

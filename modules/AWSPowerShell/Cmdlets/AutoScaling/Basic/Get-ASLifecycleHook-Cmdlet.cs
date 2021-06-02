@@ -28,7 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes the lifecycle hooks for the specified Auto Scaling group.
+    /// Gets information about the lifecycle hooks for the specified Auto Scaling group.
     /// </summary>
     [Cmdlet("Get", "ASLifecycleHook")]
     [OutputType("Amazon.AutoScaling.Model.LifecycleHook")]

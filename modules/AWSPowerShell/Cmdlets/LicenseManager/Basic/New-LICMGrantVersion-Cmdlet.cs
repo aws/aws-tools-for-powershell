@@ -98,6 +98,16 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public Amazon.LicenseManager.GrantStatus Status { get; set; }
         #endregion
         
+        #region Parameter StatusReason
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StatusReason { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -198,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             context.GrantName = this.GrantName;
             context.SourceVersion = this.SourceVersion;
             context.Status = this.Status;
+            context.StatusReason = this.StatusReason;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -237,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
+            }
+            if (cmdletContext.StatusReason != null)
+            {
+                request.StatusReason = cmdletContext.StatusReason;
             }
             
             CmdletOutput output;
@@ -305,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             public System.String GrantName { get; set; }
             public System.String SourceVersion { get; set; }
             public Amazon.LicenseManager.GrantStatus Status { get; set; }
+            public System.String StatusReason { get; set; }
             public System.Func<Amazon.LicenseManager.Model.CreateGrantVersionResponse, NewLICMGrantVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

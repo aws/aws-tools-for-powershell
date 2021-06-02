@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
     /// Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources
-    /// that are associated with the specified web ACL. If you want the list of AWS CloudFront
-    /// resources, use the AWS CloudFront call <code>ListDistributionsByWebACLId</code>.
+    /// that are associated with the specified web ACL. If you want the list of Amazon CloudFront
+    /// resources, use the CloudFront call <code>ListDistributionsByWebACLId</code>.
     /// </summary>
     [Cmdlet("Get", "WAF2ResourcesForWebACLList")]
     [OutputType("System.String")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>Used for web ACLs that are scoped for regional applications. A regional application
-        /// can be an Application Load Balancer (ALB), an API Gateway REST API, or an AppSync
+        /// can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync
         /// GraphQL API. </para>
         /// </para>
         /// </summary>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter WebACLArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Web ACL.</para>
+        /// <para>The Amazon Resource Name (ARN) of the web ACL.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.Cloud9.Model;
 namespace Amazon.PowerShell.Cmdlets.C9
 {
     /// <summary>
-    /// Changes the settings of an existing AWS Cloud9 development environment.
+    /// Changes the settings of an existing Cloud9 development environment.
     /// </summary>
     [Cmdlet("Update", "C9Environment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

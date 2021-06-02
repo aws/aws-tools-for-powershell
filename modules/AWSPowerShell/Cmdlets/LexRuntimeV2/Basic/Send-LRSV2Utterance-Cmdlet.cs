@@ -28,9 +28,37 @@ using Amazon.LexRuntimeV2.Model;
 namespace Amazon.PowerShell.Cmdlets.LRSV2
 {
     /// <summary>
-    /// Sends user input to Amazon Lex. You can send text or speech. Clients use this API
-    /// to send text and audio requests to Amazon Lex at runtime. Amazon Lex interprets the
-    /// user input using the machine learning model built for the bot.
+    /// Sends user input to Amazon Lex V2. You can send text or speech. Clients use this API
+    /// to send text and audio requests to Amazon Lex V2 at runtime. Amazon Lex V2 interprets
+    /// the user input using the machine learning model built for the bot.
+    /// 
+    ///  
+    /// <para>
+    /// The following request fields must be compressed with gzip and then base64 encoded
+    /// before you send them to Amazon Lex V2. 
+    /// </para><ul><li><para>
+    /// requestAttributes
+    /// </para></li><li><para>
+    /// sessionState
+    /// </para></li></ul><para>
+    /// The following response fields are compressed using gzip and then base64 encoded by
+    /// Amazon Lex V2. Before you can use these fields, you must decode and decompress them.
+    /// 
+    /// </para><ul><li><para>
+    /// inputTranscript
+    /// </para></li><li><para>
+    /// interpretations
+    /// </para></li><li><para>
+    /// messages
+    /// </para></li><li><para>
+    /// requestAttributes
+    /// </para></li><li><para>
+    /// sessionState
+    /// </para></li></ul><para>
+    /// The example contains a Java application that compresses and encodes a Java object
+    /// to send to Amazon Lex V2, and a second that decodes and decompresses a response from
+    /// Amazon Lex V2.
+    /// </para>
     /// </summary>
     [Cmdlet("Send", "LRSV2Utterance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LexRuntimeV2.Model.RecognizeUtteranceResponse")]
@@ -108,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// <summary>
         /// <para>
         /// <para>Request-specific information passed between the client application and Amazon Lex
-        /// </para><para>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create
-        /// any request attributes for prefix <code>x-amz-lex:</code>.</para>
+        /// V2 </para><para>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create
+        /// any request attributes for prefix <code>x-amz-lex:</code>.</para><para>The <code>requestAttributes</code> field must be compressed using gzip and then base64
+        /// encoded before sending to Amazon Lex V2.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,12 +167,13 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         #region Parameter ResponseContentType
         /// <summary>
         /// <para>
-        /// <para>The message that Amazon Lex returns in the response can be either text or speech based
-        /// on the <code>responseContentType</code> value.</para><ul><li><para>If the value is <code>text/plain;charset=utf-8</code>, Amazon Lex returns text in
-        /// the response.</para></li><li><para>If the value begins with <code>audio/</code>, Amazon Lex returns speech in the response.
-        /// Amazon Lex uses Amazon Polly to generate the speech using the configuration that you
-        /// specified in the <code>requestContentType</code> parameter. For example, if you specify
-        /// <code>audio/mpeg</code> as the value, Amazon Lex returns speech in the MPEG format.</para></li><li><para>If the value is <code>audio/pcm</code>, the speech returned is <code>audio/pcm</code>
+        /// <para>The message that Amazon Lex V2 returns in the response can be either text or speech
+        /// based on the <code>responseContentType</code> value.</para><ul><li><para>If the value is <code>text/plain;charset=utf-8</code>, Amazon Lex V2 returns text
+        /// in the response.</para></li><li><para>If the value begins with <code>audio/</code>, Amazon Lex V2 returns speech in the
+        /// response. Amazon Lex V2 uses Amazon Polly to generate the speech using the configuration
+        /// that you specified in the <code>requestContentType</code> parameter. For example,
+        /// if you specify <code>audio/mpeg</code> as the value, Amazon Lex V2 returns speech
+        /// in the MPEG format.</para></li><li><para>If the value is <code>audio/pcm</code>, the speech returned is <code>audio/pcm</code>
         /// at 16 KHz in 16-bit, little-endian format.</para></li><li><para>The following are the accepted values:</para><ul><li><para>audio/mpeg</para></li><li><para>audio/ogg</para></li><li><para>audio/pcm (16 KHz)</para></li><li><para>audio/* (defaults to mpeg)</para></li><li><para>text/plain; charset=utf-8</para></li></ul></li></ul>
         /// </para>
         /// </summary>
@@ -173,7 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// <para>
         /// <para>Sets the state of the session with the user. You can use this to set the current intent,
         /// attributes, context, and dialog action. Use the dialog action to determine the next
-        /// step that Amazon Lex should use in the conversation with the user.</para>
+        /// step that Amazon Lex V2 should use in the conversation with the user.</para><para>The <code>sessionState</code> field must be compressed using gzip and then base64
+        /// encoded before sending to Amazon Lex V2.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

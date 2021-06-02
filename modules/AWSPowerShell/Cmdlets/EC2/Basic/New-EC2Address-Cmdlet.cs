@@ -28,23 +28,23 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Allocates an Elastic IP address to your AWS account. After you allocate the Elastic
-    /// IP address you can associate it with an instance or network interface. After you release
+    /// Allocates an Elastic IP address to your account. After you allocate the Elastic IP
+    /// address you can associate it with an instance or network interface. After you release
     /// an Elastic IP address, it is released to the IP address pool and can be allocated
-    /// to a different AWS account.
+    /// to a different account.
     /// 
     ///  
     /// <para>
-    /// You can allocate an Elastic IP address from an address pool owned by AWS or from an
-    /// address pool created from a public IPv4 address range that you have brought to AWS
-    /// for use with your AWS resources using bring your own IP addresses (BYOIP). For more
-    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
+    /// You can allocate an Elastic IP address from an address pool owned by Amazon Web Services
+    /// or from an address pool created from a public IPv4 address range that you have brought
+    /// to Amazon Web Services for use with your Amazon Web Services resources using bring
+    /// your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
     /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
     /// cannot recover an Elastic IP address that you released after it is allocated to another
-    /// AWS account. You cannot recover an Elastic IP address for EC2-Classic. To attempt
-    /// to recover an Elastic IP address that you released, specify it in this operation.
+    /// account. You cannot recover an Elastic IP address for EC2-Classic. To attempt to recover
+    /// an Elastic IP address that you released, specify it in this operation.
     /// </para><para>
     /// An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By
     /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per Region and 5

@@ -39,6 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     public partial class GetWAF2RuleGroupCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter ARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the entity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ARN { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -46,14 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// and list commands. You provide it to operations like update and delete.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Id { get; set; }
         #endregion
         
@@ -64,34 +67,21 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// it.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
         #endregion
         
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this is for an AWS CloudFront distribution or for a regional application.
-        /// A regional application can be an Application Load Balancer (ALB), an API Gateway REST
-        /// API, or an AppSync GraphQL API. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
+        /// application. A regional application can be an Application Load Balancer (ALB), an
+        /// Amazon API Gateway REST API, or an AppSync GraphQL API. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
         /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.WAFV2.Scope")]
         public Amazon.WAFV2.Scope Scope { get; set; }
         #endregion
@@ -141,27 +131,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ARN = this.ARN;
             context.Id = this.Id;
-            #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Scope = this.Scope;
-            #if MODULAR
-            if (this.Scope == null && ParameterWasBound(nameof(this.Scope)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Scope which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -178,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             // create request
             var request = new Amazon.WAFV2.Model.GetRuleGroupRequest();
             
+            if (cmdletContext.ARN != null)
+            {
+                request.ARN = cmdletContext.ARN;
+            }
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
@@ -251,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ARN { get; set; }
             public System.String Id { get; set; }
             public System.String Name { get; set; }
             public Amazon.WAFV2.Scope Scope { get; set; }

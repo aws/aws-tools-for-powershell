@@ -55,8 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter SourceType
         /// <summary>
         /// <para>
-        /// <para>The type of source that is generating the events.</para><para>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code>,
-        /// <code>db-snapshot</code></para>
+        /// <para>The type of source that is generating the events.</para><para>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

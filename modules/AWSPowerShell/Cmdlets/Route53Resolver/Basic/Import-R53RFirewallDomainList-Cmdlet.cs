@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The fully qualified URL or URI of the file stored in Amazon Simple Storage Service
-        /// (S3) that contains the list of domains to import.</para><para>The file must be in an S3 bucket that's in the same Region as your DNS Firewall. The
+        /// (Amazon S3) that contains the list of domains to import.</para><para>The file must be in an S3 bucket that's in the same Region as your DNS Firewall. The
         /// file must be a text file and must contain a single domain per line.</para>
         /// </para>
         /// </summary>

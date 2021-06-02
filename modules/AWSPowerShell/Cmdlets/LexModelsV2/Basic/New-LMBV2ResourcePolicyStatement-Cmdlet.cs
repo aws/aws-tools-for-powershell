@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     /// 
     ///  
     /// <para>
-    /// You can create a resource policy statement that allows cross-account access.
+    /// You can't create a resource policy statement that allows cross-account access.
     /// </para>
     /// </summary>
     [Cmdlet("New", "LMBV2ResourcePolicyStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

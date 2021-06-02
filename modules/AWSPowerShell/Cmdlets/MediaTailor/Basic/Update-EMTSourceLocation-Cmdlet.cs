@@ -88,6 +88,43 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String HttpConfiguration_BaseUrl { get; set; }
         #endregion
         
+        #region Parameter SecretsManagerAccessTokenConfiguration_HeaderName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the HTTP header used to supply the access token in requests to the source
+        /// location.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AccessConfiguration_SecretsManagerAccessTokenConfiguration_HeaderName")]
+        public System.String SecretsManagerAccessTokenConfiguration_HeaderName { get; set; }
+        #endregion
+        
+        #region Parameter SecretsManagerAccessTokenConfiguration_SecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the
+        /// access token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AccessConfiguration_SecretsManagerAccessTokenConfiguration_SecretArn")]
+        public System.String SecretsManagerAccessTokenConfiguration_SecretArn { get; set; }
+        #endregion
+        
+        #region Parameter SecretsManagerAccessTokenConfiguration_SecretStringKey
+        /// <summary>
+        /// <para>
+        /// <para>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a>
+        /// key associated with the access token. MediaTailor uses the key to look up SecretString
+        /// key and value pair containing the access token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AccessConfiguration_SecretsManagerAccessTokenConfiguration_SecretStringKey")]
+        public System.String SecretsManagerAccessTokenConfiguration_SecretStringKey { get; set; }
+        #endregion
+        
         #region Parameter SourceLocationName
         /// <summary>
         /// <para>
@@ -167,6 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccessConfiguration_AccessType = this.AccessConfiguration_AccessType;
+            context.SecretsManagerAccessTokenConfiguration_HeaderName = this.SecretsManagerAccessTokenConfiguration_HeaderName;
+            context.SecretsManagerAccessTokenConfiguration_SecretArn = this.SecretsManagerAccessTokenConfiguration_SecretArn;
+            context.SecretsManagerAccessTokenConfiguration_SecretStringKey = this.SecretsManagerAccessTokenConfiguration_SecretStringKey;
             context.DefaultSegmentDeliveryConfiguration_BaseUrl = this.DefaultSegmentDeliveryConfiguration_BaseUrl;
             context.HttpConfiguration_BaseUrl = this.HttpConfiguration_BaseUrl;
             #if MODULAR
@@ -210,6 +250,51 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestAccessConfiguration_accessConfiguration_AccessType != null)
             {
                 request.AccessConfiguration.AccessType = requestAccessConfiguration_accessConfiguration_AccessType;
+                requestAccessConfigurationIsNull = false;
+            }
+            Amazon.MediaTailor.Model.SecretsManagerAccessTokenConfiguration requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration = null;
+            
+             // populate SecretsManagerAccessTokenConfiguration
+            var requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfigurationIsNull = true;
+            requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration = new Amazon.MediaTailor.Model.SecretsManagerAccessTokenConfiguration();
+            System.String requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration_secretsManagerAccessTokenConfiguration_HeaderName = null;
+            if (cmdletContext.SecretsManagerAccessTokenConfiguration_HeaderName != null)
+            {
+                requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration_secretsManagerAccessTokenConfiguration_HeaderName = cmdletContext.SecretsManagerAccessTokenConfiguration_HeaderName;
+            }
+            if (requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration_secretsManagerAccessTokenConfiguration_HeaderName != null)
+            {
+                requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration.HeaderName = requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration_secretsManagerAccessTokenConfiguration_HeaderName;
+                requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfigurationIsNull = false;
+            }
+            System.String requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration_secretsManagerAccessTokenConfiguration_SecretArn = null;
+            if (cmdletContext.SecretsManagerAccessTokenConfiguration_SecretArn != null)
+            {
+                requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration_secretsManagerAccessTokenConfiguration_SecretArn = cmdletContext.SecretsManagerAccessTokenConfiguration_SecretArn;
+            }
+            if (requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration_secretsManagerAccessTokenConfiguration_SecretArn != null)
+            {
+                requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration.SecretArn = requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration_secretsManagerAccessTokenConfiguration_SecretArn;
+                requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfigurationIsNull = false;
+            }
+            System.String requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration_secretsManagerAccessTokenConfiguration_SecretStringKey = null;
+            if (cmdletContext.SecretsManagerAccessTokenConfiguration_SecretStringKey != null)
+            {
+                requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration_secretsManagerAccessTokenConfiguration_SecretStringKey = cmdletContext.SecretsManagerAccessTokenConfiguration_SecretStringKey;
+            }
+            if (requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration_secretsManagerAccessTokenConfiguration_SecretStringKey != null)
+            {
+                requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration.SecretStringKey = requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration_secretsManagerAccessTokenConfiguration_SecretStringKey;
+                requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfigurationIsNull = false;
+            }
+             // determine if requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration should be set to null
+            if (requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfigurationIsNull)
+            {
+                requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration = null;
+            }
+            if (requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration != null)
+            {
+                request.AccessConfiguration.SecretsManagerAccessTokenConfiguration = requestAccessConfiguration_accessConfiguration_SecretsManagerAccessTokenConfiguration;
                 requestAccessConfigurationIsNull = false;
             }
              // determine if request.AccessConfiguration should be set to null
@@ -321,6 +406,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.MediaTailor.AccessType AccessConfiguration_AccessType { get; set; }
+            public System.String SecretsManagerAccessTokenConfiguration_HeaderName { get; set; }
+            public System.String SecretsManagerAccessTokenConfiguration_SecretArn { get; set; }
+            public System.String SecretsManagerAccessTokenConfiguration_SecretStringKey { get; set; }
             public System.String DefaultSegmentDeliveryConfiguration_BaseUrl { get; set; }
             public System.String HttpConfiguration_BaseUrl { get; set; }
             public System.String SourceLocationName { get; set; }

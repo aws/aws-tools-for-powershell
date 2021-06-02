@@ -28,7 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Disassociates an AWS Identity and Access Management (IAM) role from a DB instance.
+    /// Disassociates an Amazon Web Services Identity and Access Management (IAM) role from
+    /// a DB instance.
     /// </summary>
     [Cmdlet("Remove", "RDSRoleFromDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

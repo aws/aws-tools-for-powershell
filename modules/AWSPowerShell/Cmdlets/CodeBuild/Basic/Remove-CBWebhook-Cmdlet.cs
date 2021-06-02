@@ -28,9 +28,9 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// For an existing AWS CodeBuild build project that has its source code stored in a GitHub
-    /// or Bitbucket repository, stops AWS CodeBuild from rebuilding the source code every
-    /// time a code change is pushed to the repository.
+    /// For an existing CodeBuild build project that has its source code stored in a GitHub
+    /// or Bitbucket repository, stops CodeBuild from rebuilding the source code every time
+    /// a code change is pushed to the repository.
     /// </summary>
     [Cmdlet("Remove", "CBWebhook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ProjectName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS CodeBuild project.</para>
+        /// <para>The name of the CodeBuild project.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

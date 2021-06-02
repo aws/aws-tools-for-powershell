@@ -279,6 +279,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SMWorkforce', 
         'Remove-SMWorkteam', 
         'Search-SMResource', 
+        'Send-SMPipelineExecutionStepFailure', 
+        'Send-SMPipelineExecutionStepSuccess', 
         'Start-SMMonitoringSchedule', 
         'Start-SMNotebookInstance', 
         'Start-SMPipelineExecution', 

@@ -61,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The identifier for the proxy. This name must be unique for all proxies owned by your
-        /// AWS account in the specified AWS Region. An identifier must begin with a letter and
-        /// must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or
-        /// contain two consecutive hyphens.</para>
+        /// Amazon Web Services account in the specified Amazon Web Services Region. An identifier
+        /// must begin with a letter and must contain only ASCII letters, digits, and hyphens;
+        /// it can't end with a hyphen or contain two consecutive hyphens.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets
-        /// in AWS Secrets Manager.</para>
+        /// in Amazon Web Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

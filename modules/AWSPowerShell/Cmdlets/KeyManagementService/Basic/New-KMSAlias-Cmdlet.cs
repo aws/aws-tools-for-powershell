@@ -28,19 +28,23 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Creates a friendly name for a customer master key (CMK). You can use an alias to identify
-    /// a CMK in the AWS KMS console, in the <a>DescribeKey</a> operation and in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
-    /// operations</a>, such as <a>Encrypt</a> and <a>GenerateDataKey</a>. 
+    /// Creates a friendly name for a customer master key (CMK). 
     /// 
-    ///  
-    /// <para>
-    /// You can also change the CMK that's associated with the alias (<a>UpdateAlias</a>)
-    /// or delete the alias (<a>DeleteAlias</a>) at any time. These operations don't affect
-    /// the underlying CMK. 
+    ///  <note><para>
+    /// Adding, deleting, or updating an alias can allow or deny permission to the CMK. For
+    /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using
+    /// ABAC in AWS KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// </para></note><para>
+    /// You can use an alias to identify a CMK in the AWS KMS console, in the <a>DescribeKey</a>
+    /// operation and in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+    /// operations</a>, such as <a>Encrypt</a> and <a>GenerateDataKey</a>. You can also change
+    /// the CMK that's associated with the alias (<a>UpdateAlias</a>) or delete the alias
+    /// (<a>DeleteAlias</a>) at any time. These operations don't affect the underlying CMK.
+    /// 
     /// </para><para>
     /// You can associate the alias with any customer managed CMK in the same AWS Region.
-    /// Each alias is associated with only on CMK at a time, but a CMK can have multiple aliases.
-    /// A valid CMK is required. You can't create an alias without a CMK.
+    /// Each alias is associated with only one CMK at a time, but a CMK can have multiple
+    /// aliases. A valid CMK is required. You can't create an alias without a CMK.
     /// </para><para>
     /// The alias must be unique in the account and Region, but you can have aliases with
     /// the same name in different Regions. For detailed information about aliases, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">Using
@@ -50,9 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// the <a>ListAliases</a> operation.
     /// </para><para>
     /// The CMK that you use for this operation must be in a compatible key state. For details,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
-    /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
-    /// Developer Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
+    /// state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on an alias in a
     /// different AWS account.
     /// </para><para><b>Required permissions</b></para><ul><li><para><a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateAlias</a>
@@ -102,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
         /// managed CMK</a>. The CMK must be in the same AWS Region. </para><para>A valid CMK ID is required. If you supply a null or empty string value, this operation
         /// returns an error.</para><para>For help finding the key ID and ARN, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn">Finding
-        /// the Key ID and ARN</a> in the <i>AWS Key Management Service Developer Guide</i>.</para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// the Key ID and ARN</a> in the <i>AWS Key Management Service Developer Guide</i>.</para><para>Specify the key ID or key ARN of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

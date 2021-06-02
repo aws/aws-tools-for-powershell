@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// Recently deregistered images appear in the returned results for a short interval and
     /// then return empty results. After all instances that reference a deregistered AMI are
-    /// terminated, specifying the ID of the image results in an error indicating that the
-    /// AMI ID cannot be found.
+    /// terminated, specifying the ID of the image will eventually return an error indicating
+    /// that the AMI ID cannot be found.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2Image")]
@@ -109,6 +109,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("ImageIds")]
         public System.String[] ImageId { get; set; }
+        #endregion
+        
+        #region Parameter IncludeDeprecated
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, all deprecated AMIs are included in the response. If <code>false</code>,
+        /// no deprecated AMIs are included in the response. If no value is specified, the default
+        /// value is <code>false</code>.</para><note><para>If you are the AMI owner, all deprecated AMIs appear in the response regardless of
+        /// the value (<code>true</code> or <code>false</code>) that you set for this parameter.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeDeprecated { get; set; }
         #endregion
         
         #region Parameter Owner
@@ -182,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.ImageId = new List<System.String>(this.ImageId);
             }
+            context.IncludeDeprecated = this.IncludeDeprecated;
             if (this.Owner != null)
             {
                 context.Owner = new List<System.String>(this.Owner);
@@ -213,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ImageId != null)
             {
                 request.ImageIds = cmdletContext.ImageId;
+            }
+            if (cmdletContext.IncludeDeprecated != null)
+            {
+                request.IncludeDeprecated = cmdletContext.IncludeDeprecated.Value;
             }
             if (cmdletContext.Owner != null)
             {
@@ -282,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> ExecutableUser { get; set; }
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public List<System.String> ImageId { get; set; }
+            public System.Boolean? IncludeDeprecated { get; set; }
             public List<System.String> Owner { get; set; }
             public System.Func<Amazon.EC2.Model.DescribeImagesResponse, GetEC2ImageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Images;

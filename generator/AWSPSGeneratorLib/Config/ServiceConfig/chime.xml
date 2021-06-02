@@ -733,6 +733,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSipMediaApplicationCall" OutputProperty="SipMediaApplicationCall" Verb="Update" Noun="SipMediaApplicationCall" ShouldProcessTarget="SipMediaApplicationId" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateSipRule" OutputProperty="SipRule" Verb="Update" Noun="SipRule" ShouldProcessTarget="SipRuleId" PipelineParameter="SipRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

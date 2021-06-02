@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelPackageName
         /// <summary>
         /// <para>
-        /// <para>The name of the model package. The name must have 1 to 63 characters. Valid characters
-        /// are a-z, A-Z, 0-9, and - (hyphen).</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the model package to delete.</para><para>When you specify a name, the name must have 1 to 63 characters. Valid characters are
+        /// a-z, A-Z, 0-9, and - (hyphen).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

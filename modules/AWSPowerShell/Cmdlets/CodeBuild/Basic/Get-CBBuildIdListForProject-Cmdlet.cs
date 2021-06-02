@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ProjectName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS CodeBuild project.</para>
+        /// <para>The name of the CodeBuild project.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

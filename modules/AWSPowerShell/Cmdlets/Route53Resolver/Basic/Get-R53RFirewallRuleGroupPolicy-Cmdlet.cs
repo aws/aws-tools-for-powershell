@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     /// <summary>
     /// Returns the AWS Identity and Access Management (AWS IAM) policy for sharing the specified
     /// rule group. You can use the policy to share the rule group using AWS Resource Access
-    /// Manager (RAM).
+    /// Manager (AWS RAM).
     /// </summary>
     [Cmdlet("Get", "R53RFirewallRuleGroupPolicy")]
     [OutputType("System.String")]

@@ -84,6 +84,20 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.Boolean? WaitingResponse_AllowInterrupt { get; set; }
         #endregion
         
+        #region Parameter MultipleValuesSetting_AllowMultipleValue
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether a slot can return multiple values. When <code>true</code>, the slot
+        /// may return more than one value in a response. When <code>false</code>, the slot returns
+        /// only a single value.</para><para>Multi-value slots are only available in the en-US locale. If you set this value to
+        /// <code>true</code> in any other locale, Amazon Lex throws a <code>ValidationException</code>.</para><para>If the <code>allowMutlipleValues</code> is not set, the default value is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MultipleValuesSetting_AllowMultipleValues")]
+        public System.Boolean? MultipleValuesSetting_AllowMultipleValue { get; set; }
+        #endregion
+        
         #region Parameter BotId
         /// <summary>
         /// <para>
@@ -443,6 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 WriteWarning("You are passing $null as a value for parameter LocaleId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MultipleValuesSetting_AllowMultipleValue = this.MultipleValuesSetting_AllowMultipleValue;
             context.ObfuscationSetting_ObfuscationSettingType = this.ObfuscationSetting_ObfuscationSettingType;
             context.SlotId = this.SlotId;
             #if MODULAR
@@ -538,6 +553,25 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (cmdletContext.LocaleId != null)
             {
                 request.LocaleId = cmdletContext.LocaleId;
+            }
+            
+             // populate MultipleValuesSetting
+            var requestMultipleValuesSettingIsNull = true;
+            request.MultipleValuesSetting = new Amazon.LexModelsV2.Model.MultipleValuesSetting();
+            System.Boolean? requestMultipleValuesSetting_multipleValuesSetting_AllowMultipleValue = null;
+            if (cmdletContext.MultipleValuesSetting_AllowMultipleValue != null)
+            {
+                requestMultipleValuesSetting_multipleValuesSetting_AllowMultipleValue = cmdletContext.MultipleValuesSetting_AllowMultipleValue.Value;
+            }
+            if (requestMultipleValuesSetting_multipleValuesSetting_AllowMultipleValue != null)
+            {
+                request.MultipleValuesSetting.AllowMultipleValues = requestMultipleValuesSetting_multipleValuesSetting_AllowMultipleValue.Value;
+                requestMultipleValuesSettingIsNull = false;
+            }
+             // determine if request.MultipleValuesSetting should be set to null
+            if (requestMultipleValuesSettingIsNull)
+            {
+                request.MultipleValuesSetting = null;
             }
             
              // populate ObfuscationSetting
@@ -875,6 +909,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String Description { get; set; }
             public System.String IntentId { get; set; }
             public System.String LocaleId { get; set; }
+            public System.Boolean? MultipleValuesSetting_AllowMultipleValue { get; set; }
             public Amazon.LexModelsV2.ObfuscationSettingType ObfuscationSetting_ObfuscationSettingType { get; set; }
             public System.String SlotId { get; set; }
             public System.String SlotName { get; set; }

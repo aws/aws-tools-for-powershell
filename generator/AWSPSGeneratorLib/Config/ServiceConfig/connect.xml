@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateBot" Verb="Add" Noun="Bot" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateInstanceStorageConfig" OutputProperty="AssociationId" Verb="Add" Noun="InstanceStorageConfig" ShouldProcessTarget="InstanceId" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType" NewName="StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType" />
@@ -160,6 +164,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateBot" Verb="Remove" Noun="Bot" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateInstanceStorageConfig" Verb="Remove" Noun="InstanceStorageConfig" ShouldProcessTarget="AssociationId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -201,6 +209,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListApprovedOrigins" OutputProperty="Origins" Verb="Get" Noun="ApprovedOriginList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBots" OutputProperty="LexBots" Verb="Get" Noun="BotList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

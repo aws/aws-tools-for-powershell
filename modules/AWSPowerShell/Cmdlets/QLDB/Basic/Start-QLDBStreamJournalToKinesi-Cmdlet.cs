@@ -45,9 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter KinesisConfiguration_AggregationEnabled
         /// <summary>
         /// <para>
-        /// <para>Enables QLDB to publish multiple data records in a single Kinesis Data Streams record.
-        /// To learn more, see <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html">KPL
-        /// Key Concepts</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</para>
+        /// <para>Enables QLDB to publish multiple data records in a single Kinesis Data Streams record,
+        /// increasing the number of records sent per API call.</para><para><i>This option is enabled by default.</i> Record aggregation has important implications
+        /// for processing records and requires de-aggregation in your stream consumer. To learn
+        /// more, see <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html">KPL
+        /// Key Concepts</a> and <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html">Consumer
+        /// De-aggregation</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <para>
         /// <para>The exclusive date and time that specifies when the stream ends. If you don't define
         /// this parameter, the stream runs indefinitely until you cancel it.</para><para>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format
-        /// and in Universal Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code></para>
+        /// and in Universal Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <para>
         /// <para>The inclusive start date and time from which to start streaming journal data. This
         /// parameter must be in <code>ISO 8601</code> date and time format and in Universal Coordinated
-        /// Time (UTC). For example: <code>2019-06-13T21:36:34Z</code></para><para>The <code>InclusiveStartTime</code> cannot be in the future and must be before <code>ExclusiveEndTime</code>.</para><para>If you provide an <code>InclusiveStartTime</code> that is before the ledger's <code>CreationDateTime</code>,
+        /// Time (UTC). For example: <code>2019-06-13T21:36:34Z</code>.</para><para>The <code>InclusiveStartTime</code> cannot be in the future and must be before <code>ExclusiveEndTime</code>.</para><para>If you provide an <code>InclusiveStartTime</code> that is before the ledger's <code>CreationDateTime</code>,
         /// QLDB effectively defaults it to the ledger's <code>CreationDateTime</code>.</para>
         /// </para>
         /// </summary>
@@ -123,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter KinesisConfiguration_StreamArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Kinesis data stream resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

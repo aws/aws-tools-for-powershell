@@ -63,11 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter Certificate
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required
-        /// when <code>Protocols</code> is set to <code>FTPS</code>.</para><para>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request
-        /// a public certificate</a> in the <i> AWS Certificate Manager User Guide</i>.</para><para>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
-        /// certificates into ACM</a> in the <i> AWS Certificate Manager User Guide</i>.</para><para>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request
-        /// a private certificate</a> in the <i> AWS Certificate Manager User Guide</i>.</para><para>Certificates with the following cryptographic algorithms and key sizes are supported:</para><ul><li><para>2048-bit RSA (RSA_2048)</para></li><li><para>4096-bit RSA (RSA_4096)</para></li><li><para>Elliptic Prime Curve 256 bit (EC_prime256v1)</para></li><li><para>Elliptic Prime Curve 384 bit (EC_secp384r1)</para></li><li><para>Elliptic Prime Curve 521 bit (EC_secp521r1)</para></li></ul><note><para>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web ServicesCertificate Manager (ACM)
+        /// certificate. Required when <code>Protocols</code> is set to <code>FTPS</code>.</para><para>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request
+        /// a public certificate</a> in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</para><para>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
+        /// certificates into ACM</a> in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</para><para>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request
+        /// a private certificate</a> in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</para><para>Certificates with the following cryptographic algorithms and key sizes are supported:</para><ul><li><para>2048-bit RSA (RSA_2048)</para></li><li><para>4096-bit RSA (RSA_4096)</para></li><li><para>Elliptic Prime Curve 256 bit (EC_prime256v1)</para></li><li><para>Elliptic Prime Curve 384 bit (EC_secp384r1)</para></li><li><para>Elliptic Prime Curve 521 bit (EC_secp521r1)</para></li></ul><note><para>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
         /// address specified and information about the issuer.</para></note>
         /// </para>
         /// </summary>
@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderDetails_DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AWS Directory Service directory that you want to stop sharing.</para>
+        /// <para>The identifier of the Amazon Web ServicesDirectory Service directory that you want
+        /// to stop sharing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,11 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// server's endpoint publicly accessible (PUBLIC) or host it inside your VPC. With an
         /// endpoint that is hosted in a VPC, you can restrict access to your server and resources
         /// only within your VPC or choose to make it internet facing by attaching Elastic IP
-        /// addresses directly to it.</para><note><para> After March 31, 2021, you won't be able to create a server using <code>EndpointType=VPC_ENDPOINT</code>
-        /// in your AWS account if your account hasn't already done so before March 31, 2021.
-        /// If you have already created servers with <code>EndpointType=VPC_ENDPOINT</code> in
-        /// your AWS account on or before March 31, 2021, you will not be affected. After this
-        /// date, use <code>EndpointType</code>=<code>VPC</code>.</para><para>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</para><para>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>.
+        /// addresses directly to it.</para><note><para> After May 19, 2021, you won't be able to create a server using <code>EndpointType=VPC_ENDPOINT</code>
+        /// in your Amazon Web Servicesaccount if your account hasn't already done so before May
+        /// 19, 2021. If you have already created servers with <code>EndpointType=VPC_ENDPOINT</code>
+        /// in your Amazon Web Servicesaccount on or before May 19, 2021, you will not be affected.
+        /// After this date, use <code>EndpointType</code>=<code>VPC</code>.</para><para>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</para><para>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>.
         /// With this endpoint type, you have the option to directly associate up to three Elastic
         /// IPv4 addresses (BYO IP included) with your server's endpoint and use VPC security
         /// groups to restrict traffic by the client's public IP address. This is not possible
@@ -114,7 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>The RSA private key as generated by <code>ssh-keygen -N "" -m PEM -f my-new-server-key</code>.</para><important><para>If you aren't planning to migrate existing users from an existing server to a new
         /// server, don't update the host key. Accidentally changing a server's host key can be
         /// disruptive.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change
-        /// the host key for your SFTP-enabled server</a> in the <i>AWS Transfer Family User Guide</i>.</para>
+        /// the host key for your SFTP-enabled server</a> in the <i>Amazon Web ServicesTransfer
+        /// Family User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,21 +136,36 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter LoggingRole
         /// <summary>
         /// <para>
-        /// <para>Changes the AWS Identity and Access Management (IAM) role that allows Amazon S3 or
-        /// Amazon EFS events to be logged in Amazon CloudWatch, turning logging on or off.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access
+        /// Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for
+        /// Amazon S3 or Amazon EFS events. When set, user activity can be viewed in your CloudWatch
+        /// logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LoggingRole { get; set; }
         #endregion
         
+        #region Parameter ProtocolDetails_PassiveIp
+        /// <summary>
+        /// <para>
+        /// <para> Indicates passive mode, for FTP and FTPS protocols. Enter a single dotted-quad IPv4
+        /// address, such as the external IP address of a firewall, router, or load balancer.
+        /// For example: </para><para><code> aws transfer update-server --protocol-details PassiveIp=<i>0.0.0.0</i></code></para><para>Replace <code><i>0.0.0.0</i></code> in the example above with the actual IP address
+        /// you want to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProtocolDetails_PassiveIp { get; set; }
+        #endregion
+        
         #region Parameter Protocol
         /// <summary>
         /// <para>
         /// <para>Specifies the file transfer protocol or protocols over which your file transfer protocol
-        /// client can connect to your server's endpoint. The available protocols are:</para><ul><li><para>Secure Shell (SSH) File Transfer Protocol (SFTP): File transfer over SSH</para></li><li><para>File Transfer Protocol Secure (FTPS): File transfer with TLS encryption</para></li><li><para>File Transfer Protocol (FTP): Unencrypted file transfer</para></li></ul><note><para>If you select <code>FTPS</code>, you must choose a certificate stored in AWS Certificate
-        /// Manager (ACM) which will be used to identify your server when clients connect to it
-        /// over FTPS.</para><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
+        /// client can connect to your server's endpoint. The available protocols are:</para><ul><li><para>Secure Shell (SSH) File Transfer Protocol (SFTP): File transfer over SSH</para></li><li><para>File Transfer Protocol Secure (FTPS): File transfer with TLS encryption</para></li><li><para>File Transfer Protocol (FTP): Unencrypted file transfer</para></li></ul><note><para>If you select <code>FTPS</code>, you must choose a certificate stored in Amazon Web
+        /// ServicesCertificate Manager (ACM) which will be used to identify your server when
+        /// clients connect to it over FTPS.</para><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
         /// the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code>
         /// must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</para><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
         /// cannot be associated.</para><para>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
@@ -327,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.IdentityProviderDetails_InvocationRole = this.IdentityProviderDetails_InvocationRole;
             context.IdentityProviderDetails_Url = this.IdentityProviderDetails_Url;
             context.LoggingRole = this.LoggingRole;
+            context.ProtocolDetails_PassiveIp = this.ProtocolDetails_PassiveIp;
             if (this.Protocol != null)
             {
                 context.Protocol = new List<System.String>(this.Protocol);
@@ -469,6 +487,25 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.LoggingRole = cmdletContext.LoggingRole;
             }
+            
+             // populate ProtocolDetails
+            var requestProtocolDetailsIsNull = true;
+            request.ProtocolDetails = new Amazon.Transfer.Model.ProtocolDetails();
+            System.String requestProtocolDetails_protocolDetails_PassiveIp = null;
+            if (cmdletContext.ProtocolDetails_PassiveIp != null)
+            {
+                requestProtocolDetails_protocolDetails_PassiveIp = cmdletContext.ProtocolDetails_PassiveIp;
+            }
+            if (requestProtocolDetails_protocolDetails_PassiveIp != null)
+            {
+                request.ProtocolDetails.PassiveIp = requestProtocolDetails_protocolDetails_PassiveIp;
+                requestProtocolDetailsIsNull = false;
+            }
+             // determine if request.ProtocolDetails should be set to null
+            if (requestProtocolDetailsIsNull)
+            {
+                request.ProtocolDetails = null;
+            }
             if (cmdletContext.Protocol != null)
             {
                 request.Protocols = cmdletContext.Protocol;
@@ -554,6 +591,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String IdentityProviderDetails_InvocationRole { get; set; }
             public System.String IdentityProviderDetails_Url { get; set; }
             public System.String LoggingRole { get; set; }
+            public System.String ProtocolDetails_PassiveIp { get; set; }
             public List<System.String> Protocol { get; set; }
             public System.String SecurityPolicyName { get; set; }
             public System.String ServerId { get; set; }

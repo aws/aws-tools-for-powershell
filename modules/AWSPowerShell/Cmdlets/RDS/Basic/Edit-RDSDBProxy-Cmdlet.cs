@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets
-        /// in AWS Secrets Manager.</para>
+        /// in Amazon Web Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

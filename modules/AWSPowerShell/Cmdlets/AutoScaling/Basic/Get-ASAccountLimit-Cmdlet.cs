@@ -28,7 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes the current Amazon EC2 Auto Scaling resource quotas for your AWS account.
+    /// Describes the current Amazon EC2 Auto Scaling resource quotas for your account.
     /// 
     ///  
     /// <para>

@@ -123,7 +123,8 @@ $SMFS_SelectCompleters = {
 }
 
 $SMFS_SelectMap = @{
-    "Select"=@("Remove-SMFSRecord",
+    "Select"=@("Get-SMFSRecordBatch",
+               "Remove-SMFSRecord",
                "Get-SMFSRecord",
                "Write-SMFSRecord")
 }

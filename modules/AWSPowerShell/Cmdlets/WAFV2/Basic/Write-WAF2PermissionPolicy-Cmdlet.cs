@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// You can attach only one policy with each <code>PutPermissionPolicy</code> request.
     /// </para></li><li><para>
     /// The ARN in the request must be a valid WAF <a>RuleGroup</a> ARN and the rule group
-    /// must exist in the same region.
+    /// must exist in the same Region.
     /// </para></li><li><para>
     /// The user making the request must be the owner of the rule group.
     /// </para></li></ul>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>
         /// <para>The policy to attach to the specified rule group. </para><para>The policy specifications must conform to the following:</para><ul><li><para>The policy must be composed using IAM Policy version 2012-10-17 or version 2015-01-01.</para></li><li><para>The policy must include specifications for <code>Effect</code>, <code>Action</code>,
         /// and <code>Principal</code>.</para></li><li><para><code>Effect</code> must specify <code>Allow</code>.</para></li><li><para><code>Action</code> must specify <code>wafv2:CreateWebACL</code>, <code>wafv2:UpdateWebACL</code>,
-        /// and <code>wafv2:PutFirewallManagerRuleGroups</code>. AWS WAF rejects any extra actions
+        /// and <code>wafv2:PutFirewallManagerRuleGroups</code>. WAF rejects any extra actions
         /// or wildcard actions in the policy.</para></li><li><para>The policy must not include a <code>Resource</code> parameter.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM
         /// Policies</a>. </para>
         /// </para>

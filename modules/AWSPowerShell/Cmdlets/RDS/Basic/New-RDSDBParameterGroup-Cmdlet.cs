@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The DB parameter group family name. A DB parameter group can be associated with one
         /// and only one DB parameter group family, and can be applied only to a DB instance running
-        /// a database engine and engine version compatible with that DB parameter group family.</para><para>To list all of the available parameter group families, use the following command:</para><para><code>aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"</code></para><note><para>The output contains duplicates.</para></note>
+        /// a database engine and engine version compatible with that DB parameter group family.</para><para>To list all of the available parameter group families for a DB engine, use the following
+        /// command:</para><para><code>aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"
+        /// --engine &lt;engine&gt;</code></para><para>For example, to list all of the available parameter group families for the MySQL DB
+        /// engine, use the following command:</para><para><code>aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"
+        /// --engine mysql</code></para><note><para>The output contains duplicates.</para></note><para>The following are the valid DB engine values:</para><ul><li><para><code>aurora</code> (for MySQL 5.6-compatible Aurora)</para></li><li><para><code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

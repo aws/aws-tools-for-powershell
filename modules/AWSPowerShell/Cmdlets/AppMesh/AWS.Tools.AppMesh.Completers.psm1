@@ -80,6 +80,34 @@ $AMSH_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppMesh.DefaultGatewayRouteRewrite
+        {
+            ($_ -eq "New-AMSHGatewayRoute/Spec_GrpcRoute_Action_Rewrite_Hostname_DefaultTargetHostname") -Or
+            ($_ -eq "Update-AMSHGatewayRoute/Spec_GrpcRoute_Action_Rewrite_Hostname_DefaultTargetHostname") -Or
+            ($_ -eq "New-AMSHGatewayRoute/Spec_Http2Route_Action_Rewrite_Hostname_DefaultTargetHostname") -Or
+            ($_ -eq "Update-AMSHGatewayRoute/Spec_Http2Route_Action_Rewrite_Hostname_DefaultTargetHostname") -Or
+            ($_ -eq "New-AMSHGatewayRoute/Spec_Http2Route_Action_Rewrite_Prefix_DefaultPrefix") -Or
+            ($_ -eq "Update-AMSHGatewayRoute/Spec_Http2Route_Action_Rewrite_Prefix_DefaultPrefix") -Or
+            ($_ -eq "New-AMSHGatewayRoute/Spec_HttpRoute_Action_Rewrite_Hostname_DefaultTargetHostname") -Or
+            ($_ -eq "Update-AMSHGatewayRoute/Spec_HttpRoute_Action_Rewrite_Hostname_DefaultTargetHostname") -Or
+            ($_ -eq "New-AMSHGatewayRoute/Spec_HttpRoute_Action_Rewrite_Prefix_DefaultPrefix") -Or
+            ($_ -eq "Update-AMSHGatewayRoute/Spec_HttpRoute_Action_Rewrite_Prefix_DefaultPrefix")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.AppMesh.DnsResponseType
+        {
+            ($_ -eq "New-AMSHVirtualNode/Spec_ServiceDiscovery_Dns_ResponseType") -Or
+            ($_ -eq "Update-AMSHVirtualNode/Spec_ServiceDiscovery_Dns_ResponseType")
+        }
+        {
+            $v = "ENDPOINTS","LOADBALANCER"
+            break
+        }
+
         # Amazon.AppMesh.DurationUnit
         {
             ($_ -eq "New-AMSHRoute/Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit") -Or
@@ -120,9 +148,13 @@ $AMSH_Completers = {
 
         # Amazon.AppMesh.HttpMethod
         {
+            ($_ -eq "New-AMSHGatewayRoute/Spec_Http2Route_Match_Method") -Or
             ($_ -eq "New-AMSHRoute/Spec_Http2Route_Match_Method") -Or
+            ($_ -eq "Update-AMSHGatewayRoute/Spec_Http2Route_Match_Method") -Or
             ($_ -eq "Update-AMSHRoute/Spec_Http2Route_Match_Method") -Or
+            ($_ -eq "New-AMSHGatewayRoute/Spec_HttpRoute_Match_Method") -Or
             ($_ -eq "New-AMSHRoute/Spec_HttpRoute_Match_Method") -Or
+            ($_ -eq "Update-AMSHGatewayRoute/Spec_HttpRoute_Match_Method") -Or
             ($_ -eq "Update-AMSHRoute/Spec_HttpRoute_Match_Method")
         }
         {
@@ -152,19 +184,25 @@ $AMSH_Completers = {
 
 $AMSH_map = @{
     "Spec_EgressFilter_Type"=@("New-AMSHMesh","Update-AMSHMesh")
+    "Spec_GrpcRoute_Action_Rewrite_Hostname_DefaultTargetHostname"=@("New-AMSHGatewayRoute","Update-AMSHGatewayRoute")
     "Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_GrpcRoute_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_GrpcRoute_Timeout_PerRequest_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
-    "Spec_Http2Route_Match_Method"=@("New-AMSHRoute","Update-AMSHRoute")
+    "Spec_Http2Route_Action_Rewrite_Hostname_DefaultTargetHostname"=@("New-AMSHGatewayRoute","Update-AMSHGatewayRoute")
+    "Spec_Http2Route_Action_Rewrite_Prefix_DefaultPrefix"=@("New-AMSHGatewayRoute","Update-AMSHGatewayRoute")
+    "Spec_Http2Route_Match_Method"=@("New-AMSHGatewayRoute","New-AMSHRoute","Update-AMSHGatewayRoute","Update-AMSHRoute")
     "Spec_Http2Route_Match_Scheme"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_Http2Route_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_Http2Route_Timeout_PerRequest_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
-    "Spec_HttpRoute_Match_Method"=@("New-AMSHRoute","Update-AMSHRoute")
+    "Spec_HttpRoute_Action_Rewrite_Hostname_DefaultTargetHostname"=@("New-AMSHGatewayRoute","Update-AMSHGatewayRoute")
+    "Spec_HttpRoute_Action_Rewrite_Prefix_DefaultPrefix"=@("New-AMSHGatewayRoute","Update-AMSHGatewayRoute")
+    "Spec_HttpRoute_Match_Method"=@("New-AMSHGatewayRoute","New-AMSHRoute","Update-AMSHGatewayRoute","Update-AMSHRoute")
     "Spec_HttpRoute_Match_Scheme"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_HttpRoute_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_HttpRoute_Timeout_PerRequest_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
+    "Spec_ServiceDiscovery_Dns_ResponseType"=@("New-AMSHVirtualNode","Update-AMSHVirtualNode")
     "Spec_TcpRoute_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
 }
 

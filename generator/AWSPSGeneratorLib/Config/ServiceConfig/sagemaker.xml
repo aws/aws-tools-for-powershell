@@ -818,6 +818,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SendPipelineExecutionStepFailure" OutputProperty="PipelineExecutionArn" Verb="Send" Noun="PipelineExecutionStepFailure" ShouldProcessTarget="CallbackToken" PipelineParameter="CallbackToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendPipelineExecutionStepSuccess" OutputProperty="PipelineExecutionArn" Verb="Send" Noun="PipelineExecutionStepSuccess" ShouldProcessTarget="CallbackToken" PipelineParameter="CallbackToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartMonitoringSchedule" Verb="Start" Noun="MonitoringSchedule" ShouldProcessTarget="MonitoringScheduleName" PipelineParameter="MonitoringScheduleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

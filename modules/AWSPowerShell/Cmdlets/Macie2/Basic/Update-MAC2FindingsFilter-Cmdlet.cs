@@ -118,6 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         public System.Int32? Position { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -180,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Action = this.Action;
+            context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             if (this.FindingCriteria_Criterion != null)
             {
@@ -217,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (cmdletContext.Action != null)
             {
                 request.Action = cmdletContext.Action;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.Description != null)
             {
@@ -315,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Macie2.FindingsFilterAction Action { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public Dictionary<System.String, Amazon.Macie2.Model.CriterionAdditionalProperties> FindingCriteria_Criterion { get; set; }
             public System.String Id { get; set; }

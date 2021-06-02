@@ -31,27 +31,29 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Deletes tags from a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
     /// managed CMK</a>. To delete a tag, specify the tag key and the CMK.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// Tagging or untagging a CMK can allow or deny permission to the CMK. For details, see
+    /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using ABAC
+    /// in AWS KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// </para></note><para>
     /// When it succeeds, the <code>UntagResource</code> operation doesn't return any output.
     /// Also, if the specified tag key isn't found on the CMK, it doesn't throw an exception
     /// or return a response. To confirm that the operation worked, use the <a>ListResourceTags</a>
     /// operation.
     /// </para><para>
-    /// For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-    /// AWS resources</a> in the <i>Amazon Web Services General Reference</i>. For information
-    /// about using tags in AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging
-    /// keys</a>.
+    /// For information about using tags in AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging
+    /// keys</a>. For general information about tags, including the format and syntax, see
+    /// <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+    /// resources</a> in the <i>Amazon Web Services General Reference</i>. 
     /// </para><para>
     /// The CMK that you use for this operation must be in a compatible key state. For details,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
-    /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
-    /// Developer Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
+    /// state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different
     /// AWS account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UntagResource</a>
     /// (key policy)
-    /// </para><para><b>Related operations</b></para><ul><li><para><a>TagResource</a></para></li><li><para><a>ListResourceTags</a></para></li></ul>
+    /// </para><para><b>Related operations</b></para><ul><li><para><a>CreateKey</a></para></li><li><para><a>ListResourceTags</a></para></li><li><para><a>ReplicateKey</a></para></li><li><para><a>TagResource</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "KMSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -66,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>Identifies the CMK from which you are removing tags.</para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// <para>Identifies the CMK from which you are removing tags.</para><para>Specify the key ID or key ARN of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

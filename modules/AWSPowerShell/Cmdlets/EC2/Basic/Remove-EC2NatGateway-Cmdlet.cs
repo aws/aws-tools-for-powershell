@@ -28,9 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Deletes the specified NAT gateway. Deleting a NAT gateway disassociates its Elastic
-    /// IP address, but does not release the address from your account. Deleting a NAT gateway
-    /// does not delete any NAT gateway routes in your route tables.
+    /// Deletes the specified NAT gateway. Deleting a public NAT gateway disassociates its
+    /// Elastic IP address, but does not release the address from your account. Deleting a
+    /// NAT gateway does not delete any NAT gateway routes in your route tables.
     /// </summary>
     [Cmdlet("Remove", "EC2NatGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

@@ -649,6 +649,9 @@
     <Reference Include="AWSSDK.PrometheusService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PrometheusService.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Proton">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Proton.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.QLDB">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QLDB.dll</HintPath>
     </Reference>
@@ -1436,6 +1439,9 @@
     </Reference>
     <Reference Include="AWSSDK.PrometheusService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PrometheusService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Proton">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Proton.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.QLDB">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.QLDB.dll</HintPath>

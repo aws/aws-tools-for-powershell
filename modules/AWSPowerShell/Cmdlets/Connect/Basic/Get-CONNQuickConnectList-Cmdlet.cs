@@ -28,13 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
-    /// Provides information about the quick connects for the specified Amazon Connect instance.
-    /// 
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides information about the quick connects for the specified Amazon Connect instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNQuickConnectList")]
     [OutputType("Amazon.Connect.Model.QuickConnectSummary")]
@@ -49,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

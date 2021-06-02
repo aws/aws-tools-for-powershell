@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>cognito-idp</C2jFilename>
     <AssemblyName>CognitoIdentityProvider</AssemblyName>
@@ -14,7 +15,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -346,6 +346,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RevokeToken" Verb="Revoke" Noun="Token" ShouldProcessTarget="ClientId" PipelineParameter="Token" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SetRiskConfiguration" OutputProperty="RiskConfiguration" Verb="Set" Noun="RiskConfiguration" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -431,8 +435,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.CognitoIdentityProvider.Model.SMSMfaSettingsType</Type>
         <Type>Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaSettingsType</Type>

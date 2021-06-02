@@ -30,10 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <summary>
     /// Associates an existing AWS KMS alias with a different customer master key (CMK). Each
     /// alias is associated with only one CMK at a time, although a CMK can have multiple
-    /// aliases. The alias and the CMK must be in the same AWS account and region.
+    /// aliases. The alias and the CMK must be in the same AWS account and Region.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// Adding, deleting, or updating an alias can allow or deny permission to the CMK. For
+    /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using
+    /// ABAC in AWS KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// </para></note><para>
     /// The current and new CMK must be the same type (both symmetric or both asymmetric),
     /// and they must have the same key usage (<code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>).
     /// This restriction prevents errors in code that uses aliases. If you must assign an
@@ -50,9 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// use the <a>ListAliases</a> operation. 
     /// </para><para>
     /// The CMK that you use for this operation must be in a compatible key state. For details,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
-    /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
-    /// Developer Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
+    /// state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different
     /// AWS account. 
     /// </para><para><b>Required permissions</b></para><ul><li><para><a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UpdateAlias</a>
@@ -103,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">AWS
         /// managed CMK</a>.</para><para>The CMK must be in the same AWS account and Region as the alias. Also, the new target
         /// CMK must be the same type as the current target CMK (both symmetric or both asymmetric)
-        /// and they must have the same key usage. </para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para><para>To verify that the alias is mapped to the correct CMK, use <a>ListAliases</a>.</para>
+        /// and they must have the same key usage. </para><para>Specify the key ID or key ARN of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para><para>To verify that the alias is mapped to the correct CMK, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

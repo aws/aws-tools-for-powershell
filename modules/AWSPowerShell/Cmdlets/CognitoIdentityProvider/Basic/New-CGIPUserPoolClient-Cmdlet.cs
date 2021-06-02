@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Creates the user pool client.
+    /// 
+    ///  
+    /// <para>
+    /// When you create a new user pool client, token revocation is automatically enabled.
+    /// For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "CGIPUserPoolClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UserPoolClientType")]
@@ -166,6 +172,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DefaultRedirectURI { get; set; }
+        #endregion
+        
+        #region Parameter EnableTokenRevocation
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables token revocation. For more information about revoking tokens,
+        /// see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</para><para>If you don't include this parameter, token revocation is automatically enabled for
+        /// the new user pool client.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableTokenRevocation { get; set; }
         #endregion
         
         #region Parameter ExplicitAuthFlow
@@ -455,6 +473,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             #endif
             context.DefaultRedirectURI = this.DefaultRedirectURI;
+            context.EnableTokenRevocation = this.EnableTokenRevocation;
             if (this.ExplicitAuthFlow != null)
             {
                 context.ExplicitAuthFlow = new List<System.String>(this.ExplicitAuthFlow);
@@ -591,6 +610,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.DefaultRedirectURI != null)
             {
                 request.DefaultRedirectURI = cmdletContext.DefaultRedirectURI;
+            }
+            if (cmdletContext.EnableTokenRevocation != null)
+            {
+                request.EnableTokenRevocation = cmdletContext.EnableTokenRevocation.Value;
             }
             if (cmdletContext.ExplicitAuthFlow != null)
             {
@@ -744,6 +767,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public List<System.String> CallbackURLs { get; set; }
             public System.String ClientName { get; set; }
             public System.String DefaultRedirectURI { get; set; }
+            public System.Boolean? EnableTokenRevocation { get; set; }
             public List<System.String> ExplicitAuthFlow { get; set; }
             public System.Boolean? GenerateSecret { get; set; }
             public System.Int32? IdTokenValidity { get; set; }

@@ -58,12 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>Indicates that minor version upgrades are applied automatically to the instance during
-        /// the maintenance window. Changing this parameter doesn't result in an outage except
-        /// in the following case, and the change is asynchronously applied as soon as possible.
-        /// An outage results if this parameter is set to <code>true</code> during the maintenance
-        /// window, and a newer minor version is available, and Amazon DocumentDB has enabled
-        /// automatic patching for that engine version. </para>
+        /// <para>This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform
+        /// minor version upgrades regardless of the value set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The new compute and memory capacity of the instance; for example, <code>db.r5.large</code>.
-        /// Not all instance classes are available in all AWS Regions. </para><para>If you modify the instance class, an outage occurs during the change. The change is
+        /// Not all instance classes are available in all Regions. </para><para>If you modify the instance class, an outage occurs during the change. The change is
         /// applied during the next maintenance window, unless <code>ApplyImmediately</code> is
         /// specified as <code>true</code> for this request. </para><para>Default: Uses existing setting.</para>
         /// </para>

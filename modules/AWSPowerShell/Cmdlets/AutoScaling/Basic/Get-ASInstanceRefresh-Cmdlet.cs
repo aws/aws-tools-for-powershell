@@ -28,11 +28,19 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes one or more instance refreshes.
+    /// Gets information about the instance refreshes for the specified Auto Scaling group.
     /// 
     ///  
     /// <para>
-    /// You can determine the status of a request by looking at the <code>Status</code> parameter.
+    /// This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance
+    /// refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in
+    /// your Auto Scaling group after you make configuration changes.
+    /// </para><para>
+    /// To help you determine the status of an instance refresh, this operation returns information
+    /// about the instance refreshes you previously initiated, including their status, end
+    /// time, the percentage of the instance refresh that is complete, and the number of instances
+    /// remaining to update before the instance refresh is complete.
+    /// </para><para>
     /// The following are the possible statuses: 
     /// </para><ul><li><para><code>Pending</code> - The request was created, but the operation has not started.
     /// </para></li><li><para><code>InProgress</code> - The operation is in progress.
@@ -43,11 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// not roll back any replacements that have already been completed, but it prevents new
     /// replacements from being started. 
     /// </para></li><li><para><code>Cancelled</code> - The operation is cancelled. 
-    /// </para></li></ul><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing
-    /// Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto
-    /// Scaling User Guide</i>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASInstanceRefresh")]
     [OutputType("Amazon.AutoScaling.Model.InstanceRefresh")]

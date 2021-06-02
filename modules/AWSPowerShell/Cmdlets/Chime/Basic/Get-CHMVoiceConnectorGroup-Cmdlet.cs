@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name,
-    /// and associated <code>VoiceConnectorItems</code> .
+    /// and associated <code>VoiceConnectorItems</code>.
     /// </summary>
     [Cmdlet("Get", "CHMVoiceConnectorGroup")]
     [OutputType("Amazon.Chime.Model.VoiceConnectorGroup")]

@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>The name of the user assigned to one or more servers. User names are part of the sign-in
-        /// credentials to use the AWS Transfer Family service and perform file transfer tasks.</para>
+        /// credentials to use the Amazon Web Services Transfer Family service and perform file
+        /// transfer tasks.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

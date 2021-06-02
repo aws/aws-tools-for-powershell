@@ -28,7 +28,7 @@ using Amazon.LexRuntimeV2.Model;
 namespace Amazon.PowerShell.Cmdlets.LRSV2
 {
     /// <summary>
-    /// Creates a new session or modifies an existing session with an Amazon Lex bot. Use
+    /// Creates a new session or modifies an existing session with an Amazon Lex V2 bot. Use
     /// this operation to enable your application to set the state of the bot.
     /// </summary>
     [Cmdlet("Write", "LRSV2Session", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         #region Parameter SessionStateValue_ActiveContext
         /// <summary>
         /// <para>
-        /// <para>One or more contexts that indicate to Amazon Lex the context of a request. When a
-        /// context is active, Amazon Lex considers intents with the matching context as a trigger
-        /// as the next intent in a session.</para>
+        /// <para>One or more contexts that indicate to Amazon Lex V2 the context of a request. When
+        /// a context is active, Amazon Lex V2 considers intents with the matching context as
+        /// a trigger as the next intent in a session.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         #region Parameter RequestAttribute
         /// <summary>
         /// <para>
-        /// <para>Request-specific information passed between Amazon Lex and the client application.</para><para>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create
+        /// <para>Request-specific information passed between Amazon Lex V2 and the client application.</para><para>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create
         /// any request attributes with the prefix <code>x-amz-lex:</code>.</para>
         /// </para>
         /// </summary>
@@ -164,9 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         #region Parameter ResponseContentType
         /// <summary>
         /// <para>
-        /// <para>The message that Amazon Lex returns in the response can be either text or speech depending
-        /// on the value of this parameter. </para><ul><li><para>If the value is <code>text/plain; charset=utf-8</code>, Amazon Lex returns text in
-        /// the response.</para></li></ul>
+        /// <para>The message that Amazon Lex V2 returns in the response can be either text or speech
+        /// depending on the value of this parameter. </para><ul><li><para>If the value is <code>text/plain; charset=utf-8</code>, Amazon Lex V2 returns text
+        /// in the response.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex V2 and a client application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// <para>The next action that the bot should take in its interaction with the user. The possible
         /// values are:</para><ul><li><para><code>Close</code> - Indicates that there will not be a response from the user. For
         /// example, the statement "Your order has been placed" does not require a response.</para></li><li><para><code>ConfirmIntent</code> - The next action is asking the user if the intent is
-        /// complete and ready to be fulfilled. This is a yes/no question such as "Place the order?"</para></li><li><para><code>Delegate</code> - The next action is determined by Amazon Lex.</para></li><li><para><code>ElicitSlot</code> - The next action is to elicit a slot value from the user.</para></li></ul>
+        /// complete and ready to be fulfilled. This is a yes/no question such as "Place the order?"</para></li><li><para><code>Delegate</code> - The next action is determined by Amazon Lex V2.</para></li><li><para><code>ElicitSlot</code> - The next action is to elicit a slot value from the user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

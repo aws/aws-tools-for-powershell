@@ -46,6 +46,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateFolder" OutputProperty="*" Verb="New" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFolderMembership" OutputProperty="FolderMember" Verb="New" Noun="FolderMembership" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -99,6 +107,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataSource" OutputProperty="*" Verb="Remove" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFolder" OutputProperty="*" Verb="Remove" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFolderMembership" OutputProperty="*" Verb="Remove" Noun="FolderMembership" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -182,6 +198,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFolder" OutputProperty="Folder" Verb="Get" Noun="Folder" PipelineParameter="FolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFolderPermissions" OutputProperty="*" Verb="Get" Noun="FolderPermission" PipelineParameter="FolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFolderResolvedPermissions" OutputProperty="*" Verb="Get" Noun="FolderResolvedPermission" PipelineParameter="FolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -251,6 +279,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFolderMembers" OutputProperty="FolderMemberList" Verb="Get" Noun="FolderMemberList" PipelineParameter="FolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFolders" OutputProperty="FolderSummaryList" Verb="Get" Noun="FolderList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -330,6 +366,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchFolders" OutputProperty="FolderSummaryList" Verb="Search" Noun="Folder" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" OutputProperty="*" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -379,6 +419,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataSourcePermissions" OutputProperty="*" Verb="Update" Noun="DataSourcePermission" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFolder" OutputProperty="*" Verb="Update" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFolderPermissions" OutputProperty="*" Verb="Update" Noun="FolderPermission" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

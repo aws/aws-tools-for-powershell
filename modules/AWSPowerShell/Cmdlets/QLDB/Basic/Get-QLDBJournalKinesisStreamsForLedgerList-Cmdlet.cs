@@ -34,6 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     /// 
     ///  
     /// <para>
+    /// This action does not return any expired journal streams. For more information, see
+    /// <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration">Expiration
+    /// for terminal streams</a> in the <i>Amazon QLDB Developer Guide</i>.
+    /// </para><para>
     /// This action returns a maximum of <code>MaxResults</code> items. It is paginated so
     /// that you can retrieve all the items by calling <code>ListJournalKinesisStreamsForLedger</code>
     /// multiple times.

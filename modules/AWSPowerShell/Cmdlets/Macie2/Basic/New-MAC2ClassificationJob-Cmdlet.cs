@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Excludes_And
         /// <summary>
         /// <para>
-        /// <para>An array of conditions, one for each condition that determines which objects to include
-        /// or exclude from the job. If you specify more than one condition, Amazon Macie uses
-        /// AND logic to join the conditions.</para>
+        /// <para>An array of conditions, one for each property- or tag-based condition that determines
+        /// which objects to include or exclude from the job. If you specify more than one condition,
+        /// Amazon Macie uses AND logic to join the conditions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Includes_And
         /// <summary>
         /// <para>
-        /// <para>An array of conditions, one for each condition that determines which objects to include
-        /// or exclude from the job. If you specify more than one condition, Amazon Macie uses
-        /// AND logic to join the conditions.</para>
+        /// <para>An array of conditions, one for each property- or tag-based condition that determines
+        /// which objects to include or exclude from the job. If you specify more than one condition,
+        /// Amazon Macie uses AND logic to join the conditions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

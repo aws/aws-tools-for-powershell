@@ -93,11 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS KMS customer master key (CMK) to use to encrypt the snapshot exported
-        /// to Amazon S3. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
-        /// name for the AWS KMS customer master key (CMK). The caller of this operation must
-        /// be authorized to execute the following operations. These can be set in the AWS KMS
-        /// key policy: </para><ul><li><para>GrantOperation.Encrypt</para></li><li><para>GrantOperation.Decrypt</para></li><li><para>GrantOperation.GenerateDataKey</para></li><li><para>GrantOperation.GenerateDataKeyWithoutPlaintext</para></li><li><para>GrantOperation.ReEncryptFrom</para></li><li><para>GrantOperation.ReEncryptTo</para></li><li><para>GrantOperation.CreateGrant</para></li><li><para>GrantOperation.DescribeKey</para></li><li><para>GrantOperation.RetireGrant</para></li></ul>
+        /// <para>The ID of the Amazon Web Services KMS customer master key (CMK) to use to encrypt
+        /// the snapshot exported to Amazon S3. The Amazon Web Services KMS key identifier is
+        /// the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer
+        /// master key (CMK). The caller of this operation must be authorized to execute the following
+        /// operations. These can be set in the Amazon Web Services KMS key policy: </para><ul><li><para>GrantOperation.Encrypt</para></li><li><para>GrantOperation.Decrypt</para></li><li><para>GrantOperation.GenerateDataKey</para></li><li><para>GrantOperation.GenerateDataKeyWithoutPlaintext</para></li><li><para>GrantOperation.ReEncryptFrom</para></li><li><para>GrantOperation.ReEncryptTo</para></li><li><para>GrantOperation.CreateGrant</para></li><li><para>GrantOperation.DescribeKey</para></li><li><para>GrantOperation.RetireGrant</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

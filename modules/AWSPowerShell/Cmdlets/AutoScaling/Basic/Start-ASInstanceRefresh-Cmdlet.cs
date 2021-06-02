@@ -33,15 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// If successful, this call creates a new instance refresh request with a unique ID that
+    /// This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance
+    /// refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in
+    /// your Auto Scaling group after you make configuration changes.
+    /// </para><para>
+    /// If the call succeeds, it creates a new instance refresh request with a unique ID that
     /// you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a>
     /// API. To describe the instance refreshes that have already run, call the <a>DescribeInstanceRefreshes</a>
     /// API. To cancel an instance refresh operation in progress, use the <a>CancelInstanceRefresh</a>
     /// API. 
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing
-    /// Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto
-    /// Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "ASInstanceRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -28,17 +28,17 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Provisions an IPv4 or IPv6 address range for use with your AWS resources through bring
-    /// your own IP addresses (BYOIP) and creates a corresponding address pool. After the
-    /// address range is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
+    /// Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources
+    /// through bring your own IP addresses (BYOIP) and creates a corresponding address pool.
+    /// After the address range is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
     /// 
     ///  
     /// <para>
-    /// AWS verifies that you own the address range and are authorized to advertise it. You
-    /// must ensure that the address range is registered to you and that you created an RPKI
-    /// ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range. For more
-    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
-    /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Amazon Web Services verifies that you own the address range and are authorized to
+    /// advertise it. You must ensure that the address range is registered to you and that
+    /// you created an RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the
+    /// address range. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
+    /// your own IP addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// Provisioning an address range is an asynchronous operation, so the call returns immediately,
     /// but the address range is not ready to use until its status changes from <code>pending-provision</code>
@@ -95,6 +95,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CidrAuthorizationContext_Message { get; set; }
+        #endregion
+        
+        #region Parameter MultiRegion
+        /// <summary>
+        /// <para>
+        /// <para>Reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MultiRegion { get; set; }
         #endregion
         
         #region Parameter PoolTagSpecification
@@ -200,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.CidrAuthorizationContext_Message = this.CidrAuthorizationContext_Message;
             context.CidrAuthorizationContext_Signature = this.CidrAuthorizationContext_Signature;
             context.Description = this.Description;
+            context.MultiRegion = this.MultiRegion;
             if (this.PoolTagSpecification != null)
             {
                 context.PoolTagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.PoolTagSpecification);
@@ -257,6 +268,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.MultiRegion != null)
+            {
+                request.MultiRegion = cmdletContext.MultiRegion.Value;
             }
             if (cmdletContext.PoolTagSpecification != null)
             {
@@ -331,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String CidrAuthorizationContext_Message { get; set; }
             public System.String CidrAuthorizationContext_Signature { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? MultiRegion { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> PoolTagSpecification { get; set; }
             public System.Boolean? PubliclyAdvertisable { get; set; }
             public System.Func<Amazon.EC2.Model.ProvisionByoipCidrResponse, RegisterEC2ByoipCidrCmdlet, object> Select { get; set; } =

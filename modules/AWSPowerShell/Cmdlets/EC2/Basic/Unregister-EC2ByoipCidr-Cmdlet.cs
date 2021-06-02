@@ -28,9 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Releases the specified address range that you provisioned for use with your AWS resources
-    /// through bring your own IP addresses (BYOIP) and deletes the corresponding address
-    /// pool.
+    /// Releases the specified address range that you provisioned for use with your Amazon
+    /// Web Services resources through bring your own IP addresses (BYOIP) and deletes the
+    /// corresponding address pool.
     /// 
     ///  
     /// <para>

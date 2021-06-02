@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Starts an Amazon Aurora DB cluster that was stopped using the AWS console, the stop-db-cluster
-    /// AWS CLI command, or the StopDBCluster action.
+    /// Starts an Amazon Aurora DB cluster that was stopped using the Amazon Web Services
+    /// console, the stop-db-cluster CLI command, or the StopDBCluster action.
     /// 
     ///  
     /// <para>

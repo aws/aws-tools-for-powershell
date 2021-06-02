@@ -80,6 +80,13 @@ $DAX_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DAX.ClusterEndpointEncryptionType
+        "New-DAXCluster/ClusterEndpointEncryptionType"
+        {
+            $v = "NONE","TLS"
+            break
+        }
+
         # Amazon.DAX.SourceType
         "Get-DAXEvent/SourceType"
         {
@@ -96,6 +103,7 @@ $DAX_Completers = {
 }
 
 $DAX_map = @{
+    "ClusterEndpointEncryptionType"=@("New-DAXCluster")
     "SourceType"=@("Get-DAXEvent")
 }
 

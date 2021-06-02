@@ -54,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         public System.String[] AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter ClusterEndpointEncryptionType
+        /// <summary>
+        /// <para>
+        /// <para>The type of encryption the cluster's endpoint should support. Values are:</para><ul><li><para><code>NONE</code> for no encryption</para></li><li><para><code>TLS</code> for Transport Layer Security</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DAX.ClusterEndpointEncryptionType")]
+        public Amazon.DAX.ClusterEndpointEncryptionType ClusterEndpointEncryptionType { get; set; }
+        #endregion
+        
         #region Parameter ClusterName
         /// <summary>
         /// <para>
@@ -284,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
             {
                 context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
             }
+            context.ClusterEndpointEncryptionType = this.ClusterEndpointEncryptionType;
             context.ClusterName = this.ClusterName;
             #if MODULAR
             if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
@@ -345,6 +357,10 @@ namespace Amazon.PowerShell.Cmdlets.DAX
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZones = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.ClusterEndpointEncryptionType != null)
+            {
+                request.ClusterEndpointEncryptionType = cmdletContext.ClusterEndpointEncryptionType;
             }
             if (cmdletContext.ClusterName != null)
             {
@@ -471,6 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AvailabilityZone { get; set; }
+            public Amazon.DAX.ClusterEndpointEncryptionType ClusterEndpointEncryptionType { get; set; }
             public System.String ClusterName { get; set; }
             public System.String Description { get; set; }
             public System.String IamRoleArn { get; set; }

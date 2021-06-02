@@ -31,14 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// Retrieves the <a>TagInfoForResource</a> for the specified resource. Tags are key:value
     /// pairs that you can use to categorize and manage your resources, for purposes like
     /// billing. For example, you might set the tag key to "customer" and the value to the
-    /// customer name or ID. You can specify one or more tags to add to each AWS resource,
-    /// up to 50 tags for a resource.
+    /// customer name or ID. You can specify one or more tags to add to each Amazon Web Services
+    /// resource, up to 50 tags for a resource.
     /// 
     ///  
     /// <para>
-    /// You can tag the AWS resources that you manage through AWS WAF: web ACLs, rule groups,
-    /// IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF
-    /// console. 
+    /// You can tag the Amazon Web Services resources that you manage through WAF: web ACLs,
+    /// rule groups, IP sets, and regex pattern sets. You can't manage or view tags through
+    /// the WAF console. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WAF2ResourceTag")]
@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of objects that you want AWS WAF to return for this request. If
-        /// more objects are available, in the response, AWS WAF provides a <code>NextMarker</code>
-        /// value that you can use in a subsequent call to get the next batch of objects.</para>
+        /// <para>The maximum number of objects that you want WAF to return for this request. If more
+        /// objects are available, in the response, WAF provides a <code>NextMarker</code> value
+        /// that you can use in a subsequent call to get the next batch of objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>When you request a list of objects with a <code>Limit</code> setting, if the number
-        /// of objects that are still available for retrieval exceeds the limit, AWS WAF returns
-        /// a <code>NextMarker</code> value in the response. To retrieve the next batch of objects,
+        /// of objects that are still available for retrieval exceeds the limit, WAF returns a
+        /// <code>NextMarker</code> value in the response. To retrieve the next batch of objects,
         /// provide the marker from the prior call in your next request.</para>
         /// </para>
         /// <para>

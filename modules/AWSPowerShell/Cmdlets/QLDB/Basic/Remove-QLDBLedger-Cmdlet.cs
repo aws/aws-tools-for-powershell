@@ -33,10 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     ///  
     /// <para>
     /// If deletion protection is enabled, you must first disable it before you can delete
-    /// the ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can
-    /// disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.
-    /// The QLDB console disables deletion protection for you when you use it to delete a
-    /// ledger.
+    /// the ledger. You can disable it by calling the <code>UpdateLedger</code> operation
+    /// to set the flag to <code>false</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "QLDBLedger", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

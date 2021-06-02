@@ -28,18 +28,20 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Schedules the deletion of a customer master key (CMK). You may provide a waiting period,
-    /// specified in days, before deletion occurs. If you do not provide a waiting period,
-    /// the default period of 30 days is used. When this operation is successful, the key
-    /// state of the CMK changes to <code>PendingDeletion</code>. Before the waiting period
-    /// ends, you can use <a>CancelKeyDeletion</a> to cancel the deletion of the CMK. After
-    /// the waiting period ends, AWS KMS deletes the CMK and all AWS KMS data associated with
+    /// Schedules the deletion of a customer master key (CMK). By default, AWS KMS applies
+    /// a waiting period of 30 days, but you can specify a waiting period of 7-30 days. When
+    /// this operation is successful, the key state of the CMK changes to <code>PendingDeletion</code>
+    /// and the key can't be used in any cryptographic operations. It remains in this state
+    /// for the duration of the waiting period. Before the waiting period ends, you can use
+    /// <a>CancelKeyDeletion</a> to cancel the deletion of the CMK. After the waiting period
+    /// ends, AWS KMS deletes the CMK, its key material, and all AWS KMS data associated with
     /// it, including all aliases that refer to it.
     /// 
     ///  <important><para>
     /// Deleting a CMK is a destructive and potentially dangerous operation. When a CMK is
-    /// deleted, all data that was encrypted under the CMK is unrecoverable. To prevent the
-    /// use of a CMK without deleting it, use <a>DisableKey</a>.
+    /// deleted, all data that was encrypted under the CMK is unrecoverable. (The only exception
+    /// is a multi-Region replica key.) To prevent the use of a CMK without deleting it, use
+    /// <a>DisableKey</a>. 
     /// </para></important><para>
     /// If you schedule deletion of a CMK from a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
     /// key store</a>, when the waiting period expires, <code>ScheduleKeyDeletion</code> deletes
@@ -47,17 +49,25 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// from the associated AWS CloudHSM cluster. However, you might need to manually <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key">delete
     /// the orphaned key material</a> from the cluster and its backups.
     /// </para><para>
+    /// You can schedule the deletion of a multi-Region primary key and its replica keys at
+    /// any time. However, AWS KMS will not delete a multi-Region primary key with existing
+    /// replica keys. If you schedule the deletion of a primary key with replicas, its key
+    /// state changes to <code>PendingReplicaDeletion</code> and it cannot be replicated or
+    /// used in cryptographic operations. This status can continue indefinitely. When the
+    /// last of its replicas keys is deleted (not just scheduled), the key state of the primary
+    /// key changes to <code>PendingDeletion</code> and its waiting period (<code>PendingWindowInDays</code>)
+    /// begins. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html">Deleting
+    /// multi-Region keys</a> in the <i>AWS Key Management Service Developer Guide</i>. 
+    /// </para><para>
     /// For more information about scheduling a CMK for deletion, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting
     /// Customer Master Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.
     /// </para><para>
     /// The CMK that you use for this operation must be in a compatible key state. For details,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
-    /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
-    /// Developer Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
+    /// state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different
     /// AWS account.
-    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ScheduleKeyDeletion</a>
-    /// (key policy)
+    /// </para><para><b>Required permissions</b>: kms:ScheduleKeyDeletion (key policy)
     /// </para><para><b>Related operations</b></para><ul><li><para><a>CancelKeyDeletion</a></para></li><li><para><a>DisableKey</a></para></li></ul>
     /// </summary>
     [Cmdlet("Request", "KMSKeyDeletion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -72,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the customer master key (CMK) to delete.</para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// <para>The unique identifier of the customer master key (CMK) to delete.</para><para>Specify the key ID or key ARN of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The waiting period, specified in number of days. After the waiting period ends, AWS
-        /// KMS deletes the customer master key (CMK).</para><para>This value is optional. If you include a value, it must be between 7 and 30, inclusive.
+        /// KMS deletes the customer master key (CMK).</para><para>If the CMK is a multi-Region primary key with replicas, the waiting period begins
+        /// when the last of its replica keys is deleted. Otherwise, the waiting period begins
+        /// immediately.</para><para>This value is optional. If you include a value, it must be between 7 and 30, inclusive.
         /// If you do not include a value, it defaults to 30.</para>
         /// </para>
         /// </summary>

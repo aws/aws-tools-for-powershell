@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Get-EC2Tag -Filter @{Name="resource-type";Value="image"}
+    <code>Get-EC2Tag -Filter @{Name="resource-type";Values="image"}
 
 Key         ResourceId            ResourceType Value
 ---         ----------            ------------ -----
@@ -29,7 +29,7 @@ Count Name                      Group
     <description>This example fetches all the tags for all the resources and groups them by resource type</description>
   </example>
   <example>
-    <code>Get-EC2Tag -Region eu-west-1 -Filter @{Name="tag:auto-delete";Value="no"}
+    <code>Get-EC2Tag -Region eu-west-1 -Filter @{Name="tag:auto-delete";Values="no"}
 
 Key         ResourceId            ResourceType Value
 ---         ----------            ------------ -----
@@ -40,11 +40,11 @@ auto-delete vol-01ccb23f4c5e67890 volume       no</code>
     <description>This example displays all the resources with tag 'auto-delete' with value 'no' for the given region</description>
   </example>
   <example>
-    <code>Get-EC2Tag -Region eu-west-1 -Filter @{Name="tag:auto-delete";Value="no"} | Where-Object ResourceType -eq "instance" | ForEach-Object {New-EC2Tag -ResourceId $_.ResourceId -Tag @{Key="ThisInstance";Value=$_.ResourceId}}</code>
+    <code>Get-EC2Tag -Region eu-west-1 -Filter @{Name="tag:auto-delete";Values="no"} | Where-Object ResourceType -eq "instance" | ForEach-Object {New-EC2Tag -ResourceId $_.ResourceId -Tag @{Key="ThisInstance";Value=$_.ResourceId}}</code>
     <description>This example obtains all the resources with tag 'auto-delete' with 'no' value and further filters in the next pipe to parse only 'instance' resource types and eventually creates 'ThisInstance' tag for each instance resources with value being the instance id itself </description>
   </example>
   <example>
-    <code>Get-EC2Tag -Filter @{Name="resource-type";Value="instance"},@{Name="key";Value="Name"} | Select-Object ResourceId, @{Name="Name-Tag";Expression={$PSItem.Value}} | Format-Table -AutoSize
+    <code>Get-EC2Tag -Filter @{Name="resource-type";Values="instance"},@{Name="key";Values="Name"} | Select-Object ResourceId, @{Name="Name-Tag";Expression={$PSItem.Value}} | Format-Table -AutoSize
 
 ResourceId          Name-Tag
 ----------          --------

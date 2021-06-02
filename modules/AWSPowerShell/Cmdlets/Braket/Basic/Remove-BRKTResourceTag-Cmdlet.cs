@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>pecify the keys for the tags to remove from the resource.</para>
+        /// <para>Specify the keys for the tags to remove from the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

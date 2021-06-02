@@ -28,7 +28,7 @@ using Amazon.Cloud9.Model;
 namespace Amazon.PowerShell.Cmdlets.C9
 {
     /// <summary>
-    /// Gets status information for an AWS Cloud9 development environment.
+    /// Gets status information for an Cloud9 development environment.
     /// </summary>
     [Cmdlet("Get", "C9EnvironmentStatus")]
     [OutputType("Amazon.Cloud9.Model.DescribeEnvironmentStatusResponse")]

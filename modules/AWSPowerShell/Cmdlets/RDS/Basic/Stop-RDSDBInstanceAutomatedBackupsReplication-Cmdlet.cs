@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
-    /// Replicating Automated Backups to Another AWS Region</a> in the <i>Amazon RDS User
-    /// Guide.</i></para>
+    /// Replicating Automated Backups to Another Amazon Web Services Region</a> in the <i>Amazon
+    /// RDS User Guide.</i></para>
     /// </summary>
     [Cmdlet("Stop", "RDSDBInstanceAutomatedBackupsReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBInstanceAutomatedBackup")]

@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
     /// automatic recommendations. You can view recommendations using the CodeGuru Reviewer
     /// console. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html">Recommendations
     /// in Amazon CodeGuru Reviewer</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i><para>
-    /// If you associate a CodeCommit repository, it must be in the same AWS Region and AWS
-    /// account where its CodeGuru Reviewer code reviews are configured.
+    /// If you associate a CodeCommit or S3 repository, it must be in the same AWS Region
+    /// and AWS account where its CodeGuru Reviewer code reviews are configured.
     /// </para><para>
     /// Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar Connections
     /// to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html">Associate
@@ -54,6 +54,18 @@ namespace Amazon.PowerShell.Cmdlets.CGR
     )]
     public partial class RegisterCGRRepositoryCmdlet : AmazonCodeGuruReviewerClientCmdlet, IExecutor
     {
+        
+        #region Parameter S3Bucket_BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the S3 bucket used for associating a new S3 repository. It must begin
+        /// with <code>codeguru-reviewer-</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Repository_S3Bucket_BucketName")]
+        public System.String S3Bucket_BucketName { get; set; }
+        #endregion
         
         #region Parameter ClientRequestToken
         /// <summary>
@@ -150,11 +162,23 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         public System.String GitHubEnterpriseServer_Name { get; set; }
         #endregion
         
+        #region Parameter S3Bucket_Name
+        /// <summary>
+        /// <para>
+        /// <para> The name of the repository in the S3 bucket. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Repository_S3Bucket_Name")]
+        public System.String S3Bucket_Name { get; set; }
+        #endregion
+        
         #region Parameter Bitbucket_Owner
         /// <summary>
         /// <para>
         /// <para> The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
-        /// this is the username for the account that owns the repository. </para>
+        /// this is the username for the account that owns the repository. For an S3 repository,
+        /// this can be the username or AWS account ID. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para> The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
-        /// this is the username for the account that owns the repository. </para>
+        /// this is the username for the account that owns the repository. For an S3 repository,
+        /// this can be the username or AWS account ID. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -260,6 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             context.GitHubEnterpriseServer_ConnectionArn = this.GitHubEnterpriseServer_ConnectionArn;
             context.GitHubEnterpriseServer_Name = this.GitHubEnterpriseServer_Name;
             context.GitHubEnterpriseServer_Owner = this.GitHubEnterpriseServer_Owner;
+            context.S3Bucket_BucketName = this.S3Bucket_BucketName;
+            context.S3Bucket_Name = this.S3Bucket_Name;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -344,6 +371,41 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             if (requestRepository_repository_CodeCommit != null)
             {
                 request.Repository.CodeCommit = requestRepository_repository_CodeCommit;
+                requestRepositoryIsNull = false;
+            }
+            Amazon.CodeGuruReviewer.Model.S3Repository requestRepository_repository_S3Bucket = null;
+            
+             // populate S3Bucket
+            var requestRepository_repository_S3BucketIsNull = true;
+            requestRepository_repository_S3Bucket = new Amazon.CodeGuruReviewer.Model.S3Repository();
+            System.String requestRepository_repository_S3Bucket_s3Bucket_BucketName = null;
+            if (cmdletContext.S3Bucket_BucketName != null)
+            {
+                requestRepository_repository_S3Bucket_s3Bucket_BucketName = cmdletContext.S3Bucket_BucketName;
+            }
+            if (requestRepository_repository_S3Bucket_s3Bucket_BucketName != null)
+            {
+                requestRepository_repository_S3Bucket.BucketName = requestRepository_repository_S3Bucket_s3Bucket_BucketName;
+                requestRepository_repository_S3BucketIsNull = false;
+            }
+            System.String requestRepository_repository_S3Bucket_s3Bucket_Name = null;
+            if (cmdletContext.S3Bucket_Name != null)
+            {
+                requestRepository_repository_S3Bucket_s3Bucket_Name = cmdletContext.S3Bucket_Name;
+            }
+            if (requestRepository_repository_S3Bucket_s3Bucket_Name != null)
+            {
+                requestRepository_repository_S3Bucket.Name = requestRepository_repository_S3Bucket_s3Bucket_Name;
+                requestRepository_repository_S3BucketIsNull = false;
+            }
+             // determine if requestRepository_repository_S3Bucket should be set to null
+            if (requestRepository_repository_S3BucketIsNull)
+            {
+                requestRepository_repository_S3Bucket = null;
+            }
+            if (requestRepository_repository_S3Bucket != null)
+            {
+                request.Repository.S3Bucket = requestRepository_repository_S3Bucket;
                 requestRepositoryIsNull = false;
             }
             Amazon.CodeGuruReviewer.Model.ThirdPartySourceRepository requestRepository_repository_Bitbucket = null;
@@ -516,6 +578,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             public System.String GitHubEnterpriseServer_ConnectionArn { get; set; }
             public System.String GitHubEnterpriseServer_Name { get; set; }
             public System.String GitHubEnterpriseServer_Owner { get; set; }
+            public System.String S3Bucket_BucketName { get; set; }
+            public System.String S3Bucket_Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CodeGuruReviewer.Model.AssociateRepositoryResponse, RegisterCGRRepositoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RepositoryAssociation;

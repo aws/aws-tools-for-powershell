@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetRecord" OutputProperty="*" Verb="Get" Noun="RecordBatch" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteRecord" Verb="Remove" Noun="Record" ShouldProcessTarget="FeatureGroupName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

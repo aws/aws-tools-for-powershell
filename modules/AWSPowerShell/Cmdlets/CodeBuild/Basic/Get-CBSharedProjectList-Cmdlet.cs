@@ -28,7 +28,8 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Gets a list of projects that are shared with other AWS accounts or users.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets a list of projects that are shared with other Amazon Web Services accounts or
+    /// users.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CBSharedProjectList")]
     [OutputType("System.String")]
@@ -43,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para> The criterion to be used to list build projects shared with the current AWS account
-        /// or user. Valid values include: </para><ul><li><para><code>ARN</code>: List based on the ARN. </para></li><li><para><code>MODIFIED_TIME</code>: List based on when information about the shared project
+        /// <para> The criterion to be used to list build projects shared with the current Amazon Web
+        /// Services account or user. Valid values include: </para><ul><li><para><code>ARN</code>: List based on the ARN. </para></li><li><para><code>MODIFIED_TIME</code>: List based on when information about the shared project
         /// was last changed. </para></li></ul>
         /// </para>
         /// </summary>

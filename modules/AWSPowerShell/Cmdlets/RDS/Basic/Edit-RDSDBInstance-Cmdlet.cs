@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AwsBackupRecoveryPointArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the recovery point in AWS Backup.</para>
+        /// <para>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,9 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The new compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
-        /// Not all DB instance classes are available in all AWS Regions, or for all database
-        /// engines. For the full list of DB instance classes, and availability for your engine,
-        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// Not all DB instance classes are available in all Amazon Web Services Regions, or for
+        /// all database engines. For the full list of DB instance classes, and availability for
+        /// your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
         /// Instance Class</a> in the <i>Amazon RDS User Guide.</i></para><para>If you modify the DB instance class, an outage occurs during the change. The change
         /// is applied during the next maintenance window, unless <code>ApplyImmediately</code>
         /// is enabled for this request. </para><para>Default: Uses existing setting</para>
@@ -314,8 +314,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// subnets through your on-premises network. For some use cases, a CoIP can provide lower
         /// latency for connections to the DB instance from outside of its virtual private cloud
         /// (VPC) on your local network.</para><para>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
-        /// with Amazon RDS on AWS Outposts</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
-        /// IP addresses</a> in the <i>AWS Outposts User Guide</i>.</para>
+        /// with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
+        /// IP addresses</a> in the <i>Amazon Web Services Outposts User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -325,9 +325,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable mapping of AWS Identity and Access Management
-        /// (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>This setting doesn't apply to Amazon Aurora. Mapping AWS IAM accounts to database
-        /// accounts is managed by the DB cluster.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
+        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>This setting doesn't apply to Amazon Aurora. Mapping Amazon Web Services IAM accounts
+        /// to database accounts is managed by the DB cluster.</para><para>For more information about IAM database authentication, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
         /// Guide.</i></para>
         /// </para>
@@ -520,10 +520,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier for encryption of Performance Insights data.</para><para>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the
-        /// AWS KMS customer master key (CMK).</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
-        /// RDS uses your default CMK. There is a default CMK for your AWS account. Your AWS account
-        /// has a different default CMK for each AWS Region.</para>
+        /// <para>The Amazon Web Services KMS key identifier for encryption of Performance Insights
+        /// data.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the Amazon Web Services KMS customer master key (CMK).</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
+        /// RDS uses your default CMK. There is a default CMK for your Amazon Web Services account.
+        /// Your Amazon Web Services account has a different default CMK for each Amazon Web Services
+        /// Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -548,7 +550,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// are enabled, as determined by the <code>BackupRetentionPeriod</code> parameter. Changing
         /// this parameter doesn't result in an outage and the change is asynchronously applied
         /// as soon as possible. The default is a 30-minute window selected at random from an
-        /// 8-hour block of time for each AWS Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup
+        /// 8-hour block of time for each Amazon Web Services Region. For more information, see
+        /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup
         /// window</a> in the <i>Amazon RDS User Guide.</i></para><para><b>Amazon Aurora</b></para><para>Not applicable. The daily time range for creating automated backups is managed by
         /// the DB cluster. For more information, see <code>ModifyDBCluster</code>.</para><para>Constraints:</para><ul><li><para>Must be in the format hh24:mi-hh24:mi</para></li><li><para>Must be in Universal Time Coordinated (UTC)</para></li><li><para>Must not conflict with the preferred maintenance window</para></li><li><para>Must be at least 30 minutes</para></li></ul>
         /// </para>

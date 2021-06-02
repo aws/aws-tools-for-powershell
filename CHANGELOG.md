@@ -1,4 +1,134 @@
-﻿### 4.1.13.0 (2021-06-01)
+﻿### 4.1.14.0 (2021-06-24)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.60.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon App Mesh
+    * Modified cmdlet New-AMSHGatewayRoute: added parameters Match_Metadata, Spec_GrpcRoute_Action_Rewrite_Hostname_DefaultTargetHostname, Spec_GrpcRoute_Match_Hostname_Exact, Spec_GrpcRoute_Match_Hostname_Suffix, Spec_Http2Route_Action_Rewrite_Hostname_DefaultTargetHostname, Spec_Http2Route_Action_Rewrite_Path_Exact, Spec_Http2Route_Action_Rewrite_Prefix_DefaultPrefix, Spec_Http2Route_Action_Rewrite_Prefix_Value, Spec_Http2Route_Match_Headers, Spec_Http2Route_Match_Hostname_Exact, Spec_Http2Route_Match_Hostname_Suffix, Spec_Http2Route_Match_Method, Spec_Http2Route_Match_Path_Exact, Spec_Http2Route_Match_Path_Regex, Spec_Http2Route_Match_QueryParameters, Spec_HttpRoute_Action_Rewrite_Hostname_DefaultTargetHostname, Spec_HttpRoute_Action_Rewrite_Path_Exact, Spec_HttpRoute_Action_Rewrite_Prefix_DefaultPrefix, Spec_HttpRoute_Action_Rewrite_Prefix_Value, Spec_HttpRoute_Match_Headers, Spec_HttpRoute_Match_Hostname_Exact, Spec_HttpRoute_Match_Hostname_Suffix, Spec_HttpRoute_Match_Method, Spec_HttpRoute_Match_Path_Exact, Spec_HttpRoute_Match_Path_Regex, Spec_HttpRoute_Match_QueryParameters and Spec_Priority.
+    * Modified cmdlet New-AMSHRoute: added parameters Spec_Http2Route_Match_Path_Exact, Spec_Http2Route_Match_Path_Regex, Spec_Http2Route_Match_QueryParameters, Spec_HttpRoute_Match_Path_Exact, Spec_HttpRoute_Match_Path_Regex and Spec_HttpRoute_Match_QueryParameters.
+    * Modified cmdlet New-AMSHVirtualNode: added parameter Dns_ResponseType.
+    * Modified cmdlet Update-AMSHGatewayRoute: added parameters Match_Metadata, Spec_GrpcRoute_Action_Rewrite_Hostname_DefaultTargetHostname, Spec_GrpcRoute_Match_Hostname_Exact, Spec_GrpcRoute_Match_Hostname_Suffix, Spec_Http2Route_Action_Rewrite_Hostname_DefaultTargetHostname, Spec_Http2Route_Action_Rewrite_Path_Exact, Spec_Http2Route_Action_Rewrite_Prefix_DefaultPrefix, Spec_Http2Route_Action_Rewrite_Prefix_Value, Spec_Http2Route_Match_Headers, Spec_Http2Route_Match_Hostname_Exact, Spec_Http2Route_Match_Hostname_Suffix, Spec_Http2Route_Match_Method, Spec_Http2Route_Match_Path_Exact, Spec_Http2Route_Match_Path_Regex, Spec_Http2Route_Match_QueryParameters, Spec_HttpRoute_Action_Rewrite_Hostname_DefaultTargetHostname, Spec_HttpRoute_Action_Rewrite_Path_Exact, Spec_HttpRoute_Action_Rewrite_Prefix_DefaultPrefix, Spec_HttpRoute_Action_Rewrite_Prefix_Value, Spec_HttpRoute_Match_Headers, Spec_HttpRoute_Match_Hostname_Exact, Spec_HttpRoute_Match_Hostname_Suffix, Spec_HttpRoute_Match_Method, Spec_HttpRoute_Match_Path_Exact, Spec_HttpRoute_Match_Path_Regex, Spec_HttpRoute_Match_QueryParameters and Spec_Priority.
+    * Modified cmdlet Update-AMSHRoute: added parameters Spec_Http2Route_Match_Path_Exact, Spec_Http2Route_Match_Path_Regex, Spec_Http2Route_Match_QueryParameters, Spec_HttpRoute_Match_Path_Exact, Spec_HttpRoute_Match_Path_Regex and Spec_HttpRoute_Match_QueryParameters.
+    * Modified cmdlet Update-AMSHVirtualNode: added parameter Dns_ResponseType.
+  * Amazon Chime
+    * Added cmdlet Update-CHMSipMediaApplicationCall leveraging the UpdateSipMediaApplicationCall service API.
+    * Modified cmdlet Update-CHMAccount: added parameter DefaultLicense.
+  * Amazon CloudFormation
+    * Added cmdlet Disable-CFNType leveraging the DeactivateType service API.
+    * Added cmdlet Enable-CFNType leveraging the ActivateType service API.
+    * Added cmdlet Get-CFNDescribeTypeConfiguration leveraging the BatchDescribeTypeConfigurations service API.
+    * Added cmdlet Get-CFNPublisher leveraging the DescribePublisher service API.
+    * Added cmdlet Publish-CFNType leveraging the PublishType service API.
+    * Added cmdlet Register-CFNPublisher leveraging the RegisterPublisher service API.
+    * Added cmdlet Set-CFNTypeConfiguration leveraging the SetTypeConfiguration service API.
+    * Added cmdlet Test-CFNType leveraging the TestType service API.
+    * Modified cmdlet Get-CFNType: added parameters PublicVersionNumber and PublisherId.
+    * Modified cmdlet Get-CFNTypeList: added parameters Filters_Category, Filters_PublisherId and Filters_TypeNamePrefix.
+    * Modified cmdlet Get-CFNTypeVersion: added parameter PublisherId.
+  * Amazon CodeBuild
+    * [Breaking Change] Modified cmdlet New-CBProject: removed parameters Artifacts_BucketOwnerAccess and S3Logs_BucketOwnerAccess.
+    * [Breaking Change] Modified cmdlet Start-CBBatch: removed parameters ArtifactsOverride_BucketOwnerAccess and S3Logs_BucketOwnerAccess.
+    * [Breaking Change] Modified cmdlet Start-CBBuild: removed parameters ArtifactsOverride_BucketOwnerAccess and S3Logs_BucketOwnerAccess.
+    * [Breaking Change] Modified cmdlet Update-CBProject: removed parameters Artifacts_BucketOwnerAccess and S3Logs_BucketOwnerAccess.
+  * Amazon CodeGuru Reviewer
+    * Modified cmdlet New-CGRCodeReview: added parameters BranchDiff_DestinationBranchName, BranchDiff_SourceBranchName, CodeArtifacts_BuildArtifactsObjectKey, CodeArtifacts_SourceCodeArtifactsObjectKey, CommitDiff_DestinationCommit, CommitDiff_MergeBaseCommit, CommitDiff_SourceCommit, Details_BucketName, EventInfo_Name, EventInfo_State, RequestMetadata_Requester, RequestMetadata_RequestId, RequestMetadata_VendorName, S3BucketRepository_Name, Type_AnalysisType and Type_RepositoryAnalysis_SourceCodeType_RepositoryHead_BranchName.
+    * Modified cmdlet Register-CGRRepository: added parameters S3Bucket_BucketName and S3Bucket_Name.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Revoke-CGIPToken leveraging the RevokeToken service API.
+    * Modified cmdlet New-CGIPUserPoolClient: added parameter EnableTokenRevocation.
+    * Modified cmdlet Update-CGIPUserPoolClient: added parameter EnableTokenRevocation.
+  * Amazon Connect Service
+    * Added cmdlet Add-CONNBot leveraging the AssociateBot service API.
+    * Added cmdlet Get-CONNBotList leveraging the ListBots service API.
+    * Added cmdlet Remove-CONNBot leveraging the DisassociateBot service API.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Added cmdlet Edit-DOCGlobalCluster leveraging the ModifyGlobalCluster service API.
+    * Added cmdlet Get-DOCGlobalCluster leveraging the DescribeGlobalClusters service API.
+    * Added cmdlet New-DOCGlobalCluster leveraging the CreateGlobalCluster service API.
+    * Added cmdlet Remove-DOCFromGlobalCluster leveraging the RemoveFromGlobalCluster service API.
+    * Added cmdlet Remove-DOCGlobalCluster leveraging the DeleteGlobalCluster service API.
+    * Modified cmdlet New-DOCDBCluster: added parameter GlobalClusterIdentifier.
+  * Amazon DynamoDB Accelerator (DAX)
+    * Modified cmdlet New-DAXCluster: added parameter ClusterEndpointEncryptionType.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Disable-EC2ImageDeprecation leveraging the DisableImageDeprecation service API.
+    * Added cmdlet Enable-EC2ImageDeprecation leveraging the EnableImageDeprecation service API.
+    * Added cmdlet Get-EC2TrunkInterfaceAssociation leveraging the DescribeTrunkInterfaceAssociations service API.
+    * Added cmdlet Register-EC2TrunkInterface leveraging the AssociateTrunkInterface service API.
+    * Added cmdlet Unregister-EC2TrunkInterface leveraging the DisassociateTrunkInterface service API.
+    * Modified cmdlet Get-EC2Image: added parameter IncludeDeprecated.
+    * Modified cmdlet New-EC2NatGateway: added parameter ConnectivityType.
+    * Modified cmdlet Register-EC2ByoipCidr: added parameter MultiRegion.
+    * Fixed examples for Get-EC2Tag CmdLet.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSNodegroup: added parameters UpdateConfig_MaxUnavailable and UpdateConfig_MaxUnavailablePercentage.
+    * Modified cmdlet Update-EKSNodegroupConfig: added parameters UpdateConfig_MaxUnavailable and UpdateConfig_MaxUnavailablePercentage.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet New-EMCNFlow: added parameters SourceFailoverConfig_FailoverMode and SourcePriority_PrimarySource.
+    * Modified cmdlet Update-EMCNFlow: added parameters SourceFailoverConfig_FailoverMode and SourcePriority_PrimarySource.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet New-EMTSourceLocation: added parameters SecretsManagerAccessTokenConfiguration_HeaderName, SecretsManagerAccessTokenConfiguration_SecretArn and SecretsManagerAccessTokenConfiguration_SecretStringKey.
+    * Modified cmdlet Update-EMTSourceLocation: added parameters SecretsManagerAccessTokenConfiguration_HeaderName, SecretsManagerAccessTokenConfiguration_SecretArn and SecretsManagerAccessTokenConfiguration_SecretStringKey.
+  * Amazon Forecast Service
+    * Modified cmdlet New-FRCPredictor: added parameter AutoMLOverrideStrategy.
+  * Amazon GreengrassV2
+    * Added cmdlet Add-GGV2BatchClientDeviceWithCoreDevice leveraging the BatchAssociateClientDeviceWithCoreDevice service API.
+    * Added cmdlet Get-GGV2ClientDevicesAssociatedWithCoreDeviceList leveraging the ListClientDevicesAssociatedWithCoreDevice service API.
+    * Added cmdlet Remove-GGV2BatchClientDeviceFromCoreDevice leveraging the BatchDisassociateClientDeviceFromCoreDevice service API.
+  * Amazon Kendra
+    * Added cmdlet Get-KNDRGetDocumentStatus leveraging the BatchGetDocumentStatus service API.
+  * Amazon Key Management Service
+    * Added cmdlet New-KMSReplicaKey leveraging the ReplicateKey service API.
+    * Added cmdlet Update-KMSPrimaryRegion leveraging the UpdatePrimaryRegion service API.
+    * Modified cmdlet New-KMSKey: added parameter MultiRegion.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2Slot: added parameter MultipleValuesSetting_AllowMultipleValue.
+    * Modified cmdlet Update-LMBV2Slot: added parameter MultipleValuesSetting_AllowMultipleValue.
+  * Amazon License Manager
+    * Modified cmdlet New-LICMGrantVersion: added parameter StatusReason.
+    * Modified cmdlet Remove-LICMGrant: added parameter StatusReason.
+  * Amazon Macie 2
+    * Modified cmdlet Update-MAC2FindingsFilter: added parameter ClientToken.
+  * Amazon Managed Blockchain
+    * Modified cmdlet New-MBCMember: added parameter MemberConfiguration_KmsKeyArn.
+    * Modified cmdlet New-MBCNetwork: added parameter MemberConfiguration_KmsKeyArn.
+  * Amazon Performance Insights
+    * Added cmdlet Get-PIDimensionKeyDetail leveraging the GetDimensionKeyDetails service API.
+  * Amazon Proton. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PRO and can be listed using the command 'Get-AWSCmdletName -Service PRO'.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSFolder leveraging the DescribeFolder service API.
+    * Added cmdlet Get-QSFolderList leveraging the ListFolders service API.
+    * Added cmdlet Get-QSFolderMemberList leveraging the ListFolderMembers service API.
+    * Added cmdlet Get-QSFolderPermission leveraging the DescribeFolderPermissions service API.
+    * Added cmdlet Get-QSFolderResolvedPermission leveraging the DescribeFolderResolvedPermissions service API.
+    * Added cmdlet New-QSFolder leveraging the CreateFolder service API.
+    * Added cmdlet New-QSFolderMembership leveraging the CreateFolderMembership service API.
+    * Added cmdlet Remove-QSFolder leveraging the DeleteFolder service API.
+    * Added cmdlet Remove-QSFolderMembership leveraging the DeleteFolderMembership service API.
+    * Added cmdlet Search-QSFolder leveraging the SearchFolders service API.
+    * Added cmdlet Update-QSFolder leveraging the UpdateFolder service API.
+    * Added cmdlet Update-QSFolderPermission leveraging the UpdateFolderPermissions service API.
+  * Amazon Redshift Data API Service
+    * Modified cmdlet Send-RSDStatement: added parameter Parameter.
+  * Amazon Relational Database Service
+    * Modified cmdlet Restore-RDSDBClusterToPointInTime: added parameters EngineMode, ScalingConfiguration_AutoPause, ScalingConfiguration_MaxCapacity, ScalingConfiguration_MinCapacity, ScalingConfiguration_SecondsUntilAutoPause and ScalingConfiguration_TimeoutAction.
+    * Modified cmdlet Start-RDSActivityStream: added parameter EngineNativeAuditFieldsIncluded.
+  * Amazon Resource Access Manager (RAM)
+    * Modified cmdlet Add-RAMPermissionToResourceShare: added parameter PermissionVersion.
+    * Modified cmdlet Get-RAMResourceShare: added parameter PermissionArn.
+  * Amazon S3 Control
+    * Modified cmdlet New-S3CJob: added parameter S3PutObjectCopy_BucketKeyEnabled.
+  * Amazon SageMaker Feature Store Runtime
+    * Added cmdlet Get-SMFSRecordBatch leveraging the BatchGetRecord service API.
+  * Amazon SageMaker Service
+    * Added cmdlet Send-SMPipelineExecutionStepFailure leveraging the SendPipelineExecutionStepFailure service API.
+    * Added cmdlet Send-SMPipelineExecutionStepSuccess leveraging the SendPipelineExecutionStepSuccess service API.
+    * Modified cmdlet New-SMDeviceFleet: added parameters EnableIotRoleAlias, OutputConfig_PresetDeploymentConfig and OutputConfig_PresetDeploymentType.
+    * Modified cmdlet New-SMEdgePackagingJob: added parameters OutputConfig_PresetDeploymentConfig and OutputConfig_PresetDeploymentType.
+    * Modified cmdlet Update-SMDeviceFleet: added parameters EnableIotRoleAlias, OutputConfig_PresetDeploymentConfig and OutputConfig_PresetDeploymentType.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet Update-TFRServer: added parameter ProtocolDetails_PassiveIp.
+  * Amazon WAF V2
+    * Modified cmdlet Get-WAF2RuleGroup: added parameter ARN.
+
+### 4.1.13.0 (2021-06-01)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.45.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Made 'Service' parameter positional for Get-AWSService cmdlet.
   * Amazon AmazonMWAA

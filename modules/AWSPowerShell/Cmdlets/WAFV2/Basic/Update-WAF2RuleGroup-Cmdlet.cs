@@ -30,8 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// <summary>
     /// Updates the specified <a>RuleGroup</a>.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// This operation completely replaces the mutable specifications that you already have
+    /// for the rule group with the ones that you provide to this call. To modify the rule
+    /// group, retrieve it by calling <a>GetRuleGroup</a>, update the settings as needed,
+    /// and then provide the complete rule group specification to this call.
+    /// </para></note><para>
     ///  A rule group defines a collection of rules to inspect and control web requests that
     /// you can use in a <a>WebACL</a>. When you create a rule group, you define an immutable
     /// capacity limit. If you update a rule group, you must stay within the capacity. This
@@ -52,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter VisibilityConfig_CloudWatchMetricsEnabled
         /// <summary>
         /// <para>
-        /// <para>A boolean indicating whether the associated resource sends metrics to CloudWatch.
-        /// For the list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">AWS
-        /// WAF Metrics</a>.</para>
+        /// <para>A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch.
+        /// For the list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF
+        /// Metrics</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,11 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>A map of custom response keys and content bodies. When you create a rule with a block
         /// action, you can send a custom response to the web request. You define these for the
         /// rule group, and then use them in the rules that you define in the rule group. </para><para>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing
-        /// web requests and responses in AWS WAF</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. </para><para>For information about the limits on count and size for custom request and response
-        /// settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">AWS
-        /// WAF quotas</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. </para>
+        /// web requests and responses in WAF</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF
+        /// Developer Guide</a>. </para><para>For information about the limits on count and size for custom request and response
+        /// settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF
+        /// quotas</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF
+        /// Developer Guide</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,13 +120,13 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter LockToken
         /// <summary>
         /// <para>
-        /// <para>A token used for optimistic locking. AWS WAF returns a token to your get and list
-        /// requests, to mark the state of the entity at the time of the request. To make changes
-        /// to the entity associated with the token, you provide the token to operations like
-        /// update and delete. AWS WAF uses the token to ensure that no changes have been made
-        /// to the entity since you last retrieved it. If a change has been made, the update fails
-        /// with a <code>WAFOptimisticLockException</code>. If this happens, perform another get,
-        /// and use the new token returned by that operation. </para>
+        /// <para>A token used for optimistic locking. WAF returns a token to your get and list requests,
+        /// to mark the state of the entity at the time of the request. To make changes to the
+        /// entity associated with the token, you provide the token to operations like update
+        /// and delete. WAF uses the token to ensure that no changes have been made to the entity
+        /// since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>.
+        /// If this happens, perform another get, and use the new token returned by that operation.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -139,9 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter VisibilityConfig_MetricName
         /// <summary>
         /// <para>
-        /// <para>A name of the CloudWatch metric. The name can contain only the characters: A-Z, a-z,
-        /// 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long.
-        /// It can't contain whitespace or metric names reserved for AWS WAF, for example "All"
+        /// <para>A name of the Amazon CloudWatch metric. The name can contain only the characters:
+        /// A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters
+        /// long. It can't contain whitespace or metric names reserved for WAF, for example "All"
         /// and "Default_Action." </para>
         /// </para>
         /// </summary>
@@ -178,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The <a>Rule</a> statements used to identify the web requests that you want to allow,
-        /// block, or count. Each rule includes one top-level statement that AWS WAF uses to identify
-        /// matching web requests, and parameters that govern how AWS WAF handles them. </para>
+        /// block, or count. Each rule includes one top-level statement that WAF uses to identify
+        /// matching web requests, and parameters that govern how WAF handles them. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter VisibilityConfig_SampledRequestsEnabled
         /// <summary>
         /// <para>
-        /// <para>A boolean indicating whether AWS WAF should store a sampling of the web requests that
-        /// match the rules. You can view the sampled requests through the AWS WAF console. </para>
+        /// <para>A boolean indicating whether WAF should store a sampling of the web requests that
+        /// match the rules. You can view the sampled requests through the WAF console. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -207,9 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this is for an AWS CloudFront distribution or for a regional application.
-        /// A regional application can be an Application Load Balancer (ALB), an API Gateway REST
-        /// API, or an AppSync GraphQL API. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
+        /// application. A regional application can be an Application Load Balancer (ALB), an
+        /// Amazon API Gateway REST API, or an AppSync GraphQL API. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
         /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>

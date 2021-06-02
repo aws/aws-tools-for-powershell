@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Instantiates an auto-scaling virtual server based on the selected file transfer protocol
-    /// in AWS. When you make updates to your file transfer protocol-enabled server or when
-    /// you work with users, use the service-generated <code>ServerId</code> property that
-    /// is assigned to the newly created server.
+    /// in Amazon Web Services. When you make updates to your file transfer protocol-enabled
+    /// server or when you work with users, use the service-generated <code>ServerId</code>
+    /// property that is assigned to the newly created server.
     /// </summary>
     [Cmdlet("New", "TFRServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -59,11 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter Certificate
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required
-        /// when <code>Protocols</code> is set to <code>FTPS</code>.</para><para>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request
-        /// a public certificate</a> in the <i> AWS Certificate Manager User Guide</i>.</para><para>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
-        /// certificates into ACM</a> in the <i> AWS Certificate Manager User Guide</i>.</para><para>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request
-        /// a private certificate</a> in the <i> AWS Certificate Manager User Guide</i>.</para><para>Certificates with the following cryptographic algorithms and key sizes are supported:</para><ul><li><para>2048-bit RSA (RSA_2048)</para></li><li><para>4096-bit RSA (RSA_4096)</para></li><li><para>Elliptic Prime Curve 256 bit (EC_prime256v1)</para></li><li><para>Elliptic Prime Curve 384 bit (EC_secp384r1)</para></li><li><para>Elliptic Prime Curve 521 bit (EC_secp521r1)</para></li></ul><note><para>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager (ACM)
+        /// certificate. Required when <code>Protocols</code> is set to <code>FTPS</code>.</para><para>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request
+        /// a public certificate</a> in the <i> Amazon Web Services Certificate Manager User Guide</i>.</para><para>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
+        /// certificates into ACM</a> in the <i> Amazon Web Services Certificate Manager User
+        /// Guide</i>.</para><para>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request
+        /// a private certificate</a> in the <i> Amazon Web Services Certificate Manager User
+        /// Guide</i>.</para><para>Certificates with the following cryptographic algorithms and key sizes are supported:</para><ul><li><para>2048-bit RSA (RSA_2048)</para></li><li><para>4096-bit RSA (RSA_4096)</para></li><li><para>Elliptic Prime Curve 256 bit (EC_prime256v1)</para></li><li><para>Elliptic Prime Curve 384 bit (EC_secp384r1)</para></li><li><para>Elliptic Prime Curve 521 bit (EC_secp521r1)</para></li></ul><note><para>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
         /// address specified and information about the issuer.</para></note>
         /// </para>
         /// </summary>
@@ -74,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderDetails_DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AWS Directory Service directory that you want to stop sharing.</para>
+        /// <para>The identifier of the Amazon Web ServicesDirectory Service directory that you want
+        /// to stop sharing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,11 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// server's endpoint publicly accessible (PUBLIC) or host it inside your VPC. With an
         /// endpoint that is hosted in a VPC, you can restrict access to your server and resources
         /// only within your VPC or choose to make it internet facing by attaching Elastic IP
-        /// addresses directly to it.</para><note><para> After March 31, 2021, you won't be able to create a server using <code>EndpointType=VPC_ENDPOINT</code>
-        /// in your AWS account if your account hasn't already done so before March 31, 2021.
-        /// If you have already created servers with <code>EndpointType=VPC_ENDPOINT</code> in
-        /// your AWS account on or before March 31, 2021, you will not be affected. After this
-        /// date, use <code>EndpointType</code>=<code>VPC</code>.</para><para>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</para><para>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>.
+        /// addresses directly to it.</para><note><para> After May 19, 2021, you won't be able to create a server using <code>EndpointType=VPC_ENDPOINT</code>
+        /// in your Amazon Web Services account if your account hasn't already done so before
+        /// May 19, 2021. If you have already created servers with <code>EndpointType=VPC_ENDPOINT</code>
+        /// in your Amazon Web Services account on or before May 19, 2021, you will not be affected.
+        /// After this date, use <code>EndpointType</code>=<code>VPC</code>.</para><para>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</para><para>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>.
         /// With this endpoint type, you have the option to directly associate up to three Elastic
         /// IPv4 addresses (BYO IP included) with your server's endpoint and use VPC security
         /// groups to restrict traffic by the client's public IP address. This is not possible
@@ -124,7 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// command.</para><important><para>If you aren't planning to migrate existing users from an existing SFTP-enabled server
         /// to a new server, don't update the host key. Accidentally changing a server's host
         /// key can be disruptive.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change
-        /// the host key for your SFTP-enabled server</a> in the <i>AWS Transfer Family User Guide</i>.</para>
+        /// the host key for your SFTP-enabled server</a> in the <i>Amazon Web Services Transfer
+        /// Family User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,14 +139,15 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Specifies the mode of authentication for a server. The default value is <code>SERVICE_MANAGED</code>,
-        /// which allows you to store and access user credentials within the AWS Transfer Family
-        /// service. Use <code>AWS_DIRECTORY_SERVICE</code> to provide access to Active Directory
-        /// groups in AWS Managed Active Directory or Microsoft Active Directory in your on-premises
-        /// environment or in AWS using AD Connectors. This option also requires you to provide
-        /// a Directory ID using the <code>IdentityProviderDetails</code> parameter. Use the <code>API_GATEWAY</code>
-        /// value to integrate with an identity provider of your choosing. The <code>API_GATEWAY</code>
-        /// setting requires you to provide an API Gateway endpoint URL to call for authentication
-        /// using the <code>IdentityProviderDetails</code> parameter.</para>
+        /// which allows you to store and access user credentials within the Amazon Web Services
+        /// Transfer Family service.</para><para>Use <code>AWS_DIRECTORY_SERVICE</code> to provide access to Active Directory groups
+        /// in Amazon Web Services Managed Active Directory or Microsoft Active Directory in your
+        /// on-premises environment or in Amazon Web Services using AD Connectors. This option
+        /// also requires you to provide a Directory ID using the <code>IdentityProviderDetails</code>
+        /// parameter.</para><para>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your
+        /// choosing. The <code>API_GATEWAY</code> setting requires you to provide an API Gateway
+        /// endpoint URL to call for authentication using the <code>IdentityProviderDetails</code>
+        /// parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,8 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter LoggingRole
         /// <summary>
         /// <para>
-        /// <para>Allows the service to write your users' activity to your Amazon CloudWatch logs for
-        /// monitoring and auditing purposes.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access
+        /// Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for
+        /// Amazon S3 or Amazon EFS events. When set, user activity can be viewed in your CloudWatch
+        /// logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,9 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>Specifies the file transfer protocol or protocols over which your file transfer protocol
         /// client can connect to your server's endpoint. The available protocols are:</para><ul><li><para><code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over
-        /// SSH</para></li><li><para><code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS encryption</para></li><li><para><code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</para></li></ul><note><para>If you select <code>FTPS</code>, you must choose a certificate stored in AWS Certificate
-        /// Manager (ACM) which will be used to identify your server when clients connect to it
-        /// over FTPS.</para><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
+        /// SSH</para></li><li><para><code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS encryption</para></li><li><para><code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</para></li></ul><note><para>If you select <code>FTPS</code>, you must choose a certificate stored in Amazon Web
+        /// Services Certificate Manager (ACM) which is used to identify your server when clients
+        /// connect to it over FTPS.</para><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
         /// the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code>
         /// must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</para><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
         /// cannot be associated.</para><para>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>

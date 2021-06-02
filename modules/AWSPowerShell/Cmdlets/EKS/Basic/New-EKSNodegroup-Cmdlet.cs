@@ -202,6 +202,26 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Int32? ScalingConfig_MaxSize { get; set; }
         #endregion
         
+        #region Parameter UpdateConfig_MaxUnavailable
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? UpdateConfig_MaxUnavailable { get; set; }
+        #endregion
+        
+        #region Parameter UpdateConfig_MaxUnavailablePercentage
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? UpdateConfig_MaxUnavailablePercentage { get; set; }
+        #endregion
+        
         #region Parameter ScalingConfig_MinSize
         /// <summary>
         /// <para>
@@ -504,6 +524,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 context.Taint = new List<Amazon.EKS.Model.Taint>(this.Taint);
             }
+            context.UpdateConfig_MaxUnavailable = this.UpdateConfig_MaxUnavailable;
+            context.UpdateConfig_MaxUnavailablePercentage = this.UpdateConfig_MaxUnavailablePercentage;
             context.Version = this.Version;
             
             // allow further manipulation of loaded context prior to processing
@@ -680,6 +702,35 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 request.Taints = cmdletContext.Taint;
             }
+            
+             // populate UpdateConfig
+            var requestUpdateConfigIsNull = true;
+            request.UpdateConfig = new Amazon.EKS.Model.NodegroupUpdateConfig();
+            System.Int32? requestUpdateConfig_updateConfig_MaxUnavailable = null;
+            if (cmdletContext.UpdateConfig_MaxUnavailable != null)
+            {
+                requestUpdateConfig_updateConfig_MaxUnavailable = cmdletContext.UpdateConfig_MaxUnavailable.Value;
+            }
+            if (requestUpdateConfig_updateConfig_MaxUnavailable != null)
+            {
+                request.UpdateConfig.MaxUnavailable = requestUpdateConfig_updateConfig_MaxUnavailable.Value;
+                requestUpdateConfigIsNull = false;
+            }
+            System.Int32? requestUpdateConfig_updateConfig_MaxUnavailablePercentage = null;
+            if (cmdletContext.UpdateConfig_MaxUnavailablePercentage != null)
+            {
+                requestUpdateConfig_updateConfig_MaxUnavailablePercentage = cmdletContext.UpdateConfig_MaxUnavailablePercentage.Value;
+            }
+            if (requestUpdateConfig_updateConfig_MaxUnavailablePercentage != null)
+            {
+                request.UpdateConfig.MaxUnavailablePercentage = requestUpdateConfig_updateConfig_MaxUnavailablePercentage.Value;
+                requestUpdateConfigIsNull = false;
+            }
+             // determine if request.UpdateConfig should be set to null
+            if (requestUpdateConfigIsNull)
+            {
+                request.UpdateConfig = null;
+            }
             if (cmdletContext.Version != null)
             {
                 request.Version = cmdletContext.Version;
@@ -766,6 +817,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public List<System.String> Subnet { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public List<Amazon.EKS.Model.Taint> Taint { get; set; }
+            public System.Int32? UpdateConfig_MaxUnavailable { get; set; }
+            public System.Int32? UpdateConfig_MaxUnavailablePercentage { get; set; }
             public System.String Version { get; set; }
             public System.Func<Amazon.EKS.Model.CreateNodegroupResponse, NewEKSNodegroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Nodegroup;

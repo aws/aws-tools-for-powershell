@@ -36,11 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     ///  
     /// <para>
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><note><para>
-    /// Changes to dynamic parameters are applied immediately. Changes to static parameters
-    /// require a reboot without failover to the DB cluster associated with the parameter
-    /// group before the change can take effect.
-    /// </para></note><important><para>
+    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><important><para>
     /// After you create a DB cluster parameter group, you should wait at least 5 minutes
     /// before creating your first DB cluster that uses that DB cluster parameter group as
     /// the default parameter group. This allows Amazon RDS to fully complete the create action
@@ -89,7 +85,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>A list of parameters in the DB cluster parameter group to modify.</para>
+        /// <para>A list of parameters in the DB cluster parameter group to modify.</para><para>Valid Values (for the application method): <code>immediate | pending-reboot</code></para><note><para>You can use the <code>immediate</code> value with dynamic parameters only. You can
+        /// use the <code>pending-reboot</code> value for both dynamic and static parameters.</para><para>When the application method is <code>immediate</code>, changes to dynamic parameters
+        /// are applied immediately to the DB clusters associated with the parameter group. When
+        /// the application method is <code>pending-reboot</code>, changes to dynamic and static
+        /// parameters are applied after a reboot without failover to the DB clusters associated
+        /// with the parameter group.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

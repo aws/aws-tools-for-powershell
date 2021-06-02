@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The names or ARNs of the build projects. To get information about a project shared
-        /// with your AWS account, its ARN must be specified. You cannot specify a shared project
-        /// using its name.</para>
+        /// with your Amazon Web Services account, its ARN must be specified. You cannot specify
+        /// a shared project using its name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

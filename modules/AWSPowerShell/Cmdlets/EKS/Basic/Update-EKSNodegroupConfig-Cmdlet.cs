@@ -116,6 +116,26 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Int32? ScalingConfig_MaxSize { get; set; }
         #endregion
         
+        #region Parameter UpdateConfig_MaxUnavailable
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? UpdateConfig_MaxUnavailable { get; set; }
+        #endregion
+        
+        #region Parameter UpdateConfig_MaxUnavailablePercentage
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? UpdateConfig_MaxUnavailablePercentage { get; set; }
+        #endregion
+        
         #region Parameter ScalingConfig_MinSize
         /// <summary>
         /// <para>
@@ -265,6 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 context.Taints_RemoveTaint = new List<Amazon.EKS.Model.Taint>(this.Taints_RemoveTaint);
             }
+            context.UpdateConfig_MaxUnavailable = this.UpdateConfig_MaxUnavailable;
+            context.UpdateConfig_MaxUnavailablePercentage = this.UpdateConfig_MaxUnavailablePercentage;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -391,6 +413,35 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 request.Taints = null;
             }
             
+             // populate UpdateConfig
+            var requestUpdateConfigIsNull = true;
+            request.UpdateConfig = new Amazon.EKS.Model.NodegroupUpdateConfig();
+            System.Int32? requestUpdateConfig_updateConfig_MaxUnavailable = null;
+            if (cmdletContext.UpdateConfig_MaxUnavailable != null)
+            {
+                requestUpdateConfig_updateConfig_MaxUnavailable = cmdletContext.UpdateConfig_MaxUnavailable.Value;
+            }
+            if (requestUpdateConfig_updateConfig_MaxUnavailable != null)
+            {
+                request.UpdateConfig.MaxUnavailable = requestUpdateConfig_updateConfig_MaxUnavailable.Value;
+                requestUpdateConfigIsNull = false;
+            }
+            System.Int32? requestUpdateConfig_updateConfig_MaxUnavailablePercentage = null;
+            if (cmdletContext.UpdateConfig_MaxUnavailablePercentage != null)
+            {
+                requestUpdateConfig_updateConfig_MaxUnavailablePercentage = cmdletContext.UpdateConfig_MaxUnavailablePercentage.Value;
+            }
+            if (requestUpdateConfig_updateConfig_MaxUnavailablePercentage != null)
+            {
+                request.UpdateConfig.MaxUnavailablePercentage = requestUpdateConfig_updateConfig_MaxUnavailablePercentage.Value;
+                requestUpdateConfigIsNull = false;
+            }
+             // determine if request.UpdateConfig should be set to null
+            if (requestUpdateConfigIsNull)
+            {
+                request.UpdateConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -461,6 +512,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.Int32? ScalingConfig_MinSize { get; set; }
             public List<Amazon.EKS.Model.Taint> Taints_AddOrUpdateTaint { get; set; }
             public List<Amazon.EKS.Model.Taint> Taints_RemoveTaint { get; set; }
+            public System.Int32? UpdateConfig_MaxUnavailable { get; set; }
+            public System.Int32? UpdateConfig_MaxUnavailablePercentage { get; set; }
             public System.Func<Amazon.EKS.Model.UpdateNodegroupConfigResponse, UpdateEKSNodegroupConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Update;
         }

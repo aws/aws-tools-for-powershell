@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Updates account details for the specified Amazon Chime account. Currently, only account
-    /// name updates are supported for this action.
+    /// name and default license updates are supported for this action.
     /// </summary>
     [Cmdlet("Update", "CHMAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.Account")]
@@ -56,6 +56,17 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AccountId { get; set; }
+        #endregion
+        
+        #region Parameter DefaultLicense
+        /// <summary>
+        /// <para>
+        /// <para>The default license applied when you add users to an Amazon Chime account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Chime.License")]
+        public Amazon.Chime.License DefaultLicense { get; set; }
         #endregion
         
         #region Parameter Name
@@ -136,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DefaultLicense = this.DefaultLicense;
             context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
@@ -156,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.AccountId != null)
             {
                 request.AccountId = cmdletContext.AccountId;
+            }
+            if (cmdletContext.DefaultLicense != null)
+            {
+                request.DefaultLicense = cmdletContext.DefaultLicense;
             }
             if (cmdletContext.Name != null)
             {
@@ -223,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountId { get; set; }
+            public Amazon.Chime.License DefaultLicense { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.Chime.Model.UpdateAccountResponse, UpdateCHMAccountCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Account;

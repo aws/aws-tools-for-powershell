@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
     /// Removes one or more tags from the specified EventBridge resource. In Amazon EventBridge
-    /// (CloudWatch Events, rules and event buses can be tagged.
+    /// (CloudWatch Events), rules and event buses can be tagged.
     /// </summary>
     [Cmdlet("Remove", "CWEResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

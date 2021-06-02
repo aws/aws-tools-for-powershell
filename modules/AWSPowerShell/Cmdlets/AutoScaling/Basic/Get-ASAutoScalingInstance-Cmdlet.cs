@@ -28,7 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes one or more Auto Scaling instances.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets information about the Auto Scaling instances in the account and Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASAutoScalingInstance")]
     [OutputType("Amazon.AutoScaling.Model.AutoScalingInstanceDetails")]
@@ -43,9 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the instances. You can specify up to <code>MaxRecords</code> IDs. If you
-        /// omit this parameter, all Auto Scaling instances are described. If you specify an ID
-        /// that does not exist, it is ignored with no error.</para>
+        /// <para>The IDs of the instances. If you omit this parameter, all Auto Scaling instances are
+        /// described. If you specify an ID that does not exist, it is ignored with no error.</para><para>Array Members: Maximum number of 50 items.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

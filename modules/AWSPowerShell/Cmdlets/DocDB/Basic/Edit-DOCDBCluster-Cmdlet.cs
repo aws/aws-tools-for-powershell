@@ -136,9 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to which you want to upgrade. Changing this
-        /// parameter results in an outage. The change is applied during the next maintenance
-        /// window unless the <code>ApplyImmediately</code> parameter is set to <code>true</code>.</para>
+        /// <para>The version number of the database engine to which you want to upgrade. Modifying
+        /// engine version is not supported on Amazon DocumentDB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
         /// are enabled, using the <code>BackupRetentionPeriod</code> parameter. </para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region. </para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// for each Region. </para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
         /// Time (UTC).</para><para>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region, occurring on a random day of the week. </para><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
+        /// for each Region, occurring on a random day of the week. </para><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

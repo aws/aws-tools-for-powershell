@@ -90,6 +90,18 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         public System.String AlgorithmArn { get; set; }
         #endregion
         
+        #region Parameter AutoMLOverrideStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Used to overide the default AutoML strategy, which is to optimize predictor accuracy.
+        /// To apply an AutoML strategy that minimizes training time, use <code>LatencyOptimized</code>.</para><para>This parameter is only valid for predictors trained using AutoML.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ForecastService.AutoMLOverrideStrategy")]
+        public Amazon.ForecastService.AutoMLOverrideStrategy AutoMLOverrideStrategy { get; set; }
+        #endregion
+        
         #region Parameter EvaluationParameters_BackTestWindowOffset
         /// <summary>
         /// <para>
@@ -425,6 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AlgorithmArn = this.AlgorithmArn;
+            context.AutoMLOverrideStrategy = this.AutoMLOverrideStrategy;
             context.EncryptionConfig_KMSKeyArn = this.EncryptionConfig_KMSKeyArn;
             context.EncryptionConfig_RoleArn = this.EncryptionConfig_RoleArn;
             context.EvaluationParameters_BackTestWindowOffset = this.EvaluationParameters_BackTestWindowOffset;
@@ -518,6 +531,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             if (cmdletContext.AlgorithmArn != null)
             {
                 request.AlgorithmArn = cmdletContext.AlgorithmArn;
+            }
+            if (cmdletContext.AutoMLOverrideStrategy != null)
+            {
+                request.AutoMLOverrideStrategy = cmdletContext.AutoMLOverrideStrategy;
             }
             
              // populate EncryptionConfig
@@ -789,6 +806,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AlgorithmArn { get; set; }
+            public Amazon.ForecastService.AutoMLOverrideStrategy AutoMLOverrideStrategy { get; set; }
             public System.String EncryptionConfig_KMSKeyArn { get; set; }
             public System.String EncryptionConfig_RoleArn { get; set; }
             public System.Int32? EvaluationParameters_BackTestWindowOffset { get; set; }

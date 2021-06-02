@@ -31,8 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// Removes the suspension from up to 50 previously suspended users for the specified
     /// Amazon Chime <code>EnterpriseLWA</code> account. Only users on <code>EnterpriseLWA</code>
     /// accounts can be unsuspended using this action. For more information about different
-    /// account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing
-    /// Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.
+    /// account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">
+    /// Managing Your Amazon Chime Accounts </a> in the account types, in the <i>Amazon Chime
+    /// Administration Guide</i>. 
     /// 
     ///  
     /// <para>

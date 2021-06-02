@@ -75,9 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter ExclusiveEndTime
         /// <summary>
         /// <para>
-        /// <para>The exclusive end date and time for the range of journal contents that you want to
-        /// export.</para><para>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format
-        /// and in Universal Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code></para><para>The <code>ExclusiveEndTime</code> must be less than or equal to the current UTC date
+        /// <para>The exclusive end date and time for the range of journal contents to export.</para><para>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format
+        /// and in Universal Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code>.</para><para>The <code>ExclusiveEndTime</code> must be less than or equal to the current UTC date
         /// and time.</para>
         /// </para>
         /// </summary>
@@ -94,9 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter InclusiveStartTime
         /// <summary>
         /// <para>
-        /// <para>The inclusive start date and time for the range of journal contents that you want
-        /// to export.</para><para>The <code>InclusiveStartTime</code> must be in <code>ISO 8601</code> date and time
-        /// format and in Universal Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code></para><para>The <code>InclusiveStartTime</code> must be before <code>ExclusiveEndTime</code>.</para><para>If you provide an <code>InclusiveStartTime</code> that is before the ledger's <code>CreationDateTime</code>,
+        /// <para>The inclusive start date and time for the range of journal contents to export.</para><para>The <code>InclusiveStartTime</code> must be in <code>ISO 8601</code> date and time
+        /// format and in Universal Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code>.</para><para>The <code>InclusiveStartTime</code> must be before <code>ExclusiveEndTime</code>.</para><para>If you provide an <code>InclusiveStartTime</code> that is before the ledger's <code>CreationDateTime</code>,
         /// Amazon QLDB defaults it to the ledger's <code>CreationDateTime</code>.</para>
         /// </para>
         /// </summary>
@@ -114,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for a symmetric customer master key (CMK) in AWS Key
-        /// Management Service (AWS KMS). Amazon QLDB does not support asymmetric CMKs.</para><para>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the
+        /// Management Service (AWS KMS). Amazon S3 does not support asymmetric CMKs.</para><para>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the
         /// <code>ObjectEncryptionType</code>.</para><para><code>KmsKeyArn</code> is not required if you specify <code>SSE_S3</code> as the
         /// <code>ObjectEncryptionType</code>.</para>
         /// </para>

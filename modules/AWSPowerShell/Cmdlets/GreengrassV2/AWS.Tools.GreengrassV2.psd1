@@ -86,7 +86,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-GGV2BatchClientDeviceWithCoreDevice', 
         'Add-GGV2ResourceTag', 
+        'Get-GGV2ClientDevicesAssociatedWithCoreDeviceList', 
         'Get-GGV2Component', 
         'Get-GGV2ComponentList', 
         'Get-GGV2ComponentMetadata', 
@@ -101,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GGV2ResourceTag', 
         'New-GGV2ComponentVersion', 
         'New-GGV2Deployment', 
+        'Remove-GGV2BatchClientDeviceFromCoreDevice', 
         'Remove-GGV2Component', 
         'Remove-GGV2CoreDevice', 
         'Remove-GGV2ResourceTag', 

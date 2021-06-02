@@ -94,6 +94,13 @@ $CGR_Completers = {
             break
         }
 
+        # Amazon.CodeGuruReviewer.VendorName
+        "New-CGRCodeReview/Type_RepositoryAnalysis_SourceCodeType_RequestMetadata_VendorName"
+        {
+            $v = "GitHub","GitLab","NativeS3"
+            break
+        }
+
 
     }
 
@@ -105,6 +112,7 @@ $CGR_Completers = {
 $CGR_map = @{
     "KMSKeyDetails_EncryptionOption"=@("Register-CGRRepository")
     "Type"=@("Get-CGRCodeReviewList")
+    "Type_RepositoryAnalysis_SourceCodeType_RequestMetadata_VendorName"=@("New-CGRCodeReview")
 }
 
 _awsArgumentCompleterRegistration $CGR_Completers $CGR_map

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>proton</C2jFilename>
+    <AssemblyName>Proton</AssemblyName>
+    <ServiceNounPrefix>PRO</ServiceNounPrefix>
+    <ServiceName>AWS Proton</ServiceName>
+    <ServiceClientInterface>IAmazonProton</ServiceClientInterface>
+    <ServiceClient>AmazonProtonClient</ServiceClient>
+    <ServiceModuleGuid>EAFCFB59-D26E-4DC7-827B-51298937CE90</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="nextToken" Next="nextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptEnvironmentAccountConnection" OutputProperty="EnvironmentAccountConnection" Verb="Approve" Noun="EnvironmentAccountConnection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelEnvironmentDeployment" OutputProperty="Environment" Verb="Stop" Noun="EnvironmentDeployment" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelServiceInstanceDeployment" OutputProperty="ServiceInstance" Verb="Stop" Noun="ServiceInstanceDeployment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelServicePipelineDeployment" OutputProperty="Pipeline" Verb="Stop" Noun="ServicePipelineDeployment" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironment" OutputProperty="Environment" Verb="New" Noun="Environment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironmentAccountConnection" OutputProperty="EnvironmentAccountConnection" Verb="New" Noun="EnvironmentAccountConnection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironmentTemplate" OutputProperty="EnvironmentTemplate" Verb="New" Noun="EnvironmentTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironmentTemplateVersion" OutputProperty="EnvironmentTemplateVersion" Verb="New" Noun="EnvironmentTemplateVersion" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateService" OutputProperty="Service" Verb="New" Noun="Service" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateServiceTemplate" OutputProperty="ServiceTemplate" Verb="New" Noun="ServiceTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateServiceTemplateVersion" OutputProperty="ServiceTemplateVersion" Verb="New" Noun="ServiceTemplateVersion" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironment" OutputProperty="Environment" Verb="Remove" Noun="Environment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironmentAccountConnection" OutputProperty="EnvironmentAccountConnection" Verb="Remove" Noun="EnvironmentAccountConnection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironmentTemplate" OutputProperty="EnvironmentTemplate" Verb="Remove" Noun="EnvironmentTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironmentTemplateVersion" OutputProperty="EnvironmentTemplateVersion" Verb="Remove" Noun="EnvironmentTemplateVersion" ShouldProcessTarget="TemplateName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteService" OutputProperty="Service" Verb="Remove" Noun="Service" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServiceTemplate" OutputProperty="ServiceTemplate" Verb="Remove" Noun="ServiceTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServiceTemplateVersion" OutputProperty="ServiceTemplateVersion" Verb="Remove" Noun="ServiceTemplateVersion" ShouldProcessTarget="TemplateName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountSettings" OutputProperty="AccountSettings" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnvironment" OutputProperty="Environment" Verb="Get" Noun="Environment" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnvironmentAccountConnection" OutputProperty="EnvironmentAccountConnection" Verb="Get" Noun="EnvironmentAccountConnection" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnvironmentTemplate" OutputProperty="EnvironmentTemplate" Verb="Get" Noun="EnvironmentTemplate" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnvironmentTemplateVersion" OutputProperty="EnvironmentTemplateVersion" Verb="Get" Noun="EnvironmentTemplateVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetService" OutputProperty="Service" Verb="Get" Noun="Service" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceInstance" OutputProperty="ServiceInstance" Verb="Get" Noun="ServiceInstance" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceTemplate" OutputProperty="ServiceTemplate" Verb="Get" Noun="ServiceTemplate" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceTemplateVersion" OutputProperty="ServiceTemplateVersion" Verb="Get" Noun="ServiceTemplateVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnvironmentAccountConnections" OutputProperty="EnvironmentAccountConnections" Verb="Get" Noun="EnvironmentAccountConnectionList" PipelineParameter="RequestedBy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnvironments" OutputProperty="Environments" Verb="Get" Noun="EnvironmentList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnvironmentTemplates" OutputProperty="Templates" Verb="Get" Noun="EnvironmentTemplateList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnvironmentTemplateVersions" OutputProperty="TemplateVersions" Verb="Get" Noun="EnvironmentTemplateVersionList" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceInstances" OutputProperty="ServiceInstances" Verb="Get" Noun="ServiceInstanceList" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServices" OutputProperty="Services" Verb="Get" Noun="ServiceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceTemplates" OutputProperty="Templates" Verb="Get" Noun="ServiceTemplateList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceTemplateVersions" OutputProperty="TemplateVersions" Verb="Get" Noun="ServiceTemplateVersionList" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectEnvironmentAccountConnection" OutputProperty="EnvironmentAccountConnection" Verb="Deny" Noun="EnvironmentAccountConnection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="AccountSettings" Verb="Update" Noun="AccountSetting" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironment" OutputProperty="Environment" Verb="Update" Noun="Environment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironmentAccountConnection" OutputProperty="EnvironmentAccountConnection" Verb="Update" Noun="EnvironmentAccountConnection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironmentTemplate" OutputProperty="EnvironmentTemplate" Verb="Update" Noun="EnvironmentTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironmentTemplateVersion" OutputProperty="EnvironmentTemplateVersion" Verb="Update" Noun="EnvironmentTemplateVersion" ShouldProcessTarget="TemplateName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateService" OutputProperty="Service" Verb="Update" Noun="Service" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceInstance" OutputProperty="ServiceInstance" Verb="Update" Noun="ServiceInstance" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServicePipeline" OutputProperty="Pipeline" Verb="Update" Noun="ServicePipeline" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceTemplate" OutputProperty="ServiceTemplate" Verb="Update" Noun="ServiceTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceTemplateVersion" OutputProperty="ServiceTemplateVersion" Verb="Update" Noun="ServiceTemplateVersion" ShouldProcessTarget="TemplateName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

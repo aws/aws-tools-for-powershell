@@ -61,13 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter LockToken
         /// <summary>
         /// <para>
-        /// <para>A token used for optimistic locking. AWS WAF returns a token to your get and list
-        /// requests, to mark the state of the entity at the time of the request. To make changes
-        /// to the entity associated with the token, you provide the token to operations like
-        /// update and delete. AWS WAF uses the token to ensure that no changes have been made
-        /// to the entity since you last retrieved it. If a change has been made, the update fails
-        /// with a <code>WAFOptimisticLockException</code>. If this happens, perform another get,
-        /// and use the new token returned by that operation. </para>
+        /// <para>A token used for optimistic locking. WAF returns a token to your get and list requests,
+        /// to mark the state of the entity at the time of the request. To make changes to the
+        /// entity associated with the token, you provide the token to operations like update
+        /// and delete. WAF uses the token to ensure that no changes have been made to the entity
+        /// since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>.
+        /// If this happens, perform another get, and use the new token returned by that operation.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,9 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this is for an AWS CloudFront distribution or for a regional application.
-        /// A regional application can be an Application Load Balancer (ALB), an API Gateway REST
-        /// API, or an AppSync GraphQL API. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
+        /// application. A regional application can be an Application Load Balancer (ALB), an
+        /// Amazon API Gateway REST API, or an AppSync GraphQL API. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
         /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>

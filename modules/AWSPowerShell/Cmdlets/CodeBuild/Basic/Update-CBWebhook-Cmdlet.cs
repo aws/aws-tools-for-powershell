@@ -28,7 +28,7 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Updates the webhook associated with an AWS CodeBuild build project. 
+    /// Updates the webhook associated with an CodeBuild build project. 
     /// 
     ///  <note><para>
     ///  If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored. 
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ProjectName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS CodeBuild project.</para>
+        /// <para>The name of the CodeBuild project.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

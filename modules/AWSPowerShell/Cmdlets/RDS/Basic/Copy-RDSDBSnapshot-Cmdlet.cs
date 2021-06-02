@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    /// You can copy a snapshot from one AWS Region to another. In that case, the AWS Region
-    /// where you call the <code>CopyDBSnapshot</code> action is the destination AWS Region
-    /// for the DB snapshot copy. 
+    /// You can copy a snapshot from one Amazon Web Services Region to another. In that case,
+    /// the Amazon Web Services Region where you call the <code>CopyDBSnapshot</code> action
+    /// is the destination Amazon Web Services Region for the DB snapshot copy. 
     /// </para><para>
     /// For more information about copying snapshots, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">Copying
     /// a DB Snapshot</a> in the <i>Amazon RDS User Guide.</i></para>
@@ -65,17 +65,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier for an encrypted DB snapshot. The AWS KMS key identifier
-        /// is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key
-        /// (CMK). </para><para>If you copy an encrypted DB snapshot from your AWS account, you can specify a value
-        /// for this parameter to encrypt the copy with a new AWS KMS CMK. If you don't specify
-        /// a value for this parameter, then the copy of the DB snapshot is encrypted with the
-        /// same AWS KMS key as the source DB snapshot. </para><para>If you copy an encrypted DB snapshot that is shared from another AWS account, then
-        /// you must specify a value for this parameter. </para><para>If you specify this parameter when you copy an unencrypted snapshot, the copy is encrypted.
-        /// </para><para>If you copy an encrypted snapshot to a different AWS Region, then you must specify
-        /// a AWS KMS key identifier for the destination AWS Region. AWS KMS CMKs are specific
-        /// to the AWS Region that they are created in, and you can't use CMKs from one AWS Region
-        /// in another AWS Region. </para>
+        /// <para>The Amazon Web Services KMS key identifier for an encrypted DB snapshot. The Amazon
+        /// Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for
+        /// the Amazon Web Services KMS customer master key (CMK). </para><para>If you copy an encrypted DB snapshot from your Amazon Web Services account, you can
+        /// specify a value for this parameter to encrypt the copy with a new Amazon Web Services
+        /// KMS CMK. If you don't specify a value for this parameter, then the copy of the DB
+        /// snapshot is encrypted with the same Amazon Web Services KMS key as the source DB snapshot.
+        /// </para><para>If you copy an encrypted DB snapshot that is shared from another Amazon Web Services
+        /// account, then you must specify a value for this parameter. </para><para>If you specify this parameter when you copy an unencrypted snapshot, the copy is encrypted.
+        /// </para><para>If you copy an encrypted snapshot to a different Amazon Web Services Region, then
+        /// you must specify a Amazon Web Services KMS key identifier for the destination Amazon
+        /// Web Services Region. Amazon Web Services KMS CMKs are specific to the Amazon Web Services
+        /// Region that they are created in, and you can't use CMKs from one Amazon Web Services
+        /// Region in another Amazon Web Services Region. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,10 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of an option group to associate with the copy of the snapshot.</para><para>Specify this option if you are copying a snapshot from one AWS Region to another,
-        /// and your DB instance uses a nondefault option group. If your source DB instance uses
-        /// Transparent Data Encryption for Oracle or Microsoft SQL Server, you must specify this
-        /// option when copying across AWS Regions. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option
+        /// <para>The name of an option group to associate with the copy of the snapshot.</para><para>Specify this option if you are copying a snapshot from one Amazon Web Services Region
+        /// to another, and your DB instance uses a nondefault option group. If your source DB
+        /// instance uses Transparent Data Encryption for Oracle or Microsoft SQL Server, you
+        /// must specify this option when copying across Amazon Web Services Regions. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option
         /// group considerations</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -100,32 +103,36 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The URL that contains a Signature Version 4 signed request for the <code>CopyDBSnapshot</code>
-        /// API action in the source AWS Region that contains the source DB snapshot to copy.
-        /// </para><para>You must specify this parameter when you copy an encrypted DB snapshot from another
-        /// AWS Region by using the Amazon RDS API. Don't specify <code>PreSignedUrl</code> when
-        /// you are copying an encrypted DB snapshot in the same AWS Region.</para><para>The presigned URL must be a valid request for the <code>CopyDBSnapshot</code> API
-        /// action that can be executed in the source AWS Region that contains the encrypted DB
-        /// snapshot to be copied. The presigned URL request must contain the following parameter
-        /// values: </para><ul><li><para><code>DestinationRegion</code> - The AWS Region that the encrypted DB snapshot is
-        /// copied to. This AWS Region is the same one where the <code>CopyDBSnapshot</code> action
-        /// is called that contains this presigned URL. </para><para>For example, if you copy an encrypted DB snapshot from the us-west-2 AWS Region to
-        /// the us-east-1 AWS Region, then you call the <code>CopyDBSnapshot</code> action in
-        /// the us-east-1 AWS Region and provide a presigned URL that contains a call to the <code>CopyDBSnapshot</code>
-        /// action in the us-west-2 AWS Region. For this example, the <code>DestinationRegion</code>
-        /// in the presigned URL must be set to the us-east-1 AWS Region. </para></li><li><para><code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK)
-        /// to use to encrypt the copy of the DB snapshot in the destination AWS Region. This
-        /// is the same identifier for both the <code>CopyDBSnapshot</code> action that is called
-        /// in the destination AWS Region, and the action contained in the presigned URL. </para></li><li><para><code>SourceDBSnapshotIdentifier</code> - The DB snapshot identifier for the encrypted
+        /// API action in the source Amazon Web Services Region that contains the source DB snapshot
+        /// to copy. </para><para>You must specify this parameter when you copy an encrypted DB snapshot from another
+        /// Amazon Web Services Region by using the Amazon RDS API. Don't specify <code>PreSignedUrl</code>
+        /// when you are copying an encrypted DB snapshot in the same Amazon Web Services Region.</para><para>The presigned URL must be a valid request for the <code>CopyDBSnapshot</code> API
+        /// action that can be executed in the source Amazon Web Services Region that contains
+        /// the encrypted DB snapshot to be copied. The presigned URL request must contain the
+        /// following parameter values: </para><ul><li><para><code>DestinationRegion</code> - The Amazon Web Services Region that the encrypted
+        /// DB snapshot is copied to. This Amazon Web Services Region is the same one where the
+        /// <code>CopyDBSnapshot</code> action is called that contains this presigned URL. </para><para>For example, if you copy an encrypted DB snapshot from the us-west-2 Amazon Web Services
+        /// Region to the us-east-1 Amazon Web Services Region, then you call the <code>CopyDBSnapshot</code>
+        /// action in the us-east-1 Amazon Web Services Region and provide a presigned URL that
+        /// contains a call to the <code>CopyDBSnapshot</code> action in the us-west-2 Amazon
+        /// Web Services Region. For this example, the <code>DestinationRegion</code> in the presigned
+        /// URL must be set to the us-east-1 Amazon Web Services Region. </para></li><li><para><code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the customer
+        /// master key (CMK) to use to encrypt the copy of the DB snapshot in the destination
+        /// Amazon Web Services Region. This is the same identifier for both the <code>CopyDBSnapshot</code>
+        /// action that is called in the destination Amazon Web Services Region, and the action
+        /// contained in the presigned URL. </para></li><li><para><code>SourceDBSnapshotIdentifier</code> - The DB snapshot identifier for the encrypted
         /// snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format
-        /// for the source AWS Region. For example, if you are copying an encrypted DB snapshot
-        /// from the us-west-2 AWS Region, then your <code>SourceDBSnapshotIdentifier</code> looks
-        /// like the following example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115</code>.
+        /// for the source Amazon Web Services Region. For example, if you are copying an encrypted
+        /// DB snapshot from the us-west-2 Amazon Web Services Region, then your <code>SourceDBSnapshotIdentifier</code>
+        /// looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115</code>.
         /// </para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
-        /// Requests: Using Query Parameters (AWS Signature Version 4)</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
-        /// Version 4 Signing Process</a>. </para><note><para>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code>
-        /// (or <code>--source-region</code> for the AWS CLI) instead of specifying <code>PreSignedUrl</code>
+        /// Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
+        /// <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
+        /// Version 4 Signing Process</a>. </para><note><para>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code>
+        /// (or <code>--source-region</code> for the CLI) instead of specifying <code>PreSignedUrl</code>
         /// manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that
-        /// is a valid request for the operation that can be executed in the source AWS Region.</para></note>
+        /// is a valid request for the operation that can be executed in the source Amazon Web
+        /// Services Region.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,13 +142,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceDBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the source DB snapshot.</para><para>If the source snapshot is in the same AWS Region as the copy, specify a valid DB snapshot
-        /// identifier. For example, you might specify <code>rds:mysql-instance1-snapshot-20130805</code>.
-        /// </para><para>If the source snapshot is in a different AWS Region than the copy, specify a valid
-        /// DB snapshot ARN. For example, you might specify <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805</code>.
+        /// <para>The identifier for the source DB snapshot.</para><para>If the source snapshot is in the same Amazon Web Services Region as the copy, specify
+        /// a valid DB snapshot identifier. For example, you might specify <code>rds:mysql-instance1-snapshot-20130805</code>.
+        /// </para><para>If the source snapshot is in a different Amazon Web Services Region than the copy,
+        /// specify a valid DB snapshot ARN. For example, you might specify <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805</code>.
         /// </para><para>If you are copying from a shared manual DB snapshot, this parameter must be the Amazon
         /// Resource Name (ARN) of the shared DB snapshot. </para><para>If you are copying an encrypted snapshot this parameter must be in the ARN format
-        /// for the source AWS Region, and must match the <code>SourceDBSnapshotIdentifier</code>
+        /// for the source Amazon Web Services Region, and must match the <code>SourceDBSnapshotIdentifier</code>
         /// in the <code>PreSignedUrl</code> parameter. </para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the "available" state.</para></li></ul><para>Example: <code>rds:mydb-2012-04-02-00-01</code></para><para>Example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805</code></para>
         /// </para>
         /// </summary>

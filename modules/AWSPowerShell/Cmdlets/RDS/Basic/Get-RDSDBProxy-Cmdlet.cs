@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB proxy. If you omit this parameter, the output includes information
-        /// about all DB proxies owned by your AWS account ID.</para>
+        /// about all DB proxies owned by your Amazon Web Services account ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

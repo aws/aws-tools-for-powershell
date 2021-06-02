@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The identifier for the source DB instance, which can't be changed and which is unique
-        /// to an AWS Region.</para>
+        /// to an Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

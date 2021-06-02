@@ -28,7 +28,7 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Gets the invitations for resource sharing that you've received.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets the invitations that you have received for resource shares.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RAMResourceShareInvitation")]
     [OutputType("Amazon.RAM.Model.ResourceShareInvitation")]

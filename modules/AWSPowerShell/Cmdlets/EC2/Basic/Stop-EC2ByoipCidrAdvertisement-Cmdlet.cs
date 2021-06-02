@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// different address ranges each time.
     /// </para><para>
     /// It can take a few minutes before traffic to the specified addresses stops routing
-    /// to AWS because of BGP propagation delays.
+    /// to Amazon Web Services because of BGP propagation delays.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "EC2ByoipCidrAdvertisement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

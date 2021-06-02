@@ -81,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         #region Parameter NotificationTopicStatus
         /// <summary>
         /// <para>
-        /// <para>The current state of the topic.</para>
+        /// <para>The current state of the topic. A value of “active” means that notifications will
+        /// be sent to the topic. A value of “inactive” means that notifications will not be sent
+        /// to the topic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Set to <code>True</code> to automatically generate an endpoint name for a one-click
         /// Autopilot model deployment; set to <code>False</code> otherwise. The default value
-        /// is <code>True</code>.</para><note><para>If you set <code>AutoGenerateEndpointName</code> to <code>True</code>, do not specify
+        /// is <code>False</code>.</para><note><para>If you set <code>AutoGenerateEndpointName</code> to <code>True</code>, do not specify
         /// the <code>EndpointName</code>; otherwise a 400 error is thrown.</para></note>
         /// </para>
         /// </summary>
@@ -144,8 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CompletionCriteria_MaxAutoMLJobRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum time, in seconds, an AutoML job is allowed to wait for a trial to complete.
-        /// It must be equal to or greater than <code>MaxRuntimePerTrainingJobInSeconds</code>.</para>
+        /// <para>The maximum runtime, in seconds, an AutoML job has to complete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CompletionCriteria_MaxRuntimePerTrainingJobInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum time, in seconds, a job is allowed to run.</para>
+        /// <para>The maximum time, in seconds, a training job is allowed to run as part of an AutoML
+        /// job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,8 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the role that is used to access the data.</para><para>&lt;para&gt;Specifies whether to automatically deploy the best &amp;ATP; model to
-        /// an endpoint and the name of that endpoint if deployed automatically.&lt;/para&gt;</para>
+        /// <para>The ARN of the role that is used to access the data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

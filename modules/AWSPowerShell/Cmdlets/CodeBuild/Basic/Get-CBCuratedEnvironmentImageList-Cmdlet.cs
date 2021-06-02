@@ -28,7 +28,7 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Gets information about Docker images that are managed by AWS CodeBuild.
+    /// Gets information about Docker images that are managed by CodeBuild.
     /// </summary>
     [Cmdlet("Get", "CBCuratedEnvironmentImageList")]
     [OutputType("Amazon.CodeBuild.Model.EnvironmentPlatform")]

@@ -28,10 +28,10 @@ using Amazon.Cloud9.Model;
 namespace Amazon.PowerShell.Cmdlets.C9
 {
     /// <summary>
-    /// Adds tags to an AWS Cloud9 development environment.
+    /// Adds tags to an Cloud9 development environment.
     /// 
     ///  <important><para>
-    /// Tags that you add to an AWS Cloud9 environment by using this method will NOT be automatically
+    /// Tags that you add to an Cloud9 environment by using this method will NOT be automatically
     /// propagated to underlying resources.
     /// </para></important>
     /// </summary>
@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to add tags
-        /// to.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Cloud9 development environment to add tags to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The list of tags to add to the given AWS Cloud9 development environment.</para>
+        /// <para>The list of tags to add to the given Cloud9 development environment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// <summary>
     /// Gets the retention settings for the specified Amazon Chime Enterprise account. For
     /// more information about retention settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing
-    /// Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i> .
+    /// Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.
     /// </summary>
     [Cmdlet("Get", "CHMRetentionSetting")]
     [OutputType("Amazon.Chime.Model.GetRetentionSettingsResponse")]

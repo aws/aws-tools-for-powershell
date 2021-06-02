@@ -284,6 +284,7 @@ $KMS_SelectMap = @{
                "Get-KMSRetirableGrant",
                "Write-KMSKeyPolicy",
                "Invoke-KMSReEncrypt",
+               "New-KMSReplicaKey",
                "Disable-KMSGrant",
                "Revoke-KMSGrant",
                "Request-KMSKeyDeletion",
@@ -293,6 +294,7 @@ $KMS_SelectMap = @{
                "Update-KMSAlias",
                "Update-KMSCustomKeyStore",
                "Update-KMSKeyDescription",
+               "Update-KMSPrimaryRegion",
                "Test-KMSSignature")
 }
 

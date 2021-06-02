@@ -205,7 +205,9 @@ $GGV2_SelectCompleters = {
 }
 
 $GGV2_SelectMap = @{
-    "Select"=@("Stop-GGV2Deployment",
+    "Select"=@("Add-GGV2BatchClientDeviceWithCoreDevice",
+               "Remove-GGV2BatchClientDeviceFromCoreDevice",
+               "Stop-GGV2Deployment",
                "New-GGV2ComponentVersion",
                "New-GGV2Deployment",
                "Remove-GGV2Component",
@@ -215,6 +217,7 @@ $GGV2_SelectMap = @{
                "Get-GGV2ComponentVersionArtifact",
                "Get-GGV2CoreDevice",
                "Get-GGV2Deployment",
+               "Get-GGV2ClientDevicesAssociatedWithCoreDeviceList",
                "Get-GGV2ComponentList",
                "Get-GGV2ComponentVersionList",
                "Get-GGV2CoreDeviceList",

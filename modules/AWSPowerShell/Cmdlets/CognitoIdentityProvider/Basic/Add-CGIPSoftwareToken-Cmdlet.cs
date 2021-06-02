@@ -30,6 +30,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// <summary>
     /// Returns a unique generated shared secret key code for the user account. The request
     /// takes an access token or a session string, but not both.
+    /// 
+    ///  <note><para>
+    /// Calling AssociateSoftwareToken immediately disassociates the existing software token
+    /// from the user account. If the user doesn't subsequently verify the software token,
+    /// their account is essentially set up to authenticate without MFA. If MFA config is
+    /// set to Optional at the user pool level, the user can then login without MFA. However,
+    /// if MFA is set to Required for the user pool, the user will be asked to setup a new
+    /// software token MFA during sign in.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Add", "CGIPSoftwareToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.AssociateSoftwareTokenResponse")]

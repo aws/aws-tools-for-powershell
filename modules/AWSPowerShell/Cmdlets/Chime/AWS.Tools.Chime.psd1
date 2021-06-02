@@ -251,6 +251,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CHMRoomMembership', 
         'Update-CHMSecurityToken', 
         'Update-CHMSipMediaApplication', 
+        'Update-CHMSipMediaApplicationCall', 
         'Update-CHMSipRule', 
         'Update-CHMUser', 
         'Update-CHMUserBatch', 

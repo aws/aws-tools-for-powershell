@@ -226,10 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             }
             if (cmdletContext.PageSize.HasValue)
             {
-                // The service has a maximum page size of 20. If the user has
+                // The service has a maximum page size of 100. If the user has
                 // asked for more items than page max, and there is no page size
                 // configured, we rely on the service ignoring the set maximum
-                // and giving us 20 items back. If a page size is set, that will
+                // and giving us 100 items back. If a page size is set, that will
                 // be used to configure the pagination.
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.PageSize;
@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 request.PageToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = Math.Min(20, _emitLimit.Value);
+                    int correctPageSize = Math.Min(100, _emitLimit.Value);
                     request.PageSize = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
                 

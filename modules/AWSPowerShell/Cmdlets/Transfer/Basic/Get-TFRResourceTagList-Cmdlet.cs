@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Requests the tags associated with a particular Amazon Resource Name (ARN). An ARN
-        /// is an identifier for a specific AWS resource, such as a server, user, or role.</para>
+        /// is an identifier for a specific Amazon Web Services resource, such as a server, user,
+        /// or role.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

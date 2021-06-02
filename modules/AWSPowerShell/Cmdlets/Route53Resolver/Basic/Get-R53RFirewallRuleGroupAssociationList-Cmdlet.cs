@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para>The setting that determines the processing order of the rule group among the rule
         /// groups that are associated with a single VPC. DNS Firewall filters VPC traffic starting
-        /// from rule group with the lowest numeric priority setting. </para>
+        /// from the rule group with the lowest numeric priority setting. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

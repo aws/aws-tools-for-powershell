@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>Indicates that minor engine upgrades are applied automatically to the instance during
-        /// the maintenance window.</para><para>Default: <code>true</code></para>
+        /// <para>This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform
+        /// minor version upgrades regardless of the value set.</para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 Availability Zone that the instance is created in. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</para><para>Example: <code>us-east-1d</code></para>
+        /// <para>The Amazon EC2 Availability Zone that the instance is created in. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's Region.</para><para>Example: <code>us-east-1d</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>The time range each week during which system maintenance can occur, in Universal Coordinated
         /// Time (UTC).</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region, occurring on a random day of the week. </para><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
+        /// for each Region, occurring on a random day of the week. </para><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

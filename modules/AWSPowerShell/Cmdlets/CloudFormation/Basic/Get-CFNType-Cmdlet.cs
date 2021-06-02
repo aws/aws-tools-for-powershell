@@ -57,6 +57,26 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter PublicVersionNumber
+        /// <summary>
+        /// <para>
+        /// <para>The version number of a public third-party extension.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PublicVersionNumber { get; set; }
+        #endregion
+        
+        #region Parameter PublisherId
+        /// <summary>
+        /// <para>
+        /// <para>The publisher ID of the extension publisher.</para><para>Extensions provided by Amazon are not assigned a publisher ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PublisherId { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -140,6 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Arn = this.Arn;
+            context.PublicVersionNumber = this.PublicVersionNumber;
+            context.PublisherId = this.PublisherId;
             context.Type = this.Type;
             context.TypeName = this.TypeName;
             context.VersionId = this.VersionId;
@@ -162,6 +184,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
+            }
+            if (cmdletContext.PublicVersionNumber != null)
+            {
+                request.PublicVersionNumber = cmdletContext.PublicVersionNumber;
+            }
+            if (cmdletContext.PublisherId != null)
+            {
+                request.PublisherId = cmdletContext.PublisherId;
             }
             if (cmdletContext.Type != null)
             {
@@ -237,6 +267,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public System.String PublicVersionNumber { get; set; }
+            public System.String PublisherId { get; set; }
             public Amazon.CloudFormation.RegistryType Type { get; set; }
             public System.String TypeName { get; set; }
             public System.String VersionId { get; set; }

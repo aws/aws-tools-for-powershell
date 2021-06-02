@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
     /// Modifies an existing subnet group. subnet groups must contain at least one subnet
-    /// in at least two Availability Zones in the AWS Region.
+    /// in at least two Availability Zones in the Region.
     /// </summary>
     [Cmdlet("Edit", "DOCDBSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBSubnetGroup")]

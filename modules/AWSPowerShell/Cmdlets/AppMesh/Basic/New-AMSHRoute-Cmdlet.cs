@@ -48,6 +48,27 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     public partial class NewAMSHRouteCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {
         
+        #region Parameter Spec_Http2Route_Match_Path_Exact
+        /// <summary>
+        /// <para>
+        /// <para>The exact path to match on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Spec_Http2Route_Match_Path_Exact { get; set; }
+        #endregion
+        
+        #region Parameter Spec_HttpRoute_Match_Path_Exact
+        /// <summary>
+        /// <para>
+        /// <para>The exact path to match on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Match_Path_Exact")]
+        public System.String Spec_HttpRoute_Match_Path_Exact { get; set; }
+        #endregion
+        
         #region Parameter RetryPolicy_GrpcRetryEvent
         /// <summary>
         /// <para>
@@ -62,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_Http2Route_Match_Header
         /// <summary>
         /// <para>
-        /// <para>An object that represents the client request headers to match on.</para>
+        /// <para>The client request headers to match on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_HttpRoute_Match_Header
         /// <summary>
         /// <para>
-        /// <para>An object that represents the client request headers to match on.</para>
+        /// <para>The client request headers to match on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,6 +287,48 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         public System.Int32? Spec_Priority { get; set; }
         #endregion
         
+        #region Parameter Spec_Http2Route_Match_QueryParameters
+        /// <summary>
+        /// <para>
+        /// <para>The client request query parameters to match on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.AppMesh.Model.HttpQueryParameter[] Spec_Http2Route_Match_QueryParameters { get; set; }
+        #endregion
+        
+        #region Parameter Spec_HttpRoute_Match_QueryParameters
+        /// <summary>
+        /// <para>
+        /// <para>The client request query parameters to match on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Match_QueryParameters")]
+        public Amazon.AppMesh.Model.HttpQueryParameter[] Spec_HttpRoute_Match_QueryParameters { get; set; }
+        #endregion
+        
+        #region Parameter Spec_Http2Route_Match_Path_Regex
+        /// <summary>
+        /// <para>
+        /// <para>The regex used to match the path.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Spec_Http2Route_Match_Path_Regex { get; set; }
+        #endregion
+        
+        #region Parameter Spec_HttpRoute_Match_Path_Regex
+        /// <summary>
+        /// <para>
+        /// <para>The regex used to match the path.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Path_Regex")]
+        public System.String Spec_HttpRoute_Match_Path_Regex { get; set; }
+        #endregion
+        
         #region Parameter RouteName
         /// <summary>
         /// <para>
@@ -286,7 +349,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_Http2Route_Match_Scheme
         /// <summary>
         /// <para>
-        /// <para>The client request scheme to match on. Specify only one.</para>
+        /// <para>The client request scheme to match on. Specify only one. Applicable only for HTTP2
+        /// routes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,7 +361,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_HttpRoute_Match_Scheme
         /// <summary>
         /// <para>
-        /// <para>The client request scheme to match on. Specify only one.</para>
+        /// <para>The client request scheme to match on. Specify only one. Applicable only for HTTP2
+        /// routes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -775,7 +840,13 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 context.Spec_Http2Route_Match_Header = new List<Amazon.AppMesh.Model.HttpRouteHeader>(this.Spec_Http2Route_Match_Header);
             }
             context.Spec_Http2Route_Match_Method = this.Spec_Http2Route_Match_Method;
+            context.Spec_Http2Route_Match_Path_Exact = this.Spec_Http2Route_Match_Path_Exact;
+            context.Spec_Http2Route_Match_Path_Regex = this.Spec_Http2Route_Match_Path_Regex;
             context.Spec_Http2Route_Match_Prefix = this.Spec_Http2Route_Match_Prefix;
+            if (this.Spec_Http2Route_Match_QueryParameters != null)
+            {
+                context.Spec_Http2Route_Match_QueryParameters = new List<Amazon.AppMesh.Model.HttpQueryParameter>(this.Spec_Http2Route_Match_QueryParameters);
+            }
             context.Spec_Http2Route_Match_Scheme = this.Spec_Http2Route_Match_Scheme;
             if (this.Spec_Http2Route_RetryPolicy_HttpRetryEvent != null)
             {
@@ -801,7 +872,13 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 context.Spec_HttpRoute_Match_Header = new List<Amazon.AppMesh.Model.HttpRouteHeader>(this.Spec_HttpRoute_Match_Header);
             }
             context.Spec_HttpRoute_Match_Method = this.Spec_HttpRoute_Match_Method;
+            context.Spec_HttpRoute_Match_Path_Exact = this.Spec_HttpRoute_Match_Path_Exact;
+            context.Spec_HttpRoute_Match_Path_Regex = this.Spec_HttpRoute_Match_Path_Regex;
             context.Spec_HttpRoute_Match_Prefix = this.Spec_HttpRoute_Match_Prefix;
+            if (this.Spec_HttpRoute_Match_QueryParameters != null)
+            {
+                context.Spec_HttpRoute_Match_QueryParameters = new List<Amazon.AppMesh.Model.HttpQueryParameter>(this.Spec_HttpRoute_Match_QueryParameters);
+            }
             context.Spec_HttpRoute_Match_Scheme = this.Spec_HttpRoute_Match_Scheme;
             if (this.Spec_HttpRoute_RetryPolicy_HttpRetryEvent != null)
             {
@@ -1347,61 +1424,6 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 requestSpec_spec_Http2Route.Timeout = requestSpec_spec_Http2Route_spec_Http2Route_Timeout;
                 requestSpec_spec_Http2RouteIsNull = false;
             }
-            Amazon.AppMesh.Model.HttpRouteMatch requestSpec_spec_Http2Route_spec_Http2Route_Match = null;
-            
-             // populate Match
-            var requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = true;
-            requestSpec_spec_Http2Route_spec_Http2Route_Match = new Amazon.AppMesh.Model.HttpRouteMatch();
-            List<Amazon.AppMesh.Model.HttpRouteHeader> requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Header = null;
-            if (cmdletContext.Spec_Http2Route_Match_Header != null)
-            {
-                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Header = cmdletContext.Spec_Http2Route_Match_Header;
-            }
-            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Header != null)
-            {
-                requestSpec_spec_Http2Route_spec_Http2Route_Match.Headers = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Header;
-                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
-            }
-            Amazon.AppMesh.HttpMethod requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Method = null;
-            if (cmdletContext.Spec_Http2Route_Match_Method != null)
-            {
-                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Method = cmdletContext.Spec_Http2Route_Match_Method;
-            }
-            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Method != null)
-            {
-                requestSpec_spec_Http2Route_spec_Http2Route_Match.Method = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Method;
-                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
-            }
-            System.String requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Prefix = null;
-            if (cmdletContext.Spec_Http2Route_Match_Prefix != null)
-            {
-                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Prefix = cmdletContext.Spec_Http2Route_Match_Prefix;
-            }
-            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Prefix != null)
-            {
-                requestSpec_spec_Http2Route_spec_Http2Route_Match.Prefix = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Prefix;
-                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
-            }
-            Amazon.AppMesh.HttpScheme requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Scheme = null;
-            if (cmdletContext.Spec_Http2Route_Match_Scheme != null)
-            {
-                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Scheme = cmdletContext.Spec_Http2Route_Match_Scheme;
-            }
-            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Scheme != null)
-            {
-                requestSpec_spec_Http2Route_spec_Http2Route_Match.Scheme = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Scheme;
-                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
-            }
-             // determine if requestSpec_spec_Http2Route_spec_Http2Route_Match should be set to null
-            if (requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull)
-            {
-                requestSpec_spec_Http2Route_spec_Http2Route_Match = null;
-            }
-            if (requestSpec_spec_Http2Route_spec_Http2Route_Match != null)
-            {
-                requestSpec_spec_Http2Route.Match = requestSpec_spec_Http2Route_spec_Http2Route_Match;
-                requestSpec_spec_Http2RouteIsNull = false;
-            }
             Amazon.AppMesh.Model.HttpRetryPolicy requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy = null;
             
              // populate RetryPolicy
@@ -1480,6 +1502,106 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy != null)
             {
                 requestSpec_spec_Http2Route.RetryPolicy = requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy;
+                requestSpec_spec_Http2RouteIsNull = false;
+            }
+            Amazon.AppMesh.Model.HttpRouteMatch requestSpec_spec_Http2Route_spec_Http2Route_Match = null;
+            
+             // populate Match
+            var requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = true;
+            requestSpec_spec_Http2Route_spec_Http2Route_Match = new Amazon.AppMesh.Model.HttpRouteMatch();
+            List<Amazon.AppMesh.Model.HttpRouteHeader> requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Header = null;
+            if (cmdletContext.Spec_Http2Route_Match_Header != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Header = cmdletContext.Spec_Http2Route_Match_Header;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Header != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match.Headers = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Header;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
+            }
+            Amazon.AppMesh.HttpMethod requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Method = null;
+            if (cmdletContext.Spec_Http2Route_Match_Method != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Method = cmdletContext.Spec_Http2Route_Match_Method;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Method != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match.Method = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Method;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
+            }
+            System.String requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Prefix = null;
+            if (cmdletContext.Spec_Http2Route_Match_Prefix != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Prefix = cmdletContext.Spec_Http2Route_Match_Prefix;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Prefix != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match.Prefix = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Prefix;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
+            }
+            List<Amazon.AppMesh.Model.HttpQueryParameter> requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_QueryParameters = null;
+            if (cmdletContext.Spec_Http2Route_Match_QueryParameters != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_QueryParameters = cmdletContext.Spec_Http2Route_Match_QueryParameters;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_QueryParameters != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match.QueryParameters = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_QueryParameters;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
+            }
+            Amazon.AppMesh.HttpScheme requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Scheme = null;
+            if (cmdletContext.Spec_Http2Route_Match_Scheme != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Scheme = cmdletContext.Spec_Http2Route_Match_Scheme;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Scheme != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match.Scheme = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Scheme;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
+            }
+            Amazon.AppMesh.Model.HttpPathMatch requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path = null;
+            
+             // populate Path
+            var requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_PathIsNull = true;
+            requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path = new Amazon.AppMesh.Model.HttpPathMatch();
+            System.String requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path_spec_Http2Route_Match_Path_Exact = null;
+            if (cmdletContext.Spec_Http2Route_Match_Path_Exact != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path_spec_Http2Route_Match_Path_Exact = cmdletContext.Spec_Http2Route_Match_Path_Exact;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path_spec_Http2Route_Match_Path_Exact != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path.Exact = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path_spec_Http2Route_Match_Path_Exact;
+                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_PathIsNull = false;
+            }
+            System.String requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path_spec_Http2Route_Match_Path_Regex = null;
+            if (cmdletContext.Spec_Http2Route_Match_Path_Regex != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path_spec_Http2Route_Match_Path_Regex = cmdletContext.Spec_Http2Route_Match_Path_Regex;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path_spec_Http2Route_Match_Path_Regex != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path.Regex = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path_spec_Http2Route_Match_Path_Regex;
+                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_PathIsNull = false;
+            }
+             // determine if requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path should be set to null
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_PathIsNull)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path = null;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match.Path = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
+            }
+             // determine if requestSpec_spec_Http2Route_spec_Http2Route_Match should be set to null
+            if (requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match = null;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Match != null)
+            {
+                requestSpec_spec_Http2Route.Match = requestSpec_spec_Http2Route_spec_Http2Route_Match;
                 requestSpec_spec_Http2RouteIsNull = false;
             }
              // determine if requestSpec_spec_Http2Route should be set to null
@@ -1607,61 +1729,6 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 requestSpec_spec_HttpRoute.Timeout = requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout;
                 requestSpec_spec_HttpRouteIsNull = false;
             }
-            Amazon.AppMesh.Model.HttpRouteMatch requestSpec_spec_HttpRoute_spec_HttpRoute_Match = null;
-            
-             // populate Match
-            var requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = true;
-            requestSpec_spec_HttpRoute_spec_HttpRoute_Match = new Amazon.AppMesh.Model.HttpRouteMatch();
-            List<Amazon.AppMesh.Model.HttpRouteHeader> requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Header = null;
-            if (cmdletContext.Spec_HttpRoute_Match_Header != null)
-            {
-                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Header = cmdletContext.Spec_HttpRoute_Match_Header;
-            }
-            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Header != null)
-            {
-                requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Headers = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Header;
-                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
-            }
-            Amazon.AppMesh.HttpMethod requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Method = null;
-            if (cmdletContext.Spec_HttpRoute_Match_Method != null)
-            {
-                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Method = cmdletContext.Spec_HttpRoute_Match_Method;
-            }
-            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Method != null)
-            {
-                requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Method = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Method;
-                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
-            }
-            System.String requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Prefix = null;
-            if (cmdletContext.Spec_HttpRoute_Match_Prefix != null)
-            {
-                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Prefix = cmdletContext.Spec_HttpRoute_Match_Prefix;
-            }
-            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Prefix != null)
-            {
-                requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Prefix = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Prefix;
-                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
-            }
-            Amazon.AppMesh.HttpScheme requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Scheme = null;
-            if (cmdletContext.Spec_HttpRoute_Match_Scheme != null)
-            {
-                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Scheme = cmdletContext.Spec_HttpRoute_Match_Scheme;
-            }
-            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Scheme != null)
-            {
-                requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Scheme = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Scheme;
-                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
-            }
-             // determine if requestSpec_spec_HttpRoute_spec_HttpRoute_Match should be set to null
-            if (requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull)
-            {
-                requestSpec_spec_HttpRoute_spec_HttpRoute_Match = null;
-            }
-            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match != null)
-            {
-                requestSpec_spec_HttpRoute.Match = requestSpec_spec_HttpRoute_spec_HttpRoute_Match;
-                requestSpec_spec_HttpRouteIsNull = false;
-            }
             Amazon.AppMesh.Model.HttpRetryPolicy requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy = null;
             
              // populate RetryPolicy
@@ -1740,6 +1807,106 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy != null)
             {
                 requestSpec_spec_HttpRoute.RetryPolicy = requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy;
+                requestSpec_spec_HttpRouteIsNull = false;
+            }
+            Amazon.AppMesh.Model.HttpRouteMatch requestSpec_spec_HttpRoute_spec_HttpRoute_Match = null;
+            
+             // populate Match
+            var requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = true;
+            requestSpec_spec_HttpRoute_spec_HttpRoute_Match = new Amazon.AppMesh.Model.HttpRouteMatch();
+            List<Amazon.AppMesh.Model.HttpRouteHeader> requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Header = null;
+            if (cmdletContext.Spec_HttpRoute_Match_Header != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Header = cmdletContext.Spec_HttpRoute_Match_Header;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Header != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Headers = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Header;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
+            }
+            Amazon.AppMesh.HttpMethod requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Method = null;
+            if (cmdletContext.Spec_HttpRoute_Match_Method != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Method = cmdletContext.Spec_HttpRoute_Match_Method;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Method != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Method = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Method;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
+            }
+            System.String requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Prefix = null;
+            if (cmdletContext.Spec_HttpRoute_Match_Prefix != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Prefix = cmdletContext.Spec_HttpRoute_Match_Prefix;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Prefix != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Prefix = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Prefix;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
+            }
+            List<Amazon.AppMesh.Model.HttpQueryParameter> requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_QueryParameters = null;
+            if (cmdletContext.Spec_HttpRoute_Match_QueryParameters != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_QueryParameters = cmdletContext.Spec_HttpRoute_Match_QueryParameters;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_QueryParameters != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match.QueryParameters = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_QueryParameters;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
+            }
+            Amazon.AppMesh.HttpScheme requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Scheme = null;
+            if (cmdletContext.Spec_HttpRoute_Match_Scheme != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Scheme = cmdletContext.Spec_HttpRoute_Match_Scheme;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Scheme != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Scheme = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Scheme;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
+            }
+            Amazon.AppMesh.Model.HttpPathMatch requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path = null;
+            
+             // populate Path
+            var requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_PathIsNull = true;
+            requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path = new Amazon.AppMesh.Model.HttpPathMatch();
+            System.String requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path_spec_HttpRoute_Match_Path_Exact = null;
+            if (cmdletContext.Spec_HttpRoute_Match_Path_Exact != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path_spec_HttpRoute_Match_Path_Exact = cmdletContext.Spec_HttpRoute_Match_Path_Exact;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path_spec_HttpRoute_Match_Path_Exact != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path.Exact = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path_spec_HttpRoute_Match_Path_Exact;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_PathIsNull = false;
+            }
+            System.String requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path_spec_HttpRoute_Match_Path_Regex = null;
+            if (cmdletContext.Spec_HttpRoute_Match_Path_Regex != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path_spec_HttpRoute_Match_Path_Regex = cmdletContext.Spec_HttpRoute_Match_Path_Regex;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path_spec_HttpRoute_Match_Path_Regex != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path.Regex = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path_spec_HttpRoute_Match_Path_Regex;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_PathIsNull = false;
+            }
+             // determine if requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path should be set to null
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_PathIsNull)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path = null;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Path = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
+            }
+             // determine if requestSpec_spec_HttpRoute_spec_HttpRoute_Match should be set to null
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match = null;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match != null)
+            {
+                requestSpec_spec_HttpRoute.Match = requestSpec_spec_HttpRoute_spec_HttpRoute_Match;
                 requestSpec_spec_HttpRouteIsNull = false;
             }
              // determine if requestSpec_spec_HttpRoute should be set to null
@@ -1847,7 +2014,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public List<Amazon.AppMesh.Model.WeightedTarget> Spec_Http2Route_Action_WeightedTarget { get; set; }
             public List<Amazon.AppMesh.Model.HttpRouteHeader> Spec_Http2Route_Match_Header { get; set; }
             public Amazon.AppMesh.HttpMethod Spec_Http2Route_Match_Method { get; set; }
+            public System.String Spec_Http2Route_Match_Path_Exact { get; set; }
+            public System.String Spec_Http2Route_Match_Path_Regex { get; set; }
             public System.String Spec_Http2Route_Match_Prefix { get; set; }
+            public List<Amazon.AppMesh.Model.HttpQueryParameter> Spec_Http2Route_Match_QueryParameters { get; set; }
             public Amazon.AppMesh.HttpScheme Spec_Http2Route_Match_Scheme { get; set; }
             public List<System.String> Spec_Http2Route_RetryPolicy_HttpRetryEvent { get; set; }
             public System.Int64? Spec_Http2Route_RetryPolicy_MaxRetry { get; set; }
@@ -1861,7 +2031,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public List<Amazon.AppMesh.Model.WeightedTarget> Spec_HttpRoute_Action_WeightedTarget { get; set; }
             public List<Amazon.AppMesh.Model.HttpRouteHeader> Spec_HttpRoute_Match_Header { get; set; }
             public Amazon.AppMesh.HttpMethod Spec_HttpRoute_Match_Method { get; set; }
+            public System.String Spec_HttpRoute_Match_Path_Exact { get; set; }
+            public System.String Spec_HttpRoute_Match_Path_Regex { get; set; }
             public System.String Spec_HttpRoute_Match_Prefix { get; set; }
+            public List<Amazon.AppMesh.Model.HttpQueryParameter> Spec_HttpRoute_Match_QueryParameters { get; set; }
             public Amazon.AppMesh.HttpScheme Spec_HttpRoute_Match_Scheme { get; set; }
             public List<System.String> Spec_HttpRoute_RetryPolicy_HttpRetryEvent { get; set; }
             public System.Int64? Spec_HttpRoute_RetryPolicy_MaxRetry { get; set; }

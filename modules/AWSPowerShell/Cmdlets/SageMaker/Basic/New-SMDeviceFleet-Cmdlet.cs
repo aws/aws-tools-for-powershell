@@ -67,6 +67,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String DeviceFleetName { get; set; }
         #endregion
         
+        #region Parameter EnableIotRoleAlias
+        /// <summary>
+        /// <para>
+        /// <para>Whether to create an AWS IoT Role Alias during device fleet creation. The name of
+        /// the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".</para><para>For example, if your device fleet is called "demo-fleet", the name of the role alias
+        /// will be "SageMakerEdge-demo-fleet".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableIotRoleAlias { get; set; }
+        #endregion
+        
         #region Parameter OutputConfig_KmsKeyId
         /// <summary>
         /// <para>
@@ -77,6 +89,36 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OutputConfig_KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter OutputConfig_PresetDeploymentConfig
+        /// <summary>
+        /// <para>
+        /// <para>The configuration used to create deployment artifacts. Specify configuration options
+        /// with a JSON string. The available configuration options for each type are:</para><ul><li><para><code>ComponentName</code> (optional) - Name of the GreenGrass V2 component. If not
+        /// specified, the default name generated consists of "SagemakerEdgeManager" and the name
+        /// of your SageMaker Edge Manager packaging job.</para></li><li><para><code>ComponentDescription</code> (optional) - Description of the component.</para></li><li><para><code>ComponentVersion</code> (optional) - The version of the component.</para><note><para>AWS IoT Greengrass uses semantic versions for components. Semantic versions follow
+        /// a<i> major.minor.patch</i> number system. For example, version 1.0.0 represents the
+        /// first major release for a component. For more information, see the <a href="https://semver.org/">semantic
+        /// version specification</a>.</para></note></li><li><para><code>PlatformOS</code> (optional) - The name of the operating system for the platform.
+        /// Supported platforms include Windows and Linux.</para></li><li><para><code>PlatformArchitecture</code> (optional) - The processor architecture for the
+        /// platform. </para><para>Supported architectures Windows include: Windows32_x86, Windows64_x64.</para><para>Supported architectures for Linux include: Linux x86_64, Linux ARMV8.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_PresetDeploymentConfig { get; set; }
+        #endregion
+        
+        #region Parameter OutputConfig_PresetDeploymentType
+        /// <summary>
+        /// <para>
+        /// <para>The deployment type SageMaker Edge Manager will create. Currently only supports AWS
+        /// IoT Greengrass Version 2 components.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.EdgePresetDeploymentType")]
+        public Amazon.SageMaker.EdgePresetDeploymentType OutputConfig_PresetDeploymentType { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -185,7 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter DeviceFleetName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EnableIotRoleAlias = this.EnableIotRoleAlias;
             context.OutputConfig_KmsKeyId = this.OutputConfig_KmsKeyId;
+            context.OutputConfig_PresetDeploymentConfig = this.OutputConfig_PresetDeploymentConfig;
+            context.OutputConfig_PresetDeploymentType = this.OutputConfig_PresetDeploymentType;
             context.OutputConfig_S3OutputLocation = this.OutputConfig_S3OutputLocation;
             #if MODULAR
             if (this.OutputConfig_S3OutputLocation == null && ParameterWasBound(nameof(this.OutputConfig_S3OutputLocation)))
@@ -222,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.DeviceFleetName = cmdletContext.DeviceFleetName;
             }
+            if (cmdletContext.EnableIotRoleAlias != null)
+            {
+                request.EnableIotRoleAlias = cmdletContext.EnableIotRoleAlias.Value;
+            }
             
              // populate OutputConfig
             var requestOutputConfigIsNull = true;
@@ -234,6 +283,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestOutputConfig_outputConfig_KmsKeyId != null)
             {
                 request.OutputConfig.KmsKeyId = requestOutputConfig_outputConfig_KmsKeyId;
+                requestOutputConfigIsNull = false;
+            }
+            System.String requestOutputConfig_outputConfig_PresetDeploymentConfig = null;
+            if (cmdletContext.OutputConfig_PresetDeploymentConfig != null)
+            {
+                requestOutputConfig_outputConfig_PresetDeploymentConfig = cmdletContext.OutputConfig_PresetDeploymentConfig;
+            }
+            if (requestOutputConfig_outputConfig_PresetDeploymentConfig != null)
+            {
+                request.OutputConfig.PresetDeploymentConfig = requestOutputConfig_outputConfig_PresetDeploymentConfig;
+                requestOutputConfigIsNull = false;
+            }
+            Amazon.SageMaker.EdgePresetDeploymentType requestOutputConfig_outputConfig_PresetDeploymentType = null;
+            if (cmdletContext.OutputConfig_PresetDeploymentType != null)
+            {
+                requestOutputConfig_outputConfig_PresetDeploymentType = cmdletContext.OutputConfig_PresetDeploymentType;
+            }
+            if (requestOutputConfig_outputConfig_PresetDeploymentType != null)
+            {
+                request.OutputConfig.PresetDeploymentType = requestOutputConfig_outputConfig_PresetDeploymentType;
                 requestOutputConfigIsNull = false;
             }
             System.String requestOutputConfig_outputConfig_S3OutputLocation = null;
@@ -322,7 +391,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.String Description { get; set; }
             public System.String DeviceFleetName { get; set; }
+            public System.Boolean? EnableIotRoleAlias { get; set; }
             public System.String OutputConfig_KmsKeyId { get; set; }
+            public System.String OutputConfig_PresetDeploymentConfig { get; set; }
+            public Amazon.SageMaker.EdgePresetDeploymentType OutputConfig_PresetDeploymentType { get; set; }
             public System.String OutputConfig_S3OutputLocation { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

@@ -40,6 +40,20 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class GetCFNTypeListCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        #region Parameter Filters_Category
+        /// <summary>
+        /// <para>
+        /// <para>The category of extensions to return.</para><ul><li><para><code>REGISTERED</code>: Private extensions that have been registered for this account
+        /// and region.</para></li><li><para><code>ACTIVATED</code>: Public extensions that have been activated for this account
+        /// and region.</para></li><li><para><code>THIRD-PARTY</code>: Extensions available for use from publishers other than
+        /// Amazon. This includes:</para><ul><li><para>Private extensions registered in the account.</para></li><li><para>Public extensions from publishers other than Amazon, whether activated or not.</para></li></ul></li><li><para><code>AWS-TYPES</code>: Extensions available for use from Amazon.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.Category")]
+        public Amazon.CloudFormation.Category Filters_Category { get; set; }
+        #endregion
+        
         #region Parameter DeprecatedStatus
         /// <summary>
         /// <para>
@@ -55,17 +69,28 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ProvisioningType
         /// <summary>
         /// <para>
-        /// <para>The provisioning behavior of the type. AWS CloudFormation determines the provisioning
-        /// type during registration, based on the types of handlers in the schema handler package
-        /// submitted.</para><para>Valid values include:</para><ul><li><para><code>FULLY_MUTABLE</code>: The extension includes an update handler to process updates
-        /// to the extension during stack update operations.</para></li><li><para><code>IMMUTABLE</code>: The extension does not include an update handler, so the
-        /// extension cannot be updated and must instead be replaced during stack update operations.</para></li><li><para><code>NON_PROVISIONABLE</code>: The extension does not include create, read, and
-        /// delete handlers, and therefore cannot actually be provisioned.</para></li></ul>
+        /// <para>For resource types, the provisioning behavior of the resource type. AWS CloudFormation
+        /// determines the provisioning type during registration, based on the types of handlers
+        /// in the schema handler package submitted.</para><para>Valid values include:</para><ul><li><para><code>FULLY_MUTABLE</code>: The resource type includes an update handler to process
+        /// updates to the type during stack update operations.</para></li><li><para><code>IMMUTABLE</code>: The resource type does not include an update handler, so
+        /// the type cannot be updated and must instead be replaced during stack update operations.</para></li><li><para><code>NON_PROVISIONABLE</code>: The resource type does not include create, read,
+        /// and delete handlers, and therefore cannot actually be provisioned.</para></li></ul><para>The default is <code>FULLY_MUTABLE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CloudFormation.ProvisioningType")]
         public Amazon.CloudFormation.ProvisioningType ProvisioningType { get; set; }
+        #endregion
+        
+        #region Parameter Filters_PublisherId
+        /// <summary>
+        /// <para>
+        /// <para>The id of the publisher of the extension. </para><para>Extensions published by Amazon are not assigned a publisher ID. Use the <code>AWS-TYPES</code>
+        /// category to specify a list of types published by Amazon.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filters_PublisherId { get; set; }
         #endregion
         
         #region Parameter Type
@@ -79,13 +104,23 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public Amazon.CloudFormation.RegistryType Type { get; set; }
         #endregion
         
+        #region Parameter Filters_TypeNamePrefix
+        /// <summary>
+        /// <para>
+        /// <para>A prefix to use as a filter for results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filters_TypeNamePrefix { get; set; }
+        #endregion
+        
         #region Parameter Visibility
         /// <summary>
         /// <para>
-        /// <para>The scope at which the extension is visible and usable in CloudFormation operations.</para><para>Valid values include:</para><ul><li><para><code>PRIVATE</code>: The extension is only visible and usable within the account
-        /// in which it is registered. Currently, AWS CloudFormation marks any extension you create
-        /// as <code>PRIVATE</code>.</para></li><li><para><code>PUBLIC</code>: The extension is publically visible and usable within any Amazon
-        /// account.</para></li></ul><para>The default is <code>PRIVATE</code>.</para>
+        /// <para>The scope at which the extensions are visible and usable in CloudFormation operations.</para><para>Valid values include:</para><ul><li><para><code>PRIVATE</code>: Extensions that are visible and usable within this account
+        /// and region. This includes:</para><ul><li><para>Private extensions you have registered in this account and region.</para></li><li><para>Public extensions that you have activated in this account and region.</para></li></ul></li><li><para><code>PUBLIC</code>: Extensions that are publicly visible and available to be activated
+        /// within any Amazon account. This includes extensions from Amazon, as well as third-party
+        /// publishers.</para></li></ul><para>The default is <code>PRIVATE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,6 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DeprecatedStatus = this.DeprecatedStatus;
+            context.Filters_Category = this.Filters_Category;
+            context.Filters_PublisherId = this.Filters_PublisherId;
+            context.Filters_TypeNamePrefix = this.Filters_TypeNamePrefix;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.ProvisioningType = this.ProvisioningType;
@@ -187,6 +225,45 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.DeprecatedStatus != null)
             {
                 request.DeprecatedStatus = cmdletContext.DeprecatedStatus;
+            }
+            
+             // populate Filters
+            var requestFiltersIsNull = true;
+            request.Filters = new Amazon.CloudFormation.Model.TypeFilters();
+            Amazon.CloudFormation.Category requestFilters_filters_Category = null;
+            if (cmdletContext.Filters_Category != null)
+            {
+                requestFilters_filters_Category = cmdletContext.Filters_Category;
+            }
+            if (requestFilters_filters_Category != null)
+            {
+                request.Filters.Category = requestFilters_filters_Category;
+                requestFiltersIsNull = false;
+            }
+            System.String requestFilters_filters_PublisherId = null;
+            if (cmdletContext.Filters_PublisherId != null)
+            {
+                requestFilters_filters_PublisherId = cmdletContext.Filters_PublisherId;
+            }
+            if (requestFilters_filters_PublisherId != null)
+            {
+                request.Filters.PublisherId = requestFilters_filters_PublisherId;
+                requestFiltersIsNull = false;
+            }
+            System.String requestFilters_filters_TypeNamePrefix = null;
+            if (cmdletContext.Filters_TypeNamePrefix != null)
+            {
+                requestFilters_filters_TypeNamePrefix = cmdletContext.Filters_TypeNamePrefix;
+            }
+            if (requestFilters_filters_TypeNamePrefix != null)
+            {
+                request.Filters.TypeNamePrefix = requestFilters_filters_TypeNamePrefix;
+                requestFiltersIsNull = false;
+            }
+             // determine if request.Filters should be set to null
+            if (requestFiltersIsNull)
+            {
+                request.Filters = null;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -290,6 +367,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.CloudFormation.DeprecatedStatus DeprecatedStatus { get; set; }
+            public Amazon.CloudFormation.Category Filters_Category { get; set; }
+            public System.String Filters_PublisherId { get; set; }
+            public System.String Filters_TypeNamePrefix { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.CloudFormation.ProvisioningType ProvisioningType { get; set; }

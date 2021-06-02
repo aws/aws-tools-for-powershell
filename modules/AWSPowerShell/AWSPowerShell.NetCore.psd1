@@ -251,6 +251,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Polly.dll',
         'AWSSDK.Pricing.dll',
         'AWSSDK.PrometheusService.dll',
+        'AWSSDK.Proton.dll',
         'AWSSDK.QLDB.dll',
         'AWSSDK.QLDBSession.dll',
         'AWSSDK.QuickSight.dll',

@@ -28,15 +28,15 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Associates a Web ACL with a regional application resource, to protect the resource.
-    /// A regional application can be an Application Load Balancer (ALB), an API Gateway REST
-    /// API, or an AppSync GraphQL API. 
+    /// Associates a web ACL with a regional application resource, to protect the resource.
+    /// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway
+    /// REST API, or an AppSync GraphQL API. 
     /// 
     ///  
     /// <para>
-    /// For AWS CloudFront, don't use this call. Instead, use your CloudFront distribution
-    /// configuration. To associate a Web ACL, in the CloudFront call <code>UpdateDistribution</code>,
-    /// set the web ACL ID to the Amazon Resource Name (ARN) of the Web ACL. For information,
+    /// For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution
+    /// configuration. To associate a web ACL, in the CloudFront call <code>UpdateDistribution</code>,
+    /// set the web ACL ID to the Amazon Resource Name (ARN) of the web ACL. For information,
     /// see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.
     /// </para>
     /// </summary>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to associate with the web ACL. </para><para>The ARN must be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an API Gateway REST API: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i></code></para></li><li><para>For an AppSync GraphQL API: <code>arn:aws:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i></code></para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of the resource to associate with the web ACL. </para><para>The ARN must be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Amazon API Gateway REST API: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i></code></para></li><li><para>For an AppSync GraphQL API: <code>arn:aws:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i></code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter WebACLArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the
+        /// <para>The Amazon Resource Name (ARN) of the web ACL that you want to associate with the
         /// resource.</para>
         /// </para>
         /// </summary>

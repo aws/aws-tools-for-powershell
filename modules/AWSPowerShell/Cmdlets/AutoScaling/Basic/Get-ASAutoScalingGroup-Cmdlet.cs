@@ -28,7 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes one or more Auto Scaling groups.
+    /// Gets information about the Auto Scaling groups in the account and Region.
     /// 
     ///  
     /// <para>

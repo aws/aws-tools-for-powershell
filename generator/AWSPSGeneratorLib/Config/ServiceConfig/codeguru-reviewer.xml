@@ -24,7 +24,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCodeReview" OutputProperty="CodeReview" Verb="New" Noun="CodeReview" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Type_RepositoryAnalysis_RepositoryHead_BranchName" NewName="Type_RepositoryAnalysis_RepositoryHead_BranchName" Alias="RepositoryHead_BranchName" />
+                <Param Name="Type_RepositoryAnalysis_SourceCodeType_RepositoryHead_BranchName" NewName="Type_RepositoryAnalysis_SourceCodeType_RepositoryHead_BranchName" Alias="SourceCodeType_RepositoryHead_BranchName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCodeReview" OutputProperty="CodeReview" Verb="Get" Noun="CodeReview" PipelineParameter="CodeReviewArn" NoPipelineParameter="false">

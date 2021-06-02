@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter PermissionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS RAM permission to associate with the resource share.</para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS RAM permissions to associate with the resource
+        /// share.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,6 +56,16 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PermissionArn { get; set; }
+        #endregion
+        
+        #region Parameter PermissionVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the AWS RAM permissions to associate with the resource share.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PermissionVersion { get; set; }
         #endregion
         
         #region Parameter Replace
@@ -166,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 WriteWarning("You are passing $null as a value for parameter PermissionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PermissionVersion = this.PermissionVersion;
             context.Replace = this.Replace;
             context.ResourceShareArn = this.ResourceShareArn;
             #if MODULAR
@@ -197,6 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.PermissionArn != null)
             {
                 request.PermissionArn = cmdletContext.PermissionArn;
+            }
+            if (cmdletContext.PermissionVersion != null)
+            {
+                request.PermissionVersion = cmdletContext.PermissionVersion.Value;
             }
             if (cmdletContext.Replace != null)
             {
@@ -269,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         {
             public System.String ClientToken { get; set; }
             public System.String PermissionArn { get; set; }
+            public System.Int32? PermissionVersion { get; set; }
             public System.Boolean? Replace { get; set; }
             public System.String ResourceShareArn { get; set; }
             public System.Func<Amazon.RAM.Model.AssociateResourceSharePermissionResponse, AddRAMPermissionToResourceShareCmdlet, object> Select { get; set; } =

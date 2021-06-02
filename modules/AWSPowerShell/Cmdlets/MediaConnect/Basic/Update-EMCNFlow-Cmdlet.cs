@@ -40,6 +40,19 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     public partial class UpdateEMCNFlowCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {
         
+        #region Parameter SourceFailoverConfig_FailoverMode
+        /// <summary>
+        /// <para>
+        /// The type of failover you choose for this
+        /// flow. MERGE combines the source streams into a single stream, allowing graceful recovery
+        /// from any single-source loss. FAILOVER allows switching between different streams.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.FailoverMode")]
+        public Amazon.MediaConnect.FailoverMode SourceFailoverConfig_FailoverMode { get; set; }
+        #endregion
+        
         #region Parameter FlowArn
         /// <summary>
         /// <para>
@@ -55,6 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String FlowArn { get; set; }
+        #endregion
+        
+        #region Parameter SourcePriority_PrimarySource
+        /// <summary>
+        /// <para>
+        /// The name of the source you choose as the
+        /// primary source for this flow.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFailoverConfig_SourcePriority_PrimarySource")]
+        public System.String SourcePriority_PrimarySource { get; set; }
         #endregion
         
         #region Parameter SourceFailoverConfig_RecoveryWindow
@@ -147,7 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 WriteWarning("You are passing $null as a value for parameter FlowArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SourceFailoverConfig_FailoverMode = this.SourceFailoverConfig_FailoverMode;
             context.SourceFailoverConfig_RecoveryWindow = this.SourceFailoverConfig_RecoveryWindow;
+            context.SourcePriority_PrimarySource = this.SourcePriority_PrimarySource;
             context.SourceFailoverConfig_State = this.SourceFailoverConfig_State;
             
             // allow further manipulation of loaded context prior to processing
@@ -173,6 +200,16 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
              // populate SourceFailoverConfig
             var requestSourceFailoverConfigIsNull = true;
             request.SourceFailoverConfig = new Amazon.MediaConnect.Model.UpdateFailoverConfig();
+            Amazon.MediaConnect.FailoverMode requestSourceFailoverConfig_sourceFailoverConfig_FailoverMode = null;
+            if (cmdletContext.SourceFailoverConfig_FailoverMode != null)
+            {
+                requestSourceFailoverConfig_sourceFailoverConfig_FailoverMode = cmdletContext.SourceFailoverConfig_FailoverMode;
+            }
+            if (requestSourceFailoverConfig_sourceFailoverConfig_FailoverMode != null)
+            {
+                request.SourceFailoverConfig.FailoverMode = requestSourceFailoverConfig_sourceFailoverConfig_FailoverMode;
+                requestSourceFailoverConfigIsNull = false;
+            }
             System.Int32? requestSourceFailoverConfig_sourceFailoverConfig_RecoveryWindow = null;
             if (cmdletContext.SourceFailoverConfig_RecoveryWindow != null)
             {
@@ -191,6 +228,31 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (requestSourceFailoverConfig_sourceFailoverConfig_State != null)
             {
                 request.SourceFailoverConfig.State = requestSourceFailoverConfig_sourceFailoverConfig_State;
+                requestSourceFailoverConfigIsNull = false;
+            }
+            Amazon.MediaConnect.Model.SourcePriority requestSourceFailoverConfig_sourceFailoverConfig_SourcePriority = null;
+            
+             // populate SourcePriority
+            var requestSourceFailoverConfig_sourceFailoverConfig_SourcePriorityIsNull = true;
+            requestSourceFailoverConfig_sourceFailoverConfig_SourcePriority = new Amazon.MediaConnect.Model.SourcePriority();
+            System.String requestSourceFailoverConfig_sourceFailoverConfig_SourcePriority_sourcePriority_PrimarySource = null;
+            if (cmdletContext.SourcePriority_PrimarySource != null)
+            {
+                requestSourceFailoverConfig_sourceFailoverConfig_SourcePriority_sourcePriority_PrimarySource = cmdletContext.SourcePriority_PrimarySource;
+            }
+            if (requestSourceFailoverConfig_sourceFailoverConfig_SourcePriority_sourcePriority_PrimarySource != null)
+            {
+                requestSourceFailoverConfig_sourceFailoverConfig_SourcePriority.PrimarySource = requestSourceFailoverConfig_sourceFailoverConfig_SourcePriority_sourcePriority_PrimarySource;
+                requestSourceFailoverConfig_sourceFailoverConfig_SourcePriorityIsNull = false;
+            }
+             // determine if requestSourceFailoverConfig_sourceFailoverConfig_SourcePriority should be set to null
+            if (requestSourceFailoverConfig_sourceFailoverConfig_SourcePriorityIsNull)
+            {
+                requestSourceFailoverConfig_sourceFailoverConfig_SourcePriority = null;
+            }
+            if (requestSourceFailoverConfig_sourceFailoverConfig_SourcePriority != null)
+            {
+                request.SourceFailoverConfig.SourcePriority = requestSourceFailoverConfig_sourceFailoverConfig_SourcePriority;
                 requestSourceFailoverConfigIsNull = false;
             }
              // determine if request.SourceFailoverConfig should be set to null
@@ -260,7 +322,9 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String FlowArn { get; set; }
+            public Amazon.MediaConnect.FailoverMode SourceFailoverConfig_FailoverMode { get; set; }
             public System.Int32? SourceFailoverConfig_RecoveryWindow { get; set; }
+            public System.String SourcePriority_PrimarySource { get; set; }
             public Amazon.MediaConnect.State SourceFailoverConfig_State { get; set; }
             public System.Func<Amazon.MediaConnect.Model.UpdateFlowResponse, UpdateEMCNFlowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Flow;

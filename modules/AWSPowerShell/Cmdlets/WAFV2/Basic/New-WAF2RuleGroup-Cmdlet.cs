@@ -53,13 +53,13 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The web ACL capacity units (WCUs) required for this rule group.</para><para>When you create your own rule group, you define this, and you cannot change it after
-        /// creation. When you add or modify the rules in a rule group, AWS WAF enforces this
-        /// limit. You can check the capacity for a set of rules using <a>CheckCapacity</a>.</para><para>AWS WAF uses WCUs to calculate and control the operating resources that are used to
-        /// run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently
-        /// for each rule type, to reflect the relative cost of each rule. Simple rules that cost
-        /// little to run use fewer WCUs than more complex rules that use more processing power.
-        /// Rule group capacity is fixed at creation, which helps users plan their web ACL WCU
-        /// usage when they use a rule group. The WCU limit for web ACLs is 1,500. </para>
+        /// creation. When you add or modify the rules in a rule group, WAF enforces this limit.
+        /// You can check the capacity for a set of rules using <a>CheckCapacity</a>.</para><para>WAF uses WCUs to calculate and control the operating resources that are used to run
+        /// your rules, rule groups, and web ACLs. WAF calculates capacity differently for each
+        /// rule type, to reflect the relative cost of each rule. Simple rules that cost little
+        /// to run use fewer WCUs than more complex rules that use more processing power. Rule
+        /// group capacity is fixed at creation, which helps users plan their web ACL WCU usage
+        /// when they use a rule group. The WCU limit for web ACLs is 1,500. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter VisibilityConfig_CloudWatchMetricsEnabled
         /// <summary>
         /// <para>
-        /// <para>A boolean indicating whether the associated resource sends metrics to CloudWatch.
-        /// For the list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">AWS
-        /// WAF Metrics</a>.</para>
+        /// <para>A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch.
+        /// For the list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF
+        /// Metrics</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,11 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>A map of custom response keys and content bodies. When you create a rule with a block
         /// action, you can send a custom response to the web request. You define these for the
         /// rule group, and then use them in the rules that you define in the rule group. </para><para>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing
-        /// web requests and responses in AWS WAF</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. </para><para>For information about the limits on count and size for custom request and response
-        /// settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">AWS
-        /// WAF quotas</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. </para>
+        /// web requests and responses in WAF</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF
+        /// Developer Guide</a>. </para><para>For information about the limits on count and size for custom request and response
+        /// settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF
+        /// quotas</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF
+        /// Developer Guide</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,9 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter VisibilityConfig_MetricName
         /// <summary>
         /// <para>
-        /// <para>A name of the CloudWatch metric. The name can contain only the characters: A-Z, a-z,
-        /// 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long.
-        /// It can't contain whitespace or metric names reserved for AWS WAF, for example "All"
+        /// <para>A name of the Amazon CloudWatch metric. The name can contain only the characters:
+        /// A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters
+        /// long. It can't contain whitespace or metric names reserved for WAF, for example "All"
         /// and "Default_Action." </para>
         /// </para>
         /// </summary>
@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The <a>Rule</a> statements used to identify the web requests that you want to allow,
-        /// block, or count. Each rule includes one top-level statement that AWS WAF uses to identify
-        /// matching web requests, and parameters that govern how AWS WAF handles them. </para>
+        /// block, or count. Each rule includes one top-level statement that WAF uses to identify
+        /// matching web requests, and parameters that govern how WAF handles them. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,8 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter VisibilityConfig_SampledRequestsEnabled
         /// <summary>
         /// <para>
-        /// <para>A boolean indicating whether AWS WAF should store a sampling of the web requests that
-        /// match the rules. You can view the sampled requests through the AWS WAF console. </para>
+        /// <para>A boolean indicating whether WAF should store a sampling of the web requests that
+        /// match the rules. You can view the sampled requests through the WAF console. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -189,9 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this is for an AWS CloudFront distribution or for a regional application.
-        /// A regional application can be an Application Load Balancer (ALB), an API Gateway REST
-        /// API, or an AppSync GraphQL API. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
+        /// application. A regional application can be an Application Load Balancer (ALB), an
+        /// Amazon API Gateway REST API, or an AppSync GraphQL API. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
         /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>

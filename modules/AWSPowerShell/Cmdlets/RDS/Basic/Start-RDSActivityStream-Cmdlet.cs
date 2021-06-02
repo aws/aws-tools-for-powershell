@@ -52,12 +52,24 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? ApplyImmediately { get; set; }
         #endregion
         
+        #region Parameter EngineNativeAuditFieldsIncluded
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the database activity stream includes engine-native audit fields.
+        /// This option only applies to an Oracle DB instance. By default, no engine-native audit
+        /// fields are included.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EngineNativeAuditFieldsIncluded { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier for encrypting messages in the database activity stream.
-        /// The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the
-        /// AWS KMS customer master key (CMK).</para>
+        /// <para>The Amazon Web Services KMS key identifier for encrypting messages in the database
+        /// activity stream. The Amazon Web Services KMS key identifier is the key ARN, key ID,
+        /// alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -169,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ApplyImmediately = this.ApplyImmediately;
+            context.EngineNativeAuditFieldsIncluded = this.EngineNativeAuditFieldsIncluded;
             context.KmsKeyId = this.KmsKeyId;
             #if MODULAR
             if (this.KmsKeyId == null && ParameterWasBound(nameof(this.KmsKeyId)))
@@ -209,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.ApplyImmediately != null)
             {
                 request.ApplyImmediately = cmdletContext.ApplyImmediately.Value;
+            }
+            if (cmdletContext.EngineNativeAuditFieldsIncluded != null)
+            {
+                request.EngineNativeAuditFieldsIncluded = cmdletContext.EngineNativeAuditFieldsIncluded.Value;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -284,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? ApplyImmediately { get; set; }
+            public System.Boolean? EngineNativeAuditFieldsIncluded { get; set; }
             public System.String KmsKeyId { get; set; }
             public Amazon.RDS.ActivityStreamMode Mode { get; set; }
             public System.String ResourceArn { get; set; }

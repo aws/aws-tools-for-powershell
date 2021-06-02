@@ -36,6 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// For Amazon FSx for Windows File Server file systems, you can update the following
     /// properties:
     /// </para><ul><li><para>
+    /// AuditLogConfiguration
+    /// </para></li><li><para>
     /// AutomaticBackupRetentionDays
     /// </para></li><li><para>
     /// DailyAutomaticBackupStartTime

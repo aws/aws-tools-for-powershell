@@ -28,16 +28,21 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes one or more scaling activities for the specified Auto Scaling group.
+    /// Gets information about the scaling activities in the account and Region.
     /// 
     ///  
     /// <para>
-    /// To view the scaling activities from the Amazon EC2 Auto Scaling console, choose the
-    /// <b>Activity</b> tab of the Auto Scaling group. When scaling events occur, you see
-    /// scaling activity messages in the <b>Activity history</b>. For more information, see
-    /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying
+    /// When scaling events occur, you see a record of the scaling activity in the scaling
+    /// activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying
     /// a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling
     /// User Guide</i>.
+    /// </para><para>
+    /// If the scaling event succeeds, the value of the <code>StatusCode</code> element in
+    /// the response is <code>Successful</code>. If an attempt to launch instances failed,
+    /// the <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code>
+    /// and the <code>StatusMessage</code> element in the response indicates the cause of
+    /// the failure. For help interpreting the <code>StatusMessage</code>, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html">Troubleshooting
+    /// Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASScalingActivity")]
@@ -53,10 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ActivityId
         /// <summary>
         /// <para>
-        /// <para>The activity IDs of the desired scaling activities. You can specify up to 50 IDs.
-        /// If you omit this parameter, all activities for the past six weeks are described. If
-        /// unknown activities are requested, they are ignored with no error. If you specify an
-        /// Auto Scaling group, the results are limited to that group.</para>
+        /// <para>The activity IDs of the desired scaling activities. If you omit this parameter, all
+        /// activities for the past six weeks are described. If unknown activities are requested,
+        /// they are ignored with no error. If you specify an Auto Scaling group, the results
+        /// are limited to that group.</para><para>Array Members: Maximum number of 50 IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

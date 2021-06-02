@@ -28,8 +28,8 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Describes Amazon Elastic Container Service container instances. Returns metadata about
-    /// registered and remaining resources on each container instance requested.
+    /// Describes one or more container instances. Returns metadata about each container instance
+    /// requested.
     /// </summary>
     [Cmdlet("Get", "ECSContainerInstanceDetail")]
     [OutputType("Amazon.ECS.Model.DescribeContainerInstancesResponse")]

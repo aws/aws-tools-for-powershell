@@ -60,10 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// the network interface is attached.</para></li><li><para><code>attachment.status</code> - The status of the attachment (<code>attaching</code>
         /// | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone of the network interface.</para></li><li><para><code>description</code> - The description of the network interface.</para></li><li><para><code>group-id</code> - The ID of a security group associated with the network interface.</para></li><li><para><code>group-name</code> - The name of a security group associated with the network
         /// interface.</para></li><li><para><code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with the network
-        /// interface.</para></li><li><para><code>mac-address</code> - The MAC address of the network interface.</para></li><li><para><code>network-interface-id</code> - The ID of the network interface.</para></li><li><para><code>owner-id</code> - The AWS account ID of the network interface owner.</para></li><li><para><code>private-ip-address</code> - The private IPv4 address or addresses of the network
-        /// interface.</para></li><li><para><code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</para></li><li><para><code>requester-id</code> - The alias or AWS account ID of the principal or service
-        /// that created the network interface.</para></li><li><para><code>requester-managed</code> - Indicates whether the network interface is being
-        /// managed by an AWS service (for example, AWS Management Console, Auto Scaling, and
+        /// interface.</para></li><li><para><code>mac-address</code> - The MAC address of the network interface.</para></li><li><para><code>network-interface-id</code> - The ID of the network interface.</para></li><li><para><code>owner-id</code> - The account ID of the network interface owner.</para></li><li><para><code>private-ip-address</code> - The private IPv4 address or addresses of the network
+        /// interface.</para></li><li><para><code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</para></li><li><para><code>requester-id</code> - The alias or account ID of the principal or service that
+        /// created the network interface.</para></li><li><para><code>requester-managed</code> - Indicates whether the network interface is being
+        /// managed by an Amazon Web Service (for example, Management Console, Auto Scaling, and
         /// so on).</para></li><li><para><code>source-dest-check</code> - Indicates whether the network interface performs
         /// source/destination checking. A value of <code>true</code> means checking is enabled,
         /// and <code>false</code> means checking is disabled. The value must be <code>false</code>

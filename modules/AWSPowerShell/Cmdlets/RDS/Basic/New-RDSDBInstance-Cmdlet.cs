@@ -68,10 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The Availability Zone (AZ) where the database will be created. For information on
-        /// AWS Regions and Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
-        /// and Availability Zones</a>. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</para><para> Example: <code>us-east-1d</code></para><para> Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the
+        /// Amazon Web Services Regions and Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
+        /// and Availability Zones</a>. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services
+        /// Region.</para><para> Example: <code>us-east-1d</code></para><para> Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the
         /// DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the
-        /// same AWS Region as the current endpoint. </para><note><para>If you're creating a DB instance in an RDS on VMware environment, specify the identifier
+        /// same Amazon Web Services Region as the current endpoint. </para><note><para>If you're creating a DB instance in an RDS on VMware environment, specify the identifier
         /// of the custom Availability Zone to create the DB instance in.</para><para>For more information about RDS on VMware, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
         /// RDS on VMware User Guide.</a></para></note>
         /// </para>
@@ -130,9 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
-        /// Not all DB instance classes are available in all AWS Regions, or for all database
-        /// engines. For the full list of DB instance classes, and availability for your engine,
-        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// Not all DB instance classes are available in all Amazon Web Services Regions, or for
+        /// all database engines. For the full list of DB instance classes, and availability for
+        /// your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
         /// Instance Class</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -284,8 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// subnets through your on-premises network. For some use cases, a CoIP can provide lower
         /// latency for connections to the DB instance from outside of its virtual private cloud
         /// (VPC) on your local network.</para><para>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
-        /// with Amazon RDS on AWS Outposts</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
-        /// IP addresses</a> in the <i>AWS Outposts User Guide</i>.</para>
+        /// with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
+        /// IP addresses</a> in the <i>Amazon Web Services Outposts User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -295,9 +296,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to enable mapping of AWS Identity and Access Management
-        /// (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>This setting doesn't apply to Amazon Aurora. Mapping AWS IAM accounts to database
-        /// accounts is managed by the DB cluster.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// <para>A value that indicates whether to enable mapping of Amazon Web Services Identity and
+        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.</para><para>This setting doesn't apply to Amazon Aurora. Mapping Amazon Web Services IAM accounts
+        /// to database accounts is managed by the DB cluster.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
         /// IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User
         /// Guide.</i></para>
         /// </para>
@@ -323,7 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this instance. </para><para>Not every database engine is available for every AWS Region. </para><para>Valid Values: </para><ul><li><para><code>aurora</code> (for MySQL 5.6-compatible Aurora)</para></li><li><para><code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se1</code></para></li><li><para><code>oracle-se</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
+        /// <para>The name of the database engine to be used for this instance. </para><para>Not every database engine is available for every Amazon Web Services Region. </para><para>Valid Values: </para><ul><li><para><code>aurora</code> (for MySQL 5.6-compatible Aurora)</para></li><li><para><code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -343,7 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The version number of the database engine to use.</para><para>For a list of valid engine versions, use the <code>DescribeDBEngineVersions</code>
         /// action.</para><para>The following are the database engines and links to information about the major and
         /// minor versions that are available with Amazon RDS. Not every database engine is available
-        /// for every AWS Region.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The version number of the database engine to be used by the DB instance
+        /// for every Amazon Web Services Region.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The version number of the database engine to be used by the DB instance
         /// is managed by the DB cluster.</para><para><b>MariaDB</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt">MariaDB
         /// on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i></para><para><b>Microsoft SQL Server</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport">Microsoft
         /// SQL Server Versions on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para><para><b>MySQL</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL
@@ -374,13 +375,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier for an encrypted DB instance.</para><para>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the
-        /// AWS KMS customer master key (CMK). To use a CMK in a different AWS account, specify
-        /// the key ARN or alias ARN.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The AWS KMS key identifier is managed by the DB cluster. For more
-        /// information, see <code>CreateDBCluster</code>.</para><para>If <code>StorageEncrypted</code> is enabled, and you do not specify a value for the
+        /// <para>The Amazon Web Services KMS key identifier for an encrypted DB instance.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the Amazon Web Services KMS customer master key (CMK). To use a CMK in a
+        /// different Amazon Web Services account, specify the key ARN or alias ARN.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The Amazon Web Services KMS key identifier is managed by the DB cluster.
+        /// For more information, see <code>CreateDBCluster</code>.</para><para>If <code>StorageEncrypted</code> is enabled, and you do not specify a value for the
         /// <code>KmsKeyId</code> parameter, then Amazon RDS uses your default CMK. There is a
-        /// default CMK for your AWS account. Your AWS account has a different default CMK for
-        /// each AWS Region.</para>
+        /// default CMK for your Amazon Web Services account. Your Amazon Web Services account
+        /// has a different default CMK for each Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -497,10 +498,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier for encryption of Performance Insights data.</para><para>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the
-        /// AWS KMS customer master key (CMK).</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
-        /// RDS uses your default CMK. There is a default CMK for your AWS account. Your AWS account
-        /// has a different default CMK for each AWS Region.</para>
+        /// <para>The Amazon Web Services KMS key identifier for encryption of Performance Insights
+        /// data.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the Amazon Web Services KMS customer master key (CMK).</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
+        /// RDS uses your default CMK. There is a default CMK for your Amazon Web Services account.
+        /// Your Amazon Web Services account has a different default CMK for each Amazon Web Services
+        /// Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -534,8 +537,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The daily time range during which automated backups are created if automated backups
         /// are enabled, using the <code>BackupRetentionPeriod</code> parameter. The default is
-        /// a 30-minute window selected at random from an 8-hour block of time for each AWS Region.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup
+        /// a 30-minute window selected at random from an 8-hour block of time for each Amazon
+        /// Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup
         /// window</a> in the <i>Amazon RDS User Guide</i>. </para><para><b>Amazon Aurora</b></para><para>Not applicable. The daily time range for creating automated backups is managed by
         /// the DB cluster.</para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
@@ -550,7 +553,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The time range each week during which system maintenance can occur, in Universal Coordinated
         /// Time (UTC). For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance">Amazon
         /// RDS Maintenance Window</a>. </para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region, occurring on a random day of the week. </para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
+        /// for each Amazon Web Services Region, occurring on a random day of the week. </para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

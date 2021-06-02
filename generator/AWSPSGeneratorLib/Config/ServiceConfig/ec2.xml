@@ -153,6 +153,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateTrunkInterface" OutputProperty="InterfaceAssociation" Verb="Register" Noun="TrunkInterface" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateVpcCidrBlock" OutputProperty="*" Verb="Register" Noun="VpcCidrBlock" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1210,6 +1214,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrunkInterfaceAssociations" OutputProperty="InterfaceAssociations" Verb="Get" Noun="TrunkInterfaceAssociation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeVolumeAttribute" OutputProperty="*" Verb="Get" Noun="VolumeAttribute" PositionalParameters="Attribute" PipelineParameter="VolumeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1316,6 +1324,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableImageDeprecation" OutputProperty="Return" Verb="Disable" Noun="ImageDeprecation" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Disable" Noun="SerialConsoleAccess" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1368,6 +1380,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateTrunkInterface" OutputProperty="Return" Verb="Unregister" Noun="TrunkInterface" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateVpcCidrBlock" OutputProperty="*" Verb="Unregister" Noun="VpcCidrBlock" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1377,6 +1393,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableFastSnapshotRestores" OutputProperty="*" Verb="Enable" Noun="FastSnapshotRestore" ShouldProcessTarget="SourceSnapshotIds" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableImageDeprecation" OutputProperty="Return" Verb="Enable" Noun="ImageDeprecation" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -29,12 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
 {
     /// <summary>
     /// Returns information about a journal export job, including the ledger name, export
-    /// ID, when it was created, current status, and its start and end time export parameters.
+    /// ID, creation time, current status, and the parameters of the original export creation
+    /// request.
     /// 
     ///  
     /// <para>
     /// This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export
-    /// Job Expiration</a> in the <i>Amazon QLDB Developer Guide</i>.
+    /// job expiration</a> in the <i>Amazon QLDB Developer Guide</i>.
     /// </para><para>
     /// If the export job with the given <code>ExportId</code> doesn't exist, then throws
     /// <code>ResourceNotFoundException</code>.
@@ -55,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter ExportId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the journal export job that you want to describe.</para>
+        /// <para>The UUID (represented in Base62-encoded text) of the journal export job to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

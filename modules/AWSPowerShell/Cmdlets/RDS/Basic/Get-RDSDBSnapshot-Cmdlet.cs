@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to include manual DB cluster snapshots that are public
-        /// and can be copied or restored by any AWS account. By default, the public snapshots
-        /// are not included.</para><para>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a>
+        /// and can be copied or restored by any Amazon Web Services account. By default, the
+        /// public snapshots are not included.</para><para>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a>
         /// API.</para>
         /// </para>
         /// </summary>
@@ -104,9 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to include shared manual DB cluster snapshots from
-        /// other AWS accounts that this AWS account has been given permission to copy or restore.
-        /// By default, these snapshots are not included.</para><para>You can give an AWS account permission to restore a manual DB snapshot from another
-        /// AWS account by using the <code>ModifyDBSnapshotAttribute</code> API action.</para>
+        /// other Amazon Web Services accounts that this Amazon Web Services account has been
+        /// given permission to copy or restore. By default, these snapshots are not included.</para><para>You can give an Amazon Web Services account permission to restore a manual DB snapshot
+        /// from another Amazon Web Services account by using the <code>ModifyDBSnapshotAttribute</code>
+        /// API action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,8 +118,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The type of snapshots to be returned. You can specify one of the following values:</para><ul><li><para><code>automated</code> - Return all DB snapshots that have been automatically taken
-        /// by Amazon RDS for my AWS account.</para></li><li><para><code>manual</code> - Return all DB snapshots that have been taken by my AWS account.</para></li><li><para><code>shared</code> - Return all manual DB snapshots that have been shared to my
-        /// AWS account.</para></li><li><para><code>public</code> - Return all DB snapshots that have been marked as public.</para></li><li><para><code>awsbackup</code> - Return the DB snapshots managed by the AWS Backup service.</para><para>For information about AWS Backup, see the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html"><i>AWS Backup Developer Guide.</i></a></para><para>The <code>awsbackup</code> type does not apply to Aurora.</para></li></ul><para>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
+        /// by Amazon RDS for my Amazon Web Services account.</para></li><li><para><code>manual</code> - Return all DB snapshots that have been taken by my Amazon Web
+        /// Services account.</para></li><li><para><code>shared</code> - Return all manual DB snapshots that have been shared to my
+        /// Amazon Web Services account.</para></li><li><para><code>public</code> - Return all DB snapshots that have been marked as public.</para></li><li><para><code>awsbackup</code> - Return the DB snapshots managed by the Amazon Web Services
+        /// Backup service.</para><para>For information about Amazon Web Services Backup, see the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html"><i>Amazon Web Services Backup Developer Guide.</i></a></para><para>The <code>awsbackup</code> type does not apply to Aurora.</para></li></ul><para>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
         /// snapshots are returned. Shared and public DB snapshots are not included in the returned
         /// results by default. You can include shared snapshots with these results by enabling
         /// the <code>IncludeShared</code> parameter. You can include public snapshots with these

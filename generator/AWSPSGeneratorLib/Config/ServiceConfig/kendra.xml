@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetDocumentStatus" OutputProperty="*" Verb="Get" Noun="GetDocumentStatus" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchPutDocument" OutputProperty="FailedDocuments" Verb="Write" Noun="DocumentBatch" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

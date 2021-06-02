@@ -33,11 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// The following hook types are supported:
-    /// </para><ul><li><para>
-    /// autoscaling:EC2_INSTANCE_LAUNCHING
-    /// </para></li><li><para>
-    /// autoscaling:EC2_INSTANCE_TERMINATING
-    /// </para></li></ul>
+    /// </para><ul><li><para><code>autoscaling:EC2_INSTANCE_LAUNCHING</code></para></li><li><para><code>autoscaling:EC2_INSTANCE_TERMINATING</code></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "ASLifecycleHookType")]
     [OutputType("System.String")]

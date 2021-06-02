@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter StreamId
         /// <summary>
         /// <para>
-        /// <para>The unique ID that QLDB assigns to each QLDB journal stream.</para>
+        /// <para>The UUID (represented in Base62-encoded text) of the QLDB journal stream to be canceled.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

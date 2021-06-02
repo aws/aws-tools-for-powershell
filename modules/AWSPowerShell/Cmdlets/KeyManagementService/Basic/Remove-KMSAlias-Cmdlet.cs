@@ -30,8 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <summary>
     /// Deletes the specified alias. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// Adding, deleting, or updating an alias can allow or deny permission to the CMK. For
+    /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using
+    /// ABAC in AWS KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// </para></note><para>
     /// Because an alias is not a property of a CMK, you can delete and change the aliases
     /// of a CMK without affecting the CMK. Also, aliases do not appear in the response from
     /// the <a>DescribeKey</a> operation. To get the aliases of all CMKs, use the <a>ListAliases</a>

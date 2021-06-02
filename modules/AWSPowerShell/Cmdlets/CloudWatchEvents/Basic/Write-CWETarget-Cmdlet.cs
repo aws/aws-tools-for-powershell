@@ -36,44 +36,56 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// Targets are the resources that are invoked when a rule is triggered.
     /// </para><para>
     /// You can configure the following as targets for Events:
-    /// </para><ul><li><para>
-    /// EC2 instances
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html">API
+    /// destination</a></para></li><li><para>
+    /// Amazon API Gateway REST API endpoints
     /// </para></li><li><para>
-    /// SSM Run Command
+    /// API Gateway
     /// </para></li><li><para>
-    /// SSM Automation
+    /// AWS Batch job queue
     /// </para></li><li><para>
-    /// AWS Lambda functions
+    /// CloudWatch Logs group
     /// </para></li><li><para>
-    /// Data streams in Amazon Kinesis Data Streams
+    /// CodeBuild project
     /// </para></li><li><para>
-    /// Data delivery streams in Amazon Kinesis Data Firehose
+    /// CodePineline
+    /// </para></li><li><para>
+    /// Amazon EC2 <code>CreateSnapshot</code> API call
+    /// </para></li><li><para>
+    /// Amazon EC2 <code>RebootInstances</code> API call
+    /// </para></li><li><para>
+    /// Amazon EC2 <code>StopInstances</code> API call
+    /// </para></li><li><para>
+    /// Amazon EC2 <code>TerminateInstances</code> API call
     /// </para></li><li><para>
     /// Amazon ECS tasks
     /// </para></li><li><para>
-    /// AWS Step Functions state machines
+    /// Event bus in a different AWS account or Region.
+    /// </para><para>
+    /// You can use an event bus in the US East (N. Virginia) us-east-1, US West (Oregon)
+    /// us-west-2, or Europe (Ireland) eu-west-1 Regions as a target for a rule.
     /// </para></li><li><para>
-    /// AWS Batch jobs
+    /// Firehose delivery stream (Kinesis Data Firehose)
     /// </para></li><li><para>
-    /// AWS CodeBuild projects
+    /// Inspector assessment template (Amazon Inspector)
     /// </para></li><li><para>
-    /// Pipelines in AWS CodePipeline
+    /// Kinesis stream (Kinesis Data Stream)
     /// </para></li><li><para>
-    /// Amazon Inspector assessment templates
+    /// AWS Lambda function
     /// </para></li><li><para>
-    /// Amazon SNS topics
+    /// Redshift clusters (Data API statement execution)
     /// </para></li><li><para>
-    /// Amazon SQS queues, including FIFO queues
+    /// Amazon SNS topic
     /// </para></li><li><para>
-    /// The default event bus of another AWS account
+    /// Amazon SQS queues (includes FIFO queues
     /// </para></li><li><para>
-    /// Amazon API Gateway REST APIs
+    /// SSM Automation
     /// </para></li><li><para>
-    /// Redshift Clusters to invoke Data API ExecuteStatement on
+    /// SSM OpsItem
     /// </para></li><li><para>
-    /// Custom/SaaS HTTPS APIs via EventBridge API Destinations
+    /// SSM Run Command
     /// </para></li><li><para>
-    /// Amazon SageMaker Model Building Pipelines
+    /// Step Functions state machines
     /// </para></li></ul><para>
     /// Creating rules with built-in targets is supported only in the AWS Management Console.
     /// The built-in targets are <code>EC2 CreateSnapshot API call</code>, <code>EC2 RebootInstances

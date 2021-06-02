@@ -397,6 +397,7 @@ $CGIP_SelectMap = @{
                "Get-CGIPUsersInGroup",
                "Send-CGIPConfirmationCode",
                "Send-CGIPAuthChallengeResponse",
+               "Revoke-CGIPToken",
                "Set-CGIPRiskConfiguration",
                "Set-CGIPUICustomization",
                "Set-CGIPUserMFAPreference",

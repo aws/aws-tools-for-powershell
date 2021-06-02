@@ -90,7 +90,7 @@ $KNDR_Completers = {
         # Amazon.Kendra.DataSourceType
         "New-KNDRDataSource/Type"
         {
-            $v = "CONFLUENCE","CUSTOM","DATABASE","GOOGLEDRIVE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT"
+            $v = "CONFLUENCE","CUSTOM","DATABASE","GOOGLEDRIVE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT","WEBCRAWLER"
             break
         }
 
@@ -209,6 +209,7 @@ $KNDR_SelectCompleters = {
 
 $KNDR_SelectMap = @{
     "Select"=@("Remove-KNDRDocumentBatch",
+               "Get-KNDRGetDocumentStatus",
                "Write-KNDRDocumentBatch",
                "Clear-KNDRQuerySuggestion",
                "New-KNDRDataSource",

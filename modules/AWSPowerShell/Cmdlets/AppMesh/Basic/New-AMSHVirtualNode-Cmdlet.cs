@@ -53,13 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// when Envoy is referring to itself in metrics and traces. You can override this behavior
     /// by setting the <code>APPMESH_RESOURCE_CLUSTER</code> environment variable with your
     /// own name.
-    /// </para><para>
-    /// AWS Cloud Map is not available in the eu-south-1 Region.
     /// </para></note><para>
     /// For more information about virtual nodes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html">Virtual
     /// nodes</a>. You must be using <code>1.15.0</code> or later of the Envoy image when
-    /// setting these variables. For more information about App Mesh Envoy variables, see
-    /// <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html">Envoy image</a>
+    /// setting these variables. For more information aboutApp Mesh Envoy variables, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html">Envoy image</a>
     /// in the AWS App Mesh User Guide.
     /// </para>
     /// </summary>
@@ -210,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter AwsCloudMap_NamespaceName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS Cloud Map namespace to use.</para>
+        /// <para>The name of the Cloud Map namespace to use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,6 +254,18 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         public System.String File_PrivateKey { get; set; }
         #endregion
         
+        #region Parameter Dns_ResponseType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the DNS response type for the virtual node.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Spec_ServiceDiscovery_Dns_ResponseType")]
+        [AWSConstantClassSource("Amazon.AppMesh.DnsResponseType")]
+        public Amazon.AppMesh.DnsResponseType Dns_ResponseType { get; set; }
+        #endregion
+        
         #region Parameter Spec_BackendDefaults_ClientPolicy_Tls_Certificate_Sds_SecretName
         /// <summary>
         /// <para>
@@ -284,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter AwsCloudMap_ServiceName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS Cloud Map service to use.</para>
+        /// <para>The name of the Cloud Map service to use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -438,6 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             context.AwsCloudMap_NamespaceName = this.AwsCloudMap_NamespaceName;
             context.AwsCloudMap_ServiceName = this.AwsCloudMap_ServiceName;
             context.Dns_Hostname = this.Dns_Hostname;
+            context.Dns_ResponseType = this.Dns_ResponseType;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.AppMesh.Model.TagRef>(this.Tag);
@@ -861,6 +871,16 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns.Hostname = requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_Hostname;
                 requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_DnsIsNull = false;
             }
+            Amazon.AppMesh.DnsResponseType requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_ResponseType = null;
+            if (cmdletContext.Dns_ResponseType != null)
+            {
+                requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_ResponseType = cmdletContext.Dns_ResponseType;
+            }
+            if (requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_ResponseType != null)
+            {
+                requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns.ResponseType = requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_ResponseType;
+                requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_DnsIsNull = false;
+            }
              // determine if requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns should be set to null
             if (requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_DnsIsNull)
             {
@@ -1019,6 +1039,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public System.String AwsCloudMap_NamespaceName { get; set; }
             public System.String AwsCloudMap_ServiceName { get; set; }
             public System.String Dns_Hostname { get; set; }
+            public Amazon.AppMesh.DnsResponseType Dns_ResponseType { get; set; }
             public List<Amazon.AppMesh.Model.TagRef> Tag { get; set; }
             public System.String VirtualNodeName { get; set; }
             public System.Func<Amazon.AppMesh.Model.CreateVirtualNodeResponse, NewAMSHVirtualNodeCmdlet, object> Select { get; set; } =

@@ -136,6 +136,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.LexVersion
+        "Get-CONNBotList/LexVersion"
+        {
+            $v = "V1","V2"
+            break
+        }
+
         # Amazon.Connect.QueueStatus
         "Update-CONNQueueStatus/Status"
         {
@@ -196,6 +203,7 @@ $CONN_map = @{
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "IdentityManagementType"=@("New-CONNInstance")
     "IntegrationType"=@("New-CONNIntegrationAssociation")
+    "LexVersion"=@("Get-CONNBotList")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "SourceType"=@("New-CONNIntegrationAssociation")
@@ -259,6 +267,7 @@ $CONN_SelectCompleters = {
 
 $CONN_SelectMap = @{
     "Select"=@("Add-CONNApprovedOrigin",
+               "Add-CONNBot",
                "Add-CONNInstanceStorageConfig",
                "Add-CONNLambdaFunction",
                "Add-CONNLexBot",
@@ -292,6 +301,7 @@ $CONN_SelectMap = @{
                "Get-CONNUserHierarchyGroup",
                "Get-CONNUserHierarchyStructure",
                "Remove-CONNApprovedOrigin",
+               "Remove-CONNBot",
                "Remove-CONNInstanceStorageConfig",
                "Remove-CONNLambdaFunction",
                "Remove-CONNLexBot",
@@ -303,6 +313,7 @@ $CONN_SelectMap = @{
                "Get-CONNFederationToken",
                "Get-CONNMetricData",
                "Get-CONNApprovedOriginList",
+               "Get-CONNBotList",
                "Get-CONNContactFlowList",
                "Get-CONNHoursOfOperationList",
                "Get-CONNInstanceAttributeList",

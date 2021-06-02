@@ -50,29 +50,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String ArtifactsOverride_ArtifactIdentifier { get; set; }
         #endregion
         
-        #region Parameter ArtifactsOverride_BucketOwnerAccess
-        /// <summary>
-        /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.CodeBuild.BucketOwnerAccess")]
-        public Amazon.CodeBuild.BucketOwnerAccess ArtifactsOverride_BucketOwnerAccess { get; set; }
-        #endregion
-        
-        #region Parameter S3Logs_BucketOwnerAccess
-        /// <summary>
-        /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("LogsConfigOverride_S3Logs_BucketOwnerAccess")]
-        [AWSConstantClassSource("Amazon.CodeBuild.BucketOwnerAccess")]
-        public Amazon.CodeBuild.BucketOwnerAccess S3Logs_BucketOwnerAccess { get; set; }
-        #endregion
-        
         #region Parameter BuildspecOverride
         /// <summary>
         /// <para>
@@ -80,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// defined in the build project.</para><para> If this value is set, it can be either an inline buildspec definition, the path to
         /// an alternate buildspec file relative to the value of the built-in <code>CODEBUILD_SRC_DIR</code>
         /// environment variable, or the path to an S3 bucket. The bucket must be in the same
-        /// AWS Region as the build project. Specify the buildspec file using its ARN (for example,
+        /// Region as the build project. Specify the buildspec file using its ARN (for example,
         /// <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
         /// provided or is set to an empty string, the source code must contain a buildspec file
         /// in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec
@@ -132,9 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter RegistryCredentialOverride_Credential
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
+        /// <para> The Amazon Resource Name (ARN) or name of credentials created using Secrets Manager.
         /// </para><note><para> The <code>credential</code> can use the name of the credentials only if they exist
-        /// in your current AWS Region. </para></note>
+        /// in your current Region. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> The service that created the credentials to access a private Docker registry. The
-        /// valid value, SECRETS_MANAGER, is for AWS Secrets Manager. </para>
+        /// valid value, SECRETS_MANAGER, is for Secrets Manager. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter EncryptionKeyOverride
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides
-        /// the one specified in the build project. The CMK key encrypts the build output artifacts.</para><note><para> You can use a cross-account KMS key to encrypt the build output artifacts if your
+        /// <para>The Key Management Service customer master key (CMK) that overrides the one specified
+        /// in the build project. The CMK key encrypts the build output artifacts.</para><note><para> You can use a cross-account KMS key to encrypt the build output artifacts if your
         /// service role has permission to that key. </para></note><para>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available,
         /// the CMK's alias (using the format <code>alias/&lt;alias-name&gt;</code>).</para>
         /// </para>
@@ -227,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter GitSubmodulesConfigOverride_FetchSubmodule
         /// <summary>
         /// <para>
-        /// <para> Set to true to fetch Git submodules for your AWS CodeBuild build project. </para>
+        /// <para> Set to true to fetch Git submodules for your CodeBuild build project. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter CloudWatchLogs_GroupName
         /// <summary>
         /// <para>
-        /// <para> The group name of the logs in Amazon CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
+        /// <para> The group name of the logs in CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
         /// with Log Groups and Log Streams</a>. </para>
         /// </para>
         /// </summary>
@@ -264,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>A unique, case sensitive identifier you provide to ensure the idempotency of the StartBuild
         /// request. The token is included in the StartBuild request and is valid for 5 minutes.
         /// If you repeat the StartBuild request with the same token, but change a parameter,
-        /// AWS CodeBuild returns a parameter mismatch error. </para>
+        /// CodeBuild returns a parameter mismatch error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -285,10 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ImagePullCredentialsTypeOverride
         /// <summary>
         /// <para>
-        /// <para>The type of credentials AWS CodeBuild uses to pull images in your build. There are
-        /// two valid values: </para><dl><dt>CODEBUILD</dt><dd><para>Specifies that AWS CodeBuild uses its own credentials. This requires that you modify
-        /// your ECR repository policy to trust AWS CodeBuild's service principal.</para></dd><dt>SERVICE_ROLE</dt><dd><para>Specifies that AWS CodeBuild uses your build project's service role. </para></dd></dl><para>When using a cross-account or private registry image, you must use <code>SERVICE_ROLE</code>
-        /// credentials. When using an AWS CodeBuild curated image, you must use <code>CODEBUILD</code>
+        /// <para>The type of credentials CodeBuild uses to pull images in your build. There are two
+        /// valid values: </para><dl><dt>CODEBUILD</dt><dd><para>Specifies that CodeBuild uses its own credentials. This requires that you modify your
+        /// ECR repository policy to trust CodeBuild's service principal.</para></dd><dt>SERVICE_ROLE</dt><dd><para>Specifies that CodeBuild uses your build project's service role. </para></dd></dl><para>When using a cross-account or private registry image, you must use <code>SERVICE_ROLE</code>
+        /// credentials. When using an CodeBuild curated image, you must use <code>CODEBUILD</code>
         /// credentials. </para>
         /// </para>
         /// </summary>
@@ -313,9 +290,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ArtifactsOverride_Location
         /// <summary>
         /// <para>
-        /// <para>Information about the build output artifact location:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores
-        /// this value if specified. This is because AWS CodePipeline manages its build output
-        /// locations instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
+        /// <para>Information about the build output artifact location:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
+        /// value if specified. This is because CodePipeline manages its build output locations
+        /// instead of CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
         /// specified, because no build output is produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the name of the output bucket.</para></li></ul>
         /// </para>
         /// </summary>
@@ -375,10 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ArtifactsOverride_Name
         /// <summary>
         /// <para>
-        /// <para>Along with <code>path</code> and <code>namespaceType</code>, the pattern that AWS
-        /// CodeBuild uses to name and store the output artifact:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores
-        /// this value if specified. This is because AWS CodePipeline manages its build output
-        /// names instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
+        /// <para>Along with <code>path</code> and <code>namespaceType</code>, the pattern that CodeBuild
+        /// uses to name and store the output artifact:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
+        /// value if specified. This is because CodePipeline manages its build output names instead
+        /// of CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
         /// specified, because no build output is produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the name of the output artifact
         /// object. If you set the name to be a forward slash ("/"), the artifact is stored in
         /// the root of the output bucket.</para></li></ul><para>For example:</para><ul><li><para> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
@@ -398,10 +375,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ArtifactsOverride_NamespaceType
         /// <summary>
         /// <para>
-        /// <para>Along with <code>path</code> and <code>name</code>, the pattern that AWS CodeBuild
-        /// uses to determine the name and location to store the output artifact:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores
-        /// this value if specified. This is because AWS CodePipeline manages its build output
-        /// names instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
+        /// <para>Along with <code>path</code> and <code>name</code>, the pattern that CodeBuild uses
+        /// to determine the name and location to store the output artifact:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
+        /// value if specified. This is because CodePipeline manages its build output names instead
+        /// of CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
         /// specified, because no build output is produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, valid values include:</para><ul><li><para><code>BUILD_ID</code>: Include the build ID in the location of the build output artifact.</para></li><li><para><code>NONE</code>: Do not include the build ID. This is the default if <code>namespaceType</code>
         /// is not specified.</para></li></ul></li></ul><para>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
         /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>,
@@ -429,11 +406,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ArtifactsOverride_Packaging
         /// <summary>
         /// <para>
-        /// <para>The type of build output artifact to create:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores
-        /// this value if specified. This is because AWS CodePipeline manages its build output
-        /// artifacts instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
-        /// specified, because no build output is produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, valid values include:</para><ul><li><para><code>NONE</code>: AWS CodeBuild creates in the output bucket a folder that contains
-        /// the build output. This is the default if <code>packaging</code> is not specified.</para></li><li><para><code>ZIP</code>: AWS CodeBuild creates in the output bucket a ZIP file that contains
+        /// <para>The type of build output artifact to create:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
+        /// value if specified. This is because CodePipeline manages its build output artifacts
+        /// instead of CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
+        /// specified, because no build output is produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, valid values include:</para><ul><li><para><code>NONE</code>: CodeBuild creates in the output bucket a folder that contains
+        /// the build output. This is the default if <code>packaging</code> is not specified.</para></li><li><para><code>ZIP</code>: CodeBuild creates in the output bucket a ZIP file that contains
         /// the build output.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
@@ -445,10 +422,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ArtifactsOverride_Path
         /// <summary>
         /// <para>
-        /// <para>Along with <code>namespaceType</code> and <code>name</code>, the pattern that AWS
-        /// CodeBuild uses to name and store the output artifact:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores
-        /// this value if specified. This is because AWS CodePipeline manages its build output
-        /// names instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
+        /// <para>Along with <code>namespaceType</code> and <code>name</code>, the pattern that CodeBuild
+        /// uses to name and store the output artifact:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
+        /// value if specified. This is because CodePipeline manages its build output names instead
+        /// of CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
         /// specified, because no build output is produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the path to the output artifact.
         /// If <code>path</code> is not specified, <code>path</code> is not used.</para></li></ul><para>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
         /// is set to <code>NONE</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>,
@@ -472,7 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ProjectName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS CodeBuild build project to start running a build.</para>
+        /// <para>The name of the CodeBuild build project to start running a build.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -504,7 +481,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// or Bitbucket, an <code>invalidInputException</code> is thrown. </para><para>To be able to report the build status to the source provider, the user associated
         /// with the source provider must have write access to the repo. If the user does not
         /// have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source
-        /// provider access</a> in the <i>AWS CodeBuild User Guide</i>.</para><note><para> The status of a build triggered by a webhook is always reported to your source provider.
+        /// provider access</a> in the <i>CodeBuild User Guide</i>.</para><note><para> The status of a build triggered by a webhook is always reported to your source provider.
         /// </para></note>
         /// </para>
         /// </summary>
@@ -591,7 +568,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The version of the build input to be built, for this build only. If not specified,
-        /// the latest version is used. If specified, the contents depends on the source provider:</para><dl><dt>AWS CodeCommit</dt><dd><para>The commit ID, branch, or Git tag to use.</para></dd><dt>GitHub</dt><dd><para>The commit ID, pull request ID, branch name, or tag name that corresponds to the version
+        /// the latest version is used. If specified, the contents depends on the source provider:</para><dl><dt>CodeCommit</dt><dd><para>The commit ID, branch, or Git tag to use.</para></dd><dt>GitHub</dt><dd><para>The commit ID, pull request ID, branch name, or tag name that corresponds to the version
         /// of the source code you want to build. If a pull request ID is specified, it must use
         /// the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a
         /// branch name is specified, the branch's HEAD commit ID is used. If not specified, the
@@ -599,7 +576,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// code you want to build. If a branch name is specified, the branch's HEAD commit ID
         /// is used. If not specified, the default branch's HEAD commit ID is used.</para></dd><dt>Amazon S3</dt><dd><para>The version ID of the object that represents the build input ZIP file to use.</para></dd></dl><para>If <code>sourceVersion</code> is specified at the project level, then this <code>sourceVersion</code>
         /// (at the build level) takes precedence. </para><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source
-        /// Version Sample with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>. </para>
+        /// Version Sample with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -609,8 +586,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter CloudWatchLogs_Status
         /// <summary>
         /// <para>
-        /// <para>The current status of the logs in Amazon CloudWatch Logs for a build project. Valid
-        /// values are:</para><ul><li><para><code>ENABLED</code>: Amazon CloudWatch Logs are enabled for this build project.</para></li><li><para><code>DISABLED</code>: Amazon CloudWatch Logs are not enabled for this build project.</para></li></ul>
+        /// <para>The current status of the logs in CloudWatch Logs for a build project. Valid values
+        /// are:</para><ul><li><para><code>ENABLED</code>: CloudWatch Logs are enabled for this build project.</para></li><li><para><code>DISABLED</code>: CloudWatch Logs are not enabled for this build project.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -634,8 +611,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter CloudWatchLogs_StreamName
         /// <summary>
         /// <para>
-        /// <para> The prefix of the stream name of the Amazon CloudWatch Logs. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
+        /// <para> The prefix of the stream name of the CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
         /// with Log Groups and Log Streams</a>. </para>
         /// </para>
         /// </summary>
@@ -673,8 +649,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ArtifactsOverride_Type
         /// <summary>
         /// <para>
-        /// <para>The type of build output artifact. Valid values include:</para><ul><li><para><code>CODEPIPELINE</code>: The build project has build output generated through AWS
-        /// CodePipeline. </para><note><para>The <code>CODEPIPELINE</code> type is not supported for <code>secondaryArtifacts</code>.</para></note></li><li><para><code>NO_ARTIFACTS</code>: The build project does not produce any build output.</para></li><li><para><code>S3</code>: The build project stores build output in Amazon S3.</para></li></ul>
+        /// <para>The type of build output artifact. Valid values include:</para><ul><li><para><code>CODEPIPELINE</code>: The build project has build output generated through CodePipeline.
+        /// </para><note><para>The <code>CODEPIPELINE</code> type is not supported for <code>secondaryArtifacts</code>.</para></note></li><li><para><code>NO_ARTIFACTS</code>: The build project does not produce any build output.</para></li><li><para><code>S3</code>: The build project stores build output in Amazon S3.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -768,7 +744,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ArtifactsOverride_ArtifactIdentifier = this.ArtifactsOverride_ArtifactIdentifier;
-            context.ArtifactsOverride_BucketOwnerAccess = this.ArtifactsOverride_BucketOwnerAccess;
             context.ArtifactsOverride_EncryptionDisabled = this.ArtifactsOverride_EncryptionDisabled;
             context.ArtifactsOverride_Location = this.ArtifactsOverride_Location;
             context.ArtifactsOverride_Name = this.ArtifactsOverride_Name;
@@ -804,7 +779,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.CloudWatchLogs_GroupName = this.CloudWatchLogs_GroupName;
             context.CloudWatchLogs_Status = this.CloudWatchLogs_Status;
             context.CloudWatchLogs_StreamName = this.CloudWatchLogs_StreamName;
-            context.S3Logs_BucketOwnerAccess = this.S3Logs_BucketOwnerAccess;
             context.S3Logs_EncryptionDisabled = this.S3Logs_EncryptionDisabled;
             context.S3Logs_Location = this.S3Logs_Location;
             context.S3Logs_Status = this.S3Logs_Status;
@@ -867,16 +841,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestArtifactsOverride_artifactsOverride_ArtifactIdentifier != null)
             {
                 request.ArtifactsOverride.ArtifactIdentifier = requestArtifactsOverride_artifactsOverride_ArtifactIdentifier;
-                requestArtifactsOverrideIsNull = false;
-            }
-            Amazon.CodeBuild.BucketOwnerAccess requestArtifactsOverride_artifactsOverride_BucketOwnerAccess = null;
-            if (cmdletContext.ArtifactsOverride_BucketOwnerAccess != null)
-            {
-                requestArtifactsOverride_artifactsOverride_BucketOwnerAccess = cmdletContext.ArtifactsOverride_BucketOwnerAccess;
-            }
-            if (requestArtifactsOverride_artifactsOverride_BucketOwnerAccess != null)
-            {
-                request.ArtifactsOverride.BucketOwnerAccess = requestArtifactsOverride_artifactsOverride_BucketOwnerAccess;
                 requestArtifactsOverrideIsNull = false;
             }
             System.Boolean? requestArtifactsOverride_artifactsOverride_EncryptionDisabled = null;
@@ -1153,16 +1117,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate S3Logs
             var requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = true;
             requestLogsConfigOverride_logsConfigOverride_S3Logs = new Amazon.CodeBuild.Model.S3LogsConfig();
-            Amazon.CodeBuild.BucketOwnerAccess requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_BucketOwnerAccess = null;
-            if (cmdletContext.S3Logs_BucketOwnerAccess != null)
-            {
-                requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_BucketOwnerAccess = cmdletContext.S3Logs_BucketOwnerAccess;
-            }
-            if (requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_BucketOwnerAccess != null)
-            {
-                requestLogsConfigOverride_logsConfigOverride_S3Logs.BucketOwnerAccess = requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_BucketOwnerAccess;
-                requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = false;
-            }
             System.Boolean? requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_EncryptionDisabled = null;
             if (cmdletContext.S3Logs_EncryptionDisabled != null)
             {
@@ -1376,7 +1330,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ArtifactsOverride_ArtifactIdentifier { get; set; }
-            public Amazon.CodeBuild.BucketOwnerAccess ArtifactsOverride_BucketOwnerAccess { get; set; }
             public System.Boolean? ArtifactsOverride_EncryptionDisabled { get; set; }
             public System.String ArtifactsOverride_Location { get; set; }
             public System.String ArtifactsOverride_Name { get; set; }
@@ -1406,7 +1359,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String CloudWatchLogs_GroupName { get; set; }
             public Amazon.CodeBuild.LogsConfigStatusType CloudWatchLogs_Status { get; set; }
             public System.String CloudWatchLogs_StreamName { get; set; }
-            public Amazon.CodeBuild.BucketOwnerAccess S3Logs_BucketOwnerAccess { get; set; }
             public System.Boolean? S3Logs_EncryptionDisabled { get; set; }
             public System.String S3Logs_Location { get; set; }
             public Amazon.CodeBuild.LogsConfigStatusType S3Logs_Status { get; set; }

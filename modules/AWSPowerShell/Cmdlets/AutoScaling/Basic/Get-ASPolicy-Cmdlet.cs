@@ -28,7 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes the policies for the specified Auto Scaling group.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets information about the scaling policies in the account and Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASPolicy")]
     [OutputType("Amazon.AutoScaling.Model.ScalingPolicy")]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The names of one or more policies. If you omit this parameter, all policies are described.
-        /// If a group name is provided, the results are limited to that group. This list is limited
-        /// to 50 items. If you specify an unknown policy name, it is ignored with no error.</para>
+        /// If a group name is provided, the results are limited to that group. If you specify
+        /// an unknown policy name, it is ignored with no error.</para><para>Array Members: Maximum number of 50 items.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

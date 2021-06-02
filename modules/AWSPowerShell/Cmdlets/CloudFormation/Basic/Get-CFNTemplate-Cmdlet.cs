@@ -79,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// returns. To get the user-submitted template, specify <code>Original</code>. To get
         /// the template after AWS CloudFormation has processed all transforms, specify <code>Processed</code>.
         /// </para><para>If the template doesn't include transforms, <code>Original</code> and <code>Processed</code>
-        /// return the same template. By default, AWS CloudFormation specifies <code>Original</code>.
-        /// </para>
+        /// return the same template. By default, AWS CloudFormation specifies <code>Processed</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

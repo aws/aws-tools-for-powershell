@@ -56,8 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>A unique, case sensitive identifier you provide to ensure the idempotency of the <code>RetryBuildBatch</code>
         /// request. The token is included in the <code>RetryBuildBatch</code> request and is
         /// valid for five minutes. If you repeat the <code>RetryBuildBatch</code> request with
-        /// the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch
-        /// error.</para>
+        /// the same token, but change a parameter, CodeBuild returns a parameter mismatch error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,11 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// and <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single
     /// request. 
     /// 
-    ///  <note><para>
-    /// Changes to dynamic parameters are applied immediately. Changes to static parameters
-    /// require a reboot without failover to the DB instance associated with the parameter
-    /// group before the change can take effect.
-    /// </para></note><important><para>
+    ///  <important><para>
     /// After you modify a DB parameter group, you should wait at least 5 minutes before creating
     /// your first DB instance that uses that DB parameter group as the default parameter
     /// group. This allows Amazon RDS to fully complete the modify action before the parameter
@@ -79,11 +75,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>An array of parameter names, values, and the apply method for the parameter update.
-        /// At least one parameter name, value, and apply method must be supplied; later arguments
-        /// are optional. A maximum of 20 parameters can be modified in a single request.</para><para>Valid Values (for the application method): <code>immediate | pending-reboot</code></para><note><para>You can use the immediate value with dynamic parameters only. You can use the pending-reboot
-        /// value for both dynamic and static parameters, and changes are applied when you reboot
-        /// the DB instance without failover.</para></note>
+        /// <para>An array of parameter names, values, and the application methods for the parameter
+        /// update. At least one parameter name, value, and application method method must be
+        /// supplied; later arguments are optional. A maximum of 20 parameters can be modified
+        /// in a single request.</para><para>Valid Values (for the application method): <code>immediate | pending-reboot</code></para><note><para>You can use the <code>immediate</code> value with dynamic parameters only. You can
+        /// use the <code>pending-reboot</code> value for both dynamic and static parameters.</para><para>When the application method is <code>immediate</code>, changes to dynamic parameters
+        /// are applied immediately to the DB instances associated with the parameter group. When
+        /// the application method is <code>pending-reboot</code>, changes to dynamic and static
+        /// parameters are applied after a reboot without failover to the DB instances associated
+        /// with the parameter group.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The type of data source for the resource data sync. <code>SourceType</code> is either
         /// <code>AwsOrganizations</code> (if an organization is present in AWS Organizations)
-        /// or <code>singleAccountMultiRegions</code>.</para>
+        /// or <code>SingleAccountMultiRegions</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

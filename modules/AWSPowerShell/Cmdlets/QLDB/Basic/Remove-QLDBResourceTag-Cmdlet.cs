@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) from which you want to remove the tags. For example:</para><para><code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code></para>
+        /// <para>The Amazon Resource Name (ARN) from which to remove the tags. For example:</para><para><code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The list of tag keys that you want to remove.</para>
+        /// <para>The list of tag keys to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

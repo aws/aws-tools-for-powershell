@@ -310,8 +310,8 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter Offset
         /// <summary>
         /// <para>
-        /// <para>After an interval ends, the amount of time that the detector waits before importing
-        /// data.</para>
+        /// <para>After an interval ends, the amount of seconds that the detector waits before importing
+        /// data. Offset is only supported for S3 and Redshift datasources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

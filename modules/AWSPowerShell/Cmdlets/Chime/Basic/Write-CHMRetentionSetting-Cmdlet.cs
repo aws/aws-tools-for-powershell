@@ -32,14 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// using AWS CloudTrail to monitor usage of this API for your account. For more information,
     /// see <a href="https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html">Logging
     /// Amazon Chime API Calls with AWS CloudTrail</a> in the <i>Amazon Chime Administration
-    /// Guide</i> . 
+    /// Guide</i>.
     /// 
     ///  
     /// <para>
     ///  To turn off existing retention settings, remove the number of days from the corresponding
     /// <b>RetentionDays</b> field in the <b>RetentionSettings</b> object. For more information
     /// about retention settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing
-    /// Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i> . 
+    /// Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CHMRetentionSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

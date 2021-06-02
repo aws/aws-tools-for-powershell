@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Optional Boolean parameter that specifies whether the output includes information
-        /// about clusters shared from other AWS accounts.</para>
+        /// about clusters shared from other Amazon Web Services accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

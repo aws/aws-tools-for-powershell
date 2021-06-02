@@ -56,6 +56,16 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public System.String GrantArn { get; set; }
         #endregion
         
+        #region Parameter StatusReason
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StatusReason { get; set; }
+        #endregion
+        
         #region Parameter Version
         /// <summary>
         /// <para>
@@ -141,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                 WriteWarning("You are passing $null as a value for parameter GrantArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StatusReason = this.StatusReason;
             context.Version = this.Version;
             #if MODULAR
             if (this.Version == null && ParameterWasBound(nameof(this.Version)))
@@ -167,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (cmdletContext.GrantArn != null)
             {
                 request.GrantArn = cmdletContext.GrantArn;
+            }
+            if (cmdletContext.StatusReason != null)
+            {
+                request.StatusReason = cmdletContext.StatusReason;
             }
             if (cmdletContext.Version != null)
             {
@@ -234,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String GrantArn { get; set; }
+            public System.String StatusReason { get; set; }
             public System.String Version { get; set; }
             public System.Func<Amazon.LicenseManager.Model.DeleteGrantResponse, RemoveLICMGrantCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -66,6 +66,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public Amazon.CloudFormation.DeprecatedStatus DeprecatedStatus { get; set; }
         #endregion
         
+        #region Parameter PublisherId
+        /// <summary>
+        /// <para>
+        /// <para>The publisher ID of the extension publisher.</para><para>Extensions published by Amazon are not assigned a publisher ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PublisherId { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -180,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             context.DeprecatedStatus = this.DeprecatedStatus;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.PublisherId = this.PublisherId;
             context.Type = this.Type;
             context.TypeName = this.TypeName;
             
@@ -213,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.PublisherId != null)
+            {
+                request.PublisherId = cmdletContext.PublisherId;
             }
             if (cmdletContext.Type != null)
             {
@@ -311,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public Amazon.CloudFormation.DeprecatedStatus DeprecatedStatus { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String PublisherId { get; set; }
             public Amazon.CloudFormation.RegistryType Type { get; set; }
             public System.String TypeName { get; set; }
             public System.Func<Amazon.CloudFormation.Model.ListTypeVersionsResponse, GetCFNTypeVersionCmdlet, object> Select { get; set; } =

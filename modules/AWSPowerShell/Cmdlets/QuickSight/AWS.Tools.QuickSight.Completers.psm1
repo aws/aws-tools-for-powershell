@@ -137,6 +137,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.FolderType
+        "New-QSFolder/FolderType"
+        {
+            $v = "SHARED"
+            break
+        }
+
         # Amazon.QuickSight.IdentityStore
         "New-QSNamespace/IdentityStore"
         {
@@ -148,6 +155,16 @@ $QS_Completers = {
         "Register-QSUser/IdentityType"
         {
             $v = "IAM","QUICKSIGHT"
+            break
+        }
+
+        # Amazon.QuickSight.MemberType
+        {
+            ($_ -eq "New-QSFolderMembership/MemberType") -Or
+            ($_ -eq "Remove-QSFolderMembership/MemberType")
+        }
+        {
+            $v = "ANALYSIS","DASHBOARD","DATASET"
             break
         }
 
@@ -201,9 +218,11 @@ $QS_map = @{
     "DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_SheetControlsOption_VisibilityState"=@("New-QSDashboard","Update-QSDashboard")
+    "FolderType"=@("New-QSFolder")
     "IdentityStore"=@("New-QSNamespace")
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
     "ImportMode"=@("New-QSDataSet","Update-QSDataSet")
+    "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
     "Role"=@("Update-QSUser")
     "RowLevelPermissionDataSet_FormatVersion"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
@@ -267,6 +286,8 @@ $QS_SelectMap = @{
                "New-QSDashboard",
                "New-QSDataSet",
                "New-QSDataSource",
+               "New-QSFolder",
+               "New-QSFolderMembership",
                "New-QSGroup",
                "New-QSGroupMembership",
                "New-QSIAMPolicyAssignment",
@@ -281,6 +302,8 @@ $QS_SelectMap = @{
                "Remove-QSDashboard",
                "Remove-QSDataSet",
                "Remove-QSDataSource",
+               "Remove-QSFolder",
+               "Remove-QSFolderMembership",
                "Remove-QSGroup",
                "Remove-QSGroupMembership",
                "Remove-QSIAMPolicyAssignment",
@@ -301,6 +324,9 @@ $QS_SelectMap = @{
                "Get-QSDataSetPermission",
                "Get-QSDataSource",
                "Get-QSDataSourcePermission",
+               "Get-QSFolder",
+               "Get-QSFolderPermission",
+               "Get-QSFolderResolvedPermission",
                "Get-QSGroup",
                "Get-QSIAMPolicyAssignment",
                "Get-QSIngestion",
@@ -319,6 +345,8 @@ $QS_SelectMap = @{
                "Get-QSDashboardVersionList",
                "Get-QSDataSetList",
                "Get-QSDataSourceList",
+               "Get-QSFolderMemberList",
+               "Get-QSFolderList",
                "Get-QSGroupMembershipList",
                "Get-QSGroupList",
                "Get-QSIAMPolicyAssignmentList",
@@ -338,6 +366,7 @@ $QS_SelectMap = @{
                "Restore-QSAnalysis",
                "Search-QSAnalysis",
                "Search-QSDashboard",
+               "Search-QSFolder",
                "Add-QSResourceTag",
                "Remove-QSResourceTag",
                "Update-QSAccountCustomization",
@@ -351,6 +380,8 @@ $QS_SelectMap = @{
                "Update-QSDataSetPermission",
                "Update-QSDataSource",
                "Update-QSDataSourcePermission",
+               "Update-QSFolder",
+               "Update-QSFolderPermission",
                "Update-QSGroup",
                "Update-QSIAMPolicyAssignment",
                "Update-QSTemplate",

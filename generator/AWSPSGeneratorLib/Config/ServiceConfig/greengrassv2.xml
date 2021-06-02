@@ -19,6 +19,14 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchAssociateClientDeviceWithCoreDevice" OutputProperty="ErrorEntries" Verb="Add" Noun="BatchClientDeviceWithCoreDevice" ShouldProcessTarget="CoreDeviceThingName" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDisassociateClientDeviceFromCoreDevice" OutputProperty="ErrorEntries" Verb="Remove" Noun="BatchClientDeviceFromCoreDevice" ShouldProcessTarget="CoreDeviceThingName" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelDeployment" OutputProperty="Message" Verb="Stop" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="DeploymentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -56,6 +64,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDeployment" OutputProperty="*" Verb="Get" Noun="Deployment" PipelineParameter="DeploymentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClientDevicesAssociatedWithCoreDevice" OutputProperty="AssociatedClientDevices" Verb="Get" Noun="ClientDevicesAssociatedWithCoreDeviceList" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

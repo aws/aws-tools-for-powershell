@@ -28,14 +28,9 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Updates the name and description of a quick connect. The request accepts the following
     /// data in JSON format. At least <code>Name</code> or <code>Description</code> must be
     /// provided.
-    /// </para>
     /// </summary>
     [Cmdlet("Update", "CONNQuickConnectName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -60,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

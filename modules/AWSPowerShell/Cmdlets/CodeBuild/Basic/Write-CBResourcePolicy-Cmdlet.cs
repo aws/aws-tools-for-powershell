@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> A JSON-formatted resource policy. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share">Sharing
         /// a Project</a> and <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share">Sharing
-        /// a Report Group</a> in the <i>AWS CodeBuild User Guide</i>. </para>
+        /// a Report Group</a> in the <i>CodeBuild User Guide</i>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

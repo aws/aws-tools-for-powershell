@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// 
     ///  
     /// <para>
-    /// You can access information about all traffic that AWS WAF inspects using the following
+    /// You can access information about all traffic that WAF inspects using the following
     /// steps:
     /// </para><ol><li><para>
     /// Create an Amazon Kinesis Data Firehose. 
@@ -51,10 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// request.
     /// </para></li></ol><para>
     /// When you successfully enable logging using a <code>PutLoggingConfiguration</code>
-    /// request, AWS WAF will create a service linked role with the necessary permissions
-    /// to write logs to the Amazon Kinesis Data Firehose. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
-    /// Web ACL Traffic Information</a> in the <i>AWS WAF Developer Guide</i>.
-    /// </para>
+    /// request, WAF will create a service linked role with the necessary permissions to write
+    /// logs to the Amazon Kinesis Data Firehose. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
+    /// Web ACL Traffic Information</a> in the <i>WAF Developer Guide</i>.
+    /// </para><note><para>
+    /// This operation completely replaces the mutable specifications that you already have
+    /// for the logging configuration with the ones that you provide to this call. To modify
+    /// the logging configuration, retrieve it by calling <a>GetLoggingConfiguration</a>,
+    /// update the settings as needed, and then provide the complete logging configuration
+    /// specification to this call.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Write", "WAF2LoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WAFV2.Model.LoggingConfiguration")]
@@ -112,9 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter LoggingConfiguration_ManagedByFirewallManager
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the logging configuration was created by AWS Firewall Manager, as
-        /// part of an AWS WAF policy configuration. If true, only Firewall Manager can modify
-        /// or delete the configuration. </para>
+        /// <para>Indicates whether the logging configuration was created by Firewall Manager, as part
+        /// of an WAF policy configuration. If true, only Firewall Manager can modify or delete
+        /// the configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

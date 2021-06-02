@@ -54,10 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Include
         /// <summary>
         /// <para>
-        /// <para>Whether to include additional information about your clusters in the response. If
-        /// this field is omitted, the attachments, statistics, and tags are not included.</para><para>If <code>ATTACHMENTS</code> is specified, the attachments for the container instances
-        /// or tasks within the cluster are included.</para><para>If <code>SETTINGS</code> is specified, the settings for the cluster are included.</para><para>If <code>STATISTICS</code> is specified, the following additional information, separated
-        /// by launch type, is included:</para><ul><li><para>runningEC2TasksCount</para></li><li><para>runningFargateTasksCount</para></li><li><para>pendingEC2TasksCount</para></li><li><para>pendingFargateTasksCount</para></li><li><para>activeEC2ServiceCount</para></li><li><para>activeFargateServiceCount</para></li><li><para>drainingEC2ServiceCount</para></li><li><para>drainingFargateServiceCount</para></li></ul><para>If <code>TAGS</code> is specified, the metadata tags associated with the cluster are
+        /// <para>Whether to include additional information about the clusters in the response. If this
+        /// field is omitted, this information isn't included.</para><para>If <code>ATTACHMENTS</code> is specified, the attachments for the container instances
+        /// or tasks within the cluster are included.</para><para>If <code>SETTINGS</code> is specified, the settings for the cluster are included.</para><para>If <code>STATISTICS</code> is specified, the task and service count is included, separated
+        /// by launch type.</para><para>If <code>TAGS</code> is specified, the metadata tags associated with the cluster are
         /// included.</para>
         /// </para>
         /// </summary>

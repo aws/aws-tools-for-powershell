@@ -28,7 +28,7 @@ using Amazon.Cloud9.Model;
 namespace Amazon.PowerShell.Cmdlets.C9
 {
     /// <summary>
-    /// Gets a list of the tags associated with an AWS Cloud9 development environment.
+    /// Gets a list of the tags associated with an Cloud9 development environment.
     /// </summary>
     [Cmdlet("Get", "C9ResourceTag")]
     [OutputType("Amazon.Cloud9.Model.Tag")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.C9
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to get the
-        /// tags for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Cloud9 development environment to get the tags
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

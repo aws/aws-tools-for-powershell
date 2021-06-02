@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </para></li><li><para>
     /// If your event selector includes management events.
     /// </para></li><li><para>
-    /// If your event selector includes data events, the Amazon S3 objects or AWS Lambda functions
-    /// that you are logging for data events.
+    /// If your event selector includes data events, the resources on which you are logging
+    /// data events.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging
     /// Data and Management Events for Trails </a> in the <i>AWS CloudTrail User Guide</i>.

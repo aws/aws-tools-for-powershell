@@ -28,7 +28,7 @@ using Amazon.Cloud9.Model;
 namespace Amazon.PowerShell.Cmdlets.C9
 {
     /// <summary>
-    /// Removes tags from an AWS Cloud9 development environment.
+    /// Removes tags from an Cloud9 development environment.
     /// </summary>
     [Cmdlet("Remove", "C9ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.C9
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to remove
-        /// tags from.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Cloud9 development environment to remove tags
+        /// from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The tag names of the tags to remove from the given AWS Cloud9 development environment.</para>
+        /// <para>The tag names of the tags to remove from the given Cloud9 development environment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
