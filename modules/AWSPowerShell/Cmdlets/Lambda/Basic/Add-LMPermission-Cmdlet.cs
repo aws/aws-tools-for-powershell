@@ -28,20 +28,21 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Grants an AWS service or another account permission to use a function. You can apply
-    /// the policy at the function level, or specify a qualifier to restrict access to a single
-    /// version or alias. If you use a qualifier, the invoker must use the full Amazon Resource
-    /// Name (ARN) of that version or alias to invoke the function.
+    /// Grants an Amazon Web Services service or another account permission to use a function.
+    /// You can apply the policy at the function level, or specify a qualifier to restrict
+    /// access to a single version or alias. If you use a qualifier, the invoker must use
+    /// the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
+    /// Note: Lambda does not support adding policies to version $LATEST.
     /// 
     ///  
     /// <para>
     /// To grant permission to another account, specify the account ID as the <code>Principal</code>.
-    /// For AWS services, the principal is a domain-style identifier defined by the service,
-    /// like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For AWS services,
-    /// you can also specify the ARN of the associated resource as the <code>SourceArn</code>.
-    /// If you grant permission to a service principal without specifying the source, other
-    /// accounts could potentially configure resources in their account to invoke your Lambda
-    /// function.
+    /// For Amazon Web Services services, the principal is a domain-style identifier defined
+    /// by the service, like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>.
+    /// For Amazon Web Services services, you can also specify the ARN of the associated resource
+    /// as the <code>SourceArn</code>. If you grant permission to a service principal without
+    /// specifying the source, other accounts could potentially configure resources in their
+    /// account to invoke your Lambda function.
     /// </para><para>
     /// This action adds a statement to a resource-based permissions policy for the function.
     /// For more information about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda
@@ -106,9 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The AWS service or account that invokes the function. If you specify a service, use
-        /// <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function
-        /// through that service.</para>
+        /// <para>The Amazon Web Services service or account that invokes the function. If you specify
+        /// a service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can
+        /// invoke the function through that service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -159,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter SourceArn
         /// <summary>
         /// <para>
-        /// <para>For AWS services, the ARN of the AWS resource that invokes the function. For example,
-        /// an Amazon S3 bucket or Amazon SNS topic.</para>
+        /// <para>For Amazon Web Services services, the ARN of the Amazon Web Services resource that
+        /// invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.</para><para>Note that Lambda configures the comparison using the <code>StringLike</code> operator.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

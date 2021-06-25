@@ -28,7 +28,7 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Updates the password policy settings for the AWS account.
+    /// Updates the password policy settings for the Amazon Web Services account.
     /// 
     ///  <note><ul><li><para>
     /// This operation does not support partial updates. No parameters are required, but if
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter AllowUsersToChangePassword
         /// <summary>
         /// <para>
-        /// <para> Allows all IAM users in your account to use the AWS Management Console to change
-        /// their own passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html">Letting
+        /// <para> Allows all IAM users in your account to use the Amazon Web Services Management Console
+        /// to change their own passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html">Letting
         /// IAM users change their own passwords</a> in the <i>IAM User Guide</i>.</para><para>If you do not specify a value for this parameter, then the operation uses the default
         /// value of <code>false</code>. The result is that IAM users in the account do not automatically
         /// have permissions to change their own password.</para>

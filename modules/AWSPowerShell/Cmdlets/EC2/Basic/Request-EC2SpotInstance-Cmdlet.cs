@@ -127,12 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BlockDurationMinute
         /// <summary>
         /// <para>
-        /// <para>The required duration for the Spot Instances (also known as Spot blocks), in minutes.
-        /// This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</para><para>The duration period starts as soon as your Spot Instance receives its instance ID.
-        /// At the end of the duration period, Amazon EC2 marks the Spot Instance for termination
-        /// and provides a Spot Instance termination notice, which gives the instance a two-minute
-        /// warning before it terminates.</para><para>You can't specify an Availability Zone group or a launch group if you specify a duration.</para><para>New accounts or accounts with no previous billing history with AWS are not eligible
-        /// for Spot Instances with a defined duration (also known as Spot blocks).</para>
+        /// <para>Deprecated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

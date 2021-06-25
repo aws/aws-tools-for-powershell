@@ -28,7 +28,7 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Return a full description of an AWS App Runner service.
+    /// Return a full description of an App Runner service.
     /// </summary>
     [Cmdlet("Get", "AARService")]
     [OutputType("Amazon.AppRunner.Model.Service")]

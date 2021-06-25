@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
 {
     /// <summary>
     /// Returns an array of journal export job descriptions for all ledgers that are associated
-    /// with the current AWS account and Region.
+    /// with the current account and Region.
     /// 
     ///  
     /// <para>

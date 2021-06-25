@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance whose patch state information should be retrieved.</para>
+        /// <para>The ID of the instance for which patch state information should be retrieved.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,13 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Gets information about a Device Defender detect custom metric.
+    /// Gets information about a Device Defender detect custom metric. 
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCustomMetric</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTCustomMetric")]
     [OutputType("Amazon.IoT.Model.DescribeCustomMetricResponse")]

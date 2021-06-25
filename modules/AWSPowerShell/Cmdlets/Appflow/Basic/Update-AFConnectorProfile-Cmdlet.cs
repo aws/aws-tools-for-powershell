@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para> The name of the connector profile and is unique for each <code>ConnectorProfile</code>
-        /// in the AWS Account. </para>
+        /// in the Amazon Web Services account. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

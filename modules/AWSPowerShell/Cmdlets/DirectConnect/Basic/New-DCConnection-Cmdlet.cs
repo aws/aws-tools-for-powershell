@@ -28,21 +28,20 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Creates a connection between a customer network and a specific AWS Direct Connect
-    /// location.
+    /// Creates a connection between a customer network and a specific Direct Connect location.
     /// 
     ///  
     /// <para>
-    /// A connection links your internal network to an AWS Direct Connect location over a
-    /// standard Ethernet fiber-optic cable. One end of the cable is connected to your router,
-    /// the other to an AWS Direct Connect router.
+    /// A connection links your internal network to an Direct Connect location over a standard
+    /// Ethernet fiber-optic cable. One end of the cable is connected to your router, the
+    /// other to an Direct Connect router.
     /// </para><para>
     /// To find the locations for your Region, use <a>DescribeLocations</a>.
     /// </para><para>
     /// You can automatically add the new connection to a link aggregation group (LAG) by
     /// specifying a LAG ID in the request. This ensures that the new connection is allocated
-    /// on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are
-    /// no available ports on the endpoint, the request fails and no connection is created.
+    /// on the same Direct Connect endpoint that hosts the specified LAG. If there are no
+    /// available ports on the endpoint, the request fails and no connection is created.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -130,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <para>
         /// <para>Indicates whether you want the connection to support MAC Security (MACsec).</para><para>MAC Security (MACsec) is only available on dedicated connections. For information
         /// about MAC Security (MACsec) prerequisties, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites">MACsec
-        /// prerequisties</a> in the <i>AWS Direct Connect User Guide</i>.</para>
+        /// prerequisties</a> in the <i>Direct Connect User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

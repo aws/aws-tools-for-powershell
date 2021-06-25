@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Deregisters an account in AWS Audit Manager.
+    /// Deregisters an account in Audit Manager.
     /// </summary>
     [Cmdlet("Unregister", "AUDMAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.AccountStatus")]

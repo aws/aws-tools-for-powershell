@@ -28,8 +28,8 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Remove log-level override if any for a specific resource-ID and resource-type, could
-    /// be a wireless device or a wireless gateway.
+    /// Removes the log-level override, if any, for a specific resource-ID and resource-type.
+    /// It can be used for a wireless device or a wireless gateway.
     /// </summary>
     [Cmdlet("Reset", "IOTWResourceLogLevel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the resource, currently support WirelessDevice and WirelessGateway.</para>
+        /// <para>The type of the resource, which can be <code>WirelessDevice</code> or <code>WirelessGateway</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

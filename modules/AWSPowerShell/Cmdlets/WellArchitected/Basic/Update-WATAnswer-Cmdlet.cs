@@ -39,6 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public partial class UpdateWATAnswerCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {
         
+        #region Parameter ChoiceUpdate
+        /// <summary>
+        /// <para>
+        /// <para>A list of choices to update on a question in your workload. The String key corresponds
+        /// to the choice ID to be updated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChoiceUpdates")]
+        public System.Collections.Hashtable ChoiceUpdate { get; set; }
+        #endregion
+        
         #region Parameter IsApplicable
         /// <summary>
         /// <para>
@@ -92,6 +104,17 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String QuestionId { get; set; }
+        #endregion
+        
+        #region Parameter Reason
+        /// <summary>
+        /// <para>
+        /// <para>The reason why a question is not applicable to your workload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WellArchitected.AnswerReason")]
+        public Amazon.WellArchitected.AnswerReason Reason { get; set; }
         #endregion
         
         #region Parameter SelectedChoice
@@ -183,6 +206,14 @@ namespace Amazon.PowerShell.Cmdlets.WAT
                 context.Select = (response, cmdlet) => this.WorkloadId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.ChoiceUpdate != null)
+            {
+                context.ChoiceUpdate = new Dictionary<System.String, Amazon.WellArchitected.Model.ChoiceUpdate>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ChoiceUpdate.Keys)
+                {
+                    context.ChoiceUpdate.Add((String)hashKey, (ChoiceUpdate)(this.ChoiceUpdate[hashKey]));
+                }
+            }
             context.IsApplicable = this.IsApplicable;
             context.LensAlias = this.LensAlias;
             #if MODULAR
@@ -199,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
                 WriteWarning("You are passing $null as a value for parameter QuestionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Reason = this.Reason;
             if (this.SelectedChoice != null)
             {
                 context.SelectedChoice = new List<System.String>(this.SelectedChoice);
@@ -226,6 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             // create request
             var request = new Amazon.WellArchitected.Model.UpdateAnswerRequest();
             
+            if (cmdletContext.ChoiceUpdate != null)
+            {
+                request.ChoiceUpdates = cmdletContext.ChoiceUpdate;
+            }
             if (cmdletContext.IsApplicable != null)
             {
                 request.IsApplicable = cmdletContext.IsApplicable.Value;
@@ -241,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             if (cmdletContext.QuestionId != null)
             {
                 request.QuestionId = cmdletContext.QuestionId;
+            }
+            if (cmdletContext.Reason != null)
+            {
+                request.Reason = cmdletContext.Reason;
             }
             if (cmdletContext.SelectedChoice != null)
             {
@@ -311,10 +351,12 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, Amazon.WellArchitected.Model.ChoiceUpdate> ChoiceUpdate { get; set; }
             public System.Boolean? IsApplicable { get; set; }
             public System.String LensAlias { get; set; }
             public System.String Note { get; set; }
             public System.String QuestionId { get; set; }
+            public Amazon.WellArchitected.AnswerReason Reason { get; set; }
             public List<System.String> SelectedChoice { get; set; }
             public System.String WorkloadId { get; set; }
             public System.Func<Amazon.WellArchitected.Model.UpdateAnswerResponse, UpdateWATAnswerCmdlet, object> Select { get; set; } =

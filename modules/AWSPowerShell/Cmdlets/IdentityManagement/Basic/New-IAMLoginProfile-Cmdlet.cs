@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Creates a password for the specified IAM user. A password allows an IAM user to access
-    /// AWS services through the AWS Management Console.
+    /// Amazon Web Services services through the Amazon Web Services Management Console.
     /// 
     ///  
     /// <para>
-    /// You can use the AWS CLI, the AWS API, or the <b>Users</b> page in the IAM console
-    /// to create a password for any IAM user. Use <a>ChangePassword</a> to update your own
-    /// existing password in the <b>My Security Credentials</b> page in the AWS Management
-    /// Console.
+    /// You can use the CLI, the Amazon Web Services API, or the <b>Users</b> page in the
+    /// IAM console to create a password for any IAM user. Use <a>ChangePassword</a> to update
+    /// your own existing password in the <b>My Security Credentials</b> page in the Amazon
+    /// Web Services Management Console.
     /// </para><para>
     /// For more information about managing passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
     /// passwords</a> in the <i>IAM User Guide</i>.
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// character range (<code>\u00FF</code>). You can also include the tab (<code>\u0009</code>),
         /// line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) characters.
         /// Any of these characters are valid in a password. However, many tools, such as the
-        /// AWS Management Console, might restrict the ability to type certain characters because
-        /// they have special meaning within that tool.</para>
+        /// Amazon Web Services Management Console, might restrict the ability to type certain
+        /// characters because they have special meaning within that tool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

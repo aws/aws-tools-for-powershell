@@ -104,10 +104,13 @@ $WAF2_Completers = {
         # Amazon.WAFV2.Scope
         {
             ($_ -eq "Get-WAF2AvailableManagedRuleGroupList/Scope") -Or
+            ($_ -eq "Get-WAF2AvailableManagedRuleGroupVersionList/Scope") -Or
             ($_ -eq "Get-WAF2IPSet/Scope") -Or
             ($_ -eq "Get-WAF2IPSetList/Scope") -Or
             ($_ -eq "Get-WAF2LoggingConfigurationList/Scope") -Or
             ($_ -eq "Get-WAF2ManagedRuleGroup/Scope") -Or
+            ($_ -eq "Get-WAF2ManagedRuleSet/Scope") -Or
+            ($_ -eq "Get-WAF2ManagedRuleSetList/Scope") -Or
             ($_ -eq "Get-WAF2RateBasedStatementManagedKey/Scope") -Or
             ($_ -eq "Get-WAF2RegexPatternSet/Scope") -Or
             ($_ -eq "Get-WAF2RegexPatternSetList/Scope") -Or
@@ -126,9 +129,11 @@ $WAF2_Completers = {
             ($_ -eq "Remove-WAF2WebACL/Scope") -Or
             ($_ -eq "Test-WAF2Capacity/Scope") -Or
             ($_ -eq "Update-WAF2IPSet/Scope") -Or
+            ($_ -eq "Update-WAF2ManagedRuleSetVersionExpiryDate/Scope") -Or
             ($_ -eq "Update-WAF2RegexPatternSet/Scope") -Or
             ($_ -eq "Update-WAF2RuleGroup/Scope") -Or
-            ($_ -eq "Update-WAF2WebACL/Scope")
+            ($_ -eq "Update-WAF2WebACL/Scope") -Or
+            ($_ -eq "Write-WAF2ManagedRuleSetVersion/Scope")
         }
         {
             $v = "CLOUDFRONT","REGIONAL"
@@ -147,7 +152,7 @@ $WAF2_map = @{
     "IPAddressVersion"=@("New-WAF2IPSet")
     "LoggingConfiguration_LoggingFilter_DefaultBehavior"=@("Write-WAF2LoggingConfiguration")
     "ResourceType"=@("Get-WAF2ResourcesForWebACLList")
-    "Scope"=@("Get-WAF2AvailableManagedRuleGroupList","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedRuleGroup","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL")
+    "Scope"=@("Get-WAF2AvailableManagedRuleGroupList","Get-WAF2AvailableManagedRuleGroupVersionList","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedRuleGroup","Get-WAF2ManagedRuleSet","Get-WAF2ManagedRuleSetList","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2ManagedRuleSetVersionExpiryDate","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL","Write-WAF2ManagedRuleSetVersion")
 }
 
 _awsArgumentCompleterRegistration $WAF2_Completers $WAF2_map
@@ -217,6 +222,7 @@ $WAF2_SelectMap = @{
                "Remove-WAF2WebACLFromResource",
                "Get-WAF2IPSet",
                "Get-WAF2LoggingConfiguration",
+               "Get-WAF2ManagedRuleSet",
                "Get-WAF2PermissionPolicy",
                "Get-WAF2RateBasedStatementManagedKey",
                "Get-WAF2RegexPatternSet",
@@ -225,18 +231,22 @@ $WAF2_SelectMap = @{
                "Get-WAF2WebACL",
                "Get-WAF2WebACLForResource",
                "Get-WAF2AvailableManagedRuleGroupList",
+               "Get-WAF2AvailableManagedRuleGroupVersionList",
                "Get-WAF2IPSetList",
                "Get-WAF2LoggingConfigurationList",
+               "Get-WAF2ManagedRuleSetList",
                "Get-WAF2RegexPatternSetList",
                "Get-WAF2ResourcesForWebACLList",
                "Get-WAF2RuleGroupList",
                "Get-WAF2ResourceTag",
                "Get-WAF2WebACLsList",
                "Write-WAF2LoggingConfiguration",
+               "Write-WAF2ManagedRuleSetVersion",
                "Write-WAF2PermissionPolicy",
                "Add-WAF2ResourceTag",
                "Remove-WAF2ResourceTag",
                "Update-WAF2IPSet",
+               "Update-WAF2ManagedRuleSetVersionExpiryDate",
                "Update-WAF2RegexPatternSet",
                "Update-WAF2RuleGroup",
                "Update-WAF2WebACL")

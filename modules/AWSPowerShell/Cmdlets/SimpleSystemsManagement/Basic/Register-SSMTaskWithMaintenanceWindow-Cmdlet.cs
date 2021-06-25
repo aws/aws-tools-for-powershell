@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter CloudWatchOutputConfig_CloudWatchLogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the CloudWatch log group where you want to send command output. If you
-        /// don't specify a group name, Systems Manager automatically creates a log group for
-        /// you. The log group uses the following naming format: aws/ssm/<i>SystemsManagerDocumentName</i>.</para>
+        /// <para>The name of the CloudWatch Logs log group where you want to send command output. If
+        /// you don't specify a group name, Amazon Web Services Systems Manager automatically
+        /// creates a log group for you. The log group uses the following naming format:</para><para><code>aws/ssm/<i>SystemsManagerDocumentName</i></code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,6 +86,23 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TaskInvocationParameters_RunCommand_Comment")]
         public System.String RunCommand_Comment { get; set; }
+        #endregion
+        
+        #region Parameter CutoffBehavior
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether tasks should continue to run after the cutoff time specified in
+        /// the maintenance windows is reached. </para><ul><li><para><code>CONTINUE_TASK</code>: When the cutoff time is reached, any tasks that are running
+        /// continue. The default value.</para></li><li><para><code>CANCEL_TASK</code>:</para><ul><li><para>For Automation, Lambda, Step Functions tasks: When the cutoff time is reached, any
+        /// task invocations that are already running continue, but no new task invocations are
+        /// started.</para></li><li><para>For Run Command tasks: When the cutoff time is reached, the system sends a <a>CancelCommand</a>
+        /// operation that attempts to cancel the command associated with the task. However, there
+        /// is no guarantee that the command will be terminated and the underlying process stopped.</para></li></ul><para>The status for tasks that are not completed is <code>TIMED_OUT</code>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.MaintenanceWindowTaskCutoffBehavior")]
+        public Amazon.SimpleSystemsManagement.MaintenanceWindowTaskCutoffBehavior CutoffBehavior { get; set; }
         #endregion
         
         #region Parameter Description
@@ -125,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Automation_DocumentVersion
         /// <summary>
         /// <para>
-        /// <para>The version of an Automation document to use during task execution.</para>
+        /// <para>The version of an Automation runbook to use during task execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,10 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_DocumentVersion
         /// <summary>
         /// <para>
-        /// <para>The SSM document version to use in the request. You can specify $DEFAULT, $LATEST,
-        /// or a specific version number. If you run commands by using the AWS CLI, then you must
-        /// escape the first two options by using a backslash. If you specify a version number,
-        /// then you don't need to use the backslash. For example:</para><para>--document-version "\$DEFAULT"</para><para>--document-version "\$LATEST"</para><para>--document-version "3"</para>
+        /// <para>The Amazon Web Services Systems Manager document (SSM document) version to use in
+        /// the request. You can specify <code>$DEFAULT</code>, <code>$LATEST</code>, or a specific
+        /// version number. If you run commands by using the Amazon Web Services CLI, then you
+        /// must escape the first two options by using a backslash. If you specify a version number,
+        /// then you don't need to use the backslash. For example:</para><para><code>--document-version "\$DEFAULT"</code></para><para><code>--document-version "\$LATEST"</code></para><para><code>--document-version "3"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter StepFunctions_Input
         /// <summary>
         /// <para>
-        /// <para>The inputs for the STEP_FUNCTIONS task.</para>
+        /// <para>The inputs for the <code>STEP_FUNCTIONS</code> task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter MaxConcurrency
         /// <summary>
         /// <para>
-        /// <para>The maximum number of targets this task can be run for in parallel.</para><note><para>For maintenance window tasks without a target specified, you cannot supply a value
+        /// <para>The maximum number of targets this task can be run for in parallel.</para><note><para>For maintenance window tasks without a target specified, you can't supply a value
         /// for this option. Instead, the system inserts a placeholder value of <code>1</code>.
-        /// This value does not affect the running of your task.</para></note>
+        /// This value doesn't affect the running of your task.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,9 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter MaxError
         /// <summary>
         /// <para>
-        /// <para>The maximum number of errors allowed before this task stops being scheduled.</para><note><para>For maintenance window tasks without a target specified, you cannot supply a value
+        /// <para>The maximum number of errors allowed before this task stops being scheduled.</para><note><para>For maintenance window tasks without a target specified, you can't supply a value
         /// for this option. Instead, the system inserts a placeholder value of <code>1</code>.
-        /// This value does not affect the running of your task.</para></note>
+        /// This value doesn't affect the running of your task.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter StepFunctions_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the STEP_FUNCTIONS task.</para>
+        /// <para>The name of the <code>STEP_FUNCTIONS</code> task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,11 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter NotificationConfig_NotificationEvent
         /// <summary>
         /// <para>
-        /// <para>The different events for which you can receive notifications. These events include
-        /// the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To
-        /// learn more about these events, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring
-        /// Systems Manager status changes using Amazon SNS notifications</a> in the <i>AWS Systems
-        /// Manager User Guide</i>.</para>
+        /// <para>The different events for which you can receive notifications. To learn more about
+        /// these events, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring
+        /// Systems Manager status changes using Amazon SNS notifications</a> in the <i>Amazon
+        /// Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,9 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter NotificationConfig_NotificationType
         /// <summary>
         /// <para>
-        /// <para>Command: Receive notification when the status of a command changes. Invocation: For
-        /// commands sent to multiple instances, receive notification on a per-instance basis
-        /// when the status of a command changes. </para>
+        /// <para>The type of notification.</para><ul><li><para><code>Command</code>: Receive notification when the status of a command changes.</para></li><li><para><code>Invocation</code>: For commands sent to multiple instances, receive notification
+        /// on a per-instance basis when the status of a command changes. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_OutputS3BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the S3 bucket.</para>
+        /// <para>The name of the Amazon Simple Storage Service (Amazon S3) bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -270,16 +286,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Automation_Parameter
         /// <summary>
         /// <para>
-        /// <para>The parameters for the AUTOMATION task.</para><para>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a>
-        /// and <a>UpdateMaintenanceWindowTask</a>.</para><note><para><code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain
-        /// logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code>
-        /// options in the <code>TaskInvocationParameters</code> structure. For information about
-        /// how Systems Manager handles these options for the supported maintenance window task
-        /// types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</para><para><code>TaskParameters</code> has been deprecated. To specify parameters to pass to
+        /// <para>The parameters for the <code>AUTOMATION</code> task.</para><para>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a>
+        /// and <a>UpdateMaintenanceWindowTask</a>.</para><note><para><code>LoggingInfo</code> has been deprecated. To specify an Amazon Simple Storage
+        /// Service (Amazon S3) bucket to contain logs, instead use the <code>OutputS3BucketName</code>
+        /// and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code>
+        /// structure. For information about how Amazon Web Services Systems Manager handles these
+        /// options for the supported maintenance window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</para><para><code>TaskParameters</code> has been deprecated. To specify parameters to pass to
         /// a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code>
         /// structure. For information about how Systems Manager handles these options for the
-        /// supported maintenance window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</para><para>For AUTOMATION task types, Systems Manager ignores any values specified for these
-        /// parameters.</para></note>
+        /// supported maintenance window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</para><para>For <code>AUTOMATION</code> task types, Amazon Web Services Systems Manager ignores
+        /// any values specified for these parameters.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,7 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_Parameter
         /// <summary>
         /// <para>
-        /// <para>The parameters for the RUN_COMMAND task execution.</para>
+        /// <para>The parameters for the <code>RUN_COMMAND</code> task execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -326,10 +342,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Lambda_Qualifier
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specify a Lambda function version or alias name. If you specify a function
-        /// version, the action uses the qualified function ARN to invoke a specific Lambda function.
-        /// If you specify an alias name, the action uses the alias ARN to invoke the Lambda function
-        /// version to which the alias points.</para>
+        /// <para>(Optional) Specify an Lambda function version or alias name. If you specify a function
+        /// version, the operation uses the qualified function Amazon Resource Name (ARN) to invoke
+        /// a specific Lambda function. If you specify an alias name, the operation uses the alias
+        /// ARN to invoke the Lambda function version to which the alias points.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -360,7 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter LoggingInfo_S3Region
         /// <summary>
         /// <para>
-        /// <para>The Region where the S3 bucket is located.</para>
+        /// <para>The Amazon Web Services Region where the S3 bucket is located.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -370,11 +386,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM service role for Systems Manager to assume when running a maintenance
-        /// window task. If you do not specify a service role ARN, Systems Manager uses your account's
-        /// service-linked role. If no service-linked role for Systems Manager exists in your
-        /// account, it is created when you run <code>RegisterTaskWithMaintenanceWindow</code>.</para><para>For more information, see the following topics in the in the <i>AWS Systems Manager
-        /// User Guide</i>:</para><ul><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Using
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role for Amazon Web Services Systems
+        /// Manager to assume when running a maintenance window task. If you do not specify a
+        /// service role ARN, Systems Manager uses your account's service-linked role. If no service-linked
+        /// role for Systems Manager exists in your account, it is created when you run <code>RegisterTaskWithMaintenanceWindow</code>.</para><para>For more information, see the following topics in the in the <i>Amazon Web Services
+        /// Systems Manager User Guide</i>:</para><ul><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Using
         /// service-linked roles for Systems Manager</a></para></li><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role">Should
         /// I use a service-linked role or a custom service role to run maintenance window tasks?
         /// </a></para></li></ul>
@@ -387,8 +403,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM service role to use to publish Amazon Simple Notification Service
-        /// (Amazon SNS) notifications for maintenance window Run Command tasks.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) service
+        /// role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications
+        /// for maintenance window Run Command tasks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -401,9 +418,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The targets (either instances or maintenance window targets).</para><note><para>One or more targets must be specified for maintenance window Run Command-type tasks.
         /// Depending on the task, targets are optional for other maintenance window task types
-        /// (Automation, AWS Lambda, and AWS Step Functions). For more information about running
-        /// tasks that do not specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
-        /// maintenance window tasks without targets</a> in the <i>AWS Systems Manager User Guide</i>.</para></note><para>Specify instances using the following format: </para><para><code>Key=InstanceIds,Values=&lt;instance-id-1&gt;,&lt;instance-id-2&gt;</code></para><para>Specify maintenance window targets using the following format:</para><para><code>Key=WindowTargetIds,Values=&lt;window-target-id-1&gt;,&lt;window-target-id-2&gt;</code></para>
+        /// (Automation, Lambda, and Step Functions). For more information about running tasks
+        /// that don't specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
+        /// maintenance window tasks without targets</a> in the <i>Amazon Web Services Systems
+        /// Manager User Guide</i>.</para></note><para>Specify instances using the following format: </para><para><code>Key=InstanceIds,Values=&lt;instance-id-1&gt;,&lt;instance-id-2&gt;</code></para><para>Specify maintenance window targets using the following format:</para><para><code>Key=WindowTargetIds,Values=&lt;window-target-id-1&gt;,&lt;window-target-id-2&gt;</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -462,7 +480,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_TimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>If this time is reached and the command has not already started running, it doesn't
+        /// <para>If this time is reached and the command hasn't already started running, it doesn't
         /// run.</para>
         /// </para>
         /// </summary>
@@ -560,6 +578,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.CutoffBehavior = this.CutoffBehavior;
             context.Description = this.Description;
             context.LoggingInfo_S3BucketName = this.LoggingInfo_S3BucketName;
             context.LoggingInfo_S3KeyPrefix = this.LoggingInfo_S3KeyPrefix;
@@ -687,6 +706,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 if (cmdletContext.ClientToken != null)
                 {
                     request.ClientToken = cmdletContext.ClientToken;
+                }
+                if (cmdletContext.CutoffBehavior != null)
+                {
+                    request.CutoffBehavior = cmdletContext.CutoffBehavior;
                 }
                 if (cmdletContext.Description != null)
                 {
@@ -1151,6 +1174,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public Amazon.SimpleSystemsManagement.MaintenanceWindowTaskCutoffBehavior CutoffBehavior { get; set; }
             public System.String Description { get; set; }
             public System.String LoggingInfo_S3BucketName { get; set; }
             public System.String LoggingInfo_S3KeyPrefix { get; set; }

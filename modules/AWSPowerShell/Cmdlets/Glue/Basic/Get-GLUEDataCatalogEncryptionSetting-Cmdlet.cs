@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The ID of the Data Catalog to retrieve the security configuration for. If none is
-        /// provided, the AWS account ID is used by default.</para>
+        /// provided, the Amazon Web Services account ID is used by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

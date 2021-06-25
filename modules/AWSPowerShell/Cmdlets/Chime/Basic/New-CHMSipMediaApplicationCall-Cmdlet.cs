@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         public System.String FromPhoneNumber { get; set; }
         #endregion
         
+        #region Parameter SipHeader
+        /// <summary>
+        /// <para>
+        /// <para>The SIP headers added to an outbound call leg.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SipHeaders")]
+        public System.Collections.Hashtable SipHeader { get; set; }
+        #endregion
+        
         #region Parameter SipMediaApplicationId
         /// <summary>
         /// <para>
@@ -161,6 +172,14 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter FromPhoneNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SipHeader != null)
+            {
+                context.SipHeader = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.SipHeader.Keys)
+                {
+                    context.SipHeader.Add((String)hashKey, (String)(this.SipHeader[hashKey]));
+                }
+            }
             context.SipMediaApplicationId = this.SipMediaApplicationId;
             #if MODULAR
             if (this.SipMediaApplicationId == null && ParameterWasBound(nameof(this.SipMediaApplicationId)))
@@ -194,6 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.FromPhoneNumber != null)
             {
                 request.FromPhoneNumber = cmdletContext.FromPhoneNumber;
+            }
+            if (cmdletContext.SipHeader != null)
+            {
+                request.SipHeaders = cmdletContext.SipHeader;
             }
             if (cmdletContext.SipMediaApplicationId != null)
             {
@@ -265,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String FromPhoneNumber { get; set; }
+            public Dictionary<System.String, System.String> SipHeader { get; set; }
             public System.String SipMediaApplicationId { get; set; }
             public System.String ToPhoneNumber { get; set; }
             public System.Func<Amazon.Chime.Model.CreateSipMediaApplicationCallResponse, NewCHMSipMediaApplicationCallCmdlet, object> Select { get; set; } =

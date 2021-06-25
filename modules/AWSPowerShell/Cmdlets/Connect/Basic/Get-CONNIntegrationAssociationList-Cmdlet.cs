@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Provides summary information about the AppIntegration associations for the specified
+    /// Provides summary information about the AWS resource associations for the specified
     /// Amazon Connect instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNIntegrationAssociationList")]
@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter IntegrationType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.IntegrationType")]
+        public Amazon.Connect.IntegrationType IntegrationType { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -147,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IntegrationType = this.IntegrationType;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -172,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.IntegrationType != null)
+            {
+                request.IntegrationType = cmdletContext.IntegrationType;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -263,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String InstanceId { get; set; }
+            public Amazon.Connect.IntegrationType IntegrationType { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.Connect.Model.ListIntegrationAssociationsResponse, GetCONNIntegrationAssociationListCmdlet, object> Select { get; set; } =

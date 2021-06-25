@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ExecuteCommandConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Specify an AWS Key Management Service key ID to encrypt the data between the local
-        /// client and the container.</para>
+        /// <para>Specify an Key Management Service key ID to encrypt the data between the local client
+        /// and the container.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// <summary>
     /// Returns one or more snapshot objects, which contain metadata about your cluster snapshots.
     /// By default, this operation returns information about all snapshots of all clusters
-    /// that are owned by you AWS customer account. No information is returned for snapshots
-    /// owned by inactive AWS customer accounts.
+    /// that are owned by your Amazon Web Services account. No information is returned for
+    /// snapshots owned by inactive Amazon Web Services accounts.
     /// 
     ///  
     /// <para>
@@ -100,9 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter OwnerAccount
         /// <summary>
         /// <para>
-        /// <para>The AWS customer account used to create or copy the snapshot. Use this field to filter
-        /// the results to snapshots owned by a particular account. To describe snapshots you
-        /// own, either specify your AWS customer account, or do not specify the parameter.</para>
+        /// <para>The Amazon Web Services account used to create or copy the snapshot. Use this field
+        /// to filter the results to snapshots owned by a particular account. To describe snapshots
+        /// you own, either specify your Amazon Web Services account, or do not specify the parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,10 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>An optional parameter that specifies the starting point to return a set of response
         /// records. When the results of a <a>DescribeClusterSnapshots</a> request exceed the
-        /// value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
-        /// field of the response. You can retrieve the next set of response records by providing
-        /// the returned marker value in the <code>Marker</code> parameter and retrying the request.
-        /// </para>
+        /// value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in
+        /// the <code>Marker</code> field of the response. You can retrieve the next set of response
+        /// records by providing the returned marker value in the <code>Marker</code> parameter
+        /// and retrying the request. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

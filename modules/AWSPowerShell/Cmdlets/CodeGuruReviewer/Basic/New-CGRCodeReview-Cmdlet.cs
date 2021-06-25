@@ -152,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para> The name of the code review. The name of each code review in your AWS account must
-        /// be unique. </para>
+        /// <para> The name of the code review. The name of each code review in your Amazon Web Services
+        /// account must be unique. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

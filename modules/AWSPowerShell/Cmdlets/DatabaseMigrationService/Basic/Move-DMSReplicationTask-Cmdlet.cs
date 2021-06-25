@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// <summary>
     /// Moves a replication task from its current replication instance to a different target
     /// replication instance using the specified parameters. The target replication instance
-    /// must be created with the same or later AWS DMS version as the current replication
-    /// instance.
+    /// must be created with the same or later DMS version as the current replication instance.
     /// </summary>
     [Cmdlet("Move", "DMSReplicationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationTask")]

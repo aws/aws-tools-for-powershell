@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         /// <summary>
         /// <para>
         /// <para>When origination settings are disabled, inbound calls are not enabled for your Amazon
-        /// Chime Voice Connector.</para>
+        /// Chime Voice Connector. This parameter is not required, but you must specify this parameter
+        /// or <code>Routes</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         /// <summary>
         /// <para>
         /// <para>The call distribution properties defined for your SIP hosts. Valid range: Minimum
-        /// value of 1. Maximum value of 20.</para>
+        /// value of 1. Maximum value of 20. This parameter is not required, but you must specify
+        /// this parameter or <code>Disabled</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

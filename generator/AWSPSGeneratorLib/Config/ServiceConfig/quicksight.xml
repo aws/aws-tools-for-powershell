@@ -254,6 +254,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GenerateEmbedUrlForAnonymousUser" OutputProperty="EmbedUrl" Verb="New" Noun="EmbedUrlForAnonymousUser" AnonymousShouldProcessTarget="true" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateEmbedUrlForRegisteredUser" OutputProperty="EmbedUrl" Verb="New" Noun="EmbedUrlForRegisteredUser" AnonymousShouldProcessTarget="true" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDashboardEmbedUrl" OutputProperty="EmbedUrl" Verb="Get" Noun="DashboardEmbedUrl" PipelineParameter="DashboardId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

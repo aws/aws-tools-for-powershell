@@ -28,11 +28,11 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Associates a directory with an SNS topic. This establishes the directory as a publisher
-    /// to the specified SNS topic. You can then receive email or text (SMS) messages when
-    /// the status of your directory changes. You get notified if your directory goes from
-    /// an Active status to an Impaired or Inoperable status. You also receive a notification
-    /// when the directory returns to an Active status.
+    /// Associates a directory with an Amazon SNS topic. This establishes the directory as
+    /// a publisher to the specified Amazon SNS topic. You can then receive email or text
+    /// (SMS) messages when the status of your directory changes. You get notified if your
+    /// directory goes from an Active status to an Impaired or Inoperable status. You also
+    /// receive a notification when the directory returns to an Active status.
     /// </summary>
     [Cmdlet("Register", "DSEventTopic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The Directory ID that will publish status messages to the SNS topic.</para>
+        /// <para>The Directory ID that will publish status messages to the Amazon SNS topic.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter TopicName
         /// <summary>
         /// <para>
-        /// <para>The SNS topic name to which the directory will publish status messages. This SNS topic
-        /// must be in the same region as the specified Directory ID.</para>
+        /// <para>The Amazon SNS topic name to which the directory will publish status messages. This
+        /// Amazon SNS topic must be in the same region as the specified Directory ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

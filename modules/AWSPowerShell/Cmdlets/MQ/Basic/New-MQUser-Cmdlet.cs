@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter BrokerId
         /// <summary>
         /// <para>
-        /// The unique ID that Amazon MQ generates for the
-        /// broker.
+        /// <para>The unique ID that Amazon MQ generates for the broker.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter ConsoleAccess
         /// <summary>
         /// <para>
-        /// Enables access to the the ActiveMQ Web Console
-        /// for the ActiveMQ user.
+        /// <para>Enables access to the ActiveMQ Web Console for the ActiveMQ user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// The list of groups (20 maximum) to which the ActiveMQ
-        /// user belongs. This value can contain only alphanumeric characters, dashes, periods,
-        /// underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+        /// <para>The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can
+        /// contain only alphanumeric characters, dashes, periods, underscores, and tildes (-
+        /// . _ ~). This value must be 2-100 characters long.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,21 +83,28 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// Required. The password of the user. This value
-        /// must be at least 12 characters long, must contain at least 4 unique characters, and
-        /// must not contain commas.
+        /// <para>Required. The password of the user. This value must be at least 12 characters long,
+        /// must contain at least 4 unique characters, and must not contain commas, colons, or
+        /// equal signs (,:=).</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Password { get; set; }
         #endregion
         
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// The username of the ActiveMQ user. This value
-        /// can contain only alphanumeric characters, dashes, periods, underscores, and tildes
-        /// (- . _ ~). This value must be 2-100 characters long.
+        /// <para>The username of the ActiveMQ user. This value can contain only alphanumeric characters,
+        /// dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters
+        /// long.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -186,6 +191,12 @@ namespace Amazon.PowerShell.Cmdlets.MQ
                 context.Group = new List<System.String>(this.Group);
             }
             context.Password = this.Password;
+            #if MODULAR
+            if (this.Password == null && ParameterWasBound(nameof(this.Password)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Password which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Username = this.Username;
             #if MODULAR
             if (this.Username == null && ParameterWasBound(nameof(this.Username)))

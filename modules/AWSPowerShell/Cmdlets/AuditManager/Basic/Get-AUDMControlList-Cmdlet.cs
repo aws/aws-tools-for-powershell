@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns a list of controls from AWS Audit Manager.
+    /// Returns a list of controls from Audit Manager.
     /// </summary>
     [Cmdlet("Get", "AUDMControlList")]
     [OutputType("Amazon.AuditManager.Model.ControlMetadata")]

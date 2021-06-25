@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Removes one or more tags from the specified Amazon Location Service resource.
+    /// Removes one or more tags from the specified Amazon Location resource.
     /// </summary>
     [Cmdlet("Remove", "LOCResourceTagSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</para><ul><li><para>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The list of tag keys to remove from the resource.</para>
+        /// <para>The list of tag keys to remove from the specified resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

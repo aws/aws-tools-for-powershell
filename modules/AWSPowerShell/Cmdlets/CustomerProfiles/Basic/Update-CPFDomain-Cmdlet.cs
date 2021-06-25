@@ -34,6 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     ///  
     /// <para>
     /// After a domain is created, the name can’t be changed.
+    /// </para><para>
+    /// Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a>
+    /// to enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
+    /// resolution</a>: set <code>Matching</code> to true. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CPFDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EmailIdentity
         /// <summary>
         /// <para>
-        /// <para>The identity (that is, the email address or domain) that you want to delete.</para>
+        /// <para>The identity (that is, the email address or domain) to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

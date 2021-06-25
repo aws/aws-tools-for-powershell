@@ -69,6 +69,31 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class NewLMBV2IntentCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter IntentClosingSetting_Active
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether an intent's closing response is used. When this field is false,
+        /// the closing response isn't sent to the user and no closing input from the user is
+        /// used. If the <code>active</code> field isn't specified, the default is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IntentClosingSetting_Active { get; set; }
+        #endregion
+        
+        #region Parameter IntentConfirmationSetting_Active
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the intent's confirmation is sent to the user. When this field is
+        /// false, confirmation and declination responses aren't sent and processing continues
+        /// as if the responses aren't present. If the <code>active</code> field isn't specified,
+        /// the default is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IntentConfirmationSetting_Active { get; set; }
+        #endregion
+        
         #region Parameter ClosingResponse_AllowInterrupt
         /// <summary>
         /// <para>
@@ -426,11 +451,13 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             {
                 context.InputContext = new List<Amazon.LexModelsV2.Model.InputContext>(this.InputContext);
             }
+            context.IntentClosingSetting_Active = this.IntentClosingSetting_Active;
             context.ClosingResponse_AllowInterrupt = this.ClosingResponse_AllowInterrupt;
             if (this.ClosingResponse_MessageGroup != null)
             {
                 context.ClosingResponse_MessageGroup = new List<Amazon.LexModelsV2.Model.MessageGroup>(this.ClosingResponse_MessageGroup);
             }
+            context.IntentConfirmationSetting_Active = this.IntentConfirmationSetting_Active;
             context.DeclinationResponse_AllowInterrupt = this.DeclinationResponse_AllowInterrupt;
             if (this.DeclinationResponse_MessageGroup != null)
             {
@@ -542,6 +569,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
              // populate IntentClosingSetting
             var requestIntentClosingSettingIsNull = true;
             request.IntentClosingSetting = new Amazon.LexModelsV2.Model.IntentClosingSetting();
+            System.Boolean? requestIntentClosingSetting_intentClosingSetting_Active = null;
+            if (cmdletContext.IntentClosingSetting_Active != null)
+            {
+                requestIntentClosingSetting_intentClosingSetting_Active = cmdletContext.IntentClosingSetting_Active.Value;
+            }
+            if (requestIntentClosingSetting_intentClosingSetting_Active != null)
+            {
+                request.IntentClosingSetting.Active = requestIntentClosingSetting_intentClosingSetting_Active.Value;
+                requestIntentClosingSettingIsNull = false;
+            }
             Amazon.LexModelsV2.Model.ResponseSpecification requestIntentClosingSetting_intentClosingSetting_ClosingResponse = null;
             
              // populate ClosingResponse
@@ -586,6 +623,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
              // populate IntentConfirmationSetting
             var requestIntentConfirmationSettingIsNull = true;
             request.IntentConfirmationSetting = new Amazon.LexModelsV2.Model.IntentConfirmationSetting();
+            System.Boolean? requestIntentConfirmationSetting_intentConfirmationSetting_Active = null;
+            if (cmdletContext.IntentConfirmationSetting_Active != null)
+            {
+                requestIntentConfirmationSetting_intentConfirmationSetting_Active = cmdletContext.IntentConfirmationSetting_Active.Value;
+            }
+            if (requestIntentConfirmationSetting_intentConfirmationSetting_Active != null)
+            {
+                request.IntentConfirmationSetting.Active = requestIntentConfirmationSetting_intentConfirmationSetting_Active.Value;
+                requestIntentConfirmationSettingIsNull = false;
+            }
             Amazon.LexModelsV2.Model.ResponseSpecification requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationResponse = null;
             
              // populate DeclinationResponse
@@ -797,8 +844,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.Boolean? DialogCodeHook_Enabled { get; set; }
             public System.Boolean? FulfillmentCodeHook_Enabled { get; set; }
             public List<Amazon.LexModelsV2.Model.InputContext> InputContext { get; set; }
+            public System.Boolean? IntentClosingSetting_Active { get; set; }
             public System.Boolean? ClosingResponse_AllowInterrupt { get; set; }
             public List<Amazon.LexModelsV2.Model.MessageGroup> ClosingResponse_MessageGroup { get; set; }
+            public System.Boolean? IntentConfirmationSetting_Active { get; set; }
             public System.Boolean? DeclinationResponse_AllowInterrupt { get; set; }
             public List<Amazon.LexModelsV2.Model.MessageGroup> DeclinationResponse_MessageGroup { get; set; }
             public System.Boolean? PromptSpecification_AllowInterrupt { get; set; }

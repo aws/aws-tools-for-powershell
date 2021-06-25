@@ -130,7 +130,7 @@ $GLUE_Completers = {
             ($_ -eq "New-GLUESchema/DataFormat")
         }
         {
-            $v = "AVRO"
+            $v = "AVRO","JSON"
             break
         }
 
@@ -266,7 +266,7 @@ $GLUE_Completers = {
         # Amazon.Glue.TriggerType
         "New-GLUETrigger/Type"
         {
-            $v = "CONDITIONAL","ON_DEMAND","SCHEDULED"
+            $v = "CONDITIONAL","EVENT","ON_DEMAND","SCHEDULED"
             break
         }
 
@@ -371,6 +371,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUEPartitionBatch",
                "Remove-GLUETableBatch",
                "Remove-GLUETableVersionBatch",
+               "Get-GLUEBlueprintBatch",
                "Get-GLUECrawlerBatch",
                "Get-GLUEDevEndpointBatch",
                "Get-GLUEJobBatch",
@@ -381,6 +382,7 @@ $GLUE_SelectMap = @{
                "Update-GLUEPartitionBatch",
                "Stop-GLUEMLTaskRun",
                "Get-GLUESchemaVersionValidity",
+               "New-GLUEBlueprint",
                "New-GLUEClassifier",
                "New-GLUEConnection",
                "New-GLUECrawler",
@@ -398,6 +400,7 @@ $GLUE_SelectMap = @{
                "New-GLUETrigger",
                "New-GLUEUserDefinedFunction",
                "New-GLUEWorkflow",
+               "Remove-GLUEBlueprint",
                "Remove-GLUEClassifier",
                "Remove-GLUEColumnStatisticsForPartition",
                "Remove-GLUEColumnStatisticsForTable",
@@ -419,6 +422,9 @@ $GLUE_SelectMap = @{
                "Remove-GLUETrigger",
                "Remove-GLUEUserDefinedFunction",
                "Remove-GLUEWorkflow",
+               "Get-GLUEBlueprint",
+               "Get-GLUEBlueprintRun",
+               "Get-GLUEBlueprintRunList",
                "Get-GLUECatalogImportStatus",
                "Get-GLUEClassifier",
                "Get-GLUEClassifierList",
@@ -472,6 +478,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEWorkflowRunProperty",
                "Get-GLUEWorkflowRunList",
                "Import-GLUECatalog",
+               "Get-GLUEBlueprintList",
                "Get-GLUECrawlerNameList",
                "Get-GLUEDevEndpointNameList",
                "Get-GLUEJobNameList",
@@ -491,6 +498,7 @@ $GLUE_SelectMap = @{
                "Reset-GLUEJobBookmark",
                "Resume-GLUEWorkflowRun",
                "Find-GLUETable",
+               "Start-GLUEBlueprintRun",
                "Start-GLUECrawler",
                "Start-GLUECrawlerSchedule",
                "Start-GLUEExportLabelsTaskRun",
@@ -506,6 +514,7 @@ $GLUE_SelectMap = @{
                "Stop-GLUEWorkflowRun",
                "Add-GLUEResourceTag",
                "Remove-GLUEResourceTag",
+               "Update-GLUEBlueprint",
                "Update-GLUEClassifier",
                "Update-GLUEColumnStatisticsForPartition",
                "Update-GLUEColumnStatisticsForTable",

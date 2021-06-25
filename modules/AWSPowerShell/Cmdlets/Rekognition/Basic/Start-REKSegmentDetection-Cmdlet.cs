@@ -89,6 +89,39 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public System.String JobTag { get; set; }
         #endregion
         
+        #region Parameter BlackFrame_MaxPixelThreshold
+        /// <summary>
+        /// <para>
+        /// <para> A threshold used to determine the maximum luminance value for a pixel to be considered
+        /// black. In a full color range video, luminance values range from 0-255. A pixel value
+        /// of 0 is pure black, and the most strict filter. The maximum black pixel value is computed
+        /// as follows: max_black_pixel_value = minimum_luminance + MaxPixelThreshold *luminance_range.
+        /// </para><para>For example, for a full range video with BlackPixelThreshold = 0.1, max_black_pixel_value
+        /// is 0 + 0.1 * (255-0) = 25.5.</para><para>The default value of MaxPixelThreshold is 0.2, which maps to a max_black_pixel_value
+        /// of 51 for a full range video. You can lower this threshold to be more strict on black
+        /// levels.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_TechnicalCueFilter_BlackFrame_MaxPixelThreshold")]
+        public System.Single? BlackFrame_MaxPixelThreshold { get; set; }
+        #endregion
+        
+        #region Parameter BlackFrame_MinCoveragePercentage
+        /// <summary>
+        /// <para>
+        /// <para> The minimum percentage of pixels in a frame that need to have a luminance below the
+        /// max_black_pixel_value for a frame to be considered a black frame. Luminance is calculated
+        /// using the BT.709 matrix. </para><para>The default value is 99, which means at least 99% of all pixels in the frame are black
+        /// pixels as per the <code>MaxPixelThreshold</code> set. You can reduce this value to
+        /// allow more noise on the black frame.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_TechnicalCueFilter_BlackFrame_MinCoveragePercentage")]
+        public System.Single? BlackFrame_MinCoveragePercentage { get; set; }
+        #endregion
+        
         #region Parameter ShotFilter_MinSegmentConfidence
         /// <summary>
         /// <para>
@@ -240,6 +273,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
             context.ShotFilter_MinSegmentConfidence = this.ShotFilter_MinSegmentConfidence;
+            context.BlackFrame_MaxPixelThreshold = this.BlackFrame_MaxPixelThreshold;
+            context.BlackFrame_MinCoveragePercentage = this.BlackFrame_MinCoveragePercentage;
             context.TechnicalCueFilter_MinSegmentConfidence = this.TechnicalCueFilter_MinSegmentConfidence;
             context.JobTag = this.JobTag;
             context.NotificationChannel_RoleArn = this.NotificationChannel_RoleArn;
@@ -323,6 +358,41 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestFilters_filters_TechnicalCueFilter_technicalCueFilter_MinSegmentConfidence != null)
             {
                 requestFilters_filters_TechnicalCueFilter.MinSegmentConfidence = requestFilters_filters_TechnicalCueFilter_technicalCueFilter_MinSegmentConfidence.Value;
+                requestFilters_filters_TechnicalCueFilterIsNull = false;
+            }
+            Amazon.Rekognition.Model.BlackFrame requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame = null;
+            
+             // populate BlackFrame
+            var requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrameIsNull = true;
+            requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame = new Amazon.Rekognition.Model.BlackFrame();
+            System.Single? requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame_blackFrame_MaxPixelThreshold = null;
+            if (cmdletContext.BlackFrame_MaxPixelThreshold != null)
+            {
+                requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame_blackFrame_MaxPixelThreshold = cmdletContext.BlackFrame_MaxPixelThreshold.Value;
+            }
+            if (requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame_blackFrame_MaxPixelThreshold != null)
+            {
+                requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame.MaxPixelThreshold = requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame_blackFrame_MaxPixelThreshold.Value;
+                requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrameIsNull = false;
+            }
+            System.Single? requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame_blackFrame_MinCoveragePercentage = null;
+            if (cmdletContext.BlackFrame_MinCoveragePercentage != null)
+            {
+                requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame_blackFrame_MinCoveragePercentage = cmdletContext.BlackFrame_MinCoveragePercentage.Value;
+            }
+            if (requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame_blackFrame_MinCoveragePercentage != null)
+            {
+                requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame.MinCoveragePercentage = requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame_blackFrame_MinCoveragePercentage.Value;
+                requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrameIsNull = false;
+            }
+             // determine if requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame should be set to null
+            if (requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrameIsNull)
+            {
+                requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame = null;
+            }
+            if (requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame != null)
+            {
+                requestFilters_filters_TechnicalCueFilter.BlackFrame = requestFilters_filters_TechnicalCueFilter_filters_TechnicalCueFilter_BlackFrame;
                 requestFilters_filters_TechnicalCueFilterIsNull = false;
             }
              // determine if requestFilters_filters_TechnicalCueFilter should be set to null
@@ -444,6 +514,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         {
             public System.String ClientRequestToken { get; set; }
             public System.Single? ShotFilter_MinSegmentConfidence { get; set; }
+            public System.Single? BlackFrame_MaxPixelThreshold { get; set; }
+            public System.Single? BlackFrame_MinCoveragePercentage { get; set; }
             public System.Single? TechnicalCueFilter_MinSegmentConfidence { get; set; }
             public System.String JobTag { get; set; }
             public System.String NotificationChannel_RoleArn { get; set; }

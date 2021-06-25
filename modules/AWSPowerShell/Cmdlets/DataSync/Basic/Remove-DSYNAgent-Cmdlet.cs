@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
     /// Deletes an agent. To specify which agent to delete, use the Amazon Resource Name (ARN)
-    /// of the agent in your request. The operation disassociates the agent from your AWS
-    /// account. However, it doesn't delete the agent virtual machine (VM) from your on-premises
-    /// environment.
+    /// of the agent in your request. The operation disassociates the agent from your Amazon
+    /// Web Services account. However, it doesn't delete the agent virtual machine (VM) from
+    /// your on-premises environment.
     /// </summary>
     [Cmdlet("Remove", "DSYNAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the agent to delete. Use the <code>ListAgents</code>
-        /// operation to return a list of agents for your account and AWS Region.</para>
+        /// operation to return a list of agents for your account and Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

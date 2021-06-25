@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// and associated environment. You're responsible for cleaning up provisioned resources
     /// that remain without an environment connection.
     /// </para><para>
-    /// For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment
-    /// account connections</a> in the <i>AWS Proton Administration guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
+    /// account connections</a> in the <i>AWS Proton Administrator guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "PROEnvironmentAccountConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

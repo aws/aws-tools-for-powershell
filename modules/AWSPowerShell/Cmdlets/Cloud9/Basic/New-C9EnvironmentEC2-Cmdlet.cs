@@ -90,6 +90,18 @@ namespace Amazon.PowerShell.Cmdlets.C9
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter ImageId
         /// <summary>
         /// <para>
@@ -238,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
             context.ClientRequestToken = this.ClientRequestToken;
             context.ConnectionType = this.ConnectionType;
             context.Description = this.Description;
+            context.DryRun = this.DryRun;
             context.ImageId = this.ImageId;
             context.InstanceType = this.InstanceType;
             #if MODULAR
@@ -290,6 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.C9
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.ImageId != null)
             {
@@ -380,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
             public System.String ClientRequestToken { get; set; }
             public Amazon.Cloud9.ConnectionType ConnectionType { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String ImageId { get; set; }
             public System.String InstanceType { get; set; }
             public System.String Name { get; set; }

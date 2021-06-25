@@ -33,9 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// If you do not specify a user name, IAM determines the user name implicitly based on
-    /// the AWS access key ID signing the request. This operation works for access keys under
-    /// the AWS account. Consequently, you can use this operation to manage AWS account root
-    /// user credentials even if the AWS account has no associated IAM users.
+    /// the Amazon Web Services access key ID signing the request. This operation works for
+    /// access keys under the Amazon Web Services account. Consequently, you can use this
+    /// operation to manage Amazon Web Services account root user credentials even if the
+    /// Amazon Web Services account has no associated IAM users.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMSigningCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -28,9 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Creates a change request for Change Manager. The runbooks (Automation documents) specified
-    /// in the change request run only after all required approvals for the change request
-    /// have been received.
+    /// Creates a change request for Change Manager. The Automation runbooks specified in
+    /// the change request run only after all required approvals for the change request have
+    /// been received.
     /// </summary>
     [Cmdlet("Start", "SSMChangeRequestExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -41,6 +41,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     )]
     public partial class StartSSMChangeRequestExecutionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoApprove
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the change request can be approved automatically without the need
+        /// for manual approvals.</para><para>If <code>AutoApprovable</code> is enabled in a change template, then setting <code>AutoApprove</code>
+        /// to <code>true</code> in <code>StartChangeRequestExecution</code> creates a change
+        /// request that bypasses approver review.</para><note><para>Change Calendar restrictions are not bypassed in this scenario. If the state of an
+        /// associated calendar is <code>CLOSED</code>, change freeze approvers must still grant
+        /// permission for this change request to run. If they don't, the change won't be processed
+        /// until the calendar state is again <code>OPEN</code>. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoApprove { get; set; }
+        #endregion
         
         #region Parameter ChangeDetail
         /// <summary>
@@ -106,8 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Runbook
         /// <summary>
         /// <para>
-        /// <para>Information about the Automation runbooks (Automation documents) that are run during
-        /// the runbook workflow.</para><note><para>The Automation runbooks specified for the runbook workflow can't run until all required
+        /// <para>Information about the Automation runbooks that are run during the runbook workflow.</para><note><para>The Automation runbooks specified for the runbook workflow can't run until all required
         /// approvals for the change request have been received.</para></note>
         /// </para>
         /// </summary>
@@ -151,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>Optional metadata that you assign to a resource. You can specify a maximum of five
         /// tags for a change request. Tags enable you to categorize a resource in different ways,
         /// such as by purpose, owner, or environment. For example, you might want to tag a change
-        /// request to identify an environment or target AWS Region. In this case, you could specify
-        /// the following key-value pairs:</para><ul><li><para><code>Key=Environment,Value=Production</code></para></li><li><para><code>Key=Region,Value=us-east-2</code></para></li></ul>
+        /// request to identify an environment or target Amazon Web Services Region. In this case,
+        /// you could specify the following key-value pairs:</para><ul><li><para><code>Key=Environment,Value=Production</code></para></li><li><para><code>Key=Region,Value=us-east-2</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Select = (response, cmdlet) => this.DocumentName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AutoApprove = this.AutoApprove;
             context.ChangeDetail = this.ChangeDetail;
             context.ChangeRequestName = this.ChangeRequestName;
             context.ClientToken = this.ClientToken;
@@ -295,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.StartChangeRequestExecutionRequest();
             
+            if (cmdletContext.AutoApprove != null)
+            {
+                request.AutoApprove = cmdletContext.AutoApprove.Value;
+            }
             if (cmdletContext.ChangeDetail != null)
             {
                 request.ChangeDetails = cmdletContext.ChangeDetail;
@@ -396,6 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoApprove { get; set; }
             public System.String ChangeDetail { get; set; }
             public System.String ChangeRequestName { get; set; }
             public System.String ClientToken { get; set; }

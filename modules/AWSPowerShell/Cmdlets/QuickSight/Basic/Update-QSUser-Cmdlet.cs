@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the AWS account that the user is in. Currently, you use the ID for the
-        /// AWS account that contains your Amazon QuickSight account.</para>
+        /// <para>The ID for the Amazon Web Services account that the user is in. Currently, you use
+        /// the ID for the Amazon Web Services account that contains your Amazon QuickSight account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let
-        /// a user federate into QuickSight with an associated AWS Identity and Access Management
-        /// (IAM) role. This parameter should only be used when <code>ExternalLoginFederationProviderType</code>
+        /// a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM)
+        /// role. This parameter should only be used when <code>ExternalLoginFederationProviderType</code>
         /// parameter is set to <code>CUSTOM_OIDC</code>.</para>
         /// </para>
         /// </summary>
@@ -77,12 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>(Enterprise edition only) The name of the custom permissions profile that you want
         /// to assign to this user. Customized permissions allows you to control a user's access
         /// by restricting access the following operations:</para><ul><li><para>Create and update data sources</para></li><li><para>Create and update datasets</para></li><li><para>Create and update email reports</para></li><li><para>Subscribe to email reports</para></li></ul><para>A set of custom permissions includes any combination of these restrictions. Currently,
-        /// you need to create the profile names for custom permission sets by using the QuickSight
-        /// console. Then, you use the <code>RegisterUser</code> API operation to assign the named
-        /// set of permissions to a QuickSight user. </para><para>QuickSight custom permissions are applied through IAM policies. Therefore, they override
-        /// the permissions typically granted by assigning QuickSight users to one of the default
-        /// security cohorts in QuickSight (admin, author, reader).</para><para>This feature is available only to QuickSight Enterprise edition subscriptions that
-        /// use SAML 2.0-Based Federation for Single Sign-On (SSO).</para>
+        /// you need to create the profile names for custom permission sets by using the Amazon
+        /// QuickSight console. Then, you use the <code>RegisterUser</code> API operation to assign
+        /// the named set of permissions to a Amazon QuickSight user. </para><para>Amazon QuickSight custom permissions are applied through IAMpolicies. Therefore, they
+        /// override the permissions typically granted by assigning Amazon QuickSight users to
+        /// one of the default security cohorts in Amazon QuickSight (admin, author, reader).</para><para>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The type of supported external login provider that provides identity to let a user
-        /// federate into QuickSight with an associated AWS Identity and Access Management (IAM)
+        /// federate into Amazon QuickSight with an associated Identity and Access Management(IAM)
         /// role. The type of supported external login provider can be one of the following.</para><ul><li><para><code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.
         /// When choosing the <code>COGNITO</code> provider type, don’t use the "CustomFederationProviderUrl"
         /// parameter which is only needed when the external provider is custom.</para></li><li><para><code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM_OIDC</code>
@@ -157,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>The Amazon QuickSight role of the user. The role can be one of the following default
         /// security cohorts:</para><ul><li><para><code>READER</code>: A user who has read-only access to dashboards.</para></li><li><para><code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and
         /// dashboards.</para></li><li><para><code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight
-        /// settings.</para></li></ul><para>The name of the QuickSight role is invisible to the user except for the console screens
-        /// dealing with permissions.</para>
+        /// settings.</para></li></ul><para>The name of the Amazon QuickSight role is invisible to the user except for the console
+        /// screens dealing with permissions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

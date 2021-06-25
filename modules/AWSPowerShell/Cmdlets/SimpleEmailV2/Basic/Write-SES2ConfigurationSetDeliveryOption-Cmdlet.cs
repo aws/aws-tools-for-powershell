@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set that you want to associate with a dedicated IP pool.</para>
+        /// <para>The name of the configuration set to associate with a dedicated IP pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter SendingPoolName
         /// <summary>
         /// <para>
-        /// <para>The name of the dedicated IP pool that you want to associate with the configuration
-        /// set.</para>
+        /// <para>The name of the dedicated IP pool to associate with the configuration set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

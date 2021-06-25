@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with
     /// an IPv6 CIDR block that uses a /64 prefix length. 
     /// </para><important><para>
-    /// AWS reserves both the first four and the last IPv4 address in each subnet's CIDR block.
-    /// They're not available for use.
+    /// Amazon Web Services reserves both the first four and the last IPv4 address in each
+    /// subnet's CIDR block. They're not available for use.
     /// </para></important><para>
     /// If you add more than one subnet to a VPC, they're set up in a star topology with a
     /// logical router in the middle.
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// remaining IP addresses available.
     /// </para><para>
     /// For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your
-    /// VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Subnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone or Local Zone for the subnet.</para><para>Default: AWS selects one for you. If you create more than one subnet in your VPC,
-        /// we do not necessarily select a different zone for each subnet.</para><para>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example
+        /// <para>The Availability Zone or Local Zone for the subnet.</para><para>Default: Amazon Web Services selects one for you. If you create more than one subnet
+        /// in your VPC, we do not necessarily select a different zone for each subnet.</para><para>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example
         /// <code>us-west-2-lax-1a</code>. For information about the Regions that support Local
         /// Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions">Available
         /// Regions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>To create a subnet in an Outpost, set this value to the Availability Zone for the

@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Adds or updates the policy that is specified as the IAM role's permissions boundary.
-    /// You can use an AWS managed policy or a customer managed policy to set the boundary
-    /// for a role. Use the boundary to control the maximum permissions that the role can
-    /// have. Setting a permissions boundary is an advanced feature that can affect the permissions
-    /// for the role.
+    /// You can use an Amazon Web Services managed policy or a customer managed policy to
+    /// set the boundary for a role. Use the boundary to control the maximum permissions that
+    /// the role can have. Setting a permissions boundary is an advanced feature that can
+    /// affect the permissions for the role.
     /// 
     ///  
     /// <para>

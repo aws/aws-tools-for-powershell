@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     /// 
     ///  
     /// <para>
-    /// After you make changes to a report generator, it will start generating new reports
-    /// within 60 minutes of being updated.
+    /// After you make changes to a report generator, it starts generating new reports within
+    /// 60 minutes of being updated.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LICMLicenseManagerReportGenerator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter ReportContext_LicenseConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Number (ARN) of the license configuration that this generator reports
+        /// <para>Amazon Resource Name (ARN) of the license configuration that this generator reports
         /// on.</para>
         /// </para>
         /// </summary>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseManagerReportGeneratorArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Number (ARN) of the report generator to update.</para>
+        /// <para>Amazon Resource Name (ARN) of the report generator to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Type of reports to generate. The following report types an be generated:</para><ul><li><para>License configuration report - Reports on the number and details of consumed licenses
-        /// for a license configuration.</para></li><li><para>Resource report - Reports on the tracked licenses and resource consumption for a license
+        /// <para>Type of reports to generate. The following report types are supported:</para><ul><li><para>License configuration report - Reports the number and details of consumed licenses
+        /// for a license configuration.</para></li><li><para>Resource report - Reports the tracked licenses and resource consumption for a license
         /// configuration.</para></li></ul>
         /// </para>
         /// </summary>
@@ -142,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter ReportFrequency_Value
         /// <summary>
         /// <para>
-        /// <para>Number of times within the frequency period that a report will be generated. Currently
-        /// only <code>1</code> is supported.</para>
+        /// <para>Number of times within the frequency period that a report is generated. The only supported
+        /// value is <code>1</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

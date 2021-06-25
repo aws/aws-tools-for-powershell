@@ -28,9 +28,25 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Retrieves the keys that are currently blocked by a rate-based rule. The maximum number
-    /// of managed keys that can be blocked for a single rate-based rule is 10,000. If more
-    /// than 10,000 addresses exceed the rate limit, those with the highest rates are blocked.
+    /// Retrieves the keys that are currently blocked by a rate-based rule instance. The maximum
+    /// number of managed keys that can be blocked for a single rate-based rule instance is
+    /// 10,000. If more than 10,000 addresses exceed the rate limit, those with the highest
+    /// rates are blocked.
+    /// 
+    ///  
+    /// <para>
+    /// For a rate-based rule that you've defined inside a rule group, provide the name of
+    /// the rule group reference statement in your request, in addition to the rate-based
+    /// rule name and the web ACL name. 
+    /// </para><para>
+    /// WAF monitors web requests and manages keys independently for each unique combination
+    /// of web ACL, optional rule group, and rate-based rule. For example, if you define a
+    /// rate-based rule inside a rule group, and then use the rule group in a web ACL, WAF
+    /// monitors web requests and manages keys for that web ACL, rule group reference statement,
+    /// and rate-based rule instance. If you use the same rule group in a second web ACL,
+    /// WAF monitors web requests and manages keys for this second usage completely independent
+    /// of your first. 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "WAF2RateBasedStatementManagedKey")]
     [OutputType("Amazon.WAFV2.Model.GetRateBasedStatementManagedKeysResponse")]
@@ -41,10 +57,23 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     public partial class GetWAF2RateBasedStatementManagedKeyCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter RuleGroupRuleName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the rule group reference statement in your web ACL. This is required only
+        /// when you have the rate-based rule nested inside a rule group. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RuleGroupRuleName { get; set; }
+        #endregion
+        
         #region Parameter RuleName
         /// <summary>
         /// <para>
-        /// <para>The name of the rate-based rule to get the keys for.</para>
+        /// <para>The name of the rate-based rule to get the keys for. If you have the rule defined
+        /// inside a rule group that you're using in your web ACL, also provide the name of the
+        /// rule group reference statement in the request parameter <code>RuleGroupRuleName</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -160,6 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.Select = (response, cmdlet) => this.RuleName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.RuleGroupRuleName = this.RuleGroupRuleName;
             context.RuleName = this.RuleName;
             #if MODULAR
             if (this.RuleName == null && ParameterWasBound(nameof(this.RuleName)))
@@ -204,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             // create request
             var request = new Amazon.WAFV2.Model.GetRateBasedStatementManagedKeysRequest();
             
+            if (cmdletContext.RuleGroupRuleName != null)
+            {
+                request.RuleGroupRuleName = cmdletContext.RuleGroupRuleName;
+            }
             if (cmdletContext.RuleName != null)
             {
                 request.RuleName = cmdletContext.RuleName;
@@ -281,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String RuleGroupRuleName { get; set; }
             public System.String RuleName { get; set; }
             public Amazon.WAFV2.Scope Scope { get; set; }
             public System.String WebACLId { get; set; }

@@ -28,7 +28,7 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Deletes an AWS DMS event subscription.
+    /// Deletes an DMS event subscription.
     /// </summary>
     [Cmdlet("Remove", "DMSEventSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DatabaseMigrationService.Model.EventSubscription")]

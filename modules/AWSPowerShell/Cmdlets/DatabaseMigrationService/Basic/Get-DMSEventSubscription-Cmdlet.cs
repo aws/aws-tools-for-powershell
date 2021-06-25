@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SubscriptionName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS DMS event subscription to be described.</para>
+        /// <para>The name of the DMS event subscription to be described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// <summary>
     /// Creates or updates the lifecycle policy for the specified repository. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html">Lifecycle
-    /// Policy Template</a>.
+    /// policy template</a>.
     /// </summary>
     [Cmdlet("Write", "ECRLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.PutLifecyclePolicyResponse")]
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry that contains the repository. If you
-        /// do  not specify a registry, the default registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID associated with the registry that contains the
+        /// repository. If you do  not specify a registry, the default registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

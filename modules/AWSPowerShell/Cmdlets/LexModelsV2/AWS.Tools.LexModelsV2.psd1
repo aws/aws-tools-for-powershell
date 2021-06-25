@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-LMBV2ResourceTag', 
+        'Get-LMBV2AggregatedUtteranceList', 
         'Get-LMBV2Bot', 
         'Get-LMBV2BotAlias', 
         'Get-LMBV2BotAliasList', 
@@ -133,6 +134,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-LMBV2ResourceTag', 
         'Remove-LMBV2Slot', 
         'Remove-LMBV2SlotType', 
+        'Remove-LMBV2Utterance', 
         'Start-LMBV2Import', 
         'Update-LMBV2Bot', 
         'Update-LMBV2BotAlias', 

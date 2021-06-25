@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Updates a registered CA certificate.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCACertificate</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "IOTCACertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

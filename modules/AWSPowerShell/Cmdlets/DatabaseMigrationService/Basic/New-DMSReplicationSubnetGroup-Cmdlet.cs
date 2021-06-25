@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Creates a replication subnet group given a list of the subnet IDs in a VPC.
+    /// 
+    ///  
+    /// <para>
+    /// The VPC needs to have at least one subnet in at least two availability zones in the
+    /// Amazon Web Services Region, otherwise the service will throw a <code>ReplicationSubnetGroupDoesNotCoverEnoughAZs</code>
+    /// exception.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "DMSReplicationSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationSubnetGroup")]

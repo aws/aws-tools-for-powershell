@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter AllowExternalPrincipal
         /// <summary>
         /// <para>
-        /// <para>Indicates whether principals outside your AWS organization can be associated with
-        /// a resource share.</para>
+        /// <para>Indicates whether principals outside your organization in Organizations can be associated
+        /// with a resource share.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

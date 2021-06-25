@@ -38,8 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// A <code>FeatureGroup</code> definition is composed of a list of <code>Features</code>,
     /// a <code>RecordIdentifierFeatureName</code>, an <code>EventTimeFeatureName</code> and
     /// configurations for its <code>OnlineStore</code> and <code>OfflineStore</code>. Check
-    /// <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS
-    /// service quotas</a> to see the <code>FeatureGroup</code>s quota for your AWS account.
+    /// <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon
+    /// Web Services service quotas</a> to see the <code>FeatureGroup</code>s quota for your
+    /// Amazon Web Services account.
     /// </para><important><para>
     /// You must include at least one of <code>OnlineStoreConfig</code> and <code>OfflineStoreConfig</code>
     /// to create a <code>FeatureGroup</code>.
@@ -90,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OfflineStoreConfig_DisableGlueTableCreation
         /// <summary>
         /// <para>
-        /// <para>Set to <code>True</code> to disable the automatic creation of an AWS Glue table when
-        /// configuring an <code>OfflineStore</code>.</para>
+        /// <para>Set to <code>True</code> to disable the automatic creation of an Amazon Web Services
+        /// Glue table when configuring an <code>OfflineStore</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,8 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter FeatureGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>FeatureGroup</code>. The name must be unique within an AWS Region
-        /// in an AWS account. The name:</para><ul><li><para>Must start and end with an alphanumeric character.</para></li><li><para>Can only contain alphanumeric character and hyphens. Spaces are not allowed. </para></li></ul>
+        /// <para>The name of the <code>FeatureGroup</code>. The name must be unique within an Amazon
+        /// Web Services Region in an Amazon Web Services account. The name:</para><ul><li><para>Must start and end with an alphanumeric character.</para></li><li><para>Can only contain alphanumeric character and hyphens. Spaces are not allowed. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -181,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter S3StorageConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects
-        /// written into the <code>OfflineStore</code> S3 location.</para><para>The IAM <code>roleARN</code> that is passed as a parameter to <code>CreateFeatureGroup</code>
+        /// <para>The Amazon Web Services Key Management Service (KMS) key ID of the key used to encrypt
+        /// any objects written into the <code>OfflineStore</code> S3 location.</para><para>The IAM <code>roleARN</code> that is passed as a parameter to <code>CreateFeatureGroup</code>
         /// must have below permissions to the <code>KmsKeyId</code>:</para><ul><li><para><code>"kms:GenerateDataKey"</code></para></li></ul>
         /// </para>
         /// </summary>
@@ -194,8 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SecurityConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store
-        /// uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.</para><para>The caller (either IAM user or IAM role) of <code>CreateFeatureGroup</code> must have
+        /// <para>The ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS)
+        /// key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using
+        /// Amazon S3 server-side encryption.</para><para>The caller (either IAM user or IAM role) of <code>CreateFeatureGroup</code> must have
         /// below permissions to the <code>OnlineStore</code><code>KmsKeyId</code>:</para><ul><li><para><code>"kms:Encrypt"</code></para></li><li><para><code>"kms:Decrypt"</code></para></li><li><para><code>"kms:DescribeKey"</code></para></li><li><para><code>"kms:CreateGrant"</code></para></li><li><para><code>"kms:RetireGrant"</code></para></li><li><para><code>"kms:ReEncryptFrom"</code></para></li><li><para><code>"kms:ReEncryptTo"</code></para></li><li><para><code>"kms:GenerateDataKey"</code></para></li><li><para><code>"kms:ListAliases"</code></para></li><li><para><code>"kms:ListGrants"</code></para></li><li><para><code>"kms:RevokeGrant"</code></para></li></ul><para>The caller (either IAM user or IAM role) to all DataPlane operations (<code>PutRecord</code>,
         /// <code>GetRecord</code>, <code>DeleteRecord</code>) must have the following permissions
         /// to the <code>KmsKeyId</code>:</para><ul><li><para><code>"kms:Decrypt"</code></para></li></ul>

@@ -28,8 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Disassociates a list of evidence from the specified assessment report in AWS Audit
-    /// Manager.
+    /// Disassociates a list of evidence from the specified assessment report in Audit Manager.
     /// </summary>
     [Cmdlet("Remove", "AUDMAssessmentReportEvidence", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.AuditManager.Model.BatchDisassociateAssessmentReportEvidenceResponse")]

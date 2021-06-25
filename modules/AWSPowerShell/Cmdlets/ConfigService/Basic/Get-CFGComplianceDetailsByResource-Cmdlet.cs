@@ -28,9 +28,9 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns the evaluation results for the specified AWS resource. The results indicate
-    /// which AWS Config rules were used to evaluate the resource, when each rule was last
-    /// used, and whether the resource complies with each rule.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the evaluation results for the specified Amazon Web Services resource. The
+    /// results indicate which Config rules were used to evaluate the resource, when each
+    /// rule was last used, and whether the resource complies with each rule.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGComplianceDetailsByResource")]
     [OutputType("Amazon.ConfigService.Model.EvaluationResult")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS resource for which you want compliance information.</para>
+        /// <para>The ID of the Amazon Web Services resource for which you want compliance information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the AWS resource for which you want compliance information.</para>
+        /// <para>The type of the Amazon Web Services resource for which you want compliance information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

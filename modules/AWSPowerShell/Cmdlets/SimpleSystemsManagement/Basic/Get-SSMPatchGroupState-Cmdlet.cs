@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Returns high-level aggregated patch compliance state for a patch group.
+    /// Returns high-level aggregated patch compliance state information for a patch group.
     /// </summary>
     [Cmdlet("Get", "SSMPatchGroupState")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse")]

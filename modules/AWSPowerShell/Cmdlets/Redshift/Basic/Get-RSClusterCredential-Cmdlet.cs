@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// 
     ///  
     /// <para>
-    /// The AWS Identity and Access Management (IAM)user or role that executes GetClusterCredentials
+    /// The Identity and Access Management (IAM) user or role that runs GetClusterCredentials
     /// must have an IAM policy attached that allows access to all necessary actions and resources.
     /// For more information about permissions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources">Resource
     /// Policies for GetClusterCredentials</a> in the Amazon Redshift Cluster Management Guide.

@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// Cancels an audit that is in progress. The audit can be either scheduled or on demand.
     /// If the audit isn't in progress, an "InvalidRequestException" occurs.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelAuditTask</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "IOTAuditTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

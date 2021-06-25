@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter AddArgument
         /// <summary>
         /// <para>
-        /// <para>The map of arguments to add the map of arguments used to configure the <code>DevEndpoint</code>.</para><para>Valid arguments are:</para><ul><li><para><code>"--enable-glue-datacatalog": ""</code></para></li><li><para><code>"GLUE_PYTHON_VERSION": "3"</code></para></li><li><para><code>"GLUE_PYTHON_VERSION": "2"</code></para></li></ul><para>You can specify a version of Python support for development endpoints by using the
+        /// <para>The map of arguments to add the map of arguments used to configure the <code>DevEndpoint</code>.</para><para>Valid arguments are:</para><ul><li><para><code>"--enable-glue-datacatalog": ""</code></para></li></ul><para>You can specify a version of Python support for development endpoints by using the
         /// <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code>
         /// APIs. If no arguments are provided, the version defaults to Python 2.</para>
         /// </para>

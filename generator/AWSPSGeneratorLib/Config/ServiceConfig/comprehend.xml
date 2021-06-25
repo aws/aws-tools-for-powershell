@@ -147,6 +147,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDocumentClassifierSummaries" OutputProperty="DocumentClassifierSummariesList" Verb="Get" Noun="DocumentClassifierSummaryList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDominantLanguageDetectionJobs" OutputProperty="DominantLanguageDetectionJobPropertiesList" Verb="Get" Noun="DominantLanguageDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -160,6 +164,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEntityRecognizers" OutputProperty="EntityRecognizerPropertiesList" Verb="Get" Noun="EntityRecognizerList" PipelineParameter="Filter_Status" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEntityRecognizerSummaries" OutputProperty="EntityRecognizerSummariesList" Verb="Get" Noun="EntityRecognizerSummaryList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

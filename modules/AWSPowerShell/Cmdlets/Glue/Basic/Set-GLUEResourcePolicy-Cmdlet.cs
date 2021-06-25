@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account
-        /// access to Data Catalog resources:</para><ul><li><para>By directly updating the resource policy with <code>PutResourePolicy</code></para></li><li><para>By using the <b>Grant permissions</b> command on the AWS Management Console.</para></li></ul><para>Must be set to <code>'TRUE'</code> if you have already used the Management Console
+        /// access to Data Catalog resources:</para><ul><li><para>By directly updating the resource policy with <code>PutResourePolicy</code></para></li><li><para>By using the <b>Grant permissions</b> command on the Amazon Web Services Management
+        /// Console.</para></li></ul><para>Must be set to <code>'TRUE'</code> if you have already used the Management Console
         /// to grant cross-account access, otherwise the call fails. Default is 'FALSE'.</para>
         /// </para>
         /// </summary>

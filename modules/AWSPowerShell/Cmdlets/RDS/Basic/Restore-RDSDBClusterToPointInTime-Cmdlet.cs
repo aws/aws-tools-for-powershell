@@ -297,6 +297,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String RestoreType { get; set; }
         #endregion
         
+        #region Parameter ScalingConfiguration_SecondsBeforeTimeout
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time, in seconds, that Aurora Serverless tries to find a scaling point
+        /// to perform seamless scaling before enforcing the timeout action. The default is 300.</para><para>Specify a value between 60 and 600 seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ScalingConfiguration_SecondsBeforeTimeout { get; set; }
+        #endregion
+        
         #region Parameter ScalingConfiguration_SecondsUntilAutoPause
         /// <summary>
         /// <para>
@@ -480,6 +491,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.ScalingConfiguration_AutoPause = this.ScalingConfiguration_AutoPause;
             context.ScalingConfiguration_MaxCapacity = this.ScalingConfiguration_MaxCapacity;
             context.ScalingConfiguration_MinCapacity = this.ScalingConfiguration_MinCapacity;
+            context.ScalingConfiguration_SecondsBeforeTimeout = this.ScalingConfiguration_SecondsBeforeTimeout;
             context.ScalingConfiguration_SecondsUntilAutoPause = this.ScalingConfiguration_SecondsUntilAutoPause;
             context.ScalingConfiguration_TimeoutAction = this.ScalingConfiguration_TimeoutAction;
             context.SourceDBClusterIdentifier = this.SourceDBClusterIdentifier;
@@ -615,6 +627,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 request.ScalingConfiguration.MinCapacity = requestScalingConfiguration_scalingConfiguration_MinCapacity.Value;
                 requestScalingConfigurationIsNull = false;
             }
+            System.Int32? requestScalingConfiguration_scalingConfiguration_SecondsBeforeTimeout = null;
+            if (cmdletContext.ScalingConfiguration_SecondsBeforeTimeout != null)
+            {
+                requestScalingConfiguration_scalingConfiguration_SecondsBeforeTimeout = cmdletContext.ScalingConfiguration_SecondsBeforeTimeout.Value;
+            }
+            if (requestScalingConfiguration_scalingConfiguration_SecondsBeforeTimeout != null)
+            {
+                request.ScalingConfiguration.SecondsBeforeTimeout = requestScalingConfiguration_scalingConfiguration_SecondsBeforeTimeout.Value;
+                requestScalingConfigurationIsNull = false;
+            }
             System.Int32? requestScalingConfiguration_scalingConfiguration_SecondsUntilAutoPause = null;
             if (cmdletContext.ScalingConfiguration_SecondsUntilAutoPause != null)
             {
@@ -746,6 +768,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? ScalingConfiguration_AutoPause { get; set; }
             public System.Int32? ScalingConfiguration_MaxCapacity { get; set; }
             public System.Int32? ScalingConfiguration_MinCapacity { get; set; }
+            public System.Int32? ScalingConfiguration_SecondsBeforeTimeout { get; set; }
             public System.Int32? ScalingConfiguration_SecondsUntilAutoPause { get; set; }
             public System.String ScalingConfiguration_TimeoutAction { get; set; }
             public System.String SourceDBClusterIdentifier { get; set; }

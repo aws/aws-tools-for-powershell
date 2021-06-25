@@ -28,9 +28,9 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Gets a list of the file shares for a specific file gateway, or the list of file shares
-    /// that belong to the calling user account. This operation is only supported for file
-    /// gateways.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets a list of the file shares for a specific S3 File Gateway, or the list of file
+    /// shares that belong to the calling user account. This operation is only supported for
+    /// S3 File Gateways.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SGFileShareList")]
     [OutputType("Amazon.StorageGateway.Model.FileShareInfo")]

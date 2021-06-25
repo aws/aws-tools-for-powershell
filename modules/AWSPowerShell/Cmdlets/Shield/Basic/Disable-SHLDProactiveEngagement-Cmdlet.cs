@@ -28,8 +28,8 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Removes authorization from the DDoS Response Team (DRT) to notify contacts about escalations
-    /// to the DRT and to initiate proactive customer support.
+    /// Removes authorization from the Shield Response Team (SRT) to notify contacts about
+    /// escalations to the SRT and to initiate proactive customer support.
     /// </summary>
     [Cmdlet("Disable", "SHLDProactiveEngagement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

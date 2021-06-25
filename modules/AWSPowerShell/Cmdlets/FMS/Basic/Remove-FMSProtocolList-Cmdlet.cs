@@ -28,7 +28,7 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Permanently deletes an AWS Firewall Manager protocols list.
+    /// Permanently deletes an Firewall Manager protocols list.
     /// </summary>
     [Cmdlet("Remove", "FMSProtocolList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

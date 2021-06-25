@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Updates an AWS IoT SiteWise Monitor portal.
+    /// Updates an IoT SiteWise Monitor portal.
     /// </summary>
     [Cmdlet("Update", "IOTSWPortal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSiteWise.Model.PortalStatus")]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
-        /// of the IAM role that allows the alarm to perform actions and access AWS resources,
-        /// including AWS IoT Events.</para>
+        /// of the IAM role that allows the alarm to perform actions and access Amazon Web Services
+        /// resources and services, such as IoT Events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
-        /// of the AWS Lambda function that manages alarm notifications. For more information,
-        /// see <a href="https://docs.aws.amazon.com/">Managing alarm notifications</a> in the
-        /// <i>AWS IoT Events Developer Guide</i>.</para>
+        /// of the Lambda function that manages alarm notifications. For more information, see
+        /// <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html">Managing
+        /// alarm notifications</a> in the <i>IoT Events Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter PortalContactEmail
         /// <summary>
         /// <para>
-        /// <para>The AWS administrator's contact email address.</para>
+        /// <para>The Amazon Web Services administrator's contact email address.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -164,9 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
-        /// of a service role that allows the portal's users to access your AWS IoT SiteWise resources
+        /// of a service role that allows the portal's users to access your IoT SiteWise resources
         /// on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using
-        /// service roles for AWS IoT SiteWise Monitor</a> in the <i>AWS IoT SiteWise User Guide</i>.</para>
+        /// service roles for IoT SiteWise Monitor</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

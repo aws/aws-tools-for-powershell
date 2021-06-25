@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// For more information about scaling points, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
     /// Autoscaling for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para></important><note><para>
-    /// This action only applies to Aurora DB clusters.
+    /// This action only applies to Aurora Serverless DB clusters.
     /// </para></note>
     /// </summary>
     [Cmdlet("Edit", "RDSCurrentDBClusterCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, that Aurora Serverless tries to find a scaling point
-        /// to perform seamless scaling before enforcing the timeout action. The default is 300.</para><ul><li><para>Value must be from 10 through 600.</para></li></ul>
+        /// to perform seamless scaling before enforcing the timeout action. The default is 300.</para><para>Specify a value between 10 and 600 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

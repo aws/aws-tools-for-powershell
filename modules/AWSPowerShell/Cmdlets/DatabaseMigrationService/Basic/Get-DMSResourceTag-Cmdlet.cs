@@ -28,7 +28,7 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Lists all metadata tags attached to an AWS DMS resource, including replication instance,
+    /// Lists all metadata tags attached to an DMS resource, including replication instance,
     /// endpoint, security group, and migration task. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html"><code>Tag</code></a> data type description.
     /// </summary>
     [Cmdlet("Get", "DMSResourceTag")]
@@ -44,18 +44,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) string that uniquely identifies the AWS DMS resource.</para>
+        /// <para>The Amazon Resource Name (ARN) string that uniquely identifies the DMS resource to
+        /// list tags for. This returns a list of keys (names of tags) created for the resource
+        /// and their associated tag values.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter ResourceArnList
+        /// <summary>
+        /// <para>
+        /// <para>List of ARNs that identify multiple DMS resources that you want to list tags for.
+        /// This returns a list of keys (tag names) and their associated tag values. It also returns
+        /// each tag's associated <code>ResourceArn</code> value, which is the ARN of the resource
+        /// for which each listed tag is created. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ResourceArnList { get; set; }
         #endregion
         
         #region Parameter Select
@@ -104,12 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ResourceArn = this.ResourceArn;
-            #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.ResourceArnList != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.ResourceArnList = new List<System.String>(this.ResourceArnList);
             }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -129,6 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.ResourceArn != null)
             {
                 request.ResourceArn = cmdletContext.ResourceArn;
+            }
+            if (cmdletContext.ResourceArnList != null)
+            {
+                request.ResourceArnList = cmdletContext.ResourceArnList;
             }
             
             CmdletOutput output;
@@ -192,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceArn { get; set; }
+            public List<System.String> ResourceArnList { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.ListTagsForResourceResponse, GetDMSResourceTagCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TagList;
         }

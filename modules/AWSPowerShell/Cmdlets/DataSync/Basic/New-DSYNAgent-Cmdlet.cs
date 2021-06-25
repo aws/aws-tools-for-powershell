@@ -28,11 +28,12 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Activates an AWS DataSync agent that you have deployed on your host. The activation
-    /// process associates your agent with your account. In the activation process, you specify
-    /// information such as the AWS Region that you want to activate the agent in. You activate
-    /// the agent in the AWS Region where your target locations (in Amazon S3 or Amazon EFS)
-    /// reside. Your tasks are created in this AWS Region.
+    /// Activates an DataSync agent that you have deployed on your host. The activation process
+    /// associates your agent with your account. In the activation process, you specify information
+    /// such as the Amazon Web Services Region that you want to activate the agent in. You
+    /// activate the agent in the Amazon Web Services Region where your target locations (in
+    /// Amazon S3 or Amazon EFS) reside. Your tasks are created in this Amazon Web Services
+    /// Region.
     /// 
     ///  
     /// <para>
@@ -44,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// for a source location, the status of all the agents must be AVAILABLE for the task
     /// to run. 
     /// </para><para>
-    /// Agents are automatically updated by AWS on a regular basis, using a mechanism that
-    /// ensures minimal interruption to your tasks.
+    /// Agents are automatically updated by Amazon Web Services on a regular basis, using
+    /// a mechanism that ensures minimal interruption to your tasks.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DSYNAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,10 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>Your agent activation key. You can get the activation key either by sending an HTTP
         /// GET request with redirects that enable you to get the agent IP address (port 80).
-        /// Alternatively, you can get it from the AWS DataSync console.</para><para>The redirect URL returned in the response provides you the activation key for your
+        /// Alternatively, you can get it from the DataSync console.</para><para>The redirect URL returned in the response provides you the activation key for your
         /// agent in the query string parameter <code>activationKey</code>. It might also include
         /// other activation-related parameters; however, these are merely defaults. The arguments
-        /// you pass to this API call determine the actual configuration of your agent.</para><para>For more information, see Activating an Agent in the <i>AWS DataSync User Guide.</i></para>
+        /// you pass to this API call determine the actual configuration of your agent.</para><para>For more information, see Activating an Agent in the <i>DataSync User Guide.</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR

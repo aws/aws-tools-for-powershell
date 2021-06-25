@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// Updates values stored in the domain configuration. Domain configurations for default
     /// endpoints can't be updated.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDomainConfiguration</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "IOTDomainConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.UpdateDomainConfigurationResponse")]

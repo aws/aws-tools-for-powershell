@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <para>
     /// The <code>CloseInstancePublicPorts</code> action supports tag-based access control
     /// via resource tags applied to the resource identified by <code>instanceName</code>.
-    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
-    /// Dev Guide</a>.
+    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Close", "LSInstancePublicPort", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

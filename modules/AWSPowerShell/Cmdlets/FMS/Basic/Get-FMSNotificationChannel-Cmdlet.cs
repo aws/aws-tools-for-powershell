@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
     /// Information about the Amazon Simple Notification Service (SNS) topic that is used
-    /// to record AWS Firewall Manager SNS logs.
+    /// to record Firewall Manager SNS logs.
     /// </summary>
     [Cmdlet("Get", "FMSNotificationChannel")]
     [OutputType("Amazon.FMS.Model.GetNotificationChannelResponse")]

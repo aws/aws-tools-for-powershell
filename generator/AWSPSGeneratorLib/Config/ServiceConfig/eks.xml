@@ -59,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterCluster" OutputProperty="Cluster" Verb="Unregister" Noun="Cluster" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAddon" OutputProperty="Addon" Verb="Get" Noun="Addon" PipelineParameter="AddonName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -116,6 +120,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListUpdates" OutputProperty="UpdateIds" Verb="Get" Noun="UpdateList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterCluster" OutputProperty="Cluster" Verb="Register" Noun="Cluster" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

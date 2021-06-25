@@ -65,11 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter Enforce
         /// <summary>
         /// <para>
-        /// <para>If this is a managed rule, created by an AWS service on your behalf, you must specify
-        /// <code>Force</code> as <code>True</code> to remove targets. This parameter is ignored
-        /// for rules that are not managed rules. You can check whether a rule is a managed rule
-        /// by using <code>DescribeRule</code> or <code>ListRules</code> and checking the <code>ManagedBy</code>
-        /// field of the response.</para>
+        /// <para>If this is a managed rule, created by an Amazon Web Services service on your behalf,
+        /// you must specify <code>Force</code> as <code>True</code> to remove targets. This parameter
+        /// is ignored for rules that are not managed rules. You can check whether a rule is a
+        /// managed rule by using <code>DescribeRule</code> or <code>ListRules</code> and checking
+        /// the <code>ManagedBy</code> field of the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

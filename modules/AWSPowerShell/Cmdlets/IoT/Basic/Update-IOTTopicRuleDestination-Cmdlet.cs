@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// Updates a topic rule destination. You use this to change the status, endpoint URL,
     /// or confirmation URL of the destination.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateTopicRuleDestination</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "IOTTopicRuleDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

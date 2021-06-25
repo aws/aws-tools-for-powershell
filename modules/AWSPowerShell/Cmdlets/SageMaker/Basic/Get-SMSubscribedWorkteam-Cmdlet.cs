@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Gets information about a work team provided by a vendor. It returns details about
-    /// the subscription with a vendor in the AWS Marketplace.
+    /// the subscription with a vendor in the Amazon Web Services Marketplace.
     /// </summary>
     [Cmdlet("Get", "SMSubscribedWorkteam")]
     [OutputType("Amazon.SageMaker.Model.SubscribedWorkteam")]

@@ -29,16 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Updates an association. You can update the association name and version, the document
-    /// version, schedule, parameters, and Amazon S3 output. 
+    /// version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output.
+    /// 
     /// 
     ///  
     /// <para>
-    /// In order to call this API action, your IAM user account, group, or role must be configured
-    /// with permission to call the <a>DescribeAssociation</a> API action. If you don't have
-    /// permission to call DescribeAssociation, then you receive the following error: <code>An
-    /// error occurred (AccessDeniedException) when calling the UpdateAssociation operation:
-    /// User: &lt;user_arn&gt; is not authorized to perform: ssm:DescribeAssociation on resource:
-    /// &lt;resource_arn&gt;</code></para><important><para>
+    /// In order to call this API operation, your Identity and Access Management (IAM) user
+    /// account, group, or role must be configured with permission to call the <a>DescribeAssociation</a>
+    /// API operation. If you don't have permission to call <code>DescribeAssociation</code>,
+    /// then you receive the following error: <code>An error occurred (AccessDeniedException)
+    /// when calling the UpdateAssociation operation: User: &lt;user_arn&gt; isn't authorized
+    /// to perform: ssm:DescribeAssociation on resource: &lt;resource_arn&gt;</code></para><important><para>
     /// When you update an association, the association immediately runs against the specified
     /// targets.
     /// </para></important>
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>By default, when you update an association, the system runs it immediately after it
         /// is updated and then according to the schedule you specified. Specify this option if
         /// you don't want an association to run immediately after you update it. This parameter
-        /// is not supported for rate expressions.</para><para>Also, if you specified this option when you created the association, you can reset
+        /// isn't supported for rate expressions.</para><para>Also, if you specified this option when you created the association, you can reset
         /// it. To do so, specify the <code>no-apply-only-at-cron-interval</code> parameter when
         /// you update the association from the command line. This parameter forces the association
         /// to run immediately after updating it and according to the interval specified.</para>
@@ -112,7 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Specify the target for the association. This target is required for associations that
-        /// use an Automation document and target resources by using rate controls.</para>
+        /// use an Automation runbook and target resources by using rate controls. Automation
+        /// is a capability of Amazon Web Services Systems Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,10 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter CalendarName
         /// <summary>
         /// <para>
-        /// <para>The names or Amazon Resource Names (ARNs) of the Systems Manager Change Calendar type
-        /// documents you want to gate your associations under. The associations only run when
-        /// that Change Calendar is open. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">AWS
-        /// Systems Manager Change Calendar</a>.</para>
+        /// <para>The names or Amazon Resource Names (ARNs) of the Change Calendar type documents you
+        /// want to gate your associations under. The associations only run when that change calendar
+        /// is open. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">Amazon
+        /// Web Services Systems Manager Change Calendar</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// can specify a number, for example 10, or a percentage of the target set, for example
         /// 10%. The default value is 100%, which means all targets run the association at the
         /// same time.</para><para>If a new instance starts and attempts to run an association while Systems Manager
-        /// is running MaxConcurrency associations, the association is allowed to run. During
-        /// the next association interval, the new instance will process its association within
-        /// the limit specified for MaxConcurrency.</para>
+        /// is running <code>MaxConcurrency</code> associations, the association is allowed to
+        /// run. During the next association interval, the new instance will process its association
+        /// within the limit specified for <code>MaxConcurrency</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,11 +180,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// of errors, for example 10, or a percentage of the target set, for example 10%. If
         /// you specify 3, for example, the system stops sending requests when the fourth error
         /// is received. If you specify 0, then the system stops sending requests after the first
-        /// error is returned. If you run an association on 50 instances and set MaxError to 10%,
-        /// then the system stops sending the request when the sixth error is received.</para><para>Executions that are already running an association when MaxErrors is reached are allowed
-        /// to complete, but some of these executions may fail as well. If you need to ensure
-        /// that there won't be more than max-errors failed executions, set MaxConcurrency to
-        /// 1 so that executions proceed one at a time.</para>
+        /// error is returned. If you run an association on 50 instances and set <code>MaxError</code>
+        /// to 10%, then the system stops sending the request when the sixth error is received.</para><para>Executions that are already running an association when <code>MaxErrors</code> is
+        /// reached are allowed to complete, but some of these executions may fail as well. If
+        /// you need to ensure that there won't be more than max-errors failed executions, set
+        /// <code>MaxConcurrency</code> to 1 so that executions proceed one at a time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,11 +195,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the SSM document that contains the configuration information for the instance.
-        /// You can specify Command or Automation documents.</para><para>You can specify AWS-predefined documents, documents you created, or a document that
-        /// is shared with you from another account.</para><para>For SSM documents that are shared with you from other AWS accounts, you must specify
-        /// the complete SSM document ARN, in the following format:</para><para><code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i></code></para><para>For example:</para><para><code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code></para><para>For AWS-predefined documents and SSM documents you created in your account, you only
-        /// need to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code>
+        /// <para>The name of the SSM Command document or Automation runbook that contains the configuration
+        /// information for the instance.</para><para>You can specify Amazon Web Services-predefined documents, documents you created, or
+        /// a document that is shared with you from another account.</para><para>For Systems Manager document (SSM document) that are shared with you from other Amazon
+        /// Web Services accounts, you must specify the complete SSM document ARN, in the following
+        /// format:</para><para><code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i></code></para><para>For example:</para><para><code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code></para><para>For Amazon Web Services-predefined documents and SSM documents you created in your
+        /// account, you only need to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code>
         /// or <code>My-Document</code>.</para>
         /// </para>
         /// </summary>
@@ -230,8 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter S3Location_OutputS3Region
         /// <summary>
         /// <para>
-        /// <para>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead,
-        /// Systems Manager automatically determines the Region of the S3 bucket.</para>
+        /// <para>The Amazon Web Services Region of the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,7 +245,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The parameters you want to update for the association. If you create a parameter using
-        /// Parameter Store, you can reference the parameter using {{ssm:parameter-name}}</para>
+        /// Parameter Store, a capability of Amazon Web Services Systems Manager, you can reference
+        /// the parameter using <code>{{ssm:parameter-name}}</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,9 +272,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// association execution to determine the compliance status. If the association execution
         /// runs successfully, then the association is <code>COMPLIANT</code>. If the association
         /// execution doesn't run successfully, the association is <code>NON-COMPLIANT</code>.</para><para>In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a
-        /// parameter for the <a>PutComplianceItems</a> API action. In this case, compliance data
-        /// is not managed by State Manager. It is managed by your direct call to the <a>PutComplianceItems</a>
-        /// API action.</para><para>By default, all associations use <code>AUTO</code> mode.</para>
+        /// parameter for the <a>PutComplianceItems</a> API operation. In this case, compliance
+        /// data isn't managed by State Manager, a capability of Amazon Web Services Systems Manager.
+        /// It is managed by your direct call to the <a>PutComplianceItems</a> API operation.</para><para>By default, all associations use <code>AUTO</code> mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -282,9 +285,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter TargetLocation
         /// <summary>
         /// <para>
-        /// <para>A location is a combination of AWS Regions and AWS accounts where you want to run
-        /// the association. Use this action to update an association in multiple Regions and
-        /// multiple accounts.</para>
+        /// <para>A location is a combination of Amazon Web Services Regions and Amazon Web Services
+        /// accounts where you want to run the association. Use this action to update an association
+        /// in multiple Regions and multiple accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

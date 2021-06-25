@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Gets usage information about a Capacity Reservation. If the Capacity Reservation is
-    /// shared, it shows usage information for the Capacity Reservation owner and each AWS
-    /// account that is currently using the shared capacity. If the Capacity Reservation is
-    /// not shared, it shows only the Capacity Reservation owner's usage.<br/><br/>In the AWS.Tools.EC2 module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// shared, it shows usage information for the Capacity Reservation owner and each Amazon
+    /// Web Services account that is currently using the shared capacity. If the Capacity
+    /// Reservation is not shared, it shows only the Capacity Reservation owner's usage.<br/><br/>In the AWS.Tools.EC2 module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2CapacityReservationUsage")]
     [OutputType("Amazon.EC2.Model.GetCapacityReservationUsageResponse")]

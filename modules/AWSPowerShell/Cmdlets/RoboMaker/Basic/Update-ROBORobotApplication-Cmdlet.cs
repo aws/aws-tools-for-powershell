@@ -88,16 +88,19 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// <para>The sources of the robot application.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Sources")]
         public Amazon.RoboMaker.Model.SourceConfig[] Source { get; set; }
+        #endregion
+        
+        #region Parameter Environment_Uri
+        /// <summary>
+        /// <para>
+        /// <para>The Docker image URI for either your robot or simulation applications.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Environment_Uri { get; set; }
         #endregion
         
         #region Parameter Select
@@ -169,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             }
             #endif
             context.CurrentRevisionId = this.CurrentRevisionId;
+            context.Environment_Uri = this.Environment_Uri;
             context.RobotSoftwareSuite = this.RobotSoftwareSuite;
             #if MODULAR
             if (this.RobotSoftwareSuite == null && ParameterWasBound(nameof(this.RobotSoftwareSuite)))
@@ -180,12 +184,6 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             {
                 context.Source = new List<Amazon.RoboMaker.Model.SourceConfig>(this.Source);
             }
-            #if MODULAR
-            if (this.Source == null && ParameterWasBound(nameof(this.Source)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Source which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -209,6 +207,25 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             if (cmdletContext.CurrentRevisionId != null)
             {
                 request.CurrentRevisionId = cmdletContext.CurrentRevisionId;
+            }
+            
+             // populate Environment
+            var requestEnvironmentIsNull = true;
+            request.Environment = new Amazon.RoboMaker.Model.Environment();
+            System.String requestEnvironment_environment_Uri = null;
+            if (cmdletContext.Environment_Uri != null)
+            {
+                requestEnvironment_environment_Uri = cmdletContext.Environment_Uri;
+            }
+            if (requestEnvironment_environment_Uri != null)
+            {
+                request.Environment.Uri = requestEnvironment_environment_Uri;
+                requestEnvironmentIsNull = false;
+            }
+             // determine if request.Environment should be set to null
+            if (requestEnvironmentIsNull)
+            {
+                request.Environment = null;
             }
             if (cmdletContext.RobotSoftwareSuite != null)
             {
@@ -281,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         {
             public System.String Application { get; set; }
             public System.String CurrentRevisionId { get; set; }
+            public System.String Environment_Uri { get; set; }
             public Amazon.RoboMaker.Model.RobotSoftwareSuite RobotSoftwareSuite { get; set; }
             public List<Amazon.RoboMaker.Model.SourceConfig> Source { get; set; }
             public System.Func<Amazon.RoboMaker.Model.UpdateRobotApplicationResponse, UpdateROBORobotApplicationCmdlet, object> Select { get; set; } =

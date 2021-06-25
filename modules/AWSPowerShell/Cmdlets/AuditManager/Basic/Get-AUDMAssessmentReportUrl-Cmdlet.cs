@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns the URL of a specified assessment report in AWS Audit Manager.
+    /// Returns the URL of a specified assessment report in Audit Manager.
     /// </summary>
     [Cmdlet("Get", "AUDMAssessmentReportUrl")]
     [OutputType("Amazon.AuditManager.Model.URL")]

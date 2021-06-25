@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID to grant access to.</para>
+        /// <para>The Amazon Web Services account ID to grant access to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

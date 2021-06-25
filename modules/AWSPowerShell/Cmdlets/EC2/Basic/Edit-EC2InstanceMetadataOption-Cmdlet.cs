@@ -58,6 +58,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.InstanceMetadataEndpointState HttpEndpoint { get; set; }
         #endregion
         
+        #region Parameter HttpProtocolIpv6
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables the IPv6 endpoint for the instance metadata service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.InstanceMetadataProtocolState")]
+        public Amazon.EC2.InstanceMetadataProtocolState HttpProtocolIpv6 { get; set; }
+        #endregion
+        
         #region Parameter HttpPutResponseHopLimit
         /// <summary>
         /// <para>
@@ -168,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.HttpEndpoint = this.HttpEndpoint;
+            context.HttpProtocolIpv6 = this.HttpProtocolIpv6;
             context.HttpPutResponseHopLimit = this.HttpPutResponseHopLimit;
             context.HttpToken = this.HttpToken;
             context.InstanceId = this.InstanceId;
@@ -196,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.HttpEndpoint != null)
             {
                 request.HttpEndpoint = cmdletContext.HttpEndpoint;
+            }
+            if (cmdletContext.HttpProtocolIpv6 != null)
+            {
+                request.HttpProtocolIpv6 = cmdletContext.HttpProtocolIpv6;
             }
             if (cmdletContext.HttpPutResponseHopLimit != null)
             {
@@ -271,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.EC2.InstanceMetadataEndpointState HttpEndpoint { get; set; }
+            public Amazon.EC2.InstanceMetadataProtocolState HttpProtocolIpv6 { get; set; }
             public System.Int32? HttpPutResponseHopLimit { get; set; }
             public Amazon.EC2.HttpTokensState HttpToken { get; set; }
             public System.String InstanceId { get; set; }

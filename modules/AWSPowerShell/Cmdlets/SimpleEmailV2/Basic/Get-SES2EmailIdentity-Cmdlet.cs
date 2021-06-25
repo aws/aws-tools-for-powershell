@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EmailIdentity
         /// <summary>
         /// <para>
-        /// <para>The email identity that you want to retrieve details for.</para>
+        /// <para>The email identity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -27,6 +27,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventAction" OutputProperty="*" Verb="New" Noun="EventAction" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateJob" OutputProperty="*" Verb="New" Noun="Job" ShouldProcessTarget="" PipelineParameter="Type" NoPipelineParameter="false">
             <Params>
                 <Param Name="Details_ExportRevisionsToS3_Encryption_KmsKeyArn" NewName="Details_ExportRevisionsToS3_Encryption_KmsKeyArn" />
@@ -46,6 +50,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventAction" Verb="Remove" Noun="EventAction" ShouldProcessTarget="EventActionId" PipelineParameter="EventActionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteRevision" Verb="Remove" Noun="Revision" ShouldProcessTarget="RevisionId" PipelineParameter="RevisionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -55,6 +63,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDataSet" OutputProperty="*" Verb="Get" Noun="DataSet" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEventAction" OutputProperty="*" Verb="Get" Noun="EventAction" PipelineParameter="EventActionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -71,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDataSets" OutputProperty="DataSets" Verb="Get" Noun="DataSetList" PipelineParameter="Origin" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventActions" OutputProperty="EventActions" Verb="Get" Noun="EventActionList" PipelineParameter="EventSourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -103,6 +119,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataSet" OutputProperty="*" Verb="Update" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEventAction" OutputProperty="*" Verb="Update" Noun="EventAction" ShouldProcessTarget="EventActionId" PipelineParameter="EventActionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

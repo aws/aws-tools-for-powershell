@@ -187,6 +187,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProjectVisibility" OutputProperty="*" Verb="Update" Noun="ProjectVisibility" ShouldProcessTarget="ProjectArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateReportGroup" OutputProperty="ReportGroup" Verb="Update" Noun="ReportGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

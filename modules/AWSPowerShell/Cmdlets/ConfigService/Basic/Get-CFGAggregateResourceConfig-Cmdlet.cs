@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceIdentifier_ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS resource.</para>
+        /// <para>The ID of the Amazon Web Services resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceIdentifier_ResourceName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS resource.</para>
+        /// <para>The name of the Amazon Web Services resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceIdentifier_ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the AWS resource.</para>
+        /// <para>The type of the Amazon Web Services resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

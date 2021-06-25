@@ -30,11 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// <summary>
     /// Returns a list of orderable cluster options. Before you create a new cluster you can
     /// use this operation to find what options are available, such as the EC2 Availability
-    /// Zones (AZ) in the specific AWS Region that you can specify, and the node types you
-    /// can request. The node types differ by available storage, memory, CPU and price. With
-    /// the cost involved you might want to obtain a list of cluster options in the specific
-    /// region and specify values when creating a cluster. For more information about managing
-    /// clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
+    /// Zones (AZ) in the specific Amazon Web Services Region that you can specify, and the
+    /// node types you can request. The node types differ by available storage, memory, CPU
+    /// and price. With the cost involved you might want to obtain a list of cluster options
+    /// in the specific region and specify values when creating a cluster. For more information
+    /// about managing clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
     /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RSOrderableClusterOption")]
@@ -74,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>An optional parameter that specifies the starting point to return a set of response
         /// records. When the results of a <a>DescribeOrderableClusterOptions</a> request exceed
-        /// the value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
-        /// field of the response. You can retrieve the next set of response records by providing
-        /// the returned marker value in the <code>Marker</code> parameter and retrying the request.
-        /// </para>
+        /// the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value
+        /// in the <code>Marker</code> field of the response. You can retrieve the next set of
+        /// response records by providing the returned marker value in the <code>Marker</code>
+        /// parameter and retrying the request. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

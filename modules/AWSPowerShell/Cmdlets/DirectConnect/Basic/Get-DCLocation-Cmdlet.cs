@@ -28,7 +28,7 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Lists the AWS Direct Connect locations in the current AWS Region. These are the locations
+    /// Lists the Direct Connect locations in the current Region. These are the locations
     /// that can be selected when calling <a>CreateConnection</a> or <a>CreateInterconnect</a>.
     /// </summary>
     [Cmdlet("Get", "DCLocation")]

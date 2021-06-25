@@ -28,9 +28,9 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Lists the virtual MFA devices defined in the AWS account by assignment status. If
-    /// you do not specify an assignment status, the operation returns a list of all virtual
-    /// MFA devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>,
+    /// Lists the virtual MFA devices defined in the Amazon Web Services account by assignment
+    /// status. If you do not specify an assignment status, the operation returns a list of
+    /// all virtual MFA devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>,
     /// or <code>Any</code>.
     /// 
     ///  <note><para>

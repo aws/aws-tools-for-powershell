@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS Config rule for which you want to delete remediation configuration.</para>
+        /// <para>The name of the Config rule for which you want to delete remediation configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies a list of trail ARNs whose tags will be listed. The list has a limit of
-        /// 20 ARNs. The format of a trail ARN is:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// 20 ARNs. The following is the format of a trail ARN.</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

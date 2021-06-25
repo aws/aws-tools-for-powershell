@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account where you want to store the new theme. </para>
+        /// <para>The ID of the Amazon Web Services account where you want to store the new theme. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the theme that a custom theme will inherit from. All themes inherit from
         /// one of the starting themes defined by Amazon QuickSight. For a list of the starting
-        /// themes, use <code>ListThemes</code> or choose <b>Themes</b> from within a QuickSight
+        /// themes, use <code>ListThemes</code> or choose <b>Themes</b> from within a Amazon QuickSight
         /// analysis. </para>
         /// </para>
         /// </summary>
@@ -355,8 +355,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ThemeId
         /// <summary>
         /// <para>
-        /// <para>An ID for the theme that you want to create. The theme ID is unique per AWS Region
-        /// in each AWS account.</para>
+        /// <para>An ID for the theme that you want to create. The theme ID is unique per Amazon Web
+        /// Services Region in each Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

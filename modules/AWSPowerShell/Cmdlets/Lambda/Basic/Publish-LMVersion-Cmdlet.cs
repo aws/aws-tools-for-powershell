@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
-    /// AWS Lambda doesn't publish a version if the function's configuration and code haven't
+    /// Lambda doesn't publish a version if the function's configuration and code haven't
     /// changed since the last version. Use <a>UpdateFunctionCode</a> or <a>UpdateFunctionConfiguration</a>
     /// to update the function before publishing a version.
     /// </para><para>

@@ -28,7 +28,7 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Create an AWS App Runner connection resource. App Runner requires a connection resource
+    /// Create an App Runner connection resource. App Runner requires a connection resource
     /// when you create App Runner services that access private repositories from certain
     /// third-party providers. You can share a connection across multiple services.
     /// 
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>A name for the new connection. It must be unique across all App Runner connections
-        /// for the AWS account in the AWS Region.</para>
+        /// for the Amazon Web Services account in the Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

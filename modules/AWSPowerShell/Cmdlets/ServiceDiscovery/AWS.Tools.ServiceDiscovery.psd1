@@ -107,7 +107,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SDNamespace', 
         'Remove-SDResourceTag', 
         'Remove-SDService', 
+        'Update-SDHttpNamespace', 
         'Update-SDInstanceCustomHealthStatus', 
+        'Update-SDPrivateDnsNamespace', 
+        'Update-SDPublicDnsNamespace', 
         'Update-SDService')
 
     # Variables to export from this module

@@ -28,14 +28,19 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Starts a new instance refresh operation, which triggers a rolling replacement of previously
-    /// launched instances in the Auto Scaling group with a new group of instances.
+    /// Starts a new instance refresh operation. An instance refresh performs a rolling replacement
+    /// of all or some instances in an Auto Scaling group. Each instance is terminated first
+    /// and then replaced, which temporarily reduces the capacity available within your Auto
+    /// Scaling group.
     /// 
     ///  
     /// <para>
     /// This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance
     /// refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in
-    /// your Auto Scaling group after you make configuration changes.
+    /// your Auto Scaling group. This feature is helpful, for example, when you have a new
+    /// AMI or a new user data script. You just need to create a new launch template that
+    /// specifies the new AMI or user data script. Then start an instance refresh to immediately
+    /// begin the process of updating instances in the group. 
     /// </para><para>
     /// If the call succeeds, it creates a new instance refresh request with a unique ID that
     /// you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a>
@@ -112,32 +117,99 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.Int32? Preferences_InstanceWarmup { get; set; }
         #endregion
         
+        #region Parameter LaunchTemplate_LaunchTemplateId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a>
+        /// API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a>
+        /// API. </para><para>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DesiredConfiguration_LaunchTemplate_LaunchTemplateId")]
+        public System.String LaunchTemplate_LaunchTemplateId { get; set; }
+        #endregion
+        
+        #region Parameter LaunchTemplate_LaunchTemplateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the launch template. To get the template name, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a>
+        /// API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a>
+        /// API. </para><para>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DesiredConfiguration_LaunchTemplate_LaunchTemplateName")]
+        public System.String LaunchTemplate_LaunchTemplateName { get; set; }
+        #endregion
+        
         #region Parameter Preferences_MinHealthyPercentage
         /// <summary>
         /// <para>
         /// <para>The amount of capacity in the Auto Scaling group that must remain healthy during an
-        /// instance refresh to allow the operation to continue, as a percentage of the desired
-        /// capacity of the Auto Scaling group (rounded up to the nearest integer). The default
-        /// is <code>90</code>. </para>
+        /// instance refresh to allow the operation to continue. The value is expressed as a percentage
+        /// of the desired capacity of the Auto Scaling group (rounded up to the nearest integer).
+        /// The default is <code>90</code>.</para><para>Setting the minimum healthy percentage to 100 percent limits the rate of replacement
+        /// to one instance at a time. In contrast, setting it to 0 percent has the effect of
+        /// replacing all instances at the same time. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Preferences_MinHealthyPercentage { get; set; }
         #endregion
         
+        #region Parameter DesiredConfiguration_MixedInstancesPolicy
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.AutoScaling.Model.MixedInstancesPolicy DesiredConfiguration_MixedInstancesPolicy { get; set; }
+        #endregion
+        
+        #region Parameter Preferences_SkipMatching
+        /// <summary>
+        /// <para>
+        /// <para>A boolean value that indicates whether skip matching is enabled. If true, then Amazon
+        /// EC2 Auto Scaling skips replacing instances that match the desired configuration. If
+        /// no desired configuration is specified, then it skips replacing instances that have
+        /// the same configuration that is already set on the group. The default is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Preferences_SkipMatching { get; set; }
+        #endregion
+        
         #region Parameter Strategy
         /// <summary>
         /// <para>
-        /// <para>The strategy to use for the instance refresh. The only valid value is <code>Rolling</code>.</para><para>A rolling update is an update that is applied to all instances in an Auto Scaling
-        /// group until all instances have been updated. A rolling update can fail due to failed
-        /// health checks or if instances are on standby or are protected from scale in. If the
-        /// rolling update process fails, any instances that were already replaced are not rolled
+        /// <para>The strategy to use for the instance refresh. The only valid value is <code>Rolling</code>.</para><para>A rolling update helps you update your instances gradually. A rolling update can fail
+        /// due to failed health checks or if instances are on standby or are protected from scale
+        /// in. If the rolling update process fails, any instances that are replaced are not rolled
         /// back to their previous configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.AutoScaling.RefreshStrategy")]
         public Amazon.AutoScaling.RefreshStrategy Strategy { get; set; }
+        #endregion
+        
+        #region Parameter LaunchTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The version number, <code>$Latest</code>, or <code>$Default</code>. To get the version
+        /// number, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplateVersions.html">DescribeLaunchTemplateVersions</a>
+        /// API operation. New launch template versions can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html">CreateLaunchTemplateVersion</a>
+        /// API. If the value is <code>$Latest</code>, Amazon EC2 Auto Scaling selects the latest
+        /// version of the launch template when launching instances. If the value is <code>$Default</code>,
+        /// Amazon EC2 Auto Scaling selects the default version of the launch template when launching
+        /// instances. The default value is <code>$Default</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DesiredConfiguration_LaunchTemplate_Version")]
+        public System.String LaunchTemplate_Version { get; set; }
         #endregion
         
         #region Parameter Select
@@ -208,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 WriteWarning("You are passing $null as a value for parameter AutoScalingGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LaunchTemplate_LaunchTemplateId = this.LaunchTemplate_LaunchTemplateId;
+            context.LaunchTemplate_LaunchTemplateName = this.LaunchTemplate_LaunchTemplateName;
+            context.LaunchTemplate_Version = this.LaunchTemplate_Version;
+            context.DesiredConfiguration_MixedInstancesPolicy = this.DesiredConfiguration_MixedInstancesPolicy;
             context.Preferences_CheckpointDelay = this.Preferences_CheckpointDelay;
             if (this.Preferences_CheckpointPercentage != null)
             {
@@ -215,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             context.Preferences_InstanceWarmup = this.Preferences_InstanceWarmup;
             context.Preferences_MinHealthyPercentage = this.Preferences_MinHealthyPercentage;
+            context.Preferences_SkipMatching = this.Preferences_SkipMatching;
             context.Strategy = this.Strategy;
             
             // allow further manipulation of loaded context prior to processing
@@ -235,6 +312,70 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+            }
+            
+             // populate DesiredConfiguration
+            var requestDesiredConfigurationIsNull = true;
+            request.DesiredConfiguration = new Amazon.AutoScaling.Model.DesiredConfiguration();
+            Amazon.AutoScaling.Model.MixedInstancesPolicy requestDesiredConfiguration_desiredConfiguration_MixedInstancesPolicy = null;
+            if (cmdletContext.DesiredConfiguration_MixedInstancesPolicy != null)
+            {
+                requestDesiredConfiguration_desiredConfiguration_MixedInstancesPolicy = cmdletContext.DesiredConfiguration_MixedInstancesPolicy;
+            }
+            if (requestDesiredConfiguration_desiredConfiguration_MixedInstancesPolicy != null)
+            {
+                request.DesiredConfiguration.MixedInstancesPolicy = requestDesiredConfiguration_desiredConfiguration_MixedInstancesPolicy;
+                requestDesiredConfigurationIsNull = false;
+            }
+            Amazon.AutoScaling.Model.LaunchTemplateSpecification requestDesiredConfiguration_desiredConfiguration_LaunchTemplate = null;
+            
+             // populate LaunchTemplate
+            var requestDesiredConfiguration_desiredConfiguration_LaunchTemplateIsNull = true;
+            requestDesiredConfiguration_desiredConfiguration_LaunchTemplate = new Amazon.AutoScaling.Model.LaunchTemplateSpecification();
+            System.String requestDesiredConfiguration_desiredConfiguration_LaunchTemplate_launchTemplate_LaunchTemplateId = null;
+            if (cmdletContext.LaunchTemplate_LaunchTemplateId != null)
+            {
+                requestDesiredConfiguration_desiredConfiguration_LaunchTemplate_launchTemplate_LaunchTemplateId = cmdletContext.LaunchTemplate_LaunchTemplateId;
+            }
+            if (requestDesiredConfiguration_desiredConfiguration_LaunchTemplate_launchTemplate_LaunchTemplateId != null)
+            {
+                requestDesiredConfiguration_desiredConfiguration_LaunchTemplate.LaunchTemplateId = requestDesiredConfiguration_desiredConfiguration_LaunchTemplate_launchTemplate_LaunchTemplateId;
+                requestDesiredConfiguration_desiredConfiguration_LaunchTemplateIsNull = false;
+            }
+            System.String requestDesiredConfiguration_desiredConfiguration_LaunchTemplate_launchTemplate_LaunchTemplateName = null;
+            if (cmdletContext.LaunchTemplate_LaunchTemplateName != null)
+            {
+                requestDesiredConfiguration_desiredConfiguration_LaunchTemplate_launchTemplate_LaunchTemplateName = cmdletContext.LaunchTemplate_LaunchTemplateName;
+            }
+            if (requestDesiredConfiguration_desiredConfiguration_LaunchTemplate_launchTemplate_LaunchTemplateName != null)
+            {
+                requestDesiredConfiguration_desiredConfiguration_LaunchTemplate.LaunchTemplateName = requestDesiredConfiguration_desiredConfiguration_LaunchTemplate_launchTemplate_LaunchTemplateName;
+                requestDesiredConfiguration_desiredConfiguration_LaunchTemplateIsNull = false;
+            }
+            System.String requestDesiredConfiguration_desiredConfiguration_LaunchTemplate_launchTemplate_Version = null;
+            if (cmdletContext.LaunchTemplate_Version != null)
+            {
+                requestDesiredConfiguration_desiredConfiguration_LaunchTemplate_launchTemplate_Version = cmdletContext.LaunchTemplate_Version;
+            }
+            if (requestDesiredConfiguration_desiredConfiguration_LaunchTemplate_launchTemplate_Version != null)
+            {
+                requestDesiredConfiguration_desiredConfiguration_LaunchTemplate.Version = requestDesiredConfiguration_desiredConfiguration_LaunchTemplate_launchTemplate_Version;
+                requestDesiredConfiguration_desiredConfiguration_LaunchTemplateIsNull = false;
+            }
+             // determine if requestDesiredConfiguration_desiredConfiguration_LaunchTemplate should be set to null
+            if (requestDesiredConfiguration_desiredConfiguration_LaunchTemplateIsNull)
+            {
+                requestDesiredConfiguration_desiredConfiguration_LaunchTemplate = null;
+            }
+            if (requestDesiredConfiguration_desiredConfiguration_LaunchTemplate != null)
+            {
+                request.DesiredConfiguration.LaunchTemplate = requestDesiredConfiguration_desiredConfiguration_LaunchTemplate;
+                requestDesiredConfigurationIsNull = false;
+            }
+             // determine if request.DesiredConfiguration should be set to null
+            if (requestDesiredConfigurationIsNull)
+            {
+                request.DesiredConfiguration = null;
             }
             
              // populate Preferences
@@ -278,6 +419,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (requestPreferences_preferences_MinHealthyPercentage != null)
             {
                 request.Preferences.MinHealthyPercentage = requestPreferences_preferences_MinHealthyPercentage.Value;
+                requestPreferencesIsNull = false;
+            }
+            System.Boolean? requestPreferences_preferences_SkipMatching = null;
+            if (cmdletContext.Preferences_SkipMatching != null)
+            {
+                requestPreferences_preferences_SkipMatching = cmdletContext.Preferences_SkipMatching.Value;
+            }
+            if (requestPreferences_preferences_SkipMatching != null)
+            {
+                request.Preferences.SkipMatching = requestPreferences_preferences_SkipMatching.Value;
                 requestPreferencesIsNull = false;
             }
              // determine if request.Preferences should be set to null
@@ -351,10 +502,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingGroupName { get; set; }
+            public System.String LaunchTemplate_LaunchTemplateId { get; set; }
+            public System.String LaunchTemplate_LaunchTemplateName { get; set; }
+            public System.String LaunchTemplate_Version { get; set; }
+            public Amazon.AutoScaling.Model.MixedInstancesPolicy DesiredConfiguration_MixedInstancesPolicy { get; set; }
             public System.Int32? Preferences_CheckpointDelay { get; set; }
             public List<System.Int32> Preferences_CheckpointPercentage { get; set; }
             public System.Int32? Preferences_InstanceWarmup { get; set; }
             public System.Int32? Preferences_MinHealthyPercentage { get; set; }
+            public System.Boolean? Preferences_SkipMatching { get; set; }
             public Amazon.AutoScaling.RefreshStrategy Strategy { get; set; }
             public System.Func<Amazon.AutoScaling.Model.StartInstanceRefreshResponse, StartASInstanceRefreshCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InstanceRefreshId;

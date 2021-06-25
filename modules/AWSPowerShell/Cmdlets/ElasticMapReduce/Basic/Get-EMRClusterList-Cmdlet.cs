@@ -28,11 +28,11 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Provides the status of all clusters visible to this AWS account. Allows you to filter
-    /// the list of clusters based on certain criteria; for example, filtering by cluster
-    /// creation date and time or by status. This call returns a maximum of 50 clusters per
-    /// call, but returns a marker to track the paging of the cluster list across multiple
-    /// ListClusters calls.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides the status of all clusters visible to this Amazon Web Services account. Allows
+    /// you to filter the list of clusters based on certain criteria; for example, filtering
+    /// by cluster creation date and time or by status. This call returns a maximum of 50
+    /// clusters in unsorted order per call, but returns a marker to track the paging of the
+    /// cluster list across multiple ListClusters calls.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EMRClusterList")]
     [OutputType("Amazon.ElasticMapReduce.Model.ClusterSummary")]
@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ClusterState
         /// <summary>
         /// <para>
-        /// <para>The cluster state filters to apply when listing clusters.</para>
+        /// <para>The cluster state filters to apply when listing clusters. Clusters that change state
+        /// while this action runs may be not be returned as expected in the list of clusters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

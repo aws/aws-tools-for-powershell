@@ -28,7 +28,7 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Returns information about the specified AWS Firewall Manager protocols list.
+    /// Returns information about the specified Firewall Manager protocols list.
     /// </summary>
     [Cmdlet("Get", "FMSProtocolList")]
     [OutputType("Amazon.FMS.Model.GetProtocolsListResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter DefaultList
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.</para>
+        /// <para>Specifies whether the list to retrieve is a default list owned by Firewall Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter ListId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Firewall Manager protocols list that you want the details for.</para>
+        /// <para>The ID of the Firewall Manager protocols list that you want the details for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

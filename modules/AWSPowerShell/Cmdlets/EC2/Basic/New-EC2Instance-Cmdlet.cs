@@ -143,7 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
-        /// <para>The block device mapping entries.</para>
+        /// <para>The block device mapping, which defines the EBS volumes and instance store volumes
+        /// to attach to the instance at launch. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block
+        /// device mappings</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,7 +278,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter EnclaveOptions_Enabled
         /// <summary>
         /// <para>
-        /// <para>To enable the instance for AWS Nitro Enclaves, set this parameter to <code>true</code>.</para>
+        /// <para>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter
+        /// to <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,6 +332,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.EC2.InstanceMetadataEndpointState")]
         public Amazon.EC2.InstanceMetadataEndpointState MetadataOptions_HttpEndpoint { get; set; }
+        #endregion
+        
+        #region Parameter MetadataOptions_HttpProtocolIpv6
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables the IPv6 endpoint for the instance metadata service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.InstanceMetadataProtocolState")]
+        public Amazon.EC2.InstanceMetadataProtocolState MetadataOptions_HttpProtocolIpv6 { get; set; }
         #endregion
         
         #region Parameter MetadataOptions_HttpPutResponseHopLimit
@@ -439,8 +453,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ID of the kernel.</para><important><para>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">
-        /// PV-GRUB</a> in the <i>Amazon EC2 User Guide</i>.</para></important>
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">PV-GRUB</a>
+        /// in the <i>Amazon EC2 User Guide</i>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -578,10 +592,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The ID of the RAM disk to select. Some kernels require additional drivers at launch.
         /// Check the kernel requirements for information about whether you need to specify a
-        /// RAM disk. To find kernel requirements, go to the AWS Resource Center and search for
-        /// the kernel ID.</para><important><para>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">
-        /// PV-GRUB</a> in the <i>Amazon EC2 User Guide</i>.</para></important>
+        /// RAM disk. To find kernel requirements, go to the Amazon Web Services Resource Center
+        /// and search for the kernel ID.</para><important><para>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">PV-GRUB</a>
+        /// in the <i>Amazon EC2 User Guide</i>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -653,7 +667,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The tenancy of the instance (if the instance is running in a VPC). An instance with
         /// a tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
         /// tenancy is not supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
-        /// command.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// command.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para><para>T3 instances that use the <code>unlimited</code> CPU credit option do not support
+        /// <code>host</code> tenancy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -798,6 +813,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.MetadataOptions_HttpEndpoint = this.MetadataOptions_HttpEndpoint;
+            context.MetadataOptions_HttpProtocolIpv6 = this.MetadataOptions_HttpProtocolIpv6;
             context.MetadataOptions_HttpPutResponseHopLimit = this.MetadataOptions_HttpPutResponseHopLimit;
             context.MetadataOptions_HttpToken = this.MetadataOptions_HttpToken;
             context.MinCount = this.MinCount;
@@ -1087,6 +1103,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.MetadataOptions.HttpEndpoint = requestMetadataOptions_metadataOptions_HttpEndpoint;
                 requestMetadataOptionsIsNull = false;
             }
+            Amazon.EC2.InstanceMetadataProtocolState requestMetadataOptions_metadataOptions_HttpProtocolIpv6 = null;
+            if (cmdletContext.MetadataOptions_HttpProtocolIpv6 != null)
+            {
+                requestMetadataOptions_metadataOptions_HttpProtocolIpv6 = cmdletContext.MetadataOptions_HttpProtocolIpv6;
+            }
+            if (requestMetadataOptions_metadataOptions_HttpProtocolIpv6 != null)
+            {
+                request.MetadataOptions.HttpProtocolIpv6 = requestMetadataOptions_metadataOptions_HttpProtocolIpv6;
+                requestMetadataOptionsIsNull = false;
+            }
             System.Int32? requestMetadataOptions_metadataOptions_HttpPutResponseHopLimit = null;
             if (cmdletContext.MetadataOptions_HttpPutResponseHopLimit != null)
             {
@@ -1330,6 +1356,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<Amazon.EC2.Model.LicenseConfigurationRequest> LicenseSpecification { get; set; }
             public System.Int32? MaxCount { get; set; }
             public Amazon.EC2.InstanceMetadataEndpointState MetadataOptions_HttpEndpoint { get; set; }
+            public Amazon.EC2.InstanceMetadataProtocolState MetadataOptions_HttpProtocolIpv6 { get; set; }
             public System.Int32? MetadataOptions_HttpPutResponseHopLimit { get; set; }
             public Amazon.EC2.HttpTokensState MetadataOptions_HttpToken { get; set; }
             public System.Int32? MinCount { get; set; }

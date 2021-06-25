@@ -28,7 +28,16 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Returns the list of component build versions for the specified semantic version.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the list of component build versions for the specified semantic version.
+    /// 
+    ///  <note><para>
+    /// The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
+    /// You can assign values for the first three, and can filter on all of them.
+    /// </para><para><b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards
+    /// (x) to specify the most recent versions or nodes when selecting the base image or
+    /// components for your recipe. When you use a wildcard in any node, all nodes to the
+    /// right of the first wildcard must also be wildcards.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IBComponentList")]
     [OutputType("Amazon.Imagebuilder.Model.ComponentVersion")]
@@ -43,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ByName
         /// <summary>
         /// <para>
-        /// <para>Returns the list of component build versions for the specified semantic version.</para>
+        /// <para>Returns the list of component build versions for the specified name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para>
+        /// <para>Use the following filters to streamline results:</para><ul><li><para><code>description</code></para></li><li><para><code>name</code></para></li><li><para><code>platform</code></para></li><li><para><code>supportedOsVersion</code></para></li><li><para><code>type</code></para></li><li><para><code>version</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

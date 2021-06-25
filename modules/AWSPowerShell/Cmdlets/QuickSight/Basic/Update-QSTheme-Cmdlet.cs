@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that contains the theme that you're updating.</para>
+        /// <para>The ID of the Amazon Web Services account that contains the theme that you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The theme ID, defined by Amazon QuickSight, that a custom theme inherits from. All
-        /// themes initially inherit from a default QuickSight theme.</para>
+        /// themes initially inherit from a default Amazon QuickSight theme.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

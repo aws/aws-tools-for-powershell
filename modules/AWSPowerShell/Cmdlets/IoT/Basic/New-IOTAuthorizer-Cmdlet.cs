@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Creates an authorizer.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateAuthorizer</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IOTAuthorizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.CreateAuthorizerResponse")]
@@ -76,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter SigningDisabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether AWS IoT validates the token signature in an authorization request.</para>
+        /// <para>Specifies whether IoT validates the token signature in an authorization request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

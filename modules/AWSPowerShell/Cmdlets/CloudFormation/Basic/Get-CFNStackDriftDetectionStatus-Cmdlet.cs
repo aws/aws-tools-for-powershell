@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackDriftDetectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the drift detection results of this operation. </para><para>AWS CloudFormation generates new results, with a new drift detection ID, each time
-        /// this operation is run. However, the number of drift results AWS CloudFormation retains
-        /// for any given stack, and for how long, may vary. </para>
+        /// <para>The ID of the drift detection results of this operation.</para><para>CloudFormation generates new results, with a new drift detection ID, each time this
+        /// operation is run. However, the number of drift results CloudFormation retains for
+        /// any given stack, and for how long, may vary.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

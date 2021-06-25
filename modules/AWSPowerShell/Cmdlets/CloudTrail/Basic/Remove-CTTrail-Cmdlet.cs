@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of
-        /// a trail ARN is: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// <para>Specifies the name or the CloudTrail ARN of the trail to be deleted. The following
+        /// is the format of a trail ARN. <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

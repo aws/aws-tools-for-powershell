@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Gets information about the traffic policy instances that you created by using the
-    /// current AWS account.
+    /// current Amazon Web Services account.
     /// 
     ///  <note><para>
     /// After you submit an <code>UpdateTrafficPolicyInstance</code> request, there's a brief

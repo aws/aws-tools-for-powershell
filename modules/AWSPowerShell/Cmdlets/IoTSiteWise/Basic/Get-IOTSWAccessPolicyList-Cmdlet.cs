@@ -28,9 +28,9 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Retrieves a paginated list of access policies for an identity (an AWS SSO user, an
-    /// AWS SSO group, or an IAM user) or an AWS IoT SiteWise Monitor resource (a portal or
-    /// project).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a paginated list of access policies for an identity (an Amazon Web Services
+    /// SSO user, an Amazon Web Services SSO group, or an IAM user) or an IoT SiteWise Monitor
+    /// resource (a portal or project).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTSWAccessPolicyList")]
     [OutputType("Amazon.IoTSiteWise.Model.AccessPolicySummary")]
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter IdentityType
         /// <summary>
         /// <para>
-        /// <para>The type of identity (AWS SSO user, AWS SSO group, or IAM user). This parameter is
-        /// required if you specify <code>identityId</code>.</para>
+        /// <para>The type of identity (Amazon Web Services SSO user, Amazon Web Services SSO group,
+        /// or IAM user). This parameter is required if you specify <code>identityId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to be returned per paginated request.</para><para>Default: 50</para>
+        /// <para>The maximum number of results to return for each paginated request.</para><para>Default: 50</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

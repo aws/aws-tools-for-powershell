@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter BaselineId
         /// <summary>
         /// <para>
-        /// <para>The ID of the patch baseline to register the patch group with.</para>
+        /// <para>The ID of the patch baseline to register with the patch group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter PatchGroup
         /// <summary>
         /// <para>
-        /// <para>The name of the patch group that should be registered with the patch baseline.</para>
+        /// <para>The name of the patch group to be registered with the patch baseline.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

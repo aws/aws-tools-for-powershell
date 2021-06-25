@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>View a list of resource data syncs according to the sync type. Specify <code>SyncToDestination</code>
         /// to view resource data syncs that synchronize data to an Amazon S3 bucket. Specify
-        /// <code>SyncFromSource</code> to view resource data syncs from AWS Organizations or
-        /// from multiple AWS Regions.</para>
+        /// <code>SyncFromSource</code> to view resource data syncs from Organizations or from
+        /// multiple Amazon Web Services Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

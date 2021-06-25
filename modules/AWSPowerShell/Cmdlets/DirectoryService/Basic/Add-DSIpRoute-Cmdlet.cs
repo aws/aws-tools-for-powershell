@@ -28,18 +28,18 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// If the DNS server for your on-premises domain uses a publicly addressable IP address,
+    /// If the DNS server for your self-managed domain uses a publicly addressable IP address,
     /// you must add a CIDR address block to correctly route traffic to and from your Microsoft
     /// AD on Amazon Web Services. <i>AddIpRoutes</i> adds this address block. You can also
     /// use <i>AddIpRoutes</i> to facilitate routing traffic that uses public IP ranges from
-    /// your Microsoft AD on AWS to a peer VPC. 
+    /// your Microsoft AD on Amazon Web Services to a peer VPC. 
     /// 
     ///  
     /// <para>
     /// Before you call <i>AddIpRoutes</i>, ensure that all of the required permissions have
     /// been explicitly granted through a policy. For details about what permissions are required
-    /// to run the <i>AddIpRoutes</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
-    /// Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.
+    /// to run the <i>AddIpRoutes</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory
+    /// Service API Permissions: Actions, Resources, and Conditions Reference</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "DSIpRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <summary>
         /// <para>
         /// <para>IP address blocks, using CIDR format, of the traffic to route. This is often the IP
-        /// address block of the DNS server used for your on-premises domain.</para>
+        /// address block of the DNS server used for your self-managed domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <summary>
         /// <para>
         /// <para>If set to true, updates the inbound and outbound rules of the security group that
-        /// has the description: "AWS created security group for <i>directory ID</i> directory
-        /// controllers." Following are the new rules: </para><para>Inbound:</para><ul><li><para>Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: 0.0.0.0/0</para></li><li><para>Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0</para></li><li><para>Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0</para></li><li><para>Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0</para></li><li><para>Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0</para></li><li><para>Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: 0.0.0.0/0</para></li><li><para>Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0</para></li><li><para>Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0</para></li><li><para>Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0</para></li><li><para>Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0</para></li></ul><para>Outbound:</para><ul><li><para>Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0</para></li></ul><para>These security rules impact an internal network interface that is not exposed publicly.</para>
+        /// has the description: "Amazon Web Services created security group for <i>directory
+        /// ID</i> directory controllers." Following are the new rules: </para><para>Inbound:</para><ul><li><para>Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: 0.0.0.0/0</para></li><li><para>Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0</para></li><li><para>Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0</para></li><li><para>Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0</para></li><li><para>Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0</para></li><li><para>Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: 0.0.0.0/0</para></li><li><para>Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: 0.0.0.0/0</para></li><li><para>Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0</para></li><li><para>Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0</para></li><li><para>Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0</para></li><li><para>Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0</para></li></ul><para>Outbound:</para><ul><li><para>Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0</para></li></ul><para>These security rules impact an internal network interface that is not exposed publicly.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -56,6 +56,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Architecture { get; set; }
         #endregion
         
+        #region Parameter BootMode
+        /// <summary>
+        /// <para>
+        /// <para>The boot mode of the virtual machine.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.BootModeValues")]
+        public Amazon.EC2.BootModeValues BootMode { get; set; }
+        #endregion
+        
         #region Parameter ClientData_Comment
         /// <summary>
         /// <para>
@@ -91,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Specifies whether the destination AMI of the imported image should be encrypted. The
-        /// default CMK for EBS is used unless you specify a non-default AWS Key Management Service
-        /// (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// default KMS key for EBS is used unless you specify a non-default KMS key using <code>KmsKeyId</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -113,20 +124,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master
-        /// key (CMK) to use when creating the encrypted AMI. This parameter is only required
-        /// if you want to use a non-default CMK; if this parameter is not specified, the default
-        /// CMK for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code>
-        /// flag must also be set. </para><para>The CMK identifier may be provided in any of the following formats: </para><ul><li><para>Key ID</para></li><li><para>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed
-        /// by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code>
-        /// namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</para></li><li><para>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed
-        /// by the Region of the CMK, the AWS account ID of the CMK owner, the <code>key</code>
-        /// namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</para></li><li><para>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace,
-        /// followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code>
-        /// namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.
-        /// </para></li></ul><para>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call
-        /// may appear to complete even though you provided an invalid identifier. This action
-        /// will eventually report failure. </para><para>The specified CMK must exist in the Region that the AMI is being copied to.</para><para>Amazon EBS does not support asymmetric CMKs.</para>
+        /// <para>An identifier for the symmetric KMS key to use when creating the encrypted AMI. This
+        /// parameter is only required if you want to use a non-default KMS key; if this parameter
+        /// is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code>
+        /// is specified, the <code>Encrypted</code> flag must also be set. </para><para>The KMS key identifier may be provided in any of the following formats: </para><ul><li><para>Key ID</para></li><li><para>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed
+        /// by the Region of the key, the Amazon Web Services account ID of the key owner, the
+        /// <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</para></li><li><para>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed
+        /// by the Region of the key, the Amazon Web Services account ID of the key owner, the
+        /// <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</para></li><li><para>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace,
+        /// followed by the Region of the key, the Amazon Web Services account ID of the key owner,
+        /// the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.
+        /// </para></li></ul><para>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the
+        /// action you call may appear to complete even though you provided an invalid identifier.
+        /// This action will eventually report failure. </para><para>The specified KMS key must exist in the Region that the AMI is being copied to.</para><para>Amazon EBS does not support asymmetric KMS keys.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,10 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The license type to be used for the Amazon Machine Image (AMI) after importing.</para><para>By default, we detect the source-system operating system (OS) and apply the appropriate
-        /// license. Specify <code>AWS</code> to replace the source-system license with an AWS
-        /// license, if appropriate. Specify <code>BYOL</code> to retain the source-system license,
-        /// if appropriate.</para><para>To use <code>BYOL</code>, you must have existing licenses with rights to use these
-        /// licenses in a third party cloud, such as AWS. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
+        /// license. Specify <code>AWS</code> to replace the source-system license with an Amazon
+        /// Web Services license, if appropriate. Specify <code>BYOL</code> to retain the source-system
+        /// license, if appropriate.</para><para>To use <code>BYOL</code>, you must have existing licenses with rights to use these
+        /// licenses in a third party cloud, such as Amazon Web Services. For more information,
+        /// see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
         /// in the VM Import/Export User Guide.</para>
         /// </para>
         /// </summary>
@@ -218,6 +229,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? ClientData_UtcUploadStart { get; set; }
+        #endregion
+        
+        #region Parameter UsageOperation
+        /// <summary>
+        /// <para>
+        /// <para>The usage operation value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI
+        /// billing information fields</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UsageOperation { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -306,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Architecture = this.Architecture;
+            context.BootMode = this.BootMode;
             context.ClientData_Comment = this.ClientData_Comment;
             context.ClientData_UtcUploadEnd = this.ClientData_UtcUploadEnd;
             context.ClientData_UploadSize = this.ClientData_UploadSize;
@@ -336,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
+            context.UsageOperation = this.UsageOperation;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -355,6 +379,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Architecture != null)
             {
                 request.Architecture = cmdletContext.Architecture;
+            }
+            if (cmdletContext.BootMode != null)
+            {
+                request.BootMode = cmdletContext.BootMode;
             }
             
              // populate ClientData
@@ -481,6 +509,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.TagSpecifications = cmdletContext.TagSpecification;
             }
+            if (cmdletContext.UsageOperation != null)
+            {
+                request.UsageOperation = cmdletContext.UsageOperation;
+            }
             
             CmdletOutput output;
             
@@ -543,6 +575,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Architecture { get; set; }
+            public Amazon.EC2.BootModeValues BootMode { get; set; }
             public System.String ClientData_Comment { get; set; }
             public System.DateTime? ClientData_UtcUploadEnd { get; set; }
             public System.Double? ClientData_UploadSize { get; set; }
@@ -562,6 +595,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Platform { get; set; }
             public System.String RoleName { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
+            public System.String UsageOperation { get; set; }
             public System.Func<Amazon.EC2.Model.ImportImageResponse, ImportEC2ImageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

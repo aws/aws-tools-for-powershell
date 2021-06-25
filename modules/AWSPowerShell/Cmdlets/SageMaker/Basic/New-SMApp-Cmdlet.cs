@@ -106,6 +106,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.AppInstanceType ResourceSpec_InstanceType { get; set; }
         #endregion
         
+        #region Parameter ResourceSpec_LifecycleConfigArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceSpec_LifecycleConfigArn { get; set; }
+        #endregion
+        
         #region Parameter ResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
@@ -237,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.ResourceSpec_InstanceType = this.ResourceSpec_InstanceType;
+            context.ResourceSpec_LifecycleConfigArn = this.ResourceSpec_LifecycleConfigArn;
             context.ResourceSpec_SageMakerImageArn = this.ResourceSpec_SageMakerImageArn;
             context.ResourceSpec_SageMakerImageVersionArn = this.ResourceSpec_SageMakerImageVersionArn;
             if (this.Tag != null)
@@ -290,6 +301,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestResourceSpec_resourceSpec_InstanceType != null)
             {
                 request.ResourceSpec.InstanceType = requestResourceSpec_resourceSpec_InstanceType;
+                requestResourceSpecIsNull = false;
+            }
+            System.String requestResourceSpec_resourceSpec_LifecycleConfigArn = null;
+            if (cmdletContext.ResourceSpec_LifecycleConfigArn != null)
+            {
+                requestResourceSpec_resourceSpec_LifecycleConfigArn = cmdletContext.ResourceSpec_LifecycleConfigArn;
+            }
+            if (requestResourceSpec_resourceSpec_LifecycleConfigArn != null)
+            {
+                request.ResourceSpec.LifecycleConfigArn = requestResourceSpec_resourceSpec_LifecycleConfigArn;
                 requestResourceSpecIsNull = false;
             }
             System.String requestResourceSpec_resourceSpec_SageMakerImageArn = null;
@@ -390,6 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.AppType AppType { get; set; }
             public System.String DomainId { get; set; }
             public Amazon.SageMaker.AppInstanceType ResourceSpec_InstanceType { get; set; }
+            public System.String ResourceSpec_LifecycleConfigArn { get; set; }
             public System.String ResourceSpec_SageMakerImageArn { get; set; }
             public System.String ResourceSpec_SageMakerImageVersionArn { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

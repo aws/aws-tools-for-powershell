@@ -13,7 +13,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -36,6 +35,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateImportJob" OutputProperty="ImportJobResponse" Verb="New" Noun="ImportJob" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInAppTemplate" OutputProperty="TemplateCreateMessageBody" Verb="New" Noun="InAppTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -112,6 +115,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteGcmChannel" OutputProperty="GCMChannelResponse" Verb="Remove" Noun="GcmChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInAppTemplate" OutputProperty="MessageBody" Verb="Remove" Noun="InAppTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -261,6 +268,14 @@
         <ServiceOperation MethodName="GetImportJobs" OutputProperty="ImportJobsResponse" Verb="Get" Noun="ImportJobList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <AutoIterate Start="Token" Next="ImportJobsResponse.NextToken" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInAppMessages" OutputProperty="InAppMessagesResponse" Verb="Get" Noun="InAppMessage" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInAppTemplate" OutputProperty="InAppTemplateResponse" Verb="Get" Noun="InAppTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetJourney" OutputProperty="JourneyResponse" Verb="Get" Noun="Journey" PipelineParameter="ApplicationId" NoPipelineParameter="false">
@@ -445,6 +460,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInAppTemplate" OutputProperty="MessageBody" Verb="Update" Noun="InAppTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateJourney" OutputProperty="JourneyResponse" Verb="Update" Noun="Journey" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -486,8 +505,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.Pinpoint.Model.NumberValidateRequest</Type>
     </TypesNotToFlatten>

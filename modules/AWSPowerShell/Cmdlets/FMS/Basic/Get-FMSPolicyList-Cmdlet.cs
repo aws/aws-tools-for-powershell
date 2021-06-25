@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of <code>PolicySummary</code> objects that you want AWS Firewall
+        /// <para>Specifies the number of <code>PolicySummary</code> objects that you want Firewall
         /// Manager to return for this request. If you have more <code>PolicySummary</code> objects
         /// than the number that you specify for <code>MaxResults</code>, the response includes
         /// a <code>NextToken</code> value that you can use to get another batch of <code>PolicySummary</code>
@@ -64,12 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <summary>
         /// <para>
         /// <para>If you specify a value for <code>MaxResults</code> and you have more <code>PolicySummary</code>
-        /// objects than the number that you specify for <code>MaxResults</code>, AWS Firewall
-        /// Manager returns a <code>NextToken</code> value in the response that allows you to
-        /// list another group of <code>PolicySummary</code> objects. For the second and subsequent
-        /// <code>ListPolicies</code> requests, specify the value of <code>NextToken</code> from
-        /// the previous response to get information about another batch of <code>PolicySummary</code>
-        /// objects.</para>
+        /// objects than the number that you specify for <code>MaxResults</code>, Firewall Manager
+        /// returns a <code>NextToken</code> value in the response that allows you to list another
+        /// group of <code>PolicySummary</code> objects. For the second and subsequent <code>ListPolicies</code>
+        /// requests, specify the value of <code>NextToken</code> from the previous response to
+        /// get information about another batch of <code>PolicySummary</code> objects.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

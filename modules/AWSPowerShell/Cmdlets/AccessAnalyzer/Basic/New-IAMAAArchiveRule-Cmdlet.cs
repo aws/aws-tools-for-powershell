@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     /// 
     ///  
     /// <para>
-    /// To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">Access
-    /// Analyzer filter keys</a> in the <b>IAM User Guide</b>.
+    /// To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM
+    /// Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMAAArchiveRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

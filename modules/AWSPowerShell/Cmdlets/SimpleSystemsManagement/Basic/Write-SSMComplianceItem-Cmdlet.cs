@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Registers a compliance type and other compliance details on a designated resource.
-    /// This action lets you register custom compliance details with a resource. This call
+    /// This operation lets you register custom compliance details with a resource. This call
     /// overwrites existing compliance information on the resource, so you must provide a
     /// full list of compliance items each time that you send the request.
     /// 
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </para></li><li><para>
     /// Severity: A patch severity. For example, <code>critical</code>.
     /// </para></li><li><para>
-    /// DocumentName: A SSM document name. For example, AWS-RunPatchBaseline.
+    /// DocumentName: An SSM document name. For example, <code>AWS-RunPatchBaseline</code>.
     /// </para></li><li><para>
     /// DocumentVersion: An SSM document version number. For example, 4.
     /// </para></li><li><para>

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The ID of the Data Catalog where the partitions in question reside. If none is supplied,
-        /// the AWS account ID is used by default.</para>
+        /// the Amazon Web Services account ID is used by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -70,22 +70,67 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class NewFSXFileSystemCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        #region Parameter OntapConfiguration_AutomaticBackupRetentionDay
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_AutomaticBackupRetentionDays")]
+        public System.Int32? OntapConfiguration_AutomaticBackupRetentionDay { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
         /// <para>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent creation.
-        /// This string is automatically filled on your behalf when you use the AWS Command Line
-        /// Interface (AWS CLI) or an AWS SDK.</para>
+        /// This string is automatically filled on your behalf when you use the Command Line Interface
+        /// (CLI) or an Amazon Web Services SDK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_DailyAutomaticBackupStartTime
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_DailyAutomaticBackupStartTime { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_DeploymentType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the ONTAP file system deployment type to use in creating the file system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FSx.OntapDeploymentType")]
+        public Amazon.FSx.OntapDeploymentType OntapConfiguration_DeploymentType { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_EndpointIpAddressRange
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the IP address range in which the endpoints to access your file system will
+        /// be created. By default, Amazon FSx selects an unused IP address range for you from
+        /// the 198.19.* range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_EndpointIpAddressRange { get; set; }
+        #endregion
+        
         #region Parameter FileSystemType
         /// <summary>
         /// <para>
-        /// <para>The type of Amazon FSx file system to create, either <code>WINDOWS</code> or <code>LUSTRE</code>.</para>
+        /// <para>The type of Amazon FSx file system to create. Valid values are <code>WINDOWS</code>,
+        /// <code>LUSTRE</code>, and <code>ONTAP</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,6 +142,28 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.FSx.FileSystemType")]
         public Amazon.FSx.FileSystemType FileSystemType { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_FsxAdminPassword
+        /// <summary>
+        /// <para>
+        /// <para>The ONTAP administrative password for the <code>fsxadmin</code> user that you can
+        /// use to administer your file system using the ONTAP CLI and REST API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_FsxAdminPassword { get; set; }
+        #endregion
+        
+        #region Parameter DiskIopsConfiguration_Iops
+        /// <summary>
+        /// <para>
+        /// <para>The total number of SSD IOPS provisioned for the file system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_DiskIopsConfiguration_Iops")]
+        public System.Int64? DiskIopsConfiguration_Iops { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
@@ -119,6 +186,42 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public Amazon.FSx.Model.CreateFileSystemLustreConfiguration LustreConfiguration { get; set; }
         #endregion
         
+        #region Parameter DiskIopsConfiguration_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the number of IOPS for the file system is using the system default
+        /// (<code>AUTOMATIC</code>) or was provisioned by the customer (<code>USER_PROVISIONED</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_DiskIopsConfiguration_Mode")]
+        [AWSConstantClassSource("Amazon.FSx.DiskIopsConfigurationMode")]
+        public Amazon.FSx.DiskIopsConfigurationMode DiskIopsConfiguration_Mode { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_PreferredSubnetId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_PreferredSubnetId { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_RouteTableId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the VPC route tables in which your file system's endpoints will be created.
+        /// You should specify all VPC route tables associated with the subnets in which your
+        /// clients are located. By default, Amazon FSx selects your VPC's default route table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_RouteTableIds")]
+        public System.String[] OntapConfiguration_RouteTableId { get; set; }
+        #endregion
+        
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
@@ -138,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>Sets the storage capacity of the file system that you're creating.</para><para>For Lustre file systems:</para><ul><li><para>For <code>SCRATCH_2</code> and <code>PERSISTENT_1 SSD</code> deployment types, valid
         /// values are 1200 GiB, 2400 GiB, and increments of 2400 GiB.</para></li><li><para>For <code>PERSISTENT HDD</code> file systems, valid values are increments of 6000
         /// GiB for 12 MB/s/TiB file systems and increments of 1800 GiB for 40 MB/s/TiB file systems.</para></li><li><para>For <code>SCRATCH_1</code> deployment type, valid values are 1200 GiB, 2400 GiB, and
-        /// increments of 3600 GiB.</para></li></ul><para>For Windows file systems:</para><ul><li><para>If <code>StorageType=SSD</code>, valid values are 32 GiB - 65,536 GiB (64 TiB).</para></li><li><para>If <code>StorageType=HDD</code>, valid values are 2000 GiB - 65,536 GiB (64 TiB).</para></li></ul>
+        /// increments of 3600 GiB.</para></li></ul><para>For Windows file systems:</para><ul><li><para>If <code>StorageType=SSD</code>, valid values are 32 GiB - 65,536 GiB (64 TiB).</para></li><li><para>If <code>StorageType=HDD</code>, valid values are 2000 GiB - 65,536 GiB (64 TiB).</para></li></ul><para>For ONTAP file systems:</para><ul><li><para>Valid values are 1024 GiB - 196,608 GiB (192 TiB).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Sets the storage type for the file system you're creating. Valid values are <code>SSD</code>
         /// and <code>HDD</code>.</para><ul><li><para>Set to <code>SSD</code> to use solid state drive storage. SSD is supported on all
-        /// Windows and Lustre deployment types.</para></li><li><para>Set to <code>HDD</code> to use hard disk drive storage. HDD is supported on <code>SINGLE_AZ_2</code>
+        /// Windows, Lustre, and ONTAP deployment types.</para></li><li><para>Set to <code>HDD</code> to use hard disk drive storage. HDD is supported on <code>SINGLE_AZ_2</code>
         /// and <code>MULTI_AZ_1</code> Windows file system deployment types, and on <code>PERSISTENT</code>
         /// Lustre file system deployment types. </para></li></ul><para> Default value is <code>SSD</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options">
         /// Storage Type Options</a> in the <i>Amazon FSx for Windows User Guide</i> and <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options">Multiple
@@ -172,11 +275,14 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the IDs of the subnets that the file system will be accessible from. For
-        /// Windows <code>MULTI_AZ_1</code> file system deployment types, provide exactly two
-        /// subnet IDs, one for the preferred file server and one for the standby file server.
+        /// Windows and ONTAP <code>MULTI_AZ_1</code> file system deployment types, provide exactly
+        /// two subnet IDs, one for the preferred file server and one for the standby file server.
         /// You specify one of these subnets as the preferred subnet using the <code>WindowsConfiguration
-        /// &gt; PreferredSubnetID</code> property. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
-        /// Availability and durability: Single-AZ and Multi-AZ file systems</a>.</para><para>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> file system deployment
+        /// &gt; PreferredSubnetID</code> or <code>OntapConfiguration &gt; PreferredSubnetID</code>
+        /// properties. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
+        /// Availability and durability: Single-AZ and Multi-AZ file systems</a> in the <i>Amazon
+        /// FSx for Windows User Guide</i> and <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html">
+        /// Availability and durability</a> in the <i>Amazon FSx for ONTAP User Guide</i>.</para><para>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> file system deployment
         /// types and Lustre file systems, provide exactly one subnet ID. The file server is launched
         /// in that subnet's Availability Zone.</para>
         /// </para>
@@ -203,6 +309,26 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.FSx.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_ThroughputCapacity
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? OntapConfiguration_ThroughputCapacity { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_WeeklyMaintenanceStartTime
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_WeeklyMaintenanceStartTime { get; set; }
         #endregion
         
         #region Parameter WindowsConfiguration
@@ -266,6 +392,20 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             #endif
             context.KmsKeyId = this.KmsKeyId;
             context.LustreConfiguration = this.LustreConfiguration;
+            context.OntapConfiguration_AutomaticBackupRetentionDay = this.OntapConfiguration_AutomaticBackupRetentionDay;
+            context.OntapConfiguration_DailyAutomaticBackupStartTime = this.OntapConfiguration_DailyAutomaticBackupStartTime;
+            context.OntapConfiguration_DeploymentType = this.OntapConfiguration_DeploymentType;
+            context.DiskIopsConfiguration_Iops = this.DiskIopsConfiguration_Iops;
+            context.DiskIopsConfiguration_Mode = this.DiskIopsConfiguration_Mode;
+            context.OntapConfiguration_EndpointIpAddressRange = this.OntapConfiguration_EndpointIpAddressRange;
+            context.OntapConfiguration_FsxAdminPassword = this.OntapConfiguration_FsxAdminPassword;
+            context.OntapConfiguration_PreferredSubnetId = this.OntapConfiguration_PreferredSubnetId;
+            if (this.OntapConfiguration_RouteTableId != null)
+            {
+                context.OntapConfiguration_RouteTableId = new List<System.String>(this.OntapConfiguration_RouteTableId);
+            }
+            context.OntapConfiguration_ThroughputCapacity = this.OntapConfiguration_ThroughputCapacity;
+            context.OntapConfiguration_WeeklyMaintenanceStartTime = this.OntapConfiguration_WeeklyMaintenanceStartTime;
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
@@ -324,6 +464,140 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.LustreConfiguration != null)
             {
                 request.LustreConfiguration = cmdletContext.LustreConfiguration;
+            }
+            
+             // populate OntapConfiguration
+            var requestOntapConfigurationIsNull = true;
+            request.OntapConfiguration = new Amazon.FSx.Model.CreateFileSystemOntapConfiguration();
+            System.Int32? requestOntapConfiguration_ontapConfiguration_AutomaticBackupRetentionDay = null;
+            if (cmdletContext.OntapConfiguration_AutomaticBackupRetentionDay != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_AutomaticBackupRetentionDay = cmdletContext.OntapConfiguration_AutomaticBackupRetentionDay.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_AutomaticBackupRetentionDay != null)
+            {
+                request.OntapConfiguration.AutomaticBackupRetentionDays = requestOntapConfiguration_ontapConfiguration_AutomaticBackupRetentionDay.Value;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_DailyAutomaticBackupStartTime = null;
+            if (cmdletContext.OntapConfiguration_DailyAutomaticBackupStartTime != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_DailyAutomaticBackupStartTime = cmdletContext.OntapConfiguration_DailyAutomaticBackupStartTime;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_DailyAutomaticBackupStartTime != null)
+            {
+                request.OntapConfiguration.DailyAutomaticBackupStartTime = requestOntapConfiguration_ontapConfiguration_DailyAutomaticBackupStartTime;
+                requestOntapConfigurationIsNull = false;
+            }
+            Amazon.FSx.OntapDeploymentType requestOntapConfiguration_ontapConfiguration_DeploymentType = null;
+            if (cmdletContext.OntapConfiguration_DeploymentType != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_DeploymentType = cmdletContext.OntapConfiguration_DeploymentType;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_DeploymentType != null)
+            {
+                request.OntapConfiguration.DeploymentType = requestOntapConfiguration_ontapConfiguration_DeploymentType;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_EndpointIpAddressRange = null;
+            if (cmdletContext.OntapConfiguration_EndpointIpAddressRange != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_EndpointIpAddressRange = cmdletContext.OntapConfiguration_EndpointIpAddressRange;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_EndpointIpAddressRange != null)
+            {
+                request.OntapConfiguration.EndpointIpAddressRange = requestOntapConfiguration_ontapConfiguration_EndpointIpAddressRange;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_FsxAdminPassword = null;
+            if (cmdletContext.OntapConfiguration_FsxAdminPassword != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_FsxAdminPassword = cmdletContext.OntapConfiguration_FsxAdminPassword;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_FsxAdminPassword != null)
+            {
+                request.OntapConfiguration.FsxAdminPassword = requestOntapConfiguration_ontapConfiguration_FsxAdminPassword;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_PreferredSubnetId = null;
+            if (cmdletContext.OntapConfiguration_PreferredSubnetId != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_PreferredSubnetId = cmdletContext.OntapConfiguration_PreferredSubnetId;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_PreferredSubnetId != null)
+            {
+                request.OntapConfiguration.PreferredSubnetId = requestOntapConfiguration_ontapConfiguration_PreferredSubnetId;
+                requestOntapConfigurationIsNull = false;
+            }
+            List<System.String> requestOntapConfiguration_ontapConfiguration_RouteTableId = null;
+            if (cmdletContext.OntapConfiguration_RouteTableId != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_RouteTableId = cmdletContext.OntapConfiguration_RouteTableId;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_RouteTableId != null)
+            {
+                request.OntapConfiguration.RouteTableIds = requestOntapConfiguration_ontapConfiguration_RouteTableId;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.Int32? requestOntapConfiguration_ontapConfiguration_ThroughputCapacity = null;
+            if (cmdletContext.OntapConfiguration_ThroughputCapacity != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_ThroughputCapacity = cmdletContext.OntapConfiguration_ThroughputCapacity.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_ThroughputCapacity != null)
+            {
+                request.OntapConfiguration.ThroughputCapacity = requestOntapConfiguration_ontapConfiguration_ThroughputCapacity.Value;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_WeeklyMaintenanceStartTime = null;
+            if (cmdletContext.OntapConfiguration_WeeklyMaintenanceStartTime != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_WeeklyMaintenanceStartTime = cmdletContext.OntapConfiguration_WeeklyMaintenanceStartTime;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_WeeklyMaintenanceStartTime != null)
+            {
+                request.OntapConfiguration.WeeklyMaintenanceStartTime = requestOntapConfiguration_ontapConfiguration_WeeklyMaintenanceStartTime;
+                requestOntapConfigurationIsNull = false;
+            }
+            Amazon.FSx.Model.DiskIopsConfiguration requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration = null;
+            
+             // populate DiskIopsConfiguration
+            var requestOntapConfiguration_ontapConfiguration_DiskIopsConfigurationIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration = new Amazon.FSx.Model.DiskIopsConfiguration();
+            System.Int64? requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Iops = null;
+            if (cmdletContext.DiskIopsConfiguration_Iops != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Iops = cmdletContext.DiskIopsConfiguration_Iops.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Iops != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration.Iops = requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Iops.Value;
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfigurationIsNull = false;
+            }
+            Amazon.FSx.DiskIopsConfigurationMode requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Mode = null;
+            if (cmdletContext.DiskIopsConfiguration_Mode != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Mode = cmdletContext.DiskIopsConfiguration_Mode;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Mode != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration.Mode = requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration_diskIopsConfiguration_Mode;
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfigurationIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_DiskIopsConfigurationIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration != null)
+            {
+                request.OntapConfiguration.DiskIopsConfiguration = requestOntapConfiguration_ontapConfiguration_DiskIopsConfiguration;
+                requestOntapConfigurationIsNull = false;
+            }
+             // determine if request.OntapConfiguration should be set to null
+            if (requestOntapConfigurationIsNull)
+            {
+                request.OntapConfiguration = null;
             }
             if (cmdletContext.SecurityGroupId != null)
             {
@@ -414,6 +688,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public Amazon.FSx.FileSystemType FileSystemType { get; set; }
             public System.String KmsKeyId { get; set; }
             public Amazon.FSx.Model.CreateFileSystemLustreConfiguration LustreConfiguration { get; set; }
+            public System.Int32? OntapConfiguration_AutomaticBackupRetentionDay { get; set; }
+            public System.String OntapConfiguration_DailyAutomaticBackupStartTime { get; set; }
+            public Amazon.FSx.OntapDeploymentType OntapConfiguration_DeploymentType { get; set; }
+            public System.Int64? DiskIopsConfiguration_Iops { get; set; }
+            public Amazon.FSx.DiskIopsConfigurationMode DiskIopsConfiguration_Mode { get; set; }
+            public System.String OntapConfiguration_EndpointIpAddressRange { get; set; }
+            public System.String OntapConfiguration_FsxAdminPassword { get; set; }
+            public System.String OntapConfiguration_PreferredSubnetId { get; set; }
+            public List<System.String> OntapConfiguration_RouteTableId { get; set; }
+            public System.Int32? OntapConfiguration_ThroughputCapacity { get; set; }
+            public System.String OntapConfiguration_WeeklyMaintenanceStartTime { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.Int32? StorageCapacity { get; set; }
             public Amazon.FSx.StorageType StorageType { get; set; }

@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String GatewayARN { get; set; }
         #endregion
         
+        #region Parameter GatewayCapacity
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the size of the gateway's metadata cache.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.StorageGateway.GatewayCapacity")]
+        public Amazon.StorageGateway.GatewayCapacity GatewayCapacity { get; set; }
+        #endregion
+        
         #region Parameter GatewayName
         /// <summary>
         /// <para>
@@ -165,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 WriteWarning("You are passing $null as a value for parameter GatewayARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.GatewayCapacity = this.GatewayCapacity;
             context.GatewayName = this.GatewayName;
             context.GatewayTimezone = this.GatewayTimezone;
             
@@ -190,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.GatewayARN != null)
             {
                 request.GatewayARN = cmdletContext.GatewayARN;
+            }
+            if (cmdletContext.GatewayCapacity != null)
+            {
+                request.GatewayCapacity = cmdletContext.GatewayCapacity;
             }
             if (cmdletContext.GatewayName != null)
             {
@@ -262,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             public System.String CloudWatchLogGroupARN { get; set; }
             public System.String GatewayARN { get; set; }
+            public Amazon.StorageGateway.GatewayCapacity GatewayCapacity { get; set; }
             public System.String GatewayName { get; set; }
             public System.String GatewayTimezone { get; set; }
             public System.Func<Amazon.StorageGateway.Model.UpdateGatewayInformationResponse, UpdateSGGatewayInformationCmdlet, object> Select { get; set; } =

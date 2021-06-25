@@ -49,13 +49,31 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// The <code>iam:CreateServiceLinkedRole</code> to create an alarm with Systems Manager
     /// OpsItem actions.
     /// </para></li></ul><para>
-    /// The first time you create an alarm in the AWS Management Console, the CLI, or by using
+    /// The first time you create an alarm in the Management Console, the CLI, or by using
     /// the PutMetricAlarm API, CloudWatch creates the necessary service-linked role for you.
     /// The service-linked roles are called <code>AWSServiceRoleForCloudWatchEvents</code>
     /// and <code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>. For more information,
-    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">AWS
-    /// service-linked role</a>.
-    /// </para>
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Amazon
+    /// Web Services service-linked role</a>.
+    /// </para><para><b>Cross-account alarms</b></para><para>
+    /// You can set an alarm on metrics in the current account, or in another account. To
+    /// create a cross-account alarm that watches a metric in a different account, you must
+    /// have completed the following pre-requisites:
+    /// </para><ul><li><para>
+    /// The account where the metrics are located (the <i>sharing account</i>) must already
+    /// have a sharing role named <b>CloudWatch-CrossAccountSharingRole</b>. If it does not
+    /// already have this role, you must create it using the instructions in <b>Set up a sharing
+    /// account</b> in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region">
+    /// Cross-account cross-Region CloudWatch console</a>. The policy for that role must grant
+    /// access to the ID of the account where you are creating the alarm. 
+    /// </para></li><li><para>
+    /// The account where you are creating the alarm (the <i>monitoring account</i>) must
+    /// already have a service-linked role named <b>AWSServiceRoleForCloudWatchCrossAccount</b>
+    /// to allow CloudWatch to assume the sharing role in the sharing account. If it does
+    /// not, you must create it following the directions in <b>Set up a monitoring account</b>
+    /// in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region">
+    /// Cross-account cross-Region CloudWatch console</a>.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Write", "CWMetricAlarm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -85,9 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// from any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
         /// | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
         /// | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code>
-        /// | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code> | <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i></code></para><para>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
+        /// | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code> | <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i></code> | <code>arn:aws:ssm-incidents::<i>account-id</i>:response-plan:<i>response-plan-name</i></code></para><para>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
         /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
-        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></para>
+        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
+        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

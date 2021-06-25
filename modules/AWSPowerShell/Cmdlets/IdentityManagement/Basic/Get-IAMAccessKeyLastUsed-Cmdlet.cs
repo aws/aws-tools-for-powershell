@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Retrieves information about when the specified access key was last used. The information
-    /// includes the date and time of last use, along with the AWS service and Region that
-    /// were specified in the last request made with that key.
+    /// includes the date and time of last use, along with the Amazon Web Services service
+    /// and Region that were specified in the last request made with that key.
     /// </summary>
     [Cmdlet("Get", "IAMAccessKeyLastUsed")]
     [OutputType("Amazon.IdentityManagement.Model.GetAccessKeyLastUsedResponse")]

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The name that you want to give to the template alias that you're creating. Don't start
         /// the alias name with the <code>$</code> character. Alias names that start with <code>$</code>
-        /// are reserved by QuickSight. </para>
+        /// are reserved by Amazon QuickSight. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that contains the template that you creating an alias for.</para>
+        /// <para>The ID of the Amazon Web Services account that contains the template that you creating
+        /// an alias for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

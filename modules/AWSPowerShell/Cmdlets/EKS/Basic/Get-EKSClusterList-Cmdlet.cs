@@ -28,7 +28,8 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Lists the Amazon EKS clusters in your AWS account in the specified Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the Amazon EKS clusters in your Amazon Web Services account in the specified
+    /// Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EKSClusterList")]
     [OutputType("System.String")]
@@ -39,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     )]
     public partial class GetEKSClusterListCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Include
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether connected clusters are included in the returned list. Default value
+        /// is 'ALL'.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Include { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -116,6 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.Select = CreateSelectDelegate<Amazon.EKS.Model.ListClustersResponse, GetEKSClusterListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Include != null)
+            {
+                context.Include = new List<System.String>(this.Include);
+            }
             context.MaxResult = this.MaxResult;
             #if MODULAR
             if (!ParameterWasBound(nameof(this.MaxResult)))
@@ -153,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             // create request and set iteration invariants
             var request = new Amazon.EKS.Model.ListClustersRequest();
             
+            if (cmdletContext.Include != null)
+            {
+                request.Include = cmdletContext.Include;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -212,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             
             // create request and set iteration invariants
             var request = new Amazon.EKS.Model.ListClustersRequest();
+            if (cmdletContext.Include != null)
+            {
+                request.Include = cmdletContext.Include;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -335,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Include { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.EKS.Model.ListClustersResponse, GetEKSClusterListCmdlet, object> Select { get; set; } =

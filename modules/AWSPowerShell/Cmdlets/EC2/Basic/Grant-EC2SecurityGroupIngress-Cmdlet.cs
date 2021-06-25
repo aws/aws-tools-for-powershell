@@ -28,12 +28,12 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Adds the specified ingress rules to a security group.
+    /// Adds the specified inbound (ingress) rules to a security group.
     /// 
     ///  
     /// <para>
     /// An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6
-    /// CIDR address ranges, or from the instances associated with the specified destination
+    /// CIDR address range, or from the instances that are associated with the specified destination
     /// security groups.
     /// </para><para>
     /// You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must
@@ -43,16 +43,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Rule changes are propagated to instances within the security group as quickly as possible.
     /// However, a small delay might occur.
     /// </para><para>
-    /// For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
-    /// VPC Limits</a>.
+    /// For more information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
+    /// VPC quotas</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Grant", "EC2SecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AuthorizeSecurityGroupIngress API operation.", Operation = new[] {"AuthorizeSecurityGroupIngress"}, SelectReturnType = typeof(Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse))]
-    [AWSCmdletOutput("None or Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse",
+        "This cmdlet returns an Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GrantEC2SecurityGroupIngressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -91,10 +90,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.IpPermission[] IpPermission { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>[VPC Only] The tags applied to the security group rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.IpPermission = new List<Amazon.EC2.Model.IpPermission>(this.IpPermission);
             }
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -184,6 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.IpPermission != null)
             {
                 request.IpPermissions = cmdletContext.IpPermission;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -249,8 +268,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String GroupId { get; set; }
             public System.String GroupName { get; set; }
             public List<Amazon.EC2.Model.IpPermission> IpPermission { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse, GrantEC2SecurityGroupIngressCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

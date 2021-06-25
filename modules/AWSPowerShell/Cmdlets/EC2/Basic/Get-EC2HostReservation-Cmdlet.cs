@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The filters.</para><ul><li><para><code>instance-family</code> - The instance family (for example, <code>m4</code>).</para></li><li><para><code>payment-option</code> - The payment option (<code>NoUpfront</code> | <code>PartialUpfront</code>
         /// | <code>AllUpfront</code>).</para></li><li><para><code>state</code> - The state of the reservation (<code>payment-pending</code> |
-        /// <code>payment-failed</code> | <code>active</code> | <code>retired</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// <code>payment-failed</code> | <code>active</code> | <code>retired</code>).</para></li><li><para><code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name

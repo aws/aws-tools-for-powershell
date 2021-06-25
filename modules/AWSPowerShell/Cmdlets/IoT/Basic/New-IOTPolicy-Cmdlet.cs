@@ -28,13 +28,16 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Creates an AWS IoT policy.
+    /// Creates an IoT policy.
     /// 
     ///  
     /// <para>
     /// The created policy is the default version for the policy. This operation creates a
     /// policy version with a version identifier of <b>1</b> and sets <b>1</b> as the policy's
     /// default version.
+    /// </para><para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreatePolicy</a>
+    /// action.
     /// </para>
     /// </summary>
     [Cmdlet("New", "IOTPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

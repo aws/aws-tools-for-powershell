@@ -39,6 +39,19 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     public partial class NewAHLFHIRDatastoreCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {
         
+        #region Parameter KmsEncryptionConfig_CmkType
+        /// <summary>
+        /// <para>
+        /// <para> The type of customer-managed-key(CMK) used for encyrption. The two types of supported
+        /// CMKs are customer owned CMKs and AWS owned CMKs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SseConfiguration_KmsEncryptionConfig_CmkType")]
+        [AWSConstantClassSource("Amazon.HealthLake.CmkType")]
+        public Amazon.HealthLake.CmkType KmsEncryptionConfig_CmkType { get; set; }
+        #endregion
+        
         #region Parameter DatastoreName
         /// <summary>
         /// <para>
@@ -66,6 +79,18 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public Amazon.HealthLake.FHIRVersion DatastoreTypeVersion { get; set; }
         #endregion
         
+        #region Parameter KmsEncryptionConfig_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para> The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SseConfiguration_KmsEncryptionConfig_KmsKeyId")]
+        public System.String KmsEncryptionConfig_KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter PreloadDataConfig_PreloadDataType
         /// <summary>
         /// <para>
@@ -75,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.HealthLake.PreloadDataType")]
         public Amazon.HealthLake.PreloadDataType PreloadDataConfig_PreloadDataType { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para> Resource tags that are applied to a Data Store when it is created. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.HealthLake.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -158,6 +194,12 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             }
             #endif
             context.PreloadDataConfig_PreloadDataType = this.PreloadDataConfig_PreloadDataType;
+            context.KmsEncryptionConfig_CmkType = this.KmsEncryptionConfig_CmkType;
+            context.KmsEncryptionConfig_KmsKeyId = this.KmsEncryptionConfig_KmsKeyId;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.HealthLake.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -204,6 +246,54 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             if (requestPreloadDataConfigIsNull)
             {
                 request.PreloadDataConfig = null;
+            }
+            
+             // populate SseConfiguration
+            var requestSseConfigurationIsNull = true;
+            request.SseConfiguration = new Amazon.HealthLake.Model.SseConfiguration();
+            Amazon.HealthLake.Model.KmsEncryptionConfig requestSseConfiguration_sseConfiguration_KmsEncryptionConfig = null;
+            
+             // populate KmsEncryptionConfig
+            var requestSseConfiguration_sseConfiguration_KmsEncryptionConfigIsNull = true;
+            requestSseConfiguration_sseConfiguration_KmsEncryptionConfig = new Amazon.HealthLake.Model.KmsEncryptionConfig();
+            Amazon.HealthLake.CmkType requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_kmsEncryptionConfig_CmkType = null;
+            if (cmdletContext.KmsEncryptionConfig_CmkType != null)
+            {
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_kmsEncryptionConfig_CmkType = cmdletContext.KmsEncryptionConfig_CmkType;
+            }
+            if (requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_kmsEncryptionConfig_CmkType != null)
+            {
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfig.CmkType = requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_kmsEncryptionConfig_CmkType;
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfigIsNull = false;
+            }
+            System.String requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_kmsEncryptionConfig_KmsKeyId = null;
+            if (cmdletContext.KmsEncryptionConfig_KmsKeyId != null)
+            {
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_kmsEncryptionConfig_KmsKeyId = cmdletContext.KmsEncryptionConfig_KmsKeyId;
+            }
+            if (requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_kmsEncryptionConfig_KmsKeyId != null)
+            {
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfig.KmsKeyId = requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_kmsEncryptionConfig_KmsKeyId;
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfigIsNull = false;
+            }
+             // determine if requestSseConfiguration_sseConfiguration_KmsEncryptionConfig should be set to null
+            if (requestSseConfiguration_sseConfiguration_KmsEncryptionConfigIsNull)
+            {
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfig = null;
+            }
+            if (requestSseConfiguration_sseConfiguration_KmsEncryptionConfig != null)
+            {
+                request.SseConfiguration.KmsEncryptionConfig = requestSseConfiguration_sseConfiguration_KmsEncryptionConfig;
+                requestSseConfigurationIsNull = false;
+            }
+             // determine if request.SseConfiguration should be set to null
+            if (requestSseConfigurationIsNull)
+            {
+                request.SseConfiguration = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -270,6 +360,9 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             public System.String DatastoreName { get; set; }
             public Amazon.HealthLake.FHIRVersion DatastoreTypeVersion { get; set; }
             public Amazon.HealthLake.PreloadDataType PreloadDataConfig_PreloadDataType { get; set; }
+            public Amazon.HealthLake.CmkType KmsEncryptionConfig_CmkType { get; set; }
+            public System.String KmsEncryptionConfig_KmsKeyId { get; set; }
+            public List<Amazon.HealthLake.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.HealthLake.Model.CreateFHIRDatastoreResponse, NewAHLFHIRDatastoreCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

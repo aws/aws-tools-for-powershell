@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a KMS key used to encrypt the datasets.</para>
+        /// <para>The Amazon Resource Name (ARN) of a Key Management Service (KMS) key used to encrypt
+        /// the datasets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role that has permissions to access the KMS key. Supplying an IAM
-        /// role is only valid when also specifying a KMS key.</para>
+        /// <para>The ARN of the Identity and Access Management (IAM) role that has permissions to access
+        /// the Key Management Service (KMS) key. Supplying an IAM role is only valid when also
+        /// specifying a KMS key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

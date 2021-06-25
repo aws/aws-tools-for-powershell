@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter OrganizationConfiguration_EnableIntegration
         /// <summary>
         /// <para>
-        /// <para>Enables AWS Organization integration.</para>
+        /// <para>Enables Organizations integration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

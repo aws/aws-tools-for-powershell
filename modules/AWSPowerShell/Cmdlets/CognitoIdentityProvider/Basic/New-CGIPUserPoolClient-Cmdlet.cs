@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The allowed OAuth scopes. Possible values provided by OAuth are: <code>phone</code>,
         /// <code>email</code>, <code>openid</code>, and <code>profile</code>. Possible values
-        /// provided by AWS are: <code>aws.cognito.signin.user.admin</code>. Custom scopes created
-        /// in Resource Servers are also supported.</para>
+        /// provided by Amazon Web Services are: <code>aws.cognito.signin.user.admin</code>. Custom
+        /// scopes created in Resource Servers are also supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

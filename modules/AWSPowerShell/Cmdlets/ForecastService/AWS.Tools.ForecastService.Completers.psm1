@@ -104,6 +104,13 @@ $FRC_Completers = {
             break
         }
 
+        # Amazon.ForecastService.OptimizationMetric
+        "New-FRCPredictor/OptimizationMetric"
+        {
+            $v = "AverageWeightedQuantileLoss","MAPE","MASE","RMSE","WAPE"
+            break
+        }
+
 
     }
 
@@ -116,6 +123,7 @@ $FRC_map = @{
     "AutoMLOverrideStrategy"=@("New-FRCPredictor")
     "DatasetType"=@("New-FRCDataset")
     "Domain"=@("New-FRCDataset","New-FRCDatasetGroup")
+    "OptimizationMetric"=@("New-FRCPredictor")
 }
 
 _awsArgumentCompleterRegistration $FRC_Completers $FRC_map

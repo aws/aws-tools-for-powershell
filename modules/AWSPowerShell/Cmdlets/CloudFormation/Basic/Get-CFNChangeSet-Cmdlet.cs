@@ -28,9 +28,9 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns the inputs for the change set and a list of changes that AWS CloudFormation
-    /// will make if you execute the change set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Updating
-    /// Stacks Using Change Sets</a> in the AWS CloudFormation User Guide.<br/><br/>In the AWS.Tools.CloudFormation module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the inputs for the change set and a list of changes that CloudFormation will
+    /// make if you execute the change set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Updating
+    /// Stacks Using Change Sets</a> in the CloudFormation User Guide.<br/><br/>In the AWS.Tools.CloudFormation module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNChangeSet")]
     [OutputType("Amazon.CloudFormation.Model.DescribeChangeSetResponse")]

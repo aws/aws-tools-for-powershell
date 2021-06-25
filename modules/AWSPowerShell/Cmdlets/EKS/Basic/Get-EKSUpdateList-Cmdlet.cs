@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
     /// Lists the updates associated with an Amazon EKS cluster or managed node group in your
-    /// AWS account, in the specified Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Amazon Web Services account, in the specified Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EKSUpdateList")]
     [OutputType("System.String")]

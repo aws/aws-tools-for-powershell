@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Returns a list of compliant and noncompliant rules with the number of resources for
-    /// compliant and noncompliant rules. 
+    /// compliant and noncompliant rules. Does not display rules that do not have compliance
+    /// results. 
     /// 
     ///  <note><para>
     /// The results can return an empty result page, but if you have a <code>nextToken</code>,
@@ -69,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_ComplianceType
         /// <summary>
         /// <para>
-        /// <para>The rule compliance status.</para><para>For the <code>ConfigRuleComplianceFilters</code> data type, AWS Config supports only
-        /// <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. AWS Config does not support
-        /// the <code>NOT_APPLICABLE</code> and the <code>INSUFFICIENT_DATA</code> values.</para>
+        /// <para>The rule compliance status.</para><para>For the <code>ConfigRuleComplianceFilters</code> data type, Config supports only <code>COMPLIANT</code>
+        /// and <code>NON_COMPLIANT</code>. Config does not support the <code>NOT_APPLICABLE</code>
+        /// and the <code>INSUFFICIENT_DATA</code> values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS Config rule.</para>
+        /// <para>The name of the Config rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of evaluation results returned on each page. The default is maximum.
-        /// If you specify 0, AWS Config uses the default.</para>
+        /// If you specify 0, Config uses the default.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

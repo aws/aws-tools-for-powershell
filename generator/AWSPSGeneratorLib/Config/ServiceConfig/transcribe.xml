@@ -21,6 +21,10 @@
         <Property>Status</Property>
     </MetadataProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateCallAnalyticsCategory" OutputProperty="CategoryProperties" Verb="New" Noun="CallAnalyticsCategory" ShouldProcessTarget="CategoryName" PipelineParameter="CategoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLanguageModel" OutputProperty="*" Verb="New" Noun="LanguageModel" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -34,6 +38,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVocabularyFilter" OutputProperty="*" Verb="New" Noun="VocabularyFilter" ShouldProcessTarget="VocabularyFilterName" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCallAnalyticsCategory" Verb="Remove" Noun="CallAnalyticsCategory" ShouldProcessTarget="CategoryName" PipelineParameter="CategoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCallAnalyticsJob" Verb="Remove" Noun="CallAnalyticsJob" ShouldProcessTarget="CallAnalyticsJobName" PipelineParameter="CallAnalyticsJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -65,6 +77,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCallAnalyticsCategory" OutputProperty="CategoryProperties" Verb="Get" Noun="CallAnalyticsCategory" PipelineParameter="CategoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCallAnalyticsJob" OutputProperty="CallAnalyticsJob" Verb="Get" Noun="CallAnalyticsJob" PipelineParameter="CallAnalyticsJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMedicalTranscriptionJob" OutputProperty="MedicalTranscriptionJob" Verb="Get" Noun="MedicalTranscriptionJob" PipelineParameter="MedicalTranscriptionJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -85,6 +105,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCallAnalyticsCategories" OutputProperty="Categories" Verb="Get" Noun="CallAnalyticsCategoryList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCallAnalyticsJobs" OutputProperty="CallAnalyticsJobSummaries" Verb="Get" Noun="CallAnalyticsJobList" PipelineParameter="JobNameContains" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListLanguageModels" OutputProperty="Models" Verb="Get" Noun="LanguageModelList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -94,6 +122,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMedicalVocabularies" OutputProperty="Vocabularies" Verb="Get" Noun="MedicalVocabularyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -109,11 +141,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartCallAnalyticsJob" OutputProperty="CallAnalyticsJob" Verb="Start" Noun="CallAnalyticsJob" ShouldProcessTarget="CallAnalyticsJobName" PipelineParameter="CallAnalyticsJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartMedicalTranscriptionJob" OutputProperty="MedicalTranscriptionJob" Verb="Start" Noun="MedicalTranscriptionJob" AnonymousShouldProcessTarget="true" PipelineParameter="MedicalTranscriptionJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartTranscriptionJob" OutputProperty="TranscriptionJob" Verb="Start" Noun="TranscriptionJob" ShouldProcessTarget="TranscriptionJobName" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCallAnalyticsCategory" OutputProperty="CategoryProperties" Verb="Update" Noun="CallAnalyticsCategory" ShouldProcessTarget="CategoryName" PipelineParameter="CategoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

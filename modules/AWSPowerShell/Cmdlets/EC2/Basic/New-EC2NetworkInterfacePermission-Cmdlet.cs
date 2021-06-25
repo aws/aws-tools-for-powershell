@@ -33,7 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// You can grant permission to a single account only, and only one account at a time.
+    /// You can grant permission to a single Amazon Web Services account only, and only one
+    /// account at a time.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2NetworkInterfacePermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID.</para>
+        /// <para>The Amazon Web Services account ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

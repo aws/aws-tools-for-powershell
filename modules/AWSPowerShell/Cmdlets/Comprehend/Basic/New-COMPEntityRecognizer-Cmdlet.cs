@@ -126,6 +126,23 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public Amazon.Comprehend.Model.EntityTypesListItem[] InputDataConfig_EntityType { get; set; }
         #endregion
         
+        #region Parameter Documents_InputFormat
+        /// <summary>
+        /// <para>
+        /// <para> Specifies how the text in an input file should be processed. This is optional, and
+        /// the default is ONE_DOC_PER_LINE. ONE_DOC_PER_FILE - Each file is considered a separate
+        /// document. Use this option when you are processing large documents, such as newspaper
+        /// articles or scientific papers. ONE_DOC_PER_LINE - Each line in a file is considered
+        /// a separate document. Use this option when you are processing many short documents,
+        /// such as text messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputDataConfig_Documents_InputFormat")]
+        [AWSConstantClassSource("Amazon.Comprehend.InputFormat")]
+        public Amazon.Comprehend.InputFormat Documents_InputFormat { get; set; }
+        #endregion
+        
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
@@ -256,6 +273,45 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public Amazon.Comprehend.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter Annotations_TestS3Uri
+        /// <summary>
+        /// <para>
+        /// <para>This specifies the Amazon S3 location where the test annotations for an entity recognizer
+        /// are located. The URI must be in the same AWS Region as the API endpoint that you are
+        /// calling.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputDataConfig_Annotations_TestS3Uri")]
+        public System.String Annotations_TestS3Uri { get; set; }
+        #endregion
+        
+        #region Parameter Documents_TestS3Uri
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the Amazon S3 location where the test documents for an entity recognizer
+        /// are located. The URI must be in the same AWS Region as the API endpoint that you are
+        /// calling.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputDataConfig_Documents_TestS3Uri")]
+        public System.String Documents_TestS3Uri { get; set; }
+        #endregion
+        
+        #region Parameter VersionName
+        /// <summary>
+        /// <para>
+        /// <para>The version name given to the newly created recognizer. Version names can be a maximum
+        /// of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed.
+        /// The version name must be unique among all models with the same recognizer name in
+        /// the account/ AWS Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionName { get; set; }
+        #endregion
+        
         #region Parameter VolumeKmsKeyId
         /// <summary>
         /// <para>
@@ -338,12 +394,15 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             }
             #endif
             context.Annotations_S3Uri = this.Annotations_S3Uri;
+            context.Annotations_TestS3Uri = this.Annotations_TestS3Uri;
             if (this.InputDataConfig_AugmentedManifest != null)
             {
                 context.InputDataConfig_AugmentedManifest = new List<Amazon.Comprehend.Model.AugmentedManifestsListItem>(this.InputDataConfig_AugmentedManifest);
             }
             context.InputDataConfig_DataFormat = this.InputDataConfig_DataFormat;
+            context.Documents_InputFormat = this.Documents_InputFormat;
             context.Documents_S3Uri = this.Documents_S3Uri;
+            context.Documents_TestS3Uri = this.Documents_TestS3Uri;
             context.EntityList_S3Uri = this.EntityList_S3Uri;
             if (this.InputDataConfig_EntityType != null)
             {
@@ -374,6 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             {
                 context.Tag = new List<Amazon.Comprehend.Model.Tag>(this.Tag);
             }
+            context.VersionName = this.VersionName;
             context.VolumeKmsKeyId = this.VolumeKmsKeyId;
             if (this.VpcConfig_SecurityGroupId != null)
             {
@@ -441,56 +501,6 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 request.InputDataConfig.EntityTypes = requestInputDataConfig_inputDataConfig_EntityType;
                 requestInputDataConfigIsNull = false;
             }
-            Amazon.Comprehend.Model.EntityRecognizerAnnotations requestInputDataConfig_inputDataConfig_Annotations = null;
-            
-             // populate Annotations
-            var requestInputDataConfig_inputDataConfig_AnnotationsIsNull = true;
-            requestInputDataConfig_inputDataConfig_Annotations = new Amazon.Comprehend.Model.EntityRecognizerAnnotations();
-            System.String requestInputDataConfig_inputDataConfig_Annotations_annotations_S3Uri = null;
-            if (cmdletContext.Annotations_S3Uri != null)
-            {
-                requestInputDataConfig_inputDataConfig_Annotations_annotations_S3Uri = cmdletContext.Annotations_S3Uri;
-            }
-            if (requestInputDataConfig_inputDataConfig_Annotations_annotations_S3Uri != null)
-            {
-                requestInputDataConfig_inputDataConfig_Annotations.S3Uri = requestInputDataConfig_inputDataConfig_Annotations_annotations_S3Uri;
-                requestInputDataConfig_inputDataConfig_AnnotationsIsNull = false;
-            }
-             // determine if requestInputDataConfig_inputDataConfig_Annotations should be set to null
-            if (requestInputDataConfig_inputDataConfig_AnnotationsIsNull)
-            {
-                requestInputDataConfig_inputDataConfig_Annotations = null;
-            }
-            if (requestInputDataConfig_inputDataConfig_Annotations != null)
-            {
-                request.InputDataConfig.Annotations = requestInputDataConfig_inputDataConfig_Annotations;
-                requestInputDataConfigIsNull = false;
-            }
-            Amazon.Comprehend.Model.EntityRecognizerDocuments requestInputDataConfig_inputDataConfig_Documents = null;
-            
-             // populate Documents
-            var requestInputDataConfig_inputDataConfig_DocumentsIsNull = true;
-            requestInputDataConfig_inputDataConfig_Documents = new Amazon.Comprehend.Model.EntityRecognizerDocuments();
-            System.String requestInputDataConfig_inputDataConfig_Documents_documents_S3Uri = null;
-            if (cmdletContext.Documents_S3Uri != null)
-            {
-                requestInputDataConfig_inputDataConfig_Documents_documents_S3Uri = cmdletContext.Documents_S3Uri;
-            }
-            if (requestInputDataConfig_inputDataConfig_Documents_documents_S3Uri != null)
-            {
-                requestInputDataConfig_inputDataConfig_Documents.S3Uri = requestInputDataConfig_inputDataConfig_Documents_documents_S3Uri;
-                requestInputDataConfig_inputDataConfig_DocumentsIsNull = false;
-            }
-             // determine if requestInputDataConfig_inputDataConfig_Documents should be set to null
-            if (requestInputDataConfig_inputDataConfig_DocumentsIsNull)
-            {
-                requestInputDataConfig_inputDataConfig_Documents = null;
-            }
-            if (requestInputDataConfig_inputDataConfig_Documents != null)
-            {
-                request.InputDataConfig.Documents = requestInputDataConfig_inputDataConfig_Documents;
-                requestInputDataConfigIsNull = false;
-            }
             Amazon.Comprehend.Model.EntityRecognizerEntityList requestInputDataConfig_inputDataConfig_EntityList = null;
             
              // populate EntityList
@@ -516,6 +526,86 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 request.InputDataConfig.EntityList = requestInputDataConfig_inputDataConfig_EntityList;
                 requestInputDataConfigIsNull = false;
             }
+            Amazon.Comprehend.Model.EntityRecognizerAnnotations requestInputDataConfig_inputDataConfig_Annotations = null;
+            
+             // populate Annotations
+            var requestInputDataConfig_inputDataConfig_AnnotationsIsNull = true;
+            requestInputDataConfig_inputDataConfig_Annotations = new Amazon.Comprehend.Model.EntityRecognizerAnnotations();
+            System.String requestInputDataConfig_inputDataConfig_Annotations_annotations_S3Uri = null;
+            if (cmdletContext.Annotations_S3Uri != null)
+            {
+                requestInputDataConfig_inputDataConfig_Annotations_annotations_S3Uri = cmdletContext.Annotations_S3Uri;
+            }
+            if (requestInputDataConfig_inputDataConfig_Annotations_annotations_S3Uri != null)
+            {
+                requestInputDataConfig_inputDataConfig_Annotations.S3Uri = requestInputDataConfig_inputDataConfig_Annotations_annotations_S3Uri;
+                requestInputDataConfig_inputDataConfig_AnnotationsIsNull = false;
+            }
+            System.String requestInputDataConfig_inputDataConfig_Annotations_annotations_TestS3Uri = null;
+            if (cmdletContext.Annotations_TestS3Uri != null)
+            {
+                requestInputDataConfig_inputDataConfig_Annotations_annotations_TestS3Uri = cmdletContext.Annotations_TestS3Uri;
+            }
+            if (requestInputDataConfig_inputDataConfig_Annotations_annotations_TestS3Uri != null)
+            {
+                requestInputDataConfig_inputDataConfig_Annotations.TestS3Uri = requestInputDataConfig_inputDataConfig_Annotations_annotations_TestS3Uri;
+                requestInputDataConfig_inputDataConfig_AnnotationsIsNull = false;
+            }
+             // determine if requestInputDataConfig_inputDataConfig_Annotations should be set to null
+            if (requestInputDataConfig_inputDataConfig_AnnotationsIsNull)
+            {
+                requestInputDataConfig_inputDataConfig_Annotations = null;
+            }
+            if (requestInputDataConfig_inputDataConfig_Annotations != null)
+            {
+                request.InputDataConfig.Annotations = requestInputDataConfig_inputDataConfig_Annotations;
+                requestInputDataConfigIsNull = false;
+            }
+            Amazon.Comprehend.Model.EntityRecognizerDocuments requestInputDataConfig_inputDataConfig_Documents = null;
+            
+             // populate Documents
+            var requestInputDataConfig_inputDataConfig_DocumentsIsNull = true;
+            requestInputDataConfig_inputDataConfig_Documents = new Amazon.Comprehend.Model.EntityRecognizerDocuments();
+            Amazon.Comprehend.InputFormat requestInputDataConfig_inputDataConfig_Documents_documents_InputFormat = null;
+            if (cmdletContext.Documents_InputFormat != null)
+            {
+                requestInputDataConfig_inputDataConfig_Documents_documents_InputFormat = cmdletContext.Documents_InputFormat;
+            }
+            if (requestInputDataConfig_inputDataConfig_Documents_documents_InputFormat != null)
+            {
+                requestInputDataConfig_inputDataConfig_Documents.InputFormat = requestInputDataConfig_inputDataConfig_Documents_documents_InputFormat;
+                requestInputDataConfig_inputDataConfig_DocumentsIsNull = false;
+            }
+            System.String requestInputDataConfig_inputDataConfig_Documents_documents_S3Uri = null;
+            if (cmdletContext.Documents_S3Uri != null)
+            {
+                requestInputDataConfig_inputDataConfig_Documents_documents_S3Uri = cmdletContext.Documents_S3Uri;
+            }
+            if (requestInputDataConfig_inputDataConfig_Documents_documents_S3Uri != null)
+            {
+                requestInputDataConfig_inputDataConfig_Documents.S3Uri = requestInputDataConfig_inputDataConfig_Documents_documents_S3Uri;
+                requestInputDataConfig_inputDataConfig_DocumentsIsNull = false;
+            }
+            System.String requestInputDataConfig_inputDataConfig_Documents_documents_TestS3Uri = null;
+            if (cmdletContext.Documents_TestS3Uri != null)
+            {
+                requestInputDataConfig_inputDataConfig_Documents_documents_TestS3Uri = cmdletContext.Documents_TestS3Uri;
+            }
+            if (requestInputDataConfig_inputDataConfig_Documents_documents_TestS3Uri != null)
+            {
+                requestInputDataConfig_inputDataConfig_Documents.TestS3Uri = requestInputDataConfig_inputDataConfig_Documents_documents_TestS3Uri;
+                requestInputDataConfig_inputDataConfig_DocumentsIsNull = false;
+            }
+             // determine if requestInputDataConfig_inputDataConfig_Documents should be set to null
+            if (requestInputDataConfig_inputDataConfig_DocumentsIsNull)
+            {
+                requestInputDataConfig_inputDataConfig_Documents = null;
+            }
+            if (requestInputDataConfig_inputDataConfig_Documents != null)
+            {
+                request.InputDataConfig.Documents = requestInputDataConfig_inputDataConfig_Documents;
+                requestInputDataConfigIsNull = false;
+            }
              // determine if request.InputDataConfig should be set to null
             if (requestInputDataConfigIsNull)
             {
@@ -536,6 +626,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.VersionName != null)
+            {
+                request.VersionName = cmdletContext.VersionName;
             }
             if (cmdletContext.VolumeKmsKeyId != null)
             {
@@ -634,15 +728,19 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String ClientRequestToken { get; set; }
             public System.String DataAccessRoleArn { get; set; }
             public System.String Annotations_S3Uri { get; set; }
+            public System.String Annotations_TestS3Uri { get; set; }
             public List<Amazon.Comprehend.Model.AugmentedManifestsListItem> InputDataConfig_AugmentedManifest { get; set; }
             public Amazon.Comprehend.EntityRecognizerDataFormat InputDataConfig_DataFormat { get; set; }
+            public Amazon.Comprehend.InputFormat Documents_InputFormat { get; set; }
             public System.String Documents_S3Uri { get; set; }
+            public System.String Documents_TestS3Uri { get; set; }
             public System.String EntityList_S3Uri { get; set; }
             public List<Amazon.Comprehend.Model.EntityTypesListItem> InputDataConfig_EntityType { get; set; }
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
             public System.String ModelKmsKeyId { get; set; }
             public System.String RecognizerName { get; set; }
             public List<Amazon.Comprehend.Model.Tag> Tag { get; set; }
+            public System.String VersionName { get; set; }
             public System.String VolumeKmsKeyId { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_Subnet { get; set; }

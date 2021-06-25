@@ -53,17 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para><ul><li><para>
     /// You must create the log group in the us-east-1 region.
     /// </para></li><li><para>
-    /// You must use the same AWS account to create the log group and the hosted zone that
-    /// you want to configure query logging for.
+    /// You must use the same Amazon Web Services account to create the log group and the
+    /// hosted zone that you want to configure query logging for.
     /// </para></li><li><para>
     /// When you create log groups for query logging, we recommend that you use a consistent
     /// prefix, for example:
     /// </para><para><code>/aws/route53/<i>hosted zone name</i></code></para><para>
     /// In the next step, you'll create a resource policy, which controls access to one or
-    /// more log groups and the associated AWS resources, such as Route 53 hosted zones. There's
-    /// a limit on the number of resource policies that you can create, so we recommend that
-    /// you use a consistent prefix so you can use the same resource policy for all the log
-    /// groups that you create for query logging.
+    /// more log groups and the associated Amazon Web Services resources, such as Route 53
+    /// hosted zones. There's a limit on the number of resource policies that you can create,
+    /// so we recommend that you use a consistent prefix so you can use the same resource
+    /// policy for all the log groups that you create for query logging.
     /// </para></li></ul></li><li><para>
     /// Create a CloudWatch Logs resource policy, and give it the permissions that Route 53
     /// needs to create log streams and to send query logs to log streams. For the value of
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// for example:
     /// </para><para><code>arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*</code></para><note><para>
     /// You can't use the CloudWatch console to create or edit a resource policy. You must
-    /// use the CloudWatch API, one of the AWS SDKs, or the AWS CLI.
+    /// use the CloudWatch API, one of the Amazon Web Services SDKs, or the CLI.
     /// </para></note></li></ol></dd><dt>Log Streams and Edge Locations</dt><dd><para>
     /// When Route 53 finishes creating the configuration for DNS query logging, it does the
     /// following:
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>The Amazon Resource Name (ARN) for the log group that you want to Amazon Route 53
         /// to send query logs to. This is the format of the ARN:</para><para>arn:aws:logs:<i>region</i>:<i>account-id</i>:log-group:<i>log_group_name</i></para><para>To get the ARN for a log group, you can use the CloudWatch console, the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html">DescribeLogGroups</a>
         /// API action, the <a href="https://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html">describe-log-groups</a>
-        /// command, or the applicable command in one of the AWS SDKs.</para>
+        /// command, or the applicable command in one of the Amazon Web Services SDKs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

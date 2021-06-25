@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ApplyAction
         /// <summary>
         /// <para>
-        /// <para>The pending maintenance action to apply to this resource.</para>
+        /// <para>The pending maintenance action to apply to this resource.</para><para>Valid values: <code>os-upgrade</code>, <code>system-update</code>, <code>db-upgrade</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS DMS resource that the pending maintenance
-        /// action applies to.</para>
+        /// <para>The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance action
+        /// applies to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

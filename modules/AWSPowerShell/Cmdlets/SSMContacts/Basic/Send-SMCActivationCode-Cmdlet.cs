@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
 {
     /// <summary>
     /// Sends an activation code to a contact channel. The contact can use this code to activate
-    /// the contact channel in the console or with the <code>ActivateChannel</code> action.
+    /// the contact channel in the console or with the <code>ActivateChannel</code> operation.
     /// Incident Manager can't engage a contact channel until it has been activated.
     /// </summary>
     [Cmdlet("Send", "SMCActivationCode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>The Amazon Resource Name (ARN) of the resource for which you want the list of tags,
         /// for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
         /// or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

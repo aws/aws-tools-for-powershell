@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// <summary>
         /// <para>
         /// <para>The level of detail that you want to generate. You can specify whether to generate
-        /// service-level policies. </para><para>Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that
-        /// have been used recently to create this service-level template.</para>
+        /// service-level policies. </para><para>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services
+        /// that have been used recently to create this service-level template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,11 +28,11 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Enables resource sharing within your AWS Organization.
+    /// Enables resource sharing within your organization in Organizations.
     /// 
     ///  
     /// <para>
-    /// The caller must be the master account for the AWS Organization.
+    /// The caller must be the master account for the organization.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "RAMSharingWithAwsOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

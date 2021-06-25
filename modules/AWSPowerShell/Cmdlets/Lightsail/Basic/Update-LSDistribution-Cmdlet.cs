@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// Use this action to update the configuration of your existing distribution
+    /// Use this action to update the configuration of your existing distribution.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LSDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

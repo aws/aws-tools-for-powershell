@@ -94,8 +94,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-KNDRFaq', 
         'Get-KNDRFaqList', 
         'Get-KNDRGetDocumentStatus', 
+        'Get-KNDRGroupsOlderThanOrderingIdList', 
         'Get-KNDRIndex', 
         'Get-KNDRIndexList', 
+        'Get-KNDRPrincipalMapping', 
         'Get-KNDRQuerySuggestion', 
         'Get-KNDRQuerySuggestionsBlockList', 
         'Get-KNDRQuerySuggestionsBlockListList', 
@@ -113,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-KNDRDocumentBatch', 
         'Remove-KNDRFaq', 
         'Remove-KNDRIndex', 
+        'Remove-KNDRPrincipalMapping', 
         'Remove-KNDRQuerySuggestionsBlockList', 
         'Remove-KNDRResourceTag', 
         'Remove-KNDRThesaurus', 
@@ -124,7 +127,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-KNDRQuerySuggestionsBlockList', 
         'Update-KNDRQuerySuggestionsConfig', 
         'Update-KNDRThesaurus', 
-        'Write-KNDRDocumentBatch')
+        'Write-KNDRDocumentBatch', 
+        'Write-KNDRPrincipalMapping')
 
     # Variables to export from this module
     VariablesToExport = '*'

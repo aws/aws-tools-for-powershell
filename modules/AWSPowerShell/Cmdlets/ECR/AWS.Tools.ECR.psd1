@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ECRImage', 
         'Get-ECRImageBatch', 
         'Get-ECRImageMetadata', 
+        'Get-ECRImageReplicationStatus', 
         'Get-ECRImageScanFinding', 
         'Get-ECRLayerAvailabilityBatch', 
         'Get-ECRLifecyclePolicy', 

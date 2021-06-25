@@ -105,6 +105,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.Boolean? CapacityRebalance { get; set; }
         #endregion
         
+        #region Parameter Context
+        /// <summary>
+        /// <para>
+        /// <para>Reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Context { get; set; }
+        #endregion
+        
         #region Parameter DefaultCooldown
         /// <summary>
         /// <para>
@@ -339,8 +349,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group
         /// uses to call other Amazon Web Services on your behalf. By default, Amazon EC2 Auto
-        /// Scaling uses a service-linked role named AWSServiceRoleForAutoScaling, which it creates
-        /// if it does not exist. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked
+        /// Scaling uses a service-linked role named <code>AWSServiceRoleForAutoScaling</code>,
+        /// which it creates if it does not exist. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked
         /// roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -497,6 +507,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
             }
             context.CapacityRebalance = this.CapacityRebalance;
+            context.Context = this.Context;
             context.DefaultCooldown = this.DefaultCooldown;
             context.DesiredCapacity = this.DesiredCapacity;
             context.HealthCheckGracePeriod = this.HealthCheckGracePeriod;
@@ -573,6 +584,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.CapacityRebalance != null)
             {
                 request.CapacityRebalance = cmdletContext.CapacityRebalance.Value;
+            }
+            if (cmdletContext.Context != null)
+            {
+                request.Context = cmdletContext.Context;
             }
             if (cmdletContext.DefaultCooldown != null)
             {
@@ -753,6 +768,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String AutoScalingGroupName { get; set; }
             public List<System.String> AvailabilityZone { get; set; }
             public System.Boolean? CapacityRebalance { get; set; }
+            public System.String Context { get; set; }
             public System.Int32? DefaultCooldown { get; set; }
             public System.Int32? DesiredCapacity { get; set; }
             public System.Int32? HealthCheckGracePeriod { get; set; }

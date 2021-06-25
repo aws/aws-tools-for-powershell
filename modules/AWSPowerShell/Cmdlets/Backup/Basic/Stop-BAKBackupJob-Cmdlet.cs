@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupJobId
         /// <summary>
         /// <para>
-        /// <para>Uniquely identifies a request to AWS Backup to back up a resource.</para>
+        /// <para>Uniquely identifies a request to Backup to back up a resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

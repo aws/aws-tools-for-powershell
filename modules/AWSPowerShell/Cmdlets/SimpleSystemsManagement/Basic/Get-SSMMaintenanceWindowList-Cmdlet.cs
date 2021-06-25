@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieves the maintenance windows in an AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the maintenance windows in an Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowIdentity")]
@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Optional filters used to narrow down the scope of the returned maintenance windows.
-        /// Supported filter keys are <b>Name</b> and <b>Enabled</b>.</para>
+        /// Supported filter keys are <code>Name</code> and <code>Enabled</code>. For example,
+        /// <code>Name=MyMaintenanceWindow</code> and <code>Enabled=True</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

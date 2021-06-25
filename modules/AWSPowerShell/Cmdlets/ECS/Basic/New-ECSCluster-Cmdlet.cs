@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     ///  <note><para>
     /// When you call the <a>CreateCluster</a> API operation, Amazon ECS attempts to create
     /// the Amazon ECS service-linked role for your account so that required resources in
-    /// other AWS services can be managed on your behalf. However, if the IAM user that makes
-    /// the call does not have permissions to create the service-linked role, it is not created.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+    /// other Amazon Web Services services can be managed on your behalf. However, if the
+    /// IAM user that makes the call does not have permissions to create the service-linked
+    /// role, it is not created. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
     /// Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
     /// Developer Guide</i>.
     /// </para></note>
@@ -61,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// strategy when calling the <a>CreateService</a> or <a>RunTask</a> actions.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
         /// must already be created and not already associated with another cluster. New Auto
         /// Scaling group capacity providers can be created with the <a>CreateCapacityProvider</a>
-        /// API operation.</para><para>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
-        /// <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
-        /// available to all accounts and only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
+        /// API operation.</para><para>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or <code>FARGATE_SPOT</code>
+        /// capacity providers. The Fargate capacity providers are available to all accounts and
+        /// only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
         /// available capacity providers for a cluster after the cluster is created.</para>
         /// </para>
         /// </summary>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The capacity provider strategy to set as the default for the cluster. When a default
         /// capacity provider strategy is set for a cluster, when calling the <a>RunTask</a> or
-        /// <a>CreateService</a> APIs wtih no capacity provider strategy or launch type specified,
+        /// <a>CreateService</a> APIs with no capacity provider strategy or launch type specified,
         /// the default capacity provider strategy for the cluster is used.</para><para>If a default capacity provider strategy is not defined for a cluster during creation,
         /// it can be defined later with the <a>PutClusterCapacityProviders</a> API operation.</para>
         /// </para>
@@ -124,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ExecuteCommandConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Specify an AWS Key Management Service key ID to encrypt the data between the local
-        /// client and the container.</para>
+        /// <para>Specify an Key Management Service key ID to encrypt the data between the local client
+        /// and the container.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,9 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
         /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for either keys or values as it is reserved for AWS use. You cannot
-        /// edit or delete tag keys or values with this prefix. Tags with this prefix do not count
-        /// against your tags per resource limit.</para></li></ul>
+        /// of such as a prefix for either keys or values as it is reserved for Amazon Web Services
+        /// use. You cannot edit or delete tag keys or values with this prefix. Tags with this
+        /// prefix do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

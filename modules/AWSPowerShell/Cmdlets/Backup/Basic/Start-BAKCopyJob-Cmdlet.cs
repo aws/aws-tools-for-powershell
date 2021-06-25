@@ -94,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>A customer chosen string that can be used to distinguish between calls to <code>StartCopyJob</code>.</para>
+        /// <para>A customer-chosen string that you can use to distinguish between otherwise identical
+        /// calls to <code>StartCopyJob</code>. Retrying a successful request with the same idempotency
+        /// token results in a success message with no action taken.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,8 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The name of a logical source container where backups are stored. Backup vaults are
-        /// identified by names that are unique to the account used to create them and the AWS
-        /// Region where they are created. They consist of lowercase letters, numbers, and hyphens.</para>
+        /// identified by names that are unique to the account used to create them and the Amazon
+        /// Web Services Region where they are created. They consist of lowercase letters, numbers,
+        /// and hyphens.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

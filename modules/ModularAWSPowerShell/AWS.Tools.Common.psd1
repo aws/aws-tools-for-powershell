@@ -56,7 +56,11 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
     # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
         'AWSSDK.Core.dll',
-        'AWSSDK.SecurityToken.dll'
+        'AWSSDK.SecurityToken.dll',
+        'aws-crt.dll',
+        'aws-crt-auth.dll',
+        'aws-crt-http.dll',
+        'AWSSDK.Extensions.CrtIntegration.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module

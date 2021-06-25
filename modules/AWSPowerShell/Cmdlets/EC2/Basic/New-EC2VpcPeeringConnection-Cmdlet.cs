@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Requests a VPC peering connection between two VPCs: a requester VPC that you own and
     /// an accepter VPC with which to create the connection. The accepter VPC can belong to
-    /// another AWS account and can be in a different Region to the requester VPC. The requester
-    /// VPC and accepter VPC cannot have overlapping CIDR blocks.
+    /// another Amazon Web Services account and can be in a different Region to the requester
+    /// VPC. The requester VPC and accepter VPC cannot have overlapping CIDR blocks.
     /// 
     ///  <note><para>
     /// Limitations and rules apply to a VPC peering connection. For more information, see
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PeerOwnerId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the owner of the accepter VPC.</para><para>Default: Your AWS account ID</para>
+        /// <para>The Amazon Web Services account ID of the owner of the accepter VPC.</para><para>Default: Your Amazon Web Services account ID</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

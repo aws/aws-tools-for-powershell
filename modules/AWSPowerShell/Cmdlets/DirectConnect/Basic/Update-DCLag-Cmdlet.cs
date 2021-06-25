@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </para></li><li><para>
     /// The LAG's MACsec encryption mode.
     /// </para><para>
-    /// AWS assigns this value to each connection which is part of the LAG.
+    /// Amazon Web Services assigns this value to each connection which is part of the LAG.
     /// </para></li><li><para>
     /// The tags
     /// </para></li></ul><note><para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter EncryptionMode
         /// <summary>
         /// <para>
-        /// <para>The LAG MAC Security (MACsec) encryption mode.</para><para>AWS applies the value to all connections which are part of the LAG.</para>
+        /// <para>The LAG MAC Security (MACsec) encryption mode.</para><para>Amazon Web Services applies the value to all connections which are part of the LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

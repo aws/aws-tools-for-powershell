@@ -194,7 +194,10 @@ $SD_SelectMap = @{
                "New-SDInstanceRegistration",
                "Add-SDResourceTag",
                "Remove-SDResourceTag",
+               "Update-SDHttpNamespace",
                "Update-SDInstanceCustomHealthStatus",
+               "Update-SDPrivateDnsNamespace",
+               "Update-SDPublicDnsNamespace",
                "Update-SDService")
 }
 

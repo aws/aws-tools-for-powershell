@@ -30,6 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// <summary>
     /// Sets the password for the guest user <code>smbguest</code>. The <code>smbguest</code>
     /// user is the user when the authentication method for the file share is set to <code>GuestAccess</code>.
+    /// This operation only supported for S3 File Gateways
     /// </summary>
     [Cmdlet("Set", "SGSMBGuestPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GatewayARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the file gateway the SMB file share is associated
+        /// <para>The Amazon Resource Name (ARN) of the S3 File Gateway the SMB file share is associated
         /// with.</para>
         /// </para>
         /// </summary>

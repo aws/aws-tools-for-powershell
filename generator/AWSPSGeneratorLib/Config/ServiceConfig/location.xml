@@ -198,6 +198,26 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGeofenceCollection" OutputProperty="*" Verb="Edit" Noun="GeofenceCollection" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMap" OutputProperty="*" Verb="Edit" Noun="Map" ShouldProcessTarget="MapName" PipelineParameter="MapName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePlaceIndex" OutputProperty="*" Verb="Edit" Noun="PlaceIndex" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRouteCalculator" OutputProperty="*" Verb="Edit" Noun="RouteCalculator" ShouldProcessTarget="CalculatorName" PipelineParameter="CalculatorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTracker" OutputProperty="*" Verb="Edit" Noun="Tracker" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

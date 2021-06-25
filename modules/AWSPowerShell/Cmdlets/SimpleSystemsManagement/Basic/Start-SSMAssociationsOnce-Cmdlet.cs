@@ -28,8 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Use this API action to run an association immediately and only one time. This action
-    /// can be helpful when troubleshooting associations.
+    /// Runs an association immediately and only one time. This operation can be helpful when
+    /// troubleshooting associations.
     /// </summary>
     [Cmdlet("Start", "SSMAssociationsOnce", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

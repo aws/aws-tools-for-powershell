@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>A list of AWS Config rule names.</para>
+        /// <para>A list of Config rule names.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of RemediationExecutionStatuses returned on each page. The default
-        /// is maximum. If you specify 0, AWS Config uses the default. </para>
+        /// is maximum. If you specify 0, Config uses the default. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

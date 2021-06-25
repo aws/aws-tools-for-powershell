@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter OpenIDConnectProviderArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the OIDC provider in IAM from which you want to remove tags.</para><para>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex
-        /// pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
-        /// characters with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// <para>The ARN of the OIDC provider in IAM from which you want to remove tags.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+        /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>chime-sdk-identity</C2jFilename>
+    <AssemblyName>ChimeSDKIdentity</AssemblyName>
+    <ServiceNounPrefix>CHMID</ServiceNounPrefix>
+    <ServiceName>Amazon Chime SDK Identity</ServiceName>
+    <ServiceClientInterface>IAmazonChimeSDKIdentity</ServiceClientInterface>
+    <ServiceClient>AmazonChimeSDKIdentityClient</ServiceClient>
+    <ServiceModuleGuid>d947dc83-e37a-4b82-9f87-6e73f4354ddd</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAppInstance" OutputProperty="AppInstanceArn" Verb="New" Noun="AppInstance" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAppInstanceAdmin" OutputProperty="*" Verb="New" Noun="AppInstanceAdmin" ShouldProcessTarget="AppInstanceAdminArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAppInstanceUser" OutputProperty="AppInstanceUserArn" Verb="New" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserId" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppInstance" Verb="Remove" Noun="AppInstance" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppInstanceAdmin" Verb="Remove" Noun="AppInstanceAdmin" ShouldProcessTarget="AppInstanceAdminArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppInstanceUser" Verb="Remove" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAppInstance" OutputProperty="AppInstance" Verb="Get" Noun="AppInstance" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAppInstanceAdmin" OutputProperty="AppInstanceAdmin" Verb="Get" Noun="AppInstanceAdmin" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAppInstanceUser" OutputProperty="AppInstanceUser" Verb="Get" Noun="AppInstanceUser" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAppInstanceRetentionSettings" OutputProperty="*" Verb="Get" Noun="AppInstanceRetentionSetting" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAppInstanceAdmins" OutputProperty="*" Verb="Get" Noun="AppInstanceAdminList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAppInstances" OutputProperty="AppInstances" Verb="Get" Noun="AppInstanceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAppInstanceUsers" OutputProperty="*" Verb="Get" Noun="AppInstanceUserList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAppInstanceRetentionSettings" OutputProperty="*" Verb="Write" Noun="AppInstanceRetentionSetting" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAppInstance" OutputProperty="AppInstanceArn" Verb="Update" Noun="AppInstance" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAppInstanceUser" OutputProperty="AppInstanceUserArn" Verb="Update" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

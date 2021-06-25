@@ -87,6 +87,13 @@ $C9_Completers = {
             break
         }
 
+        # Amazon.Cloud9.ManagedCredentialsAction
+        "Update-C9Environment/ManagedCredentialsAction"
+        {
+            $v = "DISABLE","ENABLE"
+            break
+        }
+
         # Amazon.Cloud9.MemberPermissions
         {
             ($_ -eq "New-C9EnvironmentMembership/Permissions") -Or
@@ -107,6 +114,7 @@ $C9_Completers = {
 
 $C9_map = @{
     "ConnectionType"=@("New-C9EnvironmentEC2")
+    "ManagedCredentialsAction"=@("Update-C9Environment")
     "Permissions"=@("New-C9EnvironmentMembership","Update-C9EnvironmentMembership")
 }
 

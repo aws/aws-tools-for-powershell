@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// Recommendations are generated to either downsize or terminate instances, along with
     /// providing savings detail and metrics. For details on calculation and function, see
     /// <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html">Optimizing
-    /// Your Cost with Rightsizing Recommendations</a> in the <i>AWS Billing and Cost Management
+    /// Your Cost with Rightsizing Recommendations</a> in the <i>Billing and Cost Management
     /// User Guide</i>.
     /// </para><br/><br/>In the AWS.Tools.CostExplorer module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Configuration_BenefitsConsidered
         /// <summary>
         /// <para>
-        /// <para> The option to consider RI or Savings Plans discount benefits in your savings calculation.
+        /// <para>The option to consider RI or Savings Plans discount benefits in your savings calculation.
         /// The default value is <code>TRUE</code>. </para>
         /// </para>
         /// </summary>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Configuration_RecommendationTarget
         /// <summary>
         /// <para>
-        /// <para> The option to see recommendations within the same instance family, or recommendations
+        /// <para>The option to see recommendations within the same instance family or recommendations
         /// for instances across other families. The default value is <code>SAME_INSTANCE_FAMILY</code>.
         /// </para>
         /// </para>

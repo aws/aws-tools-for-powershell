@@ -28,9 +28,9 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters
-    /// in various ways, such as grouping clusters to track your Amazon EMR resource allocation
-    /// costs. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
+    /// Removes tags from an Amazon EMR resource, such as a cluster or Amazon EMR Studio.
+    /// Tags make it easier to associate resources in various ways, such as grouping clusters
+    /// to track your Amazon EMR resource allocation costs. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
     /// Clusters</a>. 
     /// 
     ///  
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The Amazon EMR resource identifier from which tags will be removed. This value must
-        /// be a cluster identifier.</para>
+        /// <para>The Amazon EMR resource identifier from which tags will be removed. For example, a
+        /// cluster identifier or an Amazon EMR Studio ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>A list of tag keys to remove from a resource.</para>
+        /// <para>A list of tag keys to remove from the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

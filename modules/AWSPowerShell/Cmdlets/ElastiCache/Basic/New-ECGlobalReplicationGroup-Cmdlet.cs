@@ -65,13 +65,13 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The suffix name of a Global datastore. Amazon ElastiCache automatically applies a
-        /// prefix to the Global datastore ID when it is created. Each AWS Region has its own
+        /// prefix to the Global datastore ID when it is created. Each Amazon Region has its own
         /// prefix. For instance, a Global datastore ID created in the US-West-1 region will begin
         /// with "dsdfu" along with the suffix name you provide. The suffix, combined with the
         /// auto-generated prefix, guarantees uniqueness of the Global datastore name across multiple
-        /// regions. </para><para>For a full list of AWS Regions and their respective Global datastore iD prefixes,
+        /// regions. </para><para>For a full list of Amazon Regions and their respective Global datastore iD prefixes,
         /// see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastores-CLI.html">Using
-        /// the AWS CLI with Global datastores </a>.</para>
+        /// the Amazon CLI with Global datastores </a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -134,6 +134,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateFleetMetric" OutputProperty="*" Verb="New" Noun="FleetMetric" ShouldProcessTarget="MetricName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateJob" OutputProperty="*" Verb="New" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -249,6 +253,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDynamicThingGroup" Verb="Remove" Noun="DynamicThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFleetMetric" Verb="Remove" Noun="FleetMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -404,6 +412,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetMetric" OutputProperty="*" Verb="Get" Noun="FleetMetric" PipelineParameter="MetricName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeIndex" OutputProperty="*" Verb="Get" Noun="Index" PipelineParameter="IndexName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -489,6 +501,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBehaviorModelTrainingSummaries" OutputProperty="Summaries" Verb="Get" Noun="BehaviorModelTrainingSummary" PipelineParameter="SecurityProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBucketsAggregation" OutputProperty="*" Verb="Get" Noun="BucketsAggregation" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -628,6 +644,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDomainConfigurations" OutputProperty="DomainConfigurations" Verb="Get" Noun="DomainConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFleetMetrics" OutputProperty="FleetMetrics" Verb="Get" Noun="FleetMetricList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -811,6 +831,10 @@
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutVerificationStateOnViolation" Verb="Write" Noun="VerificationStateOnViolation" ShouldProcessTarget="ViolationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RegisterCACertificate" OutputProperty="*" Verb="Register" Noun="CACertificate" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -948,6 +972,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEventConfigurations" Verb="Update" Noun="EventConfiguration" ShouldProcessTarget="EventConfigurations" PipelineParameter="EventConfigurations" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFleetMetric" Verb="Update" Noun="FleetMetric" ShouldProcessTarget="MetricName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

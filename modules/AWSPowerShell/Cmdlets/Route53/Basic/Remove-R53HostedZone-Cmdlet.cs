@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// If the hosted zone was created by another service, such as AWS Cloud Map, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service">Deleting
+    /// If the hosted zone was created by another service, such as Cloud Map, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service">Deleting
     /// Public Hosted Zones That Were Created by Another Service</a> in the <i>Amazon Route
     /// 53 Developer Guide</i> for information about how to delete it. (The process is the
     /// same for public and private hosted zones that were created by another service.)
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// zone.
     /// </para></li><li><para>
     /// Use the <code>ListHostedZones</code> action to get a list of the hosted zones associated
-    /// with the current AWS account.
+    /// with the current Amazon Web Services account.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "R53HostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

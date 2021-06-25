@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique ID. If not specified, the AWS CLI and AWS SDKs, such as the SDK for Python
-        /// (Boto3), add a unique value to the call.</para>
+        /// <para>A unique ID. If not specified, the Amazon Web Services CLI and Amazon Web Services
+        /// SDKs, such as the SDK for Python (Boto3), add a unique value to the call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

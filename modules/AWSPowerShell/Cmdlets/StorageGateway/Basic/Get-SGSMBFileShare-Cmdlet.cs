@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Gets a description for one or more Server Message Block (SMB) file shares from a file
-    /// gateway. This operation is only supported for file gateways.
+    /// Gets a description for one or more Server Message Block (SMB) file shares from a S3
+    /// File Gateway. This operation is only supported for S3 File Gateways.
     /// </summary>
     [Cmdlet("Get", "SGSMBFileShare")]
     [OutputType("Amazon.StorageGateway.Model.SMBFileShareInfo")]

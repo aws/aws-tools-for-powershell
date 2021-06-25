@@ -28,8 +28,8 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Create an environment template for AWS Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-templates.html">Environment
-    /// Templates</a> in the <i>AWS Proton Administration Guide</i>.
+    /// Create an environment template for AWS Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment
+    /// Templates</a> in the <i>AWS Proton Administrator Guide</i>.
     /// 
     ///  
     /// <para>
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// <i>doesn't</i> manage your existing provisioned infrastructure. To create an environment
     /// template for customer provisioned and managed infrastructure, include the <code>provisioning</code>
     /// parameter and set the value to <code>CUSTOMER_MANAGED</code>. For more information,
-    /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/env-template-v1.html">Register
-    /// and publish an environment template</a> in the <i>AWS Proton Administration Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html">Register
+    /// and publish an environment template</a> in the <i>AWS Proton Administrator Guide</i>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "PROEnvironmentTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>Create tags for your environment template. For more information, see <i>AWS Proton
         /// resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS
-        /// Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
+        /// Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
         /// Proton User Guide</a>.</para>
         /// </para>
         /// </summary>

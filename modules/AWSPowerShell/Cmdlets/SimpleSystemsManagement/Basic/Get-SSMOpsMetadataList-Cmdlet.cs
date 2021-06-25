@@ -28,8 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Systems Manager calls this API action when displaying all Application Manager OpsMetadata
-    /// objects or blobs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Amazon Web Services Systems Manager calls this API operation when displaying all Application
+    /// Manager OpsMetadata objects or blobs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMOpsMetadataList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.OpsMetadata")]

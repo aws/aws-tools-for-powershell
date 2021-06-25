@@ -28,7 +28,7 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Removes tags from a resource in AWS Shield.
+    /// Removes tags from a resource in Shield.
     /// </summary>
     [Cmdlet("Remove", "SHLDResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

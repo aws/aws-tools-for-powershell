@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// 
     ///  
     /// <para>
-    /// When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, AWS Glue will
-    /// have generated a "labeling set" or a set of questions for humans to answer.
+    /// When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
+    /// generated a "labeling set" or a set of questions for humans to answer.
     /// </para><para>
     /// In the case of the <code>FindMatches</code> transform, these questions are of the
     /// form, “What is the correct way to group these rows together into groups composed entirely

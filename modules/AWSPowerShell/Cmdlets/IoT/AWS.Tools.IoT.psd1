@@ -117,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTBehaviorModelTrainingSummary', 
         'Get-IOTBillingGroup', 
         'Get-IOTBillingGroupList', 
+        'Get-IOTBucketsAggregation', 
         'Get-IOTCACertificate', 
         'Get-IOTCACertificateList', 
         'Get-IOTCardinality', 
@@ -136,6 +137,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTEffectivePolicy', 
         'Get-IOTEndpoint', 
         'Get-IOTEventConfiguration', 
+        'Get-IOTFleetMetric', 
+        'Get-IOTFleetMetricList', 
         'Get-IOTIndex', 
         'Get-IOTIndexingConfiguration', 
         'Get-IOTIndexList', 
@@ -209,6 +212,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-IOTDimension', 
         'New-IOTDomainConfiguration', 
         'New-IOTDynamicThingGroup', 
+        'New-IOTFleetMetric', 
         'New-IOTJob', 
         'New-IOTJobTemplate', 
         'New-IOTKeysAndCertificate', 
@@ -242,6 +246,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-IOTDimension', 
         'Remove-IOTDomainConfiguration', 
         'Remove-IOTDynamicThingGroup', 
+        'Remove-IOTFleetMetric', 
         'Remove-IOTJob', 
         'Remove-IOTJobExecution', 
         'Remove-IOTJobTemplate', 
@@ -301,6 +306,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-IOTDomainConfiguration', 
         'Update-IOTDynamicThingGroup', 
         'Update-IOTEventConfiguration', 
+        'Update-IOTFleetMetric', 
         'Update-IOTIndexingConfiguration', 
         'Update-IOTJob', 
         'Update-IOTMitigationAction', 
@@ -312,7 +318,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-IOTThing', 
         'Update-IOTThingGroup', 
         'Update-IOTThingGroupsForThing', 
-        'Update-IOTTopicRuleDestination')
+        'Update-IOTTopicRuleDestination', 
+        'Write-IOTVerificationStateOnViolation')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -28,17 +28,18 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Stores an AMI as a single object in an S3 bucket.
+    /// Stores an AMI as a single object in an Amazon S3 bucket.
     /// 
     ///  
     /// <para>
     /// To use this API, you must have the required permissions. For more information, see
     /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
-    /// for storing and restoring AMIs using S3</a> in the <i>Amazon Elastic Compute Cloud
-    /// User Guide</i>.
+    /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon Elastic Compute
+    /// Cloud User Guide</i>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
-    /// and restore an AMI using S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// and restore an AMI using Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2StoreImageTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Bucket
         /// <summary>
         /// <para>
-        /// <para>The name of the S3 bucket in which the AMI object will be stored. The bucket must
-        /// be in the Region in which the request is being made. The AMI object appears in the
-        /// bucket only after the upload task has completed. </para>
+        /// <para>The name of the Amazon S3 bucket in which the AMI object will be stored. The bucket
+        /// must be in the Region in which the request is being made. The AMI object appears in
+        /// the bucket only after the upload task has completed. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter S3ObjectTag
         /// <summary>
         /// <para>
-        /// <para>The tags to apply to the AMI object that will be stored in the S3 bucket. </para>
+        /// <para>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

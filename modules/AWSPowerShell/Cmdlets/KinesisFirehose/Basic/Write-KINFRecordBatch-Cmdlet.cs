@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// Kinesis Data Firehose Quota</a>.
     /// </para><para>
     /// Each <a>PutRecordBatch</a> request supports up to 500 records. Each record in the
-    /// request can be as large as 1,000 KB (before 64-bit encoding), up to a limit of 4 MB
+    /// request can be as large as 1,000 KB (before base64 encoding), up to a limit of 4 MB
     /// for the entire request. These limits cannot be changed.
     /// </para><para>
     /// You must specify the name of the delivery stream and the data record when using <a>PutRecord</a>.

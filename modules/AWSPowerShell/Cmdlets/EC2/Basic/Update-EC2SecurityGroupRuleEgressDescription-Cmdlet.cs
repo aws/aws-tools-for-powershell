@@ -30,14 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// [VPC only] Updates the description of an egress (outbound) security group rule. You
     /// can replace an existing description, or add a description to a rule that did not have
-    /// one previously.
-    /// 
-    ///  
-    /// <para>
-    /// You specify the description as part of the IP permissions structure. You can remove
-    /// a description for a security group rule by omitting the description parameter in the
-    /// request.
-    /// </para>
+    /// one previously. You can remove a description for a security group rule by omitting
+    /// the description parameter in the request.
     /// </summary>
     [Cmdlet("Update", "EC2SecurityGroupRuleEgressDescription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
@@ -75,19 +69,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IpPermission
         /// <summary>
         /// <para>
-        /// <para>The IP permissions for the security group rule.</para>
+        /// <para>The IP permissions for the security group rule. You must specify either the IP permissions
+        /// or the description.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("IpPermissions")]
         public Amazon.EC2.Model.IpPermission[] IpPermission { get; set; }
+        #endregion
+        
+        #region Parameter SecurityGroupRuleDescription
+        /// <summary>
+        /// <para>
+        /// <para>The description for the egress security group rules. You must specify either the description
+        /// or the IP permissions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SecurityGroupRuleDescriptions")]
+        public Amazon.EC2.Model.SecurityGroupRuleDescription[] SecurityGroupRuleDescription { get; set; }
         #endregion
         
         #region Parameter Select
@@ -157,12 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.IpPermission = new List<Amazon.EC2.Model.IpPermission>(this.IpPermission);
             }
-            #if MODULAR
-            if (this.IpPermission == null && ParameterWasBound(nameof(this.IpPermission)))
+            if (this.SecurityGroupRuleDescription != null)
             {
-                WriteWarning("You are passing $null as a value for parameter IpPermission which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.SecurityGroupRuleDescription = new List<Amazon.EC2.Model.SecurityGroupRuleDescription>(this.SecurityGroupRuleDescription);
             }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,6 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.IpPermission != null)
             {
                 request.IpPermissions = cmdletContext.IpPermission;
+            }
+            if (cmdletContext.SecurityGroupRuleDescription != null)
+            {
+                request.SecurityGroupRuleDescriptions = cmdletContext.SecurityGroupRuleDescription;
             }
             
             CmdletOutput output;
@@ -255,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String GroupId { get; set; }
             public System.String GroupName { get; set; }
             public List<Amazon.EC2.Model.IpPermission> IpPermission { get; set; }
+            public List<Amazon.EC2.Model.SecurityGroupRuleDescription> SecurityGroupRuleDescription { get; set; }
             public System.Func<Amazon.EC2.Model.UpdateSecurityGroupRuleDescriptionsEgressResponse, UpdateEC2SecurityGroupRuleEgressDescriptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Return;
         }

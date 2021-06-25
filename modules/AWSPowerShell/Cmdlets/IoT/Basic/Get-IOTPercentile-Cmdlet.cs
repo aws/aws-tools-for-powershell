@@ -37,6 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// that occurs in approximately five percent of the values that match the query, and
     /// so on. The result is an approximation, the more values that match the query, the more
     /// accurate the percentile values.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPercentiles</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTPercentile")]
     [OutputType("Amazon.IoT.Model.PercentPair")]
@@ -82,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter QueryString
         /// <summary>
         /// <para>
-        /// <para>The query string.</para>
+        /// <para>The search query string.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

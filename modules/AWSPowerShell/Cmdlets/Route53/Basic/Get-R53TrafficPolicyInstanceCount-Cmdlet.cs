@@ -28,8 +28,8 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Gets the number of traffic policy instances that are associated with the current AWS
-    /// account.
+    /// Gets the number of traffic policy instances that are associated with the current Amazon
+    /// Web Services account.
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicyInstanceCount")]
     [OutputType("System.Int32")]

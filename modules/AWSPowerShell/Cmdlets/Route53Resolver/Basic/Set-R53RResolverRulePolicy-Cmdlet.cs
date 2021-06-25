@@ -28,9 +28,9 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Specifies an AWS rule that you want to share with another account, the account that
-    /// you want to share the rule with, and the operations that you want the account to be
-    /// able to perform on the rule.
+    /// Specifies an Amazon Web Services rule that you want to share with another account,
+    /// the account that you want to share the rule with, and the operations that you want
+    /// the account to be able to perform on the rule.
     /// </summary>
     [Cmdlet("Set", "R53RResolverRulePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
@@ -62,10 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResolverRulePolicy
         /// <summary>
         /// <para>
-        /// <para>An AWS Identity and Access Management policy statement that lists the rules that you
-        /// want to share with another AWS account and the operations that you want the account
-        /// to be able to perform. You can specify the following operations in the <code>Action</code>
-        /// section of the statement:</para><ul><li><para><code>route53resolver:GetResolverRule</code></para></li><li><para><code>route53resolver:AssociateResolverRule</code></para></li><li><para><code>route53resolver:DisassociateResolverRule</code></para></li><li><para><code>route53resolver:ListResolverRules</code></para></li><li><para><code>route53resolver:ListResolverRuleAssociations</code></para></li></ul><para>In the <code>Resource</code> section of the statement, specify the ARN for the rule
+        /// <para>An Identity and Access Management policy statement that lists the rules that you want
+        /// to share with another Amazon Web Services account and the operations that you want
+        /// the account to be able to perform. You can specify the following operations in the
+        /// <code>Action</code> section of the statement:</para><ul><li><para><code>route53resolver:GetResolverRule</code></para></li><li><para><code>route53resolver:AssociateResolverRule</code></para></li><li><para><code>route53resolver:DisassociateResolverRule</code></para></li><li><para><code>route53resolver:ListResolverRules</code></para></li><li><para><code>route53resolver:ListResolverRuleAssociations</code></para></li></ul><para>In the <code>Resource</code> section of the statement, specify the ARN for the rule
         /// that you want to share with another account. Specify the same ARN that you specified
         /// in <code>Arn</code>.</para>
         /// </para>

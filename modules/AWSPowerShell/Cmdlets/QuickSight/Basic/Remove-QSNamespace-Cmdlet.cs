@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the AWS account that you want to delete the QuickSight namespace from.</para>
+        /// <para>The ID for the Amazon Web Services account that you want to delete the Amazon QuickSight
+        /// namespace from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

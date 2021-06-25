@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that contains the dashboard that you're describing permissions
-        /// for.</para>
+        /// <para>The ID of the Amazon Web Services account that contains the dashboard that you're
+        /// describing permissions for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DashboardId
         /// <summary>
         /// <para>
-        /// <para>The ID for the dashboard, also added to the IAM policy.</para>
+        /// <para>The ID for the dashboard, also added to the IAMpolicy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

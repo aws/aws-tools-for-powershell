@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Deletes a gateway from AWS IoT SiteWise. When you delete a gateway, some of the gateway's
+    /// Deletes a gateway from IoT SiteWise. When you delete a gateway, some of the gateway's
     /// files remain in your gateway's file system.
     /// </summary>
     [Cmdlet("Remove", "IOTSWGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -76,13 +76,13 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter DataDelayOffsetInMinute
         /// <summary>
         /// <para>
-        /// <para>&gt; A period of time (in minutes) by which inference on the data is delayed after
-        /// the data starts. For instance, if you select an offset delay time of five minutes,
-        /// inference will not begin on the data until the first data measurement after the five
-        /// minute mark. For example, if five minutes is selected, the inference scheduler will
-        /// wake up at the configured frequency with the additional five minute delay time to
-        /// check the customer S3 bucket. The customer can upload data at the same frequency and
-        /// they don't need to stop and restart the scheduler when uploading new data.</para>
+        /// <para> A period of time (in minutes) by which inference on the data is delayed after the
+        /// data starts. For instance, if you select an offset delay time of five minutes, inference
+        /// will not begin on the data until the first data measurement after the five minute
+        /// mark. For example, if five minutes is selected, the inference scheduler will wake
+        /// up at the configured frequency with the additional five minute delay time to check
+        /// the customer S3 bucket. The customer can upload data at the same frequency and they
+        /// don't need to stop and restart the scheduler when uploading new data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

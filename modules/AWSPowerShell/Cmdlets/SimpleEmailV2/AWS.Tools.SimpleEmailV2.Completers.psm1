@@ -115,6 +115,16 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.DkimSigningKeyLength
+        {
+            ($_ -eq "New-SES2EmailIdentity/DkimSigningAttributes_NextSigningKeyLength") -Or
+            ($_ -eq "Write-SES2EmailIdentityDkimSigningAttribute/SigningAttributes_NextSigningKeyLength")
+        }
+        {
+            $v = "RSA_1024_BIT","RSA_2048_BIT"
+            break
+        }
+
         # Amazon.SimpleEmailV2.ImportDestinationType
         "Get-SES2ImportJobList/ImportDestinationType"
         {
@@ -172,6 +182,7 @@ $SES2_map = @{
     "BehaviorOnMxFailure"=@("Write-SES2EmailIdentityMailFromAttribute")
     "ContactLanguage"=@("Write-SES2AccountDetail")
     "DeliveryOptions_TlsPolicy"=@("New-SES2ConfigurationSet")
+    "DkimSigningAttributes_NextSigningKeyLength"=@("New-SES2EmailIdentity")
     "Filter_FilteredStatus"=@("Get-SES2ContactCollection")
     "ImportDataSource_DataFormat"=@("New-SES2ImportJob")
     "ImportDestination_ContactListDestination_ContactListImportAction"=@("New-SES2ImportJob")
@@ -179,6 +190,7 @@ $SES2_map = @{
     "ImportDestinationType"=@("Get-SES2ImportJobList")
     "MailType"=@("Write-SES2AccountDetail")
     "Reason"=@("Write-SES2SuppressedDestination")
+    "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
 }

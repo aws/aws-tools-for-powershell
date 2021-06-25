@@ -28,14 +28,18 @@ using Amazon.S3Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.S3O
 {
     /// <summary>
-    /// S3 on Outposts access points simplify managing data access at scale for shared datasets
-    /// in Amazon S3 on Outposts. S3 on Outposts uses endpoints to connect to Outposts buckets
-    /// so that you can perform actions within your virtual private cloud (VPC). 
+    /// Amazon S3 on Outposts Access Points simplify managing data access at scale for shared
+    /// datasets in S3 on Outposts. S3 on Outposts uses endpoints to connect to Outposts buckets
+    /// so that you can perform actions within your virtual private cloud (VPC). For more
+    /// information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html">
+    /// Accessing S3 on Outposts using VPC only access points</a>.
     /// 
     ///  
     /// <para>
-    /// This action creates an endpoint and associates it with the specified Outpost. 
-    /// </para><para>
+    /// This action creates an endpoint and associates it with the specified Outposts.
+    /// </para><note><para>
+    /// It can take up to 5 minutes for this action to complete.
+    /// </para></note><para>
     /// Related actions include:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html">ListEndpoints</a></para></li></ul>
     /// </summary>
@@ -49,10 +53,34 @@ namespace Amazon.PowerShell.Cmdlets.S3O
     public partial class NewS3OEndpointCmdlet : AmazonS3OutpostsClientCmdlet, IExecutor
     {
         
+        #region Parameter AccessType
+        /// <summary>
+        /// <para>
+        /// <para>The type of access for the on-premise network connectivity for the Outpost endpoint.
+        /// To access the endpoint from an on-premises network, you must specify the access type
+        /// and provide the customer owned IPv4 pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3Outposts.EndpointAccessType")]
+        public Amazon.S3Outposts.EndpointAccessType AccessType { get; set; }
+        #endregion
+        
+        #region Parameter CustomerOwnedIpv4Pool
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the customer-owned IPv4 pool for the endpoint. IP addresses will be allocated
+        /// from this pool for the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomerOwnedIpv4Pool { get; set; }
+        #endregion
+        
         #region Parameter OutpostId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Outpost. </para>
+        /// <para>The ID of the AWS Outposts. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,7 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.S3O
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the subnet in the selected VPC.</para>
+        /// <para>The ID of the subnet in the selected VPC. The endpoint subnet must belong to the Outpost
+        /// that has the Amazon S3 on Outposts provisioned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,6 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.S3O
                 context.Select = (response, cmdlet) => this.OutpostId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessType = this.AccessType;
+            context.CustomerOwnedIpv4Pool = this.CustomerOwnedIpv4Pool;
             context.OutpostId = this.OutpostId;
             #if MODULAR
             if (this.OutpostId == null && ParameterWasBound(nameof(this.OutpostId)))
@@ -198,6 +229,14 @@ namespace Amazon.PowerShell.Cmdlets.S3O
             // create request
             var request = new Amazon.S3Outposts.Model.CreateEndpointRequest();
             
+            if (cmdletContext.AccessType != null)
+            {
+                request.AccessType = cmdletContext.AccessType;
+            }
+            if (cmdletContext.CustomerOwnedIpv4Pool != null)
+            {
+                request.CustomerOwnedIpv4Pool = cmdletContext.CustomerOwnedIpv4Pool;
+            }
             if (cmdletContext.OutpostId != null)
             {
                 request.OutpostId = cmdletContext.OutpostId;
@@ -271,6 +310,8 @@ namespace Amazon.PowerShell.Cmdlets.S3O
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.S3Outposts.EndpointAccessType AccessType { get; set; }
+            public System.String CustomerOwnedIpv4Pool { get; set; }
             public System.String OutpostId { get; set; }
             public System.String SecurityGroupId { get; set; }
             public System.String SubnetId { get; set; }

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the contact channel.</para>
+        /// <para>The Amazon Resource Name (ARN) of the contact you are adding the contact channel to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>A token ensuring that the action is called only once with the specified details.</para>
+        /// <para>A token ensuring that the operation is called only once with the specified details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

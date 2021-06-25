@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Gets information about a topic rule destination.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetTopicRuleDestination</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTTopicRuleDestination")]
     [OutputType("Amazon.IoT.Model.TopicRuleDestination")]

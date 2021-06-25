@@ -28,15 +28,15 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns a list of configuration items for the specified resource. The list contains
-    /// details about each state of the resource during the specified time interval. If you
-    /// specified a retention period to retain your <code>ConfigurationItems</code> between
-    /// a minimum of 30 days and a maximum of 7 years (2557 days), AWS Config returns the
-    /// <code>ConfigurationItems</code> for the specified retention period. 
+    /// Returns a list of <code>ConfigurationItems</code> for the specified resource. The
+    /// list contains details about each state of the resource during the specified time interval.
+    /// If you specified a retention period to retain your <code>ConfigurationItems</code>
+    /// between a minimum of 30 days and a maximum of 7 years (2557 days), Config returns
+    /// the <code>ConfigurationItems</code> for the specified retention period. 
     /// 
     ///  
     /// <para>
-    /// The response is paginated. By default, AWS Config returns a limit of 10 configuration
+    /// The response is paginated. By default, Config returns a limit of 10 configuration
     /// items per page. You can customize this number with the <code>limit</code> parameter.
     /// The response includes a <code>nextToken</code> string. To get the next page of results,
     /// run the request again and specify the string for the <code>nextToken</code> parameter.
@@ -128,8 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of configuration items returned on each page. The default is 10.
-        /// You cannot specify a number greater than 100. If you specify 0, AWS Config uses the
-        /// default.</para>
+        /// You cannot specify a number greater than 100. If you specify 0, Config uses the default.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     ///  
     /// <para>
     /// You can associate a Direct Connect gateway and virtual private gateway or transit
-    /// gateway that is owned by any AWS account. 
+    /// gateway that is owned by any account. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "DCDirectConnectGatewayAssociationProposal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter DirectConnectGatewayOwnerAccount
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that owns the Direct Connect gateway.</para>
+        /// <para>The ID of the account that owns the Direct Connect gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

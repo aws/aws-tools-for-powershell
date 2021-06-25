@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
     /// Creates a gateway, which is a virtual or edge device that delivers industrial data
-    /// streams from local servers to AWS IoT SiteWise. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html">Ingesting
-    /// data using a gateway</a> in the <i>AWS IoT SiteWise User Guide</i>.
+    /// streams from local servers to IoT SiteWise. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html">Ingesting
+    /// data using a gateway</a> in the <i>IoT SiteWise User Guide</i>.
     /// </summary>
     [Cmdlet("New", "IOTSWGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSiteWise.Model.CreateGatewayResponse")]
@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     )]
     public partial class NewIOTSWGatewayCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
+        
+        #region Parameter GreengrassV2_CoreDeviceThingName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the IoT thing for your IoT Greengrass V2 core device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GatewayPlatform_GreengrassV2_CoreDeviceThingName")]
+        public System.String GreengrassV2_CoreDeviceThingName { get; set; }
+        #endregion
         
         #region Parameter GatewayName
         /// <summary>
@@ -65,17 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// of the Greengrass group. For more information about how to find a group's ARN, see
         /// <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/listgroups-get.html">ListGroups</a>
         /// and <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/getgroup-get.html">GetGroup</a>
-        /// in the <i>AWS IoT Greengrass API Reference</i>.</para>
+        /// in the <i>IoT Greengrass API Reference</i>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("GatewayPlatform_Greengrass_GroupArn")]
         public System.String Greengrass_GroupArn { get; set; }
         #endregion
@@ -85,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>
         /// <para>A list of key-value pairs that contain metadata for the gateway. For more information,
         /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging
-        /// your AWS IoT SiteWise resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</para>
+        /// your IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,12 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             #endif
             context.Greengrass_GroupArn = this.Greengrass_GroupArn;
-            #if MODULAR
-            if (this.Greengrass_GroupArn == null && ParameterWasBound(nameof(this.Greengrass_GroupArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Greengrass_GroupArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.GreengrassV2_CoreDeviceThingName = this.GreengrassV2_CoreDeviceThingName;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -203,6 +202,31 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestGatewayPlatform_gatewayPlatform_Greengrass != null)
             {
                 request.GatewayPlatform.Greengrass = requestGatewayPlatform_gatewayPlatform_Greengrass;
+                requestGatewayPlatformIsNull = false;
+            }
+            Amazon.IoTSiteWise.Model.GreengrassV2 requestGatewayPlatform_gatewayPlatform_GreengrassV2 = null;
+            
+             // populate GreengrassV2
+            var requestGatewayPlatform_gatewayPlatform_GreengrassV2IsNull = true;
+            requestGatewayPlatform_gatewayPlatform_GreengrassV2 = new Amazon.IoTSiteWise.Model.GreengrassV2();
+            System.String requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceThingName = null;
+            if (cmdletContext.GreengrassV2_CoreDeviceThingName != null)
+            {
+                requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceThingName = cmdletContext.GreengrassV2_CoreDeviceThingName;
+            }
+            if (requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceThingName != null)
+            {
+                requestGatewayPlatform_gatewayPlatform_GreengrassV2.CoreDeviceThingName = requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceThingName;
+                requestGatewayPlatform_gatewayPlatform_GreengrassV2IsNull = false;
+            }
+             // determine if requestGatewayPlatform_gatewayPlatform_GreengrassV2 should be set to null
+            if (requestGatewayPlatform_gatewayPlatform_GreengrassV2IsNull)
+            {
+                requestGatewayPlatform_gatewayPlatform_GreengrassV2 = null;
+            }
+            if (requestGatewayPlatform_gatewayPlatform_GreengrassV2 != null)
+            {
+                request.GatewayPlatform.GreengrassV2 = requestGatewayPlatform_gatewayPlatform_GreengrassV2;
                 requestGatewayPlatformIsNull = false;
             }
              // determine if request.GatewayPlatform should be set to null
@@ -277,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             public System.String GatewayName { get; set; }
             public System.String Greengrass_GroupArn { get; set; }
+            public System.String GreengrassV2_CoreDeviceThingName { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.CreateGatewayResponse, NewIOTSWGatewayCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

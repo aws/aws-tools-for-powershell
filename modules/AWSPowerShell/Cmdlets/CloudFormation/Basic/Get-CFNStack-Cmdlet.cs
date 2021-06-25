@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// it returns the description for all the stacks created.
     /// 
     ///  <note><para>
-    /// If the stack does not exist, an <code>AmazonCloudFormationException</code> is returned.
+    /// If the stack does not exist, an <code>ValidationError</code> is returned.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNStack")]

@@ -121,7 +121,7 @@ $IOTW_Completers = {
         # Amazon.IoTWireless.WirelessDeviceIdType
         "Get-IOTWWirelessDevice/IdentifierType"
         {
-            $v = "DevEui","ThingName","WirelessDeviceId"
+            $v = "DevEui","SidewalkManufacturingSn","ThingName","WirelessDeviceId"
             break
         }
 

@@ -28,7 +28,7 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Retrieves the list of tags for an AWS IoT Greengrass resource.
+    /// Retrieves the list of tags for an IoT Greengrass resource.
     /// </summary>
     [Cmdlet("Get", "GGV2ResourceTag")]
     [OutputType("System.String")]

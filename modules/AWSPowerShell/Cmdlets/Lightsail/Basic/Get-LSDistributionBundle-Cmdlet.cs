@@ -28,7 +28,7 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Returns the list bundles that can be applied to you Amazon Lightsail content delivery
+    /// Returns the bundles that can be applied to your Amazon Lightsail content delivery
     /// network (CDN) distributions.
     /// 
     ///  

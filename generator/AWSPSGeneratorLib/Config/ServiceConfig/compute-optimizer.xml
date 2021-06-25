@@ -59,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEnrollmentStatusesForOrganization" OutputProperty="AccountEnrollmentStatuses" Verb="Get" Noun="EnrollmentStatusesForOrganization" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLambdaFunctionRecommendations" OutputProperty="LambdaFunctionRecommendations" Verb="Get" Noun="LambdaFunctionRecommendation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

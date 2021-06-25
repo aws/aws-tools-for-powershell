@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-OUTPOutpostList', 
         'Get-OUTPResourceTag', 
         'Get-OUTPSiteList', 
+        'New-OUTPOrder', 
         'New-OUTPOutpost', 
         'Remove-OUTPOutpost', 
         'Remove-OUTPResourceTag', 

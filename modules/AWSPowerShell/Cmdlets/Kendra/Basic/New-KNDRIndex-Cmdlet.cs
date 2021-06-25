@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>The Amazon Kendra edition to use for the index. Choose <code>DEVELOPER_EDITION</code>
         /// for indexes intended for development, testing, or proof of concept. Use <code>ENTERPRISE_EDITION</code>
         /// for your production databases. Once you set the edition for an index, it can't be
-        /// changed. </para><para>The <code>Edition</code> parameter is optional. If you don't supply a value, the default
-        /// is <code>ENTERPRISE_EDITION</code>.</para>
+        /// changed.</para><para>The <code>Edition</code> parameter is optional. If you don't supply a value, the default
+        /// is <code>ENTERPRISE_EDITION</code>.</para><para>For more information on quota limits for enterprise and developer editions, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter ServerSideEncryptionConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AWS KMS customer master key (CMK). Amazon Kendra doesn't support
+        /// <para>The identifier of the KMScustomer master key (CMK). Amazon Kendra doesn't support
         /// asymmetric CMKs.</para>
         /// </para>
         /// </summary>
@@ -105,9 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions
-        /// to access your Amazon CloudWatch logs and metrics. This is also the role used when
-        /// you use the <code>BatchPutDocument</code> operation to index documents from an Amazon
+        /// <para>An Identity and Access Management(IAM) role that gives Amazon Kendra permissions to
+        /// access your Amazon CloudWatch logs and metrics. This is also the role used when you
+        /// use the <code>BatchPutDocument</code> operation to index documents from an Amazon
         /// S3 bucket.</para>
         /// </para>
         /// </summary>

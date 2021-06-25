@@ -30,18 +30,18 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <summary>
     /// Accepts a resource type and returns a list of resource identifiers for the resources
     /// of that type. A resource identifier includes the resource type, ID, and (if available)
-    /// the custom resource name. The results consist of resources that AWS Config has discovered,
-    /// including those that AWS Config is not currently recording. You can narrow the results
+    /// the custom resource name. The results consist of resources that Config has discovered,
+    /// including those that Config is not currently recording. You can narrow the results
     /// to include only resources that have specific resource IDs or a resource name.
     /// 
     ///  <note><para>
     /// You can specify either resource IDs or a resource name, but not both, in the same
     /// request.
     /// </para></note><para>
-    /// The response is paginated. By default, AWS Config lists 100 resource identifiers on
-    /// each page. You can customize this number with the <code>limit</code> parameter. The
-    /// response includes a <code>nextToken</code> string. To get the next page of results,
-    /// run the request again and specify the string for the <code>nextToken</code> parameter.
+    /// The response is paginated. By default, Config lists 100 resource identifiers on each
+    /// page. You can customize this number with the <code>limit</code> parameter. The response
+    /// includes a <code>nextToken</code> string. To get the next page of results, run the
+    /// request again and specify the string for the <code>nextToken</code> parameter.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGDiscoveredResource")]
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter IncludeDeletedResource
         /// <summary>
         /// <para>
-        /// <para>Specifies whether AWS Config includes deleted resources in the results. By default,
-        /// deleted resources are not included.</para>
+        /// <para>Specifies whether Config includes deleted resources in the results. By default, deleted
+        /// resources are not included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,9 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of only those resources that you want AWS Config to list in the response.
-        /// If you do not specify this parameter, AWS Config lists all resources of the specified
-        /// type that it has discovered.</para>
+        /// <para>The IDs of only those resources that you want Config to list in the response. If you
+        /// do not specify this parameter, Config lists all resources of the specified type that
+        /// it has discovered.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceName
         /// <summary>
         /// <para>
-        /// <para>The custom name of only those resources that you want AWS Config to list in the response.
-        /// If you do not specify this parameter, AWS Config lists all resources of the specified
+        /// <para>The custom name of only those resources that you want Config to list in the response.
+        /// If you do not specify this parameter, Config lists all resources of the specified
         /// type that it has discovered.</para>
         /// </para>
         /// </summary>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of resources that you want AWS Config to list in the response.</para>
+        /// <para>The type of resources that you want Config to list in the response.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -112,8 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of resource identifiers returned on each page. The default is 100.
-        /// You cannot specify a number greater than 100. If you specify 0, AWS Config uses the
-        /// default.</para>
+        /// You cannot specify a number greater than 100. If you specify 0, Config uses the default.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

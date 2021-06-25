@@ -90,6 +90,13 @@ $SG_Completers = {
             break
         }
 
+        # Amazon.StorageGateway.GatewayCapacity
+        "Update-SGGatewayInformation/GatewayCapacity"
+        {
+            $v = "Large","Medium","Small"
+            break
+        }
+
         # Amazon.StorageGateway.ObjectACL
         {
             ($_ -eq "New-SGNFSFileShare/ObjectACL") -Or
@@ -133,6 +140,7 @@ $SG_Completers = {
 
 $SG_map = @{
     "CaseSensitivity"=@("New-SGSMBFileShare","Update-SGSMBFileShare")
+    "GatewayCapacity"=@("Update-SGGatewayInformation")
     "ObjectACL"=@("New-SGNFSFileShare","New-SGSMBFileShare","Update-SGNFSFileShare","Update-SGSMBFileShare")
     "RetentionLockType"=@("New-SGTapePool")
     "SMBSecurityStrategy"=@("Update-SGSMBSecurityStrategy")

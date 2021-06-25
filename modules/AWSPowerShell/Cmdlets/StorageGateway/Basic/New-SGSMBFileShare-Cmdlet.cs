@@ -28,18 +28,18 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Creates a Server Message Block (SMB) file share on an existing file gateway. In Storage
-    /// Gateway, a file share is a file system mount point backed by Amazon S3 cloud storage.
-    /// Storage Gateway exposes file shares using an SMB interface. This operation is only
-    /// supported for file gateways.
+    /// Creates a Server Message Block (SMB) file share on an existing S3 File Gateway. In
+    /// Storage Gateway, a file share is a file system mount point backed by Amazon S3 cloud
+    /// storage. Storage Gateway exposes file shares using an SMB interface. This operation
+    /// is only supported for S3 File Gateways.
     /// 
     ///  <important><para>
-    /// File gateways require AWS Security Token Service (AWS STS) to be activated to enable
-    /// you to create a file share. Make sure that AWS STS is activated in the AWS Region
-    /// you are creating your file gateway in. If AWS STS is not activated in this AWS Region,
-    /// activate it. For information about how to activate AWS STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
-    /// and deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management
-    /// User Guide</i>.
+    /// S3 File Gateways require Security Token Service (STS) to be activated to enable you
+    /// to create a file share. Make sure that STS is activated in the Region you are creating
+    /// your S3 File Gateway in. If STS is not activated in this Region, activate it. For
+    /// information about how to activate STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
+    /// and deactivating STS in an Region</a> in the <i>Identity and Access Management User
+    /// Guide</i>.
     /// </para><para>
     /// File gateways don't support creating hard or symbolic links on a file share.
     /// </para></important>
@@ -99,13 +99,25 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String Authentication { get; set; }
         #endregion
         
+        #region Parameter BucketRegion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Region of the S3 bucket where the SMB file share stores files.</para><note><para>This parameter is required for SMB file shares that connect to Amazon S3 through a
+        /// VPC endpoint, a VPC access point, or an access point alias that points to a VPC access
+        /// point.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BucketRegion { get; set; }
+        #endregion
+        
         #region Parameter CacheAttributes_CacheStaleTimeoutInSecond
         /// <summary>
         /// <para>
         /// <para>Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of time
         /// since the last refresh after which access to the directory would cause the file gateway
         /// to first refresh that directory's contents from the Amazon S3 bucket or Amazon FSx
-        /// file system. The TTL duration is in seconds.</para><para>Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)</para>
+        /// file system. The TTL duration is in seconds.</para><para>Valid Values:0, 300 to 2,592,000 seconds (5 minutes to 30 days)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter DefaultStorageClass
         /// <summary>
         /// <para>
-        /// <para>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
-        /// The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</para><para>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> | <code>S3_STANDARD_IA</code>
+        /// <para>The default storage class for objects put into an Amazon S3 bucket by the S3 File
+        /// Gateway. The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</para><para>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> | <code>S3_STANDARD_IA</code>
         /// | <code>S3_ONEZONE_IA</code></para>
         /// </para>
         /// </summary>
@@ -151,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GatewayARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the file gateway on which you want to create a file share.</para>
+        /// <para>The ARN of the S3 File Gateway on which you want to create a file share.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -193,8 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS
-        /// KMS key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
+        /// key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,7 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The ARN of the backend storage used for storing file data. A prefix name can be added
-        /// to the S3 bucket name. It must end with a "/".</para>
+        /// to the S3 bucket name. It must end with a "/".</para><note><para>You can specify a bucket attached to an access point using a complete ARN that includes
+        /// the bucket region as shown:</para><para><code>arn:aws:s3:<i>region</i>:<i>account-id</i>:accesspoint/<i>access-point-name</i></code></para><para>If you specify a bucket attached to an access point, the bucket policy must be configured
+        /// to delegate access control to the access point. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control">Delegating
+        /// access control to access points</a> in the <i>Amazon S3 User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -251,12 +266,23 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A value that sets the access control list (ACL) permission for objects in the S3 bucket
-        /// that a file gateway puts objects into. The default value is <code>private</code>.</para>
+        /// that a S3 File Gateway puts objects into. The default value is <code>private</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.StorageGateway.ObjectACL")]
         public Amazon.StorageGateway.ObjectACL ObjectACL { get; set; }
+        #endregion
+        
+        #region Parameter OplocksEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether opportunistic locking is enabled for the SMB file share.</para><note><para>Enabling opportunistic locking on case-sensitive shares is not recommended for workloads
+        /// that involve access to files with the same name in different case.</para></note><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OplocksEnabled { get; set; }
         #endregion
         
         #region Parameter ReadOnly
@@ -289,7 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Role
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes
+        /// <para>The ARN of the Identity and Access Management (IAM) role that an S3 File Gateway assumes
         /// when it accesses the underlying storage.</para>
         /// </para>
         /// </summary>
@@ -310,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>Set this value to <code>true</code> to enable access control list (ACL) on the SMB
         /// file share. Set it to <code>false</code> to map file and directory permissions to
         /// the POSIX permissions.</para><para>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using
-        /// Microsoft Windows ACLs to control access to an SMB file share</a> in the <i>AWS Storage
+        /// Microsoft Windows ACLs to control access to an SMB file share</a> in the <i>Storage
         /// Gateway User Guide</i>.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
@@ -346,10 +372,23 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String[] ValidUserList { get; set; }
         #endregion
         
+        #region Parameter VPCEndpointDNSName
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the DNS name for the VPC endpoint that the SMB file share uses to connect
+        /// to Amazon S3.</para><note><para>This parameter is required for SMB file shares that connect to Amazon S3 through a
+        /// VPC endpoint, a VPC access point, or an access point alias that points to a VPC access
+        /// point.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VPCEndpointDNSName { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique string value that you supply that is used by file gateway to ensure idempotent
+        /// <para>A unique string value that you supply that is used by S3 File Gateway to ensure idempotent
         /// file share creation.</para>
         /// </para>
         /// </summary>
@@ -432,6 +471,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             }
             context.AuditDestinationARN = this.AuditDestinationARN;
             context.Authentication = this.Authentication;
+            context.BucketRegion = this.BucketRegion;
             context.CacheAttributes_CacheStaleTimeoutInSecond = this.CacheAttributes_CacheStaleTimeoutInSecond;
             context.CaseSensitivity = this.CaseSensitivity;
             context.ClientToken = this.ClientToken;
@@ -466,6 +506,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             #endif
             context.NotificationPolicy = this.NotificationPolicy;
             context.ObjectACL = this.ObjectACL;
+            context.OplocksEnabled = this.OplocksEnabled;
             context.ReadOnly = this.ReadOnly;
             context.RequesterPay = this.RequesterPay;
             context.Role = this.Role;
@@ -484,6 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 context.ValidUserList = new List<System.String>(this.ValidUserList);
             }
+            context.VPCEndpointDNSName = this.VPCEndpointDNSName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -515,6 +557,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.Authentication != null)
             {
                 request.Authentication = cmdletContext.Authentication;
+            }
+            if (cmdletContext.BucketRegion != null)
+            {
+                request.BucketRegion = cmdletContext.BucketRegion;
             }
             
              // populate CacheAttributes
@@ -583,6 +629,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.ObjectACL = cmdletContext.ObjectACL;
             }
+            if (cmdletContext.OplocksEnabled != null)
+            {
+                request.OplocksEnabled = cmdletContext.OplocksEnabled.Value;
+            }
             if (cmdletContext.ReadOnly != null)
             {
                 request.ReadOnly = cmdletContext.ReadOnly.Value;
@@ -606,6 +656,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.ValidUserList != null)
             {
                 request.ValidUserList = cmdletContext.ValidUserList;
+            }
+            if (cmdletContext.VPCEndpointDNSName != null)
+            {
+                request.VPCEndpointDNSName = cmdletContext.VPCEndpointDNSName;
             }
             
             CmdletOutput output;
@@ -672,6 +726,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public List<System.String> AdminUserList { get; set; }
             public System.String AuditDestinationARN { get; set; }
             public System.String Authentication { get; set; }
+            public System.String BucketRegion { get; set; }
             public System.Int32? CacheAttributes_CacheStaleTimeoutInSecond { get; set; }
             public Amazon.StorageGateway.CaseSensitivity CaseSensitivity { get; set; }
             public System.String ClientToken { get; set; }
@@ -685,12 +740,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String LocationARN { get; set; }
             public System.String NotificationPolicy { get; set; }
             public Amazon.StorageGateway.ObjectACL ObjectACL { get; set; }
+            public System.Boolean? OplocksEnabled { get; set; }
             public System.Boolean? ReadOnly { get; set; }
             public System.Boolean? RequesterPay { get; set; }
             public System.String Role { get; set; }
             public System.Boolean? SMBACLEnabled { get; set; }
             public List<Amazon.StorageGateway.Model.Tag> Tag { get; set; }
             public List<System.String> ValidUserList { get; set; }
+            public System.String VPCEndpointDNSName { get; set; }
             public System.Func<Amazon.StorageGateway.Model.CreateSMBFileShareResponse, NewSGSMBFileShareCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.FileShareARN;
         }

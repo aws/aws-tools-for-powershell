@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CO
     /// 
     ///  
     /// <para>
-    /// AWS Compute Optimizer generates recommendations for Amazon EBS volumes that meet a
-    /// specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
-    /// resources and requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.
+    /// Compute Optimizer generates recommendations for Amazon EBS volumes that meet a specific
+    /// set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
+    /// resources and requirements</a> in the <i>Compute Optimizer User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "COEBSVolumeRecommendation")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account for which to return volume recommendations.</para><para>If your account is the management account of an organization, use this parameter to
+        /// <para>The ID of the Amazon Web Services account for which to return volume recommendations.</para><para>If your account is the management account of an organization, use this parameter to
         /// specify the member account for which you want to return volume recommendations.</para><para>Only one account ID can be specified per request.</para>
         /// </para>
         /// </summary>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An array of objects that describe a filter that returns a more specific list of volume
+        /// <para>An array of objects to specify a filter that returns a more specific list of volume
         /// recommendations.</para>
         /// </para>
         /// </summary>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of volume recommendations to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <code>NextToken</code>
+        /// <para>The maximum number of volume recommendations to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <code>nextToken</code>
         /// value.</para>
         /// </para>
         /// </summary>

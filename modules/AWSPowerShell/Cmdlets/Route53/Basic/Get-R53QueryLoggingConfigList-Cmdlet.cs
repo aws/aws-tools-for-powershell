@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Lists the configurations for DNS query logging that are associated with the current
-    /// AWS account or the configuration that is associated with a specified hosted zone.
+    /// Amazon Web Services account or the configuration that is associated with a specified
+    /// hosted zone.
     /// 
     ///  
     /// <para>
@@ -53,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>(Optional) If you want to list the query logging configuration that is associated
         /// with a hosted zone, specify the ID in <code>HostedZoneId</code>. </para><para>If you don't specify a hosted zone ID, <code>ListQueryLoggingConfigs</code> returns
-        /// all of the configurations that are associated with the current AWS account.</para>
+        /// all of the configurations that are associated with the current Amazon Web Services
+        /// account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -64,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>(Optional) The maximum number of query logging configurations that you want Amazon
-        /// Route 53 to return in response to the current request. If the current AWS account
-        /// has more than <code>MaxResults</code> configurations, use the value of <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html#API_ListQueryLoggingConfigs_RequestSyntax">NextToken</a>
+        /// Route 53 to return in response to the current request. If the current Amazon Web Services
+        /// account has more than <code>MaxResults</code> configurations, use the value of <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html#API_ListQueryLoggingConfigs_RequestSyntax">NextToken</a>
         /// in the response to get the next page of results.</para><para>If you don't specify a value for <code>MaxResults</code>, Route 53 returns up to 100
         /// configurations.</para>
         /// </para>
@@ -84,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) If the current AWS account has more than <code>MaxResults</code> query
-        /// logging configurations, use <code>NextToken</code> to get the second and subsequent
+        /// <para>(Optional) If the current Amazon Web Services account has more than <code>MaxResults</code>
+        /// query logging configurations, use <code>NextToken</code> to get the second and subsequent
         /// pages of results.</para><para>For the first <code>ListQueryLoggingConfigs</code> request, omit this value.</para><para>For the second and subsequent requests, get the value of <code>NextToken</code> from
         /// the previous response and specify that value for <code>NextToken</code> in the request.</para>
         /// </para>

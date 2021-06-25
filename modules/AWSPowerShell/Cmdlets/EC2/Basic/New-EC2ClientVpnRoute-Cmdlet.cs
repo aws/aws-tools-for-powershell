@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DestinationCidrBlock
         /// <summary>
         /// <para>
-        /// <para>The IPv4 address range, in CIDR notation, of the route destination. For example:</para><ul><li><para>To add a route for Internet access, enter <code>0.0.0.0/0</code></para></li><li><para>To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range</para></li><li><para>To add a route for an on-premises network, enter the AWS Site-to-Site VPN connection's
-        /// IPv4 CIDR range</para></li><li><para>To add a route for the local network, enter the client CIDR range</para></li></ul>
+        /// <para>The IPv4 address range, in CIDR notation, of the route destination. For example:</para><ul><li><para>To add a route for Internet access, enter <code>0.0.0.0/0</code></para></li><li><para>To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range</para></li><li><para>To add a route for an on-premises network, enter the Amazon Web Services Site-to-Site
+        /// VPN connection's IPv4 CIDR range</para></li><li><para>To add a route for the local network, enter the client CIDR range</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
         /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a>.</para>
+        /// to ensure idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter MonitorArn
         /// <summary>
         /// <para>
-        /// <para> The unique identifier of the cost anomaly monitor that you want to delete. </para>
+        /// <para>The unique identifier of the cost anomaly monitor that you want to delete. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

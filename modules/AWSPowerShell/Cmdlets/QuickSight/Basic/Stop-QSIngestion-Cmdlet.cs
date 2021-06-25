@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID.</para>
+        /// <para>The Amazon Web Services account ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

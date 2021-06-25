@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AMPBBackendJob', 
         'Get-AMPBBackendJobList', 
         'Get-AMPBToken', 
+        'Import-AMPBBackendAuth', 
         'New-AMPBBackend', 
         'New-AMPBBackendAPI', 
         'New-AMPBBackendAPIModel', 

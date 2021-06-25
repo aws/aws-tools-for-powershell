@@ -28,16 +28,16 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Deletes an AWS Batch compute environment.
+    /// Deletes an Batch compute environment.
     /// 
     ///  
     /// <para>
     /// Before you can delete a compute environment, you must set its state to <code>DISABLED</code>
     /// with the <a>UpdateComputeEnvironment</a> API operation and disassociate it from any
     /// job queues with the <a>UpdateJobQueue</a> API operation. Compute environments that
-    /// use AWS Fargate resources must terminate all active jobs on that compute environment
-    /// before deleting the compute environment. If this isn't done, the compute environment
-    /// enters an invalid state.
+    /// use Fargate resources must terminate all active jobs on that compute environment before
+    /// deleting the compute environment. If this isn't done, the compute environment enters
+    /// an invalid state.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "BATComputeEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

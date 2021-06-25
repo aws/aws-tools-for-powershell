@@ -29,8 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
     /// Provides a list of steps for the cluster in reverse order unless you specify <code>stepIds</code>
-    /// with the request of filter by <code>StepStates</code>. You can specify a maximum of
-    /// 10 <code>stepIDs</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// with the request or filter by <code>StepStates</code>. You can specify a maximum of
+    /// 10 <code>stepIDs</code>. The CLI automatically paginates results to return a list
+    /// greater than 50 steps. To return more than 50 steps using the CLI, specify a <code>Marker</code>,
+    /// which is a pagination token that indicates the next set of steps to retrieve.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EMRStepList")]
     [OutputType("Amazon.ElasticMapReduce.Model.StepSummary")]
@@ -86,7 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>The pagination token that indicates the next set of results to retrieve.</para>
+        /// <para>The maximum number of steps that a single <code>ListSteps</code> action returns is
+        /// 50. To return a longer list of steps, use multiple <code>ListSteps</code> actions
+        /// along with the <code>Marker</code> parameter, which is a pagination token that indicates
+        /// the next set of results to retrieve.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -42,8 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter ConfigurationId
         /// <summary>
         /// <para>
-        /// The unique ID that Amazon MQ generates
-        /// for the configuration.
+        /// <para>The unique ID that Amazon MQ generates for the configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter ConfigurationRevision
         /// <summary>
         /// <para>
-        /// The revision of the configuration.
+        /// <para>The revision of the configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

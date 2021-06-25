@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
-        /// to be assumed for this request.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to
+        /// be assumed for this request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

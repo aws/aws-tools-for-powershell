@@ -28,21 +28,22 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// <code>ServiceSetting</code> is an account-level setting for an AWS service. This
-    /// setting defines how a user interacts with or uses a service or a feature of a service.
-    /// For example, if an AWS service charges money to the account based on feature or service
-    /// usage, then the AWS service team might create a default setting of "false". This means
-    /// the user can't use this feature unless they change the setting to "true" and intentionally
-    /// opt in for a paid feature.
+    /// <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services
+    /// service. This setting defines how a user interacts with or uses a service or a feature
+    /// of a service. For example, if an Amazon Web Services service charges money to the
+    /// account based on feature or service usage, then the Amazon Web Services service team
+    /// might create a default setting of "false". This means the user can't use this feature
+    /// unless they change the setting to "true" and intentionally opt in for a paid feature.
     /// 
     ///  
     /// <para>
-    /// Services map a <code>SettingId</code> object to a setting value. AWS services teams
-    /// define the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>,
-    /// but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code>
-    /// permission for the setting. Use the <a>GetServiceSetting</a> API action to view the
-    /// current value. Or, use the <a>ResetServiceSetting</a> to change the value back to
-    /// the original value defined by the AWS service team.
+    /// Services map a <code>SettingId</code> object to a setting value. Amazon Web Services
+    /// services teams define the default value for a <code>SettingId</code>. You can't create
+    /// a new <code>SettingId</code>, but you can overwrite the default value if you have
+    /// the <code>ssm:UpdateServiceSetting</code> permission for the setting. Use the <a>GetServiceSetting</a>
+    /// API operation to view the current value. Or, use the <a>ResetServiceSetting</a> to
+    /// change the value back to the original value defined by the Amazon Web Services service
+    /// team.
     /// </para><para>
     /// Update the service setting for the account. 
     /// </para>
@@ -78,12 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SettingValue
         /// <summary>
         /// <para>
-        /// <para>The new value to specify for the service setting. For the <code>/ssm/parameter-store/default-parameter-tier</code>
-        /// setting ID, the setting value can be one of the following.</para><ul><li><para>Standard</para></li><li><para>Advanced</para></li><li><para>Intelligent-Tiering</para></li></ul><para>For the <code>/ssm/parameter-store/high-throughput-enabled</code>, and <code>/ssm/managed-instance/activation-tier</code>
-        /// setting IDs, the setting value can be true or false.</para><para>For the <code>/ssm/automation/customer-script-log-destination</code> setting ID, the
-        /// setting value can be CloudWatch.</para><para>For the <code>/ssm/automation/customer-script-log-group-name</code> setting ID, the
-        /// setting value can be the name of a CloudWatch Logs log group.</para><para>For the <code>/ssm/documents/console/public-sharing-permission</code> setting ID,
-        /// the setting value can be Enable or Disable.</para>
+        /// <para>The new value to specify for the service setting. The following list specifies the
+        /// available values for each setting.</para><ul><li><para><code>/ssm/parameter-store/default-parameter-tier</code>: <code>Standard</code>,
+        /// <code>Advanced</code>, <code>Intelligent-Tiering</code></para></li><li><para><code>/ssm/parameter-store/high-throughput-enabled</code>: <code>true</code> or <code>false</code></para></li><li><para><code>/ssm/managed-instance/activation-tier</code>: <code>true</code> or <code>false</code></para></li><li><para><code>/ssm/automation/customer-script-log-destination</code>: <code>CloudWatch</code></para></li><li><para><code>/ssm/automation/customer-script-log-group-name</code>: the name of an Amazon
+        /// CloudWatch Logs log group</para></li><li><para><code>/ssm/documents/console/public-sharing-permission</code>: <code>Enable</code>
+        /// or <code>Disable</code></para></li><li><para><code>/ssm/managed-instance/activation-tier</code>: <code>standard</code> or <code>advanced</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

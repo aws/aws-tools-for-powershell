@@ -87,10 +87,24 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.DiskIopsConfigurationMode
+        "New-FSXFileSystem/OntapConfiguration_DiskIopsConfiguration_Mode"
+        {
+            $v = "AUTOMATIC","USER_PROVISIONED"
+            break
+        }
+
         # Amazon.FSx.FileSystemType
         "New-FSXFileSystem/FileSystemType"
         {
-            $v = "LUSTRE","WINDOWS"
+            $v = "LUSTRE","ONTAP","WINDOWS"
+            break
+        }
+
+        # Amazon.FSx.OntapDeploymentType
+        "New-FSXFileSystem/OntapConfiguration_DeploymentType"
+        {
+            $v = "MULTI_AZ_1"
             break
         }
 
@@ -108,6 +122,17 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.SecurityStyle
+        {
+            ($_ -eq "New-FSXVolume/OntapConfiguration_SecurityStyle") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_SecurityStyle") -Or
+            ($_ -eq "Update-FSXVolume/OntapConfiguration_SecurityStyle")
+        }
+        {
+            $v = "MIXED","NTFS","UNIX"
+            break
+        }
+
         # Amazon.FSx.StorageType
         {
             ($_ -eq "New-FSXFileSystem/StorageType") -Or
@@ -115,6 +140,31 @@ $FSX_Completers = {
         }
         {
             $v = "HDD","SSD"
+            break
+        }
+
+        # Amazon.FSx.StorageVirtualMachineRootVolumeSecurityStyle
+        "New-FSXStorageVirtualMachine/RootVolumeSecurityStyle"
+        {
+            $v = "MIXED","NTFS","UNIX"
+            break
+        }
+
+        # Amazon.FSx.TieringPolicyName
+        {
+            ($_ -eq "New-FSXVolume/OntapConfiguration_TieringPolicy_Name") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_TieringPolicy_Name") -Or
+            ($_ -eq "Update-FSXVolume/OntapConfiguration_TieringPolicy_Name")
+        }
+        {
+            $v = "ALL","AUTO","NONE","SNAPSHOT_ONLY"
+            break
+        }
+
+        # Amazon.FSx.VolumeType
+        "New-FSXVolume/VolumeType"
+        {
+            $v = "ONTAP"
             break
         }
 
@@ -128,10 +178,16 @@ $FSX_Completers = {
 
 $FSX_map = @{
     "FileSystemType"=@("New-FSXFileSystem")
+    "OntapConfiguration_DeploymentType"=@("New-FSXFileSystem")
+    "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem")
+    "OntapConfiguration_SecurityStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
+    "OntapConfiguration_TieringPolicy_Name"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "Report_Format"=@("New-FSXDataRepositoryTask")
     "Report_Scope"=@("New-FSXDataRepositoryTask")
+    "RootVolumeSecurityStyle"=@("New-FSXStorageVirtualMachine")
     "StorageType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
     "Type"=@("New-FSXDataRepositoryTask")
+    "VolumeType"=@("New-FSXVolume")
 }
 
 _awsArgumentCompleterRegistration $FSX_Completers $FSX_map
@@ -191,17 +247,26 @@ $FSX_SelectMap = @{
                "New-FSXDataRepositoryTask",
                "New-FSXFileSystem",
                "New-FSXFileSystemFromBackup",
+               "New-FSXStorageVirtualMachine",
+               "New-FSXVolume",
+               "New-FSXVolumeFromBackup",
                "Remove-FSXBackup",
                "Remove-FSXFileSystem",
+               "Remove-FSXStorageVirtualMachine",
+               "Remove-FSXVolume",
                "Get-FSXBackup",
                "Get-FSXDataRepositoryTask",
                "Get-FSXFileSystemAlias",
                "Get-FSXFileSystem",
+               "Get-FSXStorageVirtualMachine",
+               "Get-FSXVolume",
                "Unregister-FSXFileSystemAlias",
                "Get-FSXResourceTagList",
                "Add-FSXResourceTag",
                "Remove-FSXResourceTag",
-               "Update-FSXFileSystem")
+               "Update-FSXFileSystem",
+               "Update-FSXStorageVirtualMachine",
+               "Update-FSXVolume")
 }
 
 _awsArgumentCompleterRegistration $FSX_SelectCompleters $FSX_SelectMap

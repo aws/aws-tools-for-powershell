@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Gets a list of audit mitigation action tasks that match the specified filters.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditMitigationActionsTasks</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTAuditMitigationActionsTaskList")]
     [OutputType("Amazon.IoT.Model.AuditMitigationActionsTaskMetadata")]

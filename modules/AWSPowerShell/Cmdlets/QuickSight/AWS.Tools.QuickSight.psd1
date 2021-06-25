@@ -140,6 +140,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-QSDashboard', 
         'New-QSDataSet', 
         'New-QSDataSource', 
+        'New-QSEmbedUrlForAnonymousUser', 
+        'New-QSEmbedUrlForRegisteredUser', 
         'New-QSFolder', 
         'New-QSFolderMembership', 
         'New-QSGroup', 

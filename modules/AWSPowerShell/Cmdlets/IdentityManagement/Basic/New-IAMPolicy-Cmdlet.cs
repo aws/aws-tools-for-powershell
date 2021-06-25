@@ -28,7 +28,7 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Creates a new managed policy for your AWS account.
+    /// Creates a new managed policy for your Amazon Web Services account.
     /// 
     ///  
     /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// pattern</a>) a string of characters consisting of either a forward slash (/) by itself
         /// or a string that must begin and end with forward slashes. In addition, it can contain
         /// any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>),
-        /// including most punctuation characters, digits, and upper and lowercased letters.</para>
+        /// including most punctuation characters, digits, and upper and lowercased letters.</para><note><para>You cannot use an asterisk (*) in the path name.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,9 +83,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The JSON policy document that you want to use as the content for the new policy.</para><para>You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates
-        /// formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation
-        /// always converts a YAML policy to JSON format before submitting it to IAM.</para><para>To learn more about JSON policy grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html">Grammar
+        /// <para>The JSON policy document that you want to use as the content for the new policy.</para><para>You must provide policies in JSON format in IAM. However, for CloudFormation templates
+        /// formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation
+        /// always converts a YAML policy to JSON format before submitting it to IAM.</para><para>The maximum length of the policy document that you can pass in this operation, including
+        /// whitespace, is listed below. To view the maximum character counts of a managed policy
+        /// with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM
+        /// and STS character quotas</a>.</para><para>To learn more about JSON policy grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html">Grammar
         /// of the IAM JSON policy language</a> in the <i>IAM User Guide</i>. </para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
         /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
         /// through the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through

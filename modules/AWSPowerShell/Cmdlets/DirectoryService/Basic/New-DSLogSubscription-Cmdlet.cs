@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
     /// Creates a subscription to forward real-time Directory Service domain controller security
-    /// logs to the specified Amazon CloudWatch log group in your AWS account.
+    /// logs to the specified Amazon CloudWatch log group in your Amazon Web Services account.
     /// </summary>
     [Cmdlet("New", "DSLogSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

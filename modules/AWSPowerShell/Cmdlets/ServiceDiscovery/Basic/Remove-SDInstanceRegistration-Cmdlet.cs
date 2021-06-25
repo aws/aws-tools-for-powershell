@@ -28,8 +28,8 @@ using Amazon.ServiceDiscovery.Model;
 namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
-    /// Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map
-    /// created for the specified instance.
+    /// Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map created
+    /// for the specified instance.
     /// </summary>
     [Cmdlet("Remove", "SDInstanceRegistration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

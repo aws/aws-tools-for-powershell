@@ -96,12 +96,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter OutpostArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Outpost on which to create the local snapshots.</para><ul><li><para>To create snapshots from an instance in a Region, omit this parameter. The snapshots
+        /// <para>The Amazon Resource Name (ARN) of the Outpost on which to create the local snapshots.</para><ul><li><para>To create snapshots from an instance in a Region, omit this parameter. The snapshots
         /// are created in the same Region as the instance.</para></li><li><para>To create snapshots from an instance on an Outpost and store the snapshots in the
         /// Region, omit this parameter. The snapshots are created in the Region for the Outpost.</para></li><li><para>To create snapshots from an instance on an Outpost and store the snapshots on an Outpost,
         /// specify the ARN of the destination Outpost. The snapshots must be created on the same
         /// Outpost as the instance.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot">
-        /// Creating multi-volume local snapshots from instances on an Outpost</a> in the <i>Amazon
+        /// Create multi-volume local snapshots from instances on an Outpost</a> in the <i>Amazon
         /// Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>

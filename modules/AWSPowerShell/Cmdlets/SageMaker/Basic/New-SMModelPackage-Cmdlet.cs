@@ -29,15 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Creates a model package that you can use to create Amazon SageMaker models or list
-    /// on AWS Marketplace, or a versioned model that is part of a model group. Buyers can
-    /// subscribe to model packages listed on AWS Marketplace to create models in Amazon SageMaker.
+    /// on Amazon Web Services Marketplace, or a versioned model that is part of a model group.
+    /// Buyers can subscribe to model packages listed on Amazon Web Services Marketplace to
+    /// create models in Amazon SageMaker.
     /// 
     ///  
     /// <para>
     /// To create a model package by specifying a Docker container that contains your inference
     /// code and the Amazon S3 location of your model artifacts, provide values for <code>InferenceSpecification</code>.
     /// To create a model from an algorithm resource that you created or subscribed to in
-    /// AWS Marketplace, provide a value for <code>SourceAlgorithmSpecification</code>.
+    /// Amazon Web Services Marketplace, provide a value for <code>SourceAlgorithmSpecification</code>.
     /// </para><note><para>
     /// There are two types of model packages:
     /// </para><ul><li><para>
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CertifyForMarketplace
         /// <summary>
         /// <para>
-        /// <para>Whether to certify the model package for listing on AWS Marketplace.</para><para>This parameter is optional for unversioned models, and does not apply to versioned
+        /// <para>Whether to certify the model package for listing on Amazon Web Services Marketplace.</para><para>This parameter is optional for unversioned models, and does not apply to versioned
         /// models.</para>
         /// </para>
         /// </summary>
@@ -412,8 +413,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of key value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-        /// resources</a> in the <i>AWS General Reference Guide</i>.</para>
+        /// <para>A list of key value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon
+        /// Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

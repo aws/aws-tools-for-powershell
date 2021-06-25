@@ -29,11 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Deletes a user's Secure Shell (SSH) public key.
-    /// 
-    ///  
-    /// <para>
-    /// No response is returned from this operation.
-    /// </para>
     /// </summary>
     [Cmdlet("Remove", "TFRSshPublicKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

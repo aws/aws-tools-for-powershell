@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     ///  
     /// <para>
     /// ListRules does not list the targets of a rule. To see the targets associated with
-    /// a rule, use <a>ListTargetsByRule</a>.
+    /// a rule, use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html">ListTargetsByRule</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EVBRule")]

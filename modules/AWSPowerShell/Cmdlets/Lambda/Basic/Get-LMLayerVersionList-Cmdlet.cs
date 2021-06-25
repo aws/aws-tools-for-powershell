@@ -28,10 +28,11 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-    /// Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
+    /// Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+    /// layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
     /// identifier</a> to list only versions that indicate that they're compatible with that
-    /// runtime.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// runtime. Specify a compatible architecture to include only layer versions that are
+    /// compatible with that architecture.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMLayerVersionList")]
     [OutputType("Amazon.Lambda.Model.LayerVersionsListItem")]
@@ -42,6 +43,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public partial class GetLMLayerVersionListCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter CompatibleArchitecture
+        /// <summary>
+        /// <para>
+        /// <para>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction
+        /// set architecture</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.Architecture")]
+        public Amazon.Lambda.Architecture CompatibleArchitecture { get; set; }
+        #endregion
         
         #region Parameter CompatibleRuntime
         /// <summary>
@@ -137,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.Select = CreateSelectDelegate<Amazon.Lambda.Model.ListLayerVersionsResponse, GetLMLayerVersionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CompatibleArchitecture = this.CompatibleArchitecture;
             context.CompatibleRuntime = this.CompatibleRuntime;
             context.LayerName = this.LayerName;
             #if MODULAR
@@ -175,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             // create request and set iteration invariants
             var request = new Amazon.Lambda.Model.ListLayerVersionsRequest();
             
+            if (cmdletContext.CompatibleArchitecture != null)
+            {
+                request.CompatibleArchitecture = cmdletContext.CompatibleArchitecture;
+            }
             if (cmdletContext.CompatibleRuntime != null)
             {
                 request.CompatibleRuntime = cmdletContext.CompatibleRuntime;
@@ -242,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             
             // create request and set iteration invariants
             var request = new Amazon.Lambda.Model.ListLayerVersionsRequest();
+            if (cmdletContext.CompatibleArchitecture != null)
+            {
+                request.CompatibleArchitecture = cmdletContext.CompatibleArchitecture;
+            }
             if (cmdletContext.CompatibleRuntime != null)
             {
                 request.CompatibleRuntime = cmdletContext.CompatibleRuntime;
@@ -369,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Lambda.Architecture CompatibleArchitecture { get; set; }
             public Amazon.Lambda.Runtime CompatibleRuntime { get; set; }
             public System.String LayerName { get; set; }
             public System.String Marker { get; set; }

@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// scope user permissions by granting a user permission to access or change only resources
     /// with certain tag values.
     /// </para><para>
-    /// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings
-    /// of characters.
+    /// Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly
+    /// as strings of characters.
     /// </para><para>
     /// You can use the <code>TagResource</code> action with an alarm that already has tags.
     /// If you specify a new tag key for the alarm, this tag is appended to the list of tags

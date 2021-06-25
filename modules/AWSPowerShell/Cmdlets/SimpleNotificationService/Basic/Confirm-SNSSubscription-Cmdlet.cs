@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter
-        /// is <code>true</code> and the request has an AWS signature, then only the topic owner
-        /// and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires
-        /// AWS authentication. </para>
+        /// is <code>true</code> and the request has an Amazon Web Services signature, then only
+        /// the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe
+        /// action requires Amazon Web Services authentication. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

@@ -28,8 +28,7 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Gets a deployment. Deployments define the components that run on AWS IoT Greengrass
-    /// core devices.
+    /// Gets a deployment. Deployments define the components that run on Greengrass core devices.
     /// </summary>
     [Cmdlet("Get", "GGV2Deployment")]
     [OutputType("Amazon.GreengrassV2.Model.GetDeploymentResponse")]

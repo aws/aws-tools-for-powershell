@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that contains the analysis. You must be using the AWS account
-        /// that the analysis is in.</para>
+        /// <para>The ID of the Amazon Web Services account that contains the analysis. You must be
+        /// using the Amazon Web Services account that the analysis is in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

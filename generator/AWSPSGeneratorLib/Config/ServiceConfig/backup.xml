@@ -33,6 +33,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateFramework" OutputProperty="*" Verb="New" Noun="Framework" ShouldProcessTarget="FrameworkName" PipelineParameter="FrameworkName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReportPlan" OutputProperty="*" Verb="New" Noun="ReportPlan" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteBackupPlan" OutputProperty="*" Verb="Remove" Noun="BackupPlan" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -53,7 +61,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFramework" Verb="Remove" Noun="Framework" ShouldProcessTarget="FrameworkName" PipelineParameter="FrameworkName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteRecoveryPoint" Verb="Remove" Noun="RecoveryPoint" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReportPlan" Verb="Remove" Noun="ReportPlan" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -66,6 +82,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCopyJob" OutputProperty="CopyJob" Verb="Get" Noun="CopyJob" PipelineParameter="CopyJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFramework" OutputProperty="*" Verb="Get" Noun="Framework" PipelineParameter="FrameworkName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -82,6 +102,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeRegionSettings" OutputProperty="ResourceTypeOptInPreference" Verb="Get" Noun="RegionSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReportJob" OutputProperty="ReportJob" Verb="Get" Noun="ReportJob" PipelineParameter="ReportJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReportPlan" OutputProperty="ReportPlan" Verb="Get" Noun="ReportPlan" PipelineParameter="ReportPlanName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -157,6 +185,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFrameworks" OutputProperty="Frameworks" Verb="Get" Noun="FrameworkList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProtectedResources" OutputProperty="Results" Verb="Get" Noun="ProtectedResourceList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -166,6 +198,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRecoveryPointsByResource" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReportJobs" OutputProperty="ReportJobs" Verb="Get" Noun="ReportJobList" PipelineParameter="ByReportPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReportPlans" OutputProperty="ReportPlans" Verb="Get" Noun="ReportPlanList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -193,6 +233,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartReportJob" OutputProperty="ReportJobId" Verb="Start" Noun="ReportJob" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartRestoreJob" OutputProperty="RestoreJobId" Verb="Start" Noun="RestoreJob" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -213,6 +257,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFramework" OutputProperty="*" Verb="Update" Noun="Framework" ShouldProcessTarget="FrameworkName" PipelineParameter="FrameworkName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateGlobalSettings" Verb="Update" Noun="GlobalSetting" ShouldProcessTarget="GlobalSettings" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -222,6 +270,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRegionSettings" Verb="Update" Noun="RegionSetting" ShouldProcessTarget="ResourceTypeOptInPreference" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReportPlan" OutputProperty="*" Verb="Update" Noun="ReportPlan" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

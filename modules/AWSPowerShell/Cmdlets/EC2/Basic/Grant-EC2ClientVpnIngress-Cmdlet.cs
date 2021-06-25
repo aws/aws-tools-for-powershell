@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization
     /// rules act as firewall rules that grant access to networks. You must configure ingress
-    /// authorization rules to enable clients to access resources in AWS or on-premises networks.
+    /// authorization rules to enable clients to access resources in Amazon Web Services or
+    /// on-premises networks.
     /// </summary>
     [Cmdlet("Grant", "EC2ClientVpnIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ClientVpnAuthorizationRuleStatus")]
@@ -117,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
         /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a>.</para>
+        /// to ensure idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

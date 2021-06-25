@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
     /// Updates an existing cost anomaly monitor. The changes made are applied going forward,
-    /// and does not change anomalies detected in the past.
+    /// and doesn'tt change anomalies detected in the past.
     /// </summary>
     [Cmdlet("Update", "CEAnomalyMonitor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter MonitorArn
         /// <summary>
         /// <para>
-        /// <para> Cost anomaly monitor Amazon Resource Names (ARNs). </para>
+        /// <para>Cost anomaly monitor Amazon Resource Names (ARNs). </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter MonitorName
         /// <summary>
         /// <para>
-        /// <para> The new name for the cost anomaly monitor. </para>
+        /// <para>The new name for the cost anomaly monitor. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

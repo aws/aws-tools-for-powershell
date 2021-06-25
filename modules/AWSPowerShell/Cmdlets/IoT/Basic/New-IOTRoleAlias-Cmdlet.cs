@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Creates a role alias.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateRoleAlias</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IOTRoleAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.CreateRoleAliasResponse")]
@@ -42,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter CredentialDurationSecond
         /// <summary>
         /// <para>
-        /// <para>How long (in seconds) the credentials will be valid.</para>
+        /// <para>How long (in seconds) the credentials will be valid. The default value is 3,600 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

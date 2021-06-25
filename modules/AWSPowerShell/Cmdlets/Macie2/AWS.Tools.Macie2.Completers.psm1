@@ -153,6 +153,13 @@ $MAC2_Completers = {
             break
         }
 
+        # Amazon.Macie2.ManagedDataIdentifierSelector
+        "New-MAC2ClassificationJob/ManagedDataIdentifierSelector"
+        {
+            $v = "ALL","EXCLUDE","INCLUDE","NONE"
+            break
+        }
+
         # Amazon.Macie2.OrderBy
         {
             ($_ -eq "Get-MAC2UsageStatistic/SortBy_OrderBy") -Or
@@ -203,6 +210,7 @@ $MAC2_map = @{
     "GroupBy"=@("Get-MAC2FindingStatistic")
     "JobStatus"=@("Update-MAC2ClassificationJob")
     "JobType"=@("New-MAC2ClassificationJob")
+    "ManagedDataIdentifierSelector"=@("New-MAC2ClassificationJob")
     "ScheduleFrequency_WeeklySchedule_DayOfWeek"=@("New-MAC2ClassificationJob")
     "SortBy_Key"=@("Get-MAC2UsageStatistic")
     "SortBy_OrderBy"=@("Get-MAC2UsageStatistic")
@@ -304,6 +312,7 @@ $MAC2_SelectMap = @{
                "Get-MAC2FindingList",
                "Get-MAC2FindingsFilterList",
                "Get-MAC2InvitationList",
+               "Get-MAC2ManagedDataIdentifierList",
                "Get-MAC2MemberList",
                "Get-MAC2OrganizationAdminAccountList",
                "Get-MAC2ResourceTag",

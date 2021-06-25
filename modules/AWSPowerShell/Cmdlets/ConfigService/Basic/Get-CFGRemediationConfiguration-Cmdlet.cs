@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>A list of AWS Config rule names of remediation configurations for which you want details.
+        /// <para>A list of Config rule names of remediation configurations for which you want details.
         /// </para>
         /// </para>
         /// </summary>

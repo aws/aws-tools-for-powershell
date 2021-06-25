@@ -28,9 +28,10 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Resets the password for a service-specific credential. The new password is AWS generated
-    /// and cryptographically strong. It cannot be configured by the user. Resetting the password
-    /// immediately invalidates the previous password associated with this user.
+    /// Resets the password for a service-specific credential. The new password is Amazon
+    /// Web Services generated and cryptographically strong. It cannot be configured by the
+    /// user. Resetting the password immediately invalidates the previous password associated
+    /// with this user.
     /// </summary>
     [Cmdlet("Reset", "IAMServiceSpecificCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.ServiceSpecificCredential")]

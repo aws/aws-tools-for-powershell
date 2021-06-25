@@ -34,9 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// If the <code>UserName</code> is not specified, the user name is determined implicitly
-    /// based on the AWS access key ID used to sign the request. This operation works for
-    /// access keys under the AWS account. Consequently, you can use this operation to manage
-    /// AWS account root user credentials even if the AWS account has no associated users.
+    /// based on the Amazon Web Services access key ID used to sign the request. This operation
+    /// works for access keys under the Amazon Web Services account. Consequently, you can
+    /// use this operation to manage Amazon Web Services account root user credentials even
+    /// if the Amazon Web Services account has no associated users.
     /// </para><para>
     /// For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing
     /// keys and certificates</a> in the <i>IAM User Guide</i>.
@@ -75,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para> The status you want to assign to the secret access key. <code>Active</code> means
-        /// that the key can be used for programmatic calls to AWS, while <code>Inactive</code>
+        /// that the key can be used for programmatic calls to Amazon Web Services, while <code>Inactive</code>
         /// means that the key cannot be used.</para>
         /// </para>
         /// </summary>

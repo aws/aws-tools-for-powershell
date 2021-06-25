@@ -28,7 +28,8 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Modifies the parameters of a parameter group.
+    /// Modifies the parameters of a parameter group. For the parameters parameter, it can't
+    /// contain ASCII characters.
     /// 
     ///  
     /// <para>

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalySubscription_AccountId
         /// <summary>
         /// <para>
-        /// <para> Your unique account identifier. </para>
+        /// <para>Your unique account identifier. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalySubscription_Frequency
         /// <summary>
         /// <para>
-        /// <para> The frequency at which anomaly reports are sent over email. </para>
+        /// <para>The frequency that anomaly reports are sent over email. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalySubscription_MonitorArnList
         /// <summary>
         /// <para>
-        /// <para> A list of cost anomaly monitors. </para>
+        /// <para>A list of cost anomaly monitors. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalySubscription_Subscriber
         /// <summary>
         /// <para>
-        /// <para> A list of subscribers to notify. </para>
+        /// <para>A list of subscribers to notify. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalySubscription_SubscriptionArn
         /// <summary>
         /// <para>
-        /// <para> The <code>AnomalySubscription</code> Amazon Resource Name (ARN). </para>
+        /// <para>The <code>AnomalySubscription</code> Amazon Resource Name (ARN). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalySubscription_SubscriptionName
         /// <summary>
         /// <para>
-        /// <para> The name for the subscription. </para>
+        /// <para>The name for the subscription. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalySubscription_Threshold
         /// <summary>
         /// <para>
-        /// <para> The dollar value that triggers a notification if the threshold is exceeded. </para>
+        /// <para>The dollar value that triggers a notification if the threshold is exceeded. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

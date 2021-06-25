@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// Find the best performing model after you run an Autopilot job by calling .
+    /// Find the best-performing model after you run an Autopilot job by calling .
     /// </para><para>
     /// For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">Automate
     /// Model Development with Amazon SageMaker Autopilot</a>.
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputDataConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS encryption key ID.</para>
+        /// <para>The Amazon Web Services KMS encryption key ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// for model parameter values from data.</para><para>Here are the options:</para><ul><li><para><code>MSE</code>: The mean squared error (MSE) is the average of the squared differences
         /// between the predicted and actual values. It is used for regression. MSE values are
         /// always positive: the better a model is at predicting the actual values, the smaller
-        /// the MSE value. When the data contains outliers, they tend to dominate the MSE, which
-        /// might cause subpar prediction performance.</para></li><li><para><code>Accuracy</code>: The ratio of the number of correctly classified items to the
+        /// the MSE value is. When the data contains outliers, they tend to dominate the MSE,
+        /// which might cause subpar prediction performance.</para></li><li><para><code>Accuracy</code>: The ratio of the number of correctly classified items to the
         /// total number of (correctly and incorrectly) classified items. It is used for binary
         /// and multiclass classification. It measures how close the predicted class values are
         /// to the actual values. Accuracy values vary between zero and one: one indicates perfect

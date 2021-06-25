@@ -159,6 +159,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public Amazon.Pinpoint.Mode CampaignHook_Mode { get; set; }
         #endregion
         
+        #region Parameter Limits_Session
+        /// <summary>
+        /// <para>
+        /// <para>The maximum total number of messages that the campaign can send per user session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteApplicationSettingsRequest_Limits_Session")]
+        public System.Int32? Limits_Session { get; set; }
+        #endregion
+        
         #region Parameter QuietTime_Start
         /// <summary>
         /// <para>
@@ -273,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.Limits_Daily = this.Limits_Daily;
             context.Limits_MaximumDuration = this.Limits_MaximumDuration;
             context.Limits_MessagesPerSecond = this.Limits_MessagesPerSecond;
+            context.Limits_Session = this.Limits_Session;
             context.Limits_Total = this.Limits_Total;
             context.QuietTime_End = this.QuietTime_End;
             context.QuietTime_Start = this.QuietTime_Start;
@@ -435,6 +447,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits.MessagesPerSecond = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_MessagesPerSecond.Value;
                 requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_LimitsIsNull = false;
             }
+            System.Int32? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Session = null;
+            if (cmdletContext.Limits_Session != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Session = cmdletContext.Limits_Session.Value;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Session != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits.Session = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Session.Value;
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_LimitsIsNull = false;
+            }
             System.Int32? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Total = null;
             if (cmdletContext.Limits_Total != null)
             {
@@ -530,6 +552,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.Int32? Limits_Daily { get; set; }
             public System.Int32? Limits_MaximumDuration { get; set; }
             public System.Int32? Limits_MessagesPerSecond { get; set; }
+            public System.Int32? Limits_Session { get; set; }
             public System.Int32? Limits_Total { get; set; }
             public System.String QuietTime_End { get; set; }
             public System.String QuietTime_Start { get; set; }

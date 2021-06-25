@@ -28,7 +28,10 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    
+    /// Returns the account preferences settings for the Amazon Web Services account associated
+    /// with the user making the request, in the current Amazon Web Services Region. For more
+    /// information, see <a href="efs/latest/ug/manage-efs-resource-ids.html">Managing Amazon
+    /// EFS resource IDs</a>.
     /// </summary>
     [Cmdlet("Get", "EFSAccountPreference")]
     [OutputType("Amazon.ElasticFileSystem.Model.ResourceIdPreference")]
@@ -43,7 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>(Optional) When retrieving account preferences, you can optionally specify the <code>MaxItems</code>
+        /// parameter to limit the number of objects returned in a response. The default value
+        /// is 100. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>(Optional) You can use <code>NextToken</code> in a subsequent request to fetch the
+        /// next page of Amazon Web Services account preferences if the response payload was paginated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

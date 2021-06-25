@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// 
     ///  
     /// <para>
-    /// For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples
+    /// For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples
     /// and Code Samples</a> in the <i>Amazon Athena User Guide</i>.
     /// </para>
     /// </summary>
@@ -53,9 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <para>A unique case-sensitive string used to ensure the request to create the query is idempotent
         /// (executes only once). If another <code>CreateNamedQuery</code> request is received,
         /// the same response is returned and another query is not created. If a parameter has
-        /// changed, for example, the <code>QueryString</code>, an error is returned.</para><important><para>This token is listed as not required because AWS SDKs (for example the AWS SDK for
-        /// Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS
-        /// CLI, you must provide this token or the action will fail.</para></important>
+        /// changed, for example, the <code>QueryString</code>, an error is returned.</para><important><para>This token is listed as not required because Amazon Web Services SDKs (for example
+        /// the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
+        /// not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
+        /// this token or the action will fail.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

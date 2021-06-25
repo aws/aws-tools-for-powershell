@@ -28,15 +28,16 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Creates a Microsoft AD directory in the AWS Cloud. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html">AWS
-    /// Managed Microsoft AD</a> in the <i>AWS Directory Service Admin Guide</i>.
+    /// Creates a Microsoft AD directory in the Amazon Web Services Cloud. For more information,
+    /// see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html">Managed
+    /// Microsoft AD</a> in the <i>Directory Service Admin Guide</i>.
     /// 
     ///  
     /// <para>
     /// Before you call <i>CreateMicrosoftAD</i>, ensure that all of the required permissions
     /// have been explicitly granted through a policy. For details about what permissions
-    /// are required to run the <i>CreateMicrosoftAD</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
-    /// Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.
+    /// are required to run the <i>CreateMicrosoftAD</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory
+    /// Service API Permissions: Actions, Resources, and Conditions Reference</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DSMicrosoftAD", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the directory. This label will appear on the AWS console <code>Directory
-        /// Details</code> page after the directory is created.</para>
+        /// <para>A description for the directory. This label will appear on the Amazon Web Services
+        /// console <code>Directory Details</code> page after the directory is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Edition
         /// <summary>
         /// <para>
-        /// <para>AWS Managed Microsoft AD is available in two editions: <code>Standard</code> and <code>Enterprise</code>.
+        /// <para>Managed Microsoft AD is available in two editions: <code>Standard</code> and <code>Enterprise</code>.
         /// <code>Enterprise</code> is the default.</para>
         /// </para>
         /// </summary>
@@ -75,9 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The fully qualified domain name for the AWS Managed Microsoft AD directory, such as
-        /// <code>corp.example.com</code>. This name will resolve inside your VPC only. It does
-        /// not need to be publicly resolvable.</para>
+        /// <para>The fully qualified domain name for the Managed Microsoft AD directory, such as <code>corp.example.com</code>.
+        /// This name will resolve inside your VPC only. It does not need to be publicly resolvable.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <summary>
         /// <para>
         /// <para>The identifiers of the subnets for the directory servers. The two subnets must be
-        /// in different Availability Zones. AWS Directory Service creates a directory server
-        /// and a DNS server in each of these subnets.</para>
+        /// in different Availability Zones. Directory Service creates a directory server and
+        /// a DNS server in each of these subnets.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be assigned to the AWS Managed Microsoft AD directory.</para>
+        /// <para>The tags to be assigned to the Managed Microsoft AD directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

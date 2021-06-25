@@ -181,6 +181,7 @@ $ECR_SelectMap = @{
                "Remove-ECRRegistryPolicy",
                "Remove-ECRRepository",
                "Remove-ECRRepositoryPolicy",
+               "Get-ECRImageReplicationStatus",
                "Get-ECRImageMetadata",
                "Get-ECRImageScanFinding",
                "Get-ECRRegistry",

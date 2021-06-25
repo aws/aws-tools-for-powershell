@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Validates the integrity of an assessment report in AWS Audit Manager.
+    /// Validates the integrity of an assessment report in Audit Manager.
     /// </summary>
     [Cmdlet("Confirm", "AUDMAssessmentReportIntegrity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.Model.ValidateAssessmentReportIntegrityResponse")]

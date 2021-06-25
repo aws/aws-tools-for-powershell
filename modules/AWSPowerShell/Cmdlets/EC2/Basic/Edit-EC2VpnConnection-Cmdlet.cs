@@ -28,8 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the customer gateway or the target gateway of an AWS Site-to-Site VPN connection.
-    /// To modify the target gateway, the following migration options are available:
+    /// Modifies the customer gateway or the target gateway of an Amazon Web Services Site-to-Site
+    /// VPN connection. To modify the target gateway, the following migration options are
+    /// available:
     /// 
     ///  <ul><li><para>
     /// An existing virtual private gateway to a new virtual private gateway
@@ -53,20 +54,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// routes to the transit gateway after the VPN connection migration is complete.
     /// </para><para>
     /// After you migrate to the new gateway, you might need to modify your VPC route table.
-    /// Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">VPN
-    /// Gateway Target Modification Required VPC Route Table Updates</a> in the <i>AWS Site-to-Site
-    /// VPN User Guide</i>.
+    /// Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">Update
+    /// VPC route tables</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.
     /// </para><para>
-    ///  When the new gateway is a transit gateway, modify the transit gateway route table
-    /// to allow traffic between the VPC and the AWS Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a>
-    /// to add the routes.
+    /// When the new gateway is a transit gateway, modify the transit gateway route table
+    /// to allow traffic between the VPC and the Amazon Web Services Site-to-Site VPN connection.
+    /// Use <a>CreateTransitGatewayRoute</a> to add the routes.
     /// </para><para>
     ///  If you deleted VPN static routes, you must add the static routes to the transit gateway
     /// route table.
     /// </para><para>
-    /// After you perform this operation, the AWS VPN endpoint's IP addresses on the AWS side
-    /// and the tunnel options remain intact. Your AWS Site-to-Site VPN connection will be
-    /// temporarily unavailable for a brief period while we provision the new endpoints.
+    /// After you perform this operation, the VPN endpoint's IP addresses on the Amazon Web
+    /// Services side and the tunnel options remain intact. Your Amazon Web Services Site-to-Site
+    /// VPN connection will be temporarily unavailable for a brief period while we provision
+    /// the new endpoints.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2VpnConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -119,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpnGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of the virtual private gateway at the AWS side of the VPN connection.</para>
+        /// <para>The ID of the virtual private gateway at the Amazon Web Services side of the VPN connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

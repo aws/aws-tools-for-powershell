@@ -28,10 +28,11 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Starts the recording of AWS API calls and log file delivery for a trail. For a trail
-    /// that is enabled in all regions, this operation must be called from the region in which
-    /// the trail was created. This operation cannot be called on the shadow trails (replicated
-    /// trails in other regions) of a trail that is enabled in all regions.
+    /// Starts the recording of Amazon Web Services API calls and log file delivery for a
+    /// trail. For a trail that is enabled in all regions, this operation must be called from
+    /// the region in which the trail was created. This operation cannot be called on the
+    /// shadow trails (replicated trails in other regions) of a trail that is enabled in all
+    /// regions.
     /// </summary>
     [Cmdlet("Start", "CTLogging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS
-        /// API calls. The format of a trail ARN is:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// <para>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs Amazon
+        /// Web Services API calls. The following is the format of a trail ARN.</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

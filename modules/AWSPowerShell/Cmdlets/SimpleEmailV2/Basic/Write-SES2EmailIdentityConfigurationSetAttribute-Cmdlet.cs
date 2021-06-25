@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The configuration set that you want to associate with an email identity.</para>
+        /// <para>The configuration set to associate with an email identity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EmailIdentity
         /// <summary>
         /// <para>
-        /// <para>The email address or domain that you want to associate with a configuration set.</para>
+        /// <para>The email address or domain to associate with a configuration set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

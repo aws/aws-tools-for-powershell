@@ -32,12 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// After the configuration recorder is deleted, AWS Config will not record resource configuration
+    /// After the configuration recorder is deleted, Config will not record resource configuration
     /// changes until you create a new configuration recorder.
     /// </para><para>
     /// This action does not delete the configuration information that was previously recorded.
     /// You will be able to access the previously recorded information by using the <code>GetResourceConfigHistory</code>
-    /// action, but you will not be able to access this information in the AWS Config console
+    /// action, but you will not be able to access this information in the Config console
     /// until you create a new configuration recorder.
     /// </para>
     /// </summary>

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Specifies a list of <code>BackupOptions</code> for each resource type. These settings
-        /// are only available for Windows VSS backup jobs.</para>
+        /// are only available for Windows Volume Shadow Copy Service (VSS) backup jobs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

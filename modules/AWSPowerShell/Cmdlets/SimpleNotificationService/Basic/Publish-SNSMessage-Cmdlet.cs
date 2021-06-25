@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send
     /// Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. 
     /// </para><important><para>
-    /// You can publish messages only to topics and endpoints in the same AWS Region.
+    /// You can publish messages only to topics and endpoints in the same Region.
     /// </para></important>
     /// </summary>
     [Cmdlet("Publish", "SNSMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

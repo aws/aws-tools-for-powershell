@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SortBy_Key
         /// <summary>
         /// <para>
-        /// <para>The key by which to sort the data.</para>
+        /// <para>The key that's used to sort the data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SortBy_SortOrder
         /// <summary>
         /// <para>
-        /// <para>The order in which to sort the data.</para>
+        /// <para>The order that's used to sort the data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

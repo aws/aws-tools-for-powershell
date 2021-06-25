@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Associates a list of evidence to an assessment report in an AWS Audit Manager assessment.
+    /// Associates a list of evidence to an assessment report in an Audit Manager assessment.
     /// </summary>
     [Cmdlet("Add", "AUDMAssessmentReportEvidence", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.Model.BatchAssociateAssessmentReportEvidenceResponse")]

@@ -28,8 +28,8 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Provides information on a specified dataset such as the schema location, status, and
-    /// so on.
+    /// Provides a JSON description of the data that is in each time series dataset, including
+    /// names, column names, and data types.
     /// </summary>
     [Cmdlet("Get", "L4EDataset")]
     [OutputType("Amazon.LookoutEquipment.Model.DescribeDatasetResponse")]

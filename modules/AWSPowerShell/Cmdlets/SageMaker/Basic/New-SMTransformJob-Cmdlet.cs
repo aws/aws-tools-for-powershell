@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// </para><para>
     /// In the request body, you provide the following:
     /// </para><ul><li><para><code>TransformJobName</code> - Identifies the transform job. The name must be unique
-    /// within an AWS Region in an AWS account.
+    /// within an Amazon Web Services Region in an Amazon Web Services account.
     /// </para></li><li><para><code>ModelName</code> - Identifies the model to use. <code>ModelName</code> must
-    /// be the name of an existing Amazon SageMaker model in the same AWS Region and AWS account.
-    /// For information on creating a model, see <a>CreateModel</a>.
+    /// be the name of an existing Amazon SageMaker model in the same Amazon Web Services
+    /// Region and Amazon Web Services account. For information on creating a model, see <a>CreateModel</a>.
     /// </para></li><li><para><code>TransformInput</code> - Describes the dataset to be transformed and the Amazon
     /// S3 location where it is stored.
     /// </para></li><li><para><code>TransformOutput</code> - Identifies the Amazon S3 location where you want Amazon
@@ -251,13 +251,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TransformOutput_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
-        /// the model artifacts at rest using Amazon S3 server-side encryption. The <code>KmsKeyId</code>
-        /// can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon
+        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+        /// Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side
+        /// encryption. The <code>KmsKeyId</code> can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon
         /// S3 for your role's account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed
         /// Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i></para><para>The KMS key policy must grant permission to the IAM role that you specify in your
         /// <a>CreateModel</a> request. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
-        /// Key Policies in AWS KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
+        /// Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management
+        /// Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,8 +305,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the model that you want to use for the transform job. <code>ModelName</code>
-        /// must be the name of an existing Amazon SageMaker model within an AWS Region in an
-        /// AWS account.</para>
+        /// must be the name of an existing Amazon SageMaker model within an Amazon Web Services
+        /// Region in an Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -438,7 +439,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-        /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.</para>
+        /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -449,8 +451,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TransformJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the transform job. The name must be unique within an AWS Region in an
-        /// AWS account. </para>
+        /// <para>The name of the transform job. The name must be unique within an Amazon Web Services
+        /// Region in an Amazon Web Services account. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -489,9 +491,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TransformResources_VolumeKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
-        /// model data on the storage volume attached to the ML compute instance(s) that run the
-        /// batch transform job.</para><note><para>Certain Nitro-based instances include local storage, dependent on the instance type.
+        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+        /// Amazon SageMaker uses to encrypt model data on the storage volume attached to the
+        /// ML compute instance(s) that run the batch transform job.</para><note><para>Certain Nitro-based instances include local storage, dependent on the instance type.
         /// Local storage volumes are encrypted using a hardware module on the instance. You can't
         /// request a <code>VolumeKmsKeyId</code> when using an instance type with local storage.</para><para>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance
         /// Store Volumes</a>.</para><para>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD

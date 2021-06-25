@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Updates a dynamic thing group.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDynamicThingGroup</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "IOTDynamicThingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Int64")]
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter IndexName
         /// <summary>
         /// <para>
-        /// <para>The dynamic thing group index to update.</para><note><para>Currently one index is supported: 'AWS_Things'.</para></note>
+        /// <para>The dynamic thing group index to update.</para><note><para>Currently one index is supported: <code>AWS_Things</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

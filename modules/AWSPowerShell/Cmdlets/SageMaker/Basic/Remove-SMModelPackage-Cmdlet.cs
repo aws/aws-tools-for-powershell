@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// A model package is used to create Amazon SageMaker models or list on AWS Marketplace.
-    /// Buyers can subscribe to model packages listed on AWS Marketplace to create models
-    /// in Amazon SageMaker.
+    /// A model package is used to create Amazon SageMaker models or list on Amazon Web Services
+    /// Marketplace. Buyers can subscribe to model packages listed on Amazon Web Services
+    /// Marketplace to create models in Amazon SageMaker.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SMModelPackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

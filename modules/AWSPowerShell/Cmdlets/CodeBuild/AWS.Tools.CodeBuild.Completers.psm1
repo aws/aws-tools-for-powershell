@@ -123,6 +123,22 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.BucketOwnerAccess
+        {
+            ($_ -eq "New-CBProject/Artifacts_BucketOwnerAccess") -Or
+            ($_ -eq "Update-CBProject/Artifacts_BucketOwnerAccess") -Or
+            ($_ -eq "Start-CBBatch/ArtifactsOverride_BucketOwnerAccess") -Or
+            ($_ -eq "Start-CBBuild/ArtifactsOverride_BucketOwnerAccess") -Or
+            ($_ -eq "New-CBProject/LogsConfig_S3Logs_BucketOwnerAccess") -Or
+            ($_ -eq "Update-CBProject/LogsConfig_S3Logs_BucketOwnerAccess") -Or
+            ($_ -eq "Start-CBBatch/LogsConfigOverride_S3Logs_BucketOwnerAccess") -Or
+            ($_ -eq "Start-CBBuild/LogsConfigOverride_S3Logs_BucketOwnerAccess")
+        }
+        {
+            $v = "FULL","NONE","READ_ONLY"
+            break
+        }
+
         # Amazon.CodeBuild.CacheType
         {
             ($_ -eq "New-CBProject/Cache_Type") -Or
@@ -203,6 +219,13 @@ $CB_Completers = {
         "Get-CBProjectList/SortBy"
         {
             $v = "CREATED_TIME","LAST_MODIFIED_TIME","NAME"
+            break
+        }
+
+        # Amazon.CodeBuild.ProjectVisibilityType
+        "Update-CBProjectVisibility/ProjectVisibility"
+        {
+            $v = "PRIVATE","PUBLIC_READ"
             break
         }
 
@@ -360,9 +383,11 @@ $CB_Completers = {
 }
 
 $CB_map = @{
+    "Artifacts_BucketOwnerAccess"=@("New-CBProject","Update-CBProject")
     "Artifacts_NamespaceType"=@("New-CBProject","Update-CBProject")
     "Artifacts_Packaging"=@("New-CBProject","Update-CBProject")
     "Artifacts_Type"=@("New-CBProject","Update-CBProject")
+    "ArtifactsOverride_BucketOwnerAccess"=@("Start-CBBatch","Start-CBBuild")
     "ArtifactsOverride_NamespaceType"=@("Start-CBBatch","Start-CBBuild")
     "ArtifactsOverride_Packaging"=@("Start-CBBatch","Start-CBBuild")
     "ArtifactsOverride_Type"=@("Start-CBBatch","Start-CBBuild")
@@ -381,9 +406,12 @@ $CB_map = @{
     "Filter_Status"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBReportList","Get-CBReportsForReportGroupList")
     "ImagePullCredentialsTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "LogsConfig_CloudWatchLogs_Status"=@("New-CBProject","Update-CBProject")
+    "LogsConfig_S3Logs_BucketOwnerAccess"=@("New-CBProject","Update-CBProject")
     "LogsConfig_S3Logs_Status"=@("New-CBProject","Update-CBProject")
     "LogsConfigOverride_CloudWatchLogs_Status"=@("Start-CBBatch","Start-CBBuild")
+    "LogsConfigOverride_S3Logs_BucketOwnerAccess"=@("Start-CBBatch","Start-CBBuild")
     "LogsConfigOverride_S3Logs_Status"=@("Start-CBBatch","Start-CBBuild")
+    "ProjectVisibility"=@("Update-CBProjectVisibility")
     "RegistryCredentialOverride_CredentialProvider"=@("Start-CBBatch","Start-CBBuild")
     "RetryType"=@("Redo-CBBatch")
     "ServerType"=@("Import-CBSourceCredential")
@@ -489,6 +517,7 @@ $CB_SelectMap = @{
                "Stop-CBBuild",
                "Stop-CBBatch",
                "Update-CBProject",
+               "Update-CBProjectVisibility",
                "Update-CBReportGroup",
                "Update-CBWebhook")
 }

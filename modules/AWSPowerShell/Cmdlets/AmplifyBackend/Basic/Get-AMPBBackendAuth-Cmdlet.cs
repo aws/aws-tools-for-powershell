@@ -28,7 +28,7 @@ using Amazon.AmplifyBackend.Model;
 namespace Amazon.PowerShell.Cmdlets.AMPB
 {
     /// <summary>
-    /// Gets backend auth details.
+    /// Gets a backend auth details.
     /// </summary>
     [Cmdlet("Get", "AMPBBackendAuth")]
     [OutputType("Amazon.AmplifyBackend.Model.GetBackendAuthResponse")]

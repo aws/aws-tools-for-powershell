@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
     /// Retrieves cost and usage metrics for your account. You can specify which cost and
-    /// usage-related metric, such as <code>BlendedCosts</code> or <code>UsageQuantity</code>,
-    /// that you want the request to return. You can also filter and group your data by various
-    /// dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range.
-    /// For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
-    /// operation. Management account in an organization in AWS Organizations have access
-    /// to all member accounts.
+    /// usage-related metric that you want the request to return. For example, you can specify
+    /// <code>BlendedCosts</code> or <code>UsageQuantity</code>. You can also filter and group
+    /// your data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>,
+    /// in a specific time range. For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
+    /// operation. Management account in an organization in Organizations have access to all
+    /// member accounts.
     /// 
     ///  
     /// <para>
@@ -54,10 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters AWS costs by different dimensions. For example, you can specify <code>SERVICE</code>
-        /// and <code>LINKED_ACCOUNT</code> and get the costs that are associated with that account's
-        /// usage of that service. You can nest <code>Expression</code> objects to define any
-        /// combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
+        /// <para>Filters Amazon Web Services costs by different dimensions. For example, you can specify
+        /// <code>SERVICE</code> and <code>LINKED_ACCOUNT</code> and get the costs that are associated
+        /// with that account's usage of that service. You can nest <code>Expression</code> objects
+        /// to define any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
         /// </para>
         /// </para>
         /// </summary>
@@ -68,9 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Granularity
         /// <summary>
         /// <para>
-        /// <para>Sets the AWS cost granularity to <code>MONTHLY</code> or <code>DAILY</code>, or <code>HOURLY</code>.
-        /// If <code>Granularity</code> isn't set, the response object doesn't include the <code>Granularity</code>,
-        /// either <code>MONTHLY</code> or <code>DAILY</code>, or <code>HOURLY</code>. </para>
+        /// <para>Sets the Amazon Web Services cost granularity to <code>MONTHLY</code> or <code>DAILY</code>,
+        /// or <code>HOURLY</code>. If <code>Granularity</code> isn't set, the response object
+        /// doesn't include the <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>,
+        /// or <code>HOURLY</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,11 +88,12 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter GroupBy
         /// <summary>
         /// <para>
-        /// <para>You can group AWS costs using up to two different groups, either dimensions, tag keys,
-        /// cost categories, or any two group by types.</para><para>When you group by tag key, you get all tag values, including empty strings.</para><para>Valid values are <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LEGAL_ENTITY_NAME</code>,
-        /// <code>LINKED_ACCOUNT</code>, <code>OPERATION</code>, <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>,
-        /// <code>SERVICE</code>, <code>TAGS</code>, <code>TENANCY</code>, <code>RECORD_TYPE</code>,
-        /// and <code>USAGE_TYPE</code>.</para>
+        /// <para>You can group Amazon Web Services costs using up to two different groups, either dimensions,
+        /// tag keys, cost categories, or any two group by types.</para><para>Valid values for the <code>DIMENSION</code> type are <code>AZ</code>, <code>INSTANCE_TYPE</code>,
+        /// <code>LEGAL_ENTITY_NAME</code>, <code>LINKED_ACCOUNT</code>, <code>OPERATION</code>,
+        /// <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>, <code>SERVICE</code>, <code>TENANCY</code>,
+        /// <code>RECORD_TYPE</code>, and <code>USAGE_TYPE</code>.</para><para>When you group by the <code>TAG</code> type and include a valid tag key, you get all
+        /// tag values, including empty strings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// and <code>UsageQuantity</code>. </para><note><para>If you return the <code>UsageQuantity</code> metric, the service aggregates all usage
         /// numbers without taking into account the units. For example, if you aggregate <code>usageQuantity</code>
         /// across all of Amazon EC2, the results aren't meaningful because Amazon EC2 compute
-        /// hours and data transfer are measured in different units (for example, hours vs. GB).
+        /// hours and data transfer are measured in different units (for example, hours and GB).
         /// To get more meaningful <code>UsageQuantity</code> metrics, filter by <code>UsageType</code>
         /// or <code>UsageTypeGroups</code>. </para></note><para><code>Metrics</code> is required for <code>GetCostAndUsage</code> requests.</para>
         /// </para>
@@ -128,11 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter TimePeriod
         /// <summary>
         /// <para>
-        /// <para>Sets the start and end dates for retrieving AWS costs. The start date is inclusive,
-        /// but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code>
-        /// and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved
-        /// from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including
-        /// <code>2017-05-01</code>.</para>
+        /// <para>Sets the start date and end date for retrieving Amazon Web Services costs. The start
+        /// date is inclusive, but the end date is exclusive. For example, if <code>start</code>
+        /// is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the
+        /// cost and usage data is retrieved from <code>2017-01-01</code> up to and including
+        /// <code>2017-04-30</code> but not including <code>2017-05-01</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -148,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter NextPageToken
         /// <summary>
         /// <para>
-        /// <para>The token to retrieve the next set of results. AWS provides the token when the response
-        /// from a previous call has more results than the maximum page size.</para>
+        /// <para>The token to retrieve the next set of results. Amazon Web Services provides the token
+        /// when the response from a previous call has more results than the maximum page size.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.CostExplorer module, this parameter is only used if you are manually controlling output pagination of the service API call.

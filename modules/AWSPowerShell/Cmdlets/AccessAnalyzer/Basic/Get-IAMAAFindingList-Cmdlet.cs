@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     /// 
     ///  
     /// <para>
-    /// To learn about filter keys that you can use to retrieve a list of findings, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">Access
-    /// Analyzer filter keys</a> in the <b>IAM User Guide</b>.
+    /// To learn about filter keys that you can use to retrieve a list of findings, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM
+    /// Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMAAFindingList")]

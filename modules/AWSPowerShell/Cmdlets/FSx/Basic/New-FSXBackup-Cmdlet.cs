@@ -28,9 +28,10 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Creates a backup of an existing Amazon FSx file system. Creating regular backups for
-    /// your file system is a best practice, enabling you to restore a file system from a
-    /// backup if an issue arises with the original file system.
+    /// Creates a backup of an existing Amazon FSx for Windows File Server or Amazon FSx for
+    /// Lustre file system, or of an Amazon FSx for NetApp ONTAP volume. Creating regular
+    /// backups is a best practice, enabling you to restore a file system or volume from a
+    /// backup if an issue arises with the original file system or volume.
     /// 
     ///  
     /// <para>
@@ -39,14 +40,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// </para><ul><li><para>
     /// a Persistent deployment type
     /// </para></li><li><para>
-    /// is <i>not</i> linked to a data respository.
+    /// is <i>not</i> linked to a data repository.
     /// </para></li></ul><para>
-    /// For more information about backing up Amazon FSx for Lustre file systems, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working
+    /// For more information about backups, see the following:
+    /// </para><ul><li><para>
+    /// For Amazon FSx for Lustre, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working
     /// with FSx for Lustre backups</a>.
-    /// </para><para>
-    /// For more information about backing up Amazon FSx for Windows file systems, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working
+    /// </para></li><li><para>
+    /// For Amazon FSx for Windows, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working
     /// with FSx for Windows backups</a>.
-    /// </para><para>
+    /// </para></li><li><para>
+    /// For Amazon FSx for NetApp ONTAP, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/using-backups.html">Working
+    /// with FSx for NetApp ONTAP backups</a>.
+    /// </para></li></ul><para>
     /// If a backup with the specified client request token exists, and the parameters match,
     /// this operation returns the description of the existing backup. If a backup specified
     /// client request token exists, and the parameters don't match, this operation returns
@@ -84,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent
-        /// creation. This string is automatically filled on your behalf when you use the AWS
-        /// Command Line Interface (AWS CLI) or an AWS SDK.</para>
+        /// creation. This string is automatically filled on your behalf when you use the Command
+        /// Line Interface (CLI) or an Amazon Web Services SDK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,14 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>The ID of the file system to back up.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String FileSystemId { get; set; }
         #endregion
         
@@ -121,6 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.FSx.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter VolumeId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of he FSx for NetApp ONTAP volume to back up.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VolumeId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -186,16 +195,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
             context.FileSystemId = this.FileSystemId;
-            #if MODULAR
-            if (this.FileSystemId == null && ParameterWasBound(nameof(this.FileSystemId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter FileSystemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.FSx.Model.Tag>(this.Tag);
             }
+            context.VolumeId = this.VolumeId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -223,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.VolumeId != null)
+            {
+                request.VolumeId = cmdletContext.VolumeId;
             }
             
             CmdletOutput output;
@@ -288,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String ClientRequestToken { get; set; }
             public System.String FileSystemId { get; set; }
             public List<Amazon.FSx.Model.Tag> Tag { get; set; }
+            public System.String VolumeId { get; set; }
             public System.Func<Amazon.FSx.Model.CreateBackupResponse, NewFSXBackupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Backup;
         }

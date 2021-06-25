@@ -212,8 +212,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter JobDefinitionName
         /// <summary>
         /// <para>
-        /// <para>The name of the bias job definition. The name must be unique within an AWS Region
-        /// in the AWS account.</para>
+        /// <para>The name of the bias job definition. The name must be unique within an Amazon Web
+        /// Services Region in the Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -230,8 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelBiasJobOutputConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
-        /// the model artifacts at rest using Amazon S3 server-side encryption.</para>
+        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+        /// Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side
+        /// encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -419,7 +420,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using
-        /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.</para>
+        /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -430,9 +432,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ClusterConfig_VolumeKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
-        /// data on the storage volume attached to the ML compute instance(s) that run the model
-        /// monitoring job.</para>
+        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+        /// Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute
+        /// instance(s) that run the model monitoring job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

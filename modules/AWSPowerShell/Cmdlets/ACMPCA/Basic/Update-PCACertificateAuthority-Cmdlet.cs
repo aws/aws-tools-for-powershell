@@ -71,7 +71,12 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter RevocationConfiguration
         /// <summary>
         /// <para>
-        /// <para>Revocation information for your private CA.</para>
+        /// <para>Contains information to enable Online Certificate Status Protocol (OCSP) support,
+        /// to enable a certificate revocation list (CRL), to enable both, or to enable neither.
+        /// If this parameter is not supplied, existing capibilites remain unchanged. For more
+        /// information, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_OcspConfiguration.html">OcspConfiguration</a>
+        /// and <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html">CrlConfiguration</a>
+        /// types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

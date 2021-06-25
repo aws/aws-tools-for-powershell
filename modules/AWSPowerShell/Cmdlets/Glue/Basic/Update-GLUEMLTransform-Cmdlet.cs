@@ -96,10 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter GlueVersion
         /// <summary>
         /// <para>
-        /// <para>This value determines which version of AWS Glue this machine learning transform is
-        /// compatible with. Glue 1.0 is recommended for most customers. If the value is not set,
-        /// the Glue compatibility defaults to Glue 0.9. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS
-        /// Glue Versions</a> in the developer guide.</para>
+        /// <para>This value determines which version of Glue this machine learning transform is compatible
+        /// with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue
+        /// compatibility defaults to Glue 0.9. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue
+        /// Versions</a> in the developer guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,11 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter MaxCapacity
         /// <summary>
         /// <para>
-        /// <para>The number of AWS Glue data processing units (DPUs) that are allocated to task runs
-        /// for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU
-        /// is a relative measure of processing power that consists of 4 vCPUs of compute capacity
-        /// and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
-        /// Glue pricing page</a>. </para><para>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>,
+        /// <para>The number of Glue data processing units (DPUs) that are allocated to task runs for
+        /// this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a
+        /// relative measure of processing power that consists of 4 vCPUs of compute capacity
+        /// and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
+        /// pricing page</a>. </para><para>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>,
         /// the <code>MaxCapacity</code> field is set automatically and becomes read-only.</para>
         /// </para>
         /// </summary>

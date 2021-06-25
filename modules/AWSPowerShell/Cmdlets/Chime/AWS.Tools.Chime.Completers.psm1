@@ -142,6 +142,20 @@ $CHM_Completers = {
             break
         }
 
+        # Amazon.Chime.MediaPipelineSinkType
+        "New-CHMMediaCapturePipeline/SinkType"
+        {
+            $v = "S3Bucket"
+            break
+        }
+
+        # Amazon.Chime.MediaPipelineSourceType
+        "New-CHMMediaCapturePipeline/SourceType"
+        {
+            $v = "ChimeSdkMeeting"
+            break
+        }
+
         # Amazon.Chime.NumberSelectionBehavior
         "New-CHMProxySession/NumberSelectionBehavior"
         {
@@ -213,6 +227,55 @@ $CHM_Completers = {
             break
         }
 
+        # Amazon.Chime.TranscribeLanguageCode
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode"
+        {
+            $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","it-IT","ja-JP","ko-KR","pt-BR","zh-CN"
+            break
+        }
+
+        # Amazon.Chime.TranscribeMedicalLanguageCode
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_LanguageCode"
+        {
+            $v = "en-US"
+            break
+        }
+
+        # Amazon.Chime.TranscribeMedicalRegion
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_Region"
+        {
+            $v = "ap-southeast-2","auto","ca-central-1","eu-west-1","us-east-1","us-east-2","us-west-2"
+            break
+        }
+
+        # Amazon.Chime.TranscribeMedicalSpecialty
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_Specialty"
+        {
+            $v = "CARDIOLOGY","NEUROLOGY","ONCOLOGY","PRIMARYCARE","RADIOLOGY","UROLOGY"
+            break
+        }
+
+        # Amazon.Chime.TranscribeMedicalType
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_Type"
+        {
+            $v = "CONVERSATION","DICTATION"
+            break
+        }
+
+        # Amazon.Chime.TranscribeRegion
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_Region"
+        {
+            $v = "ap-northeast-1","ap-northeast-2","ap-southeast-2","auto","ca-central-1","eu-central-1","eu-west-1","eu-west-2","sa-east-1","us-east-1","us-east-2","us-west-2"
+            break
+        }
+
+        # Amazon.Chime.TranscribeVocabularyFilterMethod
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterMethod"
+        {
+            $v = "mask","remove","tag"
+            break
+        }
+
         # Amazon.Chime.UserType
         {
             ($_ -eq "Get-CHMUserList/UserType") -Or
@@ -253,8 +316,17 @@ $CHM_map = @{
     "Privacy"=@("Get-CHMChannelList","New-CHMChannel")
     "ProductType"=@("Get-CHMPhoneNumberList","Get-CHMSupportedPhoneNumberCountryList","New-CHMPhoneNumberOrder","Update-CHMPhoneNumber")
     "Role"=@("New-CHMRoomMembership","Update-CHMRoomMembership")
+    "SinkType"=@("New-CHMMediaCapturePipeline")
     "SortOrder"=@("Get-CHMChannelMessageList")
+    "SourceType"=@("New-CHMMediaCapturePipeline")
     "Status"=@("Get-CHMPhoneNumberList","Get-CHMProxySessionList")
+    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_LanguageCode"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Region"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Specialty"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Type"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeSettings_Region"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterMethod"=@("Start-CHMMeetingTranscription")
     "TriggerType"=@("New-CHMSipRule")
     "Type"=@("Get-CHMChannelMembershipList","New-CHMChannelMembership","New-CHMCreateChannelMembership","Send-CHMChannelMessage")
     "UserType"=@("Get-CHMUserList","New-CHMUser","Send-CHMUserInvitation","Update-CHMUser")
@@ -332,6 +404,7 @@ $CHM_SelectMap = @{
                "New-CHMChannelBan",
                "New-CHMChannelMembership",
                "New-CHMChannelModerator",
+               "New-CHMMediaCapturePipeline",
                "New-CHMMeeting",
                "New-CHMMeetingDialOut",
                "New-CHMMeetingWithAttendee",
@@ -357,6 +430,7 @@ $CHM_SelectMap = @{
                "Remove-CHMChannelMessage",
                "Remove-CHMChannelModerator",
                "Remove-CHMEventsConfiguration",
+               "Remove-CHMMediaCapturePipeline",
                "Remove-CHMMeeting",
                "Remove-CHMPhoneNumber",
                "Remove-CHMProxySession",
@@ -394,6 +468,7 @@ $CHM_SelectMap = @{
                "Get-CHMChannelMessage",
                "Get-CHMEventsConfiguration",
                "Get-CHMGlobalSetting",
+               "Get-CHMMediaCapturePipeline",
                "Get-CHMMeeting",
                "Get-CHMMessagingSessionEndpoint",
                "Get-CHMPhoneNumber",
@@ -431,6 +506,7 @@ $CHM_SelectMap = @{
                "Get-CHMChannelModeratorList",
                "Get-CHMChannelList",
                "Get-CHMChannelsModeratedByAppInstanceUserList",
+               "Get-CHMMediaCapturePipelineList",
                "Get-CHMMeetingList",
                "Get-CHMMeetingTagList",
                "Get-CHMPhoneNumberOrderList",
@@ -467,6 +543,8 @@ $CHM_SelectMap = @{
                "Restore-CHMPhoneNumber",
                "Search-CHMAvailablePhoneNumber",
                "Send-CHMChannelMessage",
+               "Start-CHMMeetingTranscription",
+               "Stop-CHMMeetingTranscription",
                "Add-CHMAttendee",
                "Add-CHMMeeting",
                "Add-CHMResourceTag",

@@ -63,6 +63,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// StorageCapacity
     /// </para></li><li><para>
     /// WeeklyMaintenanceStartTime
+    /// </para></li></ul><para>
+    /// For Amazon FSx for NetApp ONTAP file systems, you can update the following properties:
+    /// </para><ul><li><para>
+    /// AutomaticBackupRetentionDays
+    /// </para></li><li><para>
+    /// DailyAutomaticBackupStartTime
+    /// </para></li><li><para>
+    /// FsxAdminPassword
+    /// </para></li><li><para>
+    /// WeeklyMaintenanceStartTime
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Update", "FSXFileSystem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -75,16 +85,37 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class UpdateFSXFileSystemCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        #region Parameter OntapConfiguration_AutomaticBackupRetentionDay
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_AutomaticBackupRetentionDays")]
+        public System.Int32? OntapConfiguration_AutomaticBackupRetentionDay { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
         /// <para>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent updates.
-        /// This string is automatically filled on your behalf when you use the AWS Command Line
-        /// Interface (AWS CLI) or an AWS SDK.</para>
+        /// This string is automatically filled on your behalf when you use the Command Line Interface
+        /// (CLI) or an Amazon Web Services SDK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_DailyAutomaticBackupStartTime
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_DailyAutomaticBackupStartTime { get; set; }
         #endregion
         
         #region Parameter FileSystemId
@@ -104,6 +135,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String FileSystemId { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_FsxAdminPassword
+        /// <summary>
+        /// <para>
+        /// <para>The ONTAP administrative password for the <code>fsxadmin</code> user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_FsxAdminPassword { get; set; }
+        #endregion
+        
         #region Parameter LustreConfiguration
         /// <summary>
         /// <para>
@@ -117,10 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
-        /// <para>Use this parameter to increase the storage capacity of an Amazon FSx file system.
-        /// Specifies the storage capacity target value, GiB, to increase the storage capacity
-        /// for the file system that you're updating. You cannot make a storage capacity increase
-        /// request if there is an existing storage capacity increase request in progress.</para><para>For Windows file systems, the storage capacity target value must be at least 10 percent
+        /// <para>Use this parameter to increase the storage capacity of an Amazon FSx for Windows File
+        /// Server or Amazon FSx for Lustre file system. Specifies the storage capacity target
+        /// value, GiB, to increase the storage capacity for the file system that you're updating.
+        /// You cannot make a storage capacity increase request if there is an existing storage
+        /// capacity increase request in progress.</para><para>For Windows file systems, the storage capacity target value must be at least 10 percent
         /// (%) greater than the current storage capacity value. In order to increase storage
         /// capacity, the file system must have at least 16 MB/s of throughput capacity.</para><para>For Lustre file systems, the storage capacity target value can be the following:</para><ul><li><para>For <code>SCRATCH_2</code> and <code>PERSISTENT_1 SSD</code> deployment types, valid
         /// values are in multiples of 2400 GiB. The value must be greater than the current storage
@@ -134,6 +176,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? StorageCapacity { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_WeeklyMaintenanceStartTime
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_WeeklyMaintenanceStartTime { get; set; }
         #endregion
         
         #region Parameter WindowsConfiguration
@@ -216,6 +268,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             #endif
             context.LustreConfiguration = this.LustreConfiguration;
+            context.OntapConfiguration_AutomaticBackupRetentionDay = this.OntapConfiguration_AutomaticBackupRetentionDay;
+            context.OntapConfiguration_DailyAutomaticBackupStartTime = this.OntapConfiguration_DailyAutomaticBackupStartTime;
+            context.OntapConfiguration_FsxAdminPassword = this.OntapConfiguration_FsxAdminPassword;
+            context.OntapConfiguration_WeeklyMaintenanceStartTime = this.OntapConfiguration_WeeklyMaintenanceStartTime;
             context.StorageCapacity = this.StorageCapacity;
             context.WindowsConfiguration = this.WindowsConfiguration;
             
@@ -245,6 +301,55 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.LustreConfiguration != null)
             {
                 request.LustreConfiguration = cmdletContext.LustreConfiguration;
+            }
+            
+             // populate OntapConfiguration
+            var requestOntapConfigurationIsNull = true;
+            request.OntapConfiguration = new Amazon.FSx.Model.UpdateFileSystemOntapConfiguration();
+            System.Int32? requestOntapConfiguration_ontapConfiguration_AutomaticBackupRetentionDay = null;
+            if (cmdletContext.OntapConfiguration_AutomaticBackupRetentionDay != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_AutomaticBackupRetentionDay = cmdletContext.OntapConfiguration_AutomaticBackupRetentionDay.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_AutomaticBackupRetentionDay != null)
+            {
+                request.OntapConfiguration.AutomaticBackupRetentionDays = requestOntapConfiguration_ontapConfiguration_AutomaticBackupRetentionDay.Value;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_DailyAutomaticBackupStartTime = null;
+            if (cmdletContext.OntapConfiguration_DailyAutomaticBackupStartTime != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_DailyAutomaticBackupStartTime = cmdletContext.OntapConfiguration_DailyAutomaticBackupStartTime;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_DailyAutomaticBackupStartTime != null)
+            {
+                request.OntapConfiguration.DailyAutomaticBackupStartTime = requestOntapConfiguration_ontapConfiguration_DailyAutomaticBackupStartTime;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_FsxAdminPassword = null;
+            if (cmdletContext.OntapConfiguration_FsxAdminPassword != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_FsxAdminPassword = cmdletContext.OntapConfiguration_FsxAdminPassword;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_FsxAdminPassword != null)
+            {
+                request.OntapConfiguration.FsxAdminPassword = requestOntapConfiguration_ontapConfiguration_FsxAdminPassword;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_WeeklyMaintenanceStartTime = null;
+            if (cmdletContext.OntapConfiguration_WeeklyMaintenanceStartTime != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_WeeklyMaintenanceStartTime = cmdletContext.OntapConfiguration_WeeklyMaintenanceStartTime;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_WeeklyMaintenanceStartTime != null)
+            {
+                request.OntapConfiguration.WeeklyMaintenanceStartTime = requestOntapConfiguration_ontapConfiguration_WeeklyMaintenanceStartTime;
+                requestOntapConfigurationIsNull = false;
+            }
+             // determine if request.OntapConfiguration should be set to null
+            if (requestOntapConfigurationIsNull)
+            {
+                request.OntapConfiguration = null;
             }
             if (cmdletContext.StorageCapacity != null)
             {
@@ -318,6 +423,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String ClientRequestToken { get; set; }
             public System.String FileSystemId { get; set; }
             public Amazon.FSx.Model.UpdateFileSystemLustreConfiguration LustreConfiguration { get; set; }
+            public System.Int32? OntapConfiguration_AutomaticBackupRetentionDay { get; set; }
+            public System.String OntapConfiguration_DailyAutomaticBackupStartTime { get; set; }
+            public System.String OntapConfiguration_FsxAdminPassword { get; set; }
+            public System.String OntapConfiguration_WeeklyMaintenanceStartTime { get; set; }
             public System.Int32? StorageCapacity { get; set; }
             public Amazon.FSx.Model.UpdateFileSystemWindowsConfiguration WindowsConfiguration { get; set; }
             public System.Func<Amazon.FSx.Model.UpdateFileSystemResponse, UpdateFSXFileSystemCmdlet, object> Select { get; set; } =

@@ -28,8 +28,8 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Describes the permissions that the owner of an image has granted to other AWS accounts
-    /// for an image.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the permissions that the owner of an image has granted to other Amazon Web
+    /// Services accounts for an image.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WKSWorkspaceImagePermission")]
     [OutputType("Amazon.WorkSpaces.Model.DescribeWorkspaceImagePermissionsResponse")]

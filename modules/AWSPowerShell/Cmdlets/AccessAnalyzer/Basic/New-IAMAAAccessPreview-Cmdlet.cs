@@ -28,8 +28,8 @@ using Amazon.AccessAnalyzer.Model;
 namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
-    /// Creates an access preview that allows you to preview Access Analyzer findings for
-    /// your resource before deploying resource permissions.
+    /// Creates an access preview that allows you to preview IAM Access Analyzer findings
+    /// for your resource before deploying resource permissions.
     /// </summary>
     [Cmdlet("New", "IAMAAAccessPreview", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
     /// Enable or disable email sending for messages that use a particular configuration set
-    /// in a specific AWS Region.
+    /// in a specific Amazon Web Services Region.
     /// </summary>
     [Cmdlet("Write", "SES2ConfigurationSetSendingOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set that you want to enable or disable email sending
-        /// for.</para>
+        /// <para>The name of the configuration set to enable or disable email sending for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

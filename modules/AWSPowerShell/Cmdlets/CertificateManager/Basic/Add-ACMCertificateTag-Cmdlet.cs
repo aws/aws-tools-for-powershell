@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
     /// Adds one or more tags to an ACM certificate. Tags are labels that you can use to identify
-    /// and organize your AWS resources. Each tag consists of a <code>key</code> and an optional
-    /// <code>value</code>. You specify the certificate on input by its Amazon Resource Name
-    /// (ARN). You specify the tag by using a key-value pair. 
+    /// and organize your Amazon Web Services resources. Each tag consists of a <code>key</code>
+    /// and an optional <code>value</code>. You specify the certificate on input by its Amazon
+    /// Resource Name (ARN). You specify the tag by using a key-value pair. 
     /// 
     ///  
     /// <para>

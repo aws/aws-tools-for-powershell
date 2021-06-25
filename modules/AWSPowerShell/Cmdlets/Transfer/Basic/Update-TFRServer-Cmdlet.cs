@@ -146,13 +146,27 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String LoggingRole { get; set; }
         #endregion
         
+        #region Parameter WorkflowDetails_OnUpload
+        /// <summary>
+        /// <para>
+        /// <para>A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Transfer.Model.WorkflowDetail[] WorkflowDetails_OnUpload { get; set; }
+        #endregion
+        
         #region Parameter ProtocolDetails_PassiveIp
         /// <summary>
         /// <para>
         /// <para> Indicates passive mode, for FTP and FTPS protocols. Enter a single dotted-quad IPv4
         /// address, such as the external IP address of a firewall, router, or load balancer.
         /// For example: </para><para><code> aws transfer update-server --protocol-details PassiveIp=<i>0.0.0.0</i></code></para><para>Replace <code><i>0.0.0.0</i></code> in the example above with the actual IP address
-        /// you want to use.</para>
+        /// you want to use.</para><note><para> If you change the <code>PassiveIp</code> value, you must stop and then restart your
+        /// Transfer server for the change to take effect. For details on using Passive IP (PASV)
+        /// in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring
+        /// your FTPS server behind a firewall or NAT with Amazon Web Services Transfer Family</a>.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,6 +371,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 WriteWarning("You are passing $null as a value for parameter ServerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.WorkflowDetails_OnUpload != null)
+            {
+                context.WorkflowDetails_OnUpload = new List<Amazon.Transfer.Model.WorkflowDetail>(this.WorkflowDetails_OnUpload);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -519,6 +537,25 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 request.ServerId = cmdletContext.ServerId;
             }
             
+             // populate WorkflowDetails
+            var requestWorkflowDetailsIsNull = true;
+            request.WorkflowDetails = new Amazon.Transfer.Model.WorkflowDetails();
+            List<Amazon.Transfer.Model.WorkflowDetail> requestWorkflowDetails_workflowDetails_OnUpload = null;
+            if (cmdletContext.WorkflowDetails_OnUpload != null)
+            {
+                requestWorkflowDetails_workflowDetails_OnUpload = cmdletContext.WorkflowDetails_OnUpload;
+            }
+            if (requestWorkflowDetails_workflowDetails_OnUpload != null)
+            {
+                request.WorkflowDetails.OnUpload = requestWorkflowDetails_workflowDetails_OnUpload;
+                requestWorkflowDetailsIsNull = false;
+            }
+             // determine if request.WorkflowDetails should be set to null
+            if (requestWorkflowDetailsIsNull)
+            {
+                request.WorkflowDetails = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -595,6 +632,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public List<System.String> Protocol { get; set; }
             public System.String SecurityPolicyName { get; set; }
             public System.String ServerId { get; set; }
+            public List<Amazon.Transfer.Model.WorkflowDetail> WorkflowDetails_OnUpload { get; set; }
             public System.Func<Amazon.Transfer.Model.UpdateServerResponse, UpdateTFRServerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ServerId;
         }

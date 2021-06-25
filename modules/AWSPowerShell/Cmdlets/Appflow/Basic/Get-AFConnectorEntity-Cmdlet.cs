@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para> The name of the connector profile. The name is unique for each <code>ConnectorProfile</code>
-        /// in the AWS account. </para>
+        /// in the Amazon Web Services account. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

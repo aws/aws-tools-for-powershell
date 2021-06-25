@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     /// Creates a permission set within a specified SSO instance.
     /// 
     ///  <note><para>
-    /// To grant users and groups access to AWS account resources, use <code><a>CreateAccountAssignment</a></code>.
+    /// To grant users and groups access to Amazon Web Services account resources, use <code><a>CreateAccountAssignment</a></code>.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "SSOADMNPermissionSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <para>
         /// <para>The ARN of the SSO instance under which the operation will be executed. For more information
         /// about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-        /// Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services
+        /// General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

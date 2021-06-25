@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// For services using the blue/green (<code>CODE_DEPLOY</code>) deployment controller,
     /// only the desired count, deployment configuration, task placement constraints and strategies,
     /// and health check grace period can be updated using this API. If the network configuration,
-    /// platform version, or task definition need to be updated, a new AWS CodeDeploy deployment
+    /// platform version, or task definition need to be updated, a new CodeDeploy deployment
     /// should be created. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a>
-    /// in the <i>AWS CodeDeploy API Reference</i>.
+    /// in the <i>CodeDeploy API Reference</i>.
     /// </para><para>
     /// For services using an external deployment controller, you can update only the desired
     /// count, task placement constraints and strategies, and health check grace period using
@@ -162,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// a cluster. Only capacity providers with an <code>ACTIVE</code> or <code>UPDATING</code>
         /// status can be used.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
         /// must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a>
-        /// API operation.</para><para>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
-        /// <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
-        /// available to all accounts and only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
+        /// API operation.</para><para>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or <code>FARGATE_SPOT</code>
+        /// capacity providers. The Fargate capacity providers are available to all accounts and
+        /// only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
         /// available capacity providers for a cluster after the cluster is created.</para>
         /// </para>
         /// </summary>
@@ -335,9 +335,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The platform version on which your tasks in the service are running. A platform version
         /// is only specified for tasks using the Fargate launch type. If a platform version is
         /// not specified, the <code>LATEST</code> platform version is used by default. For more
-        /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
-        /// Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service Developer
-        /// Guide</i>.</para>
+        /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
+        /// Platform Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

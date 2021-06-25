@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Account_AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID for the account.</para>
+        /// <para>The Amazon Web Services account ID for the account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

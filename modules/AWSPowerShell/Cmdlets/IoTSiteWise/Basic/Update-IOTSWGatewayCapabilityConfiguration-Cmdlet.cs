@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// Updates a gateway capability configuration or defines a new capability configuration.
     /// Each gateway capability defines data sources for a gateway. A capability configuration
     /// can contain multiple data source configurations. If you define OPC-UA sources for
-    /// a gateway in the AWS IoT SiteWise console, all of your OPC-UA sources are stored in
-    /// one capability configuration. To list all capability configurations for a gateway,
-    /// use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html">DescribeGateway</a>.
+    /// a gateway in the IoT SiteWise console, all of your OPC-UA sources are stored in one
+    /// capability configuration. To list all capability configurations for a gateway, use
+    /// <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html">DescribeGateway</a>.
     /// </summary>
     [Cmdlet("Update", "IOTSWGatewayCapabilityConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSiteWise.Model.UpdateGatewayCapabilityConfigurationResponse")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>
         /// <para>The JSON document that defines the configuration for the gateway capability. For more
         /// information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli">Configuring
-        /// data sources (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</para>
+        /// data sources (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The namespace of the gateway capability configuration to be updated. For example,
-        /// if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability
+        /// if you configure OPC-UA sources from the IoT SiteWise console, your OPC-UA capability
         /// configuration has the namespace <code>iotsitewise:opcuacollector:version</code>, where
         /// <code>version</code> is a number such as <code>1</code>.</para>
         /// </para>

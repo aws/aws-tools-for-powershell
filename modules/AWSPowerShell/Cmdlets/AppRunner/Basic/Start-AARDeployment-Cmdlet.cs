@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
     /// Initiate a manual deployment of the latest commit in a source code repository or the
-    /// latest image in a source image repository to an AWS App Runner service.
+    /// latest image in a source image repository to an App Runner service.
     /// 
     ///  
     /// <para>

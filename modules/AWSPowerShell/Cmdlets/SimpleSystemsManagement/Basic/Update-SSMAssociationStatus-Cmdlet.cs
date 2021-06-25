@@ -28,7 +28,15 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Updates the status of the Systems Manager document associated with the specified instance.
+    /// Updates the status of the Amazon Web Services Systems Manager document (SSM document)
+    /// associated with the specified instance.
+    /// 
+    ///  
+    /// <para><code>UpdateAssociationStatus</code> is primarily used by the Amazon Web Services
+    /// Systems Manager Agent (SSM Agent) to report status updates about your associations
+    /// and is only used for associations created with the <code>InstanceId</code> legacy
+    /// parameter.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "SSMAssociationStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
@@ -69,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance.</para>
+        /// <para>The instance ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the Systems Manager document.</para>
+        /// <para>The name of the SSM document.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

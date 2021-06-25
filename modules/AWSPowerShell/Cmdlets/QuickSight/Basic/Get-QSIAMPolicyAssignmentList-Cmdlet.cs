@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists IAM policy assignments in the current Amazon QuickSight account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists IAMpolicy assignments in the current Amazon QuickSight account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSIAMPolicyAssignmentList")]
     [OutputType("Amazon.QuickSight.Model.IAMPolicyAssignmentSummary")]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that contains these IAM policy assignments.</para>
+        /// <para>The ID of the Amazon Web Services account that contains these IAMpolicy assignments.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

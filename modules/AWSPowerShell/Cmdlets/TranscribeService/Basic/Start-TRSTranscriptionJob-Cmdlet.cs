@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// execution limit is exceeded. When the <code>AllowDeferredExecution</code> field is
         /// true, jobs are queued and executed when the number of executing jobs falls below the
         /// concurrent execution limit. If the field is false, Amazon Transcribe returns a <code>LimitExceededException</code>
-        /// exception.</para><para>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
+        /// exception.</para><para>Note that job queuing is enabled by default for call analytics jobs.</para><para>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
         /// <code>DataAccessRoleArn</code> field.</para>
         /// </para>
         /// </summary>
@@ -83,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String JobExecutionSettings_DataAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter Subtitles_Format
+        /// <summary>
+        /// <para>
+        /// <para>Specify the output format for your subtitle file.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Subtitles_Formats")]
+        public System.String[] Subtitles_Format { get; set; }
+        #endregion
+        
         #region Parameter IdentifyLanguage
         /// <summary>
         /// <para>
@@ -95,11 +106,22 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.Boolean? IdentifyLanguage { get; set; }
         #endregion
         
+        #region Parameter KMSEncryptionContext
+        /// <summary>
+        /// <para>
+        /// <para>A map of plain text, non-secret key:value pairs, known as encryption context pairs,
+        /// that provide an added layer of security for your data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable KMSEncryptionContext { get; set; }
+        #endregion
+        
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
         /// <para>The language code for the language used in the input media file.</para><para>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must
-        /// be encoded at a sample rate of 16000 Hz or higher.</para>
+        /// be encoded at a sample rate of 16,000 Hz or higher.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>An object containing a list of languages that might be present in your collection
         /// of audio files. Automatic language identification chooses a language that best matches
-        /// the source audio from that list.</para>
+        /// the source audio from that list.</para><para>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must
+        /// be encoded at a sample rate of 16,000 Hz or higher.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The S3 object location of the input media file. The URI must be in the same region
-        /// as the API endpoint that you are calling. The general form is:</para><para>For example:</para><para>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// as the API endpoint that you are calling. The general form is:</para><para>For example:</para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
         /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -204,10 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// transcript's location still appears in the <code>TranscriptFileUri</code>. The S3
         /// bucket must have permissions that allow Amazon Transcribe to put files in the bucket.
         /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions
-        /// Required for IAM User Roles</a>.</para><para>You can specify an AWS Key Management Service (KMS) key to encrypt the output of your
-        /// transcription using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don't
-        /// specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side
-        /// encryption of transcripts that are placed in your S3 bucket.</para><para>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a
+        /// Required for IAM User Roles</a>.</para><para>You can specify an Amazon Web Services Key Management Service (KMS) key to encrypt
+        /// the output of your transcription using the <code>OutputEncryptionKMSKeyId</code> parameter.
+        /// If you don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for
+        /// server-side encryption of transcripts that are placed in your S3 bucket.</para><para>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a
         /// pre-signed URL, a shareable URL that provides secure access to your transcription,
         /// and returns it in the <code>TranscriptFileUri</code> field. Use this URL to download
         /// the transcription.</para>
@@ -220,11 +243,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputEncryptionKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to
-        /// encrypt the output of the transcription job. The user calling the <code>StartTranscriptionJob</code>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Key Management Service (KMS)
+        /// key used to encrypt the output of the transcription job. The user calling the <code>StartTranscriptionJob</code>
         /// operation must have permission to use the specified KMS key.</para><para>You can use either of the following to identify a KMS key in the current account:</para><ul><li><para>KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>KMS Key Alias: "alias/ExampleAlias"</para></li></ul><para>You can use either of the following to identify a KMS key in the current account or
         /// another account:</para><ul><li><para>Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"</para></li></ul><para>If you don't specify an encryption key, the output of the transcription job is encrypted
-        /// with the default Amazon S3 key (SSE-S3). </para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
+        /// with the default Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
         /// in the <code>OutputBucketName</code> parameter.</para>
         /// </para>
         /// </summary>
@@ -248,6 +271,17 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OutputKey { get; set; }
+        #endregion
+        
+        #region Parameter Media_RedactedMediaFileUri
+        /// <summary>
+        /// <para>
+        /// <para> The S3 object location for your redacted output media file. This is only supported
+        /// for call analytics jobs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Media_RedactedMediaFileUri { get; set; }
         #endregion
         
         #region Parameter ContentRedaction_RedactionOutput
@@ -304,13 +338,24 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.Boolean? Settings_ShowSpeakerLabel { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Add tags to an Amazon Transcribe transcription job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.TranscribeService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TranscriptionJobName
         /// <summary>
         /// <para>
         /// <para>The name of the job. You can't use the strings "<code>.</code>" or "<code>..</code>"
-        /// by themselves as the job name. The name must also be unique within an AWS account.
-        /// If you try to create a transcription job with the same name as a previous transcription
-        /// job, you get a <code>ConflictException</code> error.</para>
+        /// by themselves as the job name. The name must also be unique within an Amazon Web Services
+        /// account. If you try to create a transcription job with the same name as a previous
+        /// transcription job, you get a <code>ConflictException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -427,12 +472,21 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             context.IdentifyLanguage = this.IdentifyLanguage;
             context.JobExecutionSettings_AllowDeferredExecution = this.JobExecutionSettings_AllowDeferredExecution;
             context.JobExecutionSettings_DataAccessRoleArn = this.JobExecutionSettings_DataAccessRoleArn;
+            if (this.KMSEncryptionContext != null)
+            {
+                context.KMSEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.KMSEncryptionContext.Keys)
+                {
+                    context.KMSEncryptionContext.Add((String)hashKey, (String)(this.KMSEncryptionContext[hashKey]));
+                }
+            }
             context.LanguageCode = this.LanguageCode;
             if (this.LanguageOption != null)
             {
                 context.LanguageOption = new List<System.String>(this.LanguageOption);
             }
             context.Media_MediaFileUri = this.Media_MediaFileUri;
+            context.Media_RedactedMediaFileUri = this.Media_RedactedMediaFileUri;
             context.MediaFormat = this.MediaFormat;
             context.MediaSampleRateHertz = this.MediaSampleRateHertz;
             context.ModelSettings_LanguageModelName = this.ModelSettings_LanguageModelName;
@@ -447,6 +501,14 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             context.Settings_VocabularyFilterMethod = this.Settings_VocabularyFilterMethod;
             context.Settings_VocabularyFilterName = this.Settings_VocabularyFilterName;
             context.Settings_VocabularyName = this.Settings_VocabularyName;
+            if (this.Subtitles_Format != null)
+            {
+                context.Subtitles_Format = new List<System.String>(this.Subtitles_Format);
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.TranscribeService.Model.Tag>(this.Tag);
+            }
             context.TranscriptionJobName = this.TranscriptionJobName;
             #if MODULAR
             if (this.TranscriptionJobName == null && ParameterWasBound(nameof(this.TranscriptionJobName)))
@@ -532,6 +594,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             {
                 request.JobExecutionSettings = null;
             }
+            if (cmdletContext.KMSEncryptionContext != null)
+            {
+                request.KMSEncryptionContext = cmdletContext.KMSEncryptionContext;
+            }
             if (cmdletContext.LanguageCode != null)
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
@@ -552,6 +618,16 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestMedia_media_MediaFileUri != null)
             {
                 request.Media.MediaFileUri = requestMedia_media_MediaFileUri;
+                requestMediaIsNull = false;
+            }
+            System.String requestMedia_media_RedactedMediaFileUri = null;
+            if (cmdletContext.Media_RedactedMediaFileUri != null)
+            {
+                requestMedia_media_RedactedMediaFileUri = cmdletContext.Media_RedactedMediaFileUri;
+            }
+            if (requestMedia_media_RedactedMediaFileUri != null)
+            {
+                request.Media.RedactedMediaFileUri = requestMedia_media_RedactedMediaFileUri;
                 requestMediaIsNull = false;
             }
              // determine if request.Media should be set to null
@@ -687,6 +763,29 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             {
                 request.Settings = null;
             }
+            
+             // populate Subtitles
+            var requestSubtitlesIsNull = true;
+            request.Subtitles = new Amazon.TranscribeService.Model.Subtitles();
+            List<System.String> requestSubtitles_subtitles_Format = null;
+            if (cmdletContext.Subtitles_Format != null)
+            {
+                requestSubtitles_subtitles_Format = cmdletContext.Subtitles_Format;
+            }
+            if (requestSubtitles_subtitles_Format != null)
+            {
+                request.Subtitles.Formats = requestSubtitles_subtitles_Format;
+                requestSubtitlesIsNull = false;
+            }
+             // determine if request.Subtitles should be set to null
+            if (requestSubtitlesIsNull)
+            {
+                request.Subtitles = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.TranscriptionJobName != null)
             {
                 request.TranscriptionJobName = cmdletContext.TranscriptionJobName;
@@ -757,9 +856,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.Boolean? IdentifyLanguage { get; set; }
             public System.Boolean? JobExecutionSettings_AllowDeferredExecution { get; set; }
             public System.String JobExecutionSettings_DataAccessRoleArn { get; set; }
+            public Dictionary<System.String, System.String> KMSEncryptionContext { get; set; }
             public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
             public List<System.String> LanguageOption { get; set; }
             public System.String Media_MediaFileUri { get; set; }
+            public System.String Media_RedactedMediaFileUri { get; set; }
             public Amazon.TranscribeService.MediaFormat MediaFormat { get; set; }
             public System.Int32? MediaSampleRateHertz { get; set; }
             public System.String ModelSettings_LanguageModelName { get; set; }
@@ -774,6 +875,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public Amazon.TranscribeService.VocabularyFilterMethod Settings_VocabularyFilterMethod { get; set; }
             public System.String Settings_VocabularyFilterName { get; set; }
             public System.String Settings_VocabularyName { get; set; }
+            public List<System.String> Subtitles_Format { get; set; }
+            public List<Amazon.TranscribeService.Model.Tag> Tag { get; set; }
             public System.String TranscriptionJobName { get; set; }
             public System.Func<Amazon.TranscribeService.Model.StartTranscriptionJobResponse, StartTRSTranscriptionJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TranscriptionJob;

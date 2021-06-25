@@ -28,8 +28,8 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Used by an AWS Lambda function to deliver evaluation results to AWS Config. This action
-    /// is required in every AWS Lambda function that is invoked by an AWS Config rule.
+    /// Used by an Lambda function to deliver evaluation results to Config. This action is
+    /// required in every Lambda function that is invoked by an Config rule.
     /// </summary>
     [Cmdlet("Write", "CFGEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ConfigService.Model.Evaluation")]
@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Evaluation
         /// <summary>
         /// <para>
-        /// <para>The assessments that the AWS Lambda function performs. Each evaluation identifies
-        /// an AWS resource and indicates whether it complies with the AWS Config rule that invokes
-        /// the AWS Lambda function.</para>
+        /// <para>The assessments that the Lambda function performs. Each evaluation identifies an Amazon
+        /// Web Services resource and indicates whether it complies with the Config rule that
+        /// invokes the Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResultToken
         /// <summary>
         /// <para>
-        /// <para>An encrypted token that associates an evaluation with an AWS Config rule. Identifies
-        /// the rule and the event that triggered the evaluation.</para>
+        /// <para>An encrypted token that associates an evaluation with an Config rule. Identifies the
+        /// rule and the event that triggered the evaluation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Use this parameter to specify a test run for <code>PutEvaluations</code>. You can
-        /// verify whether your AWS Lambda function will deliver evaluation results to AWS Config.
-        /// No updates occur to your existing evaluations, and evaluation results are not sent
-        /// to AWS Config.</para><note><para>When <code>TestMode</code> is <code>true</code>, <code>PutEvaluations</code> doesn't
+        /// verify whether your Lambda function will deliver evaluation results to Config. No
+        /// updates occur to your existing evaluations, and evaluation results are not sent to
+        /// Config.</para><note><para>When <code>TestMode</code> is <code>true</code>, <code>PutEvaluations</code> doesn't
         /// require a valid value for the <code>ResultToken</code> parameter, but the value cannot
         /// be null.</para></note>
         /// </para>

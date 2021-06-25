@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</para></li><li><para><code>fixed-price</code> - The purchase price of the Reserved Instance (for example,
         /// 9800.0).</para></li><li><para><code>instance-type</code> - The instance type that is covered by the reservation.</para></li><li><para><code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance
         /// Marketplace offerings. When this filter is not used, which is the default behavior,
-        /// all offerings from both AWS and the Reserved Instance Marketplace are listed.</para></li><li><para><code>product-description</code> - The Reserved Instance product platform description.
+        /// all offerings from both Amazon Web Services and the Reserved Instance Marketplace
+        /// are listed.</para></li><li><para><code>product-description</code> - The Reserved Instance product platform description.
         /// Instances that include <code>(Amazon VPC)</code> in the product platform description
         /// will only be displayed to EC2-Classic account holders and are for use with Amazon
         /// VPC. (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE

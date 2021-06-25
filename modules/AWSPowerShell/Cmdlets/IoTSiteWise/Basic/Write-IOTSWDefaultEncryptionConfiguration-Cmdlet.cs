@@ -28,9 +28,9 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Sets the default encryption configuration for the AWS account. For more information,
-    /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key
-    /// management</a> in the <i>AWS IoT SiteWise User Guide</i>.
+    /// Sets the default encryption configuration for the Amazon Web Services account. For
+    /// more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key
+    /// management</a> in the <i>IoT SiteWise User Guide</i>.
     /// </summary>
     [Cmdlet("Write", "IOTSWDefaultEncryptionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSiteWise.Model.PutDefaultEncryptionConfigurationResponse")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Key ID of the customer managed customer master key (CMK) used for AWS KMS encryption.
+        /// <para>The Key ID of the customer managed customer master key (CMK) used for KMS encryption.
         /// This is required if you use <code>KMS_BASED_ENCRYPTION</code>.</para>
         /// </para>
         /// </summary>

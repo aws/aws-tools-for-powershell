@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Deletes an assessment report from an assessment in AWS Audit Manager.
+    /// Deletes an assessment report from an assessment in Audit Manager.
     /// </summary>
     [Cmdlet("Remove", "AUDMAssessmentReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

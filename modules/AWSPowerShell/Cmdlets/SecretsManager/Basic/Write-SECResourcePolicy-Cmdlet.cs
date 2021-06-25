@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// <code>Resources</code> element. You can also use a combination of both identity-based
     /// and resource-based policies. The affected users and roles receive the permissions
     /// that are permitted by all of the relevant policies. For more information, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html">Using
-    /// Resource-Based Policies for AWS Secrets Manager</a>. For the complete description
-    /// of the AWS policy syntax and grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
+    /// Resource-Based Policies for Amazon Web Services Secrets Manager</a>. For the complete
+    /// description of the Amazon Web Services policy syntax and grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
     /// JSON Policy Reference</a> in the <i>IAM User Guide</i>.
     /// 
     ///  
@@ -74,11 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter ResourcePolicy
         /// <summary>
         /// <para>
-        /// <para>A JSON-formatted string constructed according to the grammar and syntax for an AWS
-        /// resource-based policy. The policy in the string identifies who can access or manage
-        /// this secret and its versions. For information on how to format a JSON parameter for
-        /// the various command line tool environments, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
-        /// JSON for Parameters</a> in the <i>AWS CLI User Guide</i>.</para>
+        /// <para>A JSON-formatted string constructed according to the grammar and syntax for an Amazon
+        /// Web Services resource-based policy. The policy in the string identifies who can access
+        /// or manage this secret and its versions. For information on how to format a JSON parameter
+        /// for the various command line tool environments, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
+        /// JSON for Parameters</a> in the <i>CLI User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

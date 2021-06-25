@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupSelection_IamRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role that AWS Backup uses to authenticate when backing up the target
+        /// <para>The ARN of the IAM role that Backup uses to authenticate when backing up the target
         /// resource; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</para>
         /// </para>
         /// </summary>

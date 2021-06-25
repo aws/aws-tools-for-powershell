@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The ID of the Data Catalog in which the metadata database resides. If none is provided,
-        /// the AWS account ID is used by default.</para>
+        /// the Amazon Web Services account ID is used by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

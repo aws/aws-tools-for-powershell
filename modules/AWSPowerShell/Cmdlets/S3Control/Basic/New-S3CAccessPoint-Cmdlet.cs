@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID for the owner of the bucket for which you want to create an access
-        /// point.</para>
+        /// <para>The Amazon Web Services account ID for the owner of the bucket for which you want
+        /// to create an access point.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The name of the bucket that you want to associate this access point with.</para><para>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify
-        /// the name and the x-amz-outpost-id as well.</para><para>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must specify
-        /// the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/bucket/&lt;my-bucket-name&gt;</code>.
+        /// the name and the x-amz-outpost-id as well.</para><para>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and
+        /// CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/bucket/&lt;my-bucket-name&gt;</code>.
         /// For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code>
         /// owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the
         /// URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>.
@@ -161,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>Specifies whether Amazon S3 should restrict public bucket policies for buckets in
         /// this account. Setting this element to <code>TRUE</code> restricts access to buckets
-        /// with public policies to only AWS service principals and authorized users within this
-        /// account.</para><para>Enabling this setting doesn't affect previously stored bucket policies, except that
+        /// with public policies to only Amazon Web Service principals and authorized users within
+        /// this account.</para><para>Enabling this setting doesn't affect previously stored bucket policies, except that
         /// public and cross-account access within any public bucket policy, including non-public
         /// delegation to specific accounts, is blocked.</para><para>This is not supported for Amazon S3 on Outposts.</para>
         /// </para>

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter AssociatedGatewayOwnerAccount
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that owns the virtual private gateway or transit gateway.</para>
+        /// <para>The ID of the account that owns the virtual private gateway or transit gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <summary>
         /// <para>
         /// <para>Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.</para><para>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed
-        /// Prefixes</a> in the <i>AWS Direct Connect User Guide</i>.</para>
+        /// Prefixes</a> in the <i>Direct Connect User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

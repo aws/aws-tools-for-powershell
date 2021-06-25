@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Command
         /// <summary>
         /// <para>
-        /// <para>The <code>JobCommand</code> that executes this job.</para>
+        /// <para>The <code>JobCommand</code> that runs this job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The default arguments for this job.</para><para>You can specify arguments here that your own job-execution script consumes, as well
-        /// as arguments that AWS Glue itself consumes.</para><para>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
-        /// AWS Glue APIs in Python</a> topic in the developer guide.</para><para>For information about the key-value pairs that AWS Glue consumes to set up your job,
-        /// see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
-        /// Parameters Used by AWS Glue</a> topic in the developer guide.</para>
+        /// as arguments that Glue itself consumes.</para><para>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+        /// Glue APIs in Python</a> topic in the developer guide.</para><para>For information about the key-value pairs that Glue consumes to set up your job, see
+        /// the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+        /// Parameters Used by Glue</a> topic in the developer guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter GlueVersion
         /// <summary>
         /// <para>
-        /// <para>Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
-        /// The Python version indicates the version supported for jobs of type Spark. </para><para>For more information about the available AWS Glue versions and corresponding Spark
-        /// and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue
+        /// <para>Glue version determines the versions of Apache Spark and Python that Glue supports.
+        /// The Python version indicates the version supported for jobs of type Spark. </para><para>For more information about the available Glue versions and corresponding Spark and
+        /// Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue
         /// version</a> in the developer guide.</para><para>Jobs that are created without specifying a Glue version default to Glue 0.9.</para>
         /// </para>
         /// </summary>
@@ -118,15 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter MaxCapacity
         /// <summary>
         /// <para>
-        /// <para>The number of AWS Glue data processing units (DPUs) that can be allocated when this
-        /// job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs
-        /// of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
-        /// Glue pricing page</a>.</para><para>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</para><para>The value that can be allocated for <code>MaxCapacity</code> depends on whether you
+        /// <para>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of
+        /// Glue data processing units (DPUs) that can be allocated when this job runs. A DPU
+        /// is a relative measure of processing power that consists of 4 vCPUs of compute capacity
+        /// and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
+        /// pricing page</a>.</para><para>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</para><para>The value that can be allocated for <code>MaxCapacity</code> depends on whether you
         /// are running a Python shell job or an Apache Spark ETL job:</para><ul><li><para>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"),
         /// you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</para></li><li><para>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl")
         /// or Apache Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"),
         /// you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot
-        /// have a fractional DPU allocation.</para></li></ul>
+        /// have a fractional DPU allocation.</para></li></ul><para>For Glue version 2.0 jobs, you cannot instead specify a <code>Maximum capacity</code>.
+        /// Instead, you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,8 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The tags to use with this job. You may use tags to limit access to the job. For more
-        /// information about tags in AWS Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS
-        /// Tags in AWS Glue</a> in the developer guide.</para>
+        /// information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon
+        /// Web Services Tags in Glue</a> in the developer guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -282,10 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter AllocatedCapacity
         /// <summary>
         /// <para>
-        /// <para>This parameter is deprecated. Use <code>MaxCapacity</code> instead.</para><para>The number of AWS Glue data processing units (DPUs) to allocate to this Job. You can
-        /// allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing
-        /// power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
-        /// see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.</para>
+        /// <para>This parameter is deprecated. Use <code>MaxCapacity</code> instead.</para><para>The number of Glue data processing units (DPUs) to allocate to this Job. You can allocate
+        /// from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power
+        /// that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
+        /// see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing page</a>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

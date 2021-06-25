@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>An array of strings that lists the unique identifiers for the custom data identifiers
-        /// to retrieve information about.</para>
+        /// <para>An array of custom data identifier IDs, one for each custom data identifier to retrieve
+        /// information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

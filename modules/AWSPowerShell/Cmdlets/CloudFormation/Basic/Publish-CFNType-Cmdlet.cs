@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The version number to assign to this version of the extension.</para><para>Use the following format, and adhere to semantic versioning when assigning a version
         /// number to your extension: </para><para><code>MAJOR.MINOR.PATCH</code></para><para>For more information, see <a href="https://semver.org/">Semantic Versioning 2.0.0</a>.</para><para>If you do not specify a version number, CloudFormation increments the version number
-        /// by one minor version release.</para>
+        /// by one minor version release.</para><para>The first time you publish a type, CloudFormation sets the version number to <code>1.0.0</code>,
+        /// regardless of the value you specify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

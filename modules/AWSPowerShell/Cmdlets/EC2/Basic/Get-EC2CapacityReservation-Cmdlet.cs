@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes one or more of your Capacity Reservations. The results describe only the
-    /// Capacity Reservations in the AWS Region that you're currently using.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Capacity Reservations in the Amazon Web Services Region that you're currently using.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2CapacityReservation")]
     [OutputType("Amazon.EC2.Model.CapacityReservation")]
@@ -56,11 +56,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>instance-type</code> - The type of instance for which the Capacity Reservation
-        /// reserves capacity.</para></li><li><para><code>owner-id</code> - The ID of the AWS account that owns the Capacity Reservation.</para></li><li><para><code>availability-zone-id</code> - The Availability Zone ID of the Capacity Reservation.</para></li><li><para><code>instance-platform</code> - The type of operating system for which the Capacity
+        /// reserves capacity.</para></li><li><para><code>owner-id</code> - The ID of the Amazon Web Services account that owns the Capacity
+        /// Reservation.</para></li><li><para><code>availability-zone-id</code> - The Availability Zone ID of the Capacity Reservation.</para></li><li><para><code>instance-platform</code> - The type of operating system for which the Capacity
         /// Reservation reserves capacity.</para></li><li><para><code>availability-zone</code> - The Availability Zone ID of the Capacity Reservation.</para></li><li><para><code>tenancy</code> - Indicates the tenancy of the Capacity Reservation. A Capacity
         /// Reservation can have one of the following tenancy settings:</para><ul><li><para><code>default</code> - The Capacity Reservation is created on hardware that is shared
-        /// with other AWS accounts.</para></li><li><para><code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware
-        /// that is dedicated to a single AWS account.</para></li></ul></li><li><para><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost on which
+        /// with other Amazon Web Services accounts.</para></li><li><para><code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware
+        /// that is dedicated to a single Amazon Web Services account.</para></li></ul></li><li><para><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost on which
         /// the Capacity Reservation was created.</para></li><li><para><code>state</code> - The current state of the Capacity Reservation. A Capacity Reservation
         /// can be in one of the following states:</para><ul><li><para><code>active</code>- The Capacity Reservation is active and the capacity is available
         /// for your use.</para></li><li><para><code>expired</code> - The Capacity Reservation expired automatically at the date

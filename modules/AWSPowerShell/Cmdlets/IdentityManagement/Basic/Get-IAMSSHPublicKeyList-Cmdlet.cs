@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// The SSH public keys returned by this operation are used only for authenticating the
-    /// IAM user to an AWS CodeCommit repository. For more information about using SSH keys
-    /// to authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set
-    /// up AWS CodeCommit for SSH connections</a> in the <i>AWS CodeCommit User Guide</i>.
+    /// IAM user to an CodeCommit repository. For more information about using SSH keys to
+    /// authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set
+    /// up CodeCommit for SSH connections</a> in the <i>CodeCommit User Guide</i>.
     /// </para><para>
     /// Although each user is limited to a small number of keys, you can still paginate the
     /// results using the <code>MaxItems</code> and <code>Marker</code> parameters.
@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The name of the IAM user to list SSH public keys for. If none is specified, the <code>UserName</code>
-        /// field is determined implicitly based on the AWS access key used to sign the request.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// field is determined implicitly based on the Amazon Web Services access key used to
+        /// sign the request.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
         /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>

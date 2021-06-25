@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
     /// Creates or updates a metric stream. Metric streams can automatically stream CloudWatch
-    /// metrics to AWS destinations including Amazon S3 and to many third-party solutions.
+    /// metrics to Amazon Web Services destinations including Amazon S3 and to many third-party
+    /// solutions.
     /// 
     ///  
     /// <para>
@@ -172,7 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>A list of key-value pairs to associate with the metric stream. You can associate as
         /// many as 50 tags with a metric stream.</para><para>Tags can help you organize and categorize your resources. You can also use them to
         /// scope user permissions by granting a user permission to access or change only resources
-        /// with certain tag values.</para>
+        /// with certain tag values.</para><para>You can use this parameter only when you are creating a new metric stream. If you
+        /// are using this operation to update an existing metric stream, any tags you specify
+        /// in this parameter are ignored. To change the tags of an existing metric stream, use
+        /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>
+        /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

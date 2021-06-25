@@ -28,8 +28,8 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Lists the stored queries for a single AWS account and a single AWS Region. The default
-    /// is 100.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the stored queries for a single Amazon Web Services account and a single Amazon
+    /// Web Services Region. The default is 100.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGStoredQueryList")]
     [OutputType("Amazon.ConfigService.Model.StoredQueryMetadata")]

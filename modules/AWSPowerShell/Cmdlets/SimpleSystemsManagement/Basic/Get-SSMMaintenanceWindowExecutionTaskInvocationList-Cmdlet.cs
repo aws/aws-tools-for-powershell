@@ -45,8 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Optional filters used to scope down the returned task invocations. The supported filter
-        /// key is STATUS with the corresponding values PENDING, IN_PROGRESS, SUCCESS, FAILED,
-        /// TIMED_OUT, CANCELLING, and CANCELLED.</para>
+        /// key is <code>STATUS</code> with the corresponding values <code>PENDING</code>, <code>IN_PROGRESS</code>,
+        /// <code>SUCCESS</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, <code>CANCELLING</code>,
+        /// and <code>CANCELLED</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     ///  <note><para>
     /// The Secrets Manager console uses only the <code>SecretString</code> field. To add
     /// binary data to a secret with the <code>SecretBinary</code> field you must use the
-    /// AWS CLI or one of the AWS SDKs.
+    /// Amazon Web Services CLI or one of the Amazon Web Services SDKs.
     /// </para></note><ul><li><para>
     /// If this operation creates the first version for the secret then Secrets Manager automatically
     /// attaches the staging label <code>AWSCURRENT</code> to the new version.
@@ -56,30 +56,32 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para></li></ul><note><ul><li><para>
     /// If you call an operation to encrypt or decrypt the <code>SecretString</code> or <code>SecretBinary</code>
     /// for a secret in the same account as the calling user and that secret doesn't specify
-    /// a AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer
-    /// master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key doesn't
-    /// already exist in your account then Secrets Manager creates it for you automatically.
-    /// All users and roles in the same AWS account automatically have access to use the default
-    /// CMK. Note that if an Secrets Manager API call results in AWS creating the account's
-    /// AWS-managed CMK, it can result in a one-time significant delay in returning the result.
+    /// a Amazon Web Services KMS encryption key, Secrets Manager uses the account's default
+    /// Amazon Web Services managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>.
+    /// If this key doesn't already exist in your account then Secrets Manager creates it
+    /// for you automatically. All users and roles in the same Amazon Web Services account
+    /// automatically have access to use the default CMK. Note that if an Secrets Manager
+    /// API call results in Amazon Web Services creating the account's Amazon Web Services-managed
+    /// CMK, it can result in a one-time significant delay in returning the result.
     /// </para></li><li><para>
-    /// If the secret resides in a different AWS account from the credentials calling an API
-    /// that requires encryption or decryption of the secret value then you must create and
-    /// use a custom AWS KMS CMK because you can't access the default CMK for the account
-    /// using credentials from a different AWS account. Store the ARN of the CMK in the secret
-    /// when you create the secret or when you update it by including it in the <code>KMSKeyId</code>.
-    /// If you call an API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
-    /// using credentials from a different account then the AWS KMS key policy must grant
-    /// cross-account access to that other account's user or role for both the kms:GenerateDataKey
+    /// If the secret resides in a different Amazon Web Services account from the credentials
+    /// calling an API that requires encryption or decryption of the secret value then you
+    /// must create and use a custom Amazon Web Services KMS CMK because you can't access
+    /// the default CMK for the account using credentials from a different Amazon Web Services
+    /// account. Store the ARN of the CMK in the secret when you create the secret or when
+    /// you update it by including it in the <code>KMSKeyId</code>. If you call an API that
+    /// must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code> using
+    /// credentials from a different account then the Amazon Web Services KMS key policy must
+    /// grant cross-account access to that other account's user or role for both the kms:GenerateDataKey
     /// and kms:Decrypt operations.
     /// </para></li></ul></note><para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
     /// </para><ul><li><para>
     /// secretsmanager:PutSecretValue
     /// </para></li><li><para>
-    /// kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt
-    /// the secret. You do not need this permission to use the account's default AWS managed
-    /// CMK for Secrets Manager.
+    /// kms:GenerateDataKey - needed only if you use a customer-managed Amazon Web Services
+    /// KMS key to encrypt the secret. You do not need this permission to use the account's
+    /// default Amazon Web Services managed CMK for Secrets Manager.
     /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
     /// To retrieve the encrypted value you store in the version of a secret, use <a>GetSecretValue</a>.
     /// </para></li><li><para>
@@ -102,11 +104,12 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specifies a unique identifier for the new version of the secret. </para><note><para>If you use the AWS CLI or one of the AWS SDK to call this operation, then you can
-        /// leave this parameter empty. The CLI or SDK generates a random UUID for you and includes
-        /// that in the request. If you don't use the SDK and instead generate a raw HTTP request
-        /// to the Secrets Manager service endpoint, then you must generate a <code>ClientRequestToken</code>
-        /// yourself for new versions and include that value in the request. </para></note><para>This value helps ensure idempotency. Secrets Manager uses this value to prevent the
+        /// <para>(Optional) Specifies a unique identifier for the new version of the secret. </para><note><para>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDK to call
+        /// this operation, then you can leave this parameter empty. The CLI or SDK generates
+        /// a random UUID for you and includes that in the request. If you don't use the SDK and
+        /// instead generate a raw HTTP request to the Secrets Manager service endpoint, then
+        /// you must generate a <code>ClientRequestToken</code> yourself for new versions and
+        /// include that value in the request. </para></note><para>This value helps ensure idempotency. Secrets Manager uses this value to prevent the
         /// accidental creation of duplicate versions if there are failures and retries during
         /// the Lambda rotation function's processing. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
         /// value to ensure uniqueness within the specified secret. </para><ul><li><para>If the <code>ClientRequestToken</code> value isn't already associated with a version
@@ -181,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// that the default Lambda rotation function knows how to parse.</para><para>For storing multiple values, we recommend that you use a JSON text string argument
         /// and specify key/value pairs. For information on how to format a JSON parameter for
         /// the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
-        /// JSON for Parameters</a> in the <i>AWS CLI User Guide</i>.</para><para> For example:</para><para><code>[{"username":"bob"},{"password":"abc123xyz456"}]</code></para><para>If your command-line tool or SDK requires quotation marks around the parameter, you
+        /// JSON for Parameters</a> in the <i>CLI User Guide</i>.</para><para> For example:</para><para><code>[{"username":"bob"},{"password":"abc123xyz456"}]</code></para><para>If your command-line tool or SDK requires quotation marks around the parameter, you
         /// should use single quotes to avoid confusion with the double quotes required in the
         /// JSON text.</para>
         /// </para>

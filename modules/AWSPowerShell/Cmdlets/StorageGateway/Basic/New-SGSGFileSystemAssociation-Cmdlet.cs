@@ -28,10 +28,9 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Associate an Amazon FSx file system with the Amazon FSx file gateway. After the association
+    /// Associate an Amazon FSx file system with the FSx File Gateway. After the association
     /// process is complete, the file shares on the Amazon FSx file system are available for
-    /// access through the gateway. This operation only supports the Amazon FSx file gateway
-    /// type.
+    /// access through the gateway. This operation only supports the FSx File Gateway type.
     /// </summary>
     [Cmdlet("New", "SGSGFileSystemAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -59,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of time
         /// since the last refresh after which access to the directory would cause the file gateway
         /// to first refresh that directory's contents from the Amazon S3 bucket or Amazon FSx
-        /// file system. The TTL duration is in seconds.</para><para>Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)</para>
+        /// file system. The TTL duration is in seconds.</para><para>Valid Values:0, 300 to 2,592,000 seconds (5 minutes to 30 days)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,11 +83,22 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String GatewayARN { get; set; }
         #endregion
         
+        #region Parameter EndpointNetworkConfiguration_IpAddress
+        /// <summary>
+        /// <para>
+        /// <para>A list of gateway IP addresses on which the associated Amazon FSx file system is available.</para><note><para>If multiple file systems are associated with this gateway, this field is required.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EndpointNetworkConfiguration_IpAddresses")]
+        public System.String[] EndpointNetworkConfiguration_IpAddress { get; set; }
+        #endregion
+        
         #region Parameter LocationARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the
-        /// Amazon FSx file gateway.</para>
+        /// FSx File Gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique string value that you supply that is used by the file gateway to ensure idempotent
-        /// file system association creation.</para>
+        /// <para>A unique string value that you supply that is used by the FSx File Gateway to ensure
+        /// idempotent file system association creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -238,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 WriteWarning("You are passing $null as a value for parameter ClientToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.EndpointNetworkConfiguration_IpAddress != null)
+            {
+                context.EndpointNetworkConfiguration_IpAddress = new List<System.String>(this.EndpointNetworkConfiguration_IpAddress);
+            }
             context.GatewayARN = this.GatewayARN;
             #if MODULAR
             if (this.GatewayARN == null && ParameterWasBound(nameof(this.GatewayARN)))
@@ -312,6 +326,25 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate EndpointNetworkConfiguration
+            var requestEndpointNetworkConfigurationIsNull = true;
+            request.EndpointNetworkConfiguration = new Amazon.StorageGateway.Model.EndpointNetworkConfiguration();
+            List<System.String> requestEndpointNetworkConfiguration_endpointNetworkConfiguration_IpAddress = null;
+            if (cmdletContext.EndpointNetworkConfiguration_IpAddress != null)
+            {
+                requestEndpointNetworkConfiguration_endpointNetworkConfiguration_IpAddress = cmdletContext.EndpointNetworkConfiguration_IpAddress;
+            }
+            if (requestEndpointNetworkConfiguration_endpointNetworkConfiguration_IpAddress != null)
+            {
+                request.EndpointNetworkConfiguration.IpAddresses = requestEndpointNetworkConfiguration_endpointNetworkConfiguration_IpAddress;
+                requestEndpointNetworkConfigurationIsNull = false;
+            }
+             // determine if request.EndpointNetworkConfiguration should be set to null
+            if (requestEndpointNetworkConfigurationIsNull)
+            {
+                request.EndpointNetworkConfiguration = null;
             }
             if (cmdletContext.GatewayARN != null)
             {
@@ -397,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String AuditDestinationARN { get; set; }
             public System.Int32? CacheAttributes_CacheStaleTimeoutInSecond { get; set; }
             public System.String ClientToken { get; set; }
+            public List<System.String> EndpointNetworkConfiguration_IpAddress { get; set; }
             public System.String GatewayARN { get; set; }
             public System.String LocationARN { get; set; }
             public System.String Password { get; set; }

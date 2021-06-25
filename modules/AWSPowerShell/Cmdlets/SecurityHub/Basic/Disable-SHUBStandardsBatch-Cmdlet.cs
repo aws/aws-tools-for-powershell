@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security
-    /// Standards</a> section of the <i>AWS Security Hub User Guide</i>.
+    /// Standards</a> section of the <i>Security Hub User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "SHUBStandardsBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

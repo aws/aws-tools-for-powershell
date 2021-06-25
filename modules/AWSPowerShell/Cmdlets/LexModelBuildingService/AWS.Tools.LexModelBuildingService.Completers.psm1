@@ -101,7 +101,7 @@ $LMB_Completers = {
             ($_ -eq "Write-LMBBot/Locale")
         }
         {
-            $v = "de-DE","en-AU","en-GB","en-US","es-419","es-ES","es-US","fr-CA","fr-FR","it-IT","ja-JP"
+            $v = "de-DE","en-AU","en-GB","en-IN","en-US","es-419","es-ES","es-US","fr-CA","fr-FR","it-IT","ja-JP","ko-KR"
             break
         }
 
@@ -109,6 +109,27 @@ $LMB_Completers = {
         "Start-LMBImport/MergeStrategy"
         {
             $v = "FAIL_ON_CONFLICT","OVERWRITE_LATEST"
+            break
+        }
+
+        # Amazon.LexModelBuildingService.MigrationSortAttribute
+        "Get-LMBMigrationSummaryList/SortByAttribute"
+        {
+            $v = "MIGRATION_DATE_TIME","V1_BOT_NAME"
+            break
+        }
+
+        # Amazon.LexModelBuildingService.MigrationStatus
+        "Get-LMBMigrationSummaryList/MigrationStatusEquals"
+        {
+            $v = "COMPLETED","FAILED","IN_PROGRESS"
+            break
+        }
+
+        # Amazon.LexModelBuildingService.MigrationStrategy
+        "Start-LMBMigration/MigrationStrategy"
+        {
+            $v = "CREATE_NEW","UPDATE_EXISTING"
             break
         }
 
@@ -136,6 +157,13 @@ $LMB_Completers = {
             break
         }
 
+        # Amazon.LexModelBuildingService.SortOrder
+        "Get-LMBMigrationSummaryList/SortByOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
         # Amazon.LexModelBuildingService.StatusType
         "Get-LMBUtterancesView/StatusType"
         {
@@ -156,8 +184,12 @@ $LMB_map = @{
     "FulfillmentActivity_Type"=@("Write-LMBIntent")
     "Locale"=@("Get-LMBBuiltinIntentList","Get-LMBBuiltinSlotType","Write-LMBBot")
     "MergeStrategy"=@("Start-LMBImport")
+    "MigrationStatusEquals"=@("Get-LMBMigrationSummaryList")
+    "MigrationStrategy"=@("Start-LMBMigration")
     "ProcessBehavior"=@("Write-LMBBot")
     "ResourceType"=@("Get-LMBExport","Start-LMBImport")
+    "SortByAttribute"=@("Get-LMBMigrationSummaryList")
+    "SortByOrder"=@("Get-LMBMigrationSummaryList")
     "StatusType"=@("Get-LMBUtterancesView")
     "ValueSelectionStrategy"=@("Write-LMBSlotType")
 }
@@ -239,6 +271,8 @@ $LMB_SelectMap = @{
                "Get-LMBIntent",
                "Get-LMBIntentList",
                "Get-LMBIntentVersion",
+               "Get-LMBMigration",
+               "Get-LMBMigrationSummaryList",
                "Get-LMBSlotType",
                "Get-LMBSlotTypeList",
                "Get-LMBSlotTypeVersionList",
@@ -249,6 +283,7 @@ $LMB_SelectMap = @{
                "Write-LMBIntent",
                "Write-LMBSlotType",
                "Start-LMBImport",
+               "Start-LMBMigration",
                "Add-LMBResourceTag",
                "Remove-LMBResourceTag")
 }

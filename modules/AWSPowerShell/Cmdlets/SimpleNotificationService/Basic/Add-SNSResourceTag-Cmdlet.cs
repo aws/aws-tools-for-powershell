@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// A new tag with a key identical to that of an existing tag overwrites the existing
     /// tag.
     /// </para></li><li><para>
-    /// Tagging actions are limited to 10 TPS per AWS account, per AWS region. If your application
+    /// Tagging actions are limited to 10 TPS per account, per Region. If your application
     /// requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical
     /// support request</a>.
     /// </para></li></ul>

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// <summary>
     /// Deletes the entire schema set, including the schema set and all of its versions. To
     /// get the status of the delete operation, you can call <code>GetSchema</code> API after
-    /// the asynchronous call. Deleting a registry will disable all online operations for
+    /// the asynchronous call. Deleting a registry will deactivate all online operations for
     /// the schema, such as the <code>GetSchemaByDefinition</code>, and <code>RegisterSchemaVersion</code>
     /// APIs.
     /// </summary>

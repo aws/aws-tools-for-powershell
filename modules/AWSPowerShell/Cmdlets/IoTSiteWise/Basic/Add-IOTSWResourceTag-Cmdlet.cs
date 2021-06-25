@@ -28,8 +28,8 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Adds tags to an AWS IoT SiteWise resource. If a tag already exists for the resource,
-    /// this operation updates the tag's value.
+    /// Adds tags to an IoT SiteWise resource. If a tag already exists for the resource, this
+    /// operation updates the tag's value.
     /// </summary>
     [Cmdlet("Add", "IOTSWResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>
         /// <para>A list of key-value pairs that contain metadata for the resource. For more information,
         /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging
-        /// your AWS IoT SiteWise resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</para>
+        /// your IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

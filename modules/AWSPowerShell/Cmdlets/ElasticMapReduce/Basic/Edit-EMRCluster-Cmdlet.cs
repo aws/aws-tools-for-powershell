@@ -62,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The number of steps that can be executed concurrently. You can specify a minimum of
-        /// 1 step and a maximum of 256 steps. </para>
+        /// 1 step and a maximum of 256 steps. We recommend that you do not change this parameter
+        /// while steps are running or the <code>ActionOnFailure</code> setting may not behave
+        /// as expected. For more information see <a>Step$ActionOnFailure</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

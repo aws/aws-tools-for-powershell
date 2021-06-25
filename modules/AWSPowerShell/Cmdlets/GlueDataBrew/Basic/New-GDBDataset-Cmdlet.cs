@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter DatabaseInputDefinition_TempDirectory_Bucket
         /// <summary>
         /// <para>
-        /// <para>The S3 bucket name.</para>
+        /// <para>The Amazon S3 bucket name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter DataCatalogInputDefinition_TempDirectory_Bucket
         /// <summary>
         /// <para>
-        /// <para>The S3 bucket name.</para>
+        /// <para>The Amazon S3 bucket name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter S3InputDefinition_Bucket
         /// <summary>
         /// <para>
-        /// <para>The S3 bucket name.</para>
+        /// <para>The Amazon S3 bucket name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter DataCatalogInputDefinition_CatalogId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the AWS account that holds the Data Catalog that stores the
-        /// data.</para>
+        /// <para>The unique identifier of the Amazon Web Services account that holds the Data Catalog
+        /// that stores the data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter Format
         /// <summary>
         /// <para>
-        /// <para>The file format of a dataset that is created from an S3 file or folder.</para>
+        /// <para>The file format of a dataset that is created from an Amazon S3 file or folder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter DatabaseInputDefinition_GlueConnectionName
         /// <summary>
         /// <para>
-        /// <para>The AWS Glue Connection that stores the connection information for the target database.</para>
+        /// <para>The Glue Connection that stores the connection information for the target database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter FilesLimit_MaxFile
         /// <summary>
         /// <para>
-        /// <para>The number of S3 files to select.</para>
+        /// <para>The number of Amazon S3 files to select.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,8 +254,9 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter FilesLimit_Order
         /// <summary>
         /// <para>
-        /// <para>A criteria to use for S3 files sorting before their selection. By default uses DESCENDING
-        /// order, i.e. most recent files are selected first. Anotherpossible value is ASCENDING.</para>
+        /// <para>A criteria to use for Amazon S3 files sorting before their selection. By default uses
+        /// DESCENDING order, i.e. most recent files are selected first. Anotherpossible value
+        /// is ASCENDING.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,8 +268,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter FilesLimit_OrderedBy
         /// <summary>
         /// <para>
-        /// <para>A criteria to use for S3 files sorting before their selection. By default uses LAST_MODIFIED_DATE
-        /// as a sorting criteria. Currently it's the only allowed value.</para>
+        /// <para>A criteria to use for Amazon S3 files sorting before their selection. By default uses
+        /// LAST_MODIFIED_DATE as a sorting criteria. Currently it's the only allowed value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,8 +281,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter PathOptions_Parameter
         /// <summary>
         /// <para>
-        /// <para>A structure that maps names of parameters used in the S3 path of a dataset to their
-        /// definitions.</para>
+        /// <para>A structure that maps names of parameters used in the Amazon S3 path of a dataset
+        /// to their definitions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

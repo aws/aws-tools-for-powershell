@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The names of organization conformance packs for which you want status details. If
-        /// you do not specify any names, AWS Config returns details for all your organization
-        /// conformance packs. </para>
+        /// you do not specify any names, Config returns details for all your organization conformance
+        /// packs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of OrganizationConformancePackStatuses returned on each page. If
-        /// you do no specify a number, AWS Config uses the default. The default is 100. </para>
+        /// you do no specify a number, Config uses the default. The default is 100. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

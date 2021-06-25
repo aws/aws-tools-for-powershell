@@ -31,15 +31,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Retrieves a service last accessed report that was created using the <code>GenerateServiceLastAccessedDetails</code>
     /// operation. You can use the <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code>
     /// to retrieve the status of your report job. When the report is complete, you can retrieve
-    /// the generated report. The report includes a list of AWS services that the resource
-    /// (user, group, role, or managed policy) can access.
+    /// the generated report. The report includes a list of Amazon Web Services services that
+    /// the resource (user, group, role, or managed policy) can access.
     /// 
     ///  <note><para>
     /// Service last accessed data does not use other policy types when determining whether
     /// a resource could access a service. These other policy types include resource-based
-    /// policies, access control lists, AWS Organizations policies, IAM permissions boundaries,
-    /// and AWS STS assume role policies. It only applies permissions policy logic. For more
-    /// about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating
+    /// policies, access control lists, Organizations policies, IAM permissions boundaries,
+    /// and STS assume role policies. It only applies permissions policy logic. For more about
+    /// the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating
     /// policies</a> in the <i>IAM User Guide</i>.
     /// </para></note><para>
     /// For each service that the resource could access using permissions policies, the operation

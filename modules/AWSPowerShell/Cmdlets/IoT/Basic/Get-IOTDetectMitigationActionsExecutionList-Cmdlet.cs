@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Lists mitigation actions executions for a Device Defender ML Detect Security Profile.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDetectMitigationActionsExecutions</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTDetectMitigationActionsExecutionList")]
     [OutputType("Amazon.IoT.Model.DetectMitigationActionExecution")]

@@ -28,8 +28,9 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns the count of compliant and noncompliant conformance packs across all AWS Accounts
-    /// and AWS Regions in an aggregator. You can filter based on AWS Account ID or AWS Region.
+    /// Returns the count of compliant and noncompliant conformance packs across all Amazon
+    /// Web Services accounts and Amazon Web Services Regions in an aggregator. You can filter
+    /// based on Amazon Web Services account ID or Amazon Web Services Region.
     /// 
     ///  <note><para>
     /// The results can return an empty result page, but if you have a nextToken, the results
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_AccountId
         /// <summary>
         /// <para>
-        /// <para>The 12-digit AWS account ID of the source account.</para>
+        /// <para>The 12-digit Amazon Web Services account ID of the source account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_AwsRegion
         /// <summary>
         /// <para>
-        /// <para>The source AWS Region from where the data is aggregated.</para>
+        /// <para>The source Amazon Web Services Region from where the data is aggregated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter GroupByKey
         /// <summary>
         /// <para>
-        /// <para>Groups the result based on AWS Account ID or AWS Region.</para>
+        /// <para>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of results returned on each page. The default is maximum. If you
-        /// specify 0, AWS Config uses the default.</para>
+        /// specify 0, Config uses the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

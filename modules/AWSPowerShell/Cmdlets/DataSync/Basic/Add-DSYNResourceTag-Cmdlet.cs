@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Applies a key-value pair to an AWS resource.
+    /// Applies a key-value pair to an Amazon Web Services resource.
     /// </summary>
     [Cmdlet("Add", "DSYNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -86,9 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter S3DataSource_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Key Management Service (KMS) key that
-        /// Amazon Personalize uses to encrypt or decrypt the input and output files of a batch
-        /// inference job.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key that Amazon
+        /// Personalize uses to encrypt or decrypt the input and output files of a batch inference
+        /// job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter S3DataDestination_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Key Management Service (KMS) key that
-        /// Amazon Personalize uses to encrypt or decrypt the input and output files of a batch
-        /// inference job.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key that Amazon
+        /// Personalize uses to encrypt or decrypt the input and output files of a batch inference
+        /// job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

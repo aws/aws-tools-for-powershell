@@ -146,7 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter LogType
         /// <summary>
         /// <para>
-        /// <para>Set to <code>Tail</code> to include the execution log in the response.</para>
+        /// <para>Set to <code>Tail</code> to include the execution log in the response. Applies to
+        /// synchronously invoked functions only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]

@@ -121,7 +121,7 @@ $ELB2_Completers = {
         # Amazon.ElasticLoadBalancingV2.TargetTypeEnum
         "New-ELB2TargetGroup/TargetType"
         {
-            $v = "instance","ip","lambda"
+            $v = "alb","instance","ip","lambda"
             break
         }
 

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
     /// Creates a repository. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon
-    /// ECR Repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
+    /// ECR repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
     /// </summary>
     [Cmdlet("New", "ECRRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.Repository")]
@@ -45,15 +45,15 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>The encryption type to use.</para><para>If you use the <code>KMS</code> encryption type, the contents of the repository will
-        /// be encrypted using server-side encryption with customer master keys (CMKs) stored
-        /// in AWS KMS. When you use AWS KMS to encrypt your data, you can either use the default
-        /// AWS managed CMK for Amazon ECR, or specify your own CMK, which you already created.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting
-        /// Data Using Server-Side Encryption with CMKs Stored in AWS Key Management Service (SSE-KMS)</a>
-        /// in the <i>Amazon Simple Storage Service Console Developer Guide.</i>.</para><para>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
+        /// be encrypted using server-side encryption with Key Management Service key stored in
+        /// KMS. When you use KMS to encrypt your data, you can either use the default Amazon
+        /// Web Services managed KMS key for Amazon ECR, or specify your own KMS key, which you
+        /// already created. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting
+        /// data using server-side encryption with an KMS key stored in Key Management Service
+        /// (SSE-KMS)</a> in the <i>Amazon Simple Storage Service Console Developer Guide.</i>.</para><para>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
         /// with Amazon S3-managed encryption keys which encrypts the images in the repository
         /// using an AES-256 encryption algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Protecting
-        /// Data Using Server-Side Encryption with Amazon S3-Managed Encryption Keys (SSE-S3)</a>
+        /// data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)</a>
         /// in the <i>Amazon Simple Storage Service Console Developer Guide.</i>.</para>
         /// </para>
         /// </summary>
@@ -79,14 +79,25 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter EncryptionConfiguration_KmsKey
         /// <summary>
         /// <para>
-        /// <para>If you use the <code>KMS</code> encryption type, specify the CMK to use for encryption.
-        /// The alias, key ID, or full ARN of the CMK can be specified. The key must exist in
-        /// the same Region as the repository. If no key is specified, the default AWS managed
-        /// CMK for Amazon ECR will be used.</para>
+        /// <para>If you use the <code>KMS</code> encryption type, specify the KMS key to use for encryption.
+        /// The alias, key ID, or full ARN of the KMS key can be specified. The key must exist
+        /// in the same Region as the repository. If no key is specified, the default Amazon Web
+        /// Services managed KMS key for Amazon ECR will be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EncryptionConfiguration_KmsKey { get; set; }
+        #endregion
+        
+        #region Parameter RegistryId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS account ID associated with the registry to create the repository. If you do
+        /// not specify a registry, the default registry is assumed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RegistryId { get; set; }
         #endregion
         
         #region Parameter RepositoryName
@@ -114,7 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <para>The setting that determines whether images are scanned after being pushed to a repository.
         /// If set to <code>true</code>, images will be scanned after being pushed. If this parameter
         /// is not specified, it will default to <code>false</code> and images will not be scanned
-        /// unless a scan is manually started with the <a>StartImageScan</a> API.</para>
+        /// unless a scan is manually started with the <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_StartImageScan.html">API_StartImageScan</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             context.EncryptionConfiguration_KmsKey = this.EncryptionConfiguration_KmsKey;
             context.ImageScanningConfiguration_ScanOnPush = this.ImageScanningConfiguration_ScanOnPush;
             context.ImageTagMutability = this.ImageTagMutability;
+            context.RegistryId = this.RegistryId;
             context.RepositoryName = this.RepositoryName;
             #if MODULAR
             if (this.RepositoryName == null && ParameterWasBound(nameof(this.RepositoryName)))
@@ -279,6 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             {
                 request.ImageTagMutability = cmdletContext.ImageTagMutability;
             }
+            if (cmdletContext.RegistryId != null)
+            {
+                request.RegistryId = cmdletContext.RegistryId;
+            }
             if (cmdletContext.RepositoryName != null)
             {
                 request.RepositoryName = cmdletContext.RepositoryName;
@@ -352,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             public System.String EncryptionConfiguration_KmsKey { get; set; }
             public System.Boolean? ImageScanningConfiguration_ScanOnPush { get; set; }
             public Amazon.ECR.ImageTagMutability ImageTagMutability { get; set; }
+            public System.String RegistryId { get; set; }
             public System.String RepositoryName { get; set; }
             public List<Amazon.ECR.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ECR.Model.CreateRepositoryResponse, NewECRRepositoryCmdlet, object> Select { get; set; } =

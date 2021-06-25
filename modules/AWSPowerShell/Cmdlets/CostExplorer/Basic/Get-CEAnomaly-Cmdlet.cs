@@ -28,8 +28,8 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Retrieves all of the cost anomalies detected on your account, during the time period
-    /// specified by the <code>DateInterval</code> object.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves all of the cost anomalies detected on your account during the time period
+    /// that's specified by the <code>DateInterval</code> object.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CEAnomaly")]
     [OutputType("Amazon.CostExplorer.Model.Anomaly")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter DateInterval_EndDate
         /// <summary>
         /// <para>
-        /// <para> The last date an anomaly was observed. </para>
+        /// <para>The last date an anomaly was observed. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter TotalImpact_EndValue
         /// <summary>
         /// <para>
-        /// <para> The upper bound dollar value used in the filter. </para>
+        /// <para>The upper bound dollar value that's used in the filter. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter TotalImpact_NumericOperator
         /// <summary>
         /// <para>
-        /// <para> The comparing value used in the filter. </para>
+        /// <para>The comparing value that's used in the filter. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter DateInterval_StartDate
         /// <summary>
         /// <para>
-        /// <para> The first date an anomaly was observed. </para>
+        /// <para>The first date an anomaly was observed. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter TotalImpact_StartValue
         /// <summary>
         /// <para>
-        /// <para> The lower bound dollar value used in the filter. </para>
+        /// <para>The lower bound dollar value that's used in the filter. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The number of entries a paginated response contains. </para>
+        /// <para>The number of entries a paginated response contains. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,8 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter NextPageToken
         /// <summary>
         /// <para>
-        /// <para> The token to retrieve the next set of results. AWS provides the token when the response
-        /// from a previous call has more results than the maximum page size. </para>
+        /// <para>The token to retrieve the next set of results. Amazon Web Services provides the token
+        /// when the response from a previous call has more results than the maximum page size.
+        /// </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -192,6 +192,16 @@ $SSM_Completers = {
             break
         }
 
+        # Amazon.SimpleSystemsManagement.MaintenanceWindowTaskCutoffBehavior
+        {
+            ($_ -eq "Register-SSMTaskWithMaintenanceWindow/CutoffBehavior") -Or
+            ($_ -eq "Update-SSMMaintenanceWindowTask/CutoffBehavior")
+        }
+        {
+            $v = "CANCEL_TASK","CONTINUE_TASK"
+            break
+        }
+
         # Amazon.SimpleSystemsManagement.MaintenanceWindowTaskType
         "Register-SSMTaskWithMaintenanceWindow/TaskType"
         {
@@ -226,7 +236,7 @@ $SSM_Completers = {
         # Amazon.SimpleSystemsManagement.OpsItemStatus
         "Update-SSMOpsItem/Status"
         {
-            $v = "Approved","Cancelled","Cancelling","ChangeCalendarOverrideApproved","ChangeCalendarOverrideRejected","CompletedWithFailure","CompletedWithSuccess","Failed","InProgress","Open","Pending","PendingApproval","PendingChangeCalendarOverride","Rejected","Resolved","RunbookInProgress","Scheduled","TimedOut"
+            $v = "Approved","Cancelled","Cancelling","ChangeCalendarOverrideApproved","ChangeCalendarOverrideRejected","Closed","CompletedWithFailure","CompletedWithSuccess","Failed","InProgress","Open","Pending","PendingApproval","PendingChangeCalendarOverride","Rejected","Resolved","RunbookInProgress","Scheduled","TimedOut"
             break
         }
 
@@ -334,6 +344,7 @@ $SSM_map = @{
     "BaselineOverride_OperatingSystem"=@("Get-SSMDeployablePatchSnapshotForInstance")
     "BaselineOverride_RejectedPatchesAction"=@("Get-SSMDeployablePatchSnapshotForInstance")
     "ComplianceSeverity"=@("New-SSMAssociation","Update-SSMAssociation")
+    "CutoffBehavior"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
     "DocumentFormat"=@("Get-SSMDocument","New-SSMDocument","Update-SSMDocument")
     "DocumentHashType"=@("Send-SSMCommand")
     "DocumentReviews_Action"=@("Update-SSMDocumentMetadata")

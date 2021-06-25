@@ -29,17 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Updates a Server Message Block (SMB) file share. This operation is only supported
-    /// for file gateways.
+    /// for S3 File Gateways.
     /// 
     ///  <note><para>
     /// To leave a file share field unchanged, set the corresponding input field to null.
     /// </para></note><important><para>
-    /// File gateways require AWS Security Token Service (AWS STS) to be activated to enable
-    /// you to create a file share. Make sure that AWS STS is activated in the AWS Region
-    /// you are creating your file gateway in. If AWS STS is not activated in this AWS Region,
-    /// activate it. For information about how to activate AWS STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
-    /// and deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management
-    /// User Guide</i>.
+    /// File gateways require Security Token Service (STS) to be activated to enable you to
+    /// create a file share. Make sure that STS is activated in the Region you are creating
+    /// your file gateway in. If STS is not activated in this Region, activate it. For information
+    /// about how to activate STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
+    /// and deactivating STS in an Region</a> in the <i>Identity and Access Management User
+    /// Guide</i>.
     /// </para><para>
     /// File gateways don't support creating hard or symbolic links on a file share.
     /// </para></important>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of time
         /// since the last refresh after which access to the directory would cause the file gateway
         /// to first refresh that directory's contents from the Amazon S3 bucket or Amazon FSx
-        /// file system. The TTL duration is in seconds.</para><para>Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)</para>
+        /// file system. The TTL duration is in seconds.</para><para>Valid Values:0, 300 to 2,592,000 seconds (5 minutes to 30 days)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter DefaultStorageClass
         /// <summary>
         /// <para>
-        /// <para>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
-        /// The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</para><para>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> | <code>S3_STANDARD_IA</code>
+        /// <para>The default storage class for objects put into an Amazon S3 bucket by the S3 File
+        /// Gateway. The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</para><para>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> | <code>S3_STANDARD_IA</code>
         /// | <code>S3_ONEZONE_IA</code></para>
         /// </para>
         /// </summary>
@@ -181,8 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS
-        /// KMS key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
+        /// key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,12 +221,23 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A value that sets the access control list (ACL) permission for objects in the S3 bucket
-        /// that a file gateway puts objects into. The default value is <code>private</code>.</para>
+        /// that a S3 File Gateway puts objects into. The default value is <code>private</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.StorageGateway.ObjectACL")]
         public Amazon.StorageGateway.ObjectACL ObjectACL { get; set; }
+        #endregion
+        
+        #region Parameter OplocksEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether opportunistic locking is enabled for the SMB file share.</para><note><para>Enabling opportunistic locking on case-sensitive shares is not recommended for workloads
+        /// that involve access to files with the same name in different case.</para></note><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OplocksEnabled { get; set; }
         #endregion
         
         #region Parameter ReadOnly
@@ -262,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>Set this value to <code>true</code> to enable access control list (ACL) on the SMB
         /// file share. Set it to <code>false</code> to map file and directory permissions to
         /// the POSIX permissions.</para><para>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using
-        /// Microsoft Windows ACLs to control access to an SMB file share</a> in the <i>AWS Storage
+        /// Microsoft Windows ACLs to control access to an SMB file share</a> in the <i>Storage
         /// Gateway User Guide</i>.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
@@ -370,6 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.KMSKey = this.KMSKey;
             context.NotificationPolicy = this.NotificationPolicy;
             context.ObjectACL = this.ObjectACL;
+            context.OplocksEnabled = this.OplocksEnabled;
             context.ReadOnly = this.ReadOnly;
             context.RequesterPay = this.RequesterPay;
             context.SMBACLEnabled = this.SMBACLEnabled;
@@ -464,6 +476,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.ObjectACL = cmdletContext.ObjectACL;
             }
+            if (cmdletContext.OplocksEnabled != null)
+            {
+                request.OplocksEnabled = cmdletContext.OplocksEnabled.Value;
+            }
             if (cmdletContext.ReadOnly != null)
             {
                 request.ReadOnly = cmdletContext.ReadOnly.Value;
@@ -555,6 +571,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String KMSKey { get; set; }
             public System.String NotificationPolicy { get; set; }
             public Amazon.StorageGateway.ObjectACL ObjectACL { get; set; }
+            public System.Boolean? OplocksEnabled { get; set; }
             public System.Boolean? ReadOnly { get; set; }
             public System.Boolean? RequesterPay { get; set; }
             public System.Boolean? SMBACLEnabled { get; set; }

@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Returns information about a fleet provisioning template version.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplateVersion</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTProvisioningTemplateVersion")]
     [OutputType("Amazon.IoT.Model.DescribeProvisioningTemplateVersionResponse")]

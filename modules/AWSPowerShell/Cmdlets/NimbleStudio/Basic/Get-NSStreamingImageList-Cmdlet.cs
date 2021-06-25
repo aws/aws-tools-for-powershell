@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
     /// 
     ///  
     /// <para>
-    /// This list will contain both images provided by AWS, as well as streaming images that
-    /// you have created in your studio.
+    /// This list will contain both images provided by Amazon Web Services, as well as streaming
+    /// images that you have created in your studio.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "NSStreamingImageList")]

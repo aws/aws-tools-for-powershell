@@ -36,9 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     ///  
     /// <para>
     /// When you use the Deliverability dashboard, you pay a monthly subscription charge,
-    /// in addition to any other fees that you accrue by using Amazon SES and other AWS services.
-    /// For more information about the features and cost of a Deliverability dashboard subscription,
-    /// see <a href="http://aws.amazon.com/ses/pricing/">Amazon SES Pricing</a>.
+    /// in addition to any other fees that you accrue by using Amazon SES and other Amazon
+    /// Web Services services. For more information about the features and cost of a Deliverability
+    /// dashboard subscription, see <a href="http://aws.amazon.com/ses/pricing/">Amazon SES
+    /// Pricing</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "SES2DeliverabilityDashboardOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

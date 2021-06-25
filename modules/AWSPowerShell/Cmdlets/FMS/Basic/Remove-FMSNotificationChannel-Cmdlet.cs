@@ -28,8 +28,8 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Deletes an AWS Firewall Manager association with the IAM role and the Amazon Simple
-    /// Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.
+    /// Deletes an Firewall Manager association with the IAM role and the Amazon Simple Notification
+    /// Service (SNS) topic that is used to record Firewall Manager SNS logs.
     /// </summary>
     [Cmdlet("Remove", "FMSNotificationChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

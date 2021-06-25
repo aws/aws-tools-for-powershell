@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>[Self-managed permissions] The names of one or more AWS accounts that you want to
-        /// create stack instances in the specified Region(s) for.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
+        /// <para>[Self-managed permissions] The names of one or more Amazon Web Services accounts that
+        /// you want to create stack instances in the specified Region(s) for.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_Account
         /// <summary>
         /// <para>
-        /// <para>The names of one or more AWS accounts for which you want to deploy stack set updates.</para>
+        /// <para>The names of one or more Amazon Web Services accounts for which you want to deploy
+        /// stack set updates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_AccountsUrl
         /// <summary>
         /// <para>
-        /// <para>Returns the value of the AccountsUrl property.</para>
+        /// <para>Returns the value of the <code>AccountsUrl</code> property.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
         /// in the organization's management account or as a delegated administrator in a member
         /// account.</para><para>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
-        /// self-managed permissions.</para><ul><li><para>If you are signed in to the management account, specify <code>SELF</code>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</para><para>Your AWS account must be registered as a delegated administrator in the management
-        /// account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
-        /// a delegated administrator</a> in the <i>AWS CloudFormation User Guide</i>.</para></li></ul>
+        /// self-managed permissions.</para><ul><li><para>If you are signed in to the management account, specify <code>SELF</code>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
+        /// the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
+        /// a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,11 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter OperationId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for this stack set operation. </para><para>The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation
+        /// <para>The unique identifier for this stack set operation.</para><para>The operation ID also functions as an idempotency token, to ensure that CloudFormation
         /// performs the stack set operation only once, even if you retry the request multiple
-        /// times. You might retry stack set operation requests to ensure that AWS CloudFormation
-        /// successfully received them.</para><para>If you don't specify an operation ID, the SDK generates one automatically. </para><para>Repeating this stack set operation with a new operation ID retries all stack instances
-        /// whose status is <code>OUTDATED</code>. </para>
+        /// times. You might retry stack set operation requests to ensure that CloudFormation
+        /// successfully received them.</para><para>If you don't specify an operation ID, the SDK generates one automatically.</para><para>Repeating this stack set operation with a new operation ID retries all stack instances
+        /// whose status is <code>OUTDATED</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter OperationPreference
         /// <summary>
         /// <para>
-        /// <para>Preferences for how AWS CloudFormation performs this stack set operation.</para>
+        /// <para>Preferences for how CloudFormation performs this stack set operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,10 +135,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>A list of stack set parameters whose values you want to override in the selected stack
         /// instances.</para><para>Any overridden parameter values will be applied to all stack instances in the specified
         /// accounts and Regions. When specifying parameters and their values, be aware of how
-        /// AWS CloudFormation sets parameter values during stack instance operations:</para><ul><li><para>To override the current value for a parameter, include the parameter and specify its
-        /// value.</para></li><li><para>To leave a parameter set to its present value, you can do one of the following:</para><ul><li><para>Do not include the parameter in the list.</para></li><li><para>Include the parameter and specify <code>UsePreviousValue</code> as <code>true</code>.
-        /// (You cannot specify both a value and set <code>UsePreviousValue</code> to <code>true</code>.)</para></li></ul></li><li><para>To set all overridden parameter back to the values specified in the stack set, specify
-        /// a parameter list but do not include any parameters.</para></li><li><para>To leave all parameters set to their present values, do not specify this property
+        /// CloudFormation sets parameter values during stack instance operations:</para><ul><li><para>To override the current value for a parameter, include the parameter and specify its
+        /// value.</para></li><li><para>To leave an overridden parameter set to its present value, include the parameter and
+        /// specify <code>UsePreviousValue</code> as <code>true</code>. (You cannot specify both
+        /// a value and set <code>UsePreviousValue</code> to <code>true</code>.)</para></li><li><para>To set an overridden parameter back to the value specified in the stack set, specify
+        /// a parameter list but do not include the parameter in the list.</para></li><li><para>To leave all parameters set to their present values, do not specify this property
         /// at all.</para></li></ul><para>During stack set updates, any parameter values overridden for a stack instance are
         /// not updated, but retain their overridden value.</para><para>You can only override the parameter <i>values</i> that are specified in the stack
         /// set; to add or delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a>
@@ -153,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The names of one or more Regions where you want to create stack instances using the
-        /// specified AWS account(s). </para>
+        /// specified Amazon Web Services accounts.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

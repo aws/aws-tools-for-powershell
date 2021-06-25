@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Glue resource for the resource policy to be deleted.</para>
+        /// <para>The ARN of the Glue resource for the resource policy to be deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

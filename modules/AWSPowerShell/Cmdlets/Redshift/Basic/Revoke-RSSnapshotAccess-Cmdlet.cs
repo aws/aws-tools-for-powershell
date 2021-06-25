@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Removes the ability of the specified AWS customer account to restore the specified
+    /// Removes the ability of the specified Amazon Web Services account to restore the specified
     /// snapshot. If the account is currently restoring the snapshot, the restore will run
     /// to completion.
     /// 
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AccountWithRestoreAccess
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AWS customer account that can no longer restore the specified
+        /// <para>The identifier of the Amazon Web Services account that can no longer restore the specified
         /// snapshot.</para>
         /// </para>
         /// </summary>

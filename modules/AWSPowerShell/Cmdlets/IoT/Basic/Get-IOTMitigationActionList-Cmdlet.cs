@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Gets a list of all mitigation actions that match the specified filter criteria.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListMitigationActions</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTMitigationActionList")]
     [OutputType("Amazon.IoT.Model.MitigationActionIdentifier")]

@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NotificationConfiguration_NotificationTopicArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the SNS topic to which notifications should be published.</para>
+        /// <para>The ARN for the Amazon SNS topic to which notifications should be published.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -42,8 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter ConfigurationId
         /// <summary>
         /// <para>
-        /// The unique ID that Amazon MQ generates
-        /// for the configuration.
+        /// <para>The unique ID that Amazon MQ generates for the configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,11 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter Data
         /// <summary>
         /// <para>
-        /// Required. The base64-encoded XML configuration.
+        /// <para>Required. The base64-encoded XML configuration.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter to Base64 before supplying to the service.</para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Amazon.PowerShell.Common.Base64StringParameterConverter]
         public System.String Data { get; set; }
         #endregion
@@ -72,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The description of the configuration.
+        /// <para>The description of the configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,6 +154,12 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             }
             #endif
             context.Data = this.Data;
+            #if MODULAR
+            if (this.Data == null && ParameterWasBound(nameof(this.Data)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Data which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Description = this.Description;
             
             // allow further manipulation of loaded context prior to processing

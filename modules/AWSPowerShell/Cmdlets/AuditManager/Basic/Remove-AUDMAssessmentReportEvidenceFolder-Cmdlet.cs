@@ -28,8 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Disassociates an evidence folder from the specified assessment report in AWS Audit
-    /// Manager.
+    /// Disassociates an evidence folder from the specified assessment report in Audit Manager.
     /// </summary>
     [Cmdlet("Remove", "AUDMAssessmentReportEvidenceFolder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

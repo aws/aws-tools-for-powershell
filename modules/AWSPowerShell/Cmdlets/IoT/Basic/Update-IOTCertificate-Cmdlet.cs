@@ -32,11 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// 
     ///  
     /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCertificate</a>
+    /// action.
+    /// </para><para>
     /// Certificates must be in the ACTIVE state to authenticate devices that use a certificate
-    /// to connect to AWS IoT.
+    /// to connect to IoT.
     /// </para><para>
     /// Within a few minutes of updating a certificate from the ACTIVE state to any other
-    /// state, AWS IoT disconnects all devices that used that certificate to connect. Devices
+    /// state, IoT disconnects all devices that used that certificate to connect. Devices
     /// cannot use a certificate that is not in the ACTIVE state to reconnect.
     /// </para>
     /// </summary>
@@ -73,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>The new status.</para><para><b>Note:</b> Setting the status to PENDING_TRANSFER or PENDING_ACTIVATION will result
         /// in an exception being thrown. PENDING_TRANSFER and PENDING_ACTIVATION are statuses
-        /// used internally by AWS IoT. They are not intended for developer use.</para><para><b>Note:</b> The status value REGISTER_INACTIVE is deprecated and should not be used.</para>
+        /// used internally by IoT. They are not intended for developer use.</para><para><b>Note:</b> The status value REGISTER_INACTIVE is deprecated and should not be used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

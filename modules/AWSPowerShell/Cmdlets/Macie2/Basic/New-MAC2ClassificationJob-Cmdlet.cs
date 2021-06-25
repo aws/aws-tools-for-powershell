@@ -92,10 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter S3JobDefinition_BucketDefinition
         /// <summary>
         /// <para>
-        /// <para>An array of objects, one for each AWS account that owns specific S3 buckets to analyze.
-        /// Each object specifies the account ID for an account and one or more buckets to analyze
-        /// for that account. A job's definition can contain a bucketDefinitions array or a bucketCriteria
-        /// object, not both.</para>
+        /// <para>An array of objects, one for each Amazon Web Services account that owns specific S3
+        /// buckets to analyze. Each object specifies the account ID for an account and one or
+        /// more buckets to analyze for that account. A job's definition can contain a bucketDefinitions
+        /// array or a bucketCriteria object, not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter CustomDataIdentifierId
         /// <summary>
         /// <para>
-        /// <para>The custom data identifiers to use for data analysis and classification.</para>
+        /// <para>An array of unique identifiers, one for each custom data identifier for the job to
+        /// use when it analyzes data. To use only managed data identifiers, don't specify a value
+        /// for this property and specify a value other than NONE for the managedDataIdentifierSelector
+        /// property.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,8 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter InitialRun
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to analyze all existing, eligible objects immediately after the
-        /// job is created.</para>
+        /// <para>For a recurring job, specifies whether to analyze all existing, eligible objects immediately
+        /// after the job is created (true). To analyze only those objects that are created or
+        /// changed after you create the job and before the job's first scheduled run, set this
+        /// value to false.</para><para>If you configure the job to run only once, don't specify a value for this property.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,6 +197,39 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         public Amazon.Macie2.JobType JobType { get; set; }
         #endregion
         
+        #region Parameter ManagedDataIdentifierId
+        /// <summary>
+        /// <para>
+        /// <para>An array of unique identifiers, one for each managed data identifier for the job to
+        /// include (use) or exclude (not use) when it analyzes data. Inclusion or exclusion depends
+        /// on the managed data identifier selection type that you specify for the job (managedDataIdentifierSelector).</para><para>To retrieve a list of valid values for this property, use the ListManagedDataIdentifiers
+        /// operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManagedDataIdentifierIds")]
+        public System.String[] ManagedDataIdentifierId { get; set; }
+        #endregion
+        
+        #region Parameter ManagedDataIdentifierSelector
+        /// <summary>
+        /// <para>
+        /// <para>The selection type to apply when determining which managed data identifiers the job
+        /// uses to analyze data. Valid values are:</para><ul><li><para>ALL - Use all the managed data identifiers that Amazon Macie provides. If you specify
+        /// this value, don't specify any values for the managedDataIdentifierIds property.</para></li><li><para>EXCLUDE - Use all the managed data identifiers that Macie provides except the managed
+        /// data identifiers specified by the managedDataIdentifierIds property.</para></li><li><para>INCLUDE - Use only the managed data identifiers specified by the managedDataIdentifierIds
+        /// property.</para></li><li><para>NONE - Don't use any managed data identifiers. If you specify this value, specify
+        /// at least one custom data identifier for the job (customDataIdentifierIds) and don't
+        /// specify any values for the managedDataIdentifierIds property.</para></li></ul><para>If you don't specify a value for this property, the job uses all managed data identifiers.
+        /// If you don't specify a value for this property or you specify ALL or EXCLUDE for a
+        /// recurring job, the job also uses new managed data identifiers as they are released.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Macie2.ManagedDataIdentifierSelector")]
+        public Amazon.Macie2.ManagedDataIdentifierSelector ManagedDataIdentifierSelector { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -212,10 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter SamplingPercentage
         /// <summary>
         /// <para>
-        /// <para>The sampling depth, as a percentage, to apply when processing objects. This value
-        /// determines the percentage of eligible objects that the job analyzes. If this value
-        /// is less than 100, Amazon Macie selects the objects to analyze at random, up to the
-        /// specified percentage, and analyzes all the data in those objects.</para>
+        /// <para>The sampling depth, as a percentage, for the job to apply when processing objects.
+        /// This value determines the percentage of eligible objects that the job analyzes. If
+        /// this value is less than 100, Amazon Macie selects the objects to analyze at random,
+        /// up to the specified percentage, and analyzes all the data in those objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -300,6 +338,11 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
                 WriteWarning("You are passing $null as a value for parameter JobType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ManagedDataIdentifierId != null)
+            {
+                context.ManagedDataIdentifierId = new List<System.String>(this.ManagedDataIdentifierId);
+            }
+            context.ManagedDataIdentifierSelector = this.ManagedDataIdentifierSelector;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -374,6 +417,14 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (cmdletContext.JobType != null)
             {
                 request.JobType = cmdletContext.JobType;
+            }
+            if (cmdletContext.ManagedDataIdentifierId != null)
+            {
+                request.ManagedDataIdentifierIds = cmdletContext.ManagedDataIdentifierId;
+            }
+            if (cmdletContext.ManagedDataIdentifierSelector != null)
+            {
+                request.ManagedDataIdentifierSelector = cmdletContext.ManagedDataIdentifierSelector;
             }
             if (cmdletContext.Name != null)
             {
@@ -671,6 +722,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             public System.String Description { get; set; }
             public System.Boolean? InitialRun { get; set; }
             public Amazon.Macie2.JobType JobType { get; set; }
+            public List<System.String> ManagedDataIdentifierId { get; set; }
+            public Amazon.Macie2.ManagedDataIdentifierSelector ManagedDataIdentifierSelector { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.Macie2.Model.CriteriaForJob> S3JobDefinition_BucketCriteria_Excludes_And { get; set; }
             public List<Amazon.Macie2.Model.CriteriaForJob> S3JobDefinition_BucketCriteria_Includes_And { get; set; }

@@ -28,7 +28,7 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Lists the interconnects owned by the AWS account or only the specified interconnect.
+    /// Lists the interconnects owned by the account or only the specified interconnect.
     /// </summary>
     [Cmdlet("Get", "DCInterconnect")]
     [OutputType("Amazon.DirectConnect.Model.Interconnect")]

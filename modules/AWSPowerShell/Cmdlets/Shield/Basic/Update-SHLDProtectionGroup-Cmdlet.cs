@@ -45,12 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter Aggregation
         /// <summary>
         /// <para>
-        /// <para>Defines how AWS Shield combines resource data for the group in order to detect, mitigate,
+        /// <para>Defines how Shield combines resource data for the group in order to detect, mitigate,
         /// and report events.</para><ul><li><para>Sum - Use the total traffic across the group. This is a good choice for most cases.
         /// Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.</para></li><li><para>Mean - Use the average of the traffic across the group. This is a good choice for
         /// resources that share traffic uniformly. Examples include accelerators and load balancers.</para></li><li><para>Max - Use the highest traffic from each resource. This is useful for resources that
         /// don't share traffic and for resources that share that traffic in a non-uniform way.
-        /// Examples include CloudFront distributions and origin resources for CloudFront distributions.</para></li></ul>
+        /// Examples include Amazon CloudFront distributions and origin resources for CloudFront
+        /// distributions.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

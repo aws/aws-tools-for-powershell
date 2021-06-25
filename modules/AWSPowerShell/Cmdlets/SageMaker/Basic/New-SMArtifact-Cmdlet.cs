@@ -32,12 +32,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// a URI addressable object or data. Some examples are the S3 URI of a dataset and the
     /// ECR registry path of an image. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon
     /// SageMaker ML Lineage Tracking</a>.
-    /// 
-    ///  <note><para><code>CreateArtifact</code> can only be invoked from within an SageMaker managed
-    /// environment. This includes SageMaker training jobs, processing jobs, transform jobs,
-    /// and SageMaker notebooks. A call to <code>CreateArtifact</code> from outside one of
-    /// these environments results in an error.
-    /// </para></note>
     /// </summary>
     [Cmdlet("New", "SMArtifact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -52,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ArtifactName
         /// <summary>
         /// <para>
-        /// <para>The name of the artifact. Must be unique to your account in an AWS Region.</para>
+        /// <para>The name of the artifact. Must be unique to your account in an Amazon Web Services
+        /// Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

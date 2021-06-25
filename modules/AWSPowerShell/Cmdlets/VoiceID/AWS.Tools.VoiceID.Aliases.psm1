@@ -1,0 +1,3 @@
+﻿# VoiceID
+
+Export-ModuleMember -Alias *

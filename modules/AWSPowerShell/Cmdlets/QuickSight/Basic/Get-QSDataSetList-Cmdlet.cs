@@ -28,7 +28,8 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists all of the datasets belonging to the current AWS account in an AWS Region.
+    /// Lists all of the datasets belonging to the current Amazon Web Services account in
+    /// an Amazon Web Services Region;.
     /// 
     ///  
     /// <para>
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID.</para>
+        /// <para>The Amazon Web Services account ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

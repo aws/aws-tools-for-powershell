@@ -28,7 +28,13 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Reloads the target database table with the source data.
+    /// Reloads the target database table with the source data. 
+    /// 
+    ///  
+    /// <para>
+    /// You can only use this operation with a task in the <code>RUNNING</code> state, otherwise
+    /// the service will throw an <code>InvalidResourceStateFault</code> exception.
+    /// </para>
     /// </summary>
     [Cmdlet("Restore", "DMSTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

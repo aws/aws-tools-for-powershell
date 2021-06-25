@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// Create an AWS Proton service. An AWS Proton service is an instantiation of a service
     /// template and often includes several service instances and pipeline. For more information,
     /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html">Services</a>
-    /// in the <i>AWS Proton Administration Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a>
+    /// in the <i>AWS Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a>
     /// in the <i>AWS Proton User Guide</i>.
     /// </summary>
     [Cmdlet("New", "PROService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -86,10 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter RepositoryConnectionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the repository connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#settingSS-up-vcontrol">Set
-        /// up repository connection</a> in the <i>AWS Proton Administration Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-getting-started.html#getting-started-step1">Getting
-        /// started</a> in the <i>AWS Proton User Guide</i>. <i>Don't</i> include this parameter
-        /// if your service template <i>doesn't</i> include a service pipeline.</para>
+        /// <para>The Amazon Resource Name (ARN) of the repository connection. For more information,
+        /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol">Set
+        /// up repository connection</a> in the <i>AWS Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection">Setting
+        /// up with AWS Proton</a> in the <i>AWS Proton User Guide</i>. <i>Don't</i> include this
+        /// parameter if your service template <i>doesn't</i> include a service pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,9 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>A link to a spec file that provides inputs as defined in the service template bundle
         /// schema file. The spec file is in YAML format. Don’t include pipeline inputs in the
-        /// spec if your service template doesn’t include a service pipeline. For more information,
-        /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-svc.html.html">Create
-        /// a service</a> in the <i>AWS Proton Administration Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-create.html">Create
+        /// spec if your service template <i>doesn’t</i> include a service pipeline. For more
+        /// information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-svc.html.html">Create
+        /// a service</a> in the <i>AWS Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-create.html">Create
         /// a service</a> in the <i>AWS Proton User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -134,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>Create tags for your service. For more information, see <i>AWS Proton resources and
         /// tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS
-        /// Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
+        /// Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
         /// Proton User Guide</a>.</para>
         /// </para>
         /// </summary>

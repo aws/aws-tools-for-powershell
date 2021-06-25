@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// for <code>Type</code>, Route 53 passes <code>FullyQualifiedDomainName:Port</code>
         /// to the endpoint in the <code>Host</code> header.</para></li></ul><para>If you don't specify a value for <code>FullyQualifiedDomainName</code>, Route 53 substitutes
         /// the value of <code>IPAddress</code> in the <code>Host</code> header in each of the
-        /// preceding cases.</para><para><b>If you don't specify a value for <code>IPAddress</code></b>:</para><para>Route 53 sends a DNS request to the domain that you specify for <code>FullyQualifiedDomainName</code>
+        /// preceding cases.</para><para><b>If you don't specify a value for</b><code>IPAddress</code>:</para><para>Route 53 sends a DNS request to the domain that you specify for <code>FullyQualifiedDomainName</code>
         /// at the interval that you specify for <code>RequestInterval</code>. Using an IPv4 address
         /// that DNS returns, Route 53 then checks the health of the endpoint.</para><note><para>If you don't specify a value for <code>IPAddress</code>, Route 53 uses only IPv4 to
         /// send health checks to the endpoint. If there's no resource record set with a type
@@ -278,8 +278,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>Specify whether you want Amazon Route 53 to measure the latency between health checkers
-        /// in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs
-        /// on the <b>Health Checks</b> page in the Route 53 console.</para><important><para>You can't change the value of <code>MeasureLatency</code> after you create a health
+        /// in multiple Amazon Web Services regions and your endpoint, and to display CloudWatch
+        /// latency graphs on the <b>Health Checks</b> page in the Route 53 console.</para><important><para>You can't change the value of <code>MeasureLatency</code> after you create a health
         /// check.</para></important>
         /// </para>
         /// </summary>
@@ -371,6 +371,18 @@ namespace Amazon.PowerShell.Cmdlets.R53
         public System.String HealthCheckConfig_ResourcePath { get; set; }
         #endregion
         
+        #region Parameter HealthCheckConfig_RoutingControlArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing
+        /// control.</para><para>For more information about Route 53 Application Recovery Controller, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery.html">Route
+        /// 53 Application Recovery Controller Developer Guide.</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HealthCheckConfig_RoutingControlArn { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckConfig_SearchString
         /// <summary>
         /// <para>
@@ -406,7 +418,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <code>Healthy</code>, <code>Unhealthy</code>, or <code>LastKnownStatus</code>. </para></li><li><para><b>CALCULATED</b>: For health checks that monitor the status of other health checks,
         /// Route 53 adds up the number of health checks that Route 53 health checkers consider
         /// to be healthy and compares that number with the value of <code>HealthThreshold</code>.
-        /// </para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
+        /// </para></li><li><para><b>RECOVERY_CONTROL</b>: The health check is assocated with a Route53 Application
+        /// Recovery Controller routing control. If the routing control state is <code>ON</code>,
+        /// the health check is considered healthy. If the state is <code>OFF</code>, the health
+        /// check is considered unhealthy. </para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
         /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Amazon Route 53 Developer
         /// Guide</i>.</para>
         /// </para>
@@ -504,6 +519,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             context.AlarmIdentifier_Region = this.AlarmIdentifier_Region;
             context.AlarmIdentifier_Name = this.AlarmIdentifier_Name;
             context.HealthCheckConfig_InsufficientDataHealthStatus = this.HealthCheckConfig_InsufficientDataHealthStatus;
+            context.HealthCheckConfig_RoutingControlArn = this.HealthCheckConfig_RoutingControlArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -688,6 +704,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.InsufficientDataHealthStatus = requestHealthCheckConfig_healthCheckConfig_InsufficientDataHealthStatus;
                 requestHealthCheckConfigIsNull = false;
             }
+            System.String requestHealthCheckConfig_healthCheckConfig_RoutingControlArn = null;
+            if (cmdletContext.HealthCheckConfig_RoutingControlArn != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_RoutingControlArn = cmdletContext.HealthCheckConfig_RoutingControlArn;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_RoutingControlArn != null)
+            {
+                request.HealthCheckConfig.RoutingControlArn = requestHealthCheckConfig_healthCheckConfig_RoutingControlArn;
+                requestHealthCheckConfigIsNull = false;
+            }
             Amazon.Route53.Model.AlarmIdentifier requestHealthCheckConfig_healthCheckConfig_AlarmIdentifier = null;
             
              // populate AlarmIdentifier
@@ -808,6 +834,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             public Amazon.Route53.CloudWatchRegion AlarmIdentifier_Region { get; set; }
             public System.String AlarmIdentifier_Name { get; set; }
             public Amazon.Route53.InsufficientDataHealthStatus HealthCheckConfig_InsufficientDataHealthStatus { get; set; }
+            public System.String HealthCheckConfig_RoutingControlArn { get; set; }
             public System.Func<Amazon.Route53.Model.CreateHealthCheckResponse, NewR53HealthCheckCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

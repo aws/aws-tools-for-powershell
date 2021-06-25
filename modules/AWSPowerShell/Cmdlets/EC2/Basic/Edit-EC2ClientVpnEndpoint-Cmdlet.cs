@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ClientConnectOptions_LambdaFunctionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ARN of the server certificate to be used. The server certificate must be provisioned
-        /// in AWS Certificate Manager (ACM).</para>
+        /// in Certificate Manager (ACM).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SplitTunnel
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the VPN is split-tunnel.</para><para>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel
-        /// AWS Client VPN Endpoint</a> in the <i>AWS Client VPN Administrator Guide</i>.</para>
+        /// <para>Indicates whether the VPN is split-tunnel.</para><para>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel
+        /// Client VPN endpoint</a> in the <i>Client VPN Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

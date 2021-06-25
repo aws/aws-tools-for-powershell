@@ -96,9 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter NotificationTarget
         /// <summary>
         /// <para>
-        /// <para>The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an
-        /// incident. You can also make updates to the incident through the chat channel using
-        /// the SNS topics. </para><para>Using multiple SNS topics creates redundancy in the case that a Region is down during
+        /// <para>The SNS targets that are notified when updates are made to an incident.</para><para>Using multiple SNS topics creates redundancy in the case that a Region is down during
         /// the incident.</para>
         /// </para>
         /// </summary>

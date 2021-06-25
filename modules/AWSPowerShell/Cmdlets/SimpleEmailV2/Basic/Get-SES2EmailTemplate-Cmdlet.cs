@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the template you want to retrieve.</para>
+        /// <para>The name of the template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

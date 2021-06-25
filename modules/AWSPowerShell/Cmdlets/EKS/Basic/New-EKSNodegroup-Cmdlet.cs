@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     ///  
     /// <para>
     /// An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated
-    /// Amazon EC2 instances that are managed by AWS for an Amazon EKS cluster. Each node
-    /// group uses a version of the Amazon EKS optimized Amazon Linux 2 AMI. For more information,
-    /// see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
+    /// Amazon EC2 instances that are managed by Amazon Web Services for an Amazon EKS cluster.
+    /// Each node group uses a version of the Amazon EKS optimized Amazon Linux 2 AMI. For
+    /// more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
     /// Node Groups</a> in the <i>Amazon EKS User Guide</i>. 
     /// </para>
     /// </summary>
@@ -140,7 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The Amazon EC2 SSH key that provides access for SSH communication with the nodes in
         /// the managed node group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
-        /// EC2 Key Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>.</para>
+        /// EC2 key pairs and Linux instances</a> in the <i>Amazon Elastic Compute Cloud User
+        /// Guide for Linux Instances</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter UpdateConfig_MaxUnavailable
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum number of nodes unavailable at once during a version update. Nodes will
+        /// be updated in parallel. This value or <code>maxUnavailablePercentage</code> is required
+        /// to have a value.The maximum number is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,7 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter UpdateConfig_MaxUnavailablePercentage
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum percentage of nodes unavailable during a version update. This percentage
+        /// of nodes will be updated in parallel, up to 100 nodes at once. This value or <code>maxUnavailable</code>
+        /// is required to have a value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,8 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ScalingConfig_MinSize
         /// <summary>
         /// <para>
-        /// <para>The minimum number of nodes that the managed node group can scale in to. This number
-        /// must be greater than zero.</para>
+        /// <para>The minimum number of nodes that the managed node group can scale in to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -264,11 +268,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
-        /// The Amazon EKS worker node <code>kubelet</code> daemon makes calls to AWS APIs on
-        /// your behalf. Nodes receive permissions for these API calls through an IAM instance
-        /// profile and associated policies. Before you can launch nodes and register them into
-        /// a cluster, you must create an IAM role for those nodes to use when they are launched.
-        /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">Amazon
+        /// The Amazon EKS worker node <code>kubelet</code> daemon makes calls to Amazon Web Services
+        /// APIs on your behalf. Nodes receive permissions for these API calls through an IAM
+        /// instance profile and associated policies. Before you can launch nodes and register
+        /// them into a cluster, you must create an IAM role for those nodes to use when they
+        /// are launched. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">Amazon
         /// EKS node IAM role</a> in the <i><i>Amazon EKS User Guide</i></i>. If you specify
         /// <code>launchTemplate</code>, then don't specify <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html"><code>IamInstanceProfile</code></a> in your launch template, or the node group deployment
         /// will fail. For more information about using launch templates with Amazon EKS, see

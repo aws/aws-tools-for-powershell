@@ -28,7 +28,7 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Updates an AWS Batch compute environment.
+    /// Updates an Batch compute environment.
     /// </summary>
     [Cmdlet("Update", "BATComputeEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Batch.Model.UpdateComputeEnvironmentResponse")]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_DesiredvCpu
         /// <summary>
         /// <para>
-        /// <para>The desired number of Amazon EC2 vCPUS in the compute environment.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources, and shouldn't
-        /// be specified.</para></note>
+        /// <para>The desired number of Amazon EC2 vCPUS in the compute environment.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources, and
+        /// shouldn't be specified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The maximum number of Amazon EC2 vCPUs that an environment can reach.</para><note><para>With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
-        /// allocation strategies, AWS Batch might need to exceed <code>maxvCpus</code> to meet
-        /// your capacity requirements. In this event, AWS Batch never exceeds <code>maxvCpus</code>
-        /// by more than a single instance. That is, no more than a single instance from among
-        /// those specified in your compute environment.</para></note>
+        /// allocation strategies, Batch might need to exceed <code>maxvCpus</code> to meet your
+        /// capacity requirements. In this event, Batch never exceeds <code>maxvCpus</code> by
+        /// more than a single instance. That is, no more than a single instance from among those
+        /// specified in your compute environment.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_MinvCpu
         /// <summary>
         /// <para>
-        /// <para>The minimum number of Amazon EC2 vCPUs that an environment should maintain.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources, and shouldn't
-        /// be specified.</para></note>
+        /// <para>The minimum number of Amazon EC2 vCPUs that an environment should maintain.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources, and
+        /// shouldn't be specified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,16 +112,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ServiceRole
         /// <summary>
         /// <para>
-        /// <para>The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make
-        /// calls to other AWS services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">AWS
-        /// Batch service IAM role</a> in the <i>AWS Batch User Guide</i>.</para><important><para>If the compute environment has a service-linked role, it cannot be changed to use
-        /// a regular IAM role. If the compute environment has a regular IAM role, it cannot be
-        /// changed to use a service-linked role.</para></important><para>If your specified role has a path other than <code>/</code>, then you must either
-        /// specify the full role ARN (this is recommended) or prefix the role name with the path.</para><note><para>Depending on how you created your AWS Batch service role, its ARN might contain the
-        /// <code>service-role</code> path prefix. When you only specify the name of the service
-        /// role, AWS Batch assumes that your ARN doesn't use the <code>service-role</code> path
-        /// prefix. Because of this, we recommend that you specify the full ARN of your service
-        /// role when you create compute environments.</para></note>
+        /// <para>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls
+        /// to other Amazon Web Services services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">Batch
+        /// service IAM role</a> in the <i>Batch User Guide</i>.</para><important><para>If the compute environment has a service-linked role, it can't be changed to use a
+        /// regular IAM role. Likewise, if the compute environment has a regular IAM role, it
+        /// can't be changed to use a service-linked role.</para></important><para>If your specified role has a path other than <code>/</code>, then you must either
+        /// specify the full role ARN (this is recommended) or prefix the role name with the path.</para><note><para>Depending on how you created your Batch service role, its ARN might contain the <code>service-role</code>
+        /// path prefix. When you only specify the name of the service role, Batch assumes that
+        /// your ARN doesn't use the <code>service-role</code> path prefix. Because of this, we
+        /// recommend that you specify the full ARN of your service role when you create compute
+        /// environments.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,11 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The state of the compute environment. Compute environments in the <code>ENABLED</code>
         /// state can accept jobs from a queue and scale in or out automatically based on the
-        /// workload demand of its associated queues.</para><para>If the state is <code>ENABLED</code>, then the AWS Batch scheduler can attempt to
-        /// place jobs from an associated job queue on the compute resources within the environment.
+        /// workload demand of its associated queues.</para><para>If the state is <code>ENABLED</code>, then the Batch scheduler can attempt to place
+        /// jobs from an associated job queue on the compute resources within the environment.
         /// If the compute environment is managed, then it can scale its instances out or in automatically,
-        /// based on the job queue demand.</para><para>If the state is <code>DISABLED</code>, then the AWS Batch scheduler doesn't attempt
-        /// to place jobs within the environment. Jobs in a <code>STARTING</code> or <code>RUNNING</code>
+        /// based on the job queue demand.</para><para>If the state is <code>DISABLED</code>, then the Batch scheduler doesn't attempt to
+        /// place jobs within the environment. Jobs in a <code>STARTING</code> or <code>RUNNING</code>
         /// state continue to progress normally. Managed compute environments in the <code>DISABLED</code>
         /// state don't scale out. However, they scale in to <code>minvCpus</code> value after
         /// instances become idle.</para>
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_Subnet
         /// <summary>
         /// <para>
-        /// <para>The VPC subnets that the compute resources are launched into. Fargate compute resources
+        /// <para>The VPC subnets where the compute resources are launched. Fargate compute resources
         /// can contain up to 16 subnets. Providing an empty list will be handled as if this parameter
         /// wasn't specified and no change is made. This can't be specified for EC2 compute resources.
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs

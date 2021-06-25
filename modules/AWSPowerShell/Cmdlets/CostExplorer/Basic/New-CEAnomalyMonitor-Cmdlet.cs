@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalyMonitor_CreationDate
         /// <summary>
         /// <para>
-        /// <para> The date when the monitor was created. </para>
+        /// <para>The date when the monitor was created. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalyMonitor_DimensionalValueCount
         /// <summary>
         /// <para>
-        /// <para> The value for evaluated dimensions. </para>
+        /// <para>The value for evaluated dimensions. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalyMonitor_LastEvaluatedDate
         /// <summary>
         /// <para>
-        /// <para> The date when the monitor last evaluated for anomalies. </para>
+        /// <para>The date when the monitor last evaluated for anomalies. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalyMonitor_LastUpdatedDate
         /// <summary>
         /// <para>
-        /// <para> The date when the monitor was last updated. </para>
+        /// <para>The date when the monitor was last updated. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalyMonitor_MonitorArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) value. </para>
+        /// <para>The Amazon Resource Name (ARN) value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalyMonitor_MonitorDimension
         /// <summary>
         /// <para>
-        /// <para> The dimensions to evaluate. </para>
+        /// <para>The dimensions to evaluate. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalyMonitor_MonitorName
         /// <summary>
         /// <para>
-        /// <para> The name of the monitor. </para>
+        /// <para>The name of the monitor. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalyMonitor_MonitorType
         /// <summary>
         /// <para>
-        /// <para> The possible type values. </para>
+        /// <para>The possible type values. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

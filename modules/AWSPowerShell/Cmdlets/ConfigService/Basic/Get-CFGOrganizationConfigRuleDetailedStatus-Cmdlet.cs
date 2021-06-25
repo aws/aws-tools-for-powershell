@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// action for the second time, config rule status is updated in the member account. Config
         /// rule status is deleted when the master account deletes <code>OrganizationConfigRule</code>
         /// and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
-        /// </para><para>AWS Config sets the state of the rule to:</para><ul><li><para><code>CREATE_SUCCESSFUL</code> when config rule has been created in the member account.</para></li><li><para><code>CREATE_IN_PROGRESS</code> when config rule is being created in the member account.</para></li><li><para><code>CREATE_FAILED</code> when config rule creation has failed in the member account.</para></li><li><para><code>DELETE_FAILED</code> when config rule deletion has failed in the member account.</para></li><li><para><code>DELETE_IN_PROGRESS</code> when config rule is being deleted in the member account.</para></li><li><para><code>DELETE_SUCCESSFUL</code> when config rule has been deleted in the member account.</para></li><li><para><code>UPDATE_SUCCESSFUL</code> when config rule has been updated in the member account.</para></li><li><para><code>UPDATE_IN_PROGRESS</code> when config rule is being updated in the member account.</para></li><li><para><code>UPDATE_FAILED</code> when config rule deletion has failed in the member account.</para></li></ul>
+        /// </para><para>Config sets the state of the rule to:</para><ul><li><para><code>CREATE_SUCCESSFUL</code> when config rule has been created in the member account.</para></li><li><para><code>CREATE_IN_PROGRESS</code> when config rule is being created in the member account.</para></li><li><para><code>CREATE_FAILED</code> when config rule creation has failed in the member account.</para></li><li><para><code>DELETE_FAILED</code> when config rule deletion has failed in the member account.</para></li><li><para><code>DELETE_IN_PROGRESS</code> when config rule is being deleted in the member account.</para></li><li><para><code>DELETE_SUCCESSFUL</code> when config rule has been deleted in the member account.</para></li><li><para><code>UPDATE_SUCCESSFUL</code> when config rule has been updated in the member account.</para></li><li><para><code>UPDATE_IN_PROGRESS</code> when config rule is being updated in the member account.</para></li><li><para><code>UPDATE_FAILED</code> when config rule deletion has failed in the member account.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of <code>OrganizationConfigRuleDetailedStatus</code> returned on
-        /// each page. If you do not specify a number, AWS Config uses the default. The default
-        /// is 100.</para>
+        /// each page. If you do not specify a number, Config uses the default. The default is
+        /// 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

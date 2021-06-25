@@ -40,6 +40,30 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     public partial class UpdateGDBRecipeJobCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {
         
+        #region Parameter DatabaseOutput
+        /// <summary>
+        /// <para>
+        /// <para>Represents a list of JDBC database output objects which defines the output destination
+        /// for a DataBrew recipe job to write into.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DatabaseOutputs")]
+        public Amazon.GlueDataBrew.Model.DatabaseOutput[] DatabaseOutput { get; set; }
+        #endregion
+        
+        #region Parameter DataCatalogOutput
+        /// <summary>
+        /// <para>
+        /// <para>One or more artifacts that represent the Glue Data Catalog output from running the
+        /// job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataCatalogOutputs")]
+        public Amazon.GlueDataBrew.Model.DataCatalogOutput[] DataCatalogOutput { get; set; }
+        #endregion
+        
         #region Parameter EncryptionKeyArn
         /// <summary>
         /// <para>
@@ -53,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter EncryptionMode
         /// <summary>
         /// <para>
-        /// <para>The encryption mode for the job, which can be one of the following:</para><ul><li><para><code>SSE-KMS</code> - Server-side encryption with keys managed by AWS KMS.</para></li><li><para><code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</para></li></ul>
+        /// <para>The encryption mode for the job, which can be one of the following:</para><ul><li><para><code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</para></li><li><para><code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,14 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <para>One or more artifacts that represent the output from running the job. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Outputs")]
         public Amazon.GlueDataBrew.Model.Output[] Output { get; set; }
         #endregion
@@ -132,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
-        /// to be assumed when DataBrew runs the job.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to
+        /// be assumed when DataBrew runs the job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -219,6 +236,14 @@ namespace Amazon.PowerShell.Cmdlets.GDB
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.DatabaseOutput != null)
+            {
+                context.DatabaseOutput = new List<Amazon.GlueDataBrew.Model.DatabaseOutput>(this.DatabaseOutput);
+            }
+            if (this.DataCatalogOutput != null)
+            {
+                context.DataCatalogOutput = new List<Amazon.GlueDataBrew.Model.DataCatalogOutput>(this.DataCatalogOutput);
+            }
             context.EncryptionKeyArn = this.EncryptionKeyArn;
             context.EncryptionMode = this.EncryptionMode;
             context.LogSubscription = this.LogSubscription;
@@ -235,12 +260,6 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             {
                 context.Output = new List<Amazon.GlueDataBrew.Model.Output>(this.Output);
             }
-            #if MODULAR
-            if (this.Output == null && ParameterWasBound(nameof(this.Output)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Output which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -265,6 +284,14 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             // create request
             var request = new Amazon.GlueDataBrew.Model.UpdateRecipeJobRequest();
             
+            if (cmdletContext.DatabaseOutput != null)
+            {
+                request.DatabaseOutputs = cmdletContext.DatabaseOutput;
+            }
+            if (cmdletContext.DataCatalogOutput != null)
+            {
+                request.DataCatalogOutputs = cmdletContext.DataCatalogOutput;
+            }
             if (cmdletContext.EncryptionKeyArn != null)
             {
                 request.EncryptionKeyArn = cmdletContext.EncryptionKeyArn;
@@ -362,6 +389,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.GlueDataBrew.Model.DatabaseOutput> DatabaseOutput { get; set; }
+            public List<Amazon.GlueDataBrew.Model.DataCatalogOutput> DataCatalogOutput { get; set; }
             public System.String EncryptionKeyArn { get; set; }
             public Amazon.GlueDataBrew.EncryptionMode EncryptionMode { get; set; }
             public Amazon.GlueDataBrew.LogSubscription LogSubscription { get; set; }

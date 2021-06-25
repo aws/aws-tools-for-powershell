@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email,
-    /// or if the endpoint and the topic are not in the same AWS account, the endpoint owner
-    /// must run the <code>ConfirmSubscription</code> action to confirm the subscription.
+    /// or if the endpoint and the topic are not in the same account, the endpoint owner must
+    /// run the <code>ConfirmSubscription</code> action to confirm the subscription.
     /// 
     ///  
     /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>A map of attributes with their corresponding values.</para><para>The following lists the names, descriptions, and values of the special request parameters
-        /// that the <code>SetTopicAttributes</code> action uses:</para><ul><li><para><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed
+        /// that the <code>Subscribe</code> action uses:</para><ul><li><para><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed
         /// deliveries to HTTP/S endpoints.</para></li><li><para><code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive
         /// only a subset of messages, rather than receiving every message published to the topic.</para></li><li><para><code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message
         /// delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <code>http://</code>.</para></li><li><para>For the <code>https</code> protocol, the (public) endpoint is a URL beginning with
         /// <code>https://</code>.</para></li><li><para>For the <code>email</code> protocol, the endpoint is an email address.</para></li><li><para>For the <code>email-json</code> protocol, the endpoint is an email address.</para></li><li><para>For the <code>sms</code> protocol, the endpoint is a phone number of an SMS-enabled
         /// device.</para></li><li><para>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS queue.</para></li><li><para>For the <code>application</code> protocol, the endpoint is the EndpointArn of a mobile
-        /// app and device.</para></li><li><para>For the <code>lambda</code> protocol, the endpoint is the ARN of an AWS Lambda function.</para></li><li><para>For the <code>firehose</code> protocol, the endpoint is the ARN of an Amazon Kinesis
+        /// app and device.</para></li><li><para>For the <code>lambda</code> protocol, the endpoint is the ARN of an Lambda function.</para></li><li><para>For the <code>firehose</code> protocol, the endpoint is the ARN of an Amazon Kinesis
         /// Data Firehose delivery stream.</para></li></ul>
         /// </para>
         /// </summary>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>The protocol that you want to use. Supported protocols include:</para><ul><li><para><code>http</code> – delivery of JSON-encoded message via HTTP POST</para></li><li><para><code>https</code> – delivery of JSON-encoded message via HTTPS POST</para></li><li><para><code>email</code> – delivery of message via SMTP</para></li><li><para><code>email-json</code> – delivery of JSON-encoded message via SMTP</para></li><li><para><code>sms</code> – delivery of message via SMS</para></li><li><para><code>sqs</code> – delivery of JSON-encoded message to an Amazon SQS queue</para></li><li><para><code>application</code> – delivery of JSON-encoded message to an EndpointArn for
-        /// a mobile app and device</para></li><li><para><code>lambda</code> – delivery of JSON-encoded message to an AWS Lambda function</para></li><li><para><code>firehose</code> – delivery of JSON-encoded message to an Amazon Kinesis Data
+        /// a mobile app and device</para></li><li><para><code>lambda</code> – delivery of JSON-encoded message to an Lambda function</para></li><li><para><code>firehose</code> – delivery of JSON-encoded message to an Amazon Kinesis Data
         /// Firehose delivery stream.</para></li></ul>
         /// </para>
         /// </summary>

@@ -28,27 +28,28 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Indicates whether the specified AWS Config rules are compliant. If a rule is noncompliant,
-    /// this action returns the number of AWS resources that do not comply with the rule.
+    /// Indicates whether the specified Config rules are compliant. If a rule is noncompliant,
+    /// this action returns the number of Amazon Web Services resources that do not comply
+    /// with the rule.
     /// 
     ///  
     /// <para>
     /// A rule is compliant if all of the evaluated resources comply with it. It is noncompliant
     /// if any of these resources do not comply.
     /// </para><para>
-    /// If AWS Config has no current evaluation results for the rule, it returns <code>INSUFFICIENT_DATA</code>.
+    /// If Config has no current evaluation results for the rule, it returns <code>INSUFFICIENT_DATA</code>.
     /// This result might indicate one of the following conditions:
     /// </para><ul><li><para>
-    /// AWS Config has never invoked an evaluation for the rule. To check whether it has,
-    /// use the <code>DescribeConfigRuleEvaluationStatus</code> action to get the <code>LastSuccessfulInvocationTime</code>
+    /// Config has never invoked an evaluation for the rule. To check whether it has, use
+    /// the <code>DescribeConfigRuleEvaluationStatus</code> action to get the <code>LastSuccessfulInvocationTime</code>
     /// and <code>LastFailedInvocationTime</code>.
     /// </para></li><li><para>
-    /// The rule's AWS Lambda function is failing to send evaluation results to AWS Config.
-    /// Verify that the role you assigned to your configuration recorder includes the <code>config:PutEvaluations</code>
-    /// permission. If the rule is a custom rule, verify that the AWS Lambda execution role
-    /// includes the <code>config:PutEvaluations</code> permission.
+    /// The rule's Lambda function is failing to send evaluation results to Config. Verify
+    /// that the role you assigned to your configuration recorder includes the <code>config:PutEvaluations</code>
+    /// permission. If the rule is a custom rule, verify that the Lambda execution role includes
+    /// the <code>config:PutEvaluations</code> permission.
     /// </para></li><li><para>
-    /// The rule's AWS Lambda function has returned <code>NOT_APPLICABLE</code> for all evaluation
+    /// The rule's Lambda function has returned <code>NOT_APPLICABLE</code> for all evaluation
     /// results. This can occur if the resources were deleted or removed from the rule's scope.
     /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -76,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>Specify one or more AWS Config rule names to filter the results by rule.</para>
+        /// <para>Specify one or more Config rule names to filter the results by rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

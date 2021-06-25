@@ -29,7 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Restores the default settings for Device Defender audits for this account. Any configuration
-    /// data you entered is deleted and all audit checks are reset to disabled.
+    /// data you entered is deleted and all audit checks are reset to disabled. 
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteAccountAuditConfiguration</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "IOTAccountAuditConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

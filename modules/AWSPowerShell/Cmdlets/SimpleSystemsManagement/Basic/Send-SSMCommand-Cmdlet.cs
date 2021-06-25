@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter CloudWatchOutputConfig_CloudWatchLogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the CloudWatch log group where you want to send command output. If you
-        /// don't specify a group name, Systems Manager automatically creates a log group for
-        /// you. The log group uses the following naming format: aws/ssm/<i>SystemsManagerDocumentName</i>.</para>
+        /// <para>The name of the CloudWatch Logs log group where you want to send command output. If
+        /// you don't specify a group name, Amazon Web Services Systems Manager automatically
+        /// creates a log group for you. The log group uses the following naming format:</para><para><code>aws/ssm/<i>SystemsManagerDocumentName</i></code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,10 +97,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentName
         /// <summary>
         /// <para>
-        /// <para>The name of the Systems Manager document to run. This can be a public document or
-        /// a custom document. To run a shared document belonging to another account, specify
-        /// the document ARN. For more information about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Using
-        /// shared SSM documents</a> in the <i>AWS Systems Manager User Guide</i>.</para>
+        /// <para>The name of the Amazon Web Services Systems Manager document (SSM document) to run.
+        /// This can be a public document or a custom document. To run a shared document belonging
+        /// to another account, specify the document Amazon Resource Name (ARN). For more information
+        /// about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Using
+        /// shared SSM documents</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para><note><para>If you specify a document name or ARN that hasn't been shared with your account, you
+        /// receive an <code>InvalidDocument</code> error. </para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,9 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The SSM document version to use in the request. You can specify $DEFAULT, $LATEST,
-        /// or a specific version number. If you run commands by using the AWS CLI, then you must
-        /// escape the first two options by using a backslash. If you specify a version number,
-        /// then you don't need to use the backslash. For example:</para><para>--document-version "\$DEFAULT"</para><para>--document-version "\$LATEST"</para><para>--document-version "3"</para>
+        /// or a specific version number. If you run commands by using the Command Line Interface
+        /// (Amazon Web Services CLI), then you must escape the first two options by using a backslash.
+        /// If you specify a version number, then you don't need to use the backslash. For example:</para><para>--document-version "\$DEFAULT"</para><para>--document-version "\$LATEST"</para><para>--document-version "3"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// IDs, we recommend using the <code>Targets</code> option instead. Using <code>Targets</code>,
         /// which accepts tag key-value pairs to identify the instances to send commands to, you
         /// can a send command to tens, hundreds, or thousands of instances at once.</para><para>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Using
-        /// targets and rate controls to send commands to a fleet</a> in the <i>AWS Systems Manager
-        /// User Guide</i>.</para>
+        /// targets and rate controls to send commands to a fleet</a> in the <i>Amazon Web Services
+        /// Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -150,8 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>(Optional) The maximum number of instances that are allowed to run the command at
         /// the same time. You can specify a number such as 10 or a percentage such as 10%. The
-        /// default value is 50. For more information about how to use MaxConcurrency, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity">Using
-        /// concurrency controls</a> in the <i>AWS Systems Manager User Guide</i>.</para>
+        /// default value is <code>50</code>. For more information about how to use <code>MaxConcurrency</code>,
+        /// see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity">Using
+        /// concurrency controls</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,10 +165,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The maximum number of errors allowed without the command failing. When the command
-        /// fails one more time beyond the value of MaxErrors, the systems stops sending the command
-        /// to additional targets. You can specify a number like 10 or a percentage like 10%.
-        /// The default value is 0. For more information about how to use MaxErrors, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors">Using
-        /// error controls</a> in the <i>AWS Systems Manager User Guide</i>.</para>
+        /// fails one more time beyond the value of <code>MaxErrors</code>, the systems stops
+        /// sending the command to additional targets. You can specify a number like 10 or a percentage
+        /// like 10%. The default value is <code>0</code>. For more information about how to use
+        /// <code>MaxErrors</code>, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors">Using
+        /// error controls</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,11 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter NotificationConfig_NotificationEvent
         /// <summary>
         /// <para>
-        /// <para>The different events for which you can receive notifications. These events include
-        /// the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To
-        /// learn more about these events, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring
-        /// Systems Manager status changes using Amazon SNS notifications</a> in the <i>AWS Systems
-        /// Manager User Guide</i>.</para>
+        /// <para>The different events for which you can receive notifications. To learn more about
+        /// these events, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring
+        /// Systems Manager status changes using Amazon SNS notifications</a> in the <i>Amazon
+        /// Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,9 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter NotificationConfig_NotificationType
         /// <summary>
         /// <para>
-        /// <para>Command: Receive notification when the status of a command changes. Invocation: For
-        /// commands sent to multiple instances, receive notification on a per-instance basis
-        /// when the status of a command changes. </para>
+        /// <para>The type of notification.</para><ul><li><para><code>Command</code>: Receive notification when the status of a command changes.</para></li><li><para><code>Invocation</code>: For commands sent to multiple instances, receive notification
+        /// on a per-instance basis when the status of a command changes. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,7 +238,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead,
-        /// Systems Manager automatically determines the Region of the S3 bucket.</para>
+        /// Systems Manager automatically determines the Amazon Web Services Region of the S3
+        /// bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,8 +260,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM service role to use to publish Amazon Simple Notification Service
-        /// (Amazon SNS) notifications for Run Command commands.</para>
+        /// <para>The ARN of the Identity and Access Management (IAM) service role to use to publish
+        /// Amazon Simple Notification Service (Amazon SNS) notifications for Run Command commands.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -274,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// accepts tag key-value pairs to identify instances, you can send a command to tens,
         /// hundreds, or thousands of instances at once.</para><para>To send a command to a smaller number of instances, you can use the <code>InstanceIds</code>
         /// option instead.</para><para>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending
-        /// commands to a fleet</a> in the <i>AWS Systems Manager User Guide</i>.</para>
+        /// commands to a fleet</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -285,8 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter TimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>If this time is reached and the command has not already started running, it will not
-        /// run.</para>
+        /// <para>If this time is reached and the command hasn't already started running, it won't run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

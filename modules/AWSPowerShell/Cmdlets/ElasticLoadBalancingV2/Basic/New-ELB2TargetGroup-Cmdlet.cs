@@ -66,8 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>Indicates whether health checks are enabled. If the target type is <code>lambda</code>,
-        /// health checks are disabled by default but can be enabled. If the target type is <code>instance</code>
-        /// or <code>ip</code>, health checks are always enabled and cannot be disabled.</para>
+        /// health checks are disabled by default but can be enabled. If the target type is <code>instance</code>,
+        /// <code>ip</code>, or <code>alb</code>, health checks are always enabled and cannot
+        /// be disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>[HTTP/HTTPS health checks] The destination for health checks on the targets.</para><para>[HTTP1 or HTTP2 protocol version] The ping path. The default is /.</para><para>[GRPC protocol version] The path of a custom health check method with the format /package.service/method.
-        /// The default is /AWS.ALB/healthcheck.</para>
+        /// The default is /Amazon Web Services.ALB/healthcheck.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// group. You can't specify targets for a target group using more than one target type.</para><ul><li><para><code>instance</code> - Register targets by instance ID. This is the default value.</para></li><li><para><code>ip</code> - Register targets by IP address. You can specify IP addresses from
         /// the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918
         /// range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
-        /// You can't specify publicly routable IP addresses.</para></li><li><para><code>lambda</code> - Register a single Lambda function as a target.</para></li></ul>
+        /// You can't specify publicly routable IP addresses.</para></li><li><para><code>lambda</code> - Register a single Lambda function as a target.</para></li><li><para><code>alb</code> - Register a single Application Load Balancer as a target.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

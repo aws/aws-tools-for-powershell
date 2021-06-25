@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Adds a statement to a topic's access control policy, granting access for the specified
-    /// AWS accounts to the specified actions.
+    /// accounts to the specified actions.
     /// </summary>
     [Cmdlet("Add", "SNSPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -62,9 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter AWSAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account IDs of the users (principals) who will be given access to the specified
-        /// actions. The users must have AWS accounts, but do not need to be signed up for this
-        /// service.</para>
+        /// <para>The account IDs of the users (principals) who will be given access to the specified
+        /// actions. The users must have account, but do not need to be signed up for this service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

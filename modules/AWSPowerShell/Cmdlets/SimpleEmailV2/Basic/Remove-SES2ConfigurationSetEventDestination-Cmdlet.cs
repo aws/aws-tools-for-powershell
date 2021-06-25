@@ -51,8 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set that contains the event destination that you want
-        /// to delete.</para>
+        /// <para>The name of the configuration set that contains the event destination to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EventDestinationName
         /// <summary>
         /// <para>
-        /// <para>The name of the event destination that you want to delete.</para>
+        /// <para>The name of the event destination to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

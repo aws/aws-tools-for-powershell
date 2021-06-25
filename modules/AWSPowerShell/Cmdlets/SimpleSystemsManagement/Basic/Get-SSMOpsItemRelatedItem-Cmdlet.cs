@@ -28,7 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Lists all related-item resources associated with an OpsItem.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all related-item resources associated with a Systems Manager OpsCenter OpsItem.
+    /// OpsCenter is a capability of Amazon Web Services Systems Manager.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMOpsItemRelatedItem")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemSummary")]

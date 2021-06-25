@@ -28,20 +28,26 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Gets a list of all grants for the specified customer master key (CMK). 
+    /// Gets a list of all grants for the specified KMS key. 
     /// 
     ///  
     /// <para>
-    /// You must specify the CMK in all requests. You can filter the grant list by grant ID
-    /// or grantee principal.
+    /// You must specify the KMS key in all requests. You can filter the grant list by grant
+    /// ID or grantee principal.
+    /// </para><para>
+    /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using
+    /// grants</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
+    /// of working with grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming
+    /// grants</a>. 
     /// </para><note><para>
     /// The <code>GranteePrincipal</code> field in the <code>ListGrants</code> response usually
     /// contains the user or role designated as the grantee principal in the grant. However,
-    /// when the grantee principal in the grant is an AWS service, the <code>GranteePrincipal</code>
+    /// when the grantee principal in the grant is an Amazon Web Services service, the <code>GranteePrincipal</code>
     /// field contains the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
     /// principal</a>, which might represent several different grantee principals.
-    /// </para></note><para><b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different
-    /// AWS account, specify the key ARN in the value of the <code>KeyId</code> parameter.
+    /// </para></note><para><b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different
+    /// Amazon Web Services account, specify the key ARN in the value of the <code>KeyId</code>
+    /// parameter.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListGrants</a>
     /// (key policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListRetirableGrants</a></para></li><li><para><a>RetireGrant</a></para></li><li><para><a>RevokeGrant</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -81,9 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>Returns only grants for the specified customer master key (CMK). This parameter is
-        /// required.</para><para>Specify the key ID or key ARN of the CMK. To specify a CMK in a different AWS account,
-        /// you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// <para>Returns only grants for the specified KMS key. This parameter is required.</para><para>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different
+        /// Amazon Web Services account, you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Use this parameter to specify the maximum number of items to return. When this value
-        /// is present, AWS KMS does not return more than the specified number of items, but it
-        /// might return fewer.</para><para>This value is optional. If you include a value, it must be between 1 and 100, inclusive.
+        /// is present, KMS does not return more than the specified number of items, but it might
+        /// return fewer.</para><para>This value is optional. If you include a value, it must be between 1 and 100, inclusive.
         /// If you do not include a value, it defaults to 50.</para>
         /// </para>
         /// <para>

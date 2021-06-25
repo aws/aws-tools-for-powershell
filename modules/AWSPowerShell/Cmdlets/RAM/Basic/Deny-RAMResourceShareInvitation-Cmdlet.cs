@@ -28,7 +28,7 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Rejects an invitation to a resource share from another AWS account.
+    /// Rejects an invitation to a resource share from another Amazon Web Services account.
     /// </summary>
     [Cmdlet("Deny", "RAMResourceShareInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RAM.Model.ResourceShareInvitation")]

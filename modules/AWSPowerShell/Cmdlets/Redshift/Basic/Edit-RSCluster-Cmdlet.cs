@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// When resizing a cluster, you must specify both the number of nodes and the node type
     /// even if one of the parameters does not change.
     /// </para><para>
-    /// You can add another security or parameter group, or change the master user password.
+    /// You can add another security or parameter group, or change the admin user password.
     /// Resetting a cluster password or modifying the security groups associated with a cluster
     /// do not need a reboot. However, modifying a parameter group requires a reboot for parameters
     /// to take effect. For more information about managing clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
@@ -237,8 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
-        /// use to encrypt data in the cluster.</para>
+        /// <para>The Key Management Service (KMS) key ID of the encryption key that you want to use
+        /// to encrypt data in the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -274,11 +274,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The new password for the cluster master user. This change is asynchronously applied
+        /// <para>The new password for the cluster admin user. This change is asynchronously applied
         /// as soon as possible. Between the time of the request and the completion of the request,
         /// the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
         /// element of the operation response. </para><note><para>Operations never return the password, so this operation provides a way to regain access
-        /// to the master user account for a cluster if the password is lost.</para></note><para>Default: Uses existing setting.</para><para>Constraints:</para><ul><li><para>Must be between 8 and 64 characters in length.</para></li><li><para>Must contain at least one uppercase letter.</para></li><li><para>Must contain at least one lowercase letter.</para></li><li><para>Must contain one number.</para></li><li><para>Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote),
+        /// to the admin user account for a cluster if the password is lost.</para></note><para>Default: Uses existing setting.</para><para>Constraints:</para><ul><li><para>Must be between 8 and 64 characters in length.</para></li><li><para>Must contain at least one uppercase letter.</para></li><li><para>Must contain at least one lowercase letter.</para></li><li><para>Must contain one number.</para></li><li><para>Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote),
         /// " (double quote), \, /, @, or space.</para></li></ul>
         /// </para>
         /// </summary>
@@ -289,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter NewClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The new identifier for the cluster.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>Alphabetic characters must be lowercase.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique for all clusters within an AWS account.</para></li></ul><para>Example: <code>examplecluster</code></para>
+        /// <para>The new identifier for the cluster.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>Alphabetic characters must be lowercase.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique for all clusters within an Amazon Web Services account.</para></li></ul><para>Example: <code>examplecluster</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

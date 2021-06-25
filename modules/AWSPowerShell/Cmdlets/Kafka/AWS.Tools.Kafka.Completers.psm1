@@ -81,7 +81,10 @@ $MSK_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Kafka.ClientBroker
-        "New-MSKCluster/EncryptionInfo_EncryptionInTransit_ClientBroker"
+        {
+            ($_ -eq "New-MSKCluster/EncryptionInfo_EncryptionInTransit_ClientBroker") -Or
+            ($_ -eq "Update-MSKSecurity/EncryptionInfo_EncryptionInTransit_ClientBroker")
+        }
         {
             $v = "PLAINTEXT","TLS","TLS_PLAINTEXT"
             break
@@ -106,7 +109,7 @@ $MSK_Completers = {
 }
 
 $MSK_map = @{
-    "EncryptionInfo_EncryptionInTransit_ClientBroker"=@("New-MSKCluster")
+    "EncryptionInfo_EncryptionInTransit_ClientBroker"=@("New-MSKCluster","Update-MSKSecurity")
     "EnhancedMonitoring"=@("New-MSKCluster","Update-MSKMonitoring")
 }
 
@@ -189,7 +192,8 @@ $MSK_SelectMap = @{
                "Update-MSKClusterConfiguration",
                "Update-MSKClusterKafkaVersion",
                "Update-MSKConfiguration",
-               "Update-MSKMonitoring")
+               "Update-MSKMonitoring",
+               "Update-MSKSecurity")
 }
 
 _awsArgumentCompleterRegistration $MSK_SelectCompleters $MSK_SelectMap

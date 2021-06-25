@@ -28,11 +28,13 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Disassociates the specified Systems Manager document from the specified instance.
+    /// Disassociates the specified Amazon Web Services Systems Manager document (SSM document)
+    /// from the specified instance. If you created the association by using the <code>Targets</code>
+    /// parameter, then you must delete the association by using the association ID.
     /// 
     ///  
     /// <para>
-    /// When you disassociate a document from an instance, it does not change the configuration
+    /// When you disassociate a document from an instance, it doesn't change the configuration
     /// of the instance. To change the configuration state of an instance after you disassociate
     /// a document, you must create a new document with the desired configuration and associate
     /// it with the instance.
@@ -61,7 +63,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance.</para>
+        /// <para>The instance ID.</para><note><para><code>InstanceId</code> has been deprecated. To specify an instance ID for an association,
+        /// use the <code>Targets</code> parameter. Requests that include the parameter <code>InstanceID</code>
+        /// with Systems Manager documents (SSM documents) that use schema version 2.0 or later
+        /// will fail. In addition, if you use the parameter <code>InstanceId</code>, you can't
+        /// use the parameters <code>AssociationName</code>, <code>DocumentVersion</code>, <code>MaxErrors</code>,
+        /// <code>MaxConcurrency</code>, <code>OutputLocation</code>, or <code>ScheduleExpression</code>.
+        /// To use these parameters, you must use the <code>Targets</code> parameter.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -71,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the Systems Manager document.</para>
+        /// <para>The name of the SSM document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Attaches the specified principal to the specified thing. A principal can be X.509
     /// certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
     /// identities.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachThingPrincipal</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "IOTThingPrincipal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

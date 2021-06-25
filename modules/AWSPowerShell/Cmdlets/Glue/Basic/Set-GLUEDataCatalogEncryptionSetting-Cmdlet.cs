@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ConnectionPasswordEncryption_AwsKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>An AWS KMS key that is used to encrypt the connection password. </para><para>If connection password protection is enabled, the caller of <code>CreateConnection</code>
+        /// <para>An KMS key that is used to encrypt the connection password. </para><para>If connection password protection is enabled, the caller of <code>CreateConnection</code>
         /// and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission
-        /// on the specified AWS KMS key, to encrypt passwords before storing them in the Data
-        /// Catalog. </para><para>You can set the decrypt permission to enable or restrict access on the password key
+        /// on the specified KMS key, to encrypt passwords before storing them in the Data Catalog.
+        /// </para><para>You can set the decrypt permission to enable or restrict access on the password key
         /// according to your security requirements.</para>
         /// </para>
         /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The ID of the Data Catalog to set the security configuration for. If none is provided,
-        /// the AWS account ID is used by default.</para>
+        /// the Amazon Web Services account ID is used by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter EncryptionAtRest_SseAwsKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS KMS key to use for encryption at rest.</para>
+        /// <para>The ID of the KMS key to use for encryption at rest.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

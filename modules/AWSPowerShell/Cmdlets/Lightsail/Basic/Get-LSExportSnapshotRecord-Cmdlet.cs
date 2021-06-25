@@ -28,13 +28,13 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Returns the export snapshot record created as a result of the <code>export snapshot</code>
+    /// Returns all export snapshot records created as a result of the <code>export snapshot</code>
     /// operation.
     /// 
     ///  
     /// <para>
     /// An export snapshot record can be used to create a new Amazon EC2 instance and its
-    /// related resources with the <code>create cloud formation stack</code> operation.
+    /// related resources with the <a>CreateCloudFormationStack</a> action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LSExportSnapshotRecord")]

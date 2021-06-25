@@ -28,7 +28,13 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Gets information about a Device Defender ML Detect mitigation action.
+    /// Gets information about a Device Defender ML Detect mitigation action. 
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDetectMitigationActionsTask</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTDetectMitigationActionsTask")]
     [OutputType("Amazon.IoT.Model.DetectMitigationActionsTaskSummary")]

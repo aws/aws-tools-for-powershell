@@ -43,11 +43,21 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter CreatedBy
         /// <summary>
         /// <para>
-        /// <para>The user ID.</para>
+        /// <para>The user ID of the user that created the streaming session.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CreatedBy { get; set; }
+        #endregion
+        
+        #region Parameter OwnedBy
+        /// <summary>
+        /// <para>
+        /// <para>The user ID of the user that owns the streaming session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OwnedBy { get; set; }
         #endregion
         
         #region Parameter SessionId
@@ -135,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CreatedBy = this.CreatedBy;
             context.NextToken = this.NextToken;
+            context.OwnedBy = this.OwnedBy;
             context.SessionId = this.SessionId;
             context.StudioId = this.StudioId;
             #if MODULAR
@@ -166,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.NS
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.OwnedBy != null)
+            {
+                request.OwnedBy = cmdletContext.OwnedBy;
             }
             if (cmdletContext.SessionId != null)
             {
@@ -238,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         {
             public System.String CreatedBy { get; set; }
             public System.String NextToken { get; set; }
+            public System.String OwnedBy { get; set; }
             public System.String SessionId { get; set; }
             public System.String StudioId { get; set; }
             public System.Func<Amazon.NimbleStudio.Model.ListStreamingSessionsResponse, GetNSStreamingSessionListCmdlet, object> Select { get; set; } =

@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// or in a VPC (<code>vpc</code>).</para></li><li><para><code>instance-id</code> - The ID of the instance the address is associated with,
         /// if any.</para></li><li><para><code>network-border-group</code> - A unique set of Availability Zones, Local Zones,
         /// or Wavelength Zones from where Amazon Web Services advertises IP addresses. </para></li><li><para><code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that
-        /// the address is associated with, if any.</para></li><li><para><code>network-interface-owner-id</code> - The account ID of the owner.</para></li><li><para><code>private-ip-address</code> - [EC2-VPC] The private IP address associated with
+        /// the address is associated with, if any.</para></li><li><para><code>network-interface-owner-id</code> - The Amazon Web Services account ID of the
+        /// owner.</para></li><li><para><code>private-ip-address</code> - [EC2-VPC] The private IP address associated with
         /// the Elastic IP address.</para></li><li><para><code>public-ip</code> - The Elastic IP address, or the carrier IP address.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>

@@ -179,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter SSEKMS_KeyId
         /// <summary>
         /// <para>
-        /// Specifies the ID of the AWS Key Management Service (KMS) 
-        /// master encryption key to use for encrypting Inventory reports.
+        /// <para>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services
+        /// KMS) symmetric customer managed key to use for encrypting inventory reports.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

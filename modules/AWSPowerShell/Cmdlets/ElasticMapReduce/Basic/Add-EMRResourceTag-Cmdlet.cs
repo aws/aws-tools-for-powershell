@@ -28,9 +28,9 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in
-    /// various ways, such as grouping clusters to track your Amazon EMR resource allocation
-    /// costs. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
+    /// Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR Studio. Tags
+    /// make it easier to associate resources in various ways, such as grouping clusters to
+    /// track your Amazon EMR resource allocation costs. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
     /// Clusters</a>.
     /// </summary>
     [Cmdlet("Add", "EMRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The Amazon EMR resource identifier to which tags will be added. This value must be
-        /// a cluster identifier.</para>
+        /// <para>The Amazon EMR resource identifier to which tags will be added. For example, a cluster
+        /// identifier or an Amazon EMR Studio ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tags to associate with a cluster and propagate to EC2 instances. Tags are
-        /// user-defined key-value pairs that consist of a required key string with a maximum
-        /// of 128 characters, and an optional value string with a maximum of 256 characters.</para>
+        /// <para>A list of tags to associate with a resource. Tags are user-defined key-value pairs
+        /// that consist of a required key string with a maximum of 128 characters, and an optional
+        /// value string with a maximum of 256 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

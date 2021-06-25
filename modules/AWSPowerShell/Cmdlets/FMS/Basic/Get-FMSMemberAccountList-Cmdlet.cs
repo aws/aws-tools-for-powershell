@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
     /// Returns a <code>MemberAccounts</code> object that lists the member accounts in the
-    /// administrator's AWS organization.
+    /// administrator's Amazon Web Services organization.
     /// 
     ///  
     /// <para>
     /// The <code>ListMemberAccounts</code> must be submitted by the account that is set as
-    /// the AWS Firewall Manager administrator.
+    /// the Firewall Manager administrator.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FMSMemberAccountList")]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of member account IDs that you want AWS Firewall Manager to return
+        /// <para>Specifies the number of member account IDs that you want Firewall Manager to return
         /// for this request. If you have more IDs than the number that you specify for <code>MaxResults</code>,
         /// the response includes a <code>NextToken</code> value that you can use to get another
         /// batch of member account IDs.</para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <summary>
         /// <para>
         /// <para>If you specify a value for <code>MaxResults</code> and you have more account IDs than
-        /// the number that you specify for <code>MaxResults</code>, AWS Firewall Manager returns
+        /// the number that you specify for <code>MaxResults</code>, Firewall Manager returns
         /// a <code>NextToken</code> value in the response that allows you to list another group
         /// of IDs. For the second and subsequent <code>ListMemberAccountsRequest</code> requests,
         /// specify the value of <code>NextToken</code> from the previous response to get information

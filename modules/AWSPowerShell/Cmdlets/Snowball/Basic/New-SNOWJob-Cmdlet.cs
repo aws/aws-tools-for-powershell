@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter ForwardingAddressId
         /// <summary>
         /// <para>
-        /// <para>The forwarding address ID for a job. This field is not supported in most regions.</para>
+        /// <para>The forwarding address ID for a job. This field is not supported in most Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter LongTermPricingId
         /// <summary>
         /// <para>
-        /// <para>The ID of the long term pricing type for the device.</para>
+        /// <para>The ID of the long-term pricing type for the device.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,6 +178,20 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? Notification_NotifyAll { get; set; }
+        #endregion
+        
+        #region Parameter RemoteManagement
+        /// <summary>
+        /// <para>
+        /// <para>Allows you to securely operate and manage Snowcone devices remotely from outside of
+        /// your internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management
+        /// will automatically be available when the device arrives at your location. Otherwise,
+        /// you need to use the Snowball Client to manage the device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Snowball.RemoteManagement")]
+        public Amazon.Snowball.RemoteManagement RemoteManagement { get; set; }
         #endregion
         
         #region Parameter RoleARN
@@ -257,11 +271,34 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// create Amazon Resource Names (ARNs) for topics by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html">CreateTopic</a>
         /// Amazon SNS API action.</para><para>You can subscribe email addresses to an Amazon SNS topic through the AWS Management
         /// Console, or by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html">Subscribe</a>
-        /// AWS Simple Notification Service (SNS) API action.</para>
+        /// Amazon Simple Notification Service (Amazon SNS) API action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Notification_SnsTopicARN { get; set; }
+        #endregion
+        
+        #region Parameter NFSOnDeviceService_StorageLimit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum NFS storage for one Snowball Family device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnDeviceServiceConfiguration_NFSOnDeviceService_StorageLimit")]
+        public System.Int32? NFSOnDeviceService_StorageLimit { get; set; }
+        #endregion
+        
+        #region Parameter NFSOnDeviceService_StorageUnit
+        /// <summary>
+        /// <para>
+        /// <para>The scale unit of the NFS storage on the device.</para><para>Valid values: TB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit")]
+        [AWSConstantClassSource("Amazon.Snowball.StorageUnit")]
+        public Amazon.Snowball.StorageUnit NFSOnDeviceService_StorageUnit { get; set; }
         #endregion
         
         #region Parameter Select
@@ -339,6 +376,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             }
             context.Notification_NotifyAll = this.Notification_NotifyAll;
             context.Notification_SnsTopicARN = this.Notification_SnsTopicARN;
+            context.NFSOnDeviceService_StorageLimit = this.NFSOnDeviceService_StorageLimit;
+            context.NFSOnDeviceService_StorageUnit = this.NFSOnDeviceService_StorageUnit;
+            context.RemoteManagement = this.RemoteManagement;
             if (this.Resources_Ec2AmiResource != null)
             {
                 context.Resources_Ec2AmiResource = new List<Amazon.Snowball.Model.Ec2AmiResource>(this.Resources_Ec2AmiResource);
@@ -487,6 +527,54 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestNotificationIsNull)
             {
                 request.Notification = null;
+            }
+            
+             // populate OnDeviceServiceConfiguration
+            var requestOnDeviceServiceConfigurationIsNull = true;
+            request.OnDeviceServiceConfiguration = new Amazon.Snowball.Model.OnDeviceServiceConfiguration();
+            Amazon.Snowball.Model.NFSOnDeviceServiceConfiguration requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService = null;
+            
+             // populate NFSOnDeviceService
+            var requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceServiceIsNull = true;
+            requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService = new Amazon.Snowball.Model.NFSOnDeviceServiceConfiguration();
+            System.Int32? requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService_nFSOnDeviceService_StorageLimit = null;
+            if (cmdletContext.NFSOnDeviceService_StorageLimit != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService_nFSOnDeviceService_StorageLimit = cmdletContext.NFSOnDeviceService_StorageLimit.Value;
+            }
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService_nFSOnDeviceService_StorageLimit != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService.StorageLimit = requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService_nFSOnDeviceService_StorageLimit.Value;
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceServiceIsNull = false;
+            }
+            Amazon.Snowball.StorageUnit requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService_nFSOnDeviceService_StorageUnit = null;
+            if (cmdletContext.NFSOnDeviceService_StorageUnit != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService_nFSOnDeviceService_StorageUnit = cmdletContext.NFSOnDeviceService_StorageUnit;
+            }
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService_nFSOnDeviceService_StorageUnit != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService.StorageUnit = requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService_nFSOnDeviceService_StorageUnit;
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceServiceIsNull = false;
+            }
+             // determine if requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService should be set to null
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceServiceIsNull)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService = null;
+            }
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService != null)
+            {
+                request.OnDeviceServiceConfiguration.NFSOnDeviceService = requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService;
+                requestOnDeviceServiceConfigurationIsNull = false;
+            }
+             // determine if request.OnDeviceServiceConfiguration should be set to null
+            if (requestOnDeviceServiceConfigurationIsNull)
+            {
+                request.OnDeviceServiceConfiguration = null;
+            }
+            if (cmdletContext.RemoteManagement != null)
+            {
+                request.RemoteManagement = cmdletContext.RemoteManagement;
             }
             
              // populate Resources
@@ -649,6 +737,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             public List<System.String> Notification_JobStatesToNotify { get; set; }
             public System.Boolean? Notification_NotifyAll { get; set; }
             public System.String Notification_SnsTopicARN { get; set; }
+            public System.Int32? NFSOnDeviceService_StorageLimit { get; set; }
+            public Amazon.Snowball.StorageUnit NFSOnDeviceService_StorageUnit { get; set; }
+            public Amazon.Snowball.RemoteManagement RemoteManagement { get; set; }
             public List<Amazon.Snowball.Model.Ec2AmiResource> Resources_Ec2AmiResource { get; set; }
             public List<Amazon.Snowball.Model.LambdaResource> Resources_LambdaResource { get; set; }
             public List<Amazon.Snowball.Model.S3Resource> Resources_S3Resource { get; set; }

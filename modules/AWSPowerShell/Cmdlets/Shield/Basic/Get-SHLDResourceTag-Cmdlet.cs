@@ -28,8 +28,8 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Gets information about AWS tags for a specified Amazon Resource Name (ARN) in AWS
-    /// Shield.
+    /// Gets information about Amazon Web Services tags for a specified Amazon Resource Name
+    /// (ARN) in Shield.
     /// </summary>
     [Cmdlet("Get", "SHLDResourceTag")]
     [OutputType("Amazon.Shield.Model.Tag")]

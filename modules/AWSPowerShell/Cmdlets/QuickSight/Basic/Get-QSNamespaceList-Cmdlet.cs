@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists the namespaces for the specified AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the namespaces for the specified Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSNamespaceList")]
     [OutputType("Amazon.QuickSight.Model.NamespaceInfoV2")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the AWS account that contains the QuickSight namespaces that you want to
-        /// list.</para>
+        /// <para>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespaces
+        /// that you want to list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

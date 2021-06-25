@@ -28,9 +28,9 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Validates a specified template. AWS CloudFormation first checks if the template is
-    /// valid JSON. If it isn't, AWS CloudFormation checks if the template is valid YAML.
-    /// If both these checks fail, AWS CloudFormation returns a template validation error.
+    /// Validates a specified template. CloudFormation first checks if the template is valid
+    /// JSON. If it isn't, CloudFormation checks if the template is valid YAML. If both these
+    /// checks fail, CloudFormation returns a template validation error.
     /// </summary>
     [Cmdlet("Test", "CFNTemplate")]
     [OutputType("Amazon.CloudFormation.Model.ValidateTemplateResponse")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
         /// length of 51,200 bytes. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>.
+        /// Anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>.
         /// If both are passed, only <code>TemplateBody</code> is used.</para>
         /// </para>
         /// </summary>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>Location of file containing the template body. The URL must point to a template (max
         /// size: 460,800 bytes) that is located in an Amazon S3 bucket or a Systems Manager document.
         /// For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>.
+        /// Anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>.
         /// If both are passed, only <code>TemplateBody</code> is used.</para>
         /// </para>
         /// </summary>

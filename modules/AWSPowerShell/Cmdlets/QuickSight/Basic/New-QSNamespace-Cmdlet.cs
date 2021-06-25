@@ -32,13 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// 
     ///  
     /// <para>
-    /// A namespace allows you to isolate the QuickSight users and groups that are registered
-    /// for that namespace. Users that access the namespace can share assets only with other
-    /// users or groups in the same namespace. They can't see users and groups in other namespaces.
-    /// You can create a namespace after your AWS account is subscribed to QuickSight. The
-    /// namespace must be unique within the AWS account. By default, there is a limit of 100
-    /// namespaces per AWS account. To increase your limit, create a ticket with AWS Support.
-    /// 
+    /// A namespace allows you to isolate the Amazon QuickSight users and groups that are
+    /// registered for that namespace. Users that access the namespace can share assets only
+    /// with other users or groups in the same namespace. They can't see users and groups
+    /// in other namespaces. You can create a namespace after your Amazon Web Services account
+    /// is subscribed to Amazon QuickSight. The namespace must be unique within the Amazon
+    /// Web Services account. By default, there is a limit of 100 namespaces per Amazon Web
+    /// Services account. To increase your limit, create a ticket with Amazon Web Services
+    /// Support. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the AWS account that you want to create the QuickSight namespace in.</para>
+        /// <para>The ID for the Amazon Web Services account that you want to create the Amazon QuickSight
+        /// namespace in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

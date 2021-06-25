@@ -28,12 +28,7 @@ using Amazon.AppIntegrationsService.Model;
 namespace Amazon.PowerShell.Cmdlets.AIS
 {
     /// <summary>
-    /// The Amazon AppIntegrations APIs are in preview release and are subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Adds the specified tags to the specified resource.
-    /// </para>
     /// </summary>
     [Cmdlet("Add", "AISResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

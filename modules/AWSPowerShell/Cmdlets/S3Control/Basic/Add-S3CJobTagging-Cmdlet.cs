@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// The key and values are case sensitive.
     /// </para></li><li><para>
     /// For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined
-    /// Tag Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+    /// Tag Restrictions</a> in the <i>Billing and Cost Management User Guide</i>.
     /// </para></li></ul></li></ul></note><para>
     /// To use this action, you must have permission to perform the <code>s3:PutJobTagging</code>
     /// action.
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the S3 Batch Operations job.</para>
+        /// <para>The Amazon Web Services account ID associated with the S3 Batch Operations job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

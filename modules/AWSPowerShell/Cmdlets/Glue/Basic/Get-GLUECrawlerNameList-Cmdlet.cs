@@ -28,9 +28,9 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves the names of all crawler resources in this AWS account, or the resources
-    /// with the specified tag. This operation allows you to see which resources are available
-    /// in your account, and their names.
+    /// Retrieves the names of all crawler resources in this Amazon Web Services account,
+    /// or the resources with the specified tag. This operation allows you to see which resources
+    /// are available in your account, and their names.
     /// 
     ///  
     /// <para>

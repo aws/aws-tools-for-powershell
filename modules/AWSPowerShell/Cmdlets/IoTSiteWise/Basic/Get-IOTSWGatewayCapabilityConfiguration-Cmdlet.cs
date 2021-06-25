@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// <summary>
     /// Retrieves information about a gateway capability configuration. Each gateway capability
     /// defines data sources for a gateway. A capability configuration can contain multiple
-    /// data source configurations. If you define OPC-UA sources for a gateway in the AWS
-    /// IoT SiteWise console, all of your OPC-UA sources are stored in one capability configuration.
+    /// data source configurations. If you define OPC-UA sources for a gateway in the IoT
+    /// SiteWise console, all of your OPC-UA sources are stored in one capability configuration.
     /// To list all capability configurations for a gateway, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html">DescribeGateway</a>.
     /// </summary>
     [Cmdlet("Get", "IOTSWGatewayCapabilityConfiguration")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The namespace of the capability configuration. For example, if you configure OPC-UA
-        /// sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has
-        /// the namespace <code>iotsitewise:opcuacollector:version</code>, where <code>version</code>
+        /// sources from the IoT SiteWise console, your OPC-UA capability configuration has the
+        /// namespace <code>iotsitewise:opcuacollector:version</code>, where <code>version</code>
         /// is a number such as <code>1</code>.</para>
         /// </para>
         /// </summary>

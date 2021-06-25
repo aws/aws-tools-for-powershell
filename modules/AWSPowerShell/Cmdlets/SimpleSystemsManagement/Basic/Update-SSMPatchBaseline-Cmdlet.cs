@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// unchanged.
     /// 
     ///  <note><para>
-    /// For information about valid key and value pairs in <code>PatchFilters</code> for each
-    /// supported operating system type, see <a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">PatchFilter</a>.
+    /// For information about valid key-value pairs in <code>PatchFilters</code> for each
+    /// supported operating system type, see <a>PatchFilter</a>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SSMPatchBaseline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>A list of explicitly approved patches for the baseline.</para><para>For information about accepted formats for lists of approved patches and rejected
         /// patches, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-        /// package name formats for approved and rejected patch lists</a> in the <i>AWS Systems
-        /// Manager User Guide</i>.</para>
+        /// package name formats for approved and rejected patch lists</a> in the <i>Amazon Web
+        /// Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Indicates whether the list of approved patches includes non-security updates that
-        /// should be applied to the instances. The default value is 'false'. Applies to Linux
-        /// instances only.</para>
+        /// should be applied to the instances. The default value is <code>false</code>. Applies
+        /// to Linux instances only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>A list of explicitly rejected patches for the baseline.</para><para>For information about accepted formats for lists of approved patches and rejected
         /// patches, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-        /// package name formats for approved and rejected patch lists</a> in the <i>AWS Systems
-        /// Manager User Guide</i>.</para>
+        /// package name formats for approved and rejected patch lists</a> in the <i>Amazon Web
+        /// Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,13 +158,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RejectedPatchesAction
         /// <summary>
         /// <para>
-        /// <para>The action for Patch Manager to take on patches included in the RejectedPackages list.</para><ul><li><para><b>ALLOW_AS_DEPENDENCY</b>: A package in the Rejected patches list is installed only
-        /// if it is a dependency of another package. It is considered compliant with the patch
-        /// baseline, and its status is reported as <i>InstalledOther</i>. This is the default
-        /// action if no option is specified.</para></li><li><para><b>BLOCK</b>: Packages in the RejectedPatches list, and packages that include them
-        /// as dependencies, are not installed under any circumstances. If a package was installed
-        /// before it was added to the Rejected patches list, it is considered non-compliant with
-        /// the patch baseline, and its status is reported as <i>InstalledRejected</i>.</para></li></ul>
+        /// <para>The action for Patch Manager to take on patches included in the <code>RejectedPackages</code>
+        /// list.</para><ul><li><para><b><code>ALLOW_AS_DEPENDENCY</code></b>: A package in the <code>Rejected</code>
+        /// patches list is installed only if it is a dependency of another package. It is considered
+        /// compliant with the patch baseline, and its status is reported as <code>InstalledOther</code>.
+        /// This is the default action if no option is specified.</para></li><li><para><b><code>BLOCK</code></b>: Packages in the <code>RejectedPatches</code> list, and
+        /// packages that include them as dependencies, aren't installed under any circumstances.
+        /// If a package was installed before it was added to the <code>Rejected</code> patches
+        /// list, it is considered non-compliant with the patch baseline, and its status is reported
+        /// as <code>InstalledRejected</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Replace
         /// <summary>
         /// <para>
-        /// <para>If True, then all fields that are required by the CreatePatchBaseline action are also
-        /// required for this API request. Optional fields that are not specified are set to null.</para>
+        /// <para>If True, then all fields that are required by the <a>CreatePatchBaseline</a> operation
+        /// are also required for this API request. Optional fields that aren't specified are
+        /// set to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

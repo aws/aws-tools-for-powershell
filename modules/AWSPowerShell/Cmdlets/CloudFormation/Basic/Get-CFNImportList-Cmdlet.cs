@@ -30,11 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Lists all stacks that are importing an exported output value. To modify or remove
     /// an exported output value, first use this action to see which stacks are using it.
-    /// To see the exported output values in your account, see <a>ListExports</a>. 
+    /// To see the exported output values in your account, see <a>ListExports</a>.
     /// 
     ///  
     /// <para>
-    /// For more information about importing an exported output value, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html"><code>Fn::ImportValue</code></a> function. 
+    /// For more information about importing an exported output value, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html"><code>Fn::ImportValue</code></a> function.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNImportList")]
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ExportName
         /// <summary>
         /// <para>
-        /// <para>The name of the exported output value. AWS CloudFormation returns the stack names
-        /// that are importing this value. </para>
+        /// <para>The name of the exported output value. CloudFormation returns the stack names that
+        /// are importing this value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>A string (provided by the <a>ListImports</a> response output) that identifies the
-        /// next page of stacks that are importing the specified exported output value. </para>
+        /// next page of stacks that are importing the specified exported output value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

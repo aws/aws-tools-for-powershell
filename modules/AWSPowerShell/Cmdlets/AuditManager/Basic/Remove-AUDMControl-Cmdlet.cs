@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Deletes a custom control in AWS Audit Manager.
+    /// Deletes a custom control in Audit Manager.
     /// </summary>
     [Cmdlet("Remove", "AUDMControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

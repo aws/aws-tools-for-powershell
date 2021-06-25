@@ -28,9 +28,9 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Gets a list of the work teams that you are subscribed to in the AWS Marketplace. The
-    /// list may be empty if no work team satisfies the filter specified in the <code>NameContains</code>
-    /// parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets a list of the work teams that you are subscribed to in the Amazon Web Services
+    /// Marketplace. The list may be empty if no work team satisfies the filter specified
+    /// in the <code>NameContains</code> parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSubscribedWorkteamList")]
     [OutputType("Amazon.SageMaker.Model.SubscribedWorkteam")]

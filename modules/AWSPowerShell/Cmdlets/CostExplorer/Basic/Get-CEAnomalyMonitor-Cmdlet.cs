@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter MonitorArnList
         /// <summary>
         /// <para>
-        /// <para> A list of cost anomaly monitor ARNs. </para>
+        /// <para>A list of cost anomaly monitor ARNs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The number of entries a paginated response contains. </para>
+        /// <para>The number of entries that a paginated response contains. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,8 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter NextPageToken
         /// <summary>
         /// <para>
-        /// <para> The token to retrieve the next set of results. AWS provides the token when the response
-        /// from a previous call has more results than the maximum page size. </para>
+        /// <para>The token to retrieve the next set of results. Amazon Web Services provides the token
+        /// when the response from a previous call has more results than the maximum page size.
+        /// </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

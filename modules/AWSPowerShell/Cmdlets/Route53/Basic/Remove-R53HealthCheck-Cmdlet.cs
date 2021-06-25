@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// of DNS queries for your DNS failover configuration. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html">Replacing
     /// and Deleting Health Checks</a> in the <i>Amazon Route 53 Developer Guide</i>.
     /// </para></important><para>
-    /// If you're using AWS Cloud Map and you configured Cloud Map to create a Route 53 health
+    /// If you're using Cloud Map and you configured Cloud Map to create a Route 53 health
     /// check when you register an instance, you can't use the Route 53 <code>DeleteHealthCheck</code>
     /// command to delete the health check. The health check is deleted automatically when
     /// you deregister the instance; there can be a delay of several hours before the health

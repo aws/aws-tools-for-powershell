@@ -28,7 +28,8 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Creates a new Amazon FSx file system from an existing Amazon FSx backup.
+    /// Creates a new Amazon FSx for Lustre or Amazon FSx for Windows File Server file system
+    /// from an existing Amazon FSx backup.
     /// 
     ///  
     /// <para>
@@ -91,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent creation.
-        /// This string is automatically filled on your behalf when you use the AWS Command Line
-        /// Interface (AWS CLI) or an AWS SDK.</para>
+        /// This string is automatically filled on your behalf when you use the Command Line Interface
+        /// (CLI) or an Amazon Web Services SDK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

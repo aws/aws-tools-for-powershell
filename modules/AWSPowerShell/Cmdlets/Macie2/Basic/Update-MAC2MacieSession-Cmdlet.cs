@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter FindingPublishingFrequency
         /// <summary>
         /// <para>
-        /// Specifies how often to publish
-        /// updates to policy findings for the account. This includes publishing updates to AWS
-        /// Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).
+        /// <para>Specifies how often to publish updates to policy findings for the account. This includes
+        /// publishing updates to Security Hub and Amazon EventBridge (formerly called Amazon
+        /// CloudWatch Events).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

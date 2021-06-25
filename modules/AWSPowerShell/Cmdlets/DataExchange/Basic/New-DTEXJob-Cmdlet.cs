@@ -142,9 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter Encryption_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the the AWS KMS key you want to use to encrypt the
-        /// Amazon S3 objects. This parameter is required if you choose aws:kms as an encryption
-        /// type.</para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon
+        /// S3 objects. This parameter is required if you choose aws:kms as an encryption type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,9 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter Details_ExportRevisionsToS3_Encryption_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the the AWS KMS key you want to use to encrypt the
-        /// Amazon S3 objects. This parameter is required if you choose aws:kms as an encryption
-        /// type.</para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon
+        /// S3 objects. This parameter is required if you choose aws:kms as an encryption type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// List the distributions that are associated with a specified AWS WAF web ACL.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List the distributions that are associated with a specified WAF web ACL.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFDistributionListByWebACLId")]
     [OutputType("Amazon.CloudFront.Model.DistributionSummary")]
@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter WebACLId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS WAF web ACL that you want to list the associated distributions.
-        /// If you specify "null" for the ID, the request returns a list of the distributions
-        /// that aren't associated with a web ACL. </para>
+        /// <para>The ID of the WAF web ACL that you want to list the associated distributions. If you
+        /// specify "null" for the ID, the request returns a list of the distributions that aren't
+        /// associated with a web ACL.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

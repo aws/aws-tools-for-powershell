@@ -31,7 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// Creates an association between a geofence collection and a tracker resource. This
     /// allows the tracker resource to communicate location data to the linked geofence collection.
     /// 
-    ///  <note><para>
+    /// 
+    ///  
+    /// <para>
+    /// You can associate up to five geofence collections to each tracker resource.
+    /// </para><note><para>
     /// Currently not supported — Cross-account configurations, such as creating associations
     /// between a tracker resource in one account and a geofence collection in another account.
     /// </para></note>

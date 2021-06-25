@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// <summary>
     /// Tag a resource. For more information, see <i>AWS Proton resources and tagging</i>
     /// in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS
-    /// Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
+    /// Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
     /// Proton User Guide</a>.
     /// </summary>
     [Cmdlet("Add", "PROResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

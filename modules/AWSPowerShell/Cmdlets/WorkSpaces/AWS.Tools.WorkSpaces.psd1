@@ -114,6 +114,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-WKSConnectionAlias', 
         'New-WKSIpGroup', 
         'New-WKSTag', 
+        'New-WKSUpdatedWorkspaceImage', 
         'New-WKSWorkspace', 
         'New-WKSWorkspaceBundle', 
         'Register-WKSConnectionAlias', 

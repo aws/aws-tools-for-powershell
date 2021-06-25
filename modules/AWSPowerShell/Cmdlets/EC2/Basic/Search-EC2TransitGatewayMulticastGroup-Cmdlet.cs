@@ -49,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <code>false</code>.</para></li><li><para><code>member-type</code> - The member type. Valid values are <code>igmp</code> |
         /// <code>static</code>.</para></li><li><para><code>resource-id</code> - The ID of the resource.</para></li><li><para><code>resource-type</code> - The type of resource. Valid values are <code>vpc</code>
         /// | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>tgw-peering</code>.</para></li><li><para><code>source-type</code> - The source type. Valid values are <code>igmp</code> |
-        /// <code>static</code>.</para></li><li><para><code>state</code> - The state of the subnet association. Valid values are <code>associated</code>
-        /// | <code>associated</code> | <code>disassociated</code> | <code>disassociating</code>.</para></li><li><para><code>subnet-id</code> - The ID of the subnet.</para></li><li><para><code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</para></li></ul>
+        /// <code>static</code>.</para></li><li><para><code>subnet-id</code> - The ID of the subnet.</para></li><li><para><code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

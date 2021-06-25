@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
     /// 
     ///  
     /// <para>
-    /// AWS Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon
+    /// Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon
     /// EC2) instances that meet a specific set of requirements. For more information, see
     /// the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
-    /// resources and requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.
+    /// resources and requirements</a> in the <i>Compute Optimizer User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "COEC2InstanceRecommendation")]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account for which to return instance recommendations.</para><para>If your account is the management account of an organization, use this parameter to
+        /// <para>The ID of the Amazon Web Services account for which to return instance recommendations.</para><para>If your account is the management account of an organization, use this parameter to
         /// specify the member account for which you want to return instance recommendations.</para><para>Only one account ID can be specified per request.</para>
         /// </para>
         /// </summary>
@@ -59,10 +59,27 @@ namespace Amazon.PowerShell.Cmdlets.CO
         public System.String[] AccountId { get; set; }
         #endregion
         
+        #region Parameter RecommendationPreferences_CpuVendorArchitecture
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the CPU vendor and architecture for Amazon EC2 instance and Auto Scaling
+        /// group recommendations.</para><para>For example, when you specify <code>AWS_ARM64</code> with:</para><ul><li><para>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a>
+        /// request, Compute Optimizer returns recommendations that consist of Graviton2 instance
+        /// types only.</para></li><li><para>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected
+        /// utilization metrics for Graviton2 instance type recommendations only.</para></li><li><para>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a>
+        /// request, Compute Optimizer exports recommendations that consist of Graviton2 instance
+        /// types only.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecommendationPreferences_CpuVendorArchitectures")]
+        public System.String[] RecommendationPreferences_CpuVendorArchitecture { get; set; }
+        #endregion
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An array of objects that describe a filter that returns a more specific list of instance
+        /// <para>An array of objects to specify a filter that returns a more specific list of instance
         /// recommendations.</para>
         /// </para>
         /// </summary>
@@ -85,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of instance recommendations to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <code>NextToken</code>
+        /// <para>The maximum number of instance recommendations to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <code>nextToken</code>
         /// value.</para>
         /// </para>
         /// </summary>
@@ -157,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.RecommendationPreferences_CpuVendorArchitecture != null)
+            {
+                context.RecommendationPreferences_CpuVendorArchitecture = new List<System.String>(this.RecommendationPreferences_CpuVendorArchitecture);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,6 +211,25 @@ namespace Amazon.PowerShell.Cmdlets.CO
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            
+             // populate RecommendationPreferences
+            var requestRecommendationPreferencesIsNull = true;
+            request.RecommendationPreferences = new Amazon.ComputeOptimizer.Model.RecommendationPreferences();
+            List<System.String> requestRecommendationPreferences_recommendationPreferences_CpuVendorArchitecture = null;
+            if (cmdletContext.RecommendationPreferences_CpuVendorArchitecture != null)
+            {
+                requestRecommendationPreferences_recommendationPreferences_CpuVendorArchitecture = cmdletContext.RecommendationPreferences_CpuVendorArchitecture;
+            }
+            if (requestRecommendationPreferences_recommendationPreferences_CpuVendorArchitecture != null)
+            {
+                request.RecommendationPreferences.CpuVendorArchitectures = requestRecommendationPreferences_recommendationPreferences_CpuVendorArchitecture;
+                requestRecommendationPreferencesIsNull = false;
+            }
+             // determine if request.RecommendationPreferences should be set to null
+            if (requestRecommendationPreferencesIsNull)
+            {
+                request.RecommendationPreferences = null;
             }
             
             // Initialize loop variant and commence piping
@@ -281,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
             public List<System.String> InstanceArn { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> RecommendationPreferences_CpuVendorArchitecture { get; set; }
             public System.Func<Amazon.ComputeOptimizer.Model.GetEC2InstanceRecommendationsResponse, GetCOEC2InstanceRecommendationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

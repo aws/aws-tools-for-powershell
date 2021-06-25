@@ -34,20 +34,20 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// 
     ///  
     /// <para>
-    /// AWS generates your recommendations by identifying your On-Demand usage during a specific
-    /// time period and collecting your usage into categories that are eligible for a reservation.
-    /// After AWS has these categories, it simulates every combination of reservations in
-    /// each category of usage to identify the best number of each type of RI to purchase
-    /// to maximize your estimated savings. 
+    /// Amazon Web Services generates your recommendations by identifying your On-Demand usage
+    /// during a specific time period and collecting your usage into categories that are eligible
+    /// for a reservation. After Amazon Web Services has these categories, it simulates every
+    /// combination of reservations in each category of usage to identify the best number
+    /// of each type of RI to purchase to maximize your estimated savings. 
     /// </para><para>
-    /// For example, AWS automatically aggregates your Amazon EC2 Linux, shared tenancy, and
-    /// c4 family usage in the US West (Oregon) Region and recommends that you buy size-flexible
-    /// regional reservations to apply to the c4 family usage. AWS recommends the smallest
-    /// size instance in an instance family. This makes it easier to purchase a size-flexible
-    /// RI. AWS also shows the equal number of normalized units so that you can purchase any
-    /// instance size that you want. For this example, your RI recommendation would be for
-    /// <code>c4.large</code> because that is the smallest size instance in the c4 instance
-    /// family.
+    /// For example, Amazon Web Services automatically aggregates your Amazon EC2 Linux, shared
+    /// tenancy, and c4 family usage in the US West (Oregon) Region and recommends that you
+    /// buy size-flexible regional reservations to apply to the c4 family usage. Amazon Web
+    /// Services recommends the smallest size instance in an instance family. This makes it
+    /// easier to purchase a size-flexible RI. Amazon Web Services also shows the equal number
+    /// of normalized units so that you can purchase any instance size that you want. For
+    /// this example, your RI recommendation would be for <code>c4.large</code> because that
+    /// is the smallest size instance in the c4 instance family.
     /// </para><br/><br/>In the AWS.Tools.CostExplorer module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CEReservationPurchaseRecommendation")]
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter LookbackPeriodInDay
         /// <summary>
         /// <para>
-        /// <para>The number of previous days that you want AWS to consider when it calculates your
-        /// recommendations.</para>
+        /// <para>The number of previous days that you want Amazon Web Services to consider when it
+        /// calculates your recommendations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter EC2Specification_OfferingClass
         /// <summary>
         /// <para>
-        /// <para>Whether you want a recommendation for standard or convertible reservations.</para>
+        /// <para>Indicates whether you want a recommendation for standard or convertible reservations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

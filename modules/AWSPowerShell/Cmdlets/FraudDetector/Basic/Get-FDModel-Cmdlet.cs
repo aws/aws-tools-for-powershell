@@ -28,10 +28,10 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Gets one or more models. Gets all models for the AWS account if no model type and
-    /// no model id provided. Gets all models for the AWS account and model type, if the model
-    /// type is specified but model id is not provided. Gets a specific model if (model type,
-    /// model id) tuple is specified. 
+    /// Gets one or more models. Gets all models for the Amazon Web Services account if no
+    /// model type and no model id provided. Gets all models for the Amazon Web Services account
+    /// and model type, if the model type is specified but model id is not provided. Gets
+    /// a specific model if (model type, model id) tuple is specified. 
     /// 
     ///  
     /// <para>

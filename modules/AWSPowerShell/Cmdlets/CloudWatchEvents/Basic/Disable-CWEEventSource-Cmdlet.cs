@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// When you deactivate a partner event source, the source goes into PENDING state. If
     /// it remains in PENDING state for more than two weeks, it is deleted.
     /// </para><para>
-    /// To activate a deactivated partner event source, use <a>ActivateEventSource</a>.
+    /// To activate a deactivated partner event source, use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ActivateEventSource.html">ActivateEventSource</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "CWEEventSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

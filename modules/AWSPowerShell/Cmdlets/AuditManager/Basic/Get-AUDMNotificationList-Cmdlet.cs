@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns a list of all AWS Audit Manager notifications.
+    /// Returns a list of all Audit Manager notifications.
     /// </summary>
     [Cmdlet("Get", "AUDMNotificationList")]
     [OutputType("Amazon.AuditManager.Model.Notification")]

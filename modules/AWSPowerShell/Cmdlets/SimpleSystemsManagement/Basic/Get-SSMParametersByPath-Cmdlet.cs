@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Retrieve information about one or more parameters in a specific hierarchy. 
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
     /// Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
     /// in the request, the response includes information up to the limit specified. The number
     /// of items returned, however, can be between zero and the value of <code>MaxResults</code>.
@@ -38,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// operation and returns the matching values up to that point and a <code>NextToken</code>.
     /// You can specify the <code>NextToken</code> in a subsequent call to get the next set
     /// of results.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMParametersByPath")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Parameter")]
@@ -53,9 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ParameterFilter
         /// <summary>
         /// <para>
-        /// <para>Filters to limit the request results.</para><note><para>For <code>GetParametersByPath</code>, the following filter <code>Key</code> names
-        /// are supported: <code>Type</code>, <code>KeyId</code>, <code>Label</code>, and <code>DataType</code>.</para><para>The following <code>Key</code> values are not supported for <code>GetParametersByPath</code>:
-        /// <code>tag</code>, <code>Name</code>, <code>Path</code>, and <code>Tier</code>.</para></note>
+        /// <para>Filters to limit the request results.</para><note><para>The following <code>Key</code> values are supported for <code>GetParametersByPath</code>:
+        /// <code>Type</code>, <code>KeyId</code>, and <code>Label</code>.</para><para>The following <code>Key</code> values aren't supported for <code>GetParametersByPath</code>:
+        /// <code>tag</code>, <code>DataType</code>, <code>Name</code>, <code>Path</code>, and
+        /// <code>Tier</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierachy
         /// is the parameter name except the last part of the parameter. For the API call to succeeed,
-        /// the last part of the parameter name cannot be in the path. A parameter name hierarchy
+        /// the last part of the parameter name can't be in the path. A parameter name hierarchy
         /// can have a maximum of 15 levels. Here is an example of a hierarchy: <code>/Finance/Prod/IAD/WinServ2016/license33
         /// </code></para>
         /// </para>
@@ -91,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// For example, if a user has permission to access path <code>/a</code>, then the user
         /// can also access <code>/a/b</code>. Even if a user has explicitly been denied access
         /// in IAM for parameter <code>/a/b</code>, they can still call the GetParametersByPath
-        /// API action recursively for <code>/a</code> and view <code>/a/b</code>.</para></important>
+        /// API operation recursively for <code>/a</code> and view <code>/a/b</code>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

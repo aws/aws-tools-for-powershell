@@ -28,9 +28,10 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the permissions for a Systems Manager document. If you created the document,
-    /// you are the owner. If a document is shared, it can either be shared privately (by
-    /// specifying a user's AWS account ID) or publicly (<i>All</i>).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the permissions for a Amazon Web Services Systems Manager document (SSM
+    /// document). If you created the document, you are the owner. If a document is shared,
+    /// it can either be shared privately (by specifying a user's Amazon Web Services account
+    /// ID) or publicly (<i>All</i>).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMDocumentPermission")]
     [OutputType("System.String")]

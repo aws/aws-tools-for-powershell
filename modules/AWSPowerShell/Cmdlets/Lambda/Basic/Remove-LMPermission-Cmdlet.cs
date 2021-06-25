@@ -28,8 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Revokes function-use permission from an AWS service or another account. You can get
-    /// the ID of the statement from the output of <a>GetPolicy</a>.
+    /// Revokes function-use permission from an Amazon Web Services service or another account.
+    /// You can get the ID of the statement from the output of <a>GetPolicy</a>.
     /// </summary>
     [Cmdlet("Remove", "LMPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

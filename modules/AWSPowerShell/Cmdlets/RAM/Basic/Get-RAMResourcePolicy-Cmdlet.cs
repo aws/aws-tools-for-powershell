@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of the resources.</para>
+        /// <para>The Amazon Resource Names (ARNs) of the resources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

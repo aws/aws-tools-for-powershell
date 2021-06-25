@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AdminAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account identifier of the Security Hub administrator account.</para>
+        /// <para>The Amazon Web Services account identifier of the Security Hub administrator account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

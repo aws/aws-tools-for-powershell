@@ -37,7 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// The job status must currently be "IN_PROGRESS".
     /// </para></li><li><para>
     /// The total number of targets associated with a job must not exceed 100.
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AssociateTargetsWithJob</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "IOTTargetsWithJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.AssociateTargetsWithJobResponse")]
@@ -78,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter NamespaceId
         /// <summary>
         /// <para>
-        /// <para>The namespace used to indicate that a job is a customer-managed job.</para><para>When you specify a value for this parameter, AWS IoT Core sends jobs notifications
-        /// to MQTT topics that contain the value in the following format.</para><para><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></para><note><para>The <code>namespaceId</code> feature is in public preview.</para></note>
+        /// <para>The namespace used to indicate that a job is a customer-managed job.</para><para>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs
+        /// notifications to MQTT topics that contain the value in the following format.</para><para><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></para><note><para>The <code>namespaceId</code> feature is in public preview.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

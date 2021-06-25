@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Replaces the rule. You must specify all parameters for the new rule. Creating rules
     /// is an administrator-level action. Any user who has permission to create rules will
     /// be able to access data processed by the rule.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ReplaceTopicRule</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "IOTTopicRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -99,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>Whether to process the action as a batch. The default value is <code>false</code>.</para><para>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates
         /// to an Array, each Array element is delivered as a separate message when passed by
-        /// <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html"><code>BatchPutMessage</code></a> to the AWS IoT Analytics channel. The resulting
-        /// array can't have more than 100 messages.</para>
+        /// <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html"><code>BatchPutMessage</code></a> to the IoT Analytics channel. The resulting array
+        /// can't have more than 100 messages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>Whether to process the event actions as a batch. The default value is <code>false</code>.</para><para>When <code>batchMode</code> is <code>true</code>, you can't specify a <code>messageId</code>.
         /// </para><para>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates
         /// to an Array, each Array element is treated as a separate message when it's sent to
-        /// AWS IoT Events by calling <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html"><code>BatchPutMessage</code></a>. The resulting array can't have more than 10 messages.</para>
+        /// IoT Events by calling <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html"><code>BatchPutMessage</code></a>. The resulting array can't have more than 10 messages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,10 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Http_ConfirmationUrl
         /// <summary>
         /// <para>
-        /// <para>The URL to which AWS IoT sends a confirmation message. The value of the confirmation
-        /// URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL
-        /// AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates
-        /// in the confirmationUrl, you must create and enable topic rule destinations that match
+        /// <para>The URL to which IoT sends a confirmation message. The value of the confirmation URL
+        /// must be a prefix of the endpoint URL. If you do not specify a confirmation URL IoT
+        /// uses the endpoint URL as the confirmation URL. If you use substitution templates in
+        /// the confirmationUrl, you must create and enable topic rule destinations that match
         /// each possible value of the substitution template before traffic is allowed to your
         /// endpoint URL.</para>
         /// </para>
@@ -253,12 +259,23 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Elasticsearch_Endpoint
         /// <summary>
         /// <para>
-        /// <para>The endpoint of your Elasticsearch domain.</para>
+        /// <para>The endpoint of your OpenSearch domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_Elasticsearch_Endpoint")]
         public System.String Elasticsearch_Endpoint { get; set; }
+        #endregion
+        
+        #region Parameter OpenSearch_Endpoint
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint of your OpenSearch domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_OpenSearch_Endpoint")]
+        public System.String OpenSearch_Endpoint { get; set; }
         #endregion
         
         #region Parameter StepFunctions_ExecutionNamePrefix
@@ -341,10 +358,21 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Elasticsearch_Id { get; set; }
         #endregion
         
+        #region Parameter OpenSearch_Id
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the document you are storing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_OpenSearch_Id")]
+        public System.String OpenSearch_Id { get; set; }
+        #endregion
+        
         #region Parameter Elasticsearch_Index
         /// <summary>
         /// <para>
-        /// <para>The Elasticsearch index where you want to store your data.</para>
+        /// <para>The index where you want to store your data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -352,10 +380,21 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Elasticsearch_Index { get; set; }
         #endregion
         
+        #region Parameter OpenSearch_Index
+        /// <summary>
+        /// <para>
+        /// <para>The OpenSearch index where you want to store your data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_OpenSearch_Index")]
+        public System.String OpenSearch_Index { get; set; }
+        #endregion
+        
         #region Parameter IotEvents_InputName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS IoT Events input.</para>
+        /// <para>The name of the IoT Events input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -418,7 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>The ID of the message. The default <code>messageId</code> is a new UUID value.</para><para>When <code>batchMode</code> is <code>true</code>, you can't specify a <code>messageId</code>--a
         /// new UUID value will be assigned.</para><para>Assign a value to this property to ensure that only one input (message) with a given
-        /// <code>messageId</code> will be processed by an AWS IoT Events detector.</para>
+        /// <code>messageId</code> will be processed by an IoT Events detector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -655,7 +694,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Elasticsearch_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The IAM role ARN that has access to Elasticsearch.</para>
+        /// <para>The IAM role ARN that has access to OpenSearch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -700,8 +739,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter IotEvents_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT
-        /// Events detector. ("Action":"iotevents:BatchPutMessage").</para>
+        /// <para>The ARN of the role that grants IoT permission to send an input to an IoT Events detector.
+        /// ("Action":"iotevents:BatchPutMessage").</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -712,9 +751,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter IotSiteWise_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the role that grants AWS IoT permission to send an asset property value
-        /// to AWS IoTSiteWise. (<code>"Action": "iotsitewise:BatchPutAssetPropertyValue"</code>).
-        /// The trust policy can restrict access to specific asset hierarchy paths.</para>
+        /// <para>The ARN of the role that grants IoT permission to send an asset property value to
+        /// IoT SiteWise. (<code>"Action": "iotsitewise:BatchPutAssetPropertyValue"</code>). The
+        /// trust policy can restrict access to specific asset hierarchy paths.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -731,6 +770,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_Kinesis_RoleArn")]
         public System.String Kinesis_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter OpenSearch_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The IAM role ARN that has access to OpenSearch.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_OpenSearch_RoleArn")]
+        public System.String OpenSearch_RoleArn { get; set; }
         #endregion
         
         #region Parameter Republish_RoleArn
@@ -866,8 +916,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TopicRulePayload_Sql
         /// <summary>
         /// <para>
-        /// <para>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html">AWS
-        /// IoT SQL Reference</a> in the <i>AWS IoT Developer Guide</i>.</para>
+        /// <para>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html">IoT
+        /// SQL Reference</a> in the <i>IoT Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -1013,6 +1063,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_Elasticsearch_Type")]
         public System.String Elasticsearch_Type { get; set; }
+        #endregion
+        
+        #region Parameter OpenSearch_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of document you are storing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_OpenSearch_Type")]
+        public System.String OpenSearch_Type { get; set; }
         #endregion
         
         #region Parameter Timestamp_Unit
@@ -1225,6 +1286,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.Kinesis_RoleArn = this.Kinesis_RoleArn;
             context.Kinesis_StreamName = this.Kinesis_StreamName;
             context.Lambda_FunctionArn = this.Lambda_FunctionArn;
+            context.OpenSearch_Endpoint = this.OpenSearch_Endpoint;
+            context.OpenSearch_Id = this.OpenSearch_Id;
+            context.OpenSearch_Index = this.OpenSearch_Index;
+            context.OpenSearch_RoleArn = this.OpenSearch_RoleArn;
+            context.OpenSearch_Type = this.OpenSearch_Type;
             context.Republish_Qo = this.Republish_Qo;
             context.Republish_RoleArn = this.Republish_RoleArn;
             context.Republish_Topic = this.Republish_Topic;
@@ -2254,6 +2320,71 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 requestTopicRulePayload_topicRulePayload_ErrorAction.Kafka = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kafka;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
+            Amazon.IoT.Model.OpenSearchAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch = null;
+            
+             // populate OpenSearch
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearchIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch = new Amazon.IoT.Model.OpenSearchAction();
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Endpoint = null;
+            if (cmdletContext.OpenSearch_Endpoint != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Endpoint = cmdletContext.OpenSearch_Endpoint;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Endpoint != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch.Endpoint = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Endpoint;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearchIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Id = null;
+            if (cmdletContext.OpenSearch_Id != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Id = cmdletContext.OpenSearch_Id;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Id != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch.Id = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Id;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearchIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Index = null;
+            if (cmdletContext.OpenSearch_Index != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Index = cmdletContext.OpenSearch_Index;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Index != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch.Index = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Index;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearchIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_RoleArn = null;
+            if (cmdletContext.OpenSearch_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_RoleArn = cmdletContext.OpenSearch_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearchIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Type = null;
+            if (cmdletContext.OpenSearch_Type != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Type = cmdletContext.OpenSearch_Type;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Type != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch.Type = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch_openSearch_Type;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearchIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearchIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.OpenSearch = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_OpenSearch;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
             Amazon.IoT.Model.TimestreamAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream = null;
             
              // populate Timestream
@@ -2672,6 +2803,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String Kinesis_RoleArn { get; set; }
             public System.String Kinesis_StreamName { get; set; }
             public System.String Lambda_FunctionArn { get; set; }
+            public System.String OpenSearch_Endpoint { get; set; }
+            public System.String OpenSearch_Id { get; set; }
+            public System.String OpenSearch_Index { get; set; }
+            public System.String OpenSearch_RoleArn { get; set; }
+            public System.String OpenSearch_Type { get; set; }
             public System.Int32? Republish_Qo { get; set; }
             public System.String Republish_RoleArn { get; set; }
             public System.String Republish_Topic { get; set; }

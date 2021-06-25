@@ -127,7 +127,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainNames" OutputProperty="DomainNames" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDomainNames" OutputProperty="DomainNames" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

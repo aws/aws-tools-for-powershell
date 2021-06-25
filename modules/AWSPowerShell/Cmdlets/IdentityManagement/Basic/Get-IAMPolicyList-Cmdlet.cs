@@ -28,15 +28,17 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Lists all the managed policies that are available in your AWS account, including your
-    /// own customer-defined managed policies and all AWS managed policies.
+    /// Lists all the managed policies that are available in your Amazon Web Services account,
+    /// including your own customer-defined managed policies and all Amazon Web Services managed
+    /// policies.
     /// 
     ///  
     /// <para>
     /// You can filter the list of policies that is returned using the optional <code>OnlyAttached</code>,
     /// <code>Scope</code>, and <code>PathPrefix</code> parameters. For example, to list only
-    /// the customer managed policies in your AWS account, set <code>Scope</code> to <code>Local</code>.
-    /// To list only AWS managed policies, set <code>Scope</code> to <code>AWS</code>.
+    /// the customer managed policies in your Amazon Web Services account, set <code>Scope</code>
+    /// to <code>Local</code>. To list only Amazon Web Services managed policies, set <code>Scope</code>
+    /// to <code>AWS</code>.
     /// </para><para>
     /// You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
     /// parameters.
@@ -103,9 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>The scope to use for filtering the results.</para><para>To list only AWS managed policies, set <code>Scope</code> to <code>AWS</code>. To
-        /// list only the customer managed policies in your AWS account, set <code>Scope</code>
-        /// to <code>Local</code>.</para><para>This parameter is optional. If it is not included, or if it is set to <code>All</code>,
+        /// <para>The scope to use for filtering the results.</para><para>To list only Amazon Web Services managed policies, set <code>Scope</code> to <code>AWS</code>.
+        /// To list only the customer managed policies in your Amazon Web Services account, set
+        /// <code>Scope</code> to <code>Local</code>.</para><para>This parameter is optional. If it is not included, or if it is set to <code>All</code>,
         /// all policies are returned.</para>
         /// </para>
         /// </summary>

@@ -28,7 +28,7 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Adds or updates tags for a resource in AWS Shield.
+    /// Adds or updates tags for a resource in Shield.
     /// </summary>
     [Cmdlet("Add", "SHLDResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

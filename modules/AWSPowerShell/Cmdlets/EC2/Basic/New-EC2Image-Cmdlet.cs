@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// If you customized your instance with instance store volumes or EBS volumes in addition
-    /// to the root device volume, the new AMI contains block device mapping information for
-    /// those volumes. When you launch an instance from this new AMI, the instance automatically
+    /// If you customized your instance with instance store volumes or Amazon EBS volumes
+    /// in addition to the root device volume, the new AMI contains block device mapping information
+    /// for those volumes. When you launch an instance from this new AMI, the instance automatically
     /// launches with those additional volumes.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating
@@ -116,8 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>By default, Amazon EC2 attempts to shut down and reboot the instance before creating
         /// the image. If the <code>No Reboot</code> option is set, Amazon EC2 doesn't shut down
-        /// the instance before creating the image. When this option is used, file system integrity
-        /// on the created image can't be guaranteed.</para>
+        /// the instance before creating the image. Without a reboot, the AMI will be crash consistent
+        /// (all the volumes are snapshotted at the same time), but not application consistent
+        /// (all the operating system buffers are not flushed to disk before the snapshots are
+        /// created).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -128,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The tags to apply to the AMI and snapshots on creation. You can tag the AMI, the snapshots,
-        /// or both.</para><ul><li><para>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</para></li><li><para>To tag the snapshots that are created of the root volume and of other EBS volumes
+        /// or both.</para><ul><li><para>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</para></li><li><para>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes
         /// that are attached to the instance, the value for <code>ResourceType</code> must be
         /// <code>snapshot</code>. The same tag is applied to all of the snapshots that are created.</para></li></ul><para>If you specify other values for <code>ResourceType</code>, the request fails.</para><para>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.
         /// </para>

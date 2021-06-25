@@ -39,9 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// When you use the <code>EnableSecurityHub</code> operation to enable Security Hub,
     /// you also automatically enable the following standards.
     /// </para><ul><li><para>
-    /// CIS AWS Foundations
+    /// CIS Amazon Web Services Foundations
     /// </para></li><li><para>
-    /// AWS Foundational Security Best Practices
+    /// Amazon Web Services Foundational Security Best Practices
     /// </para></li></ul><para>
     /// You do not enable the Payment Card Industry Data Security Standard (PCI DSS) standard.
     /// 
@@ -49,10 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// To not enable the automatically enabled standards, set <code>EnableDefaultStandards</code>
     /// to <code>false</code>.
     /// </para><para>
-    /// After you enable Security Hub, to enable a standard, use the <code><a>BatchEnableStandards</a></code> operation. To disable a standard, use the <code><a>BatchDisableStandards</a></code> operation.
+    /// After you enable Security Hub, to enable a standard, use the <code>BatchEnableStandards</code>
+    /// operation. To disable a standard, use the <code>BatchDisableStandards</code> operation.
     /// </para><para>
-    /// To learn more, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html">Setting
-    /// Up AWS Security Hub</a> in the <i>AWS Security Hub User Guide</i>.
+    /// To learn more, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html">setup
+    /// information</a> in the <i>Security Hub User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "SHUBSecurityHub", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

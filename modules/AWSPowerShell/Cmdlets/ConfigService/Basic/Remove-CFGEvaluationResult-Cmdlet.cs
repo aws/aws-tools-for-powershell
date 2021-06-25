@@ -28,10 +28,10 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Deletes the evaluation results for the specified AWS Config rule. You can specify
-    /// one AWS Config rule per request. After you delete the evaluation results, you can
-    /// call the <a>StartConfigRulesEvaluation</a> API to start evaluating your AWS resources
-    /// against the rule.
+    /// Deletes the evaluation results for the specified Config rule. You can specify one
+    /// Config rule per request. After you delete the evaluation results, you can call the
+    /// <a>StartConfigRulesEvaluation</a> API to start evaluating your Amazon Web Services
+    /// resources against the rule.
     /// </summary>
     [Cmdlet("Remove", "CFGEvaluationResult", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS Config rule for which you want to delete the evaluation results.</para>
+        /// <para>The name of the Config rule for which you want to delete the evaluation results.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

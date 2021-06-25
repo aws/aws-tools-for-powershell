@@ -37,12 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// results using the <code>MaxItems</code> and <code>Marker</code> parameters.
     /// </para><para>
     /// If the <code>UserName</code> field is not specified, the user name is determined implicitly
-    /// based on the AWS access key ID used to sign the request. This operation works for
-    /// access keys under the AWS account. Consequently, you can use this operation to manage
-    /// AWS account root user credentials even if the AWS account has no associated users.
+    /// based on the Amazon Web Services access key ID used to sign the request. This operation
+    /// works for access keys under the Amazon Web Services account. Consequently, you can
+    /// use this operation to manage Amazon Web Services account root user credentials even
+    /// if the Amazon Web Services account has no associated users.
     /// </para><note><para>
-    /// To ensure the security of your AWS account, the secret access key is accessible only
-    /// during key and user creation.
+    /// To ensure the security of your Amazon Web Services account, the secret access key
+    /// is accessible only during key and user creation.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMAccessKey")]

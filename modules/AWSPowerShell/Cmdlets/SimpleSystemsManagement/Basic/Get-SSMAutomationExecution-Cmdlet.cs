@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The unique identifier for an existing automation execution to examine. The execution
-        /// ID is returned by StartAutomationExecution when the execution of an Automation document
+        /// ID is returned by StartAutomationExecution when the execution of an Automation runbook
         /// is initiated.</para>
         /// </para>
         /// </summary>

@@ -67,6 +67,16 @@ namespace Amazon.PowerShell.Cmdlets.NS
         public System.String LaunchProfileId { get; set; }
         #endregion
         
+        #region Parameter OwnedBy
+        /// <summary>
+        /// <para>
+        /// <para>The user ID of the user that owns the streaming session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OwnedBy { get; set; }
+        #endregion
+        
         #region Parameter StreamingImageId
         /// <summary>
         /// <para>
@@ -184,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
             context.ClientToken = this.ClientToken;
             context.Ec2InstanceType = this.Ec2InstanceType;
             context.LaunchProfileId = this.LaunchProfileId;
+            context.OwnedBy = this.OwnedBy;
             context.StreamingImageId = this.StreamingImageId;
             context.StudioId = this.StudioId;
             #if MODULAR
@@ -227,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.NS
             if (cmdletContext.LaunchProfileId != null)
             {
                 request.LaunchProfileId = cmdletContext.LaunchProfileId;
+            }
+            if (cmdletContext.OwnedBy != null)
+            {
+                request.OwnedBy = cmdletContext.OwnedBy;
             }
             if (cmdletContext.StreamingImageId != null)
             {
@@ -304,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
             public System.String ClientToken { get; set; }
             public Amazon.NimbleStudio.StreamingInstanceType Ec2InstanceType { get; set; }
             public System.String LaunchProfileId { get; set; }
+            public System.String OwnedBy { get; set; }
             public System.String StreamingImageId { get; set; }
             public System.String StudioId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

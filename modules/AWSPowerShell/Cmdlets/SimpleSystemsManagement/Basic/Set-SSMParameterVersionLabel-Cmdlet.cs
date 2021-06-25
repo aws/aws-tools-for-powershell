@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// A parameter label is a user-defined alias to help you manage different versions of
-    /// a parameter. When you modify a parameter, Systems Manager automatically saves a new
-    /// version and increments the version number by one. A label can help you remember the
-    /// purpose of a parameter when there are multiple versions. 
+    /// a parameter. When you modify a parameter, Amazon Web Services Systems Manager automatically
+    /// saves a new version and increments the version number by one. A label can help you
+    /// remember the purpose of a parameter when there are multiple versions. 
     /// 
     ///  
     /// <para>
@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Labels can contain letters (case sensitive), numbers, periods (.), hyphens (-), or
     /// underscores (_).
     /// </para></li><li><para>
-    /// Labels can't begin with a number, "aws," or "ssm" (not case sensitive). If a label
-    /// fails to meet these requirements, then the label is not associated with a parameter
-    /// and the system displays it in the list of InvalidLabels.
+    /// Labels can't begin with a number, "<code>aws</code>" or "<code>ssm</code>" (not case
+    /// sensitive). If a label fails to meet these requirements, then the label isn't associated
+    /// with a parameter and the system displays it in the list of InvalidLabels.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Set", "SSMParameterVersionLabel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

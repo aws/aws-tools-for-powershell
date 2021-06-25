@@ -28,8 +28,8 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Returns the AWS Organizations master account that is associated with AWS Firewall
-    /// Manager as the AWS Firewall Manager administrator.
+    /// Returns the Organizations account that is associated with Firewall Manager as the
+    /// Firewall Manager administrator.
     /// </summary>
     [Cmdlet("Get", "FMSAdminAccount")]
     [OutputType("Amazon.FMS.Model.GetAdminAccountResponse")]

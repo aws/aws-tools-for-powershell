@@ -30,12 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// <summary>
     /// Remove cost allocation tags from the specified Amazon SQS queue. For an overview,
     /// see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
-    /// Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
+    /// Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.
     /// 
     ///  <note><para>
     /// Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
-    /// cross-account permissions to a role and a user name</a> in the <i>Amazon Simple Queue
-    /// Service Developer Guide</i>.
+    /// cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer
+    /// Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "SQSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

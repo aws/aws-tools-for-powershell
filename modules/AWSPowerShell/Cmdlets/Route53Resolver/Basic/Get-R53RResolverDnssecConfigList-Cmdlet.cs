@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
     /// Lists the configurations for DNSSEC validation that are associated with the current
-    /// AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53RResolverDnssecConfigList")]
     [OutputType("Amazon.Route53Resolver.Model.ResolverDnssecConfig")]
@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) If the current AWS account has more than <code>MaxResults</code> DNSSEC
-        /// configurations, use <code>NextToken</code> to get the second and subsequent pages
-        /// of results.</para><para>For the first <code>ListResolverDnssecConfigs</code> request, omit this value.</para><para>For the second and subsequent requests, get the value of <code>NextToken</code> from
+        /// <para>(Optional) If the current Amazon Web Services account has more than <code>MaxResults</code>
+        /// DNSSEC configurations, use <code>NextToken</code> to get the second and subsequent
+        /// pages of results.</para><para>For the first <code>ListResolverDnssecConfigs</code> request, omit this value.</para><para>For the second and subsequent requests, get the value of <code>NextToken</code> from
         /// the previous response and specify that value for <code>NextToken</code> in the request.</para>
         /// </para>
         /// <para>

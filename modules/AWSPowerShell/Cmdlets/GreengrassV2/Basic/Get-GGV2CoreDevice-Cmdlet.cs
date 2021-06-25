@@ -28,7 +28,7 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Retrieves metadata for a AWS IoT Greengrass core device.
+    /// Retrieves metadata for a Greengrass core device.
     /// </summary>
     [Cmdlet("Get", "GGV2CoreDevice")]
     [OutputType("Amazon.GreengrassV2.Model.GetCoreDeviceResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter CoreDeviceThingName
         /// <summary>
         /// <para>
-        /// <para>The name of the core device. This is also the name of the AWS IoT thing.</para>
+        /// <para>The name of the core device. This is also the name of the IoT thing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

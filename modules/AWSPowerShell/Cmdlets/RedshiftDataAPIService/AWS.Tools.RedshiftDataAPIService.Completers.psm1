@@ -149,7 +149,8 @@ $RSD_SelectCompleters = {
 }
 
 $RSD_SelectMap = @{
-    "Select"=@("Stop-RSDStatement",
+    "Select"=@("Push-RSDBatchStatement",
+               "Stop-RSDStatement",
                "Get-RSDStatement",
                "Get-RSDTable",
                "Send-RSDStatement",

@@ -252,6 +252,7 @@ $WKS_SelectMap = @{
                "New-WKSConnectionAlias",
                "New-WKSIpGroup",
                "New-WKSTag",
+               "New-WKSUpdatedWorkspaceImage",
                "New-WKSWorkspaceBundle",
                "New-WKSWorkspace",
                "Remove-WKSConnectionAlias",

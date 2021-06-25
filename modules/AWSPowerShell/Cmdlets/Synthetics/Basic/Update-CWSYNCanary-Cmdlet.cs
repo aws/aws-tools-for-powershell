@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter RunConfig_ActiveTracing
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this canary is to use active AWS X-Ray tracing when it runs. Active
+        /// <para>Specifies whether this canary is to use active X-Ray tracing when it runs. Active
         /// tracing enables this canary run to be displayed in the ServiceLens and X-Ray service
-        /// maps even if the canary does not hit an endpoint that has X-ray tracing enabled. Using
+        /// maps even if the canary does not hit an endpoint that has X-Ray tracing enabled. Using
         /// X-Ray tracing incurs charges. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html">
         /// Canaries and X-Ray tracing</a>.</para><para>You can enable active tracing only for canaries that use version <code>syn-nodejs-2.0</code>
         /// or later for their canary runtime.</para>
@@ -59,6 +59,46 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? RunConfig_ActiveTracing { get; set; }
+        #endregion
+        
+        #region Parameter ArtifactS3Location
+        /// <summary>
+        /// <para>
+        /// <para>The location in Amazon S3 where Synthetics stores artifacts from the test runs of
+        /// this canary. Artifacts include the log file, screenshots, and HAR files. The name
+        /// of the S3 bucket can't include a period (.).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ArtifactS3Location { get; set; }
+        #endregion
+        
+        #region Parameter VisualReference_BaseCanaryRunId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies which canary run to use the screenshots from as the baseline for future
+        /// visual monitoring with this canary. Valid values are <code>nextrun</code> to use the
+        /// screenshots from the next run after this update is made, <code>lastrun</code> to use
+        /// the screenshots from the most recent run before this update was made, or the value
+        /// of <code>Id</code> in the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html">
+        /// CanaryRun</a> from any past run of this canary.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VisualReference_BaseCanaryRunId { get; set; }
+        #endregion
+        
+        #region Parameter VisualReference_BaseScreenshot
+        /// <summary>
+        /// <para>
+        /// <para>An array of screenshots that will be used as the baseline for visual monitoring in
+        /// future runs of this canary. If there is a screenshot that you don't want to be used
+        /// for visual monitoring, remove it from this array.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VisualReference_BaseScreenshots")]
+        public Amazon.Synthetics.Model.BaseScreenshot[] VisualReference_BaseScreenshot { get; set; }
         #endregion
         
         #region Parameter Schedule_DurationInSecond
@@ -72,6 +112,20 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Schedule_DurationInSeconds")]
         public System.Int64? Schedule_DurationInSecond { get; set; }
+        #endregion
+        
+        #region Parameter S3Encryption_EncryptionMode
+        /// <summary>
+        /// <para>
+        /// <para> The encryption method to use for artifacts created by this canary. Specify <code>SSE_S3</code>
+        /// to use server-side encryption (SSE) with an Amazon S3-managed key. Specify <code>SSE-KMS</code>
+        /// to use server-side encryption with a customer-managed KMS key.</para><para>If you omit this parameter, an Amazon Web Services-managed KMS key is used. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ArtifactConfig_S3Encryption_EncryptionMode")]
+        [AWSConstantClassSource("Amazon.Synthetics.EncryptionMode")]
+        public Amazon.Synthetics.EncryptionMode S3Encryption_EncryptionMode { get; set; }
         #endregion
         
         #region Parameter RunConfig_EnvironmentVariable
@@ -105,13 +159,16 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Schedule_Expression
         /// <summary>
         /// <para>
-        /// <para>A rate expression that defines how often the canary is to run. The syntax is <code>rate(<i>number
-        /// unit</i>)</code>. <i>unit</i> can be <code>minute</code>, <code>minutes</code>, or
-        /// <code>hour</code>. </para><para>For example, <code>rate(1 minute)</code> runs the canary once a minute, <code>rate(10
+        /// <para>A <code>rate</code> expression or a <code>cron</code> expression that defines how
+        /// often the canary is to run.</para><para>For a rate expression, The syntax is <code>rate(<i>number unit</i>)</code>. <i>unit</i>
+        /// can be <code>minute</code>, <code>minutes</code>, or <code>hour</code>. </para><para>For example, <code>rate(1 minute)</code> runs the canary once a minute, <code>rate(10
         /// minutes)</code> runs it once every 10 minutes, and <code>rate(1 hour)</code> runs
         /// it once every hour. You can specify a frequency between <code>rate(1 minute)</code>
         /// and <code>rate(1 hour)</code>.</para><para>Specifying <code>rate(0 minute)</code> or <code>rate(0 hour)</code> is a special value
-        /// that causes the canary to run only once when it is started.</para>
+        /// that causes the canary to run only once when it is started.</para><para>Use <code>cron(<i>expression</i>)</code> to specify a cron expression. You can't schedule
+        /// a canary to wait for more than a year before running. For information about the syntax
+        /// for cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html">
+        /// Scheduling canary runs using cron</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,11 +190,24 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>The entry point to use for the source code when running the canary. This value must
-        /// end with the string <code>.handler</code>.</para>
+        /// end with the string <code>.handler</code>. The string is limited to 29 characters
+        /// or fewer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Code_Handler { get; set; }
+        #endregion
+        
+        #region Parameter S3Encryption_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the customer-managed KMS key to use, if you specify <code>SSE-KMS</code>
+        /// for <code>EncryptionMode</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ArtifactConfig_S3Encryption_KmsKeyArn")]
+        public System.String S3Encryption_KmsKeyArn { get; set; }
         #endregion
         
         #region Parameter RunConfig_MemoryInMB
@@ -184,9 +254,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Code_S3Bucket
         /// <summary>
         /// <para>
-        /// <para>If your canary script is located in S3, specify the full bucket name here. The bucket
-        /// must already exist. Specify the full bucket name, including <code>s3://</code> as
-        /// the start of the bucket name.</para>
+        /// <para>If your canary script is located in S3, specify the bucket name here. Do not include
+        /// <code>s3://</code> as the start of the bucket name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -264,8 +333,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>If you input your canary script directly into the canary instead of referring to an
-        /// S3 location, the value of this parameter is the .zip file that contains the script.
-        /// It can be up to 5 MB.</para>
+        /// S3 location, the value of this parameter is the base64-encoded contents of the .zip
+        /// file that contains the script. It must be smaller than 256 Kb.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -334,6 +403,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.S3Encryption_EncryptionMode = this.S3Encryption_EncryptionMode;
+            context.S3Encryption_KmsKeyArn = this.S3Encryption_KmsKeyArn;
+            context.ArtifactS3Location = this.ArtifactS3Location;
             context.Code_Handler = this.Code_Handler;
             context.Code_S3Bucket = this.Code_S3Bucket;
             context.Code_S3Key = this.Code_S3Key;
@@ -363,6 +435,11 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             context.Schedule_DurationInSecond = this.Schedule_DurationInSecond;
             context.Schedule_Expression = this.Schedule_Expression;
             context.SuccessRetentionPeriodInDay = this.SuccessRetentionPeriodInDay;
+            context.VisualReference_BaseCanaryRunId = this.VisualReference_BaseCanaryRunId;
+            if (this.VisualReference_BaseScreenshot != null)
+            {
+                context.VisualReference_BaseScreenshot = new List<Amazon.Synthetics.Model.BaseScreenshot>(this.VisualReference_BaseScreenshot);
+            }
             if (this.VpcConfig_SecurityGroupId != null)
             {
                 context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
@@ -391,6 +468,54 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 // create request
                 var request = new Amazon.Synthetics.Model.UpdateCanaryRequest();
                 
+                
+                 // populate ArtifactConfig
+                var requestArtifactConfigIsNull = true;
+                request.ArtifactConfig = new Amazon.Synthetics.Model.ArtifactConfigInput();
+                Amazon.Synthetics.Model.S3EncryptionConfig requestArtifactConfig_artifactConfig_S3Encryption = null;
+                
+                 // populate S3Encryption
+                var requestArtifactConfig_artifactConfig_S3EncryptionIsNull = true;
+                requestArtifactConfig_artifactConfig_S3Encryption = new Amazon.Synthetics.Model.S3EncryptionConfig();
+                Amazon.Synthetics.EncryptionMode requestArtifactConfig_artifactConfig_S3Encryption_s3Encryption_EncryptionMode = null;
+                if (cmdletContext.S3Encryption_EncryptionMode != null)
+                {
+                    requestArtifactConfig_artifactConfig_S3Encryption_s3Encryption_EncryptionMode = cmdletContext.S3Encryption_EncryptionMode;
+                }
+                if (requestArtifactConfig_artifactConfig_S3Encryption_s3Encryption_EncryptionMode != null)
+                {
+                    requestArtifactConfig_artifactConfig_S3Encryption.EncryptionMode = requestArtifactConfig_artifactConfig_S3Encryption_s3Encryption_EncryptionMode;
+                    requestArtifactConfig_artifactConfig_S3EncryptionIsNull = false;
+                }
+                System.String requestArtifactConfig_artifactConfig_S3Encryption_s3Encryption_KmsKeyArn = null;
+                if (cmdletContext.S3Encryption_KmsKeyArn != null)
+                {
+                    requestArtifactConfig_artifactConfig_S3Encryption_s3Encryption_KmsKeyArn = cmdletContext.S3Encryption_KmsKeyArn;
+                }
+                if (requestArtifactConfig_artifactConfig_S3Encryption_s3Encryption_KmsKeyArn != null)
+                {
+                    requestArtifactConfig_artifactConfig_S3Encryption.KmsKeyArn = requestArtifactConfig_artifactConfig_S3Encryption_s3Encryption_KmsKeyArn;
+                    requestArtifactConfig_artifactConfig_S3EncryptionIsNull = false;
+                }
+                 // determine if requestArtifactConfig_artifactConfig_S3Encryption should be set to null
+                if (requestArtifactConfig_artifactConfig_S3EncryptionIsNull)
+                {
+                    requestArtifactConfig_artifactConfig_S3Encryption = null;
+                }
+                if (requestArtifactConfig_artifactConfig_S3Encryption != null)
+                {
+                    request.ArtifactConfig.S3Encryption = requestArtifactConfig_artifactConfig_S3Encryption;
+                    requestArtifactConfigIsNull = false;
+                }
+                 // determine if request.ArtifactConfig should be set to null
+                if (requestArtifactConfigIsNull)
+                {
+                    request.ArtifactConfig = null;
+                }
+                if (cmdletContext.ArtifactS3Location != null)
+                {
+                    request.ArtifactS3Location = cmdletContext.ArtifactS3Location;
+                }
                 
                  // populate Code
                 var requestCodeIsNull = true;
@@ -550,6 +675,35 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                     request.SuccessRetentionPeriodInDays = cmdletContext.SuccessRetentionPeriodInDay.Value;
                 }
                 
+                 // populate VisualReference
+                var requestVisualReferenceIsNull = true;
+                request.VisualReference = new Amazon.Synthetics.Model.VisualReferenceInput();
+                System.String requestVisualReference_visualReference_BaseCanaryRunId = null;
+                if (cmdletContext.VisualReference_BaseCanaryRunId != null)
+                {
+                    requestVisualReference_visualReference_BaseCanaryRunId = cmdletContext.VisualReference_BaseCanaryRunId;
+                }
+                if (requestVisualReference_visualReference_BaseCanaryRunId != null)
+                {
+                    request.VisualReference.BaseCanaryRunId = requestVisualReference_visualReference_BaseCanaryRunId;
+                    requestVisualReferenceIsNull = false;
+                }
+                List<Amazon.Synthetics.Model.BaseScreenshot> requestVisualReference_visualReference_BaseScreenshot = null;
+                if (cmdletContext.VisualReference_BaseScreenshot != null)
+                {
+                    requestVisualReference_visualReference_BaseScreenshot = cmdletContext.VisualReference_BaseScreenshot;
+                }
+                if (requestVisualReference_visualReference_BaseScreenshot != null)
+                {
+                    request.VisualReference.BaseScreenshots = requestVisualReference_visualReference_BaseScreenshot;
+                    requestVisualReferenceIsNull = false;
+                }
+                 // determine if request.VisualReference should be set to null
+                if (requestVisualReferenceIsNull)
+                {
+                    request.VisualReference = null;
+                }
+                
                  // populate VpcConfig
                 var requestVpcConfigIsNull = true;
                 request.VpcConfig = new Amazon.Synthetics.Model.VpcConfigInput();
@@ -647,6 +801,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Synthetics.EncryptionMode S3Encryption_EncryptionMode { get; set; }
+            public System.String S3Encryption_KmsKeyArn { get; set; }
+            public System.String ArtifactS3Location { get; set; }
             public System.String Code_Handler { get; set; }
             public System.String Code_S3Bucket { get; set; }
             public System.String Code_S3Key { get; set; }
@@ -663,6 +820,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.Int64? Schedule_DurationInSecond { get; set; }
             public System.String Schedule_Expression { get; set; }
             public System.Int32? SuccessRetentionPeriodInDay { get; set; }
+            public System.String VisualReference_BaseCanaryRunId { get; set; }
+            public List<Amazon.Synthetics.Model.BaseScreenshot> VisualReference_BaseScreenshot { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }
             public System.Func<Amazon.Synthetics.Model.UpdateCanaryResponse, UpdateCWSYNCanaryCmdlet, object> Select { get; set; } =

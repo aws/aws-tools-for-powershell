@@ -28,7 +28,7 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// List tags that are associated with for an AWS App Runner resource. The response contains
+    /// List tags that are associated with for an App Runner resource. The response contains
     /// a list of tag key-value pairs.
     /// </summary>
     [Cmdlet("Get", "AARResourceTag")]

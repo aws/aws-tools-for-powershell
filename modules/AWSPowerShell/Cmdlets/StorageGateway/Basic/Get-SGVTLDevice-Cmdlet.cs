@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Returns a description of virtual tape library (VTL) devices for the specified tape
-    /// gateway. In the response, AWS Storage Gateway returns VTL device information.
+    /// gateway. In the response, Storage Gateway returns VTL device information.
     /// 
     ///  
     /// <para>

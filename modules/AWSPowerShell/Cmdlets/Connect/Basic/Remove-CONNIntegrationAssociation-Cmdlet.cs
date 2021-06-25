@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes an AppIntegration association from an Amazon Connect instance. The association
+    /// Deletes an AWS resource association from an Amazon Connect instance. The association
     /// must not have any use cases associated with it.
     /// </summary>
     [Cmdlet("Remove", "CONNIntegrationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter IntegrationAssociationId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the AppIntegration association.</para>
+        /// <para>The identifier for the integration association.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

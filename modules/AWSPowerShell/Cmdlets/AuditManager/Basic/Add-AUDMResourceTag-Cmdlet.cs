@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Tags the specified resource in AWS Audit Manager.
+    /// Tags the specified resource in Audit Manager.
     /// </summary>
     [Cmdlet("Add", "AUDMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

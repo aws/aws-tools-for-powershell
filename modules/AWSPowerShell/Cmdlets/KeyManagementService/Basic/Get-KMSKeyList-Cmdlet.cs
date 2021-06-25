@@ -28,11 +28,11 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Gets a list of all customer master keys (CMKs) in the caller's AWS account and Region.
+    /// Gets a list of all KMS keys in the caller's Amazon Web Services account and Region.
     /// 
     ///  
-    /// <para><b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different
-    /// AWS account.
+    /// <para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
+    /// different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListKeys</a>
     /// (IAM policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateKey</a></para></li><li><para><a>DescribeKey</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>ListResourceTags</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Use this parameter to specify the maximum number of items to return. When this value
-        /// is present, AWS KMS does not return more than the specified number of items, but it
-        /// might return fewer.</para><para>This value is optional. If you include a value, it must be between 1 and 1000, inclusive.
+        /// is present, KMS does not return more than the specified number of items, but it might
+        /// return fewer.</para><para>This value is optional. If you include a value, it must be between 1 and 1000, inclusive.
         /// If you do not include a value, it defaults to 100.</para>
         /// </para>
         /// <para>

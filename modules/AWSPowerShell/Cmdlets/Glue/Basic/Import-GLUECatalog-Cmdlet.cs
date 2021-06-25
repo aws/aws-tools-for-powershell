@@ -28,7 +28,7 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Imports an existing Amazon Athena Data Catalog to AWS Glue
+    /// Imports an existing Amazon Athena Data Catalog to Glue.
     /// </summary>
     [Cmdlet("Import", "GLUECatalog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// <para>The ID of the catalog to import. Currently, this should be the AWS account ID.</para>
+        /// <para>The ID of the catalog to import. Currently, this should be the Amazon Web Services
+        /// account ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

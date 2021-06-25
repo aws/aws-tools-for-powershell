@@ -32,10 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// 
     ///  
     /// <para>
-    /// A dashboard is an entity in QuickSight that identifies QuickSight reports, created
-    /// from analyses. You can share QuickSight dashboards. With the right permissions, you
-    /// can create scheduled email reports from them. If you have the correct permissions,
-    /// you can create a dashboard from a template that exists in a different AWS account.
+    /// A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight reports,
+    /// created from analyses. You can share Amazon QuickSight dashboards. With the right
+    /// permissions, you can create scheduled email reports from them. If you have the correct
+    /// permissions, you can create a dashboard from a template that exists in a different
+    /// Amazon Web Services account.
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -85,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account where you want to create the dashboard.</para>
+        /// <para>The ID of the Amazon Web Services account where you want to create the dashboard.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DashboardId
         /// <summary>
         /// <para>
-        /// <para>The ID for the dashboard, also added to the IAM policy.</para>
+        /// <para>The ID for the dashboard, also added to the IAMpolicy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_DateTimeParameter
         /// <summary>
         /// <para>
-        /// <para>Date-time parameters.</para>
+        /// <para>The parameters that have a data type of date-time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_DecimalParameter
         /// <summary>
         /// <para>
-        /// <para>Decimal parameters.</para>
+        /// <para>The parameters that have a data type of decimal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_IntegerParameter
         /// <summary>
         /// <para>
-        /// <para>Integer parameters.</para>
+        /// <para>The parameters that have a data type of integer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A structure that contains the permissions of the dashboard. You can use this structure
-        /// for granting permissions by providing a list of IAM action information for each principal
+        /// for granting permissions by providing a list of IAMaction information for each principal
         /// ARN. </para><para>To specify no permissions, omit the permissions list.</para>
         /// </para>
         /// </summary>
@@ -193,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_StringParameter
         /// <summary>
         /// <para>
-        /// <para>String parameters.</para>
+        /// <para>The parameters that have a data type of string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,7 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard.
         /// If you add a value for this field, it overrides the value that is used in the source
-        /// entity. The theme ARN must exist in the same AWS account where you create the dashboard.</para>
+        /// entity. The theme ARN must exist in the same Amazon Web Services account where you
+        /// create the dashboard.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

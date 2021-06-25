@@ -28,26 +28,28 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Copies an existing backup within the same AWS account to another Region (cross-Region
-    /// copy) or within the same Region (in-Region copy). You can have up to five backup copy
-    /// requests in progress to a single destination Region per account.
+    /// Copies an existing backup within the same Amazon Web Services account to another Amazon
+    /// Web Services Region (cross-Region copy) or within the same Amazon Web Services Region
+    /// (in-Region copy). You can have up to five backup copy requests in progress to a single
+    /// destination Region per account.
     /// 
     ///  
     /// <para>
     /// You can use cross-Region backup copies for cross-region disaster recovery. You periodically
     /// take backups and copy them to another Region so that in the event of a disaster in
     /// the primary Region, you can restore from backup and recover availability quickly in
-    /// the other Region. You can make cross-Region copies only within your AWS partition.
+    /// the other Region. You can make cross-Region copies only within your Amazon Web Services
+    /// partition.
     /// </para><para>
     ///  You can also use backup copies to clone your file data set to another Region or within
     /// the same Region.
     /// </para><para>
-    /// You can use the <code>SourceRegion</code> parameter to specify the AWS Region from
-    /// which the backup will be copied. For example, if you make the call from the <code>us-west-1</code>
-    /// Region and want to copy a backup from the <code>us-east-2</code> Region, you specify
-    /// <code>us-east-2</code> in the <code>SourceRegion</code> parameter to make a cross-Region
-    /// copy. If you don't specify a Region, the backup copy is created in the same Region
-    /// where the request is sent from (in-Region copy).
+    /// You can use the <code>SourceRegion</code> parameter to specify the Amazon Web Services
+    /// Region from which the backup will be copied. For example, if you make the call from
+    /// the <code>us-west-1</code> Region and want to copy a backup from the <code>us-east-2</code>
+    /// Region, you specify <code>us-east-2</code> in the <code>SourceRegion</code> parameter
+    /// to make a cross-Region copy. If you don't specify a Region, the backup copy is created
+    /// in the same Region where the request is sent from (in-Region copy).
     /// </para><para>
     /// For more information on creating backup copies, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#copy-backups">
     /// Copying backups</a> in the <i>Amazon FSx for Windows User Guide</i> and <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html#copy-backups">Copying
@@ -120,10 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SourceRegion
         /// <summary>
         /// <para>
-        /// <para>The source AWS Region of the backup. Specifies the AWS Region from which the backup
-        /// is being copied. The source and destination Regions must be in the same AWS partition.
-        /// If you don't specify a Region, it defaults to the Region where the request is sent
-        /// from (in-Region copy).</para>
+        /// <para>The source Amazon Web Services Region of the backup. Specifies the Amazon Web Services
+        /// Region from which the backup is being copied. The source and destination Regions must
+        /// be in the same Amazon Web Services partition. If you don't specify a Region, it defaults
+        /// to the Region where the request is sent from (in-Region copy).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

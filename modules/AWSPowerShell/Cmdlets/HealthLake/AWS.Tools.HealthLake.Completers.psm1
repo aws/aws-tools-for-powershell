@@ -80,6 +80,13 @@ $AHL_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.HealthLake.CmkType
+        "New-AHLFHIRDatastore/SseConfiguration_KmsEncryptionConfig_CmkType"
+        {
+            $v = "AWS_OWNED_KMS_KEY","CUSTOMER_MANAGED_KMS_KEY"
+            break
+        }
+
         # Amazon.HealthLake.DatastoreStatus
         "Get-AHLFHIRDatastoreList/Filter_DatastoreStatus"
         {
@@ -91,6 +98,16 @@ $AHL_Completers = {
         "New-AHLFHIRDatastore/DatastoreTypeVersion"
         {
             $v = "R4"
+            break
+        }
+
+        # Amazon.HealthLake.JobStatus
+        {
+            ($_ -eq "Get-AHLFHIRExportJobList/JobStatus") -Or
+            ($_ -eq "Get-AHLFHIRImportJobList/JobStatus")
+        }
+        {
+            $v = "COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","SUBMITTED"
             break
         }
 
@@ -112,7 +129,9 @@ $AHL_Completers = {
 $AHL_map = @{
     "DatastoreTypeVersion"=@("New-AHLFHIRDatastore")
     "Filter_DatastoreStatus"=@("Get-AHLFHIRDatastoreList")
+    "JobStatus"=@("Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
+    "SseConfiguration_KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
 }
 
 _awsArgumentCompleterRegistration $AHL_Completers $AHL_map
@@ -171,8 +190,13 @@ $AHL_SelectMap = @{
                "Get-AHLFHIRExportJob",
                "Get-AHLFHIRImportJob",
                "Get-AHLFHIRDatastoreList",
+               "Get-AHLFHIRExportJobList",
+               "Get-AHLFHIRImportJobList",
+               "Get-AHLResourceTag",
                "Start-AHLFHIRExportJob",
-               "Start-AHLFHIRImportJob")
+               "Start-AHLFHIRImportJob",
+               "Add-AHLResourceTag",
+               "Remove-AHLResourceTag")
 }
 
 _awsArgumentCompleterRegistration $AHL_SelectCompleters $AHL_SelectMap

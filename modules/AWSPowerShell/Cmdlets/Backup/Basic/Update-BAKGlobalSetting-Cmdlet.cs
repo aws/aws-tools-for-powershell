@@ -28,8 +28,9 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Updates the current global settings for the AWS account. Use the <code>DescribeGlobalSettings</code>
-    /// API to determine the current settings.
+    /// Updates whether the Amazon Web Services account is opted in to cross-account backup.
+    /// Returns an error if the account is not an Organizations management account. Use the
+    /// <code>DescribeGlobalSettings</code> API to determine the current settings.
     /// </summary>
     [Cmdlet("Update", "BAKGlobalSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -44,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter GlobalSetting
         /// <summary>
         /// <para>
-        /// <para>A list of resources along with the opt-in preferences for the account.</para>
+        /// <para>A value for <code>isCrossAccountBackupEnabled</code> and a Region. Example: <code>update-global-settings
+        /// --global-settings isCrossAccountBackupEnabled=false --region us-west-2</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

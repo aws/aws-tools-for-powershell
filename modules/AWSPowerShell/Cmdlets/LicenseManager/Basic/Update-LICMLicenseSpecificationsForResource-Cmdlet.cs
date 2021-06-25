@@ -28,12 +28,13 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Adds or removes the specified license configurations for the specified AWS resource.
+    /// Adds or removes the specified license configurations for the specified Amazon Web
+    /// Services resource.
     /// 
     ///  
     /// <para>
     /// You can update the license specifications of AMIs, instances, and hosts. You cannot
-    /// update the license specifications for launch templates and AWS CloudFormation templates,
+    /// update the license specifications for launch templates and CloudFormation templates,
     /// as they send license configurations to the operation that creates the resource.
     /// </para>
     /// </summary>
@@ -72,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) of the AWS resource.</para>
+        /// <para>Amazon Resource Name (ARN) of the Amazon Web Services resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,16 +28,17 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Creates a new OpsItem. You must have permission in AWS Identity and Access Management
+    /// Creates a new OpsItem. You must have permission in Identity and Access Management
     /// (IAM) to create a new OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting
-    /// started with OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.
+    /// started with OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
     /// 
     ///  
     /// <para>
-    /// Operations engineers and IT professionals use OpsCenter to view, investigate, and
-    /// remediate operational issues impacting the performance and health of their AWS resources.
-    /// For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS
-    /// Systems Manager OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>. 
+    /// Operations engineers and IT professionals use Amazon Web Services Systems Manager
+    /// OpsCenter to view, investigate, and remediate operational issues impacting the performance
+    /// and health of their Amazon Web Services resources. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">Amazon
+    /// Web Services Systems Manager OpsCenter</a> in the <i>Amazon Web Services Systems Manager
+    /// User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "SSMOpsItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -116,17 +117,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>Operational data is custom data that provides useful reference details about the OpsItem.
         /// For example, you can specify log files, error strings, license keys, troubleshooting
         /// tips, or other relevant data. You enter operational data as key-value pairs. The key
-        /// has a maximum length of 128 characters. The value has a maximum size of 20 KB.</para><important><para>Operational data keys <i>can't</i> begin with the following: amazon, aws, amzn, ssm,
-        /// /amazon, /aws, /amzn, /ssm.</para></important><para>You can choose to make the data searchable by other users in the account or you can
+        /// has a maximum length of 128 characters. The value has a maximum size of 20 KB.</para><important><para>Operational data keys <i>can't</i> begin with the following: <code>amazon</code>,
+        /// <code>aws</code>, <code>amzn</code>, <code>ssm</code>, <code>/amazon</code>, <code>/aws</code>,
+        /// <code>/amzn</code>, <code>/ssm</code>.</para></important><para>You can choose to make the data searchable by other users in the account or you can
         /// restrict search access. Searchable data means that all users with access to the OpsItem
-        /// Overview page (as provided by the <a>DescribeOpsItems</a> API action) can view and
-        /// search on the specified data. Operational data that is not searchable is only viewable
+        /// Overview page (as provided by the <a>DescribeOpsItems</a> API operation) can view
+        /// and search on the specified data. Operational data that isn't searchable is only viewable
         /// by users who have access to the OpsItem (as provided by the <a>GetOpsItem</a> API
-        /// action).</para><para>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource
+        /// operation).</para><para>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource
         /// in the request. Use the <code>/aws/automations</code> key in OperationalData to associate
-        /// an Automation runbook with the OpsItem. To view AWS CLI example commands that use
-        /// these keys, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating
-        /// OpsItems manually</a> in the <i>AWS Systems Manager User Guide</i>.</para>
+        /// an Automation runbook with the OpsItem. To view Amazon Web Services CLI example commands
+        /// that use these keys, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating
+        /// OpsItems manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,7 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>The origin of the OpsItem, such as Amazon EC2 or Systems Manager.</para><note><para>The source name can't contain the following strings: aws, amazon, and amzn. </para></note>
+        /// <para>The origin of the OpsItem, such as Amazon EC2 or Systems Manager.</para><note><para>The source name can't contain the following strings: <code>aws</code>, <code>amazon</code>,
+        /// and <code>amzn</code>. </para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -221,7 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>Optional metadata that you assign to a resource. You can restrict access to OpsItems
         /// by using an inline IAM policy that specifies tags. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions">Getting
-        /// started with OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</para><para>Tags use a key-value pair. For example:</para><para><code>Key=Department,Value=Finance</code></para><note><para>To add tags to an existing OpsItem, use the <a>AddTagsToResource</a> action.</para></note>
+        /// started with OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para><para>Tags use a key-value pair. For example:</para><para><code>Key=Department,Value=Finance</code></para><important><para>To add tags to a new OpsItem, a user must have IAM permissions for both the <code>ssm:CreateOpsItems</code>
+        /// operation and the <code>ssm:AddTagsToResource</code> operation. To add tags to an
+        /// existing OpsItem, use the <a>AddTagsToResource</a> operation.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

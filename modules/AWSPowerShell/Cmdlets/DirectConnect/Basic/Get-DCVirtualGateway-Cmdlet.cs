@@ -28,12 +28,12 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Lists the virtual private gateways owned by the AWS account.
+    /// Lists the virtual private gateways owned by the account.
     /// 
     ///  
     /// <para>
-    /// You can create one or more AWS Direct Connect private virtual interfaces linked to
-    /// a virtual private gateway.
+    /// You can create one or more Direct Connect private virtual interfaces linked to a virtual
+    /// private gateway.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "DCVirtualGateway")]

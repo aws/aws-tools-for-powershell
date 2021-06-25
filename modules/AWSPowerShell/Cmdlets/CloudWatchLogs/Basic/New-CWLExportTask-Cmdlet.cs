@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>The name of S3 bucket for the exported log data. The bucket must be in the same AWS
-        /// region.</para>
+        /// <para>The name of S3 bucket for the exported log data. The bucket must be in the same Amazon
+        /// Web Services region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

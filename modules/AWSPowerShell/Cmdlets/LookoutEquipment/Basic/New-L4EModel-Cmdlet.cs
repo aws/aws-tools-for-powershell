@@ -129,6 +129,18 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         public System.String ModelName { get; set; }
         #endregion
         
+        #region Parameter OffCondition
+        /// <summary>
+        /// <para>
+        /// <para>Indicates that the asset associated with this sensor has been shut off. As long as
+        /// this condition is met, Lookout for Equipment will not use data from this asset for
+        /// training, evaluation, or inference.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OffCondition { get; set; }
+        #endregion
+        
         #region Parameter S3InputConfiguration_Prefix
         /// <summary>
         /// <para>
@@ -154,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter ServerSideKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt model
-        /// data by Amazon Lookout for Equipment. </para>
+        /// <para>Provides the identifier of the KMS key used to encrypt model data by Amazon Lookout
+        /// for Equipment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -285,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
                 WriteWarning("You are passing $null as a value for parameter ModelName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OffCondition = this.OffCondition;
             context.RoleArn = this.RoleArn;
             context.ServerSideKmsKeyId = this.ServerSideKmsKeyId;
             if (this.Tag != null)
@@ -411,6 +424,10 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             {
                 request.ModelName = cmdletContext.ModelName;
             }
+            if (cmdletContext.OffCondition != null)
+            {
+                request.OffCondition = cmdletContext.OffCondition;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -501,6 +518,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             public System.String S3InputConfiguration_Bucket { get; set; }
             public System.String S3InputConfiguration_Prefix { get; set; }
             public System.String ModelName { get; set; }
+            public System.String OffCondition { get; set; }
             public System.String RoleArn { get; set; }
             public System.String ServerSideKmsKeyId { get; set; }
             public List<Amazon.LookoutEquipment.Model.Tag> Tag { get; set; }

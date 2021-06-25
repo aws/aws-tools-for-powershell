@@ -28,7 +28,7 @@ using Amazon.AmplifyBackend.Model;
 namespace Amazon.PowerShell.Cmdlets.AMPB
 {
     /// <summary>
-    /// Updates the AWS resources that are required to access the Amplify Admin UI.
+    /// Updates the AWS resources required to access the Amplify Admin UI.
     /// </summary>
     [Cmdlet("Update", "AMPBBackendConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AmplifyBackend.Model.UpdateBackendConfigResponse")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter LoginAuthConfig_AwsCognitoIdentityPoolId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Cognito identity pool ID used for Amplify Admin UI login authorization.</para>
+        /// <para>The Amazon Cognito identity pool ID used for the Amplify Admin UI login authorization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

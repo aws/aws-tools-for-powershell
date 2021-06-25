@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Cutoff
         /// <summary>
         /// <para>
-        /// <para>The number of hours before the end of the maintenance window that Systems Manager
-        /// stops scheduling new tasks for execution.</para>
+        /// <para>The number of hours before the end of the maintenance window that Amazon Web Services
+        /// Systems Manager stops scheduling new tasks for execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The date and time, in ISO-8601 Extended format, for when you want the maintenance
-        /// window to become inactive. EndDate allows you to set a date and time in the future
-        /// when the maintenance window will no longer run.</para>
+        /// window to become inactive. <code>EndDate</code> allows you to set a date and time
+        /// in the future when the maintenance window will no longer run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,9 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Replace
         /// <summary>
         /// <para>
-        /// <para>If True, then all fields that are required by the CreateMaintenanceWindow action are
-        /// also required for this API request. Optional fields that are not specified are set
-        /// to null. </para>
+        /// <para>If <code>True</code>, then all fields that are required by the <a>CreateMaintenanceWindow</a>
+        /// operation are also required for this API request. Optional fields that aren't specified
+        /// are set to null. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ScheduleOffset
         /// <summary>
         /// <para>
-        /// <para>The number of days to wait after the date and time specified by a CRON expression
+        /// <para>The number of days to wait after the date and time specified by a cron expression
         /// before running the maintenance window.</para><para>For example, the following cron expression schedules a maintenance window to run the
         /// third Tuesday of every month at 11:30 PM.</para><para><code>cron(30 23 ? * TUE#3 *)</code></para><para>If the schedule offset is <code>2</code>, the maintenance window won't run until two
         /// days later.</para>

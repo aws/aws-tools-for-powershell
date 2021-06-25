@@ -51,6 +51,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateUpdatedWorkspaceImage" OutputProperty="ImageId" Verb="New" Noun="UpdatedWorkspaceImage" ShouldProcessTarget="SourceImageId" PipelineParameter="SourceImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkspaceBundle" OutputProperty="WorkspaceBundle" Verb="New" Noun="WorkspaceBundle" ShouldProcessTarget="BundleName" PipelineParameter="BundleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

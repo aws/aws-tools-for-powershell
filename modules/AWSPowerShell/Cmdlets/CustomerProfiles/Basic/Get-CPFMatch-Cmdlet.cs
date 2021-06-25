@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     /// GetMatches returns potentially matching profiles, based on the results of the latest
     /// run of a machine learning process. 
     /// </para><important><para>
-    /// Amazon Connect runs a batch process every Saturday at 12AM UTC to identify matching
+    /// Amazon Connect starts a batch process every Saturday at 12AM UTC to identify matching
     /// profiles. The results are returned up to seven days after the Saturday run.
     /// </para></important><para>
     /// Amazon Connect uses the following profile attributes to identify matches:
@@ -61,7 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     /// FullName
     /// </para></li><li><para>
     /// BusinessName
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// For example, two or more profiles—with spelling mistakes such as <b>John Doe</b> and
+    /// <b>Jhn Doe</b>, or different casing email addresses such as <b>JOHN_DOE@ANYCOMPANY.COM</b>
+    /// and <b>johndoe@anycompany.com</b>, or different phone number formats such as <b>555-010-0000</b>
+    /// and <b>+1-555-010-0000</b>—can be detected as belonging to the same customer <b>John
+    /// Doe</b> and merged into a unified profile.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CPFMatch")]
     [OutputType("Amazon.CustomerProfiles.Model.GetMatchesResponse")]

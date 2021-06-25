@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of organization config packs returned on each page. If you do no
-        /// specify a number, AWS Config uses the default. The default is 100.</para>
+        /// specify a number, Config uses the default. The default is 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

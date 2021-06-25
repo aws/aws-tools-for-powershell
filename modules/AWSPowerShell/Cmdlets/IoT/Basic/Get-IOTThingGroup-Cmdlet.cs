@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Describe a thing group.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingGroup</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTThingGroup")]
     [OutputType("Amazon.IoT.Model.DescribeThingGroupResponse")]

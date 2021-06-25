@@ -45,11 +45,27 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>If this parameter is <code>true</code>, the reboot is conducted through a Multi-AZ
-        /// failover. (If the instance isn't configured for Multi-AZ, then you can't specify <code>true</code>.)</para>
+        /// failover. If the instance isn't configured for Multi-AZ, then you can't specify <code>true</code>.
+        /// ( <code>--force-planned-failover</code> and <code>--force-failover</code> can't both
+        /// be set to <code>true</code>.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ForceFailover { get; set; }
+        #endregion
+        
+        #region Parameter ForcePlannedFailover
+        /// <summary>
+        /// <para>
+        /// <para>If this parameter is <code>true</code>, the reboot is conducted through a planned
+        /// Multi-AZ failover where resources are released and cleaned up prior to conducting
+        /// the failover. If the instance isn''t configured for Multi-AZ, then you can't specify
+        /// <code>true</code>. ( <code>--force-planned-failover</code> and <code>--force-failover</code>
+        /// can't both be set to <code>true</code>.)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForcePlannedFailover { get; set; }
         #endregion
         
         #region Parameter ReplicationInstanceArn
@@ -131,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ForceFailover = this.ForceFailover;
+            context.ForcePlannedFailover = this.ForcePlannedFailover;
             context.ReplicationInstanceArn = this.ReplicationInstanceArn;
             #if MODULAR
             if (this.ReplicationInstanceArn == null && ParameterWasBound(nameof(this.ReplicationInstanceArn)))
@@ -157,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.ForceFailover != null)
             {
                 request.ForceFailover = cmdletContext.ForceFailover.Value;
+            }
+            if (cmdletContext.ForcePlannedFailover != null)
+            {
+                request.ForcePlannedFailover = cmdletContext.ForcePlannedFailover.Value;
             }
             if (cmdletContext.ReplicationInstanceArn != null)
             {
@@ -224,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? ForceFailover { get; set; }
+            public System.Boolean? ForcePlannedFailover { get; set; }
             public System.String ReplicationInstanceArn { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.RebootReplicationInstanceResponse, RestartDMSReplicationInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReplicationInstance;

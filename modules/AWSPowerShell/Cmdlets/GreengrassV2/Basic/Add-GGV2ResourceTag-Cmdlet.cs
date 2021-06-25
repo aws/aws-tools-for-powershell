@@ -28,7 +28,7 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Adds tags to an AWS IoT Greengrass resource. If a tag already exists for the resource,
+    /// Adds tags to an IoT Greengrass resource. If a tag already exists for the resource,
     /// this operation updates the tag's value.
     /// </summary>
     [Cmdlet("Add", "GGV2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <para>
         /// <para>A list of key-value pairs that contain metadata for the resource. For more information,
         /// see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag
-        /// your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</para>
+        /// your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

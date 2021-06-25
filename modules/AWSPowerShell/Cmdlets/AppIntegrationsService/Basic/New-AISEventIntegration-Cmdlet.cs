@@ -28,15 +28,10 @@ using Amazon.AppIntegrationsService.Model;
 namespace Amazon.PowerShell.Cmdlets.AIS
 {
     /// <summary>
-    /// The Amazon AppIntegrations APIs are in preview release and are subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Creates an EventIntegration, given a specified name, description, and a reference
-    /// to an Amazon Eventbridge bus in your account and a partner event source that will
-    /// push events to that bus. No objects are created in the your account, only metadata
-    /// that is persisted on the EventIntegration control plane.
-    /// </para>
+    /// to an Amazon EventBridge bus in your account and a partner event source that pushes
+    /// events to that bus. No objects are created in the your account, only metadata that
+    /// is persisted on the EventIntegration control plane.
     /// </summary>
     [Cmdlet("New", "AISEventIntegration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -61,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         #region Parameter EventBridgeBus
         /// <summary>
         /// <para>
-        /// <para>The Eventbridge bus.</para>
+        /// <para>The EventBridge bus.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

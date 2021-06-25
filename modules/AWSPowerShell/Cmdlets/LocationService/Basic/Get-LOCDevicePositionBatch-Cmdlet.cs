@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// A batch request to retrieve all device positions.
+    /// Lists the latest device positions for requested devices.
     /// </summary>
     [Cmdlet("Get", "LOCDevicePositionBatch")]
     [OutputType("Amazon.LocationService.Model.BatchGetDevicePositionResponse")]

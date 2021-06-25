@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator)
-        /// when it is created. Possible values include the following.</para><ul><li><para>enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift
-        /// node type.</para></li><li><para>disabled - Don't use AQUA. </para></li><li><para>auto - Amazon Redshift determines whether to use AQUA.</para></li></ul>
+        /// when it is created. Possible values include the following.</para><ul><li><para>enabled - Use AQUA if it is available for the current Amazon Web Services Region and
+        /// Amazon Redshift node type.</para></li><li><para>disabled - Don't use AQUA. </para></li><li><para>auto - Amazon Redshift determines whether to use AQUA.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>A unique identifier for the cluster. You use this identifier to refer to the cluster
         /// for any subsequent cluster operations such as deleting or modifying. The identifier
-        /// also appears in the Amazon Redshift console.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>Alphabetic characters must be lowercase.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique for all clusters within an AWS account.</para></li></ul><para>Example: <code>myexamplecluster</code></para>
+        /// also appears in the Amazon Redshift console.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>Alphabetic characters must be lowercase.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique for all clusters within an Amazon Web Services account.</para></li></ul><para>Example: <code>myexamplecluster</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -274,9 +274,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter IamRole
         /// <summary>
         /// <para>
-        /// <para>A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster
-        /// to access other AWS services. You must supply the IAM roles in their Amazon Resource
-        /// Name (ARN) format. You can supply up to 10 IAM roles in a single request.</para><para>A cluster can have up to 10 IAM roles associated with it at any time.</para>
+        /// <para>A list of Identity and Access Management (IAM) roles that can be used by the cluster
+        /// to access other Amazon Web Services services. You must supply the IAM roles in their
+        /// Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.</para><para>A cluster can have up to 10 IAM roles associated with it at any time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,8 +287,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
-        /// use to encrypt data in the cluster.</para>
+        /// <para>The Key Management Service (KMS) key ID of the encryption key that you want to use
+        /// to encrypt data in the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -322,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para>The user name associated with the master user account for the cluster that is being
+        /// <para>The user name associated with the admin user account for the cluster that is being
         /// created.</para><para>Constraints:</para><ul><li><para>Must be 1 - 128 alphanumeric characters. The user name can't be <code>PUBLIC</code>.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
         /// Words</a> in the Amazon Redshift Database Developer Guide. </para></li></ul>
         /// </para>
@@ -341,7 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The password associated with the master user account for the cluster that is being
+        /// <para>The password associated with the admin user account for the cluster that is being
         /// created.</para><para>Constraints:</para><ul><li><para>Must be between 8 and 64 characters in length.</para></li><li><para>Must contain at least one uppercase letter.</para></li><li><para>Must contain at least one lowercase letter.</para></li><li><para>Must contain one number.</para></li><li><para>Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote),
         /// " (double quote), \, /, @, or space.</para></li></ul>
         /// </para>

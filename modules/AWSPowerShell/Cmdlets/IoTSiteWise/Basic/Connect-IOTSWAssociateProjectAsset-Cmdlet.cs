@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Associates a group (batch) of assets with an AWS IoT SiteWise Monitor project.
+    /// Associates a group (batch) of assets with an IoT SiteWise Monitor project.
     /// </summary>
     [Cmdlet("Connect", "IOTSWAssociateProjectAsset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSiteWise.Model.AssetErrorDetails")]

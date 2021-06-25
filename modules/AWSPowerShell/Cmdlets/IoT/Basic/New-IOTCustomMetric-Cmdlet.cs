@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Use this API to define a Custom Metric published by your devices to Device Defender.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCustomMetric</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IOTCustomMetric", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.CreateCustomMetricResponse")]
@@ -44,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>Each custom metric must have a unique client request token. If you try to create a
         /// new custom metric that already exists with a different token, an exception occurs.
-        /// If you omit this value, AWS SDKs will automatically generate a unique client request.
-        /// </para>
+        /// If you omit this value, Amazon Web Services SDKs will automatically generate a unique
+        /// client request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,10 +28,10 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns AWS resource descriptions for running and deleted stacks. If <code>StackName</code>
-    /// is specified, all the associated resources that are part of the stack are returned.
-    /// If <code>PhysicalResourceId</code> is specified, the associated resources of the stack
-    /// that the resource belongs to are returned.
+    /// Returns Amazon Web Services resource descriptions for running and deleted stacks.
+    /// If <code>StackName</code> is specified, all the associated resources that are part
+    /// of the stack are returned. If <code>PhysicalResourceId</code> is specified, the associated
+    /// resources of the stack that the resource belongs to are returned.
     /// 
     ///  <note><para>
     /// Only the first 100 resources will be returned. If your stack has more resources than
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// You must specify either <code>StackName</code> or <code>PhysicalResourceId</code>,
     /// but not both. In addition, you can specify <code>LogicalResourceId</code> to filter
     /// the returned result. For more information about resources, the <code>LogicalResourceId</code>
-    /// and <code>PhysicalResourceId</code>, go to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">AWS
-    /// CloudFormation User Guide</a>.
+    /// and <code>PhysicalResourceId</code>, go to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">CloudFormation
+    /// User Guide</a>.
     /// </para><note><para>
     /// A <code>ValidationError</code> is returned if you specify both <code>StackName</code>
     /// and <code>PhysicalResourceId</code> in the same request.
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The name or unique identifier that corresponds to a physical instance ID of a resource
-        /// supported by AWS CloudFormation.</para><para>For example, for an Amazon Elastic Compute Cloud (EC2) instance, <code>PhysicalResourceId</code>
+        /// supported by CloudFormation.</para><para>For example, for an Amazon Elastic Compute Cloud (EC2) instance, <code>PhysicalResourceId</code>
         /// corresponds to the <code>InstanceId</code>. You can pass the EC2 <code>InstanceId</code>
         /// to <code>DescribeStackResources</code> to find which stack the instance belongs to
         /// and what other resources are part of the stack.</para><para>Required: Conditional. If you do not specify <code>PhysicalResourceId</code>, you

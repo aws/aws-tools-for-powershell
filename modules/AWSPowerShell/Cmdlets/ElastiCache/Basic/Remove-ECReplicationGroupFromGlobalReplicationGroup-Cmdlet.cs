@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <summary>
     /// Remove a secondary cluster from the Global datastore using the Global datastore name.
     /// The secondary cluster will no longer receive updates from the primary cluster, but
-    /// will remain as a standalone cluster in that AWS region.
+    /// will remain as a standalone cluster in that Amazon region.
     /// </summary>
     [Cmdlet("Remove", "ECReplicationGroupFromGlobalReplicationGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.GlobalReplicationGroup")]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ReplicationGroupRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS region of secondary cluster you wish to remove from the Global datastore</para>
+        /// <para>The Amazon region of secondary cluster you wish to remove from the Global datastore</para>
         /// </para>
         /// </summary>
         #if !MODULAR

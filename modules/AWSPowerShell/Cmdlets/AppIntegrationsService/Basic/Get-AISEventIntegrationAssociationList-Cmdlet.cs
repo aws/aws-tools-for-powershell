@@ -28,12 +28,7 @@ using Amazon.AppIntegrationsService.Model;
 namespace Amazon.PowerShell.Cmdlets.AIS
 {
     /// <summary>
-    /// The Amazon AppIntegrations APIs are in preview release and are subject to change.
-    /// 
-    ///  
-    /// <para>
-    /// Returns a paginated list of event integration associations in the account. 
-    /// </para>
+    /// Returns a paginated list of event integration associations in the account.
     /// </summary>
     [Cmdlet("Get", "AISEventIntegrationAssociationList")]
     [OutputType("Amazon.AppIntegrationsService.Model.EventIntegrationAssociation")]

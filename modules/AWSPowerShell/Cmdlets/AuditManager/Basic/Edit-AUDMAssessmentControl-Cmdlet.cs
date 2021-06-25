@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Updates a control within an assessment in AWS Audit Manager.
+    /// Updates a control within an assessment in Audit Manager.
     /// </summary>
     [Cmdlet("Edit", "AUDMAssessmentControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.Model.AssessmentControl")]

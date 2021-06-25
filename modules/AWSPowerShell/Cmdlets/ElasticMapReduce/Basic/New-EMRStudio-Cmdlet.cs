@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter AuthMode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM.
-        /// Amazon EMR Studio currently only supports SSO authentication.</para>
+        /// <para>Specifies whether the Studio authenticates users using IAM or Amazon Web Services
+        /// SSO.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -103,6 +103,32 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String EngineSecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter IdpAuthUrl
+        /// <summary>
+        /// <para>
+        /// <para>The authentication endpoint of your identity provider (IdP). Specify this value when
+        /// you use IAM authentication and want to let federated users log in to a Studio with
+        /// the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to
+        /// this endpoint to enter credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdpAuthUrl { get; set; }
+        #endregion
+        
+        #region Parameter IdpRelayStateParameterName
+        /// <summary>
+        /// <para>
+        /// <para>The name that your identity provider (IdP) uses for its <code>RelayState</code> parameter.
+        /// For example, <code>RelayState</code> or <code>TargetSource</code>. Specify this value
+        /// when you use IAM authentication and want to let federated users log in to a Studio
+        /// using the Studio URL. The <code>RelayState</code> parameter differs by IdP.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdpRelayStateParameterName { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -123,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ServiceRole
         /// <summary>
         /// <para>
-        /// <para>The IAM role that will be assumed by the Amazon EMR Studio. The service role provides
-        /// a way for Amazon EMR Studio to interoperate with other AWS services.</para>
+        /// <para>The IAM role that the Amazon EMR Studio assumes. The service role provides a way for
+        /// Amazon EMR Studio to interoperate with other Amazon Web Services services.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -174,19 +200,13 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter UserRole
         /// <summary>
         /// <para>
-        /// <para>The IAM user role that will be assumed by users and groups logged in to an Amazon
-        /// EMR Studio. The permissions attached to this IAM role can be scoped down for each
+        /// <para>The IAM user role that users and groups assume when logged in to an Amazon EMR Studio.
+        /// Only specify a <code>UserRole</code> when you use Amazon Web Services SSO authentication.
+        /// The permissions attached to the <code>UserRole</code> can be scoped down for each
         /// user or group using session policies.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserRole { get; set; }
         #endregion
         
@@ -289,6 +309,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 WriteWarning("You are passing $null as a value for parameter EngineSecurityGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IdpAuthUrl = this.IdpAuthUrl;
+            context.IdpRelayStateParameterName = this.IdpRelayStateParameterName;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -318,12 +340,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 context.Tag = new List<Amazon.ElasticMapReduce.Model.Tag>(this.Tag);
             }
             context.UserRole = this.UserRole;
-            #if MODULAR
-            if (this.UserRole == null && ParameterWasBound(nameof(this.UserRole)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserRole which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VpcId = this.VpcId;
             #if MODULAR
             if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
@@ -369,6 +385,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (cmdletContext.EngineSecurityGroupId != null)
             {
                 request.EngineSecurityGroupId = cmdletContext.EngineSecurityGroupId;
+            }
+            if (cmdletContext.IdpAuthUrl != null)
+            {
+                request.IdpAuthUrl = cmdletContext.IdpAuthUrl;
+            }
+            if (cmdletContext.IdpRelayStateParameterName != null)
+            {
+                request.IdpRelayStateParameterName = cmdletContext.IdpRelayStateParameterName;
             }
             if (cmdletContext.Name != null)
             {
@@ -463,6 +487,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.String DefaultS3Location { get; set; }
             public System.String Description { get; set; }
             public System.String EngineSecurityGroupId { get; set; }
+            public System.String IdpAuthUrl { get; set; }
+            public System.String IdpRelayStateParameterName { get; set; }
             public System.String Name { get; set; }
             public System.String ServiceRole { get; set; }
             public List<System.String> SubnetId { get; set; }

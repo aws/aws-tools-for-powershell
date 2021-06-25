@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 bucket for the destination image. The destination bucket must exist
-        /// and grant WRITE and READ_ACP permissions to the AWS account <code>vm-import-export@amazon.com</code>.</para>
+        /// and grant WRITE and READ_ACP permissions to the Amazon Web Services account <code>vm-import-export@amazon.com</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

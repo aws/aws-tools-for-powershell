@@ -75,6 +75,40 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS Outposts
 
 
+$OUTP_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Outposts.PaymentOption
+        "New-OUTPOrder/PaymentOption"
+        {
+            $v = "ALL_UPFRONT","NO_UPFRONT","PARTIAL_UPFRONT"
+            break
+        }
+
+        # Amazon.Outposts.PaymentTerm
+        "New-OUTPOrder/PaymentTerm"
+        {
+            $v = "THREE_YEARS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$OUTP_map = @{
+    "PaymentOption"=@("New-OUTPOrder")
+    "PaymentTerm"=@("New-OUTPOrder")
+}
+
+_awsArgumentCompleterRegistration $OUTP_Completers $OUTP_map
+
 $OUTP_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -123,7 +157,8 @@ $OUTP_SelectCompleters = {
 }
 
 $OUTP_SelectMap = @{
-    "Select"=@("New-OUTPOutpost",
+    "Select"=@("New-OUTPOrder",
+               "New-OUTPOutpost",
                "Remove-OUTPOutpost",
                "Remove-OUTPSite",
                "Get-OUTPOutpost",

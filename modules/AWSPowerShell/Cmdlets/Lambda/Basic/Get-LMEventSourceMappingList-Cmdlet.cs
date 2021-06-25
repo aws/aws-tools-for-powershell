@@ -79,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>The maximum number of event source mappings to return.</para>
+        /// <para>The maximum number of event source mappings to return. Note that ListEventSourceMappings
+        /// returns a maximum of 100 items in each response, even if you set the number higher.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

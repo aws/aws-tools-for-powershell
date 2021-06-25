@@ -28,22 +28,24 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Removes the specified ingress rules from a security group. To remove a rule, the values
-    /// that you specify (for example, ports) must match the existing rule's values exactly.
+    /// Removes the specified inbound (ingress) rules from a security group.
     /// 
-    ///  <note><para>
-    /// [EC2-Classic , default VPC] If the values you specify do not match the existing rule's
-    /// values, no error is returned, and the output describes the security group rules that
-    /// were not revoked. 
+    ///  
+    /// <para>
+    /// You can specify rules using either rule IDs or security group rule properties. If
+    /// you use rule properties, the values that you specify (for example, ports) must match
+    /// the existing rule's values exactly. Each rule has a protocol, from and to ports, and
+    /// source (CIDR range, security group, or prefix list). For the TCP and UDP protocols,
+    /// you must also specify the destination port or range of ports. For the ICMP protocol,
+    /// you must also specify the ICMP type and code. If the security group rule has a description,
+    /// you do not need to specify the description to revoke the rule.
     /// </para><para>
-    /// AWS recommends that you use <a>DescribeSecurityGroups</a> to verify that the rule
-    /// has been removed.
-    /// </para></note><para>
-    /// Each rule consists of the protocol and the CIDR range or source security group. For
-    /// the TCP and UDP protocols, you must also specify the destination port or range of
-    /// ports. For the ICMP protocol, you must also specify the ICMP type and code. If the
-    /// security group rule has a description, you do not have to specify the description
-    /// to revoke the rule.
+    /// [EC2-Classic, default VPC] If the values you specify do not match the existing rule's
+    /// values, no error is returned, and the output describes the security group rules that
+    /// were not revoked.
+    /// </para><para>
+    /// Amazon Web Services recommends that you describe the security group to verify that
+    /// the rules were removed.
     /// </para><para>
     /// Rule changes are propagated to instances within the security group as quickly as possible.
     /// However, a small delay might occur.
@@ -91,6 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("IpPermissions")]
         public Amazon.EC2.Model.IpPermission[] IpPermission { get; set; }
+        #endregion
+        
+        #region Parameter SecurityGroupRuleId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the security group rules.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SecurityGroupRuleIds")]
+        public System.String[] SecurityGroupRuleId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -160,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.IpPermission = new List<Amazon.EC2.Model.IpPermission>(this.IpPermission);
             }
+            if (this.SecurityGroupRuleId != null)
+            {
+                context.SecurityGroupRuleId = new List<System.String>(this.SecurityGroupRuleId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -187,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.IpPermission != null)
             {
                 request.IpPermissions = cmdletContext.IpPermission;
+            }
+            if (cmdletContext.SecurityGroupRuleId != null)
+            {
+                request.SecurityGroupRuleIds = cmdletContext.SecurityGroupRuleId;
             }
             
             CmdletOutput output;
@@ -252,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String GroupId { get; set; }
             public System.String GroupName { get; set; }
             public List<Amazon.EC2.Model.IpPermission> IpPermission { get; set; }
+            public List<System.String> SecurityGroupRuleId { get; set; }
             public System.Func<Amazon.EC2.Model.RevokeSecurityGroupIngressResponse, RevokeEC2SecurityGroupIngressCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

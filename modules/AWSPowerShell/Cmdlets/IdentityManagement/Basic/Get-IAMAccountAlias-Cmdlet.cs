@@ -28,9 +28,10 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Lists the account alias associated with the AWS account (Note: you can have only one).
-    /// For information about using an AWS account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
-    /// an alias for your AWS account ID</a> in the <i>IAM User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the account alias associated with the Amazon Web Services account (Note: you
+    /// can have only one). For information about using an Amazon Web Services account alias,
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
+    /// an alias for your Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMAccountAlias")]
     [OutputType("System.String")]

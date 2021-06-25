@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>account</C2jFilename>
+    <AssemblyName>Account</AssemblyName>
+    <ServiceNounPrefix>ACCT</ServiceNounPrefix>
+    <ServiceName>AWS Account</ServiceName>
+    <ServiceClientInterface>IAmazonAccount</ServiceClientInterface>
+    <ServiceClient>AmazonAccountClient</ServiceClient>
+    <ServiceModuleGuid>1b2ce566-ee2b-4e8e-9af5-8e9535579c41</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteAlternateContact" Verb="Remove" Noun="AlternateContact" AnonymousShouldProcessTarget="true" PipelineParameter="AlternateContactType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAlternateContact" OutputProperty="AlternateContact" Verb="Get" Noun="AlternateContact" PipelineParameter="AlternateContactType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAlternateContact" Verb="Write" Noun="AlternateContact" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

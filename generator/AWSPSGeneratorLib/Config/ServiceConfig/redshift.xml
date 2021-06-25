@@ -13,8 +13,12 @@
     <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords" ServicePageSize="100" PageSizeIsRequired="true" />
     <VerbMappings>
         <Map From="Authorize" To="Approve" />
+        <Map From="Deauthorize" To="Revoke" />
         <Map From="Purchase" To="Request" />
         <Map From="Reboot" To="Restart" />
+        <Map From="Associate" To="Add" />
+        <Map From="Disassociate" To="Remove" />
+        <Map From="Reject" To="Deny" />
     </VerbMappings>
     <NounMappings />
     <Params />
@@ -35,7 +39,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateDataShareConsumer" OutputProperty="*" Verb="Add" Noun="DataShareConsumer" ShouldProcessTarget="DataShareArn" PipelineParameter="DataShareArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AuthorizeClusterSecurityGroupIngress" OutputProperty="ClusterSecurityGroup" Verb="Approve" Noun="ClusterSecurityGroupIngress" ShouldProcessTarget="ClusterSecurityGroupName" PositionalParameters="CIDRIP;EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeDataShare" OutputProperty="*" Verb="Approve" Noun="DataShare" ShouldProcessTarget="DataShareArn" PipelineParameter="DataShareArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -62,6 +74,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CopyClusterSnapshot" OutputProperty="Snapshot" Verb="Copy" Noun="ClusterSnapshot" ShouldProcessTarget="SourceSnapshotIdentifier" PositionalParameters="TargetSnapshotIdentifier" PipelineParameter="SourceSnapshotIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAuthenticationProfile" OutputProperty="*" Verb="New" Noun="AuthenticationProfile" ShouldProcessTarget="AuthenticationProfileName" PipelineParameter="AuthenticationProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -120,6 +136,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateUsageLimit" OutputProperty="*" Verb="New" Noun="UsageLimit" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeauthorizeDataShare" OutputProperty="*" Verb="Revoke" Noun="DataShare" ShouldProcessTarget="DataShareArn" PipelineParameter="DataShareArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAuthenticationProfile" OutputProperty="AuthenticationProfileName" Verb="Remove" Noun="AuthenticationProfile" ShouldProcessTarget="AuthenticationProfileName" PipelineParameter="AuthenticationProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -187,6 +211,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAuthenticationProfiles" OutputProperty="AuthenticationProfiles" Verb="Get" Noun="AuthenticationProfile" PipelineParameter="AuthenticationProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeClusterDbRevisions" OutputProperty="ClusterDbRevisions" Verb="Get" Noun="ClusterDbRevision" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -225,6 +253,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeClusterVersions" OutputProperty="ClusterVersions" Verb="Get" Noun="ClusterVersion" PositionalParameters="ClusterParameterGroupFamily" PipelineParameter="ClusterVersion" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSClusterVersions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataShares" OutputProperty="DataShares" Verb="Get" Noun="DataShare" PipelineParameter="DataShareArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataSharesForConsumer" OutputProperty="DataShares" Verb="Get" Noun="DataSharesForConsumer" PipelineParameter="ConsumerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataSharesForProducer" OutputProperty="DataShares" Verb="Get" Noun="DataSharesForProducer" PipelineParameter="ProducerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -329,6 +369,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateDataShareConsumer" OutputProperty="*" Verb="Remove" Noun="DataShareConsumer" ShouldProcessTarget="DataShareArn" PipelineParameter="DataShareArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableLogging" OutputProperty="*" Verb="Enable" Noun="Logging" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -346,6 +390,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyAquaConfiguration" OutputProperty="AquaConfiguration" Verb="Edit" Noun="AquaConfiguration" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyAuthenticationProfile" OutputProperty="*" Verb="Edit" Noun="AuthenticationProfile" ShouldProcessTarget="AuthenticationProfileName" PipelineParameter="AuthenticationProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -418,6 +466,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RebootCluster" OutputProperty="Cluster" Verb="Restart" Noun="Cluster" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectDataShare" OutputProperty="*" Verb="Deny" Noun="DataShare" ShouldProcessTarget="DataShareArn" PipelineParameter="DataShareArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DistributionName
         /// <summary>
         /// <para>
-        /// <para>The name of the distribution for which to return information.</para><para>Use the <code>GetDistributions</code> action to get a list of distribution names that
-        /// you can specify.</para><para>When omitted, the response includes all of your distributions in the AWS Region where
+        /// <para>The name of the distribution for which to return information.</para><para>When omitted, the response includes all of your distributions in the AWS Region where
         /// the request is made.</para>
         /// </para>
         /// </summary>

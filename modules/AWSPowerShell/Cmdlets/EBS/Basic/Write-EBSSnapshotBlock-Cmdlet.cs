@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
     /// 
     ///  
     /// <para>
-    /// Data written to a snapshot must be aligned with 512-byte sectors.
+    /// Data written to a snapshot must be aligned with 512-KiB sectors.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "EBSSnapshotBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         /// <summary>
         /// <para>
         /// <para>The size of the data to write to the block, in bytes. Currently, the only supported
-        /// size is <code>524288</code>.</para><para>Valid values: <code>524288</code></para>
+        /// size is <code>524288</code> bytes.</para><para>Valid values: <code>524288</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

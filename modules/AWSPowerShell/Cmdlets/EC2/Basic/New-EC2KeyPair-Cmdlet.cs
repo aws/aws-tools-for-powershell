@@ -28,21 +28,21 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public
-    /// key and displays the private key for you to save to a file. The private key is returned
-    /// as an unencrypted PEM encoded PKCS#1 private key. If a key with the specified name
-    /// already exists, Amazon EC2 returns an error.
+    /// Creates an ED25519 or 2048-bit RSA key pair with the specified name. Amazon EC2 stores
+    /// the public key and displays the private key for you to save to a file. The private
+    /// key is returned as an unencrypted PEM encoded PKCS#1 private key. If a key with the
+    /// specified name already exists, Amazon EC2 returns an error.
     /// 
     ///  
     /// <para>
-    /// You can have up to five thousand key pairs per Region.
+    /// The key pair returned to you is available only in the Amazon Web Services Region in
+    /// which you create it. If you prefer, you can create your own key pair using a third-party
+    /// tool and upload it to any Region using <a>ImportKeyPair</a>.
     /// </para><para>
-    /// The key pair returned to you is available only in the Region in which you create it.
-    /// If you prefer, you can create your own key pair using a third-party tool and upload
-    /// it to any Region using <a>ImportKeyPair</a>.
+    /// You can have up to 5,000 key pairs per Amazon Web Services Region.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
-    /// Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
+    /// EC2 key pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2KeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,6 +70,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String KeyName { get; set; }
+        #endregion
+        
+        #region Parameter KeyType
+        /// <summary>
+        /// <para>
+        /// <para>The type of key pair. Note that ED25519 keys are not supported for Windows instances,
+        /// EC2 Instance Connect, and EC2 Serial Console.</para><para>Default: <code>rsa</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.KeyType")]
+        public Amazon.EC2.KeyType KeyType { get; set; }
         #endregion
         
         #region Parameter TagSpecification
@@ -151,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter KeyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.KeyType = this.KeyType;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -174,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.KeyName != null)
             {
                 request.KeyName = cmdletContext.KeyName;
+            }
+            if (cmdletContext.KeyType != null)
+            {
+                request.KeyType = cmdletContext.KeyType;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -241,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String KeyName { get; set; }
+            public Amazon.EC2.KeyType KeyType { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateKeyPairResponse, NewEC2KeyPairCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.KeyPair;

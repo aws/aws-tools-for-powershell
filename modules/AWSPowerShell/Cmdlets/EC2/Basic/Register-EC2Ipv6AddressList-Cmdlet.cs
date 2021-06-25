@@ -39,6 +39,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// You must specify either the IPv6 addresses or the IPv6 address count in the request.
+    /// 
+    /// </para><para>
+    /// You can optionally use Prefix Delegation on the network interface. You must specify
+    /// either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For
+    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
+    /// Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute
+    /// Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2Ipv6AddressList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -74,6 +81,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Ipv6Addresses")]
         public System.String[] Ipv6Address { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6PrefixCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the
+        /// network interface. You cannot use this option if you use the <code>Ipv6Prefixes</code>
+        /// option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Ipv6PrefixCount { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6Prefix
+        /// <summary>
+        /// <para>
+        /// <para>One or more IPv6 prefixes assigned to the network interface. You cannot use this option
+        /// if you use the <code>Ipv6PrefixCount</code> option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Ipv6Prefixes")]
+        public System.String[] Ipv6Prefix { get; set; }
         #endregion
         
         #region Parameter NetworkInterfaceId
@@ -159,6 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Ipv6Address = new List<System.String>(this.Ipv6Address);
             }
+            context.Ipv6PrefixCount = this.Ipv6PrefixCount;
+            if (this.Ipv6Prefix != null)
+            {
+                context.Ipv6Prefix = new List<System.String>(this.Ipv6Prefix);
+            }
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             #if MODULAR
             if (this.NetworkInterfaceId == null && ParameterWasBound(nameof(this.NetworkInterfaceId)))
@@ -189,6 +225,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Ipv6Address != null)
             {
                 request.Ipv6Addresses = cmdletContext.Ipv6Address;
+            }
+            if (cmdletContext.Ipv6PrefixCount != null)
+            {
+                request.Ipv6PrefixCount = cmdletContext.Ipv6PrefixCount.Value;
+            }
+            if (cmdletContext.Ipv6Prefix != null)
+            {
+                request.Ipv6Prefixes = cmdletContext.Ipv6Prefix;
             }
             if (cmdletContext.NetworkInterfaceId != null)
             {
@@ -257,6 +301,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Int32? Ipv6AddressCount { get; set; }
             public List<System.String> Ipv6Address { get; set; }
+            public System.Int32? Ipv6PrefixCount { get; set; }
+            public List<System.String> Ipv6Prefix { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public System.Func<Amazon.EC2.Model.AssignIpv6AddressesResponse, RegisterEC2Ipv6AddressListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

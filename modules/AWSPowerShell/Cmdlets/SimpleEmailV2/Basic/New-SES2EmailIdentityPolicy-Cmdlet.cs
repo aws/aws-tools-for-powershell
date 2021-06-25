@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EmailIdentity
         /// <summary>
         /// <para>
-        /// <para>The email identity for which you want to create a policy.</para>
+        /// <para>The email identity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

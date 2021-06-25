@@ -28,7 +28,7 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Deletes the password policy for the AWS account. There are no parameters.
+    /// Deletes the password policy for the Amazon Web Services account. There are no parameters.
     /// </summary>
     [Cmdlet("Remove", "IAMAccountPasswordPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter ConnectionAliasPermission_AllowAssociation
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the specified AWS account is allowed to associate the connection
-        /// alias with a directory.</para>
+        /// <para>Indicates whether the specified Amazon Web Services account is allowed to associate
+        /// the connection alias with a directory.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter ConnectionAliasPermission_SharedAccountId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AWS account that the connection alias is shared with.</para>
+        /// <para>The identifier of the Amazon Web Services account that the connection alias is shared
+        /// with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

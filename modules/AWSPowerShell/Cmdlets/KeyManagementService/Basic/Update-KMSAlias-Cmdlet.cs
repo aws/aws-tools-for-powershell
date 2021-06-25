@@ -28,44 +28,44 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Associates an existing AWS KMS alias with a different customer master key (CMK). Each
-    /// alias is associated with only one CMK at a time, although a CMK can have multiple
-    /// aliases. The alias and the CMK must be in the same AWS account and Region.
+    /// Associates an existing KMS alias with a different KMS key. Each alias is associated
+    /// with only one KMS key at a time, although a KMS key can have multiple aliases. The
+    /// alias and the KMS key must be in the same Amazon Web Services account and Region.
     /// 
     ///  <note><para>
-    /// Adding, deleting, or updating an alias can allow or deny permission to the CMK. For
-    /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using
-    /// ABAC in AWS KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// Adding, deleting, or updating an alias can allow or deny permission to the KMS key.
+    /// For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using
+    /// ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para></note><para>
-    /// The current and new CMK must be the same type (both symmetric or both asymmetric),
+    /// The current and new KMS key must be the same type (both symmetric or both asymmetric),
     /// and they must have the same key usage (<code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>).
     /// This restriction prevents errors in code that uses aliases. If you must assign an
-    /// alias to a different type of CMK, use <a>DeleteAlias</a> to delete the old alias and
-    /// <a>CreateAlias</a> to create a new alias.
+    /// alias to a different type of KMS key, use <a>DeleteAlias</a> to delete the old alias
+    /// and <a>CreateAlias</a> to create a new alias.
     /// </para><para>
     /// You cannot use <code>UpdateAlias</code> to change an alias name. To change an alias
     /// name, use <a>DeleteAlias</a> to delete the old alias and <a>CreateAlias</a> to create
     /// a new alias.
     /// </para><para>
-    /// Because an alias is not a property of a CMK, you can create, update, and delete the
-    /// aliases of a CMK without affecting the CMK. Also, aliases do not appear in the response
-    /// from the <a>DescribeKey</a> operation. To get the aliases of all CMKs in the account,
-    /// use the <a>ListAliases</a> operation. 
+    /// Because an alias is not a property of a KMS key, you can create, update, and delete
+    /// the aliases of a KMS key without affecting the KMS key. Also, aliases do not appear
+    /// in the response from the <a>DescribeKey</a> operation. To get the aliases of all KMS
+    /// keys in the account, use the <a>ListAliases</a> operation. 
     /// </para><para>
-    /// The CMK that you use for this operation must be in a compatible key state. For details,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.
-    /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different
-    /// AWS account. 
+    /// The KMS key that you use for this operation must be in a compatible key state. For
+    /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
+    /// state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.
+    /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
+    /// different Amazon Web Services account. 
     /// </para><para><b>Required permissions</b></para><ul><li><para><a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UpdateAlias</a>
     /// on the alias (IAM policy).
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UpdateAlias</a>
-    /// on the current CMK (key policy).
+    /// on the current KMS key (key policy).
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UpdateAlias</a>
-    /// on the new CMK (key policy).
+    /// on the new KMS key (key policy).
     /// </para></li></ul><para>
     /// For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access">Controlling
-    /// access to aliases</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// access to aliases</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateAlias</a></para></li><li><para><a>DeleteAlias</a></para></li><li><para><a>ListAliases</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "KMSAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>Identifies the alias that is changing its CMK. This value must begin with <code>alias/</code>
+        /// <para>Identifies the alias that is changing its KMS key. This value must begin with <code>alias/</code>
         /// followed by the alias name, such as <code>alias/ExampleAlias</code>. You cannot use
         /// UpdateAlias to change the alias name.</para>
         /// </para>
@@ -101,11 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
-        /// managed CMK</a> to associate with the alias. You don't have permission to associate
-        /// an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">AWS
-        /// managed CMK</a>.</para><para>The CMK must be in the same AWS account and Region as the alias. Also, the new target
-        /// CMK must be the same type as the current target CMK (both symmetric or both asymmetric)
-        /// and they must have the same key usage. </para><para>Specify the key ID or key ARN of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para><para>To verify that the alias is mapped to the correct CMK, use <a>ListAliases</a>.</para>
+        /// managed key</a> to associate with the alias. You don't have permission to associate
+        /// an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+        /// Web Services managed key</a>.</para><para>The KMS key must be in the same Amazon Web Services account and Region as the alias.
+        /// Also, the new target KMS key must be the same type as the current target KMS key (both
+        /// symmetric or both asymmetric) and they must have the same key usage. </para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para><para>To verify that the alias is mapped to the correct KMS key, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

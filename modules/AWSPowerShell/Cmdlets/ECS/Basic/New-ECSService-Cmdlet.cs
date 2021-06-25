@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The capacity provider strategy to use for the service.</para><para>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
         /// parameter must be omitted. If no <code>capacityProviderStrategy</code> or <code>launchType</code>
         /// is specified, the <code>defaultCapacityProviderStrategy</code> for the cluster is
-        /// used.</para>
+        /// used.</para><para>A capacity provider strategy may contain a maximum of 6 capacity providers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,9 +248,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The infrastructure on which to run your service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
-        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>The <code>FARGATE</code> launch type runs your tasks on AWS Fargate On-Demand infrastructure.</para><note><para>Fargate Spot infrastructure is available for use but a capacity provider strategy
-        /// must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">AWS
-        /// Fargate capacity providers</a> in the <i>Amazon ECS User Guide for AWS Fargate</i>.</para></note><para>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered
+        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>The <code>FARGATE</code> launch type runs your tasks on Fargate On-Demand infrastructure.</para><note><para>Fargate Spot infrastructure is available for use but a capacity provider strategy
+        /// must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">Fargate
+        /// capacity providers</a> in the <i>Amazon ECS User Guide for Fargate</i>.</para></note><para>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered
         /// to your cluster.</para><para>The <code>EXTERNAL</code> launch type runs your tasks on your on-premise server or
         /// virtual machine (VM) capacity registered to your cluster.</para><para>A service can use either a launch type or a capacity provider strategy. If a <code>launchType</code>
         /// is specified, the <code>capacityProviderStrategy</code> parameter must be omitted.</para>
@@ -274,13 +274,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
         /// Developer Guide</i>.</para><para>If the service is using the <code>CODE_DEPLOY</code> deployment controller, the service
         /// is required to use either an Application Load Balancer or Network Load Balancer. When
-        /// creating an AWS CodeDeploy deployment group, you specify two target groups (referred
-        /// to as a <code>targetGroupPair</code>). During a deployment, AWS CodeDeploy determines
-        /// which task set in your service has the status <code>PRIMARY</code> and associates
-        /// one target group with it, and then associates the other target group with the replacement
-        /// task set. The load balancer can also have up to two listeners: a required listener
-        /// for production traffic and an optional listener that allows you perform validation
-        /// tests with Lambda functions before routing production traffic to it.</para><para>After you create a service using the <code>ECS</code> deployment controller, the load
+        /// creating an CodeDeploy deployment group, you specify two target groups (referred to
+        /// as a <code>targetGroupPair</code>). During a deployment, CodeDeploy determines which
+        /// task set in your service has the status <code>PRIMARY</code> and associates one target
+        /// group with it, and then associates the other target group with the replacement task
+        /// set. The load balancer can also have up to two listeners: a required listener for
+        /// production traffic and an optional listener that allows you perform validation tests
+        /// with Lambda functions before routing production traffic to it.</para><para>After you create a service using the <code>ECS</code> deployment controller, the load
         /// balancer name or target group ARN, container name, and container port specified in
         /// the service definition are immutable. If you are using the <code>CODE_DEPLOY</code>
         /// deployment controller, these values can be changed when updating the service.</para><para>For Application Load Balancers and Network Load Balancers, this object must contain
@@ -363,7 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>An array of placement constraint objects to use for tasks in your service. You can
         /// specify a maximum of 10 constraints per task (this limit includes constraints in the
-        /// task definition and those specified at runtime). </para>
+        /// task definition and those specified at runtime).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,7 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The placement strategy objects to use for tasks in your service. You can specify a
-        /// maximum of five strategy rules per service.</para>
+        /// maximum of 5 strategy rules per service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -388,9 +388,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The platform version that your tasks in the service are running on. A platform version
         /// is specified only for tasks using the Fargate launch type. If one isn't specified,
         /// the <code>LATEST</code> platform version is used by default. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
-        /// Fargate platform versions</a> in the <i>Amazon Elastic Container Service Developer
-        /// Guide</i>.</para>
+        /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
+        /// platform versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -542,9 +541,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
         /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for either keys or values as it is reserved for AWS use. You cannot
-        /// edit or delete tag keys or values with this prefix. Tags with this prefix do not count
-        /// against your tags per resource limit.</para></li></ul>
+        /// of such as a prefix for either keys or values as it is reserved for Amazon Web Services
+        /// use. You cannot edit or delete tag keys or values with this prefix. Tags with this
+        /// prefix do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -573,8 +572,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// Amazon ECS adds or removes from the service during a rolling update is controlled
         /// by adjusting the minimum and maximum number of healthy tasks allowed during a service
         /// deployment, as specified in the <a>DeploymentConfiguration</a>.</para></dd><dt>CODE_DEPLOY</dt><dd><para>The blue/green (<code>CODE_DEPLOY</code>) deployment type uses the blue/green deployment
-        /// model powered by AWS CodeDeploy, which allows you to verify a new deployment of a
-        /// service before sending production traffic to it.</para></dd><dt>EXTERNAL</dt><dd><para>The external (<code>EXTERNAL</code>) deployment type enables you to use any third-party
+        /// model powered by CodeDeploy, which allows you to verify a new deployment of a service
+        /// before sending production traffic to it.</para></dd><dt>EXTERNAL</dt><dd><para>The external (<code>EXTERNAL</code>) deployment type enables you to use any third-party
         /// deployment controller for full control over the deployment process for an Amazon ECS
         /// service.</para></dd></dl>
         /// </para>

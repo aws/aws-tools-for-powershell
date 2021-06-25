@@ -60,16 +60,39 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.Boolean? BadgeEnabled { get; set; }
         #endregion
         
+        #region Parameter Artifacts_BucketOwnerAccess
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeBuild.BucketOwnerAccess")]
+        public Amazon.CodeBuild.BucketOwnerAccess Artifacts_BucketOwnerAccess { get; set; }
+        #endregion
+        
+        #region Parameter S3Logs_BucketOwnerAccess
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogsConfig_S3Logs_BucketOwnerAccess")]
+        [AWSConstantClassSource("Amazon.CodeBuild.BucketOwnerAccess")]
+        public Amazon.CodeBuild.BucketOwnerAccess S3Logs_BucketOwnerAccess { get; set; }
+        #endregion
+        
         #region Parameter Source_Buildspec
         /// <summary>
         /// <para>
         /// <para>The buildspec file declaration to use for the builds in this build project.</para><para> If this value is set, it can be either an inline buildspec definition, the path to
         /// an alternate buildspec file relative to the value of the built-in <code>CODEBUILD_SRC_DIR</code>
         /// environment variable, or the path to an S3 bucket. The bucket must be in the same
-        /// Region as the build project. Specify the buildspec file using its ARN (for example,
-        /// <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
-        /// provided or is set to an empty string, the source code must contain a buildspec file
-        /// in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec
+        /// Amazon Web Services Region as the build project. Specify the buildspec file using
+        /// its ARN (for example, <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>).
+        /// If this value is not provided or is set to an empty string, the source code must contain
+        /// a buildspec file in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec
         /// File Name and Storage Location</a>. </para>
         /// </para>
         /// </summary>
@@ -165,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> The Amazon Resource Name (ARN) or name of credentials created using Secrets Manager.
         /// </para><note><para> The <code>credential</code> can use the name of the credentials only if they exist
-        /// in your current Region. </para></note>
+        /// in your current Amazon Web Services Region. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -380,15 +403,15 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// that contains the source code and the buildspec file (for example, <code>https://git-codecommit.&lt;region-ID&gt;.amazonaws.com/v1/repos/&lt;repo-name&gt;</code>).</para></li><li><para>For source code in an Amazon S3 input bucket, one of the following. </para><ul><li><para>The path to the ZIP file that contains the source code (for example, <code>&lt;bucket-name&gt;/&lt;path&gt;/&lt;object-name&gt;.zip</code>).
         /// </para></li><li><para>The path to the folder that contains the source code (for example, <code>&lt;bucket-name&gt;/&lt;path-to-source-code&gt;/&lt;folder&gt;/</code>).
         /// </para></li></ul></li><li><para>For source code in a GitHub repository, the HTTPS clone URL to the repository that
-        /// contains the source and the buildspec file. You must connect your account to your
-        /// GitHub account. Use the CodeBuild console to start creating a build project. When
-        /// you use the console to connect (or reconnect) with GitHub, on the GitHub <b>Authorize
-        /// application</b> page, for <b>Organization access</b>, choose <b>Request access</b>
-        /// next to each repository you want to allow CodeBuild to have access to, and then choose
-        /// <b>Authorize application</b>. (After you have connected to your GitHub account, you
-        /// do not need to finish creating the build project. You can leave the CodeBuild console.)
-        /// To instruct CodeBuild to use this connection, in the <code>source</code> object, set
-        /// the <code>auth</code> object's <code>type</code> value to <code>OAUTH</code>.</para></li><li><para>For source code in a Bitbucket repository, the HTTPS clone URL to the repository that
+        /// contains the source and the buildspec file. You must connect your Amazon Web Services
+        /// account to your GitHub account. Use the CodeBuild console to start creating a build
+        /// project. When you use the console to connect (or reconnect) with GitHub, on the GitHub
+        /// <b>Authorize application</b> page, for <b>Organization access</b>, choose <b>Request
+        /// access</b> next to each repository you want to allow CodeBuild to have access to,
+        /// and then choose <b>Authorize application</b>. (After you have connected to your GitHub
+        /// account, you do not need to finish creating the build project. You can leave the CodeBuild
+        /// console.) To instruct CodeBuild to use this connection, in the <code>source</code>
+        /// object, set the <code>auth</code> object's <code>type</code> value to <code>OAUTH</code>.</para></li><li><para>For source code in a Bitbucket repository, the HTTPS clone URL to the repository that
         /// contains the source and the buildspec file. You must connect your Amazon Web Services
         /// account to your Bitbucket account. Use the CodeBuild console to start creating a build
         /// project. When you use the console to connect (or reconnect) with Bitbucket, on the
@@ -581,8 +604,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// is thrown. </para><para>To be able to report the build status to the source provider, the user associated
         /// with the source provider must have write access to the repo. If the user does not
         /// have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source
-        /// provider access</a> in the <i>CodeBuild User Guide</i>.</para><note><para> The status of a build triggered by a webhook is always reported to your source provider.
-        /// </para></note>
+        /// provider access</a> in the <i>CodeBuild User Guide</i>.</para><para>The status of a build triggered by a webhook is always reported to your source provider.
+        /// </para><para>If your project's builds are triggered by a webhook, you must push a new commit to
+        /// the repo for a change to this property to take effect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -659,9 +683,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ServiceRole
         /// <summary>
         /// <para>
-        /// <para>The replacement ARN of the Identity and Access Management role that enables CodeBuild
-        /// to interact with dependent Amazon Web Services services on behalf of the Amazon Web
-        /// Services account.</para>
+        /// <para>The replacement ARN of the IAM role that enables CodeBuild to interact with dependent
+        /// Amazon Web Services services on behalf of the Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -944,6 +967,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Artifacts_ArtifactIdentifier = this.Artifacts_ArtifactIdentifier;
+            context.Artifacts_BucketOwnerAccess = this.Artifacts_BucketOwnerAccess;
             context.Artifacts_EncryptionDisabled = this.Artifacts_EncryptionDisabled;
             context.Artifacts_Location = this.Artifacts_Location;
             context.Artifacts_Name = this.Artifacts_Name;
@@ -989,6 +1013,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.CloudWatchLogs_GroupName = this.CloudWatchLogs_GroupName;
             context.CloudWatchLogs_Status = this.CloudWatchLogs_Status;
             context.CloudWatchLogs_StreamName = this.CloudWatchLogs_StreamName;
+            context.S3Logs_BucketOwnerAccess = this.S3Logs_BucketOwnerAccess;
             context.S3Logs_EncryptionDisabled = this.S3Logs_EncryptionDisabled;
             context.S3Logs_Location = this.S3Logs_Location;
             context.S3Logs_Status = this.S3Logs_Status;
@@ -1068,6 +1093,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestArtifacts_artifacts_ArtifactIdentifier != null)
             {
                 request.Artifacts.ArtifactIdentifier = requestArtifacts_artifacts_ArtifactIdentifier;
+                requestArtifactsIsNull = false;
+            }
+            Amazon.CodeBuild.BucketOwnerAccess requestArtifacts_artifacts_BucketOwnerAccess = null;
+            if (cmdletContext.Artifacts_BucketOwnerAccess != null)
+            {
+                requestArtifacts_artifacts_BucketOwnerAccess = cmdletContext.Artifacts_BucketOwnerAccess;
+            }
+            if (requestArtifacts_artifacts_BucketOwnerAccess != null)
+            {
+                request.Artifacts.BucketOwnerAccess = requestArtifacts_artifacts_BucketOwnerAccess;
                 requestArtifactsIsNull = false;
             }
             System.Boolean? requestArtifacts_artifacts_EncryptionDisabled = null;
@@ -1456,6 +1491,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate S3Logs
             var requestLogsConfig_logsConfig_S3LogsIsNull = true;
             requestLogsConfig_logsConfig_S3Logs = new Amazon.CodeBuild.Model.S3LogsConfig();
+            Amazon.CodeBuild.BucketOwnerAccess requestLogsConfig_logsConfig_S3Logs_s3Logs_BucketOwnerAccess = null;
+            if (cmdletContext.S3Logs_BucketOwnerAccess != null)
+            {
+                requestLogsConfig_logsConfig_S3Logs_s3Logs_BucketOwnerAccess = cmdletContext.S3Logs_BucketOwnerAccess;
+            }
+            if (requestLogsConfig_logsConfig_S3Logs_s3Logs_BucketOwnerAccess != null)
+            {
+                requestLogsConfig_logsConfig_S3Logs.BucketOwnerAccess = requestLogsConfig_logsConfig_S3Logs_s3Logs_BucketOwnerAccess;
+                requestLogsConfig_logsConfig_S3LogsIsNull = false;
+            }
             System.Boolean? requestLogsConfig_logsConfig_S3Logs_s3Logs_EncryptionDisabled = null;
             if (cmdletContext.S3Logs_EncryptionDisabled != null)
             {
@@ -1812,6 +1857,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Artifacts_ArtifactIdentifier { get; set; }
+            public Amazon.CodeBuild.BucketOwnerAccess Artifacts_BucketOwnerAccess { get; set; }
             public System.Boolean? Artifacts_EncryptionDisabled { get; set; }
             public System.String Artifacts_Location { get; set; }
             public System.String Artifacts_Name { get; set; }
@@ -1845,6 +1891,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String CloudWatchLogs_GroupName { get; set; }
             public Amazon.CodeBuild.LogsConfigStatusType CloudWatchLogs_Status { get; set; }
             public System.String CloudWatchLogs_StreamName { get; set; }
+            public Amazon.CodeBuild.BucketOwnerAccess S3Logs_BucketOwnerAccess { get; set; }
             public System.Boolean? S3Logs_EncryptionDisabled { get; set; }
             public System.String S3Logs_Location { get; set; }
             public Amazon.CodeBuild.LogsConfigStatusType S3Logs_Status { get; set; }

@@ -28,7 +28,7 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Deletes a version of a component from AWS IoT Greengrass.
+    /// Deletes a version of a component from IoT Greengrass.
     /// 
     ///  <note><para>
     /// This operation deletes the component's recipe and artifacts. As a result, deployments

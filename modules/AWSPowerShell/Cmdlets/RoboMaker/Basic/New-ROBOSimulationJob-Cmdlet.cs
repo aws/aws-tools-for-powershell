@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter FailureBehavior
         /// <summary>
         /// <para>
-        /// <para>The failure behavior the simulation job.</para><dl><dt>Continue</dt><dd><para>Restart the simulation job in the same host instance.</para></dd><dt>Fail</dt><dd><para>Stop the simulation job and terminate the instance.</para></dd></dl>
+        /// <para>The failure behavior the simulation job.</para><dl><dt>Continue</dt><dd><para>Leaves the instance running for its maximum timeout duration after a <code>4XX</code>
+        /// error code.</para></dd><dt>Fail</dt><dd><para>Stop the simulation job and terminate the instance.</para></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

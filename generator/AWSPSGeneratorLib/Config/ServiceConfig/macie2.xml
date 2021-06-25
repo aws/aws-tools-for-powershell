@@ -189,6 +189,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedDataIdentifiers" OutputProperty="Items" Verb="Get" Noun="ManagedDataIdentifierList" PipelineParameter="NextToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="OnlyAssociated" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

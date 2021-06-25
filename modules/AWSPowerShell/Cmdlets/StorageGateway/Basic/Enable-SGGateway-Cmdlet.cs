@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Activates the gateway you previously deployed on your host. In the activation process,
-    /// you specify information such as the AWS Region that you want to use for storing snapshots
+    /// you specify information such as the Region that you want to use for storing snapshots
     /// or tapes, the time zone for scheduled snapshots the gateway snapshot schedule window,
     /// an activation key, and a name for your gateway. The activation process also associates
     /// your gateway with your account. For more information, see <a>UpdateGatewayInformation</a>.
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// query string parameter <code>activationKey</code>. It may also include other activation-related
         /// parameters, however, these are merely defaults -- the arguments you pass to the <code>ActivateGateway</code>
         /// API call determine the actual configuration of your gateway.</para><para>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html">Getting
-        /// activation key</a> in the <i>AWS Storage Gateway User Guide</i>.</para>
+        /// activation key</a> in the <i>Storage Gateway User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,12 +91,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GatewayRegion
         /// <summary>
         /// <para>
-        /// <para>A value that indicates the AWS Region where you want to store your data. The gateway
-        /// AWS Region specified must be the same AWS Region as the AWS Region in your <code>Host</code>
-        /// header in the request. For more information about available AWS Regions and endpoints
-        /// for AWS Storage Gateway, see <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">AWS
-        /// Storage Gateway endpoints and quotas</a> in the <i>AWS General Reference</i>.</para><para>Valid Values: See <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">AWS
-        /// Storage Gateway endpoints and quotas</a> in the <i>AWS General Reference</i>. </para>
+        /// <para>A value that indicates the Region where you want to store your data. The gateway Region
+        /// specified must be the same Region as the Region in your <code>Host</code> header in
+        /// the request. For more information about available Regions and endpoints for Storage
+        /// Gateway, see <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html"> Storage
+        /// Gateway endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</para><para>Valid Values: See <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">
+        /// Storage Gateway endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,7 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>A value that defines the type of gateway to activate. The type specified is critical
         /// to all later functions of the gateway and cannot be changed after activation. The
-        /// default value is <code>CACHED</code>.</para><para>Valid Values: <code>STORED</code> | <code>CACHED</code> | <code>VTL</code> | <code>FILE_S3</code></para>
+        /// default value is <code>CACHED</code>.</para><para>Valid Values: <code>STORED</code> | <code>CACHED</code> | <code>VTL</code> | <code>FILE_S3</code>
+        /// | <code>FILE_FSX_SMB|</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]

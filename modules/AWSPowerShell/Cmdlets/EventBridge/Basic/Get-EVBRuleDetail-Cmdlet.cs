@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     ///  
     /// <para>
     /// DescribeRule does not list the targets of a rule. To see the targets associated with
-    /// a rule, use <a>ListTargetsByRule</a>.
+    /// a rule, use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html">ListTargetsByRule</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EVBRuleDetail")]

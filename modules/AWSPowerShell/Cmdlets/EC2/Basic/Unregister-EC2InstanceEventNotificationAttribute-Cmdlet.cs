@@ -28,8 +28,13 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
+    /// c
+    /// 
+    ///  
+    /// <para>
     /// Deregisters tag keys to prevent tags that have the specified tag keys from being included
     /// in scheduled event notifications for resources in the Region.
+    /// </para>
     /// </summary>
     [Cmdlet("Unregister", "EC2InstanceEventNotificationAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.InstanceTagNotificationAttribute")]

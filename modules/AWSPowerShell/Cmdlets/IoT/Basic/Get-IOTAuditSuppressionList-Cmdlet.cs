@@ -28,7 +28,13 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Lists your Device Defender audit listings.
+    /// Lists your Device Defender audit listings. 
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditSuppressions</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTAuditSuppressionList")]
     [OutputType("Amazon.IoT.Model.AuditSuppression")]

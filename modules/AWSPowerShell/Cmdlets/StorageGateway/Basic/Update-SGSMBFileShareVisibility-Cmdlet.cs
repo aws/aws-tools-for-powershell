@@ -28,7 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Controls whether the shares on a gateway are visible in a net view or browse list.
+    /// Controls whether the shares on an S3 File Gateway are visible in a net view or browse
+    /// list. The operation is only supported for S3 File Gateways.
     /// </summary>
     [Cmdlet("Update", "SGSMBFileShareVisibility", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

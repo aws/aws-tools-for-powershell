@@ -28,7 +28,7 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Updates the long term pricing type.
+    /// Updates the long-term pricing type.
     /// </summary>
     [Cmdlet("Update", "SNOWLongTermPricing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter IsLongTermPricingAutoRenew
         /// <summary>
         /// <para>
-        /// <para>If set to <code>true</code>, specifies that the current long term pricing type for
-        /// the device should be automatically renewed before the long term pricing contract expires.</para>
+        /// <para>If set to <code>true</code>, specifies that the current long-term pricing type for
+        /// the device should be automatically renewed before the long-term pricing contract expires.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter LongTermPricingId
         /// <summary>
         /// <para>
-        /// <para>The ID of the long term pricing type for the device.</para>
+        /// <para>The ID of the long-term pricing type for the device.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter ReplacementJob
         /// <summary>
         /// <para>
-        /// <para>Specifies that a device that is ordered with long term pricing should be replaced
+        /// <para>Specifies that a device that is ordered with long-term pricing should be replaced
         /// with a new device.</para>
         /// </para>
         /// </summary>

@@ -28,7 +28,12 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
+    /// <note><para>
+    /// This API action is currently in <b>limited preview only</b>. If you are interested
+    /// in using this feature, contact your account manager.
+    /// </para></note><para>
     /// Removes an association between a branch network interface with a trunk network interface.
+    /// </para>
     /// </summary>
     [Cmdlet("Unregister", "EC2TrunkInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
@@ -43,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AssociationId
         /// <summary>
         /// <para>
-        /// <para>The ID ofthe association</para>
+        /// <para>The ID of the association</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -33,14 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// that you want the request to return. You can also filter and group your data by various
     /// dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range.
     /// For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
-    /// operation. Management account in an organization in AWS Organizations have access
-    /// to all member accounts. This API is currently available for the Amazon Elastic Compute
-    /// Cloud – Compute service only.
+    /// operation. Management account in an organization in Organizations have access to all
+    /// member accounts. This API is currently available for the Amazon Elastic Compute Cloud
+    /// – Compute service only.
     /// 
     ///  <note><para>
     /// This is an opt-in only feature. You can enable this feature from the Cost Explorer
     /// Settings page. For information on how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling
-    /// Access for Cost Explorer</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+    /// Access for Cost Explorer</a> in the <i>Billing and Cost Management User Guide</i>.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CECostAndUsageWithResource")]
@@ -76,9 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Granularity
         /// <summary>
         /// <para>
-        /// <para>Sets the AWS cost granularity to <code>MONTHLY</code>, <code>DAILY</code>, or <code>HOURLY</code>.
-        /// If <code>Granularity</code> isn't set, the response object doesn't include the <code>Granularity</code>,
-        /// <code>MONTHLY</code>, <code>DAILY</code>, or <code>HOURLY</code>. </para>
+        /// <para>Sets the Amazon Web Services cost granularity to <code>MONTHLY</code>, <code>DAILY</code>,
+        /// or <code>HOURLY</code>. If <code>Granularity</code> isn't set, the response object
+        /// doesn't include the <code>Granularity</code>, <code>MONTHLY</code>, <code>DAILY</code>,
+        /// or <code>HOURLY</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -147,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter NextPageToken
         /// <summary>
         /// <para>
-        /// <para>The token to retrieve the next set of results. AWS provides the token when the response
-        /// from a previous call has more results than the maximum page size.</para>
+        /// <para>The token to retrieve the next set of results. Amazon Web Services provides the token
+        /// when the response from a previous call has more results than the maximum page size.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

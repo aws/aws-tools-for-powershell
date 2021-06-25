@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Gets the status of audit mitigation action tasks that were executed.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditMitigationActionsExecutions</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTAuditMitigationActionsExecutionList")]
     [OutputType("Amazon.IoT.Model.AuditMitigationActionExecutionMetadata")]

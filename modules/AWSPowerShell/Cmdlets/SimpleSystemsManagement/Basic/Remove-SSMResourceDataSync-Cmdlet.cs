@@ -28,9 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Deletes a Resource Data Sync configuration. After the configuration is deleted, changes
+    /// Deletes a resource data sync configuration. After the configuration is deleted, changes
     /// to data on managed instances are no longer synced to or from the target. Deleting
-    /// a sync configuration does not delete data.
+    /// a sync configuration doesn't delete data.
     /// </summary>
     [Cmdlet("Remove", "SSMResourceDataSync", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

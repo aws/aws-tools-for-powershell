@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// 
     ///  
     /// <para>
-    /// Note that the "last updated" column the DMS console only indicates the time that AWS
-    /// DMS last updated the table statistics record for a table. It does not indicate the
-    /// time of the last update to the table.
+    /// Note that the "last updated" column the DMS console only indicates the time that DMS
+    /// last updated the table statistics record for a table. It does not indicate the time
+    /// of the last update to the table.
     /// </para><br/><br/>In the AWS.Tools.DatabaseMigrationService module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DMSTableStatistic")]

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para></li><li><para>
     /// To retrieve the encrypted secret information in a version of the secret, use <a>GetSecretValue</a>.
     /// </para></li><li><para>
-    /// To list all of the secrets in the AWS account, use <a>ListSecrets</a>.
+    /// To list all of the secrets in the Amazon Web Services account, use <a>ListSecrets</a>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "SECSecret")]

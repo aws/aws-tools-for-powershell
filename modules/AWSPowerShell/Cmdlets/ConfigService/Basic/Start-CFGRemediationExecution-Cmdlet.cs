@@ -28,9 +28,9 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Runs an on-demand remediation for the specified AWS Config rules against the last
-    /// known remediation configuration. It runs an execution against the current state of
-    /// your resources. Remediation execution is asynchronous.
+    /// Runs an on-demand remediation for the specified Config rules against the last known
+    /// remediation configuration. It runs an execution against the current state of your
+    /// resources. Remediation execution is asynchronous.
     /// 
     ///  
     /// <para>
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The list of names of AWS Config rules that you want to run remediation execution for.</para>
+        /// <para>The list of names of Config rules that you want to run remediation execution for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

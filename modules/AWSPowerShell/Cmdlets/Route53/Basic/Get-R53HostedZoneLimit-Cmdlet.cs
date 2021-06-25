@@ -86,13 +86,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Count'.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Limit.Value'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53.Model.GetHostedZoneLimitResponse).
         /// Specifying the name of a property of type Amazon.Route53.Model.GetHostedZoneLimitResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Count";
+        public string Select { get; set; } = "Limit.Value";
         #endregion
         
         #region Parameter PassThru
@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             public Amazon.Route53.HostedZoneLimitType Type { get; set; }
             public System.String HostedZoneId { get; set; }
             public System.Func<Amazon.Route53.Model.GetHostedZoneLimitResponse, GetR53HostedZoneLimitCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Count;
+                (response, cmdlet) => response.Limit.Value;
         }
         
     }

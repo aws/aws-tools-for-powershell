@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ProvisioningType
         /// <summary>
         /// <para>
-        /// <para>For resource types, the provisioning behavior of the resource type. AWS CloudFormation
+        /// <para>For resource types, the provisioning behavior of the resource type. CloudFormation
         /// determines the provisioning type during registration, based on the types of handlers
         /// in the schema handler package submitted.</para><para>Valid values include:</para><ul><li><para><code>FULLY_MUTABLE</code>: The resource type includes an update handler to process
         /// updates to the type during stack update operations.</para></li><li><para><code>IMMUTABLE</code>: The resource type does not include an update handler, so

@@ -28,7 +28,21 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Deletes an image.
+    /// Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR
+    /// container images that are created during the image build process. You must clean those
+    /// up separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or
+    /// API or CLI commands.
+    /// 
+    ///  <ul><li><para>
+    /// To deregister an EC2 Linux AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister
+    /// your Linux AMI</a> in the <i><i>Amazon EC2 User Guide</i></i>.
+    /// </para></li><li><para>
+    /// To deregister an EC2 Windows AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html">Deregister
+    /// your Windows AMI</a> in the <i><i>Amazon EC2 Windows Guide</i></i>.
+    /// </para></li><li><para>
+    /// To delete a container image from Amazon ECR, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.comAmazonECR/latest/userguide/delete_image.html">Deleting
+    /// an image</a> in the <i>Amazon ECR User Guide</i>.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "EC2IBImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Imagebuilder.Model.DeleteImageResponse")]
@@ -42,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageBuildVersionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the image to delete.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Image Builder image resource to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

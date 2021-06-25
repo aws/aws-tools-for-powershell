@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// as a CSV file to the bucket. The report includes the following information for each
         /// SMS message that was successfully delivered by your account:</para><ul><li><para>Time that the message was published (in UTC)</para></li><li><para>Message ID</para></li><li><para>Destination phone number</para></li><li><para>Message type</para></li><li><para>Delivery status</para></li><li><para>Message price (in USD)</para></li><li><para>Part number (a message is split into multiple parts if it is too long for a single
         /// message)</para></li><li><para>Total number of parts</para></li></ul><para>To receive the report, the bucket must have a policy that allows the Amazon SNS service
-        /// principle to perform the <code>s3:PutObject</code> and <code>s3:GetBucketLocation</code>
+        /// principal to perform the <code>s3:PutObject</code> and <code>s3:GetBucketLocation</code>
         /// actions.</para><para>For an example bucket policy and usage report, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html">Monitoring
         /// SMS Activity</a> in the <i>Amazon SNS Developer Guide</i>.</para>
         /// </para>

@@ -38,14 +38,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// After you attach an EBS volume, you must make it available. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Making
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Make
     /// an EBS volume available for use</a>.
     /// </para><para>
-    /// If a volume has an AWS Marketplace product code:
+    /// If a volume has an Amazon Web Services Marketplace product code:
     /// </para><ul><li><para>
     /// The volume can be attached only to a stopped instance.
     /// </para></li><li><para>
-    /// AWS Marketplace product codes are copied from the volume to the instance.
+    /// Amazon Web Services Marketplace product codes are copied from the volume to the instance.
     /// </para></li><li><para>
     /// You must be subscribed to the product.
     /// </para></li><li><para>
@@ -53,8 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// example, you can't detach a volume from a Windows instance and attach it to a Linux
     /// instance.
     /// </para></li></ul><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching
-    /// Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attach
+    /// an Amazon EBS volume to an instance</a> in the <i>Amazon Elastic Compute Cloud User
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "EC2Volume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

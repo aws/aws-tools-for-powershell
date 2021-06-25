@@ -28,11 +28,11 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the options for a VPN tunnel in an AWS Site-to-Site VPN connection. You can
-    /// modify multiple options for a tunnel in a single request, but you can only modify
-    /// one tunnel at a time. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html">Site-to-Site
-    /// VPN Tunnel Options for Your Site-to-Site VPN Connection</a> in the <i>AWS Site-to-Site
-    /// VPN User Guide</i>.
+    /// Modifies the options for a VPN tunnel in an Amazon Web Services Site-to-Site VPN connection.
+    /// You can modify multiple options for a tunnel in a single request, but you can only
+    /// modify one tunnel at a time. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html">Site-to-Site
+    /// VPN tunnel options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services
+    /// Site-to-Site VPN User Guide</i>.
     /// </summary>
     [Cmdlet("Edit", "EC2VpnTunnelOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VpnConnection")]
@@ -207,8 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The margin time, in seconds, before the phase 2 lifetime expires, during which the
-        /// AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey
-        /// is randomly selected based on the value for <code>RekeyFuzzPercentage</code>.</para><para>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</para><para>Default: <code>540</code></para>
+        /// Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
+        /// of the rekey is randomly selected based on the value for <code>RekeyFuzzPercentage</code>.</para><para>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</para><para>Default: <code>540</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The action to take when the establishing the tunnel for the VPN connection. By default,
         /// your customer gateway device must initiate the IKE negotiation and bring up the tunnel.
-        /// Specify <code>start</code> for AWS to initiate the IKE negotiation.</para><para>Valid Values: <code>add</code> | <code>start</code></para><para>Default: <code>add</code></para>
+        /// Specify <code>start</code> for Amazon Web Services to initiate the IKE negotiation.</para><para>Valid Values: <code>add</code> | <code>start</code></para><para>Default: <code>add</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpnConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Site-to-Site VPN connection.</para>
+        /// <para>The ID of the Amazon Web Services Site-to-Site VPN connection.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

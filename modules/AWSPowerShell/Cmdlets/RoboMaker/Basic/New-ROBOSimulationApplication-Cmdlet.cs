@@ -105,14 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// <para>The sources of the simulation application.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Sources")]
         public Amazon.RoboMaker.Model.SourceConfig[] Source { get; set; }
         #endregion
@@ -126,6 +119,16 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Environment_Uri
+        /// <summary>
+        /// <para>
+        /// <para>The Docker image URI for either your robot or simulation applications.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Environment_Uri { get; set; }
         #endregion
         
         #region Parameter RenderingEngine_Version
@@ -199,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Environment_Uri = this.Environment_Uri;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -226,12 +230,6 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             {
                 context.Source = new List<Amazon.RoboMaker.Model.SourceConfig>(this.Source);
             }
-            #if MODULAR
-            if (this.Source == null && ParameterWasBound(nameof(this.Source)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Source which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -256,6 +254,25 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             // create request
             var request = new Amazon.RoboMaker.Model.CreateSimulationApplicationRequest();
             
+            
+             // populate Environment
+            var requestEnvironmentIsNull = true;
+            request.Environment = new Amazon.RoboMaker.Model.Environment();
+            System.String requestEnvironment_environment_Uri = null;
+            if (cmdletContext.Environment_Uri != null)
+            {
+                requestEnvironment_environment_Uri = cmdletContext.Environment_Uri;
+            }
+            if (requestEnvironment_environment_Uri != null)
+            {
+                request.Environment.Uri = requestEnvironment_environment_Uri;
+                requestEnvironmentIsNull = false;
+            }
+             // determine if request.Environment should be set to null
+            if (requestEnvironmentIsNull)
+            {
+                request.Environment = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -366,6 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Environment_Uri { get; set; }
             public System.String Name { get; set; }
             public Amazon.RoboMaker.RenderingEngineType RenderingEngine_Name { get; set; }
             public System.String RenderingEngine_Version { get; set; }

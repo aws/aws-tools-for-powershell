@@ -102,6 +102,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-WMMailboxPermissionList', 
         'Get-WMMemberList', 
         'Get-WMMobileDeviceAccessEffect', 
+        'Get-WMMobileDeviceAccessOverride', 
+        'Get-WMMobileDeviceAccessOverrideList', 
         'Get-WMMobileDeviceAccessRuleList', 
         'Get-WMOrganization', 
         'Get-WMOrganizationList', 
@@ -124,6 +126,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-WMGroup', 
         'Remove-WMMailboxPermission', 
         'Remove-WMMemberFromGroup', 
+        'Remove-WMMobileDeviceAccessOverride', 
         'Remove-WMMobileDeviceAccessRule', 
         'Remove-WMOrganization', 
         'Remove-WMResource', 
@@ -139,6 +142,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-WMResource', 
         'Write-WMAccessControlRule', 
         'Write-WMMailboxPermission', 
+        'Write-WMMobileDeviceAccessOverride', 
         'Write-WMRetentionPolicy')
 
     # Variables to export from this module

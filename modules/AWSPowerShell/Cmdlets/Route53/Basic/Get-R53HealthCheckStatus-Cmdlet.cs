@@ -28,7 +28,12 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Gets status of a specified health check.
+    /// Gets status of a specified health check. 
+    /// 
+    ///  <important><para>
+    /// This API is intended for use during development to diagnose behavior. It doesn’t support
+    /// production use-cases with high query rates that require immediate and actionable responses.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "R53HealthCheckStatus")]
     [OutputType("Amazon.Route53.Model.HealthCheckObservation")]

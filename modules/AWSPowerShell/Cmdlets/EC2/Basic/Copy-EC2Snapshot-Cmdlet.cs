@@ -40,9 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// When copying snapshots to a Region, copies of encrypted EBS snapshots remain encrypted.
     /// Copies of unencrypted snapshots remain unencrypted, unless you enable encryption for
     /// the snapshot copy operation. By default, encrypted snapshot copies use the default
-    /// AWS Key Management Service (AWS KMS) customer master key (CMK); however, you can specify
-    /// a different CMK. To copy an encrypted snapshot that has been shared from another account,
-    /// you must have permissions for the CMK used to encrypt the snapshot.
+    /// Key Management Service (KMS) KMS key; however, you can specify a different KMS key.
+    /// To copy an encrypted snapshot that has been shared from another account, you must
+    /// have permissions for the KMS key used to encrypt the snapshot.
     /// </para><para>
     /// Snapshots copied to an Outpost are encrypted by default using the default encryption
     /// key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>.
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Snapshots created by copying another snapshot have an arbitrary volume ID that should
     /// not be used for any purpose.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copy
     /// an Amazon EBS snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -81,11 +81,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot. Only
-        /// specify this parameter when copying a snapshot from an AWS Region to an Outpost. The
-        /// snapshot must be in the Region for the destination Outpost. You cannot copy a snapshot
-        /// from an Outpost to a Region, from one Outpost to another, or within the same Outpost.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots">
-        /// Copying snapshots from an AWS Region to an Outpost</a> in the <i>Amazon Elastic Compute
-        /// Cloud User Guide</i>.</para>
+        /// specify this parameter when copying a snapshot from an Amazon Web Services Region
+        /// to an Outpost. The snapshot must be in the Region for the destination Outpost. You
+        /// cannot copy a snapshot from an Outpost to a Region, from one Outpost to another, or
+        /// within the same Outpost.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots">
+        /// Copy snapshots from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon
+        /// Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The destination Region to use in the <code>PresignedUrl</code> parameter of a snapshot
         /// copy operation. This parameter is only valid for specifying the destination Region
         /// in a <code>PresignedUrl</code> parameter, where it is required.</para><para>The snapshot copy is sent to the regional endpoint that you sent the HTTP request
-        /// to (for example, <code>ec2.us-east-1.amazonaws.com</code>). With the AWS CLI, this
-        /// is specified using the <code>--region</code> parameter or the default Region in your
-        /// AWS configuration file.</para>
+        /// to (for example, <code>ec2.us-east-1.amazonaws.com</code>). With the CLI, this is
+        /// specified using the <code>--region</code> parameter or the default Region in your
+        /// Amazon Web Services configuration file.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,11 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK)
-        /// to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed
-        /// CMK for EBS is used. If <code>KmsKeyId</code> is specified, the encrypted state must
-        /// be <code>true</code>.</para><para>You can specify the CMK using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias,
-        /// or ARN that is not valid, the action can appear to complete, but eventually fails.</para>
+        /// <para>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
+        /// If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code>
+        /// is specified, the encrypted state must be <code>true</code>.</para><para>You can specify the KMS key using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify
+        /// an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually
+        /// fails.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

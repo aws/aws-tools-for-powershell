@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// parameter to specify the account ID of the queue's owner. The queue's owner must grant
     /// you permission to access the queue. For more information about shared queue access,
     /// see <code><a>AddPermission</a></code> or see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue">Allow
-    /// Developers to Write Messages to a Shared Queue</a> in the <i>Amazon Simple Queue Service
-    /// Developer Guide</i>. 
+    /// Developers to Write Messages to a Shared Queue</a> in the <i>Amazon SQS Developer
+    /// Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SQSQueueUrl")]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueOwnerAWSAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the account that created the queue.</para>
+        /// <para>The account ID of the account that created the queue.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

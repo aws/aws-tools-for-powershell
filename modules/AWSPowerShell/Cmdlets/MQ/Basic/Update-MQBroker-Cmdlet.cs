@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter Logs_Audit
         /// <summary>
         /// <para>
-        /// Enables audit logging. Every user management action
-        /// made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
+        /// <para>Enables audit logging. Every user management action made using JMX or the ActiveMQ
+        /// Web Console is logged. Does not apply to RabbitMQ brokers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter AuthenticationStrategy
         /// <summary>
         /// <para>
-        /// The authentication strategy used
-        /// to secure the broker.
+        /// <para>Optional. The authentication strategy used to secure the broker. The default is SIMPLE.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// Enables automatic upgrades to
-        /// new minor versions for brokers, as Apache releases the versions. The automatic upgrades
-        /// occur during the maintenance window of the broker or after a manual broker reboot.
+        /// <para>Enables automatic upgrades to new minor versions for brokers, as new versions are
+        /// released and supported by Amazon MQ. Automatic upgrades occur during the scheduled
+        /// maintenance window of the broker or after a manual broker reboot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter BrokerId
         /// <summary>
         /// <para>
-        /// The unique ID that Amazon MQ generates for the
-        /// broker.
+        /// <para>The unique ID that Amazon MQ generates for the broker.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// A list of information about the configuration.
+        /// <para>A list of information about the configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// The version of the broker engine. For a
-        /// list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+        /// <para>The broker engine version. For a list of supported engine versions, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported
+        /// engines</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter Logs_General
         /// <summary>
         /// <para>
-        /// Enables general logging.
+        /// <para>Enables general logging.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,8 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter HostInstanceType
         /// <summary>
         /// <para>
-        /// The host instance type of the broker
-        /// to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+        /// <para>The broker's host instance type to upgrade to. For a list of supported instance types,
+        /// see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker.html#broker-instance-types">Broker
+        /// instance types</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter LdapServerMetadata_Host
         /// <summary>
         /// <para>
-        /// Fully qualified domain name of the LDAP server.
-        /// Optional failover server.
+        /// <para>Specifies the location of the LDAP server such as AWS Directory Service for Microsoft
+        /// Active Directory . Optional failover server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,11 +145,22 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         public System.String[] LdapServerMetadata_Host { get; set; }
         #endregion
         
+        #region Parameter MaintenanceWindowStartTime
+        /// <summary>
+        /// <para>
+        /// <para>The parameters that determine the WeeklyStartTime.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.MQ.Model.WeeklyStartTime MaintenanceWindowStartTime { get; set; }
+        #endregion
+        
         #region Parameter LdapServerMetadata_RoleBase
         /// <summary>
         /// <para>
-        /// Fully qualified name of the directory to search
-        /// for a user’s groups.
+        /// <para>The distinguished name of the node in the directory information tree (DIT) to search
+        /// for roles or groups. For example, ou=group, ou=corp, dc=corp,                  dc=example,
+        /// dc=com.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,8 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter LdapServerMetadata_RoleName
         /// <summary>
         /// <para>
-        /// Specifies the LDAP attribute that identifies
-        /// the group name attribute in the object returned from the group membership query.
+        /// <para>Specifies the LDAP attribute that identifies the group name attribute in the object
+        /// returned from the group membership query.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +181,13 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter LdapServerMetadata_RoleSearchMatching
         /// <summary>
         /// <para>
-        /// The search criteria for groups.
+        /// <para>The LDAP search filter used to find roles within the roleBase. The distinguished name
+        /// of the user matched by userSearchMatching is substituted into the {0} placeholder
+        /// in the search filter. The client's username is substituted into the {1} placeholder.
+        /// For example, if you set this option to (member=uid={1})for the user janedoe, the search
+        /// filter becomes (member=uid=janedoe) after string substitution. It matches all role
+        /// entries that have a member attribute equal to uid=janedoe under the subtree selected
+        /// by the roleBase.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter LdapServerMetadata_RoleSearchSubtree
         /// <summary>
         /// <para>
-        /// The directory search scope for the role.
-        /// If set to true, scope is to search the entire sub-tree.
+        /// <para>The directory search scope for the role. If set to true, scope is to search the entire
+        /// subtree.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,8 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter SecurityGroup
         /// <summary>
         /// <para>
-        /// The list of security groups (1 minimum,
-        /// 5 maximum) that authorizes connections to brokers.
+        /// <para>The list of security groups (1 minimum, 5 maximum) that authorizes connections to
+        /// brokers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter LdapServerMetadata_ServiceAccountPassword
         /// <summary>
         /// <para>
-        /// Service account password.
+        /// <para>Service account password. A service account is an account in your LDAP server that
+        /// has access to initiate a connection. For example, cn=admin,dc=corp, dc=example,  
+        ///                dc=com.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +232,9 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter LdapServerMetadata_ServiceAccountUsername
         /// <summary>
         /// <para>
-        /// Service account username.
+        /// <para>Service account username. A service account is an account in your LDAP server that
+        /// has access to initiate a connection. For example, cn=admin,dc=corp, dc=example,  
+        ///                dc=com.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,8 +244,11 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter LdapServerMetadata_UserBase
         /// <summary>
         /// <para>
-        /// Fully qualified name of the directory where you
-        /// want to search for users.
+        /// <para>Select a particular subtree of the directory information tree (DIT) to search for
+        /// user entries. The subtree is specified by a DN, which specifies the base node of the
+        /// subtree. For example, by setting this option to ou=Users,ou=corp, dc=corp,       
+        ///           dc=example, dc=com, the search for user entries is restricted to the subtree
+        /// beneath ou=Users, ou=corp, dc=corp, dc=example, dc=com.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,8 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter LdapServerMetadata_UserRoleName
         /// <summary>
         /// <para>
-        /// Specifies the name of the LDAP attribute
-        /// for the user group membership.
+        /// <para>Specifies the name of the LDAP attribute for the user group membership.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -246,7 +268,11 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter LdapServerMetadata_UserSearchMatching
         /// <summary>
         /// <para>
-        /// The search criteria for users.
+        /// <para>The LDAP search filter used to find users within the userBase. The client's username
+        /// is substituted into the {0} placeholder in the search filter. For example, if this
+        /// option is set to (uid={0}) and the received username is janedoe, the search filter
+        /// becomes (uid=janedoe) after string substitution. It will result in matching an entry
+        /// like uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example,                  dc=com.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,8 +282,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter LdapServerMetadata_UserSearchSubtree
         /// <summary>
         /// <para>
-        /// The directory search scope for the user.
-        /// If set to true, scope is to search the entire sub-tree.
+        /// <para>The directory search scope for the user. If set to true, scope is to search the entire
+        /// subtree.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -353,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             context.LdapServerMetadata_UserSearchSubtree = this.LdapServerMetadata_UserSearchSubtree;
             context.Logs_Audit = this.Logs_Audit;
             context.Logs_General = this.Logs_General;
+            context.MaintenanceWindowStartTime = this.MaintenanceWindowStartTime;
             if (this.SecurityGroup != null)
             {
                 context.SecurityGroup = new List<System.String>(this.SecurityGroup);
@@ -545,6 +572,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             {
                 request.Logs = null;
             }
+            if (cmdletContext.MaintenanceWindowStartTime != null)
+            {
+                request.MaintenanceWindowStartTime = cmdletContext.MaintenanceWindowStartTime;
+            }
             if (cmdletContext.SecurityGroup != null)
             {
                 request.SecurityGroups = cmdletContext.SecurityGroup;
@@ -629,6 +660,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             public System.Boolean? LdapServerMetadata_UserSearchSubtree { get; set; }
             public System.Boolean? Logs_Audit { get; set; }
             public System.Boolean? Logs_General { get; set; }
+            public Amazon.MQ.Model.WeeklyStartTime MaintenanceWindowStartTime { get; set; }
             public List<System.String> SecurityGroup { get; set; }
             public System.Func<Amazon.MQ.Model.UpdateBrokerResponse, UpdateMQBrokerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

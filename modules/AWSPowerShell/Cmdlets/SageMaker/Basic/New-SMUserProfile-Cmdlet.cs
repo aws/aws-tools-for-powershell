@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SingleSignOnUserValue
         /// <summary>
         /// <para>
-        /// <para>The username of the associated AWS Single Sign-On User for this UserProfile. If the
-        /// Domain's AuthMode is SSO, this field is required, and must match a valid username
+        /// <para>The username of the associated Amazon Web Services Single Sign-On User for this UserProfile.
+        /// If the Domain's AuthMode is SSO, this field is required, and must match a valid username
         /// of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot
         /// be specified. </para>
         /// </para>

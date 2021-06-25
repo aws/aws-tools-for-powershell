@@ -28,8 +28,8 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Lists the AWS Fargate profiles associated with the specified cluster in your AWS account
-    /// in the specified Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the Fargate profiles associated with the specified cluster in your Amazon Web
+    /// Services account in the specified Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EKSFargateProfileList")]
     [OutputType("System.String")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon EKS cluster that you would like to listFargate profiles in.</para>
+        /// <para>The name of the Amazon EKS cluster that you would like to list Fargate profiles in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><code>account_id</code> - The ID of the AWS account that owns the resource. Logical
-        /// operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>application_name</code> - The name of the application. Logical operators are
+        /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><code>account_id</code> - The ID of the Amazon Web Services account that owns the
+        /// resource. Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>application_name</code> - The name of the application. Logical operators are
         /// <code>EQUALS</code> | <code>BEGINS_WITH</code>.</para></li><li><para><code>license_included</code> - The type of license included. Logical operators are
         /// <code>EQUALS</code> | <code>NOT_EQUALS</code>. Possible values are <code>sql-server-enterprise</code>
         /// | <code>sql-server-standard</code> | <code>sql-server-web</code> | <code>windows-server-datacenter</code>.</para></li><li><para><code>platform</code> - The platform of the resource. Logical operators are <code>EQUALS</code>

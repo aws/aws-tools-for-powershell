@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// <summary>
     /// Creates a job that exports data from your dataset to an Amazon S3 bucket. To allow
     /// Amazon Personalize to export the training data, you must specify an service-linked
-    /// AWS Identity and Access Management (IAM) role that gives Amazon Personalize <code>PutObject</code>
-    /// permissions for your Amazon S3 bucket. For information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/export-data.html">Exporting
+    /// IAM role that gives Amazon Personalize <code>PutObject</code> permissions for your
+    /// Amazon S3 bucket. For information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/export-data.html">Exporting
     /// a dataset</a> in the Amazon Personalize developer guide. 
     /// 
     ///  
@@ -108,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter S3DataDestination_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Key Management Service (KMS) key that
-        /// Amazon Personalize uses to encrypt or decrypt the input and output files of a batch
-        /// inference job.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key that Amazon
+        /// Personalize uses to encrypt or decrypt the input and output files of a batch inference
+        /// job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management service role
-        /// that has permissions to add data to your output Amazon S3 bucket.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role that has permissions to add
+        /// data to your output Amazon S3 bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

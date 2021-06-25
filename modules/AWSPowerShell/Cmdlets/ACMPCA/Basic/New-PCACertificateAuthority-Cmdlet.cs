@@ -29,14 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
     /// Creates a root or subordinate private certificate authority (CA). You must specify
-    /// the CA configuration, the certificate revocation list (CRL) configuration, the CA
-    /// type, and an optional idempotency token to avoid accidental creation of multiple CAs.
-    /// The CA configuration specifies the name of the algorithm and key size to be used to
-    /// create the CA private key, the type of signing algorithm that the CA uses, and X.500
-    /// subject information. The CRL configuration specifies the CRL expiration period in
-    /// days (the validity period of the CRL), the Amazon S3 bucket that will contain the
-    /// CRL, and a CNAME alias for the S3 bucket that is included in certificates issued by
-    /// the CA. If successful, this action returns the Amazon Resource Name (ARN) of the CA.
+    /// the CA configuration, an optional configuration for Online Certificate Status Protocol
+    /// (OCSP) and/or a certificate revocation list (CRL), the CA type, and an optional idempotency
+    /// token to avoid accidental creation of multiple CAs. The CA configuration specifies
+    /// the name of the algorithm and key size to be used to create the CA private key, the
+    /// type of signing algorithm that the CA uses, and X.500 subject information. The OCSP
+    /// configuration can optionally specify a custom URL for the OCSP responder. The CRL
+    /// configuration specifies the CRL expiration period in days (the validity period of
+    /// the CRL), the Amazon S3 bucket that will contain the CRL, and a CNAME alias for the
+    /// S3 bucket that is included in certificates issued by the CA. If successful, this action
+    /// returns the Amazon Resource Name (ARN) of the CA.
     /// 
     ///  
     /// <para>
@@ -129,12 +131,12 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter RevocationConfiguration
         /// <summary>
         /// <para>
-        /// <para>Contains a Boolean value that you can use to enable a certification revocation list
-        /// (CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the
-        /// CRL, and an optional CNAME alias that you can use to hide the name of your bucket
-        /// in the <b>CRL Distribution Points</b> extension of your CA certificate. For more information,
-        /// see the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html">CrlConfiguration</a>
-        /// structure. </para>
+        /// <para>Contains information to enable Online Certificate Status Protocol (OCSP) support,
+        /// to enable a certificate revocation list (CRL), to enable both, or to enable neither.
+        /// The default is for both certificate validation mechanisms to be disabled. For more
+        /// information, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_OcspConfiguration.html">OcspConfiguration</a>
+        /// and <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html">CrlConfiguration</a>
+        /// types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

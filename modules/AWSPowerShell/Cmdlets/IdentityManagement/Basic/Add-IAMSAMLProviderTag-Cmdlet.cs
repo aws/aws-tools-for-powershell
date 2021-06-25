@@ -52,9 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
     /// IAM resources</a> in the <i>IAM User Guide</i>.
     /// </para></li><li><para>
-    /// AWS always interprets the tag <code>Value</code> as a single string. If you need to
-    /// store an array, you can store comma-separated values in the string. However, you must
-    /// interpret the value in your code.
+    /// Amazon Web Services always interprets the tag <code>Value</code> as a single string.
+    /// If you need to store an array, you can store comma-separated values in the string.
+    /// However, you must interpret the value in your code.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Add", "IAMSAMLProviderTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter SAMLProviderArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SAML identity provider in IAM to which you want to add tags.</para><para>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex
-        /// pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
-        /// characters with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// <para>The ARN of the SAML identity provider in IAM to which you want to add tags.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+        /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         #if !MODULAR

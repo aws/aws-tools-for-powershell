@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Lists the principals associated with the specified thing. A principal can be X.509
     /// certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
     /// identities.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingPrincipals</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTThingPrincipalList")]
     [OutputType("System.String")]

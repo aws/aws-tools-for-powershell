@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
     /// Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
-    /// If you are using an identity other than the root user of the AWS account that owns
-    /// the Outposts bucket, the calling identity must have the <code>PutBucketPolicy</code>
+    /// If you are using an identity other than the root user of the Amazon Web Services account
+    /// that owns the Outposts bucket, the calling identity must have the <code>PutBucketPolicy</code>
     /// permissions on the specified Outposts bucket and belong to the bucket owner's account
     /// in order to use this action.
     /// </para><para>
@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405
     /// Method Not Allowed</code> error.
     /// </para><important><para>
-    ///  As a security precaution, the root user of the AWS account that owns a bucket can
-    /// always use this action, even if the policy explicitly denies the root user the ability
-    /// to perform this action. 
+    ///  As a security precaution, the root user of the Amazon Web Services account that owns
+    /// a bucket can always use this action, even if the policy explicitly denies the root
+    /// user the ability to perform this action. 
     /// </para></important><para>
     /// For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using
     /// Bucket Policies and User Policies</a>.
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the Outposts bucket.</para>
+        /// <para>The Amazon Web Services account ID of the Outposts bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies the bucket.</para><para>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify
-        /// the name and the x-amz-outpost-id as well.</para><para>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must specify
-        /// the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/bucket/&lt;my-bucket-name&gt;</code>.
+        /// the name and the x-amz-outpost-id as well.</para><para>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and
+        /// CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/bucket/&lt;my-bucket-name&gt;</code>.
         /// For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code>
         /// owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the
         /// URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>.

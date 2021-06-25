@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AwsOrg_Arn
         /// <summary>
         /// <para>
-        /// <para>A container for the Amazon Resource Name (ARN) of the AWS organization. This property
-        /// is read-only and follows the following format: <code> arn:aws:organizations:<i>us-east-1</i>:<i>example-account-id</i>:organization/<i>o-ex2l495dck</i></code></para>
+        /// <para>A container for the Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        /// This property is read-only and follows the following format: <code> arn:aws:organizations:<i>us-east-1</i>:<i>example-account-id</i>:organization/<i>o-ex2l495dck</i></code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

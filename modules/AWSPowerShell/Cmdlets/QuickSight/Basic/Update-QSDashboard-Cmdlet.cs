@@ -28,7 +28,13 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates a dashboard in an AWS account.
+    /// Updates a dashboard in an Amazon Web Services account.
+    /// 
+    ///  <note><para>
+    /// Updating a Dashboard creates a new dashboard version but does not immediately publish
+    /// the new version. You can update the published version of a dashboard by using the
+    /// <a>UpdateDashboardPublishedVersion</a> API operation.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "QSDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateDashboardResponse")]
@@ -77,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that contains the dashboard that you're updating.</para>
+        /// <para>The ID of the Amazon Web Services account that contains the dashboard that you're
+        /// updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_DateTimeParameter
         /// <summary>
         /// <para>
-        /// <para>Date-time parameters.</para>
+        /// <para>The parameters that have a data type of date-time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_DecimalParameter
         /// <summary>
         /// <para>
-        /// <para>Decimal parameters.</para>
+        /// <para>The parameters that have a data type of decimal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_IntegerParameter
         /// <summary>
         /// <para>
-        /// <para>Integer parameters.</para>
+        /// <para>The parameters that have a data type of integer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_StringParameter
         /// <summary>
         /// <para>
-        /// <para>String parameters.</para>
+        /// <para>The parameters that have a data type of string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,8 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard.
         /// If you add a value for this field, it overrides the value that was originally associated
-        /// with the entity. The theme ARN must exist in the same AWS account where you create
-        /// the dashboard.</para>
+        /// with the entity. The theme ARN must exist in the same Amazon Web Services account
+        /// where you create the dashboard.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

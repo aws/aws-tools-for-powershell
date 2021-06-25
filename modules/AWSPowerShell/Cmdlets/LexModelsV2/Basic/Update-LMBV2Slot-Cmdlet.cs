@@ -39,6 +39,20 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class UpdateLMBV2SlotCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter WaitAndContinueSpecification_Active
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the bot will wait for a user to respond. When this field is false,
+        /// wait and continue responses for a slot aren't used and the bot expects an appropriate
+        /// response within the configured timeout. If the <code>active</code> field isn't specified,
+        /// the default is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ValueElicitationSetting_WaitAndContinueSpecification_Active")]
+        public System.Boolean? WaitAndContinueSpecification_Active { get; set; }
+        #endregion
+        
         #region Parameter PromptSpecification_AllowInterrupt
         /// <summary>
         /// <para>
@@ -501,6 +515,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 WriteWarning("You are passing $null as a value for parameter ValueElicitationSetting_SlotConstraint which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WaitAndContinueSpecification_Active = this.WaitAndContinueSpecification_Active;
             context.ContinueResponse_AllowInterrupt = this.ContinueResponse_AllowInterrupt;
             if (this.ContinueResponse_MessageGroup != null)
             {
@@ -703,6 +718,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
              // populate WaitAndContinueSpecification
             var requestValueElicitationSetting_valueElicitationSetting_WaitAndContinueSpecificationIsNull = true;
             requestValueElicitationSetting_valueElicitationSetting_WaitAndContinueSpecification = new Amazon.LexModelsV2.Model.WaitAndContinueSpecification();
+            System.Boolean? requestValueElicitationSetting_valueElicitationSetting_WaitAndContinueSpecification_waitAndContinueSpecification_Active = null;
+            if (cmdletContext.WaitAndContinueSpecification_Active != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_WaitAndContinueSpecification_waitAndContinueSpecification_Active = cmdletContext.WaitAndContinueSpecification_Active.Value;
+            }
+            if (requestValueElicitationSetting_valueElicitationSetting_WaitAndContinueSpecification_waitAndContinueSpecification_Active != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_WaitAndContinueSpecification.Active = requestValueElicitationSetting_valueElicitationSetting_WaitAndContinueSpecification_waitAndContinueSpecification_Active.Value;
+                requestValueElicitationSetting_valueElicitationSetting_WaitAndContinueSpecificationIsNull = false;
+            }
             Amazon.LexModelsV2.Model.ResponseSpecification requestValueElicitationSetting_valueElicitationSetting_WaitAndContinueSpecification_valueElicitationSetting_WaitAndContinueSpecification_ContinueResponse = null;
             
              // populate ContinueResponse
@@ -920,6 +945,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public List<Amazon.LexModelsV2.Model.MessageGroup> PromptSpecification_MessageGroup { get; set; }
             public List<Amazon.LexModelsV2.Model.SampleUtterance> ValueElicitationSetting_SampleUtterance { get; set; }
             public Amazon.LexModelsV2.SlotConstraint ValueElicitationSetting_SlotConstraint { get; set; }
+            public System.Boolean? WaitAndContinueSpecification_Active { get; set; }
             public System.Boolean? ContinueResponse_AllowInterrupt { get; set; }
             public List<Amazon.LexModelsV2.Model.MessageGroup> ContinueResponse_MessageGroup { get; set; }
             public System.Boolean? StillWaitingResponse_AllowInterrupt { get; set; }

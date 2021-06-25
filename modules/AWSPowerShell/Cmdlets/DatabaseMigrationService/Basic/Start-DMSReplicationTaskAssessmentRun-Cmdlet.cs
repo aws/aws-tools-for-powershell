@@ -71,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Space-separated list of names for specific individual assessments that you want to
-        /// exclude. These names come from the default list of individual assessments that AWS
-        /// DMS supports for the associated migration task. This task is specified by <code>ReplicationTaskArn</code>.</para><note><para>You can't set a value for <code>Exclude</code> if you also set a value for <code>IncludeOnly</code>
-        /// in the API operation.</para><para>To identify the names of the default individual assessments that AWS DMS supports
-        /// for the associated migration task, run the <code>DescribeApplicableIndividualAssessments</code>
+        /// exclude. These names come from the default list of individual assessments that DMS
+        /// supports for the associated migration task. This task is specified by <code>ReplicationTaskArn</code>.</para><note><para>You can't set a value for <code>Exclude</code> if you also set a value for <code>IncludeOnly</code>
+        /// in the API operation.</para><para>To identify the names of the default individual assessments that DMS supports for
+        /// the associated migration task, run the <code>DescribeApplicableIndividualAssessments</code>
         /// operation using its own <code>ReplicationTaskArn</code> request parameter.</para></note>
         /// </para>
         /// </summary>
@@ -86,10 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Space-separated list of names for specific individual assessments that you want to
-        /// include. These names come from the default list of individual assessments that AWS
-        /// DMS supports for the associated migration task. This task is specified by <code>ReplicationTaskArn</code>.</para><note><para>You can't set a value for <code>IncludeOnly</code> if you also set a value for <code>Exclude</code>
-        /// in the API operation. </para><para>To identify the names of the default individual assessments that AWS DMS supports
-        /// for the associated migration task, run the <code>DescribeApplicableIndividualAssessments</code>
+        /// include. These names come from the default list of individual assessments that DMS
+        /// supports for the associated migration task. This task is specified by <code>ReplicationTaskArn</code>.</para><note><para>You can't set a value for <code>IncludeOnly</code> if you also set a value for <code>Exclude</code>
+        /// in the API operation. </para><para>To identify the names of the default individual assessments that DMS supports for
+        /// the associated migration task, run the <code>DescribeApplicableIndividualAssessments</code>
         /// operation using its own <code>ReplicationTaskArn</code> request parameter.</para></note>
         /// </para>
         /// </summary>
@@ -119,9 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Encryption mode that you can specify to encrypt the results of this assessment run.
-        /// If you don't specify this request parameter, AWS DMS stores the assessment run results
+        /// If you don't specify this request parameter, DMS stores the assessment run results
         /// without encryption. You can specify one of the options following:</para><ul><li><para><code>"SSE_S3"</code> – The server-side encryption provided as a default by Amazon
-        /// S3.</para></li><li><para><code>"SSE_KMS"</code> – AWS Key Management Service (AWS KMS) encryption. This encryption
+        /// S3.</para></li><li><para><code>"SSE_KMS"</code> – Key Management Service (KMS) encryption. This encryption
         /// can use either a custom KMS encryption key that you specify or the default KMS encryption
         /// key that DMS provides.</para></li></ul>
         /// </para>
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ResultLocationBucket
         /// <summary>
         /// <para>
-        /// <para>Amazon S3 bucket where you want AWS DMS to store the results of this assessment run.</para>
+        /// <para>Amazon S3 bucket where you want DMS to store the results of this assessment run.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ResultLocationFolder
         /// <summary>
         /// <para>
-        /// <para>Folder within an Amazon S3 bucket where you want AWS DMS to store the results of this
+        /// <para>Folder within an Amazon S3 bucket where you want DMS to store the results of this
         /// assessment run.</para>
         /// </para>
         /// </summary>
@@ -172,7 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ServiceAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>ARN of a service role needed to start the assessment run.</para>
+        /// <para>ARN of the service role needed to start the assessment run. The role must allow the
+        /// <code>iam:PassRole</code> action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

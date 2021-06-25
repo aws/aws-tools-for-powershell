@@ -102,6 +102,18 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.RuleOrder
+        {
+            ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_StatefulEngineOptions_RuleOrder") -Or
+            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_StatefulEngineOptions_RuleOrder") -Or
+            ($_ -eq "New-NWFWRuleGroup/RuleGroup_StatefulRuleOptions_RuleOrder") -Or
+            ($_ -eq "Update-NWFWRuleGroup/RuleGroup_StatefulRuleOptions_RuleOrder")
+        }
+        {
+            $v = "DEFAULT_ACTION_ORDER","STRICT_ORDER"
+            break
+        }
+
 
     }
 
@@ -111,7 +123,9 @@ $NWFW_Completers = {
 }
 
 $NWFW_map = @{
+    "FirewallPolicy_StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
+    "RuleGroup_StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "Type"=@("Get-NWFWRuleGroup","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
 }
 

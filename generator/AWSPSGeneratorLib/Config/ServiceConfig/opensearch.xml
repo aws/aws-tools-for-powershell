@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>opensearch</C2jFilename>
+    <AssemblyName>OpenSearchService</AssemblyName>
+    <ServiceNounPrefix>OS</ServiceNounPrefix>
+    <ServiceName>Amazon OpenSearch Service</ServiceName>
+    <ServiceClientInterface>IAmazonOpenSearchService</ServiceClientInterface>
+    <ServiceClient>AmazonOpenSearchServiceClient</ServiceClient>
+    <ServiceModuleGuid>086685d1-a207-48ca-ae2f-df3d77334f54</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptInboundConnection" OutputProperty="Connection" Verb="Approve" Noun="InboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="TagList" PipelineParameter="TagList" NoPipelineParameter="false" LegacyAlias="Add-ESTag">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="AssociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelServiceSoftwareUpdate" OutputProperty="ServiceSoftwareOptions" Verb="Stop" Noun="ServiceSoftwareUpdate" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomain" OutputProperty="DomainStatus" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOutboundConnection" OutputProperty="*" Verb="New" Noun="OutboundConnection" ShouldProcessTarget="" PipelineParameter="ConnectionAlias" NoPipelineParameter="false">
+            <Params>
+                <Param Name="LocalDomainInfo_AWSDomainInformation_DomainName" NewName="LocalDomainInfo_AWSDomainInformation_DomainName" />
+                <Param Name="LocalDomainInfo_AWSDomainInformation_OwnerId" NewName="LocalDomainInfo_AWSDomainInformation_OwnerId" />
+                <Param Name="LocalDomainInfo_AWSDomainInformation_Region" NewName="LocalDomainInfo_AWSDomainInformation_Region" />
+                <Param Name="RemoteDomainInfo_AWSDomainInformation_DomainName" NewName="RemoteDomainInfo_AWSDomainInformation_DomainName" />
+                <Param Name="RemoteDomainInfo_AWSDomainInformation_OwnerId" NewName="RemoteDomainInfo_AWSDomainInformation_OwnerId" />
+                <Param Name="RemoteDomainInfo_AWSDomainInformation_Region" NewName="RemoteDomainInfo_AWSDomainInformation_Region" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePackage" OutputProperty="PackageDetails" Verb="New" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomain" OutputProperty="DomainStatus" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInboundConnection" OutputProperty="Connection" Verb="Remove" Noun="InboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOutboundConnection" OutputProperty="Connection" Verb="Remove" Noun="OutboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePackage" OutputProperty="PackageDetails" Verb="Remove" Noun="Package" ShouldProcessTarget="PackageID" PipelineParameter="PackageID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDomain" OutputProperty="DomainStatus" Verb="Get" Noun="Domain" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDomainAutoTunes" OutputProperty="AutoTunes" Verb="Get" Noun="DomainAutoTune" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDomainConfig" OutputProperty="DomainConfig" Verb="Get" Noun="DomainConfig" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDomains" OutputProperty="DomainStatusList" Verb="Get" Noun="DomainList" PipelineParameter="DomainNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInboundConnections" OutputProperty="Connections" Verb="Get" Noun="InboundConnection" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceTypeLimits" OutputProperty="LimitsByRole" Verb="Get" Noun="InstanceTypeLimit" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOutboundConnections" OutputProperty="Connections" Verb="Get" Noun="OutboundConnection" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePackages" OutputProperty="PackageDetailsList" Verb="Get" Noun="Package" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedInstanceOfferings" OutputProperty="ReservedInstanceOfferings" Verb="Get" Noun="ReservedInstanceOfferingList" PipelineParameter="ReservedInstanceOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedInstances" OutputProperty="ReservedInstances" Verb="Get" Noun="ReservedInstanceList" PipelineParameter="ReservedInstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DissociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="DissociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCompatibleVersions" OutputProperty="CompatibleVersions" Verb="Get" Noun="CompatibleVersion" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPackageVersionHistory" OutputProperty="*" Verb="Get" Noun="PackageVersionHistory" PipelineParameter="PackageID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUpgradeHistory" OutputProperty="UpgradeHistories" Verb="Get" Noun="UpgradeHistory" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUpgradeStatus" OutputProperty="*" Verb="Get" Noun="UpgradeStatus" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainNames" OutputProperty="DomainNames" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainsForPackage" OutputProperty="DomainPackageDetailsList" Verb="Get" Noun="DomainsForPackageList" PipelineParameter="PackageID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInstanceTypeDetails" OutputProperty="InstanceTypeDetails" Verb="Get" Noun="InstanceTypeDetailList" PipelineParameter="EngineVersion" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPackagesForDomain" OutputProperty="DomainPackageDetailsList" Verb="Get" Noun="PackagesForDomainList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ARN" NoPipelineParameter="false" LegacyAlias="Get-ESTag">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVersions" OutputProperty="Versions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseReservedInstanceOffering" OutputProperty="*" Verb="New" Noun="ReservedInstanceOffering" ShouldProcessTarget="ReservedInstanceOfferingId" PipelineParameter="ReservedInstanceOfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectInboundConnection" OutputProperty="Connection" Verb="Deny" Noun="InboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ARN" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyAlias="Remove-ESTag">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartServiceSoftwareUpdate" OutputProperty="ServiceSoftwareOptions" Verb="Start" Noun="ServiceSoftwareUpdate" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomainConfig" OutputProperty="DomainConfig" Verb="Update" Noun="DomainConfig" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePackage" OutputProperty="PackageDetails" Verb="Update" Noun="Package" ShouldProcessTarget="PackageSource_S3BucketName" PipelineParameter="PackageID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpgradeDomain" OutputProperty="*" Verb="Update" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="TargetVersion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten>
+        <Type>Amazon.Elasticsearch.Model.EncryptionAtRestOptions</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

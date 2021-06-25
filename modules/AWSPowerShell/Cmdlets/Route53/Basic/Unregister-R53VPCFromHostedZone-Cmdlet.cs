@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// You can submit a <code>DisassociateVPCFromHostedZone</code> request using either the
     /// account that created the hosted zone or the account that created the Amazon VPC.
     /// </para></li><li><para>
-    /// Some services, such as AWS Cloud Map and Amazon Elastic File System (Amazon EFS) automatically
+    /// Some services, such as Cloud Map and Amazon Elastic File System (Amazon EFS) automatically
     /// create hosted zones and associate VPCs with the hosted zones. A service can create
     /// a hosted zone using your account or using its own account. You can disassociate a
     /// VPC from a hosted zone only if the service created the hosted zone using your account.

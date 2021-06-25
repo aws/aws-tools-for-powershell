@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <code>PutOrganizationConformancePack</code> action for the second time, conformance
         /// pack status is updated in the member account. Conformance pack status is deleted when
         /// the master account deletes <code>OrganizationConformancePack</code> and disables service
-        /// access for <code>config-multiaccountsetup.amazonaws.com</code>. </para><para> AWS Config sets the state of the conformance pack to:</para><ul><li><para><code>CREATE_SUCCESSFUL</code> when conformance pack has been created in the member
+        /// access for <code>config-multiaccountsetup.amazonaws.com</code>. </para><para> Config sets the state of the conformance pack to:</para><ul><li><para><code>CREATE_SUCCESSFUL</code> when conformance pack has been created in the member
         /// account. </para></li><li><para><code>CREATE_IN_PROGRESS</code> when conformance pack is being created in the member
         /// account.</para></li><li><para><code>CREATE_FAILED</code> when conformance pack creation has failed in the member
         /// account.</para></li><li><para><code>DELETE_FAILED</code> when conformance pack deletion has failed in the member
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned
-        /// on each page. If you do not specify a number, AWS Config uses the default. The default
+        /// on each page. If you do not specify a number, Config uses the default. The default
         /// is 100. </para>
         /// </para>
         /// <para>

@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter StorageConfigKinesisVideoStreamConfigEncryptionConfigKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the encryption key.</para>
+        /// <para>The full ARN of the encryption key. </para><note><para>Be sure to provide the full ARN of the encryption key, not just the ID.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter StorageConfigS3ConfigEncryptionConfigKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the encryption key.</para>
+        /// <para>The full ARN of the encryption key. </para><note><para>Be sure to provide the full ARN of the encryption key, not just the ID.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

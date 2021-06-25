@@ -28,9 +28,9 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Delete an AWS App Runner automatic scaling configuration resource. You can delete
-    /// a specific revision or the latest active revision. You can't delete a configuration
-    /// that's used by one or more App Runner services.
+    /// Delete an App Runner automatic scaling configuration resource. You can delete a specific
+    /// revision or the latest active revision. You can't delete a configuration that's used
+    /// by one or more App Runner services.
     /// </summary>
     [Cmdlet("Remove", "AARAutoScalingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.AppRunner.Model.AutoScalingConfiguration")]

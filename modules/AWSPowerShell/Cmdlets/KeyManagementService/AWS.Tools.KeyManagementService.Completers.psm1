@@ -133,6 +133,13 @@ $KMS_Completers = {
             break
         }
 
+        # Amazon.KeyManagementService.KeySpec
+        "New-KMSKey/KeySpec"
+        {
+            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096","SYMMETRIC_DEFAULT"
+            break
+        }
+
         # Amazon.KeyManagementService.KeyUsageType
         "New-KMSKey/KeyUsage"
         {
@@ -188,7 +195,7 @@ $KMS_map = @{
     "EncryptionAlgorithm"=@("Invoke-KMSDecrypt","Invoke-KMSEncrypt")
     "ExpirationModel"=@("Import-KMSKeyMaterial")
     "KeyPairSpec"=@("New-KMSDataKeyPair","New-KMSDataKeyPairWithoutPlaintext")
-    "KeySpec"=@("New-KMSDataKey","New-KMSDataKeyWithoutPlaintext")
+    "KeySpec"=@("New-KMSDataKey","New-KMSDataKeyWithoutPlaintext","New-KMSKey")
     "KeyUsage"=@("New-KMSKey")
     "MessageType"=@("Invoke-KMSSigning","Test-KMSSignature")
     "Origin"=@("New-KMSKey")

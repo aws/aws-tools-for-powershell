@@ -28,7 +28,7 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Returns information about the specified AWS Firewall Manager policy.
+    /// Returns information about the specified Firewall Manager policy.
     /// </summary>
     [Cmdlet("Get", "FMSPolicy")]
     [OutputType("Amazon.FMS.Model.GetPolicyResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter PolicyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Firewall Manager policy that you want the details for.</para>
+        /// <para>The ID of the Firewall Manager policy that you want the details for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

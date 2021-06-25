@@ -28,7 +28,7 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Gets the contents of an AWS RAM permission in JSON format.
+    /// Gets the contents of an RAM permission in JSON format.
     /// </summary>
     [Cmdlet("Get", "RAMPermission")]
     [OutputType("Amazon.RAM.Model.ResourceSharePermissionDetail")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter PermissionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the permission.</para>
+        /// <para>The Amazon Resource Name (ARN) of the permission.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

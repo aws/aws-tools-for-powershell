@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Create a machine learning algorithm that you can use in Amazon SageMaker and list
-    /// in the AWS Marketplace.
+    /// in the Amazon Web Services Marketplace.
     /// </summary>
     [Cmdlet("New", "SMAlgorithm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CertifyForMarketplace
         /// <summary>
         /// <para>
-        /// <para>Whether to certify the algorithm so that it can be listed in AWS Marketplace.</para>
+        /// <para>Whether to certify the algorithm so that it can be listed in Amazon Web Services Marketplace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,10 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
-        /// different ways, for example, by purpose, owner, or environment. For more information,
-        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS Resources</a>.</para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+        /// resources in different ways, for example, by purpose, owner, or environment. For more
+        /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services Resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Delete an OTA update.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteOTAUpdate</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "IOTOTAUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -54,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ForceDeleteAWSJob
         /// <summary>
         /// <para>
-        /// <para>When true, deletes the AWS job created by the OTAUpdate process even if it is "IN_PROGRESS".
+        /// <para>When true, deletes the IoT job created by the OTAUpdate process even if it is "IN_PROGRESS".
         /// Otherwise, if the job is not in a terminal state ("COMPLETED" or "CANCELED") an exception
         /// will occur. The default is false.</para>
         /// </para>

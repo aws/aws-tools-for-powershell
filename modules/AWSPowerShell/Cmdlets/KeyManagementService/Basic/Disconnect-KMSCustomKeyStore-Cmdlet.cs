@@ -29,14 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
-    /// key store</a> from its associated AWS CloudHSM cluster. While a custom key store is
-    /// disconnected, you can manage the custom key store and its customer master keys (CMKs),
-    /// but you cannot create or use CMKs in the custom key store. You can reconnect the custom
-    /// key store at any time.
+    /// key store</a> from its associated CloudHSM cluster. While a custom key store is disconnected,
+    /// you can manage the custom key store and its KMS keys, but you cannot create or use
+    /// KMS keys in the custom key store. You can reconnect the custom key store at any time.
     /// 
     ///  <note><para>
-    /// While a custom key store is disconnected, all attempts to create customer master keys
-    /// (CMKs) in the custom key store or to use existing CMKs in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+    /// While a custom key store is disconnected, all attempts to create KMS keys in the custom
+    /// key store or to use existing KMS keys in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
     /// operations</a> will fail. This action can prevent users from storing and accessing
     /// sensitive data.
     /// </para></note><para>
@@ -46,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// If the operation succeeds, it returns a JSON object with no properties.
     /// </para><para>
     /// This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom
-    /// Key Store feature</a> feature in AWS KMS, which combines the convenience and extensive
-    /// integration of AWS KMS with the isolation and control of a single-tenant key store.
+    /// Key Store feature</a> feature in KMS, which combines the convenience and extensive
+    /// integration of KMS with the isolation and control of a single-tenant key store.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a custom key store
-    /// in a different AWS account.
+    /// in a different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DisconnectCustomKeyStore</a>
     /// (IAM policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>ConnectCustomKeyStore</a></para></li><li><para><a>CreateCustomKeyStore</a></para></li><li><para><a>DeleteCustomKeyStore</a></para></li><li><para><a>DescribeCustomKeyStores</a></para></li><li><para><a>UpdateCustomKeyStore</a></para></li></ul>

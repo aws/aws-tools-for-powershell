@@ -49,6 +49,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class GetCOMPEntityRecognizerListCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        #region Parameter Filter_RecognizerName
+        /// <summary>
+        /// <para>
+        /// <para>The name that you assigned the entity recognizer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filter_RecognizerName { get; set; }
+        #endregion
+        
         #region Parameter Filter_Status
         /// <summary>
         /// <para>
@@ -170,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 context.Select = (response, cmdlet) => this.Filter_Status;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Filter_RecognizerName = this.Filter_RecognizerName;
             context.Filter_Status = this.Filter_Status;
             context.Filter_SubmitTimeAfter = this.Filter_SubmitTimeAfter;
             context.Filter_SubmitTimeBefore = this.Filter_SubmitTimeBefore;
@@ -216,6 +227,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.Comprehend.Model.EntityRecognizerFilter();
+            System.String requestFilter_filter_RecognizerName = null;
+            if (cmdletContext.Filter_RecognizerName != null)
+            {
+                requestFilter_filter_RecognizerName = cmdletContext.Filter_RecognizerName;
+            }
+            if (requestFilter_filter_RecognizerName != null)
+            {
+                request.Filter.RecognizerName = requestFilter_filter_RecognizerName;
+                requestFilterIsNull = false;
+            }
             Amazon.Comprehend.ModelStatus requestFilter_filter_Status = null;
             if (cmdletContext.Filter_Status != null)
             {
@@ -314,6 +335,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.Comprehend.Model.EntityRecognizerFilter();
+            System.String requestFilter_filter_RecognizerName = null;
+            if (cmdletContext.Filter_RecognizerName != null)
+            {
+                requestFilter_filter_RecognizerName = cmdletContext.Filter_RecognizerName;
+            }
+            if (requestFilter_filter_RecognizerName != null)
+            {
+                request.Filter.RecognizerName = requestFilter_filter_RecognizerName;
+                requestFilterIsNull = false;
+            }
             Amazon.Comprehend.ModelStatus requestFilter_filter_Status = null;
             if (cmdletContext.Filter_Status != null)
             {
@@ -472,6 +503,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Filter_RecognizerName { get; set; }
             public Amazon.Comprehend.ModelStatus Filter_Status { get; set; }
             public System.DateTime? Filter_SubmitTimeAfter { get; set; }
             public System.DateTime? Filter_SubmitTimeBefore { get; set; }

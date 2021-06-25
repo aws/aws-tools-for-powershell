@@ -28,7 +28,13 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Returns a Device Defender's ML Detect Security Profile training model's status.
+    /// Returns a Device Defender's ML Detect Security Profile training model's status. 
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetBehaviorModelTrainingSummaries</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTBehaviorModelTrainingSummary")]
     [OutputType("Amazon.IoT.Model.BehaviorModelTrainingSummary")]

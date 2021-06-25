@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <para>
     /// You can specify an IAM role for your task with the <code>taskRoleArn</code> parameter.
     /// When you specify an IAM role for a task, its containers can then use the latest versions
-    /// of the AWS CLI or SDKs to make API requests to the AWS services that are specified
-    /// in the IAM policy associated with the role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
+    /// of the CLI or SDKs to make API requests to the Amazon Web Services services that are
+    /// specified in the IAM policy associated with the role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
     /// Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
     /// You can specify a Docker networking mode for the containers in your task definition
@@ -117,9 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS
-        /// container agent permission to make AWS API calls on your behalf. The task execution
-        /// IAM role is required depending on the requirements of your task. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon
+        /// container agent permission to make Amazon Web Services API calls on your behalf. The
+        /// task execution IAM role is required depending on the requirements of your task. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon
         /// ECS task execution IAM role</a> in the <i>Amazon Elastic Container Service Developer
         /// Guide</i>.</para>
         /// </para>
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html">System
         /// Controls</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><ul><li><para>For tasks that use the <code>host</code> IPC mode, IPC namespace related <code>systemControls</code>
         /// are not supported.</para></li><li><para>For tasks that use the <code>task</code> IPC mode, IPC namespace related <code>systemControls</code>
-        /// will apply to all containers within a task.</para></li></ul><note><para>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</para></note>
+        /// will apply to all containers within a task.</para></li></ul><note><para>This parameter is not supported for Windows containers or tasks run on Fargate.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,25 +214,22 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The Docker networking mode to use for the containers in the task. The valid values
         /// are <code>none</code>, <code>bridge</code>, <code>awsvpc</code>, and <code>host</code>.
         /// If no network mode is specified, the default is <code>bridge</code>.</para><para>For Amazon ECS tasks on Fargate, the <code>awsvpc</code> network mode is required.
-        /// For Amazon ECS tasks on Amazon EC2 instances, any network mode can be used. If the
-        /// network mode is set to <code>none</code>, you cannot specify port mappings in your
-        /// container definitions, and the tasks containers do not have external connectivity.
-        /// The <code>host</code> and <code>awsvpc</code> network modes offer the highest networking
-        /// performance for containers because they use the EC2 network stack instead of the virtualized
-        /// network stack provided by the <code>bridge</code> mode.</para><para>With the <code>host</code> and <code>awsvpc</code> network modes, exposed container
+        /// For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can be used.
+        /// For Amazon ECS tasks on Amazon EC2 Windows instances, <code>&lt;default&gt;</code>
+        /// or <code>awsvpc</code> can be used. If the network mode is set to <code>none</code>,
+        /// you cannot specify port mappings in your container definitions, and the tasks containers
+        /// do not have external connectivity. The <code>host</code> and <code>awsvpc</code> network
+        /// modes offer the highest networking performance for containers because they use the
+        /// EC2 network stack instead of the virtualized network stack provided by the <code>bridge</code>
+        /// mode.</para><para>With the <code>host</code> and <code>awsvpc</code> network modes, exposed container
         /// ports are mapped directly to the corresponding host port (for the <code>host</code>
         /// network mode) or the attached elastic network interface port (for the <code>awsvpc</code>
         /// network mode), so you cannot take advantage of dynamic host port mappings. </para><important><para>When using the <code>host</code> network mode, you should not run containers using
         /// the root user (UID 0). It is considered best practice to use a non-root user.</para></important><para>If the network mode is <code>awsvpc</code>, the task is allocated an elastic network
         /// interface, and you must specify a <a>NetworkConfiguration</a> value when you create
         /// a service or run a task with the task definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
-        /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><note><para>Currently, only Amazon ECS-optimized AMIs, other Amazon Linux variants with the <code>ecs-init</code>
-        /// package, or AWS Fargate infrastructure support the <code>awsvpc</code> network mode.
-        /// </para></note><para>If the network mode is <code>host</code>, you cannot run multiple instantiations of
-        /// the same task on a single container instance when port mappings are used.</para><para>Docker for Windows uses different network modes than Docker for Linux. When you register
-        /// a task definition with Windows containers, you must not specify a network mode. If
-        /// you use the console to register a task definition with Windows containers, you must
-        /// choose the <code>&lt;default&gt;</code> network mode object. </para><para>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
+        /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If the network mode is <code>host</code>, you cannot run multiple instantiations of
+        /// the same task on a single container instance when port mappings are used.</para><para>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
         /// settings</a> in the <i>Docker run reference</i>.</para>
         /// </para>
         /// </summary>
@@ -253,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// For more information, see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
         /// settings</a> in the <i>Docker run reference</i>.</para><para>If the <code>host</code> PID mode is used, be aware that there is a heightened risk
         /// of undesired process namespace expose. For more information, see <a href="https://docs.docker.com/engine/security/security/">Docker
-        /// security</a>.</para><note><para>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</para></note>
+        /// security</a>.</para><note><para>This parameter is not supported for Windows containers or tasks run on Fargate.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -333,9 +330,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
         /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for either keys or values as it is reserved for AWS use. You cannot
-        /// edit or delete tag keys or values with this prefix. Tags with this prefix do not count
-        /// against your tags per resource limit.</para></li></ul>
+        /// of such as a prefix for either keys or values as it is reserved for Amazon Web Services
+        /// use. You cannot edit or delete tag keys or values with this prefix. Tags with this
+        /// prefix do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

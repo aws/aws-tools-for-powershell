@@ -43,8 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of either the cluster owner (grantor) or grantee. If <code>Grantee</code>
-        /// parameter is true, then the <code>Account</code> value is of the grantor.</para>
+        /// <para>The AAmazon Web Services account ID of either the cluster owner (grantor) or grantee.
+        /// If <code>Grantee</code> parameter is true, then the <code>Account</code> value is
+        /// of the grantor.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

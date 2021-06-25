@@ -28,8 +28,8 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns the number of AWS Config rules that are compliant and noncompliant, up to
-    /// a maximum of 25 for each.
+    /// Returns the number of Config rules that are compliant and noncompliant, up to a maximum
+    /// of 25 for each.
     /// </summary>
     [Cmdlet("Get", "CFGComplianceSummaryByConfigRule")]
     [OutputType("Amazon.ConfigService.Model.ComplianceSummary")]

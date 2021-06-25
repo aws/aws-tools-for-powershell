@@ -32,12 +32,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// action or activity. For example, a model deployment or an HPO job. Generally, an action
     /// involves at least one input or output artifact. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon
     /// SageMaker ML Lineage Tracking</a>.
-    /// 
-    ///  <note><para><code>CreateAction</code> can only be invoked from within an SageMaker managed environment.
-    /// This includes SageMaker training jobs, processing jobs, transform jobs, and SageMaker
-    /// notebooks. A call to <code>CreateAction</code> from outside one of these environments
-    /// results in an error.
-    /// </para></note>
     /// </summary>
     [Cmdlet("New", "SMAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -52,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ActionName
         /// <summary>
         /// <para>
-        /// <para>The name of the action. Must be unique to your account in an AWS Region.</para>
+        /// <para>The name of the action. Must be unique to your account in an Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

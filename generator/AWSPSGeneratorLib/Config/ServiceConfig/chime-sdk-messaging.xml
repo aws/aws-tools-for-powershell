@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>chime-sdk-messaging</C2jFilename>
+    <AssemblyName>ChimeSDKMessaging</AssemblyName>
+    <ServiceNounPrefix>CHMMG</ServiceNounPrefix>
+    <ServiceName>Amazon Chime SDK Messaging</ServiceName>
+    <ServiceClientInterface>IAmazonChimeSDKMessaging</ServiceClientInterface>
+    <ServiceClient>AmazonChimeSDKMessagingClient</ServiceClient>
+    <ServiceModuleGuid>7a4538a2-d982-49c0-a087-5b419d618750</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchCreateChannelMembership" OutputProperty="*" Verb="New" Noun="CreateChannelMembership" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannel" OutputProperty="ChannelArn" Verb="New" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannelBan" OutputProperty="*" Verb="New" Noun="ChannelBan" ShouldProcessTarget="MemberArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannelMembership" OutputProperty="*" Verb="New" Noun="ChannelMembership" ShouldProcessTarget="MemberArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannelModerator" OutputProperty="*" Verb="New" Noun="ChannelModerator" ShouldProcessTarget="ChannelModeratorArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannelBan" Verb="Remove" Noun="ChannelBan" ShouldProcessTarget="MemberArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannelMembership" Verb="Remove" Noun="ChannelMembership" ShouldProcessTarget="MemberArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannelMessage" Verb="Remove" Noun="ChannelMessage" ShouldProcessTarget="MessageId" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannelModerator" Verb="Remove" Noun="ChannelModerator" ShouldProcessTarget="ChannelModeratorArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannel" OutputProperty="Channel" Verb="Get" Noun="Channel" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannelBan" OutputProperty="ChannelBan" Verb="Get" Noun="ChannelBan" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannelMembership" OutputProperty="ChannelMembership" Verb="Get" Noun="ChannelMembership" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannelMembershipForAppInstanceUser" OutputProperty="ChannelMembership" Verb="Get" Noun="ChannelMembershipForAppInstanceUser" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannelModeratedByAppInstanceUser" OutputProperty="Channel" Verb="Get" Noun="ChannelModeratedByAppInstanceUser" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannelModerator" OutputProperty="ChannelModerator" Verb="Get" Noun="ChannelModerator" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetChannelMessage" OutputProperty="ChannelMessage" Verb="Get" Noun="ChannelMessage" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMessagingSessionEndpoint" OutputProperty="Endpoint" Verb="Get" Noun="MessagingSessionEndpoint" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelBans" OutputProperty="*" Verb="Get" Noun="ChannelBanList" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelMemberships" OutputProperty="*" Verb="Get" Noun="ChannelMembershipList" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelMembershipsForAppInstanceUser" OutputProperty="ChannelMemberships" Verb="Get" Noun="ChannelMembershipsForAppInstanceUserList" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelMessages" OutputProperty="*" Verb="Get" Noun="ChannelMessageList" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelModerators" OutputProperty="*" Verb="Get" Noun="ChannelModeratorList" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelsModeratedByAppInstanceUser" OutputProperty="Channels" Verb="Get" Noun="ChannelsModeratedByAppInstanceUserList" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RedactChannelMessage" OutputProperty="*" Verb="Hide" Noun="ChannelMessage" ShouldProcessTarget="MessageId" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendChannelMessage" OutputProperty="*" Verb="Send" Noun="ChannelMessage" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChannel" OutputProperty="ChannelArn" Verb="Update" Noun="Channel" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChannelMessage" OutputProperty="*" Verb="Update" Noun="ChannelMessage" ShouldProcessTarget="MessageId" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChannelReadMarker" OutputProperty="ChannelArn" Verb="Update" Noun="ChannelReadMarker" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

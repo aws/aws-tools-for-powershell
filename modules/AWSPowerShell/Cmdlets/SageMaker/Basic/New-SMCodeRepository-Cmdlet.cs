@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS
-    /// CodeCommit</a> or in any other Git repository.
+    /// The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon
+    /// Web Services CodeCommit</a> or in any other Git repository.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SMCodeRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -98,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter GitConfig_SecretArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the
-        /// credentials used to access the git repository. The secret must have a staging label
-        /// of <code>AWSCURRENT</code> and must be in the following format:</para><para><code>{"username": <i>UserName</i>, "password": <i>Password</i>}</code></para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
+        /// contains the credentials used to access the git repository. The secret must have a
+        /// staging label of <code>AWSCURRENT</code> and must be in the following format:</para><para><code>{"username": <i>UserName</i>, "password": <i>Password</i>}</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,10 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
-        /// different ways, for example, by purpose, owner, or environment. For more information,
-        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS Resources</a>.</para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+        /// resources in different ways, for example, by purpose, owner, or environment. For more
+        /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services Resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

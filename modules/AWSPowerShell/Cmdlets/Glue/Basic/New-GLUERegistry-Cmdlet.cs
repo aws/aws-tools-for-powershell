@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>AWS tags that contain a key value pair and may be searched by console, command line,
-        /// or API.</para>
+        /// <para>Amazon Web Services tags that contain a key value pair and may be searched by console,
+        /// command line, or API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

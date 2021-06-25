@@ -35,10 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// Gets the LOA-CFA for the specified interconnect.
     /// </para><para>
     /// The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document
-    /// that is used when establishing your cross connect to AWS at the colocation facility.
-    /// For more information, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting
-    /// Cross Connects at AWS Direct Connect Locations</a> in the <i>AWS Direct Connect User
-    /// Guide</i>.
+    /// that is used when establishing your cross connect to Amazon Web Services at the colocation
+    /// facility. For more information, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting
+    /// Cross Connects at Direct Connect Locations</a> in the <i>Direct Connect User Guide</i>.
     /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "DCInterconnectLoa")]

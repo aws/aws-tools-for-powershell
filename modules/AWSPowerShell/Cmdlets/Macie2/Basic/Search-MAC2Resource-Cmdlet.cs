@@ -28,8 +28,8 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves (queries) statistical data and other information about AWS resources that
-    /// Amazon Macie monitors and analyzes.
+    /// Retrieves (queries) statistical data and other information about Amazon Web Services
+    /// resources that Amazon Macie monitors and analyzes.
     /// </summary>
     [Cmdlet("Search", "MAC2Resource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Macie2.Model.MatchingResource")]

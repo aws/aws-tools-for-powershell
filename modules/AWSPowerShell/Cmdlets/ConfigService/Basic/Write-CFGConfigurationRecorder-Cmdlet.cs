@@ -55,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter RecordingGroup_AllSupported
         /// <summary>
         /// <para>
-        /// <para>Specifies whether AWS Config records configuration changes for every supported type
-        /// of regional resource.</para><para>If you set this option to <code>true</code>, when AWS Config adds support for a new
-        /// type of regional resource, it starts recording resources of that type automatically.</para><para>If you set this option to <code>true</code>, you cannot enumerate a list of <code>resourceTypes</code>.</para>
+        /// <para>Specifies whether Config records configuration changes for every supported type of
+        /// regional resource.</para><para>If you set this option to <code>true</code>, when Config adds support for a new type
+        /// of regional resource, it starts recording resources of that type automatically.</para><para>If you set this option to <code>true</code>, you cannot enumerate a list of <code>resourceTypes</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,12 +68,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter RecordingGroup_IncludeGlobalResourceType
         /// <summary>
         /// <para>
-        /// <para>Specifies whether AWS Config includes all supported types of global resources (for
-        /// example, IAM resources) with the resources that it records.</para><para>Before you can set this option to <code>true</code>, you must set the <code>allSupported</code>
-        /// option to <code>true</code>.</para><para>If you set this option to <code>true</code>, when AWS Config adds support for a new
-        /// type of global resource, it starts recording resources of that type automatically.</para><para>The configuration details for any global resource are the same in all regions. To
-        /// prevent duplicate configuration items, you should consider customizing AWS Config
-        /// in only one region to record global resources.</para>
+        /// <para>Specifies whether Config includes all supported types of global resources (for example,
+        /// IAM resources) with the resources that it records.</para><para>Before you can set this option to <code>true</code>, you must set the <code>allSupported</code>
+        /// option to <code>true</code>.</para><para>If you set this option to <code>true</code>, when Config adds support for a new type
+        /// of global resource, it starts recording resources of that type automatically.</para><para>The configuration details for any global resource are the same in all regions. To
+        /// prevent duplicate configuration items, you should consider customizing Config in only
+        /// one region to record global resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
-        /// <para>The name of the recorder. By default, AWS Config automatically assigns the name "default"
+        /// <para>The name of the recorder. By default, Config automatically assigns the name "default"
         /// when creating the configuration recorder. You cannot change the assigned name.</para>
         /// </para>
         /// </summary>
@@ -96,13 +96,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter RecordingGroup_ResourceType
         /// <summary>
         /// <para>
-        /// <para>A comma-separated list that specifies the types of AWS resources for which AWS Config
-        /// records configuration changes (for example, <code>AWS::EC2::Instance</code> or <code>AWS::CloudTrail::Trail</code>).</para><para>To record all configuration changes, you must set the <code>allSupported</code> option
-        /// to <code>true</code>.</para><para>If you set this option to <code>false</code>, when AWS Config adds support for a new
-        /// type of resource, it will not record resources of that type unless you manually add
-        /// that type to your recording group.</para><para>For a list of valid <code>resourceTypes</code> values, see the <b>resourceType Value</b>
+        /// <para>A comma-separated list that specifies the types of Amazon Web Services resources for
+        /// which Config records configuration changes (for example, <code>AWS::EC2::Instance</code>
+        /// or <code>AWS::CloudTrail::Trail</code>).</para><para>To record all configuration changes, you must set the <code>allSupported</code> option
+        /// to <code>true</code>.</para><para>If you set this option to <code>false</code>, when Config adds support for a new type
+        /// of resource, it will not record resources of that type unless you manually add that
+        /// type to your recording group.</para><para>For a list of valid <code>resourceTypes</code> values, see the <b>resourceType Value</b>
         /// column in <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported
-        /// AWS Resource Types</a>.</para>
+        /// Amazon Web Services resource Types</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigurationRecorder_RoleARN
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources associated
-        /// with the account.</para>
+        /// <para>Amazon Resource Name (ARN) of the IAM role used to describe the Amazon Web Services
+        /// resources associated with the account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

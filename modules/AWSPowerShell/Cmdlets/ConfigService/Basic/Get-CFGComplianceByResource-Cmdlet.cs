@@ -28,30 +28,29 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Indicates whether the specified AWS resources are compliant. If a resource is noncompliant,
-    /// this action returns the number of AWS Config rules that the resource does not comply
-    /// with.
+    /// Indicates whether the specified Amazon Web Services resources are compliant. If a
+    /// resource is noncompliant, this action returns the number of Config rules that the
+    /// resource does not comply with.
     /// 
     ///  
     /// <para>
-    /// A resource is compliant if it complies with all the AWS Config rules that evaluate
-    /// it. It is noncompliant if it does not comply with one or more of these rules.
+    /// A resource is compliant if it complies with all the Config rules that evaluate it.
+    /// It is noncompliant if it does not comply with one or more of these rules.
     /// </para><para>
-    /// If AWS Config has no current evaluation results for the resource, it returns <code>INSUFFICIENT_DATA</code>.
+    /// If Config has no current evaluation results for the resource, it returns <code>INSUFFICIENT_DATA</code>.
     /// This result might indicate one of the following conditions about the rules that evaluate
     /// the resource:
     /// </para><ul><li><para>
-    /// AWS Config has never invoked an evaluation for the rule. To check whether it has,
-    /// use the <code>DescribeConfigRuleEvaluationStatus</code> action to get the <code>LastSuccessfulInvocationTime</code>
+    /// Config has never invoked an evaluation for the rule. To check whether it has, use
+    /// the <code>DescribeConfigRuleEvaluationStatus</code> action to get the <code>LastSuccessfulInvocationTime</code>
     /// and <code>LastFailedInvocationTime</code>.
     /// </para></li><li><para>
-    /// The rule's AWS Lambda function is failing to send evaluation results to AWS Config.
-    /// Verify that the role that you assigned to your configuration recorder includes the
-    /// <code>config:PutEvaluations</code> permission. If the rule is a custom rule, verify
-    /// that the AWS Lambda execution role includes the <code>config:PutEvaluations</code>
-    /// permission.
+    /// The rule's Lambda function is failing to send evaluation results to Config. Verify
+    /// that the role that you assigned to your configuration recorder includes the <code>config:PutEvaluations</code>
+    /// permission. If the rule is a custom rule, verify that the Lambda execution role includes
+    /// the <code>config:PutEvaluations</code> permission.
     /// </para></li><li><para>
-    /// The rule's AWS Lambda function has returned <code>NOT_APPLICABLE</code> for all evaluation
+    /// The rule's Lambda function has returned <code>NOT_APPLICABLE</code> for all evaluation
     /// results. This can occur if the resources were deleted or removed from the rule's scope.
     /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -79,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS resource for which you want compliance information. You can specify
-        /// only one resource ID. If you specify a resource ID, you must also specify a type for
-        /// <code>ResourceType</code>.</para>
+        /// <para>The ID of the Amazon Web Services resource for which you want compliance information.
+        /// You can specify only one resource ID. If you specify a resource ID, you must also
+        /// specify a type for <code>ResourceType</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The types of AWS resources for which you want compliance information (for example,
-        /// <code>AWS::EC2::Instance</code>). For this action, you can specify that the resource
-        /// type is an AWS account by specifying <code>AWS::::Account</code>.</para>
+        /// <para>The types of Amazon Web Services resources for which you want compliance information
+        /// (for example, <code>AWS::EC2::Instance</code>). For this action, you can specify that
+        /// the resource type is an Amazon Web Services account by specifying <code>AWS::::Account</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,8 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of evaluation results returned on each page. The default is 10.
-        /// You cannot specify a number greater than 100. If you specify 0, AWS Config uses the
-        /// default.</para>
+        /// You cannot specify a number greater than 100. If you specify 0, Config uses the default.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

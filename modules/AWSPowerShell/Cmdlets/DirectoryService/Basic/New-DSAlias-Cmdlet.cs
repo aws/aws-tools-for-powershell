@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Alias
         /// <summary>
         /// <para>
-        /// <para>The requested alias.</para><para>The alias must be unique amongst all aliases in AWS. This operation throws an <code>EntityAlreadyExistsException</code>
-        /// error if the alias already exists.</para>
+        /// <para>The requested alias.</para><para>The alias must be unique amongst all aliases in Amazon Web Services. This operation
+        /// throws an <code>EntityAlreadyExistsException</code> error if the alias already exists.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -76,10 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The Amazon Redshift engine version to which the cluster parameter group applies. The
         /// cluster engine version determines the set of parameters.</para><para>To get a list of valid parameter group family names, you can call <a>DescribeClusterParameterGroups</a>.
         /// By default, Amazon Redshift returns a list of all the parameter groups that are owned
-        /// by your AWS account, including the default parameter groups for each Amazon Redshift
-        /// engine version. The parameter group family names associated with the default parameter
-        /// groups provide you the valid values. For example, a valid family name is "redshift-1.0".
-        /// </para>
+        /// by your Amazon Web Services account, including the default parameter groups for each
+        /// Amazon Redshift engine version. The parameter group family names associated with the
+        /// default parameter groups provide you the valid values. For example, a valid family
+        /// name is "redshift-1.0". </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster parameter group.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique withing your AWS account.</para></li></ul><note><para>This value is stored as a lower-case string.</para></note>
+        /// <para>The name of the cluster parameter group.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique withing your Amazon Web Services account.</para></li></ul><note><para>This value is stored as a lower-case string.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

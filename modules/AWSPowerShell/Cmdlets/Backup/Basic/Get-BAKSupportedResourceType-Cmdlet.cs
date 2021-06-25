@@ -28,7 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns the AWS resource types supported by AWS Backup.
+    /// Returns the Amazon Web Services resource types supported by Backup.
     /// </summary>
     [Cmdlet("Get", "BAKSupportedResourceType")]
     [OutputType("System.String")]

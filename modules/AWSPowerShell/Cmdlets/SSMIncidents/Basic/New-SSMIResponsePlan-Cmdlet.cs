@@ -144,9 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentTemplate_NotificationTarget
         /// <summary>
         /// <para>
-        /// <para>The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an
-        /// incident. You can also make updates to the incident through the chat channel using
-        /// the SNS topics. </para>
+        /// <para>The SNS targets that are notified when updates are made to an incident.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

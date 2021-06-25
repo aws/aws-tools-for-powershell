@@ -51,6 +51,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter InstanceMetadataOptions_HttpPutResponseHopLimit
+        /// <summary>
+        /// <para>
+        /// <para>Limit the number of hops that an instance metadata request can traverse to reach its
+        /// destination.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? InstanceMetadataOptions_HttpPutResponseHopLimit { get; set; }
+        #endregion
+        
+        #region Parameter InstanceMetadataOptions_HttpToken
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether a signed token header is required for instance metadata retrieval
+        /// requests. The values affect the response as follows:</para><ul><li><para><b>required</b> – When you retrieve the IAM role credentials, version 2.0 credentials
+        /// are returned in all cases.</para></li><li><para><b>optional</b> – You can include a signed token header in your request to retrieve
+        /// instance metadata, or you can leave it out. If you include it, version 2.0 credentials
+        /// are returned for the IAM role. Otherwise, version 1.0 credentials are returned.</para></li></ul><para>The default setting is <b>optional</b>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceMetadataOptions_HttpTokens")]
+        public System.String InstanceMetadataOptions_HttpToken { get; set; }
+        #endregion
+        
         #region Parameter InfrastructureConfigurationArn
         /// <summary>
         /// <para>
@@ -72,7 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter InstanceProfileName
         /// <summary>
         /// <para>
-        /// <para>The instance profile to associate with the instance used to customize your EC2 AMI.</para>
+        /// <para>The instance profile to associate with the instance used to customize your Amazon
+        /// EC2 AMI.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter KeyPair
         /// <summary>
         /// <para>
-        /// <para>The key pair of the infrastructure configuration. This can be used to log on to and
+        /// <para>The key pair of the infrastructure configuration. You can use this to log on to and
         /// debug the instance used to create your image.</para>
         /// </para>
         /// </summary>
@@ -146,7 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The security group IDs to associate with the instance used to customize your EC2 AMI.</para>
+        /// <para>The security group IDs to associate with the instance used to customize your Amazon
+        /// EC2 AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The subnet ID to place the instance used to customize your EC2 AMI in.</para>
+        /// <para>The subnet ID to place the instance used to customize your Amazon EC2 AMI in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,6 +294,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 WriteWarning("You are passing $null as a value for parameter InfrastructureConfigurationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InstanceMetadataOptions_HttpPutResponseHopLimit = this.InstanceMetadataOptions_HttpPutResponseHopLimit;
+            context.InstanceMetadataOptions_HttpToken = this.InstanceMetadataOptions_HttpToken;
             context.InstanceProfileName = this.InstanceProfileName;
             #if MODULAR
             if (this.InstanceProfileName == null && ParameterWasBound(nameof(this.InstanceProfileName)))
@@ -322,6 +352,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.InfrastructureConfigurationArn != null)
             {
                 request.InfrastructureConfigurationArn = cmdletContext.InfrastructureConfigurationArn;
+            }
+            
+             // populate InstanceMetadataOptions
+            var requestInstanceMetadataOptionsIsNull = true;
+            request.InstanceMetadataOptions = new Amazon.Imagebuilder.Model.InstanceMetadataOptions();
+            System.Int32? requestInstanceMetadataOptions_instanceMetadataOptions_HttpPutResponseHopLimit = null;
+            if (cmdletContext.InstanceMetadataOptions_HttpPutResponseHopLimit != null)
+            {
+                requestInstanceMetadataOptions_instanceMetadataOptions_HttpPutResponseHopLimit = cmdletContext.InstanceMetadataOptions_HttpPutResponseHopLimit.Value;
+            }
+            if (requestInstanceMetadataOptions_instanceMetadataOptions_HttpPutResponseHopLimit != null)
+            {
+                request.InstanceMetadataOptions.HttpPutResponseHopLimit = requestInstanceMetadataOptions_instanceMetadataOptions_HttpPutResponseHopLimit.Value;
+                requestInstanceMetadataOptionsIsNull = false;
+            }
+            System.String requestInstanceMetadataOptions_instanceMetadataOptions_HttpToken = null;
+            if (cmdletContext.InstanceMetadataOptions_HttpToken != null)
+            {
+                requestInstanceMetadataOptions_instanceMetadataOptions_HttpToken = cmdletContext.InstanceMetadataOptions_HttpToken;
+            }
+            if (requestInstanceMetadataOptions_instanceMetadataOptions_HttpToken != null)
+            {
+                request.InstanceMetadataOptions.HttpTokens = requestInstanceMetadataOptions_instanceMetadataOptions_HttpToken;
+                requestInstanceMetadataOptionsIsNull = false;
+            }
+             // determine if request.InstanceMetadataOptions should be set to null
+            if (requestInstanceMetadataOptionsIsNull)
+            {
+                request.InstanceMetadataOptions = null;
             }
             if (cmdletContext.InstanceProfileName != null)
             {
@@ -463,6 +522,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String InfrastructureConfigurationArn { get; set; }
+            public System.Int32? InstanceMetadataOptions_HttpPutResponseHopLimit { get; set; }
+            public System.String InstanceMetadataOptions_HttpToken { get; set; }
             public System.String InstanceProfileName { get; set; }
             public List<System.String> InstanceType { get; set; }
             public System.String KeyPair { get; set; }

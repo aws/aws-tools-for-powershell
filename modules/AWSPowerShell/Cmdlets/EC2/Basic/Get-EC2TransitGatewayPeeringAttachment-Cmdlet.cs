@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>transit-gateway-attachment-id</code> - The ID of the transit gateway attachment.</para></li><li><para><code>local-owner-id</code> - The ID of your AWS account.</para></li><li><para><code>remote-owner-id</code> - The ID of the AWS account in the remote Region that
-        /// owns the transit gateway.</para></li><li><para><code>state</code> - The state of the peering attachment. Valid values are <code>available</code>
+        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>transit-gateway-attachment-id</code> - The ID of the transit gateway attachment.</para></li><li><para><code>local-owner-id</code> - The ID of your Amazon Web Services account.</para></li><li><para><code>remote-owner-id</code> - The ID of the Amazon Web Services account in the remote
+        /// Region that owns the transit gateway.</para></li><li><para><code>state</code> - The state of the peering attachment. Valid values are <code>available</code>
         /// | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>failing</code>
         /// | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code>
         /// | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the

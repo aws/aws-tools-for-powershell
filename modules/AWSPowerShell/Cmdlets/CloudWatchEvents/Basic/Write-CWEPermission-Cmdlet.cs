@@ -28,28 +28,30 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Running <code>PutPermission</code> permits the specified AWS account or AWS organization
-    /// to put events to the specified <i>event bus</i>. Amazon EventBridge (CloudWatch Events)
-    /// rules in your account are triggered by these events arriving to an event bus in your
-    /// account. 
+    /// Running <code>PutPermission</code> permits the specified Amazon Web Services account
+    /// or Amazon Web Services organization to put events to the specified <i>event bus</i>.
+    /// Amazon EventBridge (CloudWatch Events) rules in your account are triggered by these
+    /// events arriving to an event bus in your account. 
     /// 
     ///  
     /// <para>
     /// For another account to send events to your account, that external account must have
     /// an EventBridge rule with your account's event bus as a target.
     /// </para><para>
-    /// To enable multiple AWS accounts to put events to your event bus, run <code>PutPermission</code>
-    /// once for each of these accounts. Or, if all the accounts are members of the same AWS
-    /// organization, you can run <code>PutPermission</code> once specifying <code>Principal</code>
-    /// as "*" and specifying the AWS organization ID in <code>Condition</code>, to grant
-    /// permissions to all accounts in that organization.
+    /// To enable multiple Amazon Web Services accounts to put events to your event bus, run
+    /// <code>PutPermission</code> once for each of these accounts. Or, if all the accounts
+    /// are members of the same Amazon Web Services organization, you can run <code>PutPermission</code>
+    /// once specifying <code>Principal</code> as "*" and specifying the Amazon Web Services
+    /// organization ID in <code>Condition</code>, to grant permissions to all accounts in
+    /// that organization.
     /// </para><para>
     /// If you grant permissions using an organization, then accounts in that organization
     /// must specify a <code>RoleArn</code> with proper permissions when they use <code>PutTarget</code>
     /// to add your account's event bus as a target. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html">Sending
-    /// and Receiving Events Between AWS Accounts</a> in the <i>Amazon EventBridge User Guide</i>.
+    /// and Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge
+    /// User Guide</i>.
     /// </para><para>
-    /// The permission policy on the default event bus cannot exceed 10 KB in size.
+    /// The permission policy on the event bus cannot exceed 10 KB in size.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWEPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The action that you are enabling the other account to perform. Currently, this must
-        /// be <code>events:PutEvents</code>.</para>
+        /// <para>The action that you are enabling the other account to perform.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The 12-digit AWS account ID that you are permitting to put events to your default
-        /// event bus. Specify "*" to permit any account to put events to your default event bus.</para><para>If you specify "*" without specifying <code>Condition</code>, avoid creating rules
+        /// <para>The 12-digit Amazon Web Services account ID that you are permitting to put events
+        /// to your default event bus. Specify "*" to permit any account to put events to your
+        /// default event bus.</para><para>If you specify "*" without specifying <code>Condition</code>, avoid creating rules
         /// that may match undesirable events. To create more secure rules, make sure that the
         /// event pattern for each rule contains an <code>account</code> field with a specific
         /// account ID from which to receive events. Rules with an account field do not match
@@ -126,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <para>
         /// <para>An identifier string for the external account that you are granting permissions to.
         /// If you later want to revoke the permission for this external account, specify this
-        /// <code>StatementId</code> when you run <a>RemovePermission</a>.</para>
+        /// <code>StatementId</code> when you run <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html">RemovePermission</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

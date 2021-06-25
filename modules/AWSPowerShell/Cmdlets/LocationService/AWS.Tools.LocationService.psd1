@@ -87,6 +87,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-LOCResourceTagSet', 
+        'Edit-LOCGeofenceCollection', 
+        'Edit-LOCMap', 
+        'Edit-LOCPlaceIndex', 
+        'Edit-LOCRouteCalculator', 
+        'Edit-LOCTracker', 
         'Get-LOCDevicePosition', 
         'Get-LOCDevicePositionBatch', 
         'Get-LOCDevicePositionHistory', 

@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>If the value is true, the earliest log events are returned first. If the value is
-        /// false, the latest log events are returned first. The default value is false.</para><para>If you are using <code>nextToken</code> in this operation, you must specify <code>true</code>
-        /// for <code>startFromHead</code>.</para>
+        /// false, the latest log events are returned first. The default value is false.</para><para>If you are using a previous <code>nextForwardToken</code> value as the <code>nextToken</code>
+        /// in this operation, you must specify <code>true</code> for <code>startFromHead</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a previous
-        /// call.)</para><para>Using this token works only when you specify <code>true</code> for <code>startFromHead</code>.</para>
+        /// call.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

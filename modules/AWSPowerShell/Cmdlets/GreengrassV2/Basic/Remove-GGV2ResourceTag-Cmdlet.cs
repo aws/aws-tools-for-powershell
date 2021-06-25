@@ -28,7 +28,7 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Removes a tag from an AWS IoT Greengrass resource.
+    /// Removes a tag from an IoT Greengrass resource.
     /// </summary>
     [Cmdlet("Remove", "GGV2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

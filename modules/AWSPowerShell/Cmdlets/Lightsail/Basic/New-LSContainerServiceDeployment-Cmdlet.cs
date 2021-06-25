@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// You can deploy containers to your container service using container images from a
     /// public registry like Docker Hub, or from your local machine. For more information,
     /// see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images">Creating
-    /// container images for your Amazon Lightsail container services</a> in the <i>Lightsail
-    /// Dev Guide</i>.
+    /// container images for your Amazon Lightsail container services</a> in the <i>Amazon
+    /// Lightsail Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "LSContainerServiceDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -144,7 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The HTTP codes to use when checking for a successful response from a container. You
-        /// can specify values between 200 and 499.</para>
+        /// can specify values between <code>200</code> and <code>499</code>. You can specify
+        /// multiple values (for example, <code>200,202</code>) or a range of values (for example,
+        /// <code>200-299</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

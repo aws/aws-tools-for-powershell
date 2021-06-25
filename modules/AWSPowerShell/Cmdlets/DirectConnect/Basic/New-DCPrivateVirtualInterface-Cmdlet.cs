@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
     /// Creates a private virtual interface. A virtual interface is the VLAN that transports
-    /// AWS Direct Connect traffic. A private virtual interface can be connected to either
-    /// a Direct Connect gateway or a Virtual Private Gateway (VGW). Connecting the private
-    /// virtual interface to a Direct Connect gateway enables the possibility for connecting
-    /// to multiple VPCs, including VPCs in different AWS Regions. Connecting the private
-    /// virtual interface to a VGW only provides access to a single VPC within the same Region.
+    /// Direct Connect traffic. A private virtual interface can be connected to either a Direct
+    /// Connect gateway or a Virtual Private Gateway (VGW). Connecting the private virtual
+    /// interface to a Direct Connect gateway enables the possibility for connecting to multiple
+    /// VPCs, including VPCs in different Regions. Connecting the private virtual interface
+    /// to a VGW only provides access to a single VPC within the same Region.
     /// 
     ///  
     /// <para>

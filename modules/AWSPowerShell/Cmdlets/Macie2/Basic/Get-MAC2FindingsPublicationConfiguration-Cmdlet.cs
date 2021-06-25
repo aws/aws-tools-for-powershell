@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves the configuration settings for publishing findings to AWS Security Hub.
+    /// Retrieves the configuration settings for publishing findings to Security Hub.
     /// </summary>
     [Cmdlet("Get", "MAC2FindingsPublicationConfiguration")]
     [OutputType("Amazon.Macie2.Model.SecurityHubConfiguration")]

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
     /// Creates a snapshot copy grant that permits Amazon Redshift to use a customer master
-    /// key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in
-    /// a destination region.
+    /// key (CMK) from Key Management Service (KMS) to encrypt copied snapshots in a destination
+    /// region.
     /// 
     ///  
     /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The name of the snapshot copy grant. This name must be unique in the region for the
-        /// AWS account.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>Alphabetic characters must be lowercase.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique for all clusters within an AWS account.</para></li></ul>
+        /// Amazon Web Services account.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>Alphabetic characters must be lowercase.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique for all clusters within an Amazon Web Services account.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

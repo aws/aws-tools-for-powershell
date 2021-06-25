@@ -34,7 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// 
     ///  
     /// <para>
-    ///  To use this implementation of the operation, you must be the bucket owner.
+    /// To use this implementation of the operation, you must be the bucket owner.
+    /// </para><para>
+    /// To use this API against an access point, provide the alias of the access point in
+    /// place of the bucket name.
     /// </para><para>
     /// The following operations are related to <code>GetBucketLocation</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li></ul>

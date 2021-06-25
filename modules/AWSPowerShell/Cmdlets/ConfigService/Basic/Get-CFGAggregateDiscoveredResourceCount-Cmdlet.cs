@@ -28,8 +28,8 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns the resource counts across accounts and regions that are present in your AWS
-    /// Config aggregator. You can request the resource counts by providing filters and GroupByKey.
+    /// Returns the resource counts across accounts and regions that are present in your Config
+    /// aggregator. You can request the resource counts by providing filters and GroupByKey.
     /// 
     ///  
     /// <para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the AWS resource.</para>
+        /// <para>The type of the Amazon Web Services resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The maximum number of <a>GroupedResourceCount</a> objects returned on each page. The
         /// default is 1000. You cannot specify a number greater than 1000. If you specify 0,
-        /// AWS Config uses the default.</para>
+        /// Config uses the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -61,10 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>An array of up to three Git repositories to associate with the notebook instance.
         /// These can be either the names of Git repositories stored as resources in your account,
-        /// or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS
-        /// CodeCommit</a> or in any other Git repository. These repositories are cloned at the
-        /// same level as the default repository of your notebook instance. For more information,
-        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
+        /// or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon
+        /// Web Services CodeCommit</a> or in any other Git repository. These repositories are
+        /// cloned at the same level as the default repository of your notebook instance. For
+        /// more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
         /// Git Repositories with Amazon SageMaker Notebook Instances</a>.</para>
         /// </para>
         /// </summary>
@@ -78,10 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The Git repository to associate with the notebook instance as its default code repository.
         /// This can be either the name of a Git repository stored as a resource in your account,
-        /// or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS
-        /// CodeCommit</a> or in any other Git repository. When you open a notebook instance,
-        /// it opens in the directory that contains this repository. For more information, see
-        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
+        /// or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon
+        /// Web Services CodeCommit</a> or in any other Git repository. When you open a notebook
+        /// instance, it opens in the directory that contains this repository. For more information,
+        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
         /// Git Repositories with Amazon SageMaker Notebook Instances</a>.</para>
         /// </para>
         /// </summary>

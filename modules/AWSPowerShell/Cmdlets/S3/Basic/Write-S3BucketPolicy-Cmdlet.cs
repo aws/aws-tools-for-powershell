@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity
-    /// other than the root user of the AWS account that owns the bucket, the calling identity
-    /// must have the <code>PutBucketPolicy</code> permissions on the specified bucket and
-    /// belong to the bucket owner's account in order to use this operation.
+    /// other than the root user of the Amazon Web Services account that owns the bucket,
+    /// the calling identity must have the <code>PutBucketPolicy</code> permissions on the
+    /// specified bucket and belong to the bucket owner's account in order to use this operation.
     /// 
     ///  
     /// <para>
@@ -40,12 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405
     /// Method Not Allowed</code> error.
     /// </para><important><para>
-    ///  As a security precaution, the root user of the AWS account that owns a bucket can
-    /// always use this operation, even if the policy explicitly denies the root user the
-    /// ability to perform this action. 
+    ///  As a security precaution, the root user of the Amazon Web Services account that owns
+    /// a bucket can always use this operation, even if the policy explicitly denies the root
+    /// user the ability to perform this action. 
     /// </para></important><para>
-    /// For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using
-    /// Bucket Policies and User Policies</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html">Bucket
+    /// policy examples</a>.
     /// </para><para>
     /// The following operations are related to <code>PutBucketPolicy</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></para></li></ul>
@@ -84,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentMD5
         /// <summary>
         /// <para>
-        /// The base64 encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. 
+        /// <para>The MD5 hash of the request body.</para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
+        /// Web Services SDKs, this field is calculated automatically.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

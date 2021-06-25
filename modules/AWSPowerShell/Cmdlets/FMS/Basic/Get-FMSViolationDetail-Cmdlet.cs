@@ -28,8 +28,8 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Retrieves violations for a resource based on the specified AWS Firewall Manager policy
-    /// and AWS account.
+    /// Retrieves violations for a resource based on the specified Firewall Manager policy
+    /// and Amazon Web Services account.
     /// </summary>
     [Cmdlet("Get", "FMSViolationDetail")]
     [OutputType("Amazon.FMS.Model.ViolationDetail")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter MemberAccount
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID that you want the details for.</para>
+        /// <para>The Amazon Web Services account ID that you want the details for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter PolicyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Firewall Manager policy that you want the details for. This currently
+        /// <para>The ID of the Firewall Manager policy that you want the details for. This currently
         /// only supports security group content audit policies.</para>
         /// </para>
         /// </summary>
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS
-        /// Resource Types Reference</a>. Supported resource types are: <code>AWS::EC2::Instance</code>,
+        /// <para>The resource type. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon
+        /// Web Services Resource Types Reference</a>. Supported resource types are: <code>AWS::EC2::Instance</code>,
         /// <code>AWS::EC2::NetworkInterface</code>, <code>AWS::EC2::SecurityGroup</code>, <code>AWS::NetworkFirewall::FirewallPolicy</code>,
         /// and <code>AWS::EC2::Subnet</code>. </para>
         /// </para>

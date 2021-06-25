@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Specifies the backup option for a selected resource. This option is only available
-        /// for Windows VSS backup jobs.</para><para>Valid values: Set to <code>"WindowsVSS”:“enabled"</code> to enable WindowsVSS backup
-        /// option and create a VSS Windows backup. Set to “WindowsVSS”:”disabled” to create a
-        /// regular backup. The WindowsVSS option is not enabled by default.</para>
+        /// for Windows Volume Shadow Copy Service (VSS) backup jobs.</para><para>Valid values: Set to <code>"WindowsVSS":"enabled"</code> to enable the <code>WindowsVSS</code>
+        /// backup option and create a Windows VSS backup. Set to <code>"WindowsVSS""disabled"</code>
+        /// to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The name of a logical container where backups are stored. Backup vaults are identified
-        /// by names that are unique to the account used to create them and the AWS Region where
-        /// they are created. They consist of lowercase letters, numbers, and hyphens.</para>
+        /// by names that are unique to the account used to create them and the Amazon Web Services
+        /// Region where they are created. They consist of lowercase letters, numbers, and hyphens.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>A customer chosen string that can be used to distinguish between calls to <code>StartBackupJob</code>.</para>
+        /// <para>A customer-chosen string that you can use to distinguish between otherwise identical
+        /// calls to <code>StartBackupJob</code>. Retrying a successful request with the same
+        /// idempotency token results in a success message with no action taken.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

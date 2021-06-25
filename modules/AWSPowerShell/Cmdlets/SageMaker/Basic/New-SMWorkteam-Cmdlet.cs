@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NotificationConfiguration_NotificationTopicArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the SNS topic to which notifications should be published.</para>
+        /// <para>The ARN for the Amazon SNS topic to which notifications should be published.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>An array of key-value pairs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html">Resource
         /// Tag</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-        /// Cost Allocation Tags</a> in the <i> AWS Billing and Cost Management User Guide</i>.</para>
+        /// Cost Allocation Tags</a> in the <i> Amazon Web Services Billing and Cost Management
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

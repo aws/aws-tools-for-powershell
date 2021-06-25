@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class GetCOMPDocumentClassifierListCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        #region Parameter Filter_DocumentClassifierName
+        /// <summary>
+        /// <para>
+        /// <para>The name that you assigned to the document classifier</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filter_DocumentClassifierName { get; set; }
+        #endregion
+        
         #region Parameter Filter_Status
         /// <summary>
         /// <para>
@@ -141,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 context.Select = CreateSelectDelegate<Amazon.Comprehend.Model.ListDocumentClassifiersResponse, GetCOMPDocumentClassifierListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Filter_DocumentClassifierName = this.Filter_DocumentClassifierName;
             context.Filter_Status = this.Filter_Status;
             context.Filter_SubmitTimeAfter = this.Filter_SubmitTimeAfter;
             context.Filter_SubmitTimeBefore = this.Filter_SubmitTimeBefore;
@@ -185,6 +196,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.Comprehend.Model.DocumentClassifierFilter();
+            System.String requestFilter_filter_DocumentClassifierName = null;
+            if (cmdletContext.Filter_DocumentClassifierName != null)
+            {
+                requestFilter_filter_DocumentClassifierName = cmdletContext.Filter_DocumentClassifierName;
+            }
+            if (requestFilter_filter_DocumentClassifierName != null)
+            {
+                request.Filter.DocumentClassifierName = requestFilter_filter_DocumentClassifierName;
+                requestFilterIsNull = false;
+            }
             Amazon.Comprehend.ModelStatus requestFilter_filter_Status = null;
             if (cmdletContext.Filter_Status != null)
             {
@@ -283,6 +304,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.Comprehend.Model.DocumentClassifierFilter();
+            System.String requestFilter_filter_DocumentClassifierName = null;
+            if (cmdletContext.Filter_DocumentClassifierName != null)
+            {
+                requestFilter_filter_DocumentClassifierName = cmdletContext.Filter_DocumentClassifierName;
+            }
+            if (requestFilter_filter_DocumentClassifierName != null)
+            {
+                request.Filter.DocumentClassifierName = requestFilter_filter_DocumentClassifierName;
+                requestFilterIsNull = false;
+            }
             Amazon.Comprehend.ModelStatus requestFilter_filter_Status = null;
             if (cmdletContext.Filter_Status != null)
             {
@@ -441,6 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Filter_DocumentClassifierName { get; set; }
             public Amazon.Comprehend.ModelStatus Filter_Status { get; set; }
             public System.DateTime? Filter_SubmitTimeAfter { get; set; }
             public System.DateTime? Filter_SubmitTimeBefore { get; set; }

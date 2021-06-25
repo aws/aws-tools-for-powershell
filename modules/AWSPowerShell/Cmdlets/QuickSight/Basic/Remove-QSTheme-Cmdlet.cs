@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that contains the theme that you're deleting.</para>
+        /// <para>The ID of the Amazon Web Services account that contains the theme that you're deleting.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

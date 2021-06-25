@@ -28,9 +28,9 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Specifies an AWS account that you want to share a query logging configuration with,
-    /// the query logging configuration that you want to share, and the operations that you
-    /// want the account to be able to perform on the configuration.
+    /// Specifies an Amazon Web Services account that you want to share a query logging configuration
+    /// with, the query logging configuration that you want to share, and the operations that
+    /// you want the account to be able to perform on the configuration.
     /// </summary>
     [Cmdlet("Write", "R53RResolverQueryLogConfigPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResolverQueryLogConfigPolicy
         /// <summary>
         /// <para>
-        /// <para>An AWS Identity and Access Management policy statement that lists the query logging
-        /// configurations that you want to share with another AWS account and the operations
+        /// <para>An Identity and Access Management policy statement that lists the query logging configurations
+        /// that you want to share with another Amazon Web Services account and the operations
         /// that you want the account to be able to perform. You can specify the following operations
         /// in the <code>Actions</code> section of the statement:</para><ul><li><para><code>route53resolver:AssociateResolverQueryLogConfig</code></para></li><li><para><code>route53resolver:DisassociateResolverQueryLogConfig</code></para></li><li><para><code>route53resolver:ListResolverQueryLogConfigAssociations</code></para></li><li><para><code>route53resolver:ListResolverQueryLogConfigs</code></para></li></ul><para>In the <code>Resource</code> section of the statement, you specify the ARNs for the
         /// query logging configurations that you want to share with the account that you specified

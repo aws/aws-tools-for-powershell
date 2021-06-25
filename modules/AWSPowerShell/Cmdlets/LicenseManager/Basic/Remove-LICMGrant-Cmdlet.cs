@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter StatusReason
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Status reason for the delete request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

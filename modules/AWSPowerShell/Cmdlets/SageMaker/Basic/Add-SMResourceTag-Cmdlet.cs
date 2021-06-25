@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     ///  
     /// <para>
     /// Each tag consists of a key and an optional value. Tag keys must be unique per resource.
-    /// For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
-    /// Tagging Strategies</a>.
+    /// For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Amazon
+    /// Web Services Tagging Strategies</a>.
     /// </para><note><para>
     /// Tags that you add to a hyperparameter tuning job by calling this API are also added
     /// to any training jobs that the hyperparameter tuning job launches after you call this
@@ -84,10 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
-        /// different ways, for example, by purpose, owner, or environment. For more information,
-        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS Resources</a>.</para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+        /// resources in different ways, for example, by purpose, owner, or environment. For more
+        /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services Resources</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

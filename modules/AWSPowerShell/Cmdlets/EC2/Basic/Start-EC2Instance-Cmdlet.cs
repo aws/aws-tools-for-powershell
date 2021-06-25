@@ -36,18 +36,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// and started. When an instance is stopped, the compute resources are released and you
     /// are not billed for instance usage. However, your root partition Amazon EBS volume
     /// remains and continues to persist your data, and you are charged for Amazon EBS volume
-    /// usage. You can restart your instance at any time. Every time you start your Windows
-    /// instance, Amazon EC2 charges you for a full instance hour. If you stop and restart
-    /// your Windows instance, a new instance hour begins and Amazon EC2 charges you for another
-    /// full instance hour even if you are still within the same 60-minute period when it
-    /// was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute
-    /// minimum for instance usage, and thereafter charges per second for instance usage.
+    /// usage. You can restart your instance at any time. Every time you start your instance,
+    /// Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges
+    /// per second for instance usage.
     /// </para><para>
     /// Before stopping an instance, make sure it is in a state from which it can be restarted.
     /// Stopping an instance does not preserve data stored in RAM.
     /// </para><para>
     /// Performing this operation on an instance that uses an instance store as its root device
     /// returns an error.
+    /// </para><para>
+    /// If you attempt to start a T3 instance with <code>host</code> tenancy and the <code>unlimted</code>
+    /// CPU credit option, the request fails. The <code>unlimited</code> CPU credit option
+    /// is not supported on Dedicated Hosts. Before you start the instance, either change
+    /// its CPU credit option to <code>standard</code>, or change its tenancy to <code>default</code>
+    /// or <code>dedicated</code>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping
     /// instances</a> in the <i>Amazon EC2 User Guide</i>.

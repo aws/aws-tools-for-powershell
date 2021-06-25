@@ -55,6 +55,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAssociatedResource" OutputProperty="Resource" Verb="Get" Noun="AssociatedResource" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAttributeGroup" OutputProperty="*" Verb="Get" Noun="AttributeGroup" PipelineParameter="AttributeGroup" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -28,8 +28,8 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns compliance details of a conformance pack for all AWS resources that are monitered
-    /// by conformance pack.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns compliance details of a conformance pack for all Amazon Web Services resources
+    /// that are monitered by conformance pack.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGConformancePackComplianceDetail")]
     [OutputType("Amazon.ConfigService.Model.ConformancePackEvaluationResult")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>Filters the results by AWS Config rule names.</para>
+        /// <para>Filters the results by Config rule names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of evaluation results returned on each page. If you do no specify
-        /// a number, AWS Config uses the default. The default is 100.</para>
+        /// a number, Config uses the default. The default is 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

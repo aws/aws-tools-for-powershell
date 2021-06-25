@@ -108,6 +108,13 @@ $COMP_Completers = {
             break
         }
 
+        # Amazon.Comprehend.InputFormat
+        "New-COMPEntityRecognizer/InputDataConfig_Documents_InputFormat"
+        {
+            $v = "ONE_DOC_PER_FILE","ONE_DOC_PER_LINE"
+            break
+        }
+
         # Amazon.Comprehend.JobStatus
         {
             ($_ -eq "Get-COMPDocumentClassificationJobList/Filter_JobStatus") -Or
@@ -187,6 +194,7 @@ $COMP_map = @{
     "Filter_JobStatus"=@("Get-COMPDocumentClassificationJobList","Get-COMPEventsDetectionJobList")
     "Filter_Status"=@("Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList")
     "InputDataConfig_DataFormat"=@("New-COMPDocumentClassifier","New-COMPEntityRecognizer")
+    "InputDataConfig_Documents_InputFormat"=@("New-COMPEntityRecognizer")
     "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob")
     "Mode"=@("New-COMPDocumentClassifier","Start-COMPPiiEntitiesDetectionJob")
     "RedactionConfig_MaskMode"=@("Start-COMPPiiEntitiesDetectionJob")
@@ -274,10 +282,12 @@ $COMP_SelectMap = @{
                "Find-COMPSyntax",
                "Get-COMPDocumentClassificationJobList",
                "Get-COMPDocumentClassifierList",
+               "Get-COMPDocumentClassifierSummaryList",
                "Get-COMPDominantLanguageDetectionJobList",
                "Get-COMPEndpointList",
                "Get-COMPEntitiesDetectionJobList",
                "Get-COMPEntityRecognizerList",
+               "Get-COMPEntityRecognizerSummaryList",
                "Get-COMPEventsDetectionJobList",
                "Get-COMPKeyPhrasesDetectionJobList",
                "Get-COMPPiiEntitiesDetectionJobList",

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Requests a transit gateway peering attachment between the specified transit gateway
     /// (requester) and a peer transit gateway (accepter). The transit gateways must be in
     /// different Regions. The peer transit gateway can be in your account or a different
-    /// AWS account. 
+    /// Amazon Web Services account.
     /// 
     ///  
     /// <para>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PeerAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the owner of the peer transit gateway.</para>
+        /// <para>The ID of the Amazon Web Services account that owns the peer transit gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

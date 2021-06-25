@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The AWS Batch job ID of the job to terminate.</para>
+        /// <para>The Batch job ID of the job to terminate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>A message to attach to the job that explains the reason for canceling it. This message
         /// is returned by future <a>DescribeJobs</a> operations on the job. This message is also
-        /// recorded in the AWS Batch activity logs.</para>
+        /// recorded in the Batch activity logs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

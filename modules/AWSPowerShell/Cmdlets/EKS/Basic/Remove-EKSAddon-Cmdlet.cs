@@ -80,6 +80,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String ClusterName { get; set; }
         #endregion
         
+        #region Parameter Preserve
+        /// <summary>
+        /// <para>
+        /// <para>Specifying this option preserves the add-on software on your cluster but Amazon EKS
+        /// stops managing any settings for the add-on. If an IAM account is associated with the
+        /// add-on, it is not removed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Preserve { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Addon'.
@@ -155,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Preserve = this.Preserve;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -178,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
+            }
+            if (cmdletContext.Preserve != null)
+            {
+                request.Preserve = cmdletContext.Preserve.Value;
             }
             
             CmdletOutput output;
@@ -242,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         {
             public System.String AddonName { get; set; }
             public System.String ClusterName { get; set; }
+            public System.Boolean? Preserve { get; set; }
             public System.Func<Amazon.EKS.Model.DeleteAddonResponse, RemoveEKSAddonCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Addon;
         }

@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set that you want to use when sending the email.</para>
+        /// <para>The name of the configuration set to use when sending the email.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter FromEmailAddress
         /// <summary>
         /// <para>
-        /// <para>The email address that you want to use as the "From" address for the email. The address
-        /// that you specify has to be verified.</para>
+        /// <para>The email address to use as the "From" address for the email. The address that you
+        /// specify has to be verified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

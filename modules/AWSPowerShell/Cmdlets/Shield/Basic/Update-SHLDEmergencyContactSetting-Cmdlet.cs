@@ -28,9 +28,9 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Updates the details of the list of email addresses and phone numbers that the DDoS
-    /// Response Team (DRT) can use to contact you if you have proactive engagement enabled,
-    /// for escalations to the DRT and to initiate proactive customer support.
+    /// Updates the details of the list of email addresses and phone numbers that the Shield
+    /// Response Team (SRT) can use to contact you if you have proactive engagement enabled,
+    /// for escalations to the SRT and to initiate proactive customer support.
     /// </summary>
     [Cmdlet("Update", "SHLDEmergencyContactSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter EmergencyContactList
         /// <summary>
         /// <para>
-        /// <para>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can
+        /// <para>A list of email addresses and phone numbers that the Shield Response Team (SRT) can
         /// use to contact you if you have proactive engagement enabled, for escalations to the
-        /// DRT and to initiate proactive customer support.</para><para>If you have proactive engagement enabled, the contact list must include at least one
+        /// SRT and to initiate proactive customer support.</para><para>If you have proactive engagement enabled, the contact list must include at least one
         /// phone number.</para>
         /// </para>
         /// </summary>

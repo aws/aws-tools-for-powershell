@@ -28,13 +28,13 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Creates a portal, which can contain projects and dashboards. AWS IoT SiteWise Monitor
-    /// uses AWS SSO or IAM to authenticate portal users and manage user permissions.
+    /// Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor
+    /// uses Amazon Web Services SSO or IAM to authenticate portal users and manage user permissions.
     /// 
     ///  <note><para>
     /// Before you can sign in to a new portal, you must add at least one identity to that
     /// portal. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins">Adding
-    /// or removing portal administrators</a> in the <i>AWS IoT SiteWise User Guide</i>.
+    /// or removing portal administrators</a> in the <i>IoT SiteWise User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "IOTSWPortal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
-        /// of the IAM role that allows the alarm to perform actions and access AWS resources,
-        /// including AWS IoT Events.</para>
+        /// of the IAM role that allows the alarm to perform actions and access Amazon Web Services
+        /// resources and services, such as IoT Events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
-        /// of the AWS Lambda function that manages alarm notifications. For more information,
-        /// see <a href="https://docs.aws.amazon.com/">Managing alarm notifications</a> in the
-        /// <i>AWS IoT Events Developer Guide</i>.</para>
+        /// of the Lambda function that manages alarm notifications. For more information, see
+        /// <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html">Managing
+        /// alarm notifications</a> in the <i>IoT Events Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter NotificationSenderEmail
         /// <summary>
         /// <para>
-        /// <para>The email address that sends alarm notifications.</para><important><para>If you use the AWS IoT Events managed AWS Lambda function to manage your emails, you
-        /// must <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">verify
+        /// <para>The email address that sends alarm notifications.</para><important><para>If you use the <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html">IoT
+        /// Events managed Lambda function</a> to manage your emails, you must <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">verify
         /// the sender email address in Amazon SES</a>.</para></important>
         /// </para>
         /// </summary>
@@ -100,11 +100,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The service to use to authenticate users to the portal. Choose from the following
-        /// options:</para><ul><li><para><code>SSO</code> – The portal uses AWS Single Sign-On to authenticate users and manage
-        /// user permissions. Before you can create a portal that uses AWS SSO, you must enable
-        /// AWS SSO. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling
-        /// AWS SSO</a> in the <i>AWS IoT SiteWise User Guide</i>. This option is only available
-        /// in AWS Regions other than the China Regions.</para></li><li><para><code>IAM</code> – The portal uses AWS Identity and Access Management (IAM) to authenticate
+        /// options:</para><ul><li><para><code>SSO</code> – The portal uses Amazon Web Services Single Sign On to authenticate
+        /// users and manage user permissions. Before you can create a portal that uses Amazon
+        /// Web Services SSO, you must enable Amazon Web Services SSO. For more information, see
+        /// <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling
+        /// Amazon Web Services SSO</a> in the <i>IoT SiteWise User Guide</i>. This option is
+        /// only available in Amazon Web Services Regions other than the China Regions.</para></li><li><para><code>IAM</code> – The portal uses Identity and Access Management to authenticate
         /// users and manage user permissions. This option is only available in the China Regions.</para></li></ul><para>You can't change this value after you create a portal.</para><para>Default: <code>SSO</code></para>
         /// </para>
         /// </summary>
@@ -116,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter PortalContactEmail
         /// <summary>
         /// <para>
-        /// <para>The AWS administrator's contact email address.</para>
+        /// <para>The Amazon Web Services administrator's contact email address.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
-        /// of a service role that allows the portal's users to access your AWS IoT SiteWise resources
+        /// of a service role that allows the portal's users to access your IoT SiteWise resources
         /// on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using
-        /// service roles for AWS IoT SiteWise Monitor</a> in the <i>AWS IoT SiteWise User Guide</i>.</para>
+        /// service roles for IoT SiteWise Monitor</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -182,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>
         /// <para>A list of key-value pairs that contain metadata for the portal. For more information,
         /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging
-        /// your AWS IoT SiteWise resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</para>
+        /// your IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

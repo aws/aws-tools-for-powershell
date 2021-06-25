@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the
-    /// underlying transport mechanism. 
+    /// A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect attachment
+    /// as the underlying transport mechanism.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2TransitGatewayConnect", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TransportTransitGatewayAttachmentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the transit gateway attachment. You can specify a VPC attachment or a AWS
-        /// Direct Connect attachment.</para>
+        /// <para>The ID of the transit gateway attachment. You can specify a VPC attachment or Amazon
+        /// Web Services Direct Connect attachment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

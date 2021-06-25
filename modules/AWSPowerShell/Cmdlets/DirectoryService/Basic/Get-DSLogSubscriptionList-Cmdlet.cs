@@ -28,7 +28,7 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Lists the active log subscriptions for the AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the active log subscriptions for the Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DSLogSubscriptionList")]
     [OutputType("Amazon.DirectoryService.Model.LogSubscription")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <para>
         /// <para>If a <i>DirectoryID</i> is provided, lists only the log subscription associated with
         /// that directory. If no <i>DirectoryId</i> is provided, lists all log subscriptions
-        /// associated with your AWS account. If there are no log subscriptions for the AWS account
-        /// or the directory, an empty list will be returned.</para>
+        /// associated with your Amazon Web Services account. If there are no log subscriptions
+        /// for the Amazon Web Services account or the directory, an empty list will be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

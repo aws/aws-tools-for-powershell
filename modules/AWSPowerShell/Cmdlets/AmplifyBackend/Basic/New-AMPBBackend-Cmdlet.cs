@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter ResourceConfig
         /// <summary>
         /// <para>
-        /// <para>The resource configuration for the backend creation request.</para>
+        /// <para>The resource configuration for the create backend request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

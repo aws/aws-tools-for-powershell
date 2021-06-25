@@ -106,7 +106,7 @@ $ASYN_Completers = {
             ($_ -eq "Update-ASYNGraphqlApi/AuthenticationType")
         }
         {
-            $v = "AMAZON_COGNITO_USER_POOLS","API_KEY","AWS_IAM","OPENID_CONNECT"
+            $v = "AMAZON_COGNITO_USER_POOLS","API_KEY","AWS_IAM","AWS_LAMBDA","OPENID_CONNECT"
             break
         }
 
@@ -140,7 +140,7 @@ $ASYN_Completers = {
             ($_ -eq "Update-ASYNDataSource/Type")
         }
         {
-            $v = "AMAZON_DYNAMODB","AMAZON_ELASTICSEARCH","AWS_LAMBDA","HTTP","NONE","RELATIONAL_DATABASE"
+            $v = "AMAZON_DYNAMODB","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH_SERVICE","AWS_LAMBDA","HTTP","NONE","RELATIONAL_DATABASE"
             break
         }
 

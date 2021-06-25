@@ -114,6 +114,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter OwnershipVerificationCertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the public certificate issued by ACM to validate ownership of your custom
+        /// domain. Only required when configuring mutual TLS and using an ACM imported or private
+        /// CA certificate ARN as the regionalCertificateArn.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OwnershipVerificationCertificateArn { get; set; }
+        #endregion
+        
         #region Parameter RegionalCertificateArn
         /// <summary>
         /// <para>
@@ -295,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             }
             context.MutualTlsAuthentication_TruststoreUri = this.MutualTlsAuthentication_TruststoreUri;
             context.MutualTlsAuthentication_TruststoreVersion = this.MutualTlsAuthentication_TruststoreVersion;
+            context.OwnershipVerificationCertificateArn = this.OwnershipVerificationCertificateArn;
             context.RegionalCertificateArn = this.RegionalCertificateArn;
             context.RegionalCertificateName = this.RegionalCertificateName;
             context.SecurityPolicy = this.SecurityPolicy;
@@ -404,6 +417,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             {
                 request.MutualTlsAuthentication = null;
             }
+            if (cmdletContext.OwnershipVerificationCertificateArn != null)
+            {
+                request.OwnershipVerificationCertificateArn = cmdletContext.OwnershipVerificationCertificateArn;
+            }
             if (cmdletContext.RegionalCertificateArn != null)
             {
                 request.RegionalCertificateArn = cmdletContext.RegionalCertificateArn;
@@ -491,6 +508,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public List<System.String> EndpointConfiguration_VpcEndpointId { get; set; }
             public System.String MutualTlsAuthentication_TruststoreUri { get; set; }
             public System.String MutualTlsAuthentication_TruststoreVersion { get; set; }
+            public System.String OwnershipVerificationCertificateArn { get; set; }
             public System.String RegionalCertificateArn { get; set; }
             public System.String RegionalCertificateName { get; set; }
             public Amazon.APIGateway.SecurityPolicy SecurityPolicy { get; set; }

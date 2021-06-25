@@ -28,7 +28,13 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Provides details about a dimension that is defined in your AWS account.
+    /// Provides details about a dimension that is defined in your Amazon Web Services accounts.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDimension</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTDimension")]
     [OutputType("Amazon.IoT.Model.DescribeDimensionResponse")]

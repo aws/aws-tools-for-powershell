@@ -28,7 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Unassigns one or more IPv6 addresses from a network interface.
+    /// Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a network
+    /// interface.
     /// </summary>
     [Cmdlet("Unregister", "EC2Ipv6AddressList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.UnassignIpv6AddressesResponse")]
@@ -45,16 +46,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The IPv6 addresses to unassign from the network interface.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Ipv6Addresses")]
         public System.String[] Ipv6Address { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6Prefix
+        /// <summary>
+        /// <para>
+        /// <para>One or more IPv6 prefixes to unassign from the network interface.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Ipv6Prefixes")]
+        public System.String[] Ipv6Prefix { get; set; }
         #endregion
         
         #region Parameter NetworkInterfaceId
@@ -139,12 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Ipv6Address = new List<System.String>(this.Ipv6Address);
             }
-            #if MODULAR
-            if (this.Ipv6Address == null && ParameterWasBound(nameof(this.Ipv6Address)))
+            if (this.Ipv6Prefix != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Ipv6Address which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Ipv6Prefix = new List<System.String>(this.Ipv6Prefix);
             }
-            #endif
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             #if MODULAR
             if (this.NetworkInterfaceId == null && ParameterWasBound(nameof(this.NetworkInterfaceId)))
@@ -171,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Ipv6Address != null)
             {
                 request.Ipv6Addresses = cmdletContext.Ipv6Address;
+            }
+            if (cmdletContext.Ipv6Prefix != null)
+            {
+                request.Ipv6Prefixes = cmdletContext.Ipv6Prefix;
             }
             if (cmdletContext.NetworkInterfaceId != null)
             {
@@ -238,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Ipv6Address { get; set; }
+            public List<System.String> Ipv6Prefix { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public System.Func<Amazon.EC2.Model.UnassignIpv6AddressesResponse, UnregisterEC2Ipv6AddressListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

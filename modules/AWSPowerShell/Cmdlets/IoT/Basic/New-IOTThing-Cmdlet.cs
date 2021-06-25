@@ -36,7 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     ///  <note><para>
     /// This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a>
     /// for information about authorizing control plane actions.
-    /// </para></note>
+    /// </para></note><para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThing</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IOTThing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.CreateThingResponse")]

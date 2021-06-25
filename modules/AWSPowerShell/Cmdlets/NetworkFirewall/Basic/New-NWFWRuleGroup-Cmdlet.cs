@@ -170,6 +170,21 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.String RuleGroupName { get; set; }
         #endregion
         
+        #region Parameter StatefulRuleOptions_RuleOrder
+        /// <summary>
+        /// <para>
+        /// <para>Indicates how to manage the order of the rule evaluation for the rule group. By default,
+        /// Network Firewall leaves the rule evaluation order up to the Suricata rule processing
+        /// engine. If you set this to <code>STRICT_ORDER</code>, your rules are evaluated in
+        /// the exact order that they're listed in your Suricata rules string. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RuleGroup_StatefulRuleOptions_RuleOrder")]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.RuleOrder")]
+        public Amazon.NetworkFirewall.RuleOrder StatefulRuleOptions_RuleOrder { get; set; }
+        #endregion
+        
         #region Parameter Rule
         /// <summary>
         /// <para>
@@ -203,8 +218,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter RulesSource_StatefulRule
         /// <summary>
         /// <para>
-        /// <para>The 5-tuple stateful inspection criteria. This contains an array of individual 5-tuple
-        /// stateful rules to be used together in a stateful rule group. </para>
+        /// <para>An array of individual stateful rules inspection criteria to be used together in a
+        /// stateful rule group. Use this option to specify simple Suricata rules with protocol,
+        /// source and destination, ports, direction, and rule options. For information about
+        /// the Suricata <code>Rules</code> format, see <a href="https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html#">Rules
+        /// Format</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>The protocols you want to inspect. Specify <code>TLS_SNI</code> for <code>HTTPS</code>.
-        /// Specity <code>HTTP_HOST</code> for <code>HTTP</code>. You can specify either or both.
+        /// Specify <code>HTTP_HOST</code> for <code>HTTP</code>. You can specify either or both.
         /// </para>
         /// </para>
         /// </summary>
@@ -389,6 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                     context.RuleVariables_PortSet.Add((String)hashKey, (PortSet)(this.RuleVariables_PortSet[hashKey]));
                 }
             }
+            context.StatefulRuleOptions_RuleOrder = this.StatefulRuleOptions_RuleOrder;
             context.RuleGroupName = this.RuleGroupName;
             #if MODULAR
             if (this.RuleGroupName == null && ParameterWasBound(nameof(this.RuleGroupName)))
@@ -440,6 +459,31 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
              // populate RuleGroup
             var requestRuleGroupIsNull = true;
             request.RuleGroup = new Amazon.NetworkFirewall.Model.RuleGroup();
+            Amazon.NetworkFirewall.Model.StatefulRuleOptions requestRuleGroup_ruleGroup_StatefulRuleOptions = null;
+            
+             // populate StatefulRuleOptions
+            var requestRuleGroup_ruleGroup_StatefulRuleOptionsIsNull = true;
+            requestRuleGroup_ruleGroup_StatefulRuleOptions = new Amazon.NetworkFirewall.Model.StatefulRuleOptions();
+            Amazon.NetworkFirewall.RuleOrder requestRuleGroup_ruleGroup_StatefulRuleOptions_statefulRuleOptions_RuleOrder = null;
+            if (cmdletContext.StatefulRuleOptions_RuleOrder != null)
+            {
+                requestRuleGroup_ruleGroup_StatefulRuleOptions_statefulRuleOptions_RuleOrder = cmdletContext.StatefulRuleOptions_RuleOrder;
+            }
+            if (requestRuleGroup_ruleGroup_StatefulRuleOptions_statefulRuleOptions_RuleOrder != null)
+            {
+                requestRuleGroup_ruleGroup_StatefulRuleOptions.RuleOrder = requestRuleGroup_ruleGroup_StatefulRuleOptions_statefulRuleOptions_RuleOrder;
+                requestRuleGroup_ruleGroup_StatefulRuleOptionsIsNull = false;
+            }
+             // determine if requestRuleGroup_ruleGroup_StatefulRuleOptions should be set to null
+            if (requestRuleGroup_ruleGroup_StatefulRuleOptionsIsNull)
+            {
+                requestRuleGroup_ruleGroup_StatefulRuleOptions = null;
+            }
+            if (requestRuleGroup_ruleGroup_StatefulRuleOptions != null)
+            {
+                request.RuleGroup.StatefulRuleOptions = requestRuleGroup_ruleGroup_StatefulRuleOptions;
+                requestRuleGroupIsNull = false;
+            }
             Amazon.NetworkFirewall.Model.RuleVariables requestRuleGroup_ruleGroup_RuleVariables = null;
             
              // populate RuleVariables
@@ -684,6 +728,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public List<Amazon.NetworkFirewall.Model.StatelessRule> StatelessRulesAndCustomActions_StatelessRule { get; set; }
             public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet> RuleVariables_IPSet { get; set; }
             public Dictionary<System.String, Amazon.NetworkFirewall.Model.PortSet> RuleVariables_PortSet { get; set; }
+            public Amazon.NetworkFirewall.RuleOrder StatefulRuleOptions_RuleOrder { get; set; }
             public System.String RuleGroupName { get; set; }
             public System.String Rule { get; set; }
             public List<Amazon.NetworkFirewall.Model.Tag> Tag { get; set; }

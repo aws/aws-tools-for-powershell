@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpnConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Site-to-Site VPN connection.</para>
+        /// <para>The ID of the Amazon Web Services Site-to-Site VPN connection.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

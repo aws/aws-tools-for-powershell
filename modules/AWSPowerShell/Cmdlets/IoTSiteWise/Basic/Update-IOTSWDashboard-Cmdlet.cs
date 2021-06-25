@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Updates an AWS IoT SiteWise Monitor dashboard.
+    /// Updates an IoT SiteWise Monitor dashboard.
     /// </summary>
     [Cmdlet("Update", "IOTSWDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>
         /// <para>The new dashboard definition, as specified in a JSON literal. For detailed information,
         /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html">Creating
-        /// dashboards (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</para>
+        /// dashboards (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

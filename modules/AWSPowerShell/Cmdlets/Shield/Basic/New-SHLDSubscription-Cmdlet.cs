@@ -28,7 +28,7 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Activates AWS Shield Advanced for an account.
+    /// Activates Shield Advanced for an account.
     /// 
     ///  
     /// <para>

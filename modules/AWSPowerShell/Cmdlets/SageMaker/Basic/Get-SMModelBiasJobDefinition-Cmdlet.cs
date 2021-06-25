@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter JobDefinitionName
         /// <summary>
         /// <para>
-        /// <para>The name of the model bias job definition. The name must be unique within an AWS Region
-        /// in the AWS account.</para>
+        /// <para>The name of the model bias job definition. The name must be unique within an Amazon
+        /// Web Services Region in the Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

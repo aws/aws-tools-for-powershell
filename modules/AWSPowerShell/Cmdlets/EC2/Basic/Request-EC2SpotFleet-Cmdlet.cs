@@ -113,6 +113,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String SpotFleetRequestConfig_ClientToken { get; set; }
         #endregion
         
+        #region Parameter SpotFleetRequestConfig_Context
+        /// <summary>
+        /// <para>
+        /// <para>Reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SpotFleetRequestConfig_Context { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestConfig_ExcessCapacityTerminationPolicy
         /// <summary>
         /// <para>
@@ -139,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_IamFleetRole
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
-        /// that grants the Spot Fleet the permission to request, launch, terminate, and tag instances
+        /// <para>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that
+        /// grants the Spot Fleet the permission to request, launch, terminate, and tag instances
         /// on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites">Spot
         /// Fleet prerequisites</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>. Spot
         /// Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request
@@ -176,7 +186,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The number of Spot pools across which to allocate your target Spot capacity. Valid
         /// only when Spot <b>AllocationStrategy</b> is set to <code>lowest-price</code>. Spot
         /// Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity
-        /// across the number of Spot pools that you specify.</para>
+        /// across the number of Spot pools that you specify.</para><para>Note that Spot Fleet attempts to draw Spot Instances from the number of pools that
+        /// you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling
+        /// your target capacity, Spot Fleet will continue to fulfill your request by drawing
+        /// from the next cheapest pool. To ensure that your target capacity is met, you might
+        /// receive Spot Instances from more than the number of pools that you specified. Similarly,
+        /// if most of the pools have no Spot capacity, you might receive your full target capacity
+        /// from fewer than the number of pools that you specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -520,6 +536,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SpotFleetRequestConfig_AllocationStrategy = this.SpotFleetRequestConfig_AllocationStrategy;
             context.SpotFleetRequestConfig_ClientToken = this.SpotFleetRequestConfig_ClientToken;
+            context.SpotFleetRequestConfig_Context = this.SpotFleetRequestConfig_Context;
             context.SpotFleetRequestConfig_ExcessCapacityTerminationPolicy = this.SpotFleetRequestConfig_ExcessCapacityTerminationPolicy;
             context.SpotFleetRequestConfig_FulfilledCapacity = this.SpotFleetRequestConfig_FulfilledCapacity;
             context.SpotFleetRequestConfig_IamFleetRole = this.SpotFleetRequestConfig_IamFleetRole;
@@ -614,6 +631,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestSpotFleetRequestConfig_spotFleetRequestConfig_ClientToken != null)
             {
                 request.SpotFleetRequestConfig.ClientToken = requestSpotFleetRequestConfig_spotFleetRequestConfig_ClientToken;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            System.String requestSpotFleetRequestConfig_spotFleetRequestConfig_Context = null;
+            if (cmdletContext.SpotFleetRequestConfig_Context != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_Context = cmdletContext.SpotFleetRequestConfig_Context;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_Context != null)
+            {
+                request.SpotFleetRequestConfig.Context = requestSpotFleetRequestConfig_spotFleetRequestConfig_Context;
                 requestSpotFleetRequestConfigIsNull = false;
             }
             Amazon.EC2.ExcessCapacityTerminationPolicy requestSpotFleetRequestConfig_spotFleetRequestConfig_ExcessCapacityTerminationPolicy = null;
@@ -1021,6 +1048,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public Amazon.EC2.AllocationStrategy SpotFleetRequestConfig_AllocationStrategy { get; set; }
             public System.String SpotFleetRequestConfig_ClientToken { get; set; }
+            public System.String SpotFleetRequestConfig_Context { get; set; }
             public Amazon.EC2.ExcessCapacityTerminationPolicy SpotFleetRequestConfig_ExcessCapacityTerminationPolicy { get; set; }
             public System.Double? SpotFleetRequestConfig_FulfilledCapacity { get; set; }
             public System.String SpotFleetRequestConfig_IamFleetRole { get; set; }

@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
     /// An SaaS partner can use this operation to list details about a partner event source
-    /// that they have created. AWS customers do not use this operation. Instead, AWS customers
-    /// can use <a>DescribeEventSource</a> to see details about a partner event source that
-    /// is shared with them.
+    /// that they have created. Amazon Web Services customers do not use this operation. Instead,
+    /// Amazon Web Services customers can use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventSource.html">DescribeEventSource</a>
+    /// to see details about a partner event source that is shared with them.
     /// </summary>
     [Cmdlet("Get", "EVBPartnerEventSource")]
     [OutputType("Amazon.EventBridge.Model.DescribePartnerEventSourceResponse")]

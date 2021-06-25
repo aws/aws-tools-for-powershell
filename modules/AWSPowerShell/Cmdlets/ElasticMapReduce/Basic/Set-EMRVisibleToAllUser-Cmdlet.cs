@@ -28,15 +28,21 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Sets the <a>Cluster$VisibleToAllUsers</a> value, which determines whether the cluster
-    /// is visible to all IAM users of the AWS account associated with the cluster. Only the
-    /// IAM user who created the cluster or the AWS account root user can call this action.
-    /// The default value, <code>true</code>, indicates that all IAM users in the AWS account
-    /// can perform cluster actions if they have the proper IAM policy permissions. If set
-    /// to <code>false</code>, only the IAM user that created the cluster can perform actions.
-    /// This action works on running clusters. You can override the default <code>true</code>
-    /// setting when you create a cluster by using the <code>VisibleToAllUsers</code> parameter
-    /// with <code>RunJobFlow</code>.
+    /// Sets the <a>Cluster$VisibleToAllUsers</a> value for an EMR cluster. When <code>true</code>,
+    /// IAM principals in the Amazon Web Services account can perform EMR cluster actions
+    /// that their IAM policies allow. When <code>false</code>, only the IAM principal that
+    /// created the cluster and the Amazon Web Services account root user can perform EMR
+    /// actions on the cluster, regardless of IAM permissions policies attached to other IAM
+    /// principals.
+    /// 
+    ///  
+    /// <para>
+    /// This action works on running clusters. When you create a cluster, use the <a>RunJobFlowInput$VisibleToAllUsers</a>
+    /// parameter.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding
+    /// the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "EMRVisibleToAllUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -69,10 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter VisibleToAllUser
         /// <summary>
         /// <para>
-        /// <para>A value of <code>true</code> indicates that all IAM users in the AWS account can perform
-        /// cluster actions if they have the proper IAM policy permissions. This is the default.
-        /// A value of <code>false</code> indicates that only the IAM user who created the cluster
-        /// can perform actions.</para>
+        /// <para>A value of <code>true</code> indicates that an IAM principal in the Amazon Web Services
+        /// account can perform EMR actions on the cluster that the IAM policies attached to the
+        /// principal allow. A value of <code>false</code> indicates that only the IAM principal
+        /// that created the cluster and the Amazon Web Services root user can perform EMR actions
+        /// on the cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

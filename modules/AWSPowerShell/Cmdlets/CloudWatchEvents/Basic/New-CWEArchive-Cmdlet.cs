@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter EventSourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the event source associated with the archive.</para>
+        /// <para>The ARN of the event bus that sends events to the archive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,9 +28,9 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// A list of email addresses and phone numbers that the DDoS Response Team (DRT) can
+    /// A list of email addresses and phone numbers that the Shield Response Team (SRT) can
     /// use to contact you if you have proactive engagement enabled, for escalations to the
-    /// DRT and to initiate proactive customer support.
+    /// SRT and to initiate proactive customer support.
     /// </summary>
     [Cmdlet("Get", "SHLDEmergencyContactSetting")]
     [OutputType("Amazon.Shield.Model.EmergencyContact")]

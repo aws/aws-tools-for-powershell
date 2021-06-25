@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Returns a list of the tags assigned to the specified resource.
+    /// 
+    ///  
+    /// <para>
+    /// For information about the ID format for each supported resource type, see <a>AddTagsToResource</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SSMResourceTag")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Tag")]

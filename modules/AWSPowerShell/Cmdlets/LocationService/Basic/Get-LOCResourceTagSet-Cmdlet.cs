@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Returns the tags for the specified Amazon Location Service resource.
+    /// Returns a list of tags that are applied to the specified Amazon Location resource.
     /// </summary>
     [Cmdlet("Get", "LOCResourceTagSet")]
     [OutputType("System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</para><ul><li><para>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

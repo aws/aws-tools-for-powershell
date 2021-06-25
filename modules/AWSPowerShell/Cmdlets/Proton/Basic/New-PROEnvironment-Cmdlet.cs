@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// Deploy a new environment. An AWS Proton environment is created from an environment
     /// template that defines infrastructure and resources that can be shared across services.
     /// For more information, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a>
-    /// in the <i>AWS Proton Administration Guide.</i>
+    /// in the <i>AWS Proton Administrator Guide.</i>
     /// </summary>
     [Cmdlet("New", "PROEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.Environment")]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>The ID of the environment account connection that you provide if you're provisioning
         /// your environment infrastructure resources to an environment account. You must include
         /// either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
-        /// parameter and value. For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>AWS Proton Administration guide</i>.</para>
+        /// parameter and value. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>AWS Proton Administrator guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>A link to a YAML formatted spec file that provides inputs as defined in the environment
-        /// template bundle schema file. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-managing-environments.html">Environments</a>
-        /// in the <i>AWS Proton Administration Guide</i>.</para>
+        /// template bundle schema file. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a>
+        /// in the <i>AWS Proton Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>Create tags for your environment. For more information, see <i>AWS Proton resources
         /// and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS
-        /// Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
+        /// Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
         /// Proton User Guide</a>.</para>
         /// </para>
         /// </summary>
@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the environment template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-templates.html">Environment
-        /// Templates</a> in the <i>AWS Proton Administration Guide</i>.</para>
+        /// <para>The name of the environment template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment
+        /// Templates</a> in the <i>AWS Proton Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

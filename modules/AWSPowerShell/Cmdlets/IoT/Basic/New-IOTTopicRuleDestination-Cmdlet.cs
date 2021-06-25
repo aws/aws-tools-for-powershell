@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Creates a topic rule destination. The destination must be confirmed prior to use.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateTopicRuleDestination</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IOTTopicRuleDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.TopicRuleDestination")]
@@ -43,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter HttpUrlConfiguration_ConfirmationUrl
         /// <summary>
         /// <para>
-        /// <para>The URL AWS IoT uses to confirm ownership of or access to the topic rule destination
-        /// URL.</para>
+        /// <para>The URL IoT uses to confirm ownership of or access to the topic rule destination URL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

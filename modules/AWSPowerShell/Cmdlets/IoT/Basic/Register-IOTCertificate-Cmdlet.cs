@@ -28,9 +28,15 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Registers a device certificate with AWS IoT. If you have more than one CA certificate
+    /// Registers a device certificate with IoT. If you have more than one CA certificate
     /// that has the same subject field, you must specify the CA certificate that was used
     /// to sign the device certificate being registered.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterCertificate</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Register", "IOTCertificate")]
     [OutputType("Amazon.IoT.Model.RegisterCertificateResponse")]

@@ -28,10 +28,10 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns the evaluation results for the specified AWS Config rule for a specific resource
-    /// in a rule. The results indicate which AWS resources were evaluated by the rule, when
-    /// each resource was last evaluated, and whether each resource complies with the rule.
-    /// 
+    /// Returns the evaluation results for the specified Config rule for a specific resource
+    /// in a rule. The results indicate which Amazon Web Services resources were evaluated
+    /// by the rule, when each resource was last evaluated, and whether each resource complies
+    /// with the rule. 
     /// 
     ///  <note><para>
     /// The results can return an empty result page. But if you have a <code>nextToken</code>,
@@ -85,10 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ComplianceType
         /// <summary>
         /// <para>
-        /// <para>The resource compliance status.</para><note><para>For the <code>GetAggregateComplianceDetailsByConfigRuleRequest</code> data type, AWS
-        /// Config supports only the <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. AWS
-        /// Config does not support the <code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code>
-        /// values.</para></note>
+        /// <para>The resource compliance status.</para><note><para>For the <code>GetAggregateComplianceDetailsByConfigRuleRequest</code> data type, Config
+        /// supports only the <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. Config does
+        /// not support the <code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code> values.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS Config rule for which you want compliance information.</para>
+        /// <para>The name of the Config rule for which you want compliance information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -134,8 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of evaluation results returned on each page. The default is 50.
-        /// You cannot specify a number greater than 100. If you specify 0, AWS Config uses the
-        /// default.</para>
+        /// You cannot specify a number greater than 100. If you specify 0, Config uses the default.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

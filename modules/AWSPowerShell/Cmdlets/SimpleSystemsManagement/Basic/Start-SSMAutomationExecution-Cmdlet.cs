@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Initiates execution of an Automation document.
+    /// Initiates execution of an Automation runbook.
     /// </summary>
     [Cmdlet("Start", "SSMAutomationExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -43,10 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentName
         /// <summary>
         /// <para>
-        /// <para>The name of the Systems Manager document to run. This can be a public document or
-        /// a custom document. To run a shared document belonging to another account, specify
-        /// the document ARN. For more information about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Using
-        /// shared SSM documents</a> in the <i>AWS Systems Manager User Guide</i>.</para>
+        /// <para>The name of the SSM document to run. This can be a public document or a custom document.
+        /// To run a shared document belonging to another account, specify the document ARN. For
+        /// more information about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Using
+        /// shared SSM documents</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the Automation document to use for this execution.</para>
+        /// <para>The version of the Automation runbook to use for this execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The maximum number of targets allowed to run this task in parallel. You can specify
-        /// a number, such as 10, or a percentage, such as 10%. The default value is 10.</para>
+        /// a number, such as 10, or a percentage, such as 10%. The default value is <code>10</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>A key-value map of execution parameters, which match the declared parameters in the
-        /// Automation document.</para>
+        /// Automation runbook.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// tags for an automation. Tags enable you to categorize a resource in different ways,
         /// such as by purpose, owner, or environment. For example, you might want to tag an automation
         /// to identify an environment or operating system. In this case, you could specify the
-        /// following key name/value pairs:</para><ul><li><para><code>Key=environment,Value=test</code></para></li><li><para><code>Key=OS,Value=Windows</code></para></li></ul><note><para>To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> action.</para></note>
+        /// following key-value pairs:</para><ul><li><para><code>Key=environment,Value=test</code></para></li><li><para><code>Key=OS,Value=Windows</code></para></li></ul><note><para>To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> operation.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,11 +144,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter TargetLocation
         /// <summary>
         /// <para>
-        /// <para>A location is a combination of AWS Regions and/or AWS accounts where you want to run
-        /// the Automation. Use this action to start an Automation in multiple Regions and multiple
-        /// accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running
-        /// Automation workflows in multiple AWS Regions and accounts</a> in the <i>AWS Systems
-        /// Manager User Guide</i>. </para>
+        /// <para>A location is a combination of Amazon Web Services Regions and/or Amazon Web Services
+        /// accounts where you want to run the automation. Use this operation to start an automation
+        /// in multiple Amazon Web Services Regions and multiple Amazon Web Services accounts.
+        /// For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running
+        /// Automation workflows in multiple Amazon Web Services Regions and Amazon Web Services
+        /// accounts</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
-        /// cannot be specified together.</para>
+        /// can't be specified together.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

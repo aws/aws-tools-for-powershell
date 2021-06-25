@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// the compute environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>)
         /// or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). EC2 and Fargate compute
         /// environments can't be mixed.</para><note><para>All compute environments that are associated with a job queue must share the same
-        /// architecture. AWS Batch doesn't support mixing compute environment architecture types
+        /// architecture. Batch doesn't support mixing compute environment architecture types
         /// in a single job queue.</para></note>
         /// </para>
         /// </summary>

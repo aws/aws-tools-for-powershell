@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// 
     ///  
     /// <para>
-    /// If the call successfully completes, AWS CloudFormation successfully deleted the change
+    /// If the call successfully completes, CloudFormation successfully deleted the change
     /// set.
     /// </para><para>
     /// If <code>IncludeNestedStacks</code> specifies <code>True</code> during the creation

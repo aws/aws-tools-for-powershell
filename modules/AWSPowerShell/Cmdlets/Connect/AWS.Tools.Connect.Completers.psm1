@@ -80,6 +80,16 @@ $CONN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Connect.AgentStatusState
+        {
+            ($_ -eq "New-CONNAgentStatus/State") -Or
+            ($_ -eq "Update-CONNAgentStatus/State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Connect.ContactFlowType
         "New-CONNContactFlow/Type"
         {
@@ -130,9 +140,12 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.IntegrationType
-        "New-CONNIntegrationAssociation/IntegrationType"
         {
-            $v = "EVENT"
+            ($_ -eq "Get-CONNIntegrationAssociationList/IntegrationType") -Or
+            ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
+        }
+        {
+            $v = "EVENT","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE"
             break
         }
 
@@ -177,10 +190,17 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.TrafficType
+        "Start-CONNOutboundVoiceContact/TrafficType"
+        {
+            $v = "CAMPAIGN","GENERAL"
+            break
+        }
+
         # Amazon.Connect.UseCaseType
         "New-CONNUseCase/UseCaseType"
         {
-            $v = "RULES_EVALUATION"
+            $v = "CONNECT_CAMPAIGNS","RULES_EVALUATION"
             break
         }
 
@@ -202,15 +222,17 @@ $CONN_Completers = {
 $CONN_map = @{
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "IdentityManagementType"=@("New-CONNInstance")
-    "IntegrationType"=@("New-CONNIntegrationAssociation")
+    "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
     "LexVersion"=@("Get-CONNBotList")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "SourceType"=@("New-CONNIntegrationAssociation")
+    "State"=@("New-CONNAgentStatus","Update-CONNAgentStatus")
     "Status"=@("Update-CONNQueueStatus")
     "StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_S3Config_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "TrafficType"=@("Start-CONNOutboundVoiceContact")
     "Type"=@("New-CONNContactFlow")
     "UseCaseType"=@("New-CONNUseCase")
     "VoiceRecordingConfiguration_VoiceRecordingTrack"=@("Start-CONNContactRecording")
@@ -274,7 +296,9 @@ $CONN_SelectMap = @{
                "Add-CONNQueueQuickConnect",
                "Join-CONNRoutingProfileQueue",
                "Add-CONNSecurityKey",
+               "New-CONNAgentStatus",
                "New-CONNContactFlow",
+               "New-CONNHoursOfOperation",
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
                "New-CONNQueue",
@@ -283,12 +307,14 @@ $CONN_SelectMap = @{
                "New-CONNUseCase",
                "New-CONNUser",
                "New-CONNUserHierarchyGroup",
+               "Remove-CONNHoursOfOperation",
                "Remove-CONNInstance",
                "Remove-CONNIntegrationAssociation",
                "Remove-CONNQuickConnect",
                "Remove-CONNUseCase",
                "Remove-CONNUser",
                "Remove-CONNUserHierarchyGroup",
+               "Get-CONNAgentStatus",
                "Get-CONNContactFlow",
                "Get-CONNHoursOfOperation",
                "Get-CONNInstance",
@@ -312,6 +338,7 @@ $CONN_SelectMap = @{
                "Get-CONNCurrentMetricData",
                "Get-CONNFederationToken",
                "Get-CONNMetricData",
+               "Get-CONNAgentStatusList",
                "Get-CONNApprovedOriginList",
                "Get-CONNBotList",
                "Get-CONNContactFlowList",
@@ -345,9 +372,11 @@ $CONN_SelectMap = @{
                "Suspend-CONNContactRecording",
                "Add-CONNResourceTag",
                "Remove-CONNResourceTag",
+               "Update-CONNAgentStatus",
                "Update-CONNContactAttribute",
                "Update-CONNContactFlowContent",
                "Update-CONNContactFlowName",
+               "Update-CONNHoursOfOperation",
                "Update-CONNInstanceAttribute",
                "Update-CONNInstanceStorageConfig",
                "Update-CONNQueueHoursOfOperation",

@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>A value that indicates that minor version upgrades are applied automatically to the
         /// replication instance during the maintenance window. Changing this parameter doesn't
         /// result in an outage, except in the case described following. The change is asynchronously
-        /// applied as soon as possible. </para><para>An outage does result if these factors apply: </para><ul><li><para>This parameter is set to <code>true</code> during the maintenance window.</para></li><li><para>A newer minor version is available. </para></li><li><para>AWS DMS has enabled automatic patching for the given engine version. </para></li></ul>
+        /// applied as soon as possible. </para><para>An outage does result if these factors apply: </para><ul><li><para>This parameter is set to <code>true</code> during the maintenance window.</para></li><li><para>A newer minor version is available. </para></li><li><para>DMS has enabled automatic patching for the given engine version. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// replication instance class. For example to specify the instance class dms.c4.large,
         /// set this parameter to <code>"dms.c4.large"</code>.</para><para>For more information on the settings and capacities for the available replication
         /// instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth">
-        /// Selecting the right AWS DMS replication instance for your migration</a>. </para>
+        /// Selecting the right DMS replication instance for your migration</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

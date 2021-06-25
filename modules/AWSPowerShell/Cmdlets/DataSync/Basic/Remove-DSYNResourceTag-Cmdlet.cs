@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Removes a tag from an AWS resource.
+    /// Removes a tag from an Amazon Web Services resource.
     /// </summary>
     [Cmdlet("Remove", "DSYNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

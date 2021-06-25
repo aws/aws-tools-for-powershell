@@ -34,21 +34,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// The snapshots available to you include public snapshots, private snapshots that you
-    /// own, and private snapshots owned by other AWS accounts for which you have explicit
-    /// create volume permissions.
+    /// own, and private snapshots owned by other Amazon Web Services accounts for which you
+    /// have explicit create volume permissions.
     /// </para><para>
     /// The create volume permissions fall into the following categories:
     /// </para><ul><li><para><i>public</i>: The owner of the snapshot granted create volume permissions for the
-    /// snapshot to the <code>all</code> group. All AWS accounts have create volume permissions
-    /// for these snapshots.
+    /// snapshot to the <code>all</code> group. All Amazon Web Services accounts have create
+    /// volume permissions for these snapshots.
     /// </para></li><li><para><i>explicit</i>: The owner of the snapshot granted create volume permissions to a
-    /// specific AWS account.
-    /// </para></li><li><para><i>implicit</i>: An AWS account has implicit create volume permissions for all snapshots
-    /// it owns.
+    /// specific Amazon Web Services account.
+    /// </para></li><li><para><i>implicit</i>: An Amazon Web Services account has implicit create volume permissions
+    /// for all snapshots it owns.
     /// </para></li></ul><para>
     /// The list of snapshots returned can be filtered by specifying snapshot IDs, snapshot
-    /// owners, or AWS accounts with create volume permissions. If no options are specified,
-    /// Amazon EC2 returns all snapshots for which you have create volume permissions.
+    /// owners, or Amazon Web Services accounts with create volume permissions. If no options
+    /// are specified, Amazon EC2 returns all snapshots for which you have create volume permissions.
     /// </para><para>
     /// If you specify one or more snapshot IDs, only snapshots that have the specified IDs
     /// are returned. If you specify an invalid snapshot ID, an error is returned. If you
@@ -57,13 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// If you specify one or more snapshot owners using the <code>OwnerIds</code> option,
     /// only snapshots from the specified owners and for which you have access are returned.
-    /// The results can include the AWS account IDs of the specified owners, <code>amazon</code>
-    /// for snapshots owned by Amazon, or <code>self</code> for snapshots that you own.
+    /// The results can include the Amazon Web Services account IDs of the specified owners,
+    /// <code>amazon</code> for snapshots owned by Amazon, or <code>self</code> for snapshots
+    /// that you own.
     /// </para><para>
     /// If you specify a list of restorable users, only snapshots with create snapshot permissions
-    /// for those users are returned. You can specify AWS account IDs (if you own the snapshots),
-    /// <code>self</code> for snapshots for which you own or have explicit permissions, or
-    /// <code>all</code> for public snapshots.
+    /// for those users are returned. You can specify Amazon Web Services account IDs (if
+    /// you own the snapshots), <code>self</code> for snapshots for which you own or have
+    /// explicit permissions, or <code>all</code> for public snapshots.
     /// </para><para>
     /// If you are describing a long list of snapshots, we recommend that you paginate the
     /// output to make the list more manageable. The <code>MaxResults</code> parameter sets
@@ -93,9 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The filters.</para><ul><li><para><code>description</code> - A description of the snapshot.</para></li><li><para><code>encrypted</code> - Indicates whether the snapshot is encrypted (<code>true</code>
         /// | <code>false</code>)</para></li><li><para><code>owner-alias</code> - The owner alias, from an Amazon-maintained list (<code>amazon</code>).
-        /// This is not the user-configured AWS account alias set using the IAM console. We recommend
-        /// that you use the related parameter instead of this filter.</para></li><li><para><code>owner-id</code> - The AWS account ID of the owner. We recommend that you use
-        /// the related parameter instead of this filter.</para></li><li><para><code>progress</code> - The progress of the snapshot, as a percentage (for example,
+        /// This is not the user-configured Amazon Web Services account alias set using the IAM
+        /// console. We recommend that you use the related parameter instead of this filter.</para></li><li><para><code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend
+        /// that you use the related parameter instead of this filter.</para></li><li><para><code>progress</code> - The progress of the snapshot, as a percentage (for example,
         /// 80%).</para></li><li><para><code>snapshot-id</code> - The snapshot ID.</para></li><li><para><code>start-time</code> - The time stamp when the snapshot was initiated.</para></li><li><para><code>status</code> - The status of the snapshot (<code>pending</code> | <code>completed</code>
         /// | <code>error</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
@@ -114,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Scopes the results to snapshots with the specified owners. You can specify a combination
-        /// of AWS account IDs, <code>self</code>, and <code>amazon</code>.</para>
+        /// of Amazon Web Services account IDs, <code>self</code>, and <code>amazon</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, ParameterSetName = "ByFilter")]
@@ -125,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RestorableByUserId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the AWS accounts that can create volumes from the snapshot.</para>
+        /// <para>The IDs of the Amazon Web Services accounts that can create volumes from the snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true, ParameterSetName = "ByFilter")]

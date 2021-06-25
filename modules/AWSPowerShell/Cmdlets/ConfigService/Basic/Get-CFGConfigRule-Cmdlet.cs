@@ -28,7 +28,7 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns details about your AWS Config rules.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns details about your Config rules.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGConfigRule")]
     [OutputType("Amazon.ConfigService.Model.ConfigRule")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The names of the AWS Config rules for which you want details. If you do not specify
-        /// any names, AWS Config returns details for all your rules.</para>
+        /// <para>The names of the Config rules for which you want details. If you do not specify any
+        /// names, Config returns details for all your rules.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -67,6 +67,20 @@ namespace Amazon.PowerShell.Cmdlets.C9
         public System.String EnvironmentId { get; set; }
         #endregion
         
+        #region Parameter ManagedCredentialsAction
+        /// <summary>
+        /// <para>
+        /// <para>Allows the environment owner to turn on or turn off the Amazon Web Services managed
+        /// temporary credentials for an Cloud9 environment by using one of the following values:</para><ul><li><para><code>ENABLE</code></para></li><li><para><code>DISABLE</code></para></li></ul><note><para>Only the environment owner can change the status of managed temporary credentials.
+        /// An <code>AccessDeniedException</code> is thrown if an attempt to turn on or turn off
+        /// managed temporary credentials is made by an account that's not the environment owner.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Cloud9.ManagedCredentialsAction")]
+        public Amazon.Cloud9.ManagedCredentialsAction ManagedCredentialsAction { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -145,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
                 WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ManagedCredentialsAction = this.ManagedCredentialsAction;
             context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
@@ -169,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.C9
             if (cmdletContext.EnvironmentId != null)
             {
                 request.EnvironmentId = cmdletContext.EnvironmentId;
+            }
+            if (cmdletContext.ManagedCredentialsAction != null)
+            {
+                request.ManagedCredentialsAction = cmdletContext.ManagedCredentialsAction;
             }
             if (cmdletContext.Name != null)
             {
@@ -237,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         {
             public System.String Description { get; set; }
             public System.String EnvironmentId { get; set; }
+            public Amazon.Cloud9.ManagedCredentialsAction ManagedCredentialsAction { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.Cloud9.Model.UpdateEnvironmentResponse, UpdateC9EnvironmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

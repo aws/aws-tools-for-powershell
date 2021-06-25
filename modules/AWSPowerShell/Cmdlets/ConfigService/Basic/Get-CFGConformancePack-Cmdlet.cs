@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Comma-separated list of conformance pack names for which you want details. If you
-        /// do not specify any names, AWS Config returns details for all your conformance packs.
-        /// </para>
+        /// do not specify any names, Config returns details for all your conformance packs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

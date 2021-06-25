@@ -35,9 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     ///  
     /// <para>
     /// Only capacity providers using an Auto Scaling group can be created. Amazon ECS tasks
-    /// on AWS Fargate use the <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity
-    /// providers which are already created and available to all accounts in Regions supported
-    /// by AWS Fargate.
+    /// on Fargate use the <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers
+    /// which are already created and available to all accounts in Regions supported by Fargate.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ECSCapacityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -90,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group
         /// must have instance protection from scale-in actions enabled as well. For more information,
         /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance
-        /// Protection</a> in the <i>AWS Auto Scaling User Guide</i>.</para><para>When managed termination protection is disabled, your Amazon EC2 instances are not
+        /// Protection</a> in the <i>Auto Scaling User Guide</i>.</para><para>When managed termination protection is disabled, your Amazon EC2 instances are not
         /// protected from termination when the Auto Scaling group scales in.</para>
         /// </para>
         /// </summary>
@@ -165,9 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
         /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for either keys or values as it is reserved for AWS use. You cannot
-        /// edit or delete tag keys or values with this prefix. Tags with this prefix do not count
-        /// against your tags per resource limit.</para></li></ul>
+        /// of such as a prefix for either keys or values as it is reserved for Amazon Web Services
+        /// use. You cannot edit or delete tag keys or values with this prefix. Tags with this
+        /// prefix do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

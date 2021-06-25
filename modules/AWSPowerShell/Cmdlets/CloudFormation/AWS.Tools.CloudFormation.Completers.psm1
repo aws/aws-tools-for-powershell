@@ -90,6 +90,7 @@ $CFN_Completers = {
             ($_ -eq "Get-CFNStackSetOperationList/CallAs") -Or
             ($_ -eq "Get-CFNStackSetOperationResultList/CallAs") -Or
             ($_ -eq "Get-CFNTemplateSummary/CallAs") -Or
+            ($_ -eq "Import-CFNStacksToStackSet/CallAs") -Or
             ($_ -eq "New-CFNStackInstance/CallAs") -Or
             ($_ -eq "New-CFNStackSet/CallAs") -Or
             ($_ -eq "Remove-CFNStackInstance/CallAs") -Or
@@ -211,7 +212,7 @@ $CFN_Completers = {
             ($_ -eq "Wait-CFNStack/Status")
         }
         {
-            $v = "CREATE_COMPLETE","CREATE_FAILED","CREATE_IN_PROGRESS","DELETE_COMPLETE","DELETE_FAILED","DELETE_IN_PROGRESS","IMPORT_COMPLETE","IMPORT_IN_PROGRESS","IMPORT_ROLLBACK_COMPLETE","IMPORT_ROLLBACK_FAILED","IMPORT_ROLLBACK_IN_PROGRESS","REVIEW_IN_PROGRESS","ROLLBACK_COMPLETE","ROLLBACK_FAILED","ROLLBACK_IN_PROGRESS","UPDATE_COMPLETE","UPDATE_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_IN_PROGRESS","UPDATE_ROLLBACK_COMPLETE","UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_ROLLBACK_FAILED","UPDATE_ROLLBACK_IN_PROGRESS"
+            $v = "CREATE_COMPLETE","CREATE_FAILED","CREATE_IN_PROGRESS","DELETE_COMPLETE","DELETE_FAILED","DELETE_IN_PROGRESS","IMPORT_COMPLETE","IMPORT_IN_PROGRESS","IMPORT_ROLLBACK_COMPLETE","IMPORT_ROLLBACK_FAILED","IMPORT_ROLLBACK_IN_PROGRESS","REVIEW_IN_PROGRESS","ROLLBACK_COMPLETE","ROLLBACK_FAILED","ROLLBACK_IN_PROGRESS","UPDATE_COMPLETE","UPDATE_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_FAILED","UPDATE_IN_PROGRESS","UPDATE_ROLLBACK_COMPLETE","UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_ROLLBACK_FAILED","UPDATE_ROLLBACK_IN_PROGRESS"
             break
         }
 
@@ -258,7 +259,7 @@ $CFN_Completers = {
 }
 
 $CFN_map = @{
-    "CallAs"=@("Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
+    "CallAs"=@("Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
     "DeprecatedStatus"=@("Get-CFNTypeList","Get-CFNTypeVersion")
@@ -362,6 +363,7 @@ $CFN_SelectMap = @{
                "Get-CFNStackPolicy",
                "Get-CFNTemplate",
                "Get-CFNTemplateSummary",
+               "Import-CFNStacksToStackSet",
                "Get-CFNChangeSetList",
                "Get-CFNExport",
                "Get-CFNImportList",
@@ -378,6 +380,7 @@ $CFN_SelectMap = @{
                "Write-CFNHandlerProgress",
                "Register-CFNPublisher",
                "Register-CFNType",
+               "Undo-CFNStack",
                "Set-CFNStackPolicy",
                "Set-CFNTypeConfiguration",
                "Set-CFNTypeDefaultVersion",

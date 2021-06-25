@@ -29,31 +29,30 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
-    /// key store</a> that is associated with an <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html">AWS
-    /// CloudHSM cluster</a> that you own and manage.
+    /// key store</a> that is associated with an <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html">CloudHSM
+    /// cluster</a> that you own and manage.
     /// 
     ///  
     /// <para>
     /// This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom
-    /// Key Store feature</a> feature in AWS KMS, which combines the convenience and extensive
-    /// integration of AWS KMS with the isolation and control of a single-tenant key store.
+    /// Key Store feature</a> feature in KMS, which combines the convenience and extensive
+    /// integration of KMS with the isolation and control of a single-tenant key store.
     /// </para><para>
     /// Before you create the custom key store, you must assemble the required elements, including
-    /// an AWS CloudHSM cluster that fulfills the requirements for a custom key store. For
-    /// details about the required elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">Assemble
-    /// the Prerequisites</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// an CloudHSM cluster that fulfills the requirements for a custom key store. For details
+    /// about the required elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">Assemble
+    /// the Prerequisites</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
     /// When the operation completes successfully, it returns the ID of the new custom key
     /// store. Before you can use your new custom key store, you need to use the <a>ConnectCustomKeyStore</a>
-    /// operation to connect the new key store to its AWS CloudHSM cluster. Even if you are
-    /// not going to use your custom key store immediately, you might want to connect it to
-    /// verify that all settings are correct and then disconnect it until you are ready to
-    /// use it.
+    /// operation to connect the new key store to its CloudHSM cluster. Even if you are not
+    /// going to use your custom key store immediately, you might want to connect it to verify
+    /// that all settings are correct and then disconnect it until you are ready to use it.
     /// </para><para>
     /// For help with failures, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting
-    /// a Custom Key Store</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// a Custom Key Store</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a custom key store
-    /// in a different AWS account.
+    /// in a different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateCustomKeyStore</a>
     /// (IAM policy).
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>ConnectCustomKeyStore</a></para></li><li><para><a>DeleteCustomKeyStore</a></para></li><li><para><a>DescribeCustomKeyStores</a></para></li><li><para><a>DisconnectCustomKeyStore</a></para></li><li><para><a>UpdateCustomKeyStore</a></para></li></ul>
@@ -71,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter CloudHsmClusterId
         /// <summary>
         /// <para>
-        /// <para>Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID
-        /// of any active AWS CloudHSM cluster that is not already associated with a custom key
-        /// store. To find the cluster ID, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
+        /// <para>Identifies the CloudHSM cluster for the custom key store. Enter the cluster ID of
+        /// any active CloudHSM cluster that is not already associated with a custom key store.
+        /// To find the cluster ID, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
         /// operation.</para>
         /// </para>
         /// </summary>
@@ -92,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies a friendly name for the custom key store. The name must be unique in your
-        /// AWS account.</para>
+        /// Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyStorePassword
         /// <summary>
         /// <para>
-        /// <para>Enter the password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser"><code>kmsuser</code> crypto user (CU) account</a> in the specified AWS CloudHSM cluster.
-        /// AWS KMS logs into the cluster as this user to manage key material on your behalf.</para><para>The password must be a string of 7 to 32 characters. Its value is case sensitive.</para><para>This parameter tells AWS KMS the <code>kmsuser</code> account password; it does not
-        /// change the password in the AWS CloudHSM cluster.</para>
+        /// <para>Enter the password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser"><code>kmsuser</code> crypto user (CU) account</a> in the specified CloudHSM cluster.
+        /// KMS logs into the cluster as this user to manage key material on your behalf.</para><para>The password must be a string of 7 to 32 characters. Its value is case sensitive.</para><para>This parameter tells KMS the <code>kmsuser</code> account password; it does not change
+        /// the password in the CloudHSM cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

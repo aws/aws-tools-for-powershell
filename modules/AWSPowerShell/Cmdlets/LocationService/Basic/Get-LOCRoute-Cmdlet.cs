@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates
     /// a route</a> given the following required parameters: <code>DeparturePostiton</code>
     /// and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create
-    /// aroute calculator resource</a><para>
+    /// a route calculator resource</a><para>
     /// By default, a request that doesn't specify a departure time uses the best time of
     /// day to travel with the best traffic conditions when calculating the route.
     /// </para><para>
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// You can't specify both <code>DepartureTime</code> and <code>DepartureNow</code> in
     /// a single request. Specifying both parameters returns an error message.
     /// </para></note></li><li><para><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying
-    /// a travel mode</a> using TravelMode. This lets you specify additional route preference
+    /// a travel mode</a> using TravelMode. This lets you specify an additional route preference
     /// such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code>
     /// if traveling by <code>Truck</code>.
     /// </para></li></ul><para></para>

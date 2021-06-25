@@ -51,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLicenseConversionTaskForResource" OutputProperty="LicenseConversionTaskId" Verb="New" Noun="LicenseConversionTaskForResource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLicenseManagerReportGenerator" OutputProperty="LicenseManagerReportGeneratorArn" Verb="New" Noun="LicenseManagerReportGenerator" ShouldProcessTarget="ReportGeneratorName" PipelineParameter="ReportGeneratorName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -103,6 +107,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetLicenseConversionTask" OutputProperty="*" Verb="Get" Noun="LicenseConversionTask" PipelineParameter="LicenseConversionTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLicenseManagerReportGenerator" OutputProperty="ReportGenerator" Verb="Get" Noun="LicenseManagerReportGenerator" PipelineParameter="LicenseManagerReportGeneratorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -128,6 +136,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListLicenseConfigurations" OutputProperty="LicenseConfigurations" Verb="Get" Noun="LicenseConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLicenseConversionTasks" OutputProperty="LicenseConversionTasks" Verb="Get" Noun="LicenseConversionTaskList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

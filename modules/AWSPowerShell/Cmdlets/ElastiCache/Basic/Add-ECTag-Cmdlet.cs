@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// 
     ///  
     /// <para>
-    ///  For example, you can use cost-allocation tags to your ElastiCache resources, AWS
+    ///  For example, you can use cost-allocation tags to your ElastiCache resources, Amazon
     /// generates a cost allocation report as a comma-separated value (CSV) file with your
     /// usage and costs aggregated by your tags. You can apply tags that represent business
     /// categories (such as cost centers, application names, or owners) to organize your costs
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
         /// or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>. ElastiCache
         /// resources are <i>cluster</i> and <i>snapshot</i>.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
+        /// Resource Names (ARNs) and Amazon Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

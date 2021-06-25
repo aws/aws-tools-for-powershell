@@ -28,7 +28,7 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Delete an AWS App Runner service.
+    /// Delete an App Runner service.
     /// 
     ///  
     /// <para>

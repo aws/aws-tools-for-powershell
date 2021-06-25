@@ -71,6 +71,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMobileDeviceAccessOverride" Verb="Remove" Noun="MobileDeviceAccessOverride" ShouldProcessTarget="DeviceId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteMobileDeviceAccessRule" Verb="Remove" Noun="MobileDeviceAccessRule" ShouldProcessTarget="MobileDeviceAccessRuleId" PipelineParameter="MobileDeviceAccessRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -139,6 +143,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMobileDeviceAccessOverride" OutputProperty="*" Verb="Get" Noun="MobileDeviceAccessOverride" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAccessControlRules" OutputProperty="Rules" Verb="Get" Noun="AccessControlRuleList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -160,6 +168,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMailboxPermissions" OutputProperty="Permissions" Verb="Get" Noun="MailboxPermissionList" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMobileDeviceAccessOverrides" OutputProperty="Overrides" Verb="Get" Noun="MobileDeviceAccessOverrideList" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -192,6 +204,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutMailboxPermissions" Verb="Write" Noun="MailboxPermission" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutMobileDeviceAccessOverride" Verb="Write" Noun="MobileDeviceAccessOverride" ShouldProcessTarget="DeviceId" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceCount
         /// <summary>
         /// <para>
-        /// <para>The number of instances for which to reserve capacity.</para>
+        /// <para>The number of instances for which to reserve capacity.</para><para>Valid range: 1 - 1000</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -237,8 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have
         /// one of the following tenancy settings:</para><ul><li><para><code>default</code> - The Capacity Reservation is created on hardware that is shared
-        /// with other AWS accounts.</para></li><li><para><code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware
-        /// that is dedicated to a single AWS account.</para></li></ul>
+        /// with other Amazon Web Services accounts.</para></li><li><para><code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware
+        /// that is dedicated to a single Amazon Web Services account.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

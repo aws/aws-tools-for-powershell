@@ -28,7 +28,7 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Cancels a job in an AWS Batch job queue. Jobs that are in the <code>SUBMITTED</code>,
+    /// Cancels a job in an Batch job queue. Jobs that are in the <code>SUBMITTED</code>,
     /// <code>PENDING</code>, or <code>RUNNABLE</code> state are canceled. Jobs that have
     /// progressed to <code>STARTING</code> or <code>RUNNING</code> aren't canceled, but the
     /// API operation still succeeds, even if no job is canceled. These jobs must be terminated
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The AWS Batch job ID of the job to cancel.</para>
+        /// <para>The Batch job ID of the job to cancel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>A message to attach to the job that explains the reason for canceling it. This message
         /// is returned by future <a>DescribeJobs</a> operations on the job. This message is also
-        /// recorded in the AWS Batch activity logs.</para>
+        /// recorded in the Batch activity logs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

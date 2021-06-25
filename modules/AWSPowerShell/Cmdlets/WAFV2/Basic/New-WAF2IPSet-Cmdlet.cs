@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter IPAddressVersion
         /// <summary>
         /// <para>
-        /// <para>Specify IPV4 or IPV6. </para>
+        /// <para>The version of the IP addresses, either <code>IPV4</code> or <code>IPV6</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

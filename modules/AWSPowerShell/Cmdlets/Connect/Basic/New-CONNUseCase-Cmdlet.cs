@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates a use case for an AppIntegration association.
+    /// Creates a use case for an integration association.
     /// </summary>
     [Cmdlet("New", "CONNUseCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateUseCaseResponse")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter IntegrationAssociationId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the AppIntegration association.</para>
+        /// <para>The identifier for the integration association.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter UseCaseType
         /// <summary>
         /// <para>
-        /// <para>The type of use case to associate to the AppIntegration association. Each AppIntegration
+        /// <para>The type of use case to associate to the integration association. Each integration
         /// association can have only one of each use case type.</para>
         /// </para>
         /// </summary>

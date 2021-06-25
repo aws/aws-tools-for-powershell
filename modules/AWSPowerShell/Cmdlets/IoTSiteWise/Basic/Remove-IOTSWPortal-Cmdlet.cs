@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Deletes a portal from AWS IoT SiteWise Monitor.
+    /// Deletes a portal from IoT SiteWise Monitor.
     /// </summary>
     [Cmdlet("Remove", "IOTSWPortal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.IoTSiteWise.Model.PortalStatus")]

@@ -29,12 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
     /// Get interpolated values for an asset property for a specified time interval, during
-    /// a period of time. For example, you can use the this operation to return the interpolated
-    /// temperature values for a wind turbine every 24 hours over a duration of 7 days.
+    /// a period of time. If your time series is missing data points during the specified
+    /// time interval, you can use interpolation to estimate the missing data.
     /// 
-    ///  <note><para>
-    /// This API isn't available in China (Beijing).
-    /// </para></note><para>
+    ///  
+    /// <para>
+    /// For example, you can use this operation to return the interpolated temperature values
+    /// for a wind turbine every 24 hours over a duration of 7 days.
+    /// </para><para>
     /// To identify an asset property, you must specify one of the following:
     /// </para><ul><li><para>
     /// The <code>assetId</code> and <code>propertyId</code> of an asset property.
@@ -110,13 +112,35 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.Int64? IntervalInSecond { get; set; }
         #endregion
         
+        #region Parameter IntervalWindowInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The query interval for the window in seconds. IoT SiteWise computes each interpolated
+        /// value by using data points from the timestamp of each interval minus the window to
+        /// the timestamp of each interval plus the window. If not specified, the window is between
+        /// the start time minus the interval and the end time plus the interval. </para><note><ul><li><para>If you specify a value for the <code>intervalWindowInSeconds</code> parameter, the
+        /// <code>type</code> parameter must be <code>LINEAR_INTERPOLATION</code>.</para></li><li><para>If no data point is found during the specified query window, IoT SiteWise won't return
+        /// an interpolated value for the interval. This indicates that there's a gap in the ingested
+        /// data points.</para></li></ul></note><para>For example, you can get the interpolated temperature values for a wind turbine every
+        /// 24 hours over a duration of 7 days. If the interpolation starts on July 1, 2021, at
+        /// 9 AM with a window of 2 hours, IoT SiteWise uses the data points from 7 AM (9 AM -
+        /// 2 hours) to 11 AM (9 AM + 2 hours) on July 2, 2021 to compute the first interpolated
+        /// value, uses the data points from 7 AM (9 AM - 2 hours) to 11 AM (9 AM + 2 hours) on
+        /// July 3, 2021 to compute the second interpolated value, and so on. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IntervalWindowInSeconds")]
+        public System.Int64? IntervalWindowInSecond { get; set; }
+        #endregion
+        
         #region Parameter PropertyAlias
         /// <summary>
         /// <para>
-        /// <para>The property alias that identifies the property, such as an OPC-UA server data stream
-        /// path (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more
-        /// information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping
-        /// industrial data streams to asset properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</para>
+        /// <para>The alias that identifies the property, such as an OPC-UA server data stream path
+        /// (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information,
+        /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping
+        /// industrial data streams to asset properties</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,7 +207,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The interpolation type.</para><para>Valid values: <code>LINEAR_INTERPOLATION</code></para>
+        /// <para>The interpolation type.</para><para>Valid values: <code>LINEAR_INTERPOLATION | LOCF_INTERPOLATION</code></para><ul><li><para><code>LINEAR_INTERPOLATION</code> – Estimates missing data using <a href="https://en.wikipedia.org/wiki/Linear_interpolation">linear
+        /// interpolation</a>.</para><para>For example, you can use this operation to return the interpolated temperature values
+        /// for a wind turbine every 24 hours over a duration of 7 days. If the interpolation
+        /// starts on July 1, 2021, at 9 AM, IoT SiteWise returns the first interpolated value
+        /// on July 2, 2021, at 9 AM, the second interpolated value on July 3, 2021, at 9 AM,
+        /// and so on.</para></li><li><para><code>LOCF_INTERPOLATION</code> – Estimates missing data using last observation carried
+        /// forward interpolation</para><para>If no data point is found for an interval, IoT SiteWise returns the last observed
+        /// data point for the previous interval and carries forward this interpolated value until
+        /// a new data point is found.</para><para>For example, you can get the state of an on-off valve every 24 hours over a duration
+        /// of 7 days. If the interpolation starts on July 1, 2021, at 9 AM, IoT SiteWise returns
+        /// the last observed data point between July 1, 2021, at 9 AM and July 2, 2021, at 9
+        /// AM as the first interpolated value. If no data point is found after 9 AM on July 2,
+        /// 2021, IoT SiteWise uses the same interpolated value for the rest of the days.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -200,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to be returned per paginated request. If not specified,
+        /// <para>The maximum number of results to return for each paginated request. If not specified,
         /// the default value is 10.</para>
         /// </para>
         /// </summary>
@@ -274,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 WriteWarning("You are passing $null as a value for parameter IntervalInSecond which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IntervalWindowInSecond = this.IntervalWindowInSecond;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.PropertyAlias = this.PropertyAlias;
@@ -333,6 +370,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.IntervalInSecond != null)
             {
                 request.IntervalInSeconds = cmdletContext.IntervalInSecond.Value;
+            }
+            if (cmdletContext.IntervalWindowInSecond != null)
+            {
+                request.IntervalWindowInSeconds = cmdletContext.IntervalWindowInSecond.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -451,6 +492,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public System.Int64? EndTimeInSecond { get; set; }
             public System.Int32? EndTimeOffsetInNano { get; set; }
             public System.Int64? IntervalInSecond { get; set; }
+            public System.Int64? IntervalWindowInSecond { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String PropertyAlias { get; set; }

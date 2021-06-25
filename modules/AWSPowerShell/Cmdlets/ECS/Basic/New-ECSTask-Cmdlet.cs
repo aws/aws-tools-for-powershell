@@ -87,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The capacity provider strategy to use for the task.</para><para>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
         /// parameter must be omitted. If no <code>capacityProviderStrategy</code> or <code>launchType</code>
         /// is specified, the <code>defaultCapacityProviderStrategy</code> for the cluster is
-        /// used.</para>
+        /// used.</para><para>When you use cluster auto scaling, you must specify <code>capacityProviderStrategy</code>
+        /// and not <code>launchType</code>. </para><para>A capacity provider strategy may contain a maximum of 6 capacity providers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The name of the task group to associate with the task. The default value is the family
-        /// name of the task definition (for example, family:my-family-name).</para>
+        /// name of the task definition (for example, <code>family:my-family-name</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,12 +201,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The infrastructure on which to run your standalone task. For more information, see
         /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
-        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>The <code>FARGATE</code> launch type runs your tasks on AWS Fargate On-Demand infrastructure.</para><note><para>Fargate Spot infrastructure is available for use but a capacity provider strategy
-        /// must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">AWS
-        /// Fargate capacity providers</a> in the <i>Amazon ECS User Guide for AWS Fargate</i>.</para></note><para>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered
+        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>The <code>FARGATE</code> launch type runs your tasks on Fargate On-Demand infrastructure.</para><note><para>Fargate Spot infrastructure is available for use but a capacity provider strategy
+        /// must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">Fargate
+        /// capacity providers</a> in the <i>Amazon ECS User Guide for Fargate</i>.</para></note><para>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered
         /// to your cluster.</para><para>The <code>EXTERNAL</code> launch type runs your tasks on your on-premise server or
         /// virtual machine (VM) capacity registered to your cluster.</para><para>A task can use either a launch type or a capacity provider strategy. If a <code>launchType</code>
-        /// is specified, the <code>capacityProviderStrategy</code> parameter must be omitted.</para>
+        /// is specified, the <code>capacityProviderStrategy</code> parameter must be omitted.</para><para>When you use cluster auto scaling, you must specify <code>capacityProviderStrategy</code>
+        /// and not <code>launchType</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter PlacementStrategy
         /// <summary>
         /// <para>
-        /// <para>The placement strategy objects to use for the task. You can specify a maximum of five
+        /// <para>The placement strategy objects to use for the task. You can specify a maximum of 5
         /// strategy rules per task.</para>
         /// </para>
         /// </summary>
@@ -250,11 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter PlatformVersion
         /// <summary>
         /// <para>
-        /// <para>The platform version the task should run. A platform version is only specified for
-        /// tasks using the Fargate launch type. If one is not specified, the <code>LATEST</code>
-        /// platform version is used by default. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
-        /// Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service Developer
-        /// Guide</i>.</para>
+        /// <para>The platform version the task should use. A platform version is only specified for
+        /// tasks hosted on Fargate. If one is not specified, the <code>LATEST</code> platform
+        /// version is used by default. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
+        /// platform versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,7 +281,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ReferenceId
         /// <summary>
         /// <para>
-        /// <para>The reference ID to use for the task.</para>
+        /// <para>The reference ID to use for the task. The reference ID can have a maximum length of
+        /// 1024 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -349,9 +351,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
         /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for either keys or values as it is reserved for AWS use. You cannot
-        /// edit or delete tag keys or values with this prefix. Tags with this prefix do not count
-        /// against your tags per resource limit.</para></li></ul>
+        /// of such as a prefix for either keys or values as it is reserved for Amazon Web Services
+        /// use. You cannot edit or delete tag keys or values with this prefix. Tags with this
+        /// prefix do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

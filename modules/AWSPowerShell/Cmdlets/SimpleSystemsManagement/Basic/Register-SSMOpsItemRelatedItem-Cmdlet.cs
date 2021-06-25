@@ -28,9 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Associates a related resource to a Systems Manager OpsCenter OpsItem. For example,
-    /// you can associate an Incident Manager incident or analysis with an OpsItem. Incident
-    /// Manager is a capability of AWS Systems Manager.
+    /// Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you
+    /// can associate an Incident Manager incident or analysis with an OpsItem. Incident Manager
+    /// and OpsCenter are capabilities of Amazon Web Services Systems Manager.
     /// </summary>
     [Cmdlet("Register", "SSMOpsItemRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -82,8 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The type of resource that you want to associate with an OpsItem. OpsCenter supports
-        /// the following types:</para><para><code>AWS::SSMIncidents::IncidentRecord</code>: an Incident Manager incident. Incident
-        /// Manager is a capability of AWS Systems Manager.</para><para><code>AWS::SSM::Document</code>: a Systems Manager (SSM) document.</para>
+        /// the following types:</para><para><code>AWS::SSMIncidents::IncidentRecord</code>: an Incident Manager incident. </para><para><code>AWS::SSM::Document</code>: a Systems Manager (SSM) document.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ResourceUri
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS resource that you want to associate with
-        /// the OpsItem.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services resource that you want to
+        /// associate with the OpsItem.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

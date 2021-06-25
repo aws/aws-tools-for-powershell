@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
     /// Retrieves a list of components that meet the component, version, and platform requirements
-    /// of a deployment. AWS IoT Greengrass core devices call this operation when they receive
-    /// a deployment to identify the components to install.
+    /// of a deployment. Greengrass core devices call this operation when they receive a deployment
+    /// to identify the components to install.
     /// 
     ///  
     /// <para>
@@ -40,14 +40,14 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// and component <code>B</code> requires version <code>&lt;2.0.0</code> of a component
     /// dependency.
     /// </para><para>
-    /// When you specify the component candidates to resolve, AWS IoT Greengrass compares
-    /// each component's digest from the core device with the component's digest in the AWS
-    /// Cloud. If the digests don't match, then AWS IoT Greengrass specifies to use the version
-    /// from the AWS Cloud.
+    /// When you specify the component candidates to resolve, IoT Greengrass compares each
+    /// component's digest from the core device with the component's digest in the Amazon
+    /// Web Services Cloud. If the digests don't match, then IoT Greengrass specifies to use
+    /// the version from the Amazon Web Services Cloud.
     /// </para><important><para>
     /// To use this operation, you must use the data plane API endpoint and authenticate with
-    /// an AWS IoT device certificate. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/greengrass.html">AWS
-    /// IoT Greengrass endpoints and quotas</a>.
+    /// an IoT device certificate. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/greengrass.html">IoT
+    /// Greengrass endpoints and quotas</a>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Resolve", "GGV2ComponentCandidate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,11 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter Platform_Attribute
         /// <summary>
         /// <para>
-        /// <para>A dictionary of attributes for the platform. The AWS IoT Greengrass Core software
-        /// defines the <code>os</code> and <code>platform</code> by default. You can specify
-        /// additional platform attributes for a core device when you deploy the AWS IoT Greengrass
-        /// nucleus component. For more information, see the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html">AWS
-        /// IoT Greengrass nucleus component</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</para>
+        /// <para>A dictionary of attributes for the platform. The IoT Greengrass Core software defines
+        /// the <code>os</code> and <code>platform</code> by default. You can specify additional
+        /// platform attributes for a core device when you deploy the Greengrass nucleus component.
+        /// For more information, see the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html">Greengrass
+        /// nucleus component</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter Platform_Name
         /// <summary>
         /// <para>
-        /// <para>The friendly name of the platform. This name helps you identify the platform.</para><para>If you omit this parameter, AWS IoT Greengrass creates a friendly name from the <code>os</code>
+        /// <para>The friendly name of the platform. This name helps you identify the platform.</para><para>If you omit this parameter, IoT Greengrass creates a friendly name from the <code>os</code>
         /// and <code>architecture</code> of the platform.</para>
         /// </para>
         /// </summary>

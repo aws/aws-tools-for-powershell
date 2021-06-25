@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Lists the patch baselines in your AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the patch baselines in your Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMPatchBaseline")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.PatchBaselineIdentity")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Each element in the array is a structure containing: </para><para>Key: (string, "NAME_PREFIX" or "OWNER")</para><para>Value: (array of strings, exactly 1 entry, between 1 and 255 characters)</para>
+        /// <para>Each element in the array is a structure containing a key-value pair.</para><para>Supported keys for <code>DescribePatchBaselines</code> include the following:</para><ul><li><para><b><code>NAME_PREFIX</code></b></para><para>Sample values: <code>AWS-</code> | <code>My-</code></para></li><li><para><b><code>OWNER</code></b></para><para>Sample values: <code>AWS</code> | <code>Self</code></para></li><li><para><b><code>OPERATING_SYSTEM</code></b></para><para>Sample values: <code>AMAZON_LINUX</code> | <code>SUSE</code> | <code>WINDOWS</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

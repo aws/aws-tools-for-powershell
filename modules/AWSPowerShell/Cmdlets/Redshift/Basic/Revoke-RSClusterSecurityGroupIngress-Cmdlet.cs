@@ -88,10 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter EC2SecurityGroupOwnerId
         /// <summary>
         /// <para>
-        /// <para>The AWS account number of the owner of the security group specified in the <code>EC2SecurityGroupName</code>
-        /// parameter. The AWS access key ID is not an acceptable value. If <code>EC2SecurityGroupOwnerId</code>
-        /// is specified, <code>EC2SecurityGroupName</code> must also be provided. and <code>CIDRIP</code>
-        /// cannot be provided. </para><para>Example: <code>111122223333</code></para>
+        /// <para>The Amazon Web Services account number of the owner of the security group specified
+        /// in the <code>EC2SecurityGroupName</code> parameter. The Amazon Web Services access
+        /// key ID is not an acceptable value. If <code>EC2SecurityGroupOwnerId</code> is specified,
+        /// <code>EC2SecurityGroupName</code> must also be provided. and <code>CIDRIP</code> cannot
+        /// be provided. </para><para>Example: <code>111122223333</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

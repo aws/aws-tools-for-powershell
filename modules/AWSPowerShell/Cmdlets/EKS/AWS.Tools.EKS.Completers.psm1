@@ -94,6 +94,13 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.ConnectorConfigProvider
+        "Register-EKSCluster/ConnectorConfig_Provider"
+        {
+            $v = "AKS","ANTHOS","EC2","EKS_ANYWHERE","GKE","OPENSHIFT","OTHER","RANCHER","TANZU"
+            break
+        }
+
         # Amazon.EKS.ResolveConflicts
         {
             ($_ -eq "New-EKSAddon/ResolveConflicts") -Or
@@ -115,6 +122,7 @@ $EKS_Completers = {
 $EKS_map = @{
     "AmiType"=@("New-EKSNodegroup")
     "CapacityType"=@("New-EKSNodegroup")
+    "ConnectorConfig_Provider"=@("Register-EKSCluster")
     "ResolveConflicts"=@("New-EKSAddon","Update-EKSAddon")
 }
 
@@ -178,6 +186,7 @@ $EKS_SelectMap = @{
                "Remove-EKSCluster",
                "Remove-EKSFargateProfile",
                "Remove-EKSNodegroup",
+               "Unregister-EKSCluster",
                "Get-EKSAddon",
                "Get-EKSAddonVersion",
                "Get-EKSCluster",
@@ -193,6 +202,7 @@ $EKS_SelectMap = @{
                "Get-EKSNodegroupList",
                "Get-EKSResourceTag",
                "Get-EKSUpdateList",
+               "Register-EKSCluster",
                "Add-EKSResourceTag",
                "Remove-EKSResourceTag",
                "Update-EKSAddon",

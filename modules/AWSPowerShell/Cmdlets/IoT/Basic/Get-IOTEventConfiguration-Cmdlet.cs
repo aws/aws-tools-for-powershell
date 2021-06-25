@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Describes event configurations.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEventConfigurations</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTEventConfiguration")]
     [OutputType("Amazon.IoT.Model.DescribeEventConfigurationsResponse")]

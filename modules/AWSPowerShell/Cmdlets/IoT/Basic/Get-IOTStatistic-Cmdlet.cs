@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Returns the count, average, sum, minimum, maximum, sum of squares, variance, and standard
     /// deviation for the specified aggregated field. If the aggregation field is of type
     /// <code>String</code>, only the count statistic is returned.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetStatistics</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTStatistic")]
     [OutputType("Amazon.IoT.Model.Statistics")]
@@ -66,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The query used to search. You can specify "*" for the query string to get the count
-        /// of all indexed things in your AWS account.</para>
+        /// of all indexed things in your Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

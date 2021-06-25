@@ -28,7 +28,7 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Deletes an existing trust relationship between your AWS Managed Microsoft AD directory
+    /// Deletes an existing trust relationship between your Managed Microsoft AD directory
     /// and an external domain.
     /// </summary>
     [Cmdlet("Remove", "DSTrust", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

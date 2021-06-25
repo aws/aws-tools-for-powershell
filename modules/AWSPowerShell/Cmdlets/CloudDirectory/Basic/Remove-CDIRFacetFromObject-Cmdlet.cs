@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter SchemaFacet_FacetName
         /// <summary>
         /// <para>
-        /// <para>The name of the facet.</para>
+        /// <para>The name of the facet. If this value is set, SchemaArn must also be set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <para>
         /// <para>The ARN of the schema that contains the facet with no minor component. See <a>arns</a>
         /// and <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html">In-Place
-        /// Schema Upgrade</a> for a description of when to provide minor versions.</para>
+        /// Schema Upgrade</a> for a description of when to provide minor versions. If this value
+        /// is set, FacetName must also be set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// Objects</a>. You can identify an object in one of the following ways:</para><ul><li><para><i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon
         /// Cloud Directory. When creating objects, the system will provide you with the identifier
         /// of the created object. An object’s identifier is immutable and no two objects will
-        /// ever share the same object identifier</para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
+        /// ever share the same object identifier. To identify an object with ObjectIdentifier,
+        /// the ObjectIdentifier must be wrapped in double quotes. </para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

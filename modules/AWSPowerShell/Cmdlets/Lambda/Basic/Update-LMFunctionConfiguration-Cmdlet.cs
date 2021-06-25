@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// version.
     /// </para><para>
     /// To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke
-    /// permissions to an account or AWS service, use <a>AddPermission</a>.
+    /// permissions to an account or Amazon Web Services service, use <a>AddPermission</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LMFunctionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -189,9 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter KMSKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your
-        /// function's environment variables. If it's not provided, AWS Lambda uses a default
-        /// service key.</para>
+        /// <para>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to
+        /// encrypt your function's environment variables. If it's not provided, Lambda uses a
+        /// default service key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,9 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MemorySize
         /// <summary>
         /// <para>
-        /// <para>The amount of memory available to the function at runtime. Increasing the function's
-        /// memory also increases its CPU allocation. The default value is 128 MB. The value can
-        /// be any multiple of 1 MB.</para>
+        /// <para>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory
+        /// available to the function</a> at runtime. Increasing the function memory also increases
+        /// its CPU allocation. The default value is 128 MB. The value can be any multiple of
+        /// 1 MB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,7 +303,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The amount of time that Lambda allows a function to run before stopping it. The default
-        /// is 3 seconds. The maximum allowed value is 900 seconds.</para>
+        /// is 3 seconds. The maximum allowed value is 900 seconds. For additional information,
+        /// see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda
+        /// execution environment</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -312,7 +315,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Environment_Variable
         /// <summary>
         /// <para>
-        /// <para>Environment variable key-value pairs.</para>
+        /// <para>Environment variable key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using
+        /// Lambda environment variables</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

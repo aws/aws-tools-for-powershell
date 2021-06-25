@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Sets logging options for AWS IoT SiteWise.
+    /// Sets logging options for IoT SiteWise.
     /// </summary>
     [Cmdlet("Write", "IOTSWLoggingOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter LoggingOptions_Level
         /// <summary>
         /// <para>
-        /// <para>The AWS IoT SiteWise logging verbosity level.</para>
+        /// <para>The IoT SiteWise logging verbosity level.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

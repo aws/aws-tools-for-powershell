@@ -30,7 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// Sets the specified version of the specified policy as the policy's default (operative)
     /// version. This action affects all certificates to which the policy is attached. To
-    /// list the principals the policy is attached to, use the ListPrincipalPolicy API.
+    /// list the principals the policy is attached to, use the <a>ListPrincipalPolicies</a>
+    /// action.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetDefaultPolicyVersion</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "IOTDefaultPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

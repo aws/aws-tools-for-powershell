@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID for owner of the specified Object Lambda Access Point.</para>
+        /// <para>The Amazon Web Services account ID for owner of the specified Object Lambda Access
+        /// Point.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

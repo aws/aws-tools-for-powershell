@@ -28,7 +28,7 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Removes the association between a MAC Security (MACsec) security key and an AWS Direct
+    /// Removes the association between a MAC Security (MACsec) security key and an Direct
     /// Connect dedicated connection.
     /// </summary>
     [Cmdlet("Remove", "DCMacSecKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

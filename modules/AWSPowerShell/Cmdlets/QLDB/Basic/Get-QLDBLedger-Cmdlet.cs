@@ -28,7 +28,8 @@ using Amazon.QLDB.Model;
 namespace Amazon.PowerShell.Cmdlets.QLDB
 {
     /// <summary>
-    /// Returns information about a ledger, including its state and when it was created.
+    /// Returns information about a ledger, including its state, permissions mode, encryption
+    /// at rest settings, and when it was created.
     /// </summary>
     [Cmdlet("Get", "QLDBLedger")]
     [OutputType("Amazon.QLDB.Model.DescribeLedgerResponse")]

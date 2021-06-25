@@ -72,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EmailIdentity
         /// <summary>
         /// <para>
-        /// <para>The email identity that you want to configure bounce and complaint feedback forwarding
-        /// for.</para>
+        /// <para>The email identity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

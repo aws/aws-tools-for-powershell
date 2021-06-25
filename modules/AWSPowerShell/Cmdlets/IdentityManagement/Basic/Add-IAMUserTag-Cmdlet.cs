@@ -46,16 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control
     /// access using IAM tags</a> in the <i>IAM User Guide</i>.
     /// </para></li><li><para><b>Cost allocation</b> - Use tags to help track which individuals and teams are using
-    /// which AWS resources.
+    /// which Amazon Web Services resources.
     /// </para></li></ul><note><ul><li><para>
     /// If any one of the tags is invalid or if you exceed the allowed maximum number of tags,
     /// then the entire request fails and the resource is not created. For more information
     /// about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
     /// IAM resources</a> in the <i>IAM User Guide</i>.
     /// </para></li><li><para>
-    /// AWS always interprets the tag <code>Value</code> as a single string. If you need to
-    /// store an array, you can store comma-separated values in the string. However, you must
-    /// interpret the value in your code.
+    /// Amazon Web Services always interprets the tag <code>Value</code> as a single string.
+    /// If you need to store an array, you can store comma-separated values in the string.
+    /// However, you must interpret the value in your code.
     /// </para></li></ul></note><para>
     /// For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
     /// IAM identities</a> in the <i>IAM User Guide</i>.
@@ -93,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the IAM user to which you want to add tags.</para><para>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex
-        /// pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
-        /// characters with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// <para>The name of the IAM user to which you want to add tags.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+        /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         #if !MODULAR

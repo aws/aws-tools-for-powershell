@@ -34,8 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// MQTT API</a>.
     /// 
     ///  
-    /// <para><b>Note</b> This is the only time AWS IoT issues the private key for this certificate,
+    /// <para><b>Note</b> This is the only time IoT issues the private key for this certificate,
     /// so it is important to keep it in a secure location.
+    /// </para><para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateKeysAndCertificate</a>
+    /// action.
     /// </para>
     /// </summary>
     [Cmdlet("New", "IOTKeysAndCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

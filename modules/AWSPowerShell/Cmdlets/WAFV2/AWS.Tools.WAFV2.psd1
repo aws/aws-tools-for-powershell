@@ -89,11 +89,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-WAF2ResourceTag', 
         'Add-WAF2WebACLToResource', 
         'Get-WAF2AvailableManagedRuleGroupList', 
+        'Get-WAF2AvailableManagedRuleGroupVersionList', 
         'Get-WAF2IPSet', 
         'Get-WAF2IPSetList', 
         'Get-WAF2LoggingConfiguration', 
         'Get-WAF2LoggingConfigurationList', 
         'Get-WAF2ManagedRuleGroup', 
+        'Get-WAF2ManagedRuleSet', 
+        'Get-WAF2ManagedRuleSetList', 
         'Get-WAF2PermissionPolicy', 
         'Get-WAF2RateBasedStatementManagedKey', 
         'Get-WAF2RegexPatternSet', 
@@ -121,10 +124,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-WAF2WebACLFromResource', 
         'Test-WAF2Capacity', 
         'Update-WAF2IPSet', 
+        'Update-WAF2ManagedRuleSetVersionExpiryDate', 
         'Update-WAF2RegexPatternSet', 
         'Update-WAF2RuleGroup', 
         'Update-WAF2WebACL', 
         'Write-WAF2LoggingConfiguration', 
+        'Write-WAF2ManagedRuleSetVersion', 
         'Write-WAF2PermissionPolicy')
 
     # Variables to export from this module

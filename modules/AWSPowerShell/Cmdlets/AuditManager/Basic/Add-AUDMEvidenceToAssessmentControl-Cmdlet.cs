@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
     /// Uploads one or more pieces of evidence to the specified control in the assessment
-    /// in AWS Audit Manager.
+    /// in Audit Manager.
     /// </summary>
     [Cmdlet("Add", "AUDMEvidenceToAssessmentControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.Model.BatchImportEvidenceToAssessmentControlError")]

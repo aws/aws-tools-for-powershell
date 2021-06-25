@@ -1,0 +1,3 @@
+﻿# ConnectWisdomService
+
+Export-ModuleMember -Alias *

@@ -105,6 +105,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Enable-DSSso', 
         'Get-DSCertificate', 
         'Get-DSCertificateList', 
+        'Get-DSClientAuthenticationSetting', 
         'Get-DSConditionalForwarder', 
         'Get-DSDirectory', 
         'Get-DSDirectoryLimit', 

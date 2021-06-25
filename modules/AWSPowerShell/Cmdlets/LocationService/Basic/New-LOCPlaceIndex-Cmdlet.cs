@@ -44,10 +44,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specifies the data provider of geospatial data.</para><note><para>This field is case-sensitive. Enter the valid values as shown. For example, entering
-        /// <code>HERE</code> will return an error.</para></note><para>Valid values include:</para><ul><li><para><code>Esri</code></para></li><li><para><code>Here</code></para><important><para>Place index resources using HERE as a data provider can't be used to <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store</a>
-        /// results for locations in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS
-        /// Service Terms</a> for Amazon Location Service.</para></important></li></ul><para>For additional details on data providers, see the <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon
-        /// Location Service data providers page</a>.</para>
+        /// <code>HERE</code> returns an error.</para></note><para>Valid values include:</para><ul><li><para><code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s
+        /// coverage in your region of interest, see <a href="https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm">Esri
+        /// details on geocoding coverage</a>.</para></li><li><para><code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+        /// Technologies</a>'s coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE
+        /// details on goecoding coverage</a>.</para><important><para>Place index resources using HERE Technologies as a data provider can't <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store
+        /// results</a> for locations in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS
+        /// Service Terms</a> for Amazon Location Service.</para></important></li></ul><para>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
+        /// providers</a> on the <i>Amazon Location Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,9 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter DataSourceConfiguration_IntendedUse
         /// <summary>
         /// <para>
-        /// <para>Specifies how the results of an operation will be stored by the caller. </para><para>Valid values include:</para><ul><li><para><code>SingleUse</code> specifies that the results won't be stored. </para></li><li><para><code>Storage</code> specifies that the result can be cached or stored in a database.</para><important><para>Place index resources using HERE as a data provider can't be configured to store results
-        /// for locations in Japan when choosing <code>Storage</code> for the <code>IntendedUse</code>
-        /// parameter.</para></important></li></ul><para>Default value: <code>SingleUse</code></para>
+        /// <para>Specifies how the results of an operation will be stored by the caller. </para><para>Valid values include:</para><ul><li><para><code>SingleUse</code> specifies that the results won't be stored. </para></li><li><para><code>Storage</code> specifies that the result can be cached or stored in a database.</para></li></ul><para>Default value: <code>SingleUse</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

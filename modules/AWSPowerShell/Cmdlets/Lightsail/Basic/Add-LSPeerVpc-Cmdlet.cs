@@ -28,7 +28,7 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Tries to peer the Lightsail VPC with the user's default VPC.
+    /// Peers the Lightsail VPC with the user's default VPC.
     /// </summary>
     [Cmdlet("Add", "LSPeerVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]

@@ -414,6 +414,93 @@ $IAMAA_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $IAMAA_SelectCompleters $IAMAA_SelectMap
+# Argument completions for service AWS Account
+
+
+$ACCT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Account.AlternateContactType
+        {
+            ($_ -eq "Get-ACCTAlternateContact/AlternateContactType") -Or
+            ($_ -eq "Remove-ACCTAlternateContact/AlternateContactType") -Or
+            ($_ -eq "Write-ACCTAlternateContact/AlternateContactType")
+        }
+        {
+            $v = "BILLING","OPERATIONS","SECURITY"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ACCT_map = @{
+    "AlternateContactType"=@("Get-ACCTAlternateContact","Remove-ACCTAlternateContact","Write-ACCTAlternateContact")
+}
+
+_awsArgumentCompleterRegistration $ACCT_Completers $ACCT_map
+
+$ACCT_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.ACCT.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ACCT_SelectMap = @{
+    "Select"=@("Remove-ACCTAlternateContact",
+               "Get-ACCTAlternateContact",
+               "Write-ACCTAlternateContact")
+}
+
+_awsArgumentCompleterRegistration $ACCT_SelectCompleters $ACCT_SelectMap
 # Argument completions for service AWS Certificate Manager
 
 
@@ -1297,6 +1384,7 @@ $AMPB_SelectMap = @{
                "Get-AMPBBackendAuth",
                "Get-AMPBBackendJob",
                "Get-AMPBToken",
+               "Import-AMPBBackendAuth",
                "Get-AMPBBackendJobList",
                "Remove-AMPBAllBackend",
                "Remove-AMPBBackendConfig",
@@ -1381,7 +1469,7 @@ $AG_Completers = {
             ($_ -eq "Write-AGGatewayResponse/ResponseType")
         }
         {
-            $v = "ACCESS_DENIED","API_CONFIGURATION_ERROR","AUTHORIZER_CONFIGURATION_ERROR","AUTHORIZER_FAILURE","BAD_REQUEST_BODY","BAD_REQUEST_PARAMETERS","DEFAULT_4XX","DEFAULT_5XX","EXPIRED_TOKEN","INTEGRATION_FAILURE","INTEGRATION_TIMEOUT","INVALID_API_KEY","INVALID_SIGNATURE","MISSING_AUTHENTICATION_TOKEN","QUOTA_EXCEEDED","REQUEST_TOO_LARGE","RESOURCE_NOT_FOUND","THROTTLED","UNAUTHORIZED","UNSUPPORTED_MEDIA_TYPE"
+            $v = "ACCESS_DENIED","API_CONFIGURATION_ERROR","AUTHORIZER_CONFIGURATION_ERROR","AUTHORIZER_FAILURE","BAD_REQUEST_BODY","BAD_REQUEST_PARAMETERS","DEFAULT_4XX","DEFAULT_5XX","EXPIRED_TOKEN","INTEGRATION_FAILURE","INTEGRATION_TIMEOUT","INVALID_API_KEY","INVALID_SIGNATURE","MISSING_AUTHENTICATION_TOKEN","QUOTA_EXCEEDED","REQUEST_TOO_LARGE","RESOURCE_NOT_FOUND","THROTTLED","UNAUTHORIZED","UNSUPPORTED_MEDIA_TYPE","WAF_FILTERED"
             break
         }
 
@@ -2059,7 +2147,7 @@ $AF_Completers = {
             ($_ -eq "Update-AFFlow/SourceFlowConfig_ConnectorType")
         }
         {
-            $v = "Amplitude","CustomerProfiles","Datadog","Dynatrace","EventBridge","Googleanalytics","Honeycode","Infornexus","LookoutMetrics","Marketo","Redshift","S3","Salesforce","Servicenow","Singular","Slack","Snowflake","Trendmicro","Upsolver","Veeva","Zendesk"
+            $v = "Amplitude","CustomerProfiles","Datadog","Dynatrace","EventBridge","Googleanalytics","Honeycode","Infornexus","LookoutMetrics","Marketo","Redshift","S3","Salesforce","SAPOData","Servicenow","Singular","Slack","Snowflake","Trendmicro","Upsolver","Veeva","Zendesk"
             break
         }
 
@@ -2221,14 +2309,20 @@ $AIS_SelectCompleters = {
 }
 
 $AIS_SelectMap = @{
-    "Select"=@("New-AISEventIntegration",
+    "Select"=@("New-AISDataIntegration",
+               "New-AISEventIntegration",
+               "Remove-AISDataIntegration",
                "Remove-AISEventIntegration",
+               "Get-AISDataIntegration",
                "Get-AISEventIntegration",
+               "Get-AISDataIntegrationAssociationList",
+               "Get-AISDataIntegrationList",
                "Get-AISEventIntegrationAssociationList",
                "Get-AISEventIntegrationList",
                "Get-AISResourceTag",
                "Add-AISResourceTag",
                "Remove-AISResourceTag",
+               "Update-AISDataIntegration",
                "Update-AISEventIntegration")
 }
 
@@ -2265,7 +2359,7 @@ $AAS_Completers = {
         # Amazon.ApplicationAutoScaling.MetricType
         "Set-AASScalingPolicy/TargetTrackingScalingPolicyConfiguration_PredefinedMetricSpecification_PredefinedMetricType"
         {
-            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerVariantInvocationsPerInstance"
+            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage","ElastiCachePrimaryEngineCPUUtilization","ElastiCacheReplicaEngineCPUUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerVariantInvocationsPerInstance"
             break
         }
 
@@ -2290,7 +2384,7 @@ $AAS_Completers = {
             ($_ -eq "Set-AASScheduledAction/ScalableDimension")
         }
         {
-            $v = "appstream:fleet:DesiredCapacity","cassandra:table:ReadCapacityUnits","cassandra:table:WriteCapacityUnits","comprehend:document-classifier-endpoint:DesiredInferenceUnits","comprehend:entity-recognizer-endpoint:DesiredInferenceUnits","custom-resource:ResourceType:Property","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticmapreduce:instancegroup:InstanceCount","kafka:broker-storage:VolumeSize","lambda:function:ProvisionedConcurrency","rds:cluster:ReadReplicaCount","sagemaker:variant:DesiredInstanceCount"
+            $v = "appstream:fleet:DesiredCapacity","cassandra:table:ReadCapacityUnits","cassandra:table:WriteCapacityUnits","comprehend:document-classifier-endpoint:DesiredInferenceUnits","comprehend:entity-recognizer-endpoint:DesiredInferenceUnits","custom-resource:ResourceType:Property","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticache:replication-group:NodeGroups","elasticache:replication-group:Replicas","elasticmapreduce:instancegroup:InstanceCount","kafka:broker-storage:VolumeSize","lambda:function:ProvisionedConcurrency","rds:cluster:ReadReplicaCount","sagemaker:variant:DesiredInstanceCount"
             break
         }
 
@@ -2308,7 +2402,7 @@ $AAS_Completers = {
             ($_ -eq "Set-AASScheduledAction/ServiceNamespace")
         }
         {
-            $v = "appstream","cassandra","comprehend","custom-resource","dynamodb","ec2","ecs","elasticmapreduce","kafka","lambda","rds","sagemaker"
+            $v = "appstream","cassandra","comprehend","custom-resource","dynamodb","ec2","ecs","elasticache","elasticmapreduce","kafka","lambda","rds","sagemaker"
             break
         }
 
@@ -3206,7 +3300,7 @@ $ASYN_Completers = {
             ($_ -eq "Update-ASYNGraphqlApi/AuthenticationType")
         }
         {
-            $v = "AMAZON_COGNITO_USER_POOLS","API_KEY","AWS_IAM","OPENID_CONNECT"
+            $v = "AMAZON_COGNITO_USER_POOLS","API_KEY","AWS_IAM","AWS_LAMBDA","OPENID_CONNECT"
             break
         }
 
@@ -3240,7 +3334,7 @@ $ASYN_Completers = {
             ($_ -eq "Update-ASYNDataSource/Type")
         }
         {
-            $v = "AMAZON_DYNAMODB","AMAZON_ELASTICSEARCH","AWS_LAMBDA","HTTP","NONE","RELATIONAL_DATABASE"
+            $v = "AMAZON_DYNAMODB","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH_SERVICE","AWS_LAMBDA","HTTP","NONE","RELATIONAL_DATABASE"
             break
         }
 
@@ -3458,10 +3552,22 @@ $PROM_SelectCompleters = {
 }
 
 $PROM_SelectMap = @{
-    "Select"=@("New-PROMWorkspace",
+    "Select"=@("New-PROMAlertManagerDefinition",
+               "New-PROMRuleGroupsNamespace",
+               "New-PROMWorkspace",
+               "Remove-PROMAlertManagerDefinition",
+               "Remove-PROMRuleGroupsNamespace",
                "Remove-PROMWorkspace",
+               "Get-PROMAlertManagerDefinition",
+               "Get-PROMRuleGroupsNamespace",
                "Get-PROMWorkspace",
+               "Get-PROMRuleGroupsNamespaceList",
+               "Get-PROMResourceTag",
                "Get-PROMWorkspaceList",
+               "Write-PROMAlertManagerDefinition",
+               "Write-PROMRuleGroupsNamespace",
+               "Add-PROMResourceTag",
+               "Remove-PROMResourceTag",
                "Update-PROMWorkspaceAlias")
 }
 
@@ -4096,19 +4202,26 @@ $BAK_SelectMap = @{
     "Select"=@("New-BAKBackupPlan",
                "New-BAKBackupSelection",
                "New-BAKBackupVault",
+               "New-BAKFramework",
+               "New-BAKReportPlan",
                "Remove-BAKBackupPlan",
                "Remove-BAKBackupSelection",
                "Remove-BAKBackupVault",
                "Remove-BAKBackupVaultAccessPolicy",
                "Remove-BAKBackupVaultNotification",
+               "Remove-BAKFramework",
                "Remove-BAKRecoveryPoint",
+               "Remove-BAKReportPlan",
                "Get-BAKBackupJob",
                "Get-BAKBackupVault",
                "Get-BAKCopyJob",
+               "Get-BAKFramework",
                "Get-BAKGlobalSetting",
                "Get-BAKProtectedResource",
                "Get-BAKRecoveryPoint",
                "Get-BAKRegionSetting",
+               "Get-BAKReportJob",
+               "Get-BAKReportPlan",
                "Get-BAKRestoreJob",
                "Unlock-BAKRecoveryPoint",
                "Export-BAKBackupPlanTemplate",
@@ -4127,23 +4240,29 @@ $BAK_SelectMap = @{
                "Get-BAKBackupSelectionList",
                "Get-BAKBackupVaultList",
                "Get-BAKCopyJobList",
+               "Get-BAKFrameworkList",
                "Get-BAKProtectedResourceList",
                "Get-BAKRecoveryPointsByBackupVaultList",
                "Get-BAKRecoveryPointsByResourceList",
+               "Get-BAKReportJobList",
+               "Get-BAKReportPlanList",
                "Get-BAKRestoreJobList",
                "Get-BAKResourceTag",
                "Write-BAKBackupVaultAccessPolicy",
                "Write-BAKBackupVaultNotification",
                "Start-BAKBackupJob",
                "Start-BAKCopyJob",
+               "Start-BAKReportJob",
                "Start-BAKRestoreJob",
                "Stop-BAKBackupJob",
                "Add-BAKResourceTag",
                "Remove-BAKResourceTag",
                "Update-BAKBackupPlan",
+               "Update-BAKFramework",
                "Update-BAKGlobalSetting",
                "Update-BAKRecoveryPointLifecycle",
-               "Update-BAKRegionSetting")
+               "Update-BAKRegionSetting",
+               "Update-BAKReportPlan")
 }
 
 _awsArgumentCompleterRegistration $BAK_SelectCompleters $BAK_SelectMap
@@ -4986,6 +5105,20 @@ $CHM_Completers = {
             break
         }
 
+        # Amazon.Chime.MediaPipelineSinkType
+        "New-CHMMediaCapturePipeline/SinkType"
+        {
+            $v = "S3Bucket"
+            break
+        }
+
+        # Amazon.Chime.MediaPipelineSourceType
+        "New-CHMMediaCapturePipeline/SourceType"
+        {
+            $v = "ChimeSdkMeeting"
+            break
+        }
+
         # Amazon.Chime.NumberSelectionBehavior
         "New-CHMProxySession/NumberSelectionBehavior"
         {
@@ -5057,6 +5190,55 @@ $CHM_Completers = {
             break
         }
 
+        # Amazon.Chime.TranscribeLanguageCode
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode"
+        {
+            $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","it-IT","ja-JP","ko-KR","pt-BR","zh-CN"
+            break
+        }
+
+        # Amazon.Chime.TranscribeMedicalLanguageCode
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_LanguageCode"
+        {
+            $v = "en-US"
+            break
+        }
+
+        # Amazon.Chime.TranscribeMedicalRegion
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_Region"
+        {
+            $v = "ap-southeast-2","auto","ca-central-1","eu-west-1","us-east-1","us-east-2","us-west-2"
+            break
+        }
+
+        # Amazon.Chime.TranscribeMedicalSpecialty
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_Specialty"
+        {
+            $v = "CARDIOLOGY","NEUROLOGY","ONCOLOGY","PRIMARYCARE","RADIOLOGY","UROLOGY"
+            break
+        }
+
+        # Amazon.Chime.TranscribeMedicalType
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_Type"
+        {
+            $v = "CONVERSATION","DICTATION"
+            break
+        }
+
+        # Amazon.Chime.TranscribeRegion
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_Region"
+        {
+            $v = "ap-northeast-1","ap-northeast-2","ap-southeast-2","auto","ca-central-1","eu-central-1","eu-west-1","eu-west-2","sa-east-1","us-east-1","us-east-2","us-west-2"
+            break
+        }
+
+        # Amazon.Chime.TranscribeVocabularyFilterMethod
+        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterMethod"
+        {
+            $v = "mask","remove","tag"
+            break
+        }
+
         # Amazon.Chime.UserType
         {
             ($_ -eq "Get-CHMUserList/UserType") -Or
@@ -5097,8 +5279,17 @@ $CHM_map = @{
     "Privacy"=@("Get-CHMChannelList","New-CHMChannel")
     "ProductType"=@("Get-CHMPhoneNumberList","Get-CHMSupportedPhoneNumberCountryList","New-CHMPhoneNumberOrder","Update-CHMPhoneNumber")
     "Role"=@("New-CHMRoomMembership","Update-CHMRoomMembership")
+    "SinkType"=@("New-CHMMediaCapturePipeline")
     "SortOrder"=@("Get-CHMChannelMessageList")
+    "SourceType"=@("New-CHMMediaCapturePipeline")
     "Status"=@("Get-CHMPhoneNumberList","Get-CHMProxySessionList")
+    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_LanguageCode"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Region"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Specialty"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Type"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeSettings_Region"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterMethod"=@("Start-CHMMeetingTranscription")
     "TriggerType"=@("New-CHMSipRule")
     "Type"=@("Get-CHMChannelMembershipList","New-CHMChannelMembership","New-CHMCreateChannelMembership","Send-CHMChannelMessage")
     "UserType"=@("Get-CHMUserList","New-CHMUser","Send-CHMUserInvitation","Update-CHMUser")
@@ -5176,6 +5367,7 @@ $CHM_SelectMap = @{
                "New-CHMChannelBan",
                "New-CHMChannelMembership",
                "New-CHMChannelModerator",
+               "New-CHMMediaCapturePipeline",
                "New-CHMMeeting",
                "New-CHMMeetingDialOut",
                "New-CHMMeetingWithAttendee",
@@ -5201,6 +5393,7 @@ $CHM_SelectMap = @{
                "Remove-CHMChannelMessage",
                "Remove-CHMChannelModerator",
                "Remove-CHMEventsConfiguration",
+               "Remove-CHMMediaCapturePipeline",
                "Remove-CHMMeeting",
                "Remove-CHMPhoneNumber",
                "Remove-CHMProxySession",
@@ -5238,6 +5431,7 @@ $CHM_SelectMap = @{
                "Get-CHMChannelMessage",
                "Get-CHMEventsConfiguration",
                "Get-CHMGlobalSetting",
+               "Get-CHMMediaCapturePipeline",
                "Get-CHMMeeting",
                "Get-CHMMessagingSessionEndpoint",
                "Get-CHMPhoneNumber",
@@ -5275,6 +5469,7 @@ $CHM_SelectMap = @{
                "Get-CHMChannelModeratorList",
                "Get-CHMChannelList",
                "Get-CHMChannelsModeratedByAppInstanceUserList",
+               "Get-CHMMediaCapturePipelineList",
                "Get-CHMMeetingList",
                "Get-CHMMeetingTagList",
                "Get-CHMPhoneNumberOrderList",
@@ -5311,6 +5506,8 @@ $CHM_SelectMap = @{
                "Restore-CHMPhoneNumber",
                "Search-CHMAvailablePhoneNumber",
                "Send-CHMChannelMessage",
+               "Start-CHMMeetingTranscription",
+               "Stop-CHMMeetingTranscription",
                "Add-CHMAttendee",
                "Add-CHMMeeting",
                "Add-CHMResourceTag",
@@ -5341,6 +5538,235 @@ $CHM_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CHM_SelectCompleters $CHM_SelectMap
+# Argument completions for service Amazon Chime SDK Identity
+
+
+$CHMID_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CHMID.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CHMID_SelectMap = @{
+    "Select"=@("New-CHMIDAppInstance",
+               "New-CHMIDAppInstanceAdmin",
+               "New-CHMIDAppInstanceUser",
+               "Remove-CHMIDAppInstance",
+               "Remove-CHMIDAppInstanceAdmin",
+               "Remove-CHMIDAppInstanceUser",
+               "Get-CHMIDAppInstance",
+               "Get-CHMIDAppInstanceAdmin",
+               "Get-CHMIDAppInstanceUser",
+               "Get-CHMIDAppInstanceRetentionSetting",
+               "Get-CHMIDAppInstanceAdminList",
+               "Get-CHMIDAppInstanceList",
+               "Get-CHMIDAppInstanceUserList",
+               "Write-CHMIDAppInstanceRetentionSetting",
+               "Update-CHMIDAppInstance",
+               "Update-CHMIDAppInstanceUser")
+}
+
+_awsArgumentCompleterRegistration $CHMID_SelectCompleters $CHMID_SelectMap
+# Argument completions for service Amazon Chime SDK Messaging
+
+
+$CHMMG_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ChimeSDKMessaging.ChannelMembershipType
+        {
+            ($_ -eq "Get-CHMMGChannelMembershipList/Type") -Or
+            ($_ -eq "New-CHMMGChannelMembership/Type") -Or
+            ($_ -eq "New-CHMMGCreateChannelMembership/Type")
+        }
+        {
+            $v = "DEFAULT","HIDDEN"
+            break
+        }
+
+        # Amazon.ChimeSDKMessaging.ChannelMessagePersistenceType
+        "Send-CHMMGChannelMessage/Persistence"
+        {
+            $v = "NON_PERSISTENT","PERSISTENT"
+            break
+        }
+
+        # Amazon.ChimeSDKMessaging.ChannelMessageType
+        "Send-CHMMGChannelMessage/Type"
+        {
+            $v = "CONTROL","STANDARD"
+            break
+        }
+
+        # Amazon.ChimeSDKMessaging.ChannelMode
+        {
+            ($_ -eq "New-CHMMGChannel/Mode") -Or
+            ($_ -eq "Update-CHMMGChannel/Mode")
+        }
+        {
+            $v = "RESTRICTED","UNRESTRICTED"
+            break
+        }
+
+        # Amazon.ChimeSDKMessaging.ChannelPrivacy
+        {
+            ($_ -eq "Get-CHMMGChannelList/Privacy") -Or
+            ($_ -eq "New-CHMMGChannel/Privacy")
+        }
+        {
+            $v = "PRIVATE","PUBLIC"
+            break
+        }
+
+        # Amazon.ChimeSDKMessaging.SortOrder
+        "Get-CHMMGChannelMessageList/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CHMMG_map = @{
+    "Mode"=@("New-CHMMGChannel","Update-CHMMGChannel")
+    "Persistence"=@("Send-CHMMGChannelMessage")
+    "Privacy"=@("Get-CHMMGChannelList","New-CHMMGChannel")
+    "SortOrder"=@("Get-CHMMGChannelMessageList")
+    "Type"=@("Get-CHMMGChannelMembershipList","New-CHMMGChannelMembership","New-CHMMGCreateChannelMembership","Send-CHMMGChannelMessage")
+}
+
+_awsArgumentCompleterRegistration $CHMMG_Completers $CHMMG_map
+
+$CHMMG_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CHMMG.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CHMMG_SelectMap = @{
+    "Select"=@("New-CHMMGCreateChannelMembership",
+               "New-CHMMGChannel",
+               "New-CHMMGChannelBan",
+               "New-CHMMGChannelMembership",
+               "New-CHMMGChannelModerator",
+               "Remove-CHMMGChannel",
+               "Remove-CHMMGChannelBan",
+               "Remove-CHMMGChannelMembership",
+               "Remove-CHMMGChannelMessage",
+               "Remove-CHMMGChannelModerator",
+               "Get-CHMMGChannel",
+               "Get-CHMMGChannelBan",
+               "Get-CHMMGChannelMembership",
+               "Get-CHMMGChannelMembershipForAppInstanceUser",
+               "Get-CHMMGChannelModeratedByAppInstanceUser",
+               "Get-CHMMGChannelModerator",
+               "Get-CHMMGChannelMessage",
+               "Get-CHMMGMessagingSessionEndpoint",
+               "Get-CHMMGChannelBanList",
+               "Get-CHMMGChannelMembershipList",
+               "Get-CHMMGChannelMembershipsForAppInstanceUserList",
+               "Get-CHMMGChannelMessageList",
+               "Get-CHMMGChannelModeratorList",
+               "Get-CHMMGChannelList",
+               "Get-CHMMGChannelsModeratedByAppInstanceUserList",
+               "Hide-CHMMGChannelMessage",
+               "Send-CHMMGChannelMessage",
+               "Update-CHMMGChannel",
+               "Update-CHMMGChannelMessage",
+               "Update-CHMMGChannelReadMarker")
+}
+
+_awsArgumentCompleterRegistration $CHMMG_SelectCompleters $CHMMG_SelectMap
 # Argument completions for service AWS Cloud9
 
 
@@ -5353,6 +5779,13 @@ $C9_Completers = {
         "New-C9EnvironmentEC2/ConnectionType"
         {
             $v = "CONNECT_SSH","CONNECT_SSM"
+            break
+        }
+
+        # Amazon.Cloud9.ManagedCredentialsAction
+        "Update-C9Environment/ManagedCredentialsAction"
+        {
+            $v = "DISABLE","ENABLE"
             break
         }
 
@@ -5376,6 +5809,7 @@ $C9_Completers = {
 
 $C9_map = @{
     "ConnectionType"=@("New-C9EnvironmentEC2")
+    "ManagedCredentialsAction"=@("Update-C9Environment")
     "Permissions"=@("New-C9EnvironmentMembership","Update-C9EnvironmentMembership")
 }
 
@@ -5445,6 +5879,68 @@ $C9_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $C9_SelectCompleters $C9_SelectMap
+# Argument completions for service AWS Cloud Control API
+
+
+$CCA_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CCA.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CCA_SelectMap = @{
+    "Select"=@("Stop-CCAResourceRequest",
+               "New-CCAResource",
+               "Remove-CCAResource",
+               "Get-CCAResource",
+               "Get-CCAResourceRequestStatus",
+               "Get-CCAResourceRequestList",
+               "Get-CCAResourceList",
+               "Update-CCAResource")
+}
+
+_awsArgumentCompleterRegistration $CCA_SelectCompleters $CCA_SelectMap
 # Argument completions for service Amazon Cloud Directory
 
 
@@ -5650,6 +6146,7 @@ $CFN_Completers = {
             ($_ -eq "Get-CFNStackSetOperationList/CallAs") -Or
             ($_ -eq "Get-CFNStackSetOperationResultList/CallAs") -Or
             ($_ -eq "Get-CFNTemplateSummary/CallAs") -Or
+            ($_ -eq "Import-CFNStacksToStackSet/CallAs") -Or
             ($_ -eq "New-CFNStackInstance/CallAs") -Or
             ($_ -eq "New-CFNStackSet/CallAs") -Or
             ($_ -eq "Remove-CFNStackInstance/CallAs") -Or
@@ -5771,7 +6268,7 @@ $CFN_Completers = {
             ($_ -eq "Wait-CFNStack/Status")
         }
         {
-            $v = "CREATE_COMPLETE","CREATE_FAILED","CREATE_IN_PROGRESS","DELETE_COMPLETE","DELETE_FAILED","DELETE_IN_PROGRESS","IMPORT_COMPLETE","IMPORT_IN_PROGRESS","IMPORT_ROLLBACK_COMPLETE","IMPORT_ROLLBACK_FAILED","IMPORT_ROLLBACK_IN_PROGRESS","REVIEW_IN_PROGRESS","ROLLBACK_COMPLETE","ROLLBACK_FAILED","ROLLBACK_IN_PROGRESS","UPDATE_COMPLETE","UPDATE_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_IN_PROGRESS","UPDATE_ROLLBACK_COMPLETE","UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_ROLLBACK_FAILED","UPDATE_ROLLBACK_IN_PROGRESS"
+            $v = "CREATE_COMPLETE","CREATE_FAILED","CREATE_IN_PROGRESS","DELETE_COMPLETE","DELETE_FAILED","DELETE_IN_PROGRESS","IMPORT_COMPLETE","IMPORT_IN_PROGRESS","IMPORT_ROLLBACK_COMPLETE","IMPORT_ROLLBACK_FAILED","IMPORT_ROLLBACK_IN_PROGRESS","REVIEW_IN_PROGRESS","ROLLBACK_COMPLETE","ROLLBACK_FAILED","ROLLBACK_IN_PROGRESS","UPDATE_COMPLETE","UPDATE_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_FAILED","UPDATE_IN_PROGRESS","UPDATE_ROLLBACK_COMPLETE","UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_ROLLBACK_FAILED","UPDATE_ROLLBACK_IN_PROGRESS"
             break
         }
 
@@ -5818,7 +6315,7 @@ $CFN_Completers = {
 }
 
 $CFN_map = @{
-    "CallAs"=@("Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
+    "CallAs"=@("Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
     "DeprecatedStatus"=@("Get-CFNTypeList","Get-CFNTypeVersion")
@@ -5922,6 +6419,7 @@ $CFN_SelectMap = @{
                "Get-CFNStackPolicy",
                "Get-CFNTemplate",
                "Get-CFNTemplateSummary",
+               "Import-CFNStacksToStackSet",
                "Get-CFNChangeSetList",
                "Get-CFNExport",
                "Get-CFNImportList",
@@ -5938,6 +6436,7 @@ $CFN_SelectMap = @{
                "Write-CFNHandlerProgress",
                "Register-CFNPublisher",
                "Register-CFNType",
+               "Undo-CFNStack",
                "Set-CFNStackPolicy",
                "Set-CFNTypeConfiguration",
                "Set-CFNTypeDefaultVersion",
@@ -6245,7 +6744,8 @@ $CF_SelectCompleters = {
 }
 
 $CF_SelectMap = @{
-    "Select"=@("New-CFCachePolicy",
+    "Select"=@("Move-CFAlias",
+               "New-CFCachePolicy",
                "New-CFCloudFrontOriginAccessIdentity",
                "New-CFDistribution",
                "New-CFDistributionWithTag",
@@ -6297,6 +6797,7 @@ $CF_SelectMap = @{
                "Get-CFStreamingDistributionConfig",
                "Get-CFCachePolicyList",
                "Get-CFCloudFrontOriginAccessIdentityList",
+               "Get-CFConflictingAlias",
                "Get-CFDistributionList",
                "Get-CFDistributionsByCachePolicyId",
                "Get-CFDistributionsByKeyGroup",
@@ -7076,6 +7577,22 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.BucketOwnerAccess
+        {
+            ($_ -eq "New-CBProject/Artifacts_BucketOwnerAccess") -Or
+            ($_ -eq "Update-CBProject/Artifacts_BucketOwnerAccess") -Or
+            ($_ -eq "Start-CBBatch/ArtifactsOverride_BucketOwnerAccess") -Or
+            ($_ -eq "Start-CBBuild/ArtifactsOverride_BucketOwnerAccess") -Or
+            ($_ -eq "New-CBProject/LogsConfig_S3Logs_BucketOwnerAccess") -Or
+            ($_ -eq "Update-CBProject/LogsConfig_S3Logs_BucketOwnerAccess") -Or
+            ($_ -eq "Start-CBBatch/LogsConfigOverride_S3Logs_BucketOwnerAccess") -Or
+            ($_ -eq "Start-CBBuild/LogsConfigOverride_S3Logs_BucketOwnerAccess")
+        }
+        {
+            $v = "FULL","NONE","READ_ONLY"
+            break
+        }
+
         # Amazon.CodeBuild.CacheType
         {
             ($_ -eq "New-CBProject/Cache_Type") -Or
@@ -7156,6 +7673,13 @@ $CB_Completers = {
         "Get-CBProjectList/SortBy"
         {
             $v = "CREATED_TIME","LAST_MODIFIED_TIME","NAME"
+            break
+        }
+
+        # Amazon.CodeBuild.ProjectVisibilityType
+        "Update-CBProjectVisibility/ProjectVisibility"
+        {
+            $v = "PRIVATE","PUBLIC_READ"
             break
         }
 
@@ -7313,9 +7837,11 @@ $CB_Completers = {
 }
 
 $CB_map = @{
+    "Artifacts_BucketOwnerAccess"=@("New-CBProject","Update-CBProject")
     "Artifacts_NamespaceType"=@("New-CBProject","Update-CBProject")
     "Artifacts_Packaging"=@("New-CBProject","Update-CBProject")
     "Artifacts_Type"=@("New-CBProject","Update-CBProject")
+    "ArtifactsOverride_BucketOwnerAccess"=@("Start-CBBatch","Start-CBBuild")
     "ArtifactsOverride_NamespaceType"=@("Start-CBBatch","Start-CBBuild")
     "ArtifactsOverride_Packaging"=@("Start-CBBatch","Start-CBBuild")
     "ArtifactsOverride_Type"=@("Start-CBBatch","Start-CBBuild")
@@ -7334,9 +7860,12 @@ $CB_map = @{
     "Filter_Status"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBReportList","Get-CBReportsForReportGroupList")
     "ImagePullCredentialsTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "LogsConfig_CloudWatchLogs_Status"=@("New-CBProject","Update-CBProject")
+    "LogsConfig_S3Logs_BucketOwnerAccess"=@("New-CBProject","Update-CBProject")
     "LogsConfig_S3Logs_Status"=@("New-CBProject","Update-CBProject")
     "LogsConfigOverride_CloudWatchLogs_Status"=@("Start-CBBatch","Start-CBBuild")
+    "LogsConfigOverride_S3Logs_BucketOwnerAccess"=@("Start-CBBatch","Start-CBBuild")
     "LogsConfigOverride_S3Logs_Status"=@("Start-CBBatch","Start-CBBuild")
+    "ProjectVisibility"=@("Update-CBProjectVisibility")
     "RegistryCredentialOverride_CredentialProvider"=@("Start-CBBatch","Start-CBBuild")
     "RetryType"=@("Redo-CBBatch")
     "ServerType"=@("Import-CBSourceCredential")
@@ -7442,6 +7971,7 @@ $CB_SelectMap = @{
                "Stop-CBBuild",
                "Stop-CBBatch",
                "Update-CBProject",
+               "Update-CBProjectVisibility",
                "Update-CBReportGroup",
                "Update-CBWebhook")
 }
@@ -9281,6 +9811,13 @@ $COMP_Completers = {
             break
         }
 
+        # Amazon.Comprehend.InputFormat
+        "New-COMPEntityRecognizer/InputDataConfig_Documents_InputFormat"
+        {
+            $v = "ONE_DOC_PER_FILE","ONE_DOC_PER_LINE"
+            break
+        }
+
         # Amazon.Comprehend.JobStatus
         {
             ($_ -eq "Get-COMPDocumentClassificationJobList/Filter_JobStatus") -Or
@@ -9360,6 +9897,7 @@ $COMP_map = @{
     "Filter_JobStatus"=@("Get-COMPDocumentClassificationJobList","Get-COMPEventsDetectionJobList")
     "Filter_Status"=@("Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList")
     "InputDataConfig_DataFormat"=@("New-COMPDocumentClassifier","New-COMPEntityRecognizer")
+    "InputDataConfig_Documents_InputFormat"=@("New-COMPEntityRecognizer")
     "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob")
     "Mode"=@("New-COMPDocumentClassifier","Start-COMPPiiEntitiesDetectionJob")
     "RedactionConfig_MaskMode"=@("Start-COMPPiiEntitiesDetectionJob")
@@ -9447,10 +9985,12 @@ $COMP_SelectMap = @{
                "Find-COMPSyntax",
                "Get-COMPDocumentClassificationJobList",
                "Get-COMPDocumentClassifierList",
+               "Get-COMPDocumentClassifierSummaryList",
                "Get-COMPDominantLanguageDetectionJobList",
                "Get-COMPEndpointList",
                "Get-COMPEntitiesDetectionJobList",
                "Get-COMPEntityRecognizerList",
+               "Get-COMPEntityRecognizerSummaryList",
                "Get-COMPEventsDetectionJobList",
                "Get-COMPKeyPhrasesDetectionJobList",
                "Get-COMPPiiEntitiesDetectionJobList",
@@ -9706,6 +10246,7 @@ $CO_SelectMap = @{
                "Get-COEC2InstanceRecommendation",
                "Get-COEC2RecommendationProjectedMetric",
                "Get-COEnrollmentStatus",
+               "Get-COEnrollmentStatusesForOrganization",
                "Get-COLambdaFunctionRecommendation",
                "Get-CORecommendationSummary",
                "Update-COEnrollmentStatus")
@@ -9819,7 +10360,7 @@ $CFG_Completers = {
             ($_ -eq "Get-CFGResourceConfigHistory/ResourceType")
         }
         {
-            $v = "AWS::ACM::Certificate","AWS::ApiGateway::RestApi","AWS::ApiGateway::Stage","AWS::ApiGatewayV2::Api","AWS::ApiGatewayV2::Stage","AWS::AutoScaling::AutoScalingGroup","AWS::AutoScaling::LaunchConfiguration","AWS::AutoScaling::ScalingPolicy","AWS::AutoScaling::ScheduledAction","AWS::CloudFormation::Stack","AWS::CloudFront::Distribution","AWS::CloudFront::StreamingDistribution","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::CodeBuild::Project","AWS::CodePipeline::Pipeline","AWS::Config::ConformancePackCompliance","AWS::Config::ResourceCompliance","AWS::DynamoDB::Table","AWS::EC2::CustomerGateway","AWS::EC2::EgressOnlyInternetGateway","AWS::EC2::EIP","AWS::EC2::FlowLog","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::NatGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RegisteredHAInstance","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPCEndpoint","AWS::EC2::VPCEndpointService","AWS::EC2::VPCPeeringConnection","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ElasticBeanstalk::Application","AWS::ElasticBeanstalk::ApplicationVersion","AWS::ElasticBeanstalk::Environment","AWS::ElasticLoadBalancing::LoadBalancer","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Elasticsearch::Domain","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::KMS::Key","AWS::Lambda::Function","AWS::NetworkFirewall::Firewall","AWS::NetworkFirewall::FirewallPolicy","AWS::NetworkFirewall::RuleGroup","AWS::QLDB::Ledger","AWS::RDS::DBCluster","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::S3::AccountPublicAccessBlock","AWS::S3::Bucket","AWS::SecretsManager::Secret","AWS::ServiceCatalog::CloudFormationProduct","AWS::ServiceCatalog::CloudFormationProvisionedProduct","AWS::ServiceCatalog::Portfolio","AWS::Shield::Protection","AWS::ShieldRegional::Protection","AWS::SNS::Topic","AWS::SQS::Queue","AWS::SSM::AssociationCompliance","AWS::SSM::FileData","AWS::SSM::ManagedInstanceInventory","AWS::SSM::PatchCompliance","AWS::WAF::RateBasedRule","AWS::WAF::Rule","AWS::WAF::RuleGroup","AWS::WAF::WebACL","AWS::WAFRegional::RateBasedRule","AWS::WAFRegional::Rule","AWS::WAFRegional::RuleGroup","AWS::WAFRegional::WebACL","AWS::WAFv2::IPSet","AWS::WAFv2::ManagedRuleSet","AWS::WAFv2::RegexPatternSet","AWS::WAFv2::RuleGroup","AWS::WAFv2::WebACL","AWS::XRay::EncryptionConfig"
+            $v = "AWS::ACM::Certificate","AWS::ApiGateway::RestApi","AWS::ApiGateway::Stage","AWS::ApiGatewayV2::Api","AWS::ApiGatewayV2::Stage","AWS::AutoScaling::AutoScalingGroup","AWS::AutoScaling::LaunchConfiguration","AWS::AutoScaling::ScalingPolicy","AWS::AutoScaling::ScheduledAction","AWS::Backup::BackupPlan","AWS::Backup::BackupSelection","AWS::Backup::BackupVault","AWS::Backup::RecoveryPoint","AWS::CloudFormation::Stack","AWS::CloudFront::Distribution","AWS::CloudFront::StreamingDistribution","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::CodeBuild::Project","AWS::CodePipeline::Pipeline","AWS::Config::ConformancePackCompliance","AWS::Config::ResourceCompliance","AWS::DynamoDB::Table","AWS::EC2::CustomerGateway","AWS::EC2::EgressOnlyInternetGateway","AWS::EC2::EIP","AWS::EC2::FlowLog","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::NatGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RegisteredHAInstance","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPCEndpoint","AWS::EC2::VPCEndpointService","AWS::EC2::VPCPeeringConnection","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ECR::Repository","AWS::ECS::Cluster","AWS::ECS::Service","AWS::ECS::TaskDefinition","AWS::EFS::AccessPoint","AWS::EFS::FileSystem","AWS::EKS::Cluster","AWS::ElasticBeanstalk::Application","AWS::ElasticBeanstalk::ApplicationVersion","AWS::ElasticBeanstalk::Environment","AWS::ElasticLoadBalancing::LoadBalancer","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Elasticsearch::Domain","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::KMS::Key","AWS::Lambda::Function","AWS::NetworkFirewall::Firewall","AWS::NetworkFirewall::FirewallPolicy","AWS::NetworkFirewall::RuleGroup","AWS::QLDB::Ledger","AWS::RDS::DBCluster","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::S3::AccountPublicAccessBlock","AWS::S3::Bucket","AWS::SecretsManager::Secret","AWS::ServiceCatalog::CloudFormationProduct","AWS::ServiceCatalog::CloudFormationProvisionedProduct","AWS::ServiceCatalog::Portfolio","AWS::Shield::Protection","AWS::ShieldRegional::Protection","AWS::SNS::Topic","AWS::SQS::Queue","AWS::SSM::AssociationCompliance","AWS::SSM::FileData","AWS::SSM::ManagedInstanceInventory","AWS::SSM::PatchCompliance","AWS::WAF::RateBasedRule","AWS::WAF::Rule","AWS::WAF::RuleGroup","AWS::WAF::WebACL","AWS::WAFRegional::RateBasedRule","AWS::WAFRegional::Rule","AWS::WAFRegional::RuleGroup","AWS::WAFRegional::WebACL","AWS::WAFv2::IPSet","AWS::WAFv2::ManagedRuleSet","AWS::WAFv2::RegexPatternSet","AWS::WAFv2::RuleGroup","AWS::WAFv2::WebACL","AWS::XRay::EncryptionConfig"
             break
         }
 
@@ -9997,6 +10538,16 @@ $CONN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Connect.AgentStatusState
+        {
+            ($_ -eq "New-CONNAgentStatus/State") -Or
+            ($_ -eq "Update-CONNAgentStatus/State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Connect.ContactFlowType
         "New-CONNContactFlow/Type"
         {
@@ -10047,9 +10598,12 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.IntegrationType
-        "New-CONNIntegrationAssociation/IntegrationType"
         {
-            $v = "EVENT"
+            ($_ -eq "Get-CONNIntegrationAssociationList/IntegrationType") -Or
+            ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
+        }
+        {
+            $v = "EVENT","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE"
             break
         }
 
@@ -10094,10 +10648,17 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.TrafficType
+        "Start-CONNOutboundVoiceContact/TrafficType"
+        {
+            $v = "CAMPAIGN","GENERAL"
+            break
+        }
+
         # Amazon.Connect.UseCaseType
         "New-CONNUseCase/UseCaseType"
         {
-            $v = "RULES_EVALUATION"
+            $v = "CONNECT_CAMPAIGNS","RULES_EVALUATION"
             break
         }
 
@@ -10119,15 +10680,17 @@ $CONN_Completers = {
 $CONN_map = @{
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "IdentityManagementType"=@("New-CONNInstance")
-    "IntegrationType"=@("New-CONNIntegrationAssociation")
+    "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
     "LexVersion"=@("Get-CONNBotList")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "SourceType"=@("New-CONNIntegrationAssociation")
+    "State"=@("New-CONNAgentStatus","Update-CONNAgentStatus")
     "Status"=@("Update-CONNQueueStatus")
     "StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_S3Config_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "TrafficType"=@("Start-CONNOutboundVoiceContact")
     "Type"=@("New-CONNContactFlow")
     "UseCaseType"=@("New-CONNUseCase")
     "VoiceRecordingConfiguration_VoiceRecordingTrack"=@("Start-CONNContactRecording")
@@ -10191,7 +10754,9 @@ $CONN_SelectMap = @{
                "Add-CONNQueueQuickConnect",
                "Join-CONNRoutingProfileQueue",
                "Add-CONNSecurityKey",
+               "New-CONNAgentStatus",
                "New-CONNContactFlow",
+               "New-CONNHoursOfOperation",
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
                "New-CONNQueue",
@@ -10200,12 +10765,14 @@ $CONN_SelectMap = @{
                "New-CONNUseCase",
                "New-CONNUser",
                "New-CONNUserHierarchyGroup",
+               "Remove-CONNHoursOfOperation",
                "Remove-CONNInstance",
                "Remove-CONNIntegrationAssociation",
                "Remove-CONNQuickConnect",
                "Remove-CONNUseCase",
                "Remove-CONNUser",
                "Remove-CONNUserHierarchyGroup",
+               "Get-CONNAgentStatus",
                "Get-CONNContactFlow",
                "Get-CONNHoursOfOperation",
                "Get-CONNInstance",
@@ -10229,6 +10796,7 @@ $CONN_SelectMap = @{
                "Get-CONNCurrentMetricData",
                "Get-CONNFederationToken",
                "Get-CONNMetricData",
+               "Get-CONNAgentStatusList",
                "Get-CONNApprovedOriginList",
                "Get-CONNBotList",
                "Get-CONNContactFlowList",
@@ -10262,9 +10830,11 @@ $CONN_SelectMap = @{
                "Suspend-CONNContactRecording",
                "Add-CONNResourceTag",
                "Remove-CONNResourceTag",
+               "Update-CONNAgentStatus",
                "Update-CONNContactAttribute",
                "Update-CONNContactFlowContent",
                "Update-CONNContactFlowName",
+               "Update-CONNHoursOfOperation",
                "Update-CONNInstanceAttribute",
                "Update-CONNInstanceStorageConfig",
                "Update-CONNQueueHoursOfOperation",
@@ -10927,6 +11497,8 @@ $DTEX_Completers = {
 
         # Amazon.DataExchange.ServerSideEncryptionTypes
         {
+            ($_ -eq "New-DTEXEventAction/Action_ExportRevisionToS3_Encryption_Type") -Or
+            ($_ -eq "Update-DTEXEventAction/Action_ExportRevisionToS3_Encryption_Type") -Or
             ($_ -eq "New-DTEXJob/Details_ExportAssetsToS3_Encryption_Type") -Or
             ($_ -eq "New-DTEXJob/Details_ExportRevisionsToS3_Encryption_Type")
         }
@@ -10951,6 +11523,7 @@ $DTEX_Completers = {
 }
 
 $DTEX_map = @{
+    "Action_ExportRevisionToS3_Encryption_Type"=@("New-DTEXEventAction","Update-DTEXEventAction")
     "AssetType"=@("New-DTEXDataSet")
     "Details_ExportAssetsToS3_Encryption_Type"=@("New-DTEXJob")
     "Details_ExportRevisionsToS3_Encryption_Type"=@("New-DTEXJob")
@@ -11009,17 +11582,21 @@ $DTEX_SelectCompleters = {
 $DTEX_SelectMap = @{
     "Select"=@("Stop-DTEXJob",
                "New-DTEXDataSet",
+               "New-DTEXEventAction",
                "New-DTEXJob",
                "New-DTEXRevision",
                "Remove-DTEXAsset",
                "Remove-DTEXDataSet",
+               "Remove-DTEXEventAction",
                "Remove-DTEXRevision",
                "Get-DTEXAsset",
                "Get-DTEXDataSet",
+               "Get-DTEXEventAction",
                "Get-DTEXJob",
                "Get-DTEXRevision",
                "Get-DTEXDataSetRevisionList",
                "Get-DTEXDataSetList",
+               "Get-DTEXEventActionList",
                "Get-DTEXJobList",
                "Get-DTEXRevisionAssetList",
                "Get-DTEXResourceTag",
@@ -11028,6 +11605,7 @@ $DTEX_SelectMap = @{
                "Remove-DTEXResourceTag",
                "Update-DTEXAsset",
                "Update-DTEXDataSet",
+               "Update-DTEXEventAction",
                "Update-DTEXRevision")
 }
 
@@ -12262,6 +12840,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.CannedAclForObjectsValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/S3Settings_CannedAclForObjects") -Or
+            ($_ -eq "New-DMSEndpoint/S3Settings_CannedAclForObjects")
+        }
+        {
+            $v = "authenticated-read","aws-exec-read","bucket-owner-full-control","bucket-owner-read","none","private","public-read","public-read-write"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.CharLengthSemantics
         {
             ($_ -eq "Edit-DMSEndpoint/OracleSettings_CharLengthSemantics") -Or
@@ -12399,6 +12987,26 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.PluginNameValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/PostgreSQLSettings_PluginName") -Or
+            ($_ -eq "New-DMSEndpoint/PostgreSQLSettings_PluginName")
+        }
+        {
+            $v = "no-preference","pglogical","test-decoding"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.RedisAuthTypeValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/RedisSettings_AuthType") -Or
+            ($_ -eq "New-DMSEndpoint/RedisSettings_AuthType")
+        }
+        {
+            $v = "auth-role","auth-token","none"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.ReloadOptionValue
         "Restore-DMSTable/ReloadOption"
         {
@@ -12430,6 +13038,16 @@ $DMS_Completers = {
         "Get-DMSEvent/SourceType"
         {
             $v = "replication-instance"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.SslSecurityProtocolValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/RedisSettings_SslSecurityProtocol") -Or
+            ($_ -eq "New-DMSEndpoint/RedisSettings_SslSecurityProtocol")
+        }
+        {
+            $v = "plaintext","ssl-encryption"
             break
         }
 
@@ -12471,8 +13089,12 @@ $DMS_map = @{
     "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_CharLengthSemantics"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "PostgreSQLSettings_PluginName"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "RedisSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "RedisSettings_SslSecurityProtocol"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "RedshiftSettings_EncryptionMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "ReloadOption"=@("Restore-DMSTable")
+    "S3Settings_CannedAclForObjects"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_CompressionType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_DataFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_DatePartitionDelimiter"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -12744,7 +13366,8 @@ $DS_Completers = {
         # Amazon.DirectoryService.ClientAuthenticationType
         {
             ($_ -eq "Disable-DSClientAuthentication/Type") -Or
-            ($_ -eq "Enable-DSClientAuthentication/Type")
+            ($_ -eq "Enable-DSClientAuthentication/Type") -Or
+            ($_ -eq "Get-DSClientAuthenticationSetting/Type")
         }
         {
             $v = "SmartCard"
@@ -12847,7 +13470,7 @@ $DS_map = @{
     "Size"=@("Connect-DSDirectory","New-DSDirectory")
     "TrustDirection"=@("New-DSTrust")
     "TrustType"=@("New-DSTrust")
-    "Type"=@("Disable-DSClientAuthentication","Disable-DSLDAPS","Enable-DSClientAuthentication","Enable-DSLDAPS","Get-DSLDAPSSetting","Register-DSCertificate")
+    "Type"=@("Disable-DSClientAuthentication","Disable-DSLDAPS","Enable-DSClientAuthentication","Enable-DSLDAPS","Get-DSClientAuthenticationSetting","Get-DSLDAPSSetting","Register-DSCertificate")
     "UnshareTarget_Type"=@("Disable-DSDirectoryShare")
 }
 
@@ -12923,6 +13546,7 @@ $DS_SelectMap = @{
                "Unregister-DSCertificate",
                "Unregister-DSEventTopic",
                "Get-DSCertificate",
+               "Get-DSClientAuthenticationSetting",
                "Get-DSConditionalForwarder",
                "Get-DSDirectory",
                "Get-DSDomainControllerList",
@@ -13450,7 +14074,7 @@ $EC2_Completers = {
         # Amazon.EC2.ArchitectureValues
         "Register-EC2Image/Architecture"
         {
-            $v = "arm64","i386","x86_64"
+            $v = "arm64","i386","x86_64","x86_64_mac"
             break
         }
 
@@ -13482,7 +14106,10 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.BootModeValues
-        "Register-EC2Image/BootMode"
+        {
+            ($_ -eq "Import-EC2Image/BootMode") -Or
+            ($_ -eq "Register-EC2Image/BootMode")
+        }
         {
             $v = "legacy-bios","uefi"
             break
@@ -13790,6 +14417,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.InstanceMetadataProtocolState
+        {
+            ($_ -eq "Edit-EC2InstanceMetadataOption/HttpProtocolIpv6") -Or
+            ($_ -eq "New-EC2Instance/MetadataOptions_HttpProtocolIpv6")
+        }
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
         # Amazon.EC2.InstanceType
         {
             ($_ -eq "Get-EC2ReservedInstancesOffering/InstanceType") -Or
@@ -13797,7 +14434,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.metal","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.12xlarge","c5.18xlarge","c5.24xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.metal","c5.xlarge","c5a.12xlarge","c5a.16xlarge","c5a.24xlarge","c5a.2xlarge","c5a.4xlarge","c5a.8xlarge","c5a.large","c5a.xlarge","c5ad.12xlarge","c5ad.16xlarge","c5ad.24xlarge","c5ad.2xlarge","c5ad.4xlarge","c5ad.8xlarge","c5ad.large","c5ad.xlarge","c5d.12xlarge","c5d.18xlarge","c5d.24xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.metal","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.metal","c5n.xlarge","c6g.12xlarge","c6g.16xlarge","c6g.2xlarge","c6g.4xlarge","c6g.8xlarge","c6g.large","c6g.medium","c6g.metal","c6g.xlarge","c6gd.12xlarge","c6gd.16xlarge","c6gd.2xlarge","c6gd.4xlarge","c6gd.8xlarge","c6gd.large","c6gd.medium","c6gd.metal","c6gd.xlarge","c6gn.12xlarge","c6gn.16xlarge","c6gn.2xlarge","c6gn.4xlarge","c6gn.8xlarge","c6gn.large","c6gn.medium","c6gn.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","d3.2xlarge","d3.4xlarge","d3.8xlarge","d3.xlarge","d3en.12xlarge","d3en.2xlarge","d3en.4xlarge","d3en.6xlarge","d3en.8xlarge","d3en.xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","g4ad.16xlarge","g4ad.4xlarge","g4ad.8xlarge","g4dn.12xlarge","g4dn.16xlarge","g4dn.2xlarge","g4dn.4xlarge","g4dn.8xlarge","g4dn.metal","g4dn.xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","i3en.12xlarge","i3en.24xlarge","i3en.2xlarge","i3en.3xlarge","i3en.6xlarge","i3en.large","i3en.metal","i3en.xlarge","inf1.24xlarge","inf1.2xlarge","inf1.6xlarge","inf1.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.16xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge","m5.large","m5.metal","m5.xlarge","m5a.12xlarge","m5a.16xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.8xlarge","m5a.large","m5a.xlarge","m5ad.12xlarge","m5ad.16xlarge","m5ad.24xlarge","m5ad.2xlarge","m5ad.4xlarge","m5ad.8xlarge","m5ad.large","m5ad.xlarge","m5d.12xlarge","m5d.16xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.8xlarge","m5d.large","m5d.metal","m5d.xlarge","m5dn.12xlarge","m5dn.16xlarge","m5dn.24xlarge","m5dn.2xlarge","m5dn.4xlarge","m5dn.8xlarge","m5dn.large","m5dn.metal","m5dn.xlarge","m5n.12xlarge","m5n.16xlarge","m5n.24xlarge","m5n.2xlarge","m5n.4xlarge","m5n.8xlarge","m5n.large","m5n.metal","m5n.xlarge","m5zn.12xlarge","m5zn.2xlarge","m5zn.3xlarge","m5zn.6xlarge","m5zn.large","m5zn.metal","m5zn.xlarge","m6g.12xlarge","m6g.16xlarge","m6g.2xlarge","m6g.4xlarge","m6g.8xlarge","m6g.large","m6g.medium","m6g.metal","m6g.xlarge","m6gd.12xlarge","m6gd.16xlarge","m6gd.2xlarge","m6gd.4xlarge","m6gd.8xlarge","m6gd.large","m6gd.medium","m6gd.metal","m6gd.xlarge","mac1.metal","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","p3dn.24xlarge","p4d.24xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.16xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.8xlarge","r5a.large","r5a.xlarge","r5ad.12xlarge","r5ad.16xlarge","r5ad.24xlarge","r5ad.2xlarge","r5ad.4xlarge","r5ad.8xlarge","r5ad.large","r5ad.xlarge","r5b.12xlarge","r5b.16xlarge","r5b.24xlarge","r5b.2xlarge","r5b.4xlarge","r5b.8xlarge","r5b.large","r5b.metal","r5b.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","r5dn.12xlarge","r5dn.16xlarge","r5dn.24xlarge","r5dn.2xlarge","r5dn.4xlarge","r5dn.8xlarge","r5dn.large","r5dn.metal","r5dn.xlarge","r5n.12xlarge","r5n.16xlarge","r5n.24xlarge","r5n.2xlarge","r5n.4xlarge","r5n.8xlarge","r5n.large","r5n.metal","r5n.xlarge","r6g.12xlarge","r6g.16xlarge","r6g.2xlarge","r6g.4xlarge","r6g.8xlarge","r6g.large","r6g.medium","r6g.metal","r6g.xlarge","r6gd.12xlarge","r6gd.16xlarge","r6gd.2xlarge","r6gd.4xlarge","r6gd.8xlarge","r6gd.large","r6gd.medium","r6gd.metal","r6gd.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","t3a.2xlarge","t3a.large","t3a.medium","t3a.micro","t3a.nano","t3a.small","t3a.xlarge","t4g.2xlarge","t4g.large","t4g.medium","t4g.micro","t4g.nano","t4g.small","t4g.xlarge","u-12tb1.112xlarge","u-12tb1.metal","u-18tb1.metal","u-24tb1.metal","u-6tb1.112xlarge","u-6tb1.56xlarge","u-6tb1.metal","u-9tb1.112xlarge","u-9tb1.metal","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","x2gd.12xlarge","x2gd.16xlarge","x2gd.2xlarge","x2gd.4xlarge","x2gd.8xlarge","x2gd.large","x2gd.medium","x2gd.metal","x2gd.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.metal","z1d.xlarge"
+            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.metal","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.12xlarge","c5.18xlarge","c5.24xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.metal","c5.xlarge","c5a.12xlarge","c5a.16xlarge","c5a.24xlarge","c5a.2xlarge","c5a.4xlarge","c5a.8xlarge","c5a.large","c5a.xlarge","c5ad.12xlarge","c5ad.16xlarge","c5ad.24xlarge","c5ad.2xlarge","c5ad.4xlarge","c5ad.8xlarge","c5ad.large","c5ad.xlarge","c5d.12xlarge","c5d.18xlarge","c5d.24xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.metal","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.metal","c5n.xlarge","c6g.12xlarge","c6g.16xlarge","c6g.2xlarge","c6g.4xlarge","c6g.8xlarge","c6g.large","c6g.medium","c6g.metal","c6g.xlarge","c6gd.12xlarge","c6gd.16xlarge","c6gd.2xlarge","c6gd.4xlarge","c6gd.8xlarge","c6gd.large","c6gd.medium","c6gd.metal","c6gd.xlarge","c6gn.12xlarge","c6gn.16xlarge","c6gn.2xlarge","c6gn.4xlarge","c6gn.8xlarge","c6gn.large","c6gn.medium","c6gn.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","d3.2xlarge","d3.4xlarge","d3.8xlarge","d3.xlarge","d3en.12xlarge","d3en.2xlarge","d3en.4xlarge","d3en.6xlarge","d3en.8xlarge","d3en.xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","g4ad.16xlarge","g4ad.2xlarge","g4ad.4xlarge","g4ad.8xlarge","g4ad.xlarge","g4dn.12xlarge","g4dn.16xlarge","g4dn.2xlarge","g4dn.4xlarge","g4dn.8xlarge","g4dn.metal","g4dn.xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","i3en.12xlarge","i3en.24xlarge","i3en.2xlarge","i3en.3xlarge","i3en.6xlarge","i3en.large","i3en.metal","i3en.xlarge","inf1.24xlarge","inf1.2xlarge","inf1.6xlarge","inf1.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.16xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge","m5.large","m5.metal","m5.xlarge","m5a.12xlarge","m5a.16xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.8xlarge","m5a.large","m5a.xlarge","m5ad.12xlarge","m5ad.16xlarge","m5ad.24xlarge","m5ad.2xlarge","m5ad.4xlarge","m5ad.8xlarge","m5ad.large","m5ad.xlarge","m5d.12xlarge","m5d.16xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.8xlarge","m5d.large","m5d.metal","m5d.xlarge","m5dn.12xlarge","m5dn.16xlarge","m5dn.24xlarge","m5dn.2xlarge","m5dn.4xlarge","m5dn.8xlarge","m5dn.large","m5dn.metal","m5dn.xlarge","m5n.12xlarge","m5n.16xlarge","m5n.24xlarge","m5n.2xlarge","m5n.4xlarge","m5n.8xlarge","m5n.large","m5n.metal","m5n.xlarge","m5zn.12xlarge","m5zn.2xlarge","m5zn.3xlarge","m5zn.6xlarge","m5zn.large","m5zn.metal","m5zn.xlarge","m6g.12xlarge","m6g.16xlarge","m6g.2xlarge","m6g.4xlarge","m6g.8xlarge","m6g.large","m6g.medium","m6g.metal","m6g.xlarge","m6gd.12xlarge","m6gd.16xlarge","m6gd.2xlarge","m6gd.4xlarge","m6gd.8xlarge","m6gd.large","m6gd.medium","m6gd.metal","m6gd.xlarge","m6i.12xlarge","m6i.16xlarge","m6i.24xlarge","m6i.2xlarge","m6i.32xlarge","m6i.4xlarge","m6i.8xlarge","m6i.large","m6i.xlarge","mac1.metal","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","p3dn.24xlarge","p4d.24xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.16xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.8xlarge","r5a.large","r5a.xlarge","r5ad.12xlarge","r5ad.16xlarge","r5ad.24xlarge","r5ad.2xlarge","r5ad.4xlarge","r5ad.8xlarge","r5ad.large","r5ad.xlarge","r5b.12xlarge","r5b.16xlarge","r5b.24xlarge","r5b.2xlarge","r5b.4xlarge","r5b.8xlarge","r5b.large","r5b.metal","r5b.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","r5dn.12xlarge","r5dn.16xlarge","r5dn.24xlarge","r5dn.2xlarge","r5dn.4xlarge","r5dn.8xlarge","r5dn.large","r5dn.metal","r5dn.xlarge","r5n.12xlarge","r5n.16xlarge","r5n.24xlarge","r5n.2xlarge","r5n.4xlarge","r5n.8xlarge","r5n.large","r5n.metal","r5n.xlarge","r6g.12xlarge","r6g.16xlarge","r6g.2xlarge","r6g.4xlarge","r6g.8xlarge","r6g.large","r6g.medium","r6g.metal","r6g.xlarge","r6gd.12xlarge","r6gd.16xlarge","r6gd.2xlarge","r6gd.4xlarge","r6gd.8xlarge","r6gd.large","r6gd.medium","r6gd.metal","r6gd.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","t3a.2xlarge","t3a.large","t3a.medium","t3a.micro","t3a.nano","t3a.small","t3a.xlarge","t4g.2xlarge","t4g.large","t4g.medium","t4g.micro","t4g.nano","t4g.small","t4g.xlarge","u-12tb1.112xlarge","u-12tb1.metal","u-18tb1.metal","u-24tb1.metal","u-6tb1.112xlarge","u-6tb1.56xlarge","u-6tb1.metal","u-9tb1.112xlarge","u-9tb1.metal","vt1.24xlarge","vt1.3xlarge","vt1.6xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","x2gd.12xlarge","x2gd.16xlarge","x2gd.2xlarge","x2gd.4xlarge","x2gd.8xlarge","x2gd.large","x2gd.medium","x2gd.metal","x2gd.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.metal","z1d.xlarge"
             break
         }
 
@@ -13815,6 +14452,13 @@ $EC2_Completers = {
         }
         {
             $v = "disable","enable"
+            break
+        }
+
+        # Amazon.EC2.KeyType
+        "New-EC2KeyPair/KeyType"
+        {
+            $v = "ed25519","rsa"
             break
         }
 
@@ -14020,6 +14664,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.SubnetCidrReservationType
+        "New-EC2SubnetCidrReservation/ReservationType"
+        {
+            $v = "explicit","prefix"
+            break
+        }
+
         # Amazon.EC2.Tenancy
         {
             ($_ -eq "Get-EC2ReservedInstancesOffering/InstanceTenancy") -Or
@@ -14144,7 +14795,7 @@ $EC2_map = @{
     "Architecture"=@("Register-EC2Image")
     "Attribute"=@("Edit-EC2FpgaImageAttribute","Edit-EC2InstanceAttribute","Edit-EC2SnapshotAttribute","Get-EC2AddressesAttribute","Get-EC2FpgaImageAttribute","Get-EC2ImageAttribute","Get-EC2InstanceAttribute","Get-EC2NetworkInterfaceAttribute","Get-EC2SnapshotAttribute","Get-EC2VolumeAttribute","Get-EC2VpcAttribute","Reset-EC2AddressAttribute","Reset-EC2FpgaImageAttribute","Reset-EC2ImageAttribute","Reset-EC2InstanceAttribute","Reset-EC2SnapshotAttribute")
     "AutoPlacement"=@("Edit-EC2Host","New-EC2Host")
-    "BootMode"=@("Register-EC2Image")
+    "BootMode"=@("Import-EC2Image","Register-EC2Image")
     "CapacityReservationSpecification_CapacityReservationPreference"=@("Edit-EC2InstanceCapacityReservationAttribute","New-EC2Instance")
     "ConnectivityType"=@("New-EC2NatGateway")
     "CopyTagsFromSource"=@("New-EC2SnapshotBatch")
@@ -14158,6 +14809,7 @@ $EC2_map = @{
     "ExportToS3Task_DiskImageFormat"=@("New-EC2InstanceExportTask")
     "HostRecovery"=@("Edit-EC2Host","New-EC2Host")
     "HttpEndpoint"=@("Edit-EC2InstanceMetadataOption")
+    "HttpProtocolIpv6"=@("Edit-EC2InstanceMetadataOption")
     "HttpTokens"=@("Edit-EC2InstanceMetadataOption")
     "InstanceFamily"=@("Edit-EC2DefaultCreditSpecification","Get-EC2DefaultCreditSpecification")
     "InstanceInitiatedShutdownBehavior"=@("New-EC2Instance")
@@ -14167,12 +14819,14 @@ $EC2_map = @{
     "InstanceTenancy"=@("Edit-EC2VpcTenancy","Get-EC2ReservedInstancesOffering","New-EC2Vpc")
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "InterfaceType"=@("New-EC2NetworkInterface")
+    "KeyType"=@("New-EC2KeyPair")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
     "LaunchSpecification_Placement_Tenancy"=@("Request-EC2SpotInstance")
     "LimitPrice_CurrencyCode"=@("New-EC2ReservedInstance")
     "LocationType"=@("Get-EC2InstanceTypeOffering")
     "LogDestinationType"=@("New-EC2FlowLog")
     "MetadataOptions_HttpEndpoint"=@("New-EC2Instance")
+    "MetadataOptions_HttpProtocolIpv6"=@("New-EC2Instance")
     "MetadataOptions_HttpTokens"=@("New-EC2Instance")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
@@ -14197,6 +14851,7 @@ $EC2_map = @{
     "Placement_Tenancy"=@("New-EC2Instance")
     "ProductDescription"=@("Get-EC2ReservedInstancesOffering")
     "Protocol"=@("New-EC2NetworkInsightsPath")
+    "ReservationType"=@("New-EC2SubnetCidrReservation")
     "ResourceType"=@("New-EC2FlowLog")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
     "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
@@ -14289,6 +14944,7 @@ $EC2_SelectMap = @{
                "Register-EC2DhcpOption",
                "Register-EC2EnclaveCertificateIamRole",
                "Register-EC2IamInstanceProfile",
+               "Register-EC2InstanceEventWindow",
                "Register-EC2RouteTable",
                "Register-EC2SubnetCidrBlock",
                "Register-EC2TransitGatewayMulticastDomain",
@@ -14328,6 +14984,7 @@ $EC2_SelectMap = @{
                "New-EC2FlowLog",
                "New-EC2FpgaImage",
                "New-EC2Image",
+               "New-EC2InstanceEventWindow",
                "New-EC2InstanceExportTask",
                "New-EC2InternetGateway",
                "New-EC2KeyPair",
@@ -14354,6 +15011,7 @@ $EC2_SelectMap = @{
                "New-EC2SpotDatafeedSubscription",
                "New-EC2StoreImageTask",
                "New-EC2Subnet",
+               "New-EC2SubnetCidrReservation",
                "New-EC2Tag",
                "New-EC2TrafficMirrorFilter",
                "New-EC2TrafficMirrorFilterRule",
@@ -14386,6 +15044,7 @@ $EC2_SelectMap = @{
                "Remove-EC2Fleet",
                "Remove-EC2FlowLog",
                "Remove-EC2FpgaImage",
+               "Remove-EC2InstanceEventWindow",
                "Remove-EC2InternetGateway",
                "Remove-EC2KeyPair",
                "Remove-EC2LaunchTemplate",
@@ -14408,6 +15067,7 @@ $EC2_SelectMap = @{
                "Remove-EC2Snapshot",
                "Remove-EC2SpotDatafeedSubscription",
                "Remove-EC2Subnet",
+               "Remove-EC2SubnetCidrReservation",
                "Remove-EC2Tag",
                "Remove-EC2TrafficMirrorFilter",
                "Remove-EC2TrafficMirrorFilterRule",
@@ -14478,6 +15138,7 @@ $EC2_SelectMap = @{
                "Get-EC2InstanceAttribute",
                "Get-EC2CreditSpecification",
                "Get-EC2InstanceEventNotificationAttribute",
+               "Get-EC2InstanceEventWindow",
                "Get-EC2Instance",
                "Get-EC2InstanceStatus",
                "Get-EC2InstanceTypeOffering",
@@ -14516,6 +15177,7 @@ $EC2_SelectMap = @{
                "Get-EC2ScheduledInstanceAvailability",
                "Get-EC2ScheduledInstance",
                "Get-EC2SecurityGroupReference",
+               "Get-EC2SecurityGroupRule",
                "Get-EC2SecurityGroup",
                "Get-EC2SnapshotAttribute",
                "Get-EC2Snapshot",
@@ -14575,6 +15237,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2ClientVpnTargetNetwork",
                "Unregister-EC2EnclaveCertificateIamRole",
                "Unregister-EC2IamInstanceProfile",
+               "Unregister-EC2InstanceEventWindow",
                "Unregister-EC2RouteTable",
                "Unregister-EC2SubnetCidrBlock",
                "Unregister-EC2TransitGatewayMulticastDomain",
@@ -14611,11 +15274,14 @@ $EC2_SelectMap = @{
                "Get-EC2ManagedPrefixListEntry",
                "Get-EC2ReservedInstancesExchangeQuote",
                "Get-EC2SerialConsoleAccessStatus",
+               "Get-EC2SubnetCidrReservation",
                "Get-EC2TransitGatewayAttachmentPropagation",
                "Get-EC2TransitGatewayMulticastDomainAssociation",
                "Get-EC2TransitGatewayPrefixListReference",
                "Get-EC2TransitGatewayRouteTableAssociation",
                "Get-EC2TransitGatewayRouteTablePropagation",
+               "Get-EC2VpnConnectionDeviceSampleConfiguration",
+               "Get-EC2VpnConnectionDeviceType",
                "Import-EC2ClientVpnClientCertificateRevocationList",
                "Import-EC2Image",
                "Import-EC2KeyPair",
@@ -14636,12 +15302,14 @@ $EC2_SelectMap = @{
                "Edit-EC2InstanceCapacityReservationAttribute",
                "Edit-EC2InstanceCreditSpecification",
                "Edit-EC2InstanceEventStartTime",
+               "Edit-EC2InstanceEventWindow",
                "Edit-EC2InstanceMetadataOption",
                "Edit-EC2InstancePlacement",
                "Edit-EC2LaunchTemplate",
                "Edit-EC2ManagedPrefixList",
                "Edit-EC2NetworkInterfaceAttribute",
                "Edit-EC2ReservedInstance",
+               "Edit-EC2SecurityGroupRule",
                "Edit-EC2SnapshotAttribute",
                "Edit-EC2SpotFleetRequest",
                "Edit-EC2SubnetAttribute",
@@ -14892,6 +15560,7 @@ $ECR_SelectMap = @{
                "Remove-ECRRegistryPolicy",
                "Remove-ECRRepository",
                "Remove-ECRRepositoryPolicy",
+               "Get-ECRImageReplicationStatus",
                "Get-ECRImageMetadata",
                "Get-ECRImageScanFinding",
                "Get-ECRRegistry",
@@ -15337,6 +16006,13 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.ConnectorConfigProvider
+        "Register-EKSCluster/ConnectorConfig_Provider"
+        {
+            $v = "AKS","ANTHOS","EC2","EKS_ANYWHERE","GKE","OPENSHIFT","OTHER","RANCHER","TANZU"
+            break
+        }
+
         # Amazon.EKS.ResolveConflicts
         {
             ($_ -eq "New-EKSAddon/ResolveConflicts") -Or
@@ -15358,6 +16034,7 @@ $EKS_Completers = {
 $EKS_map = @{
     "AmiType"=@("New-EKSNodegroup")
     "CapacityType"=@("New-EKSNodegroup")
+    "ConnectorConfig_Provider"=@("Register-EKSCluster")
     "ResolveConflicts"=@("New-EKSAddon","Update-EKSAddon")
 }
 
@@ -15421,6 +16098,7 @@ $EKS_SelectMap = @{
                "Remove-EKSCluster",
                "Remove-EKSFargateProfile",
                "Remove-EKSNodegroup",
+               "Unregister-EKSCluster",
                "Get-EKSAddon",
                "Get-EKSAddonVersion",
                "Get-EKSCluster",
@@ -15436,6 +16114,7 @@ $EKS_SelectMap = @{
                "Get-EKSNodegroupList",
                "Get-EKSResourceTag",
                "Get-EKSUpdateList",
+               "Register-EKSCluster",
                "Add-EKSResourceTag",
                "Remove-EKSResourceTag",
                "Update-EKSAddon",
@@ -16143,7 +16822,7 @@ $ELB2_Completers = {
         # Amazon.ElasticLoadBalancingV2.TargetTypeEnum
         "New-ELB2TargetGroup/TargetType"
         {
-            $v = "instance","ip","lambda"
+            $v = "alb","instance","ip","lambda"
             break
         }
 
@@ -16459,9 +17138,11 @@ $EMR_SelectMap = @{
                "Get-EMRCluster",
                "Get-EMRJobFlow",
                "Get-EMRNotebookExecution",
+               "Get-EMRReleaseLabel",
                "Get-EMRSecurityConfiguration",
                "Get-EMRStep",
                "Get-EMRStudio",
+               "Get-EMRAutoTerminationPolicy",
                "Get-EMRBlockPublicAccessConfiguration",
                "Get-EMRManagedScalingPolicy",
                "Get-EMRStudioSessionMapping",
@@ -16471,6 +17152,7 @@ $EMR_SelectMap = @{
                "Get-EMRInstanceGroupList",
                "Get-EMRInstanceList",
                "Get-EMRNotebookExecutionList",
+               "Find-EMRReleaseLabel",
                "Get-EMRSecurityConfigurationList",
                "Get-EMRStepList",
                "Get-EMRStudioList",
@@ -16479,9 +17161,11 @@ $EMR_SelectMap = @{
                "Edit-EMRInstanceFleet",
                "Edit-EMRInstanceGroup",
                "Write-EMRAutoScalingPolicy",
+               "Write-EMRAutoTerminationPolicy",
                "Write-EMRBlockPublicAccessConfiguration",
                "Write-EMRManagedScalingPolicy",
                "Remove-EMRAutoScalingPolicy",
+               "Remove-EMRAutoTerminationPolicy",
                "Remove-EMRManagedScalingPolicy",
                "Remove-EMRResourceTag",
                "Start-EMRJobFlow",
@@ -16940,6 +17624,13 @@ $ES_Completers = {
             break
         }
 
+        # Amazon.Elasticsearch.EngineType
+        "Get-ESDomainNameList/EngineType"
+        {
+            $v = "Elasticsearch","OpenSearch"
+            break
+        }
+
         # Amazon.Elasticsearch.ESPartitionInstanceType
         {
             ($_ -eq "New-ESDomain/ElasticsearchClusterConfig_DedicatedMasterType") -Or
@@ -17013,6 +17704,7 @@ $ES_map = @{
     "ElasticsearchClusterConfig_DedicatedMasterType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_InstanceType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_WarmType"=@("New-ESDomain","Update-ESDomainConfig")
+    "EngineType"=@("Get-ESDomainNameList")
     "InstanceType"=@("Get-ESInstanceTypeLimit")
     "PackageType"=@("New-ESPackage")
 }
@@ -18010,6 +18702,13 @@ $FRC_Completers = {
             break
         }
 
+        # Amazon.ForecastService.OptimizationMetric
+        "New-FRCPredictor/OptimizationMetric"
+        {
+            $v = "AverageWeightedQuantileLoss","MAPE","MASE","RMSE","WAPE"
+            break
+        }
+
 
     }
 
@@ -18022,6 +18721,7 @@ $FRC_map = @{
     "AutoMLOverrideStrategy"=@("New-FRCPredictor")
     "DatasetType"=@("New-FRCDataset")
     "Domain"=@("New-FRCDataset","New-FRCDatasetGroup")
+    "OptimizationMetric"=@("New-FRCPredictor")
 }
 
 _awsArgumentCompleterRegistration $FRC_Completers $FRC_map
@@ -18423,10 +19123,24 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.DiskIopsConfigurationMode
+        "New-FSXFileSystem/OntapConfiguration_DiskIopsConfiguration_Mode"
+        {
+            $v = "AUTOMATIC","USER_PROVISIONED"
+            break
+        }
+
         # Amazon.FSx.FileSystemType
         "New-FSXFileSystem/FileSystemType"
         {
-            $v = "LUSTRE","WINDOWS"
+            $v = "LUSTRE","ONTAP","WINDOWS"
+            break
+        }
+
+        # Amazon.FSx.OntapDeploymentType
+        "New-FSXFileSystem/OntapConfiguration_DeploymentType"
+        {
+            $v = "MULTI_AZ_1"
             break
         }
 
@@ -18444,6 +19158,17 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.SecurityStyle
+        {
+            ($_ -eq "New-FSXVolume/OntapConfiguration_SecurityStyle") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_SecurityStyle") -Or
+            ($_ -eq "Update-FSXVolume/OntapConfiguration_SecurityStyle")
+        }
+        {
+            $v = "MIXED","NTFS","UNIX"
+            break
+        }
+
         # Amazon.FSx.StorageType
         {
             ($_ -eq "New-FSXFileSystem/StorageType") -Or
@@ -18451,6 +19176,31 @@ $FSX_Completers = {
         }
         {
             $v = "HDD","SSD"
+            break
+        }
+
+        # Amazon.FSx.StorageVirtualMachineRootVolumeSecurityStyle
+        "New-FSXStorageVirtualMachine/RootVolumeSecurityStyle"
+        {
+            $v = "MIXED","NTFS","UNIX"
+            break
+        }
+
+        # Amazon.FSx.TieringPolicyName
+        {
+            ($_ -eq "New-FSXVolume/OntapConfiguration_TieringPolicy_Name") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_TieringPolicy_Name") -Or
+            ($_ -eq "Update-FSXVolume/OntapConfiguration_TieringPolicy_Name")
+        }
+        {
+            $v = "ALL","AUTO","NONE","SNAPSHOT_ONLY"
+            break
+        }
+
+        # Amazon.FSx.VolumeType
+        "New-FSXVolume/VolumeType"
+        {
+            $v = "ONTAP"
             break
         }
 
@@ -18464,10 +19214,16 @@ $FSX_Completers = {
 
 $FSX_map = @{
     "FileSystemType"=@("New-FSXFileSystem")
+    "OntapConfiguration_DeploymentType"=@("New-FSXFileSystem")
+    "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem")
+    "OntapConfiguration_SecurityStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
+    "OntapConfiguration_TieringPolicy_Name"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "Report_Format"=@("New-FSXDataRepositoryTask")
     "Report_Scope"=@("New-FSXDataRepositoryTask")
+    "RootVolumeSecurityStyle"=@("New-FSXStorageVirtualMachine")
     "StorageType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
     "Type"=@("New-FSXDataRepositoryTask")
+    "VolumeType"=@("New-FSXVolume")
 }
 
 _awsArgumentCompleterRegistration $FSX_Completers $FSX_map
@@ -18527,17 +19283,26 @@ $FSX_SelectMap = @{
                "New-FSXDataRepositoryTask",
                "New-FSXFileSystem",
                "New-FSXFileSystemFromBackup",
+               "New-FSXStorageVirtualMachine",
+               "New-FSXVolume",
+               "New-FSXVolumeFromBackup",
                "Remove-FSXBackup",
                "Remove-FSXFileSystem",
+               "Remove-FSXStorageVirtualMachine",
+               "Remove-FSXVolume",
                "Get-FSXBackup",
                "Get-FSXDataRepositoryTask",
                "Get-FSXFileSystemAlias",
                "Get-FSXFileSystem",
+               "Get-FSXStorageVirtualMachine",
+               "Get-FSXVolume",
                "Unregister-FSXFileSystemAlias",
                "Get-FSXResourceTagList",
                "Add-FSXResourceTag",
                "Remove-FSXResourceTag",
-               "Update-FSXFileSystem")
+               "Update-FSXFileSystem",
+               "Update-FSXStorageVirtualMachine",
+               "Update-FSXVolume")
 }
 
 _awsArgumentCompleterRegistration $FSX_SelectCompleters $FSX_SelectMap
@@ -19214,7 +19979,7 @@ $GLUE_Completers = {
             ($_ -eq "New-GLUESchema/DataFormat")
         }
         {
-            $v = "AVRO"
+            $v = "AVRO","JSON"
             break
         }
 
@@ -19350,7 +20115,7 @@ $GLUE_Completers = {
         # Amazon.Glue.TriggerType
         "New-GLUETrigger/Type"
         {
-            $v = "CONDITIONAL","ON_DEMAND","SCHEDULED"
+            $v = "CONDITIONAL","EVENT","ON_DEMAND","SCHEDULED"
             break
         }
 
@@ -19455,6 +20220,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUEPartitionBatch",
                "Remove-GLUETableBatch",
                "Remove-GLUETableVersionBatch",
+               "Get-GLUEBlueprintBatch",
                "Get-GLUECrawlerBatch",
                "Get-GLUEDevEndpointBatch",
                "Get-GLUEJobBatch",
@@ -19465,6 +20231,7 @@ $GLUE_SelectMap = @{
                "Update-GLUEPartitionBatch",
                "Stop-GLUEMLTaskRun",
                "Get-GLUESchemaVersionValidity",
+               "New-GLUEBlueprint",
                "New-GLUEClassifier",
                "New-GLUEConnection",
                "New-GLUECrawler",
@@ -19482,6 +20249,7 @@ $GLUE_SelectMap = @{
                "New-GLUETrigger",
                "New-GLUEUserDefinedFunction",
                "New-GLUEWorkflow",
+               "Remove-GLUEBlueprint",
                "Remove-GLUEClassifier",
                "Remove-GLUEColumnStatisticsForPartition",
                "Remove-GLUEColumnStatisticsForTable",
@@ -19503,6 +20271,9 @@ $GLUE_SelectMap = @{
                "Remove-GLUETrigger",
                "Remove-GLUEUserDefinedFunction",
                "Remove-GLUEWorkflow",
+               "Get-GLUEBlueprint",
+               "Get-GLUEBlueprintRun",
+               "Get-GLUEBlueprintRunList",
                "Get-GLUECatalogImportStatus",
                "Get-GLUEClassifier",
                "Get-GLUEClassifierList",
@@ -19556,6 +20327,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEWorkflowRunProperty",
                "Get-GLUEWorkflowRunList",
                "Import-GLUECatalog",
+               "Get-GLUEBlueprintList",
                "Get-GLUECrawlerNameList",
                "Get-GLUEDevEndpointNameList",
                "Get-GLUEJobNameList",
@@ -19575,6 +20347,7 @@ $GLUE_SelectMap = @{
                "Reset-GLUEJobBookmark",
                "Resume-GLUEWorkflowRun",
                "Find-GLUETable",
+               "Start-GLUEBlueprintRun",
                "Start-GLUECrawler",
                "Start-GLUECrawlerSchedule",
                "Start-GLUEExportLabelsTaskRun",
@@ -19590,6 +20363,7 @@ $GLUE_SelectMap = @{
                "Stop-GLUEWorkflowRun",
                "Add-GLUEResourceTag",
                "Remove-GLUEResourceTag",
+               "Update-GLUEBlueprint",
                "Update-GLUEClassifier",
                "Update-GLUEColumnStatisticsForPartition",
                "Update-GLUEColumnStatisticsForTable",
@@ -20394,6 +21168,13 @@ $AHL_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.HealthLake.CmkType
+        "New-AHLFHIRDatastore/SseConfiguration_KmsEncryptionConfig_CmkType"
+        {
+            $v = "AWS_OWNED_KMS_KEY","CUSTOMER_MANAGED_KMS_KEY"
+            break
+        }
+
         # Amazon.HealthLake.DatastoreStatus
         "Get-AHLFHIRDatastoreList/Filter_DatastoreStatus"
         {
@@ -20405,6 +21186,16 @@ $AHL_Completers = {
         "New-AHLFHIRDatastore/DatastoreTypeVersion"
         {
             $v = "R4"
+            break
+        }
+
+        # Amazon.HealthLake.JobStatus
+        {
+            ($_ -eq "Get-AHLFHIRExportJobList/JobStatus") -Or
+            ($_ -eq "Get-AHLFHIRImportJobList/JobStatus")
+        }
+        {
+            $v = "COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","SUBMITTED"
             break
         }
 
@@ -20426,7 +21217,9 @@ $AHL_Completers = {
 $AHL_map = @{
     "DatastoreTypeVersion"=@("New-AHLFHIRDatastore")
     "Filter_DatastoreStatus"=@("Get-AHLFHIRDatastoreList")
+    "JobStatus"=@("Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
+    "SseConfiguration_KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
 }
 
 _awsArgumentCompleterRegistration $AHL_Completers $AHL_map
@@ -20485,8 +21278,13 @@ $AHL_SelectMap = @{
                "Get-AHLFHIRExportJob",
                "Get-AHLFHIRImportJob",
                "Get-AHLFHIRDatastoreList",
+               "Get-AHLFHIRExportJobList",
+               "Get-AHLFHIRImportJobList",
+               "Get-AHLResourceTag",
                "Start-AHLFHIRExportJob",
-               "Start-AHLFHIRImportJob")
+               "Start-AHLFHIRImportJob",
+               "Add-AHLResourceTag",
+               "Remove-AHLResourceTag")
 }
 
 _awsArgumentCompleterRegistration $AHL_SelectCompleters $AHL_SelectMap
@@ -21413,6 +22211,16 @@ $IOT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoT.AggregationTypeName
+        {
+            ($_ -eq "New-IOTFleetMetric/AggregationType_Name") -Or
+            ($_ -eq "Update-IOTFleetMetric/AggregationType_Name")
+        }
+        {
+            $v = "Cardinality","Percentiles","Statistics"
+            break
+        }
+
         # Amazon.IoT.AuditFrequency
         {
             ($_ -eq "New-IOTScheduledAudit/Frequency") -Or
@@ -21570,6 +22378,16 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.FleetMetricUnit
+        {
+            ($_ -eq "New-IOTFleetMetric/Unit") -Or
+            ($_ -eq "Update-IOTFleetMetric/Unit")
+        }
+        {
+            $v = "Bits","Bits/Second","Bytes","Bytes/Second","Count","Count/Second","Gigabits","Gigabits/Second","Gigabytes","Gigabytes/Second","Kilobits","Kilobits/Second","Kilobytes","Kilobytes/Second","Megabits","Megabits/Second","Megabytes","Megabytes/Second","Microseconds","Milliseconds","None","Percent","Seconds","Terabits","Terabits/Second","Terabytes","Terabytes/Second"
+            break
+        }
+
         # Amazon.IoT.JobExecutionStatus
         {
             ($_ -eq "Get-IOTJobExecutionsForJobList/Status") -Or
@@ -21708,6 +22526,17 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.VerificationState
+        {
+            ($_ -eq "Get-IOTActiveViolationList/VerificationState") -Or
+            ($_ -eq "Get-IOTViolationEventList/VerificationState") -Or
+            ($_ -eq "Write-IOTVerificationStateOnViolation/VerificationState")
+        }
+        {
+            $v = "BENIGN_POSITIVE","FALSE_POSITIVE","TRUE_POSITIVE","UNKNOWN"
+            break
+        }
+
 
     }
 
@@ -21723,6 +22552,7 @@ $IOT_map = @{
     "ActionParams_UpdateDeviceCertificateParams_Action"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
     "ActionStatus"=@("Get-IOTAuditMitigationActionsExecutionList")
     "ActionType"=@("Get-IOTMitigationActionList")
+    "AggregationType_Name"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
     "BehaviorCriteriaType"=@("Get-IOTActiveViolationList","Get-IOTViolationEventList")
     "DayOfWeek"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
     "DefaultLogLevel"=@("Set-IOTV2LoggingOption")
@@ -21750,6 +22580,8 @@ $IOT_map = @{
     "TopicRulePayload_ErrorAction_S3_CannedAcl"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "TopicRulePayload_ErrorAction_Sns_MessageFormat"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "Type"=@("New-IOTDimension")
+    "Unit"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
+    "VerificationState"=@("Get-IOTActiveViolationList","Get-IOTViolationEventList","Write-IOTVerificationStateOnViolation")
 }
 
 _awsArgumentCompleterRegistration $IOT_Completers $IOT_map
@@ -21826,6 +22658,7 @@ $IOT_SelectMap = @{
                "New-IOTDimension",
                "New-IOTDomainConfiguration",
                "New-IOTDynamicThingGroup",
+               "New-IOTFleetMetric",
                "New-IOTJob",
                "New-IOTJobTemplate",
                "New-IOTKeysAndCertificate",
@@ -21855,6 +22688,7 @@ $IOT_SelectMap = @{
                "Remove-IOTDimension",
                "Remove-IOTDomainConfiguration",
                "Remove-IOTDynamicThingGroup",
+               "Remove-IOTFleetMetric",
                "Remove-IOTJob",
                "Remove-IOTJobExecution",
                "Remove-IOTJobTemplate",
@@ -21892,6 +22726,7 @@ $IOT_SelectMap = @{
                "Get-IOTDomainConfiguration",
                "Get-IOTEndpoint",
                "Get-IOTEventConfiguration",
+               "Get-IOTFleetMetric",
                "Get-IOTIndex",
                "Get-IOTJob",
                "Get-IOTJobExecution",
@@ -21914,6 +22749,7 @@ $IOT_SelectMap = @{
                "Disable-IOTTopicRule",
                "Enable-IOTTopicRule",
                "Get-IOTBehaviorModelTrainingSummary",
+               "Get-IOTBucketsAggregation",
                "Get-IOTCardinality",
                "Get-IOTEffectivePolicy",
                "Get-IOTIndexingConfiguration",
@@ -21945,6 +22781,7 @@ $IOT_SelectMap = @{
                "Get-IOTDetectMitigationActionsTaskList",
                "Get-IOTDimensionList",
                "Get-IOTDomainConfigurationList",
+               "Get-IOTFleetMetricList",
                "Get-IOTIndexList",
                "Get-IOTJobExecutionsForJobList",
                "Get-IOTJobExecutionsForThingList",
@@ -21981,6 +22818,7 @@ $IOT_SelectMap = @{
                "Get-IOTTopicRuleList",
                "Get-IOTV2LoggingLevelList",
                "Get-IOTViolationEventList",
+               "Write-IOTVerificationStateOnViolation",
                "Register-IOTCACertificate",
                "Register-IOTCertificate",
                "Register-IOTCertificateWithoutCA",
@@ -22016,6 +22854,7 @@ $IOT_SelectMap = @{
                "Update-IOTDomainConfiguration",
                "Update-IOTDynamicThingGroup",
                "Update-IOTEventConfiguration",
+               "Update-IOTFleetMetric",
                "Update-IOTIndexingConfiguration",
                "Update-IOTJob",
                "Update-IOTMitigationAction",
@@ -22583,6 +23422,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.StorageType
+        "Write-IOTSWStorageConfiguration/StorageType"
+        {
+            $v = "MULTI_LAYER_STORAGE","SITEWISE_DEFAULT_STORAGE"
+            break
+        }
+
         # Amazon.IoTSiteWise.TimeOrdering
         {
             ($_ -eq "Get-IOTSWAssetPropertyAggregate/TimeOrdering") -Or
@@ -22627,6 +23473,7 @@ $IOTSW_map = @{
     "PropertyNotificationState"=@("Update-IOTSWAssetProperty")
     "Quality"=@("Get-IOTSWInterpolatedAssetPropertyValue")
     "ResourceType"=@("Get-IOTSWAccessPolicyList")
+    "StorageType"=@("Write-IOTSWStorageConfiguration")
     "TimeOrdering"=@("Get-IOTSWAssetPropertyAggregate","Get-IOTSWAssetPropertyValueHistory")
     "TraversalDirection"=@("Get-IOTSWAssociatedAssetList")
     "TraversalType"=@("Get-IOTSWAssetRelationshipList")
@@ -22711,6 +23558,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWLoggingOption",
                "Get-IOTSWPortal",
                "Get-IOTSWProject",
+               "Get-IOTSWStorageConfiguration",
                "Disconnect-IOTSWAsset",
                "Get-IOTSWAssetPropertyAggregate",
                "Get-IOTSWAssetPropertyValue",
@@ -22729,6 +23577,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWResourceTag",
                "Write-IOTSWDefaultEncryptionConfiguration",
                "Write-IOTSWLoggingOption",
+               "Write-IOTSWStorageConfiguration",
                "Add-IOTSWResourceTag",
                "Remove-IOTSWResourceTag",
                "Update-IOTSWAccessPolicy",
@@ -22931,7 +23780,7 @@ $IOTW_Completers = {
         # Amazon.IoTWireless.WirelessDeviceIdType
         "Get-IOTWWirelessDevice/IdentifierType"
         {
-            $v = "DevEui","ThingName","WirelessDeviceId"
+            $v = "DevEui","SidewalkManufacturingSn","ThingName","WirelessDeviceId"
             break
         }
 
@@ -23226,7 +24075,10 @@ $MSK_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Kafka.ClientBroker
-        "New-MSKCluster/EncryptionInfo_EncryptionInTransit_ClientBroker"
+        {
+            ($_ -eq "New-MSKCluster/EncryptionInfo_EncryptionInTransit_ClientBroker") -Or
+            ($_ -eq "Update-MSKSecurity/EncryptionInfo_EncryptionInTransit_ClientBroker")
+        }
         {
             $v = "PLAINTEXT","TLS","TLS_PLAINTEXT"
             break
@@ -23251,7 +24103,7 @@ $MSK_Completers = {
 }
 
 $MSK_map = @{
-    "EncryptionInfo_EncryptionInTransit_ClientBroker"=@("New-MSKCluster")
+    "EncryptionInfo_EncryptionInTransit_ClientBroker"=@("New-MSKCluster","Update-MSKSecurity")
     "EnhancedMonitoring"=@("New-MSKCluster","Update-MSKMonitoring")
 }
 
@@ -23334,10 +24186,118 @@ $MSK_SelectMap = @{
                "Update-MSKClusterConfiguration",
                "Update-MSKClusterKafkaVersion",
                "Update-MSKConfiguration",
-               "Update-MSKMonitoring")
+               "Update-MSKMonitoring",
+               "Update-MSKSecurity")
 }
 
 _awsArgumentCompleterRegistration $MSK_SelectCompleters $MSK_SelectMap
+# Argument completions for service Managed Streaming for Kafka Connect
+
+
+$MSKC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.KafkaConnect.CustomPluginContentType
+        "New-MSKCCustomPlugin/ContentType"
+        {
+            $v = "JAR","ZIP"
+            break
+        }
+
+        # Amazon.KafkaConnect.KafkaClusterClientAuthenticationType
+        "New-MSKCConnector/KafkaClusterClientAuthentication_AuthenticationType"
+        {
+            $v = "IAM","NONE"
+            break
+        }
+
+        # Amazon.KafkaConnect.KafkaClusterEncryptionInTransitType
+        "New-MSKCConnector/KafkaClusterEncryptionInTransit_EncryptionType"
+        {
+            $v = "PLAINTEXT","TLS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MSKC_map = @{
+    "ContentType"=@("New-MSKCCustomPlugin")
+    "KafkaClusterClientAuthentication_AuthenticationType"=@("New-MSKCConnector")
+    "KafkaClusterEncryptionInTransit_EncryptionType"=@("New-MSKCConnector")
+}
+
+_awsArgumentCompleterRegistration $MSKC_Completers $MSKC_map
+
+$MSKC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MSKC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MSKC_SelectMap = @{
+    "Select"=@("New-MSKCConnector",
+               "New-MSKCCustomPlugin",
+               "New-MSKCWorkerConfiguration",
+               "Remove-MSKCConnector",
+               "Get-MSKCConnector",
+               "Get-MSKCCustomPlugin",
+               "Get-MSKCWorkerConfiguration",
+               "Get-MSKCConnectorList",
+               "Get-MSKCCustomPluginList",
+               "Get-MSKCWorkerConfigurationList",
+               "Update-MSKCConnector")
+}
+
+_awsArgumentCompleterRegistration $MSKC_SelectCompleters $MSKC_SelectMap
 # Argument completions for service Amazon Kendra
 
 
@@ -23356,7 +24316,7 @@ $KNDR_Completers = {
         # Amazon.Kendra.DataSourceType
         "New-KNDRDataSource/Type"
         {
-            $v = "CONFLUENCE","CUSTOM","DATABASE","GOOGLEDRIVE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT","WEBCRAWLER"
+            $v = "CONFLUENCE","CUSTOM","DATABASE","GOOGLEDRIVE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT","WEBCRAWLER","WORKDOCS"
             break
         }
 
@@ -23486,11 +24446,13 @@ $KNDR_SelectMap = @{
                "Remove-KNDRDataSource",
                "Remove-KNDRFaq",
                "Remove-KNDRIndex",
+               "Remove-KNDRPrincipalMapping",
                "Remove-KNDRQuerySuggestionsBlockList",
                "Remove-KNDRThesaurus",
                "Get-KNDRDataSource",
                "Get-KNDRFaq",
                "Get-KNDRIndex",
+               "Get-KNDRPrincipalMapping",
                "Get-KNDRQuerySuggestionsBlockList",
                "Get-KNDRQuerySuggestionsConfig",
                "Get-KNDRThesaurus",
@@ -23498,10 +24460,12 @@ $KNDR_SelectMap = @{
                "Get-KNDRDataSourceList",
                "Get-KNDRDataSourceSyncJobList",
                "Get-KNDRFaqList",
+               "Get-KNDRGroupsOlderThanOrderingIdList",
                "Get-KNDRIndexList",
                "Get-KNDRQuerySuggestionsBlockListList",
                "Get-KNDRResourceTag",
                "Get-KNDRThesauriList",
+               "Write-KNDRPrincipalMapping",
                "Invoke-KNDRQuery",
                "Start-KNDRDataSourceSyncJob",
                "Stop-KNDRDataSourceSyncJob",
@@ -24220,6 +25184,13 @@ $KMS_Completers = {
             break
         }
 
+        # Amazon.KeyManagementService.KeySpec
+        "New-KMSKey/KeySpec"
+        {
+            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096","SYMMETRIC_DEFAULT"
+            break
+        }
+
         # Amazon.KeyManagementService.KeyUsageType
         "New-KMSKey/KeyUsage"
         {
@@ -24275,7 +25246,7 @@ $KMS_map = @{
     "EncryptionAlgorithm"=@("Invoke-KMSDecrypt","Invoke-KMSEncrypt")
     "ExpirationModel"=@("Import-KMSKeyMaterial")
     "KeyPairSpec"=@("New-KMSDataKeyPair","New-KMSDataKeyPairWithoutPlaintext")
-    "KeySpec"=@("New-KMSDataKey","New-KMSDataKeyWithoutPlaintext")
+    "KeySpec"=@("New-KMSDataKey","New-KMSDataKeyWithoutPlaintext","New-KMSKey")
     "KeyUsage"=@("New-KMSKey")
     "MessageType"=@("Invoke-KMSSigning","Test-KMSSignature")
     "Origin"=@("New-KMSKey")
@@ -24520,6 +25491,16 @@ $LM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Lambda.Architecture
+        {
+            ($_ -eq "Get-LMLayerList/CompatibleArchitecture") -Or
+            ($_ -eq "Get-LMLayerVersionList/CompatibleArchitecture")
+        }
+        {
+            $v = "arm64","x86_64"
+            break
+        }
+
         # Amazon.Lambda.CodeSigningPolicy
         {
             ($_ -eq "New-LMCodeSigningConfig/CodeSigningPolicies_UntrustedArtifactOnDeployment") -Or
@@ -24573,7 +25554,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","python2.7","python3.6","python3.7","python3.8","ruby2.5","ruby2.7"
+            $v = "dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","python2.7","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7"
             break
         }
 
@@ -24597,6 +25578,7 @@ $LM_Completers = {
 
 $LM_map = @{
     "CodeSigningPolicies_UntrustedArtifactOnDeployment"=@("New-LMCodeSigningConfig","Update-LMCodeSigningConfig")
+    "CompatibleArchitecture"=@("Get-LMLayerList","Get-LMLayerVersionList")
     "CompatibleRuntime"=@("Get-LMLayerList","Get-LMLayerVersionList")
     "FunctionVersion"=@("Get-LMFunctionList")
     "InvocationType"=@("Invoke-LMFunction")
@@ -24747,7 +25729,7 @@ $LMB_Completers = {
             ($_ -eq "Write-LMBBot/Locale")
         }
         {
-            $v = "de-DE","en-AU","en-GB","en-US","es-419","es-ES","es-US","fr-CA","fr-FR","it-IT","ja-JP"
+            $v = "de-DE","en-AU","en-GB","en-IN","en-US","es-419","es-ES","es-US","fr-CA","fr-FR","it-IT","ja-JP","ko-KR"
             break
         }
 
@@ -24755,6 +25737,27 @@ $LMB_Completers = {
         "Start-LMBImport/MergeStrategy"
         {
             $v = "FAIL_ON_CONFLICT","OVERWRITE_LATEST"
+            break
+        }
+
+        # Amazon.LexModelBuildingService.MigrationSortAttribute
+        "Get-LMBMigrationSummaryList/SortByAttribute"
+        {
+            $v = "MIGRATION_DATE_TIME","V1_BOT_NAME"
+            break
+        }
+
+        # Amazon.LexModelBuildingService.MigrationStatus
+        "Get-LMBMigrationSummaryList/MigrationStatusEquals"
+        {
+            $v = "COMPLETED","FAILED","IN_PROGRESS"
+            break
+        }
+
+        # Amazon.LexModelBuildingService.MigrationStrategy
+        "Start-LMBMigration/MigrationStrategy"
+        {
+            $v = "CREATE_NEW","UPDATE_EXISTING"
             break
         }
 
@@ -24782,6 +25785,13 @@ $LMB_Completers = {
             break
         }
 
+        # Amazon.LexModelBuildingService.SortOrder
+        "Get-LMBMigrationSummaryList/SortByOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
         # Amazon.LexModelBuildingService.StatusType
         "Get-LMBUtterancesView/StatusType"
         {
@@ -24802,8 +25812,12 @@ $LMB_map = @{
     "FulfillmentActivity_Type"=@("Write-LMBIntent")
     "Locale"=@("Get-LMBBuiltinIntentList","Get-LMBBuiltinSlotType","Write-LMBBot")
     "MergeStrategy"=@("Start-LMBImport")
+    "MigrationStatusEquals"=@("Get-LMBMigrationSummaryList")
+    "MigrationStrategy"=@("Start-LMBMigration")
     "ProcessBehavior"=@("Write-LMBBot")
     "ResourceType"=@("Get-LMBExport","Start-LMBImport")
+    "SortByAttribute"=@("Get-LMBMigrationSummaryList")
+    "SortByOrder"=@("Get-LMBMigrationSummaryList")
     "StatusType"=@("Get-LMBUtterancesView")
     "ValueSelectionStrategy"=@("Write-LMBSlotType")
 }
@@ -24885,6 +25899,8 @@ $LMB_SelectMap = @{
                "Get-LMBIntent",
                "Get-LMBIntentList",
                "Get-LMBIntentVersion",
+               "Get-LMBMigration",
+               "Get-LMBMigrationSummaryList",
                "Get-LMBSlotType",
                "Get-LMBSlotTypeList",
                "Get-LMBSlotTypeVersionList",
@@ -24895,6 +25911,7 @@ $LMB_SelectMap = @{
                "Write-LMBIntent",
                "Write-LMBSlotType",
                "Start-LMBImport",
+               "Start-LMBMigration",
                "Add-LMBResourceTag",
                "Remove-LMBResourceTag")
 }
@@ -24911,7 +25928,7 @@ $LICM_Completers = {
         # Amazon.LicenseManager.CheckoutType
         "Invoke-LICMLicenseCheckout/CheckoutType"
         {
-            $v = "PROVISIONAL"
+            $v = "PERPETUAL","PROVISIONAL"
             break
         }
 
@@ -25046,6 +26063,7 @@ $LICM_SelectMap = @{
                "New-LICMGrantVersion",
                "New-LICMLicense",
                "New-LICMLicenseConfiguration",
+               "New-LICMLicenseConversionTaskForResource",
                "New-LICMLicenseManagerReportGenerator",
                "New-LICMLicenseVersion",
                "New-LICMToken",
@@ -25059,6 +26077,7 @@ $LICM_SelectMap = @{
                "Get-LICMGrant",
                "Get-LICMLicense",
                "Get-LICMLicenseConfiguration",
+               "Get-LICMLicenseConversionTask",
                "Get-LICMLicenseManagerReportGenerator",
                "Get-LICMLicenseUsage",
                "Get-LICMServiceSetting",
@@ -25066,6 +26085,7 @@ $LICM_SelectMap = @{
                "Get-LICMDistributedGrantList",
                "Get-LICMFailuresForLicenseConfigurationOperationList",
                "Get-LICMLicenseConfigurationList",
+               "Get-LICMLicenseConversionTaskList",
                "Get-LICMLicenseManagerReportGeneratorList",
                "Get-LICMLicenseList",
                "Get-LICMLicenseSpecificationsForResourceList",
@@ -25094,6 +26114,13 @@ $LS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Lightsail.AccessType
+        "Update-LSBucket/AccessRules_GetObject"
+        {
+            $v = "private","public"
+            break
+        }
+
         # Amazon.Lightsail.AddOnType
         {
             ($_ -eq "Enable-LSAddOn/AddOnRequest_AddOnType") -Or
@@ -25118,6 +26145,13 @@ $LS_Completers = {
         }
         {
             $v = "cache","dont-cache"
+            break
+        }
+
+        # Amazon.Lightsail.BucketMetricName
+        "Get-LSBucketMetricData/MetricName"
+        {
+            $v = "BucketSizeBytes","NumberOfObjects"
             break
         }
 
@@ -25231,6 +26265,7 @@ $LS_Completers = {
 
         # Amazon.Lightsail.MetricUnit
         {
+            ($_ -eq "Get-LSBucketMetricData/Unit") -Or
             ($_ -eq "Get-LSDistributionMetricData/Unit") -Or
             ($_ -eq "Get-LSInstanceMetricData/Unit") -Or
             ($_ -eq "Get-LSLoadBalancerMetricData/Unit") -Or
@@ -25268,7 +26303,7 @@ $LS_Completers = {
             ($_ -eq "Copy-LSSnapshot/SourceRegion")
         }
         {
-            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","eu-central-1","eu-west-1","eu-west-2","eu-west-3","us-east-1","us-east-2","us-west-1","us-west-2"
+            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","eu-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","us-east-1","us-east-2","us-west-1","us-west-2"
             break
         }
 
@@ -25286,10 +26321,17 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.ResourceBucketAccess
+        "Set-LSResourceAccessForBucket/Access"
+        {
+            $v = "allow","deny"
+            break
+        }
+
         # Amazon.Lightsail.ResourceType
         "Set-LSIpAddressType/ResourceType"
         {
-            $v = "Alarm","Certificate","CloudFormationStackRecord","ContactMethod","ContainerService","Disk","DiskSnapshot","Distribution","Domain","ExportSnapshotRecord","Instance","InstanceSnapshot","KeyPair","LoadBalancer","LoadBalancerTlsCertificate","PeeredVpc","RelationalDatabase","RelationalDatabaseSnapshot","StaticIp"
+            $v = "Alarm","Bucket","Certificate","CloudFormationStackRecord","ContactMethod","ContainerService","Disk","DiskSnapshot","Distribution","Domain","ExportSnapshotRecord","Instance","InstanceSnapshot","KeyPair","LoadBalancer","LoadBalancerTlsCertificate","PeeredVpc","RelationalDatabase","RelationalDatabaseSnapshot","StaticIp"
             break
         }
 
@@ -25309,6 +26351,8 @@ $LS_Completers = {
 }
 
 $LS_map = @{
+    "Access"=@("Set-LSResourceAccessForBucket")
+    "AccessRules_GetObject"=@("Update-LSBucket")
     "AddOnRequest_AddOnType"=@("Enable-LSAddOn")
     "AddOnType"=@("Disable-LSAddOn")
     "AttributeName"=@("Update-LSLoadBalancerAttribute")
@@ -25317,7 +26361,7 @@ $LS_map = @{
     "ComparisonOperator"=@("Add-LSAlarm")
     "DefaultCacheBehavior_Behavior"=@("New-LSDistribution","Update-LSDistribution")
     "IpAddressType"=@("New-LSDistribution","New-LSInstance","New-LSInstancesFromSnapshot","New-LSLoadBalancer","Set-LSIpAddressType")
-    "MetricName"=@("Add-LSAlarm","Get-LSContainerServiceMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
+    "MetricName"=@("Add-LSAlarm","Get-LSBucketMetricData","Get-LSContainerServiceMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
     "Origin_ProtocolPolicy"=@("New-LSDistribution","Update-LSDistribution")
     "Origin_RegionName"=@("New-LSDistribution","Update-LSDistribution")
     "PasswordVersion"=@("Get-LSRelationalDatabaseMasterUserPassword")
@@ -25328,7 +26372,7 @@ $LS_map = @{
     "SourceRegion"=@("Copy-LSSnapshot")
     "State"=@("Test-LSAlarm")
     "TreatMissingData"=@("Add-LSAlarm")
-    "Unit"=@("Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
+    "Unit"=@("Get-LSBucketMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
 }
 
 _awsArgumentCompleterRegistration $LS_Completers $LS_map
@@ -25389,6 +26433,8 @@ $LS_SelectMap = @{
                "Mount-LSStaticIp",
                "Close-LSInstancePublicPort",
                "Copy-LSSnapshot",
+               "New-LSBucket",
+               "New-LSBucketAccessKey",
                "New-LSCertificate",
                "New-LSCloudFormationStack",
                "New-LSContactMethod",
@@ -25412,6 +26458,8 @@ $LS_SelectMap = @{
                "New-LSRelationalDatabaseSnapshot",
                "Remove-LSAlarm",
                "Remove-LSAutoSnapshot",
+               "Remove-LSBucket",
+               "Remove-LSBucketAccessKey",
                "Remove-LSCertificate",
                "Remove-LSContactMethod",
                "Remove-LSContainerImage",
@@ -25441,6 +26489,10 @@ $LS_SelectMap = @{
                "Get-LSAlarm",
                "Get-LSAutoSnapshot",
                "Get-LSBlueprintList",
+               "Get-LSBucketAccessKey",
+               "Get-LSBucketBundle",
+               "Get-LSBucketMetricData",
+               "Get-LSBucket",
                "Get-LSBundleList",
                "Get-LSCertificate",
                "Get-LSCloudFormationStackRecord",
@@ -25508,6 +26560,7 @@ $LS_SelectMap = @{
                "Reset-LSDistributionCache",
                "Send-LSContactMethodVerification",
                "Set-LSIpAddressType",
+               "Set-LSResourceAccessForBucket",
                "Start-LSInstance",
                "Start-LSRelationalDatabase",
                "Stop-LSInstance",
@@ -25516,6 +26569,8 @@ $LS_SelectMap = @{
                "Test-LSAlarm",
                "Remove-LSPeerVpc",
                "Remove-LSResourceTag",
+               "Update-LSBucket",
+               "Update-LSBucketBundle",
                "Update-LSContainerService",
                "Update-LSDistribution",
                "Update-LSDistributionBundle",
@@ -25549,7 +26604,10 @@ $LOC_Completers = {
         }
 
         # Amazon.LocationService.IntendedUse
-        "New-LOCPlaceIndex/DataSourceConfiguration_IntendedUse"
+        {
+            ($_ -eq "Edit-LOCPlaceIndex/DataSourceConfiguration_IntendedUse") -Or
+            ($_ -eq "New-LOCPlaceIndex/DataSourceConfiguration_IntendedUse")
+        }
         {
             $v = "SingleUse","Storage"
             break
@@ -25557,6 +26615,11 @@ $LOC_Completers = {
 
         # Amazon.LocationService.PricingPlan
         {
+            ($_ -eq "Edit-LOCGeofenceCollection/PricingPlan") -Or
+            ($_ -eq "Edit-LOCMap/PricingPlan") -Or
+            ($_ -eq "Edit-LOCPlaceIndex/PricingPlan") -Or
+            ($_ -eq "Edit-LOCRouteCalculator/PricingPlan") -Or
+            ($_ -eq "Edit-LOCTracker/PricingPlan") -Or
             ($_ -eq "New-LOCGeofenceCollection/PricingPlan") -Or
             ($_ -eq "New-LOCMap/PricingPlan") -Or
             ($_ -eq "New-LOCPlaceIndex/PricingPlan") -Or
@@ -25591,9 +26654,9 @@ $LOC_Completers = {
 }
 
 $LOC_map = @{
-    "DataSourceConfiguration_IntendedUse"=@("New-LOCPlaceIndex")
+    "DataSourceConfiguration_IntendedUse"=@("Edit-LOCPlaceIndex","New-LOCPlaceIndex")
     "DistanceUnit"=@("Get-LOCRoute")
-    "PricingPlan"=@("New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCRouteCalculator","New-LOCTracker")
+    "PricingPlan"=@("Edit-LOCGeofenceCollection","Edit-LOCMap","Edit-LOCPlaceIndex","Edit-LOCRouteCalculator","Edit-LOCTracker","New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCRouteCalculator","New-LOCTracker")
     "TravelMode"=@("Get-LOCRoute")
     "TruckModeOptions_Dimensions_Unit"=@("Get-LOCRoute")
     "TruckModeOptions_Weight_Unit"=@("Get-LOCRoute")
@@ -25693,7 +26756,12 @@ $LOC_SelectMap = @{
                "Search-LOCPlaceIndexForPosition",
                "Search-LOCPlaceIndexForText",
                "Add-LOCResourceTagSet",
-               "Remove-LOCResourceTagSet")
+               "Remove-LOCResourceTagSet",
+               "Edit-LOCGeofenceCollection",
+               "Edit-LOCMap",
+               "Edit-LOCPlaceIndex",
+               "Edit-LOCRouteCalculator",
+               "Edit-LOCTracker")
 }
 
 _awsArgumentCompleterRegistration $LOC_SelectCompleters $LOC_SelectMap
@@ -26492,6 +27560,13 @@ $MAC2_Completers = {
             break
         }
 
+        # Amazon.Macie2.ManagedDataIdentifierSelector
+        "New-MAC2ClassificationJob/ManagedDataIdentifierSelector"
+        {
+            $v = "ALL","EXCLUDE","INCLUDE","NONE"
+            break
+        }
+
         # Amazon.Macie2.OrderBy
         {
             ($_ -eq "Get-MAC2UsageStatistic/SortBy_OrderBy") -Or
@@ -26542,6 +27617,7 @@ $MAC2_map = @{
     "GroupBy"=@("Get-MAC2FindingStatistic")
     "JobStatus"=@("Update-MAC2ClassificationJob")
     "JobType"=@("New-MAC2ClassificationJob")
+    "ManagedDataIdentifierSelector"=@("New-MAC2ClassificationJob")
     "ScheduleFrequency_WeeklySchedule_DayOfWeek"=@("New-MAC2ClassificationJob")
     "SortBy_Key"=@("Get-MAC2UsageStatistic")
     "SortBy_OrderBy"=@("Get-MAC2UsageStatistic")
@@ -26643,6 +27719,7 @@ $MAC2_SelectMap = @{
                "Get-MAC2FindingList",
                "Get-MAC2FindingsFilterList",
                "Get-MAC2InvitationList",
+               "Get-MAC2ManagedDataIdentifierList",
                "Get-MAC2MemberList",
                "Get-MAC2OrganizationAdminAccountList",
                "Get-MAC2ResourceTag",
@@ -28070,7 +29147,7 @@ $EMT_Completers = {
         # Amazon.MediaTailor.PlaybackMode
         "New-EMTChannel/PlaybackMode"
         {
-            $v = "LOOP"
+            $v = "LINEAR","LOOP"
             break
         }
 
@@ -28146,7 +29223,8 @@ $EMT_SelectCompleters = {
 }
 
 $EMT_SelectMap = @{
-    "Select"=@("New-EMTChannel",
+    "Select"=@("Add-EMTLogsForPlaybackConfiguration",
+               "New-EMTChannel",
                "New-EMTProgram",
                "New-EMTSourceLocation",
                "New-EMTVodSource",
@@ -28163,6 +29241,7 @@ $EMT_SelectMap = @{
                "Get-EMTChannelPolicy",
                "Get-EMTChannelSchedule",
                "Get-EMTPlaybackConfiguration",
+               "Get-EMTAlertList",
                "Get-EMTChannelList",
                "Get-EMTPlaybackConfigurationList",
                "Get-EMTSourceLocationList",
@@ -28180,6 +29259,132 @@ $EMT_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $EMT_SelectCompleters $EMT_SelectMap
+# Argument completions for service Amazon MemoryDB
+
+
+$MDB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MemoryDB.InputAuthenticationType
+        {
+            ($_ -eq "New-MDBUser/AuthenticationMode_Type") -Or
+            ($_ -eq "Update-MDBUser/AuthenticationMode_Type")
+        }
+        {
+            $v = "password"
+            break
+        }
+
+        # Amazon.MemoryDB.SourceType
+        "Get-MDBEvent/SourceType"
+        {
+            $v = "acl","cluster","node","parameter-group","subnet-group","user"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MDB_map = @{
+    "AuthenticationMode_Type"=@("New-MDBUser","Update-MDBUser")
+    "SourceType"=@("Get-MDBEvent")
+}
+
+_awsArgumentCompleterRegistration $MDB_Completers $MDB_map
+
+$MDB_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MDB.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MDB_SelectMap = @{
+    "Select"=@("Update-MDBUpdateClusterBatch",
+               "Copy-MDBSnapshot",
+               "New-MDBACL",
+               "New-MDBCluster",
+               "New-MDBParameterGroup",
+               "New-MDBSnapshot",
+               "New-MDBSubnetGroup",
+               "New-MDBUser",
+               "Remove-MDBACL",
+               "Remove-MDBCluster",
+               "Remove-MDBParameterGroup",
+               "Remove-MDBSnapshot",
+               "Remove-MDBSubnetGroup",
+               "Remove-MDBUser",
+               "Get-MDBACLs",
+               "Get-MDBCluster",
+               "Get-MDBEngineVersion",
+               "Get-MDBEvent",
+               "Get-MDBParameterGroup",
+               "Get-MDBParameter",
+               "Get-MDBServiceUpdate",
+               "Get-MDBSnapshot",
+               "Get-MDBSubnetGroup",
+               "Get-MDBUser",
+               "Start-MDBFailoverShard",
+               "Get-MDBAllowedNodeTypeUpdateList",
+               "Get-MDBTag",
+               "Reset-MDBParameterGroup",
+               "Add-MDBResourceTag",
+               "Remove-MDBResourceTag",
+               "Update-MDBACL",
+               "Update-MDBCluster",
+               "Update-MDBParameterGroup",
+               "Update-MDBSubnetGroup",
+               "Update-MDBUser")
+}
+
+_awsArgumentCompleterRegistration $MDB_SelectCompleters $MDB_SelectMap
 # Argument completions for service AWS Marketplace Metering
 
 
@@ -28289,7 +29494,7 @@ $MGN_Completers = {
             ($_ -eq "Update-MGNReplicationConfigurationTemplate/EbsEncryption")
         }
         {
-            $v = "CUSTOM","DEFAULT","NONE"
+            $v = "CUSTOM","DEFAULT"
             break
         }
 
@@ -28578,6 +29783,13 @@ $LMBV2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.LexModelsV2.AggregatedUtterancesSortAttribute
+        "Get-LMBV2AggregatedUtteranceList/SortBy_Attribute"
+        {
+            $v = "HitCount","MissedCount"
+            break
+        }
+
         # Amazon.LexModelsV2.BotLocaleSortAttribute
         "Get-LMBV2BotLocaleList/SortBy_Attribute"
         {
@@ -28701,6 +29913,7 @@ $LMBV2_Completers = {
 
         # Amazon.LexModelsV2.SortOrder
         {
+            ($_ -eq "Get-LMBV2AggregatedUtteranceList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BotList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BotLocaleList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BotVersionList/SortBy_Order") -Or
@@ -28717,6 +29930,13 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.TimeDimension
+        "Get-LMBV2AggregatedUtteranceList/AggregationDuration_RelativeAggregationDuration_TimeDimension"
+        {
+            $v = "Days","Hours","Weeks"
+            break
+        }
+
 
     }
 
@@ -28726,12 +29946,13 @@ $LMBV2_Completers = {
 }
 
 $LMBV2_map = @{
+    "AggregationDuration_RelativeAggregationDuration_TimeDimension"=@("Get-LMBV2AggregatedUtteranceList")
     "Effect"=@("New-LMBV2ResourcePolicyStatement")
     "FileFormat"=@("New-LMBV2Export")
     "MergeStrategy"=@("Start-LMBV2Import")
     "ObfuscationSetting_ObfuscationSettingType"=@("New-LMBV2Slot","Update-LMBV2Slot")
-    "SortBy_Attribute"=@("Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
-    "SortBy_Order"=@("Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
+    "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
+    "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList")
     "ValueElicitationSetting_SlotConstraint"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueSelectionSetting_ResolutionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
 }
@@ -28809,6 +30030,7 @@ $LMBV2_SelectMap = @{
                "Remove-LMBV2ResourcePolicyStatement",
                "Remove-LMBV2Slot",
                "Remove-LMBV2SlotType",
+               "Remove-LMBV2Utterance",
                "Get-LMBV2Bot",
                "Get-LMBV2BotAlias",
                "Get-LMBV2BotLocale",
@@ -28819,6 +30041,7 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2ResourcePolicy",
                "Get-LMBV2Slot",
                "Get-LMBV2SlotType",
+               "Get-LMBV2AggregatedUtteranceList",
                "Get-LMBV2BotAliasList",
                "Get-LMBV2BotLocaleList",
                "Get-LMBV2BotList",
@@ -29609,6 +30832,18 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.RuleOrder
+        {
+            ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_StatefulEngineOptions_RuleOrder") -Or
+            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_StatefulEngineOptions_RuleOrder") -Or
+            ($_ -eq "New-NWFWRuleGroup/RuleGroup_StatefulRuleOptions_RuleOrder") -Or
+            ($_ -eq "Update-NWFWRuleGroup/RuleGroup_StatefulRuleOptions_RuleOrder")
+        }
+        {
+            $v = "DEFAULT_ACTION_ORDER","STRICT_ORDER"
+            break
+        }
+
 
     }
 
@@ -29618,7 +30853,9 @@ $NWFW_Completers = {
 }
 
 $NWFW_map = @{
+    "FirewallPolicy_StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
+    "RuleGroup_StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "Type"=@("Get-NWFWRuleGroup","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
 }
 
@@ -29967,6 +31204,201 @@ $NS_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $NS_SelectCompleters $NS_SelectMap
+# Argument completions for service Amazon OpenSearch Service
+
+
+$OS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.OpenSearchService.AutoTuneDesiredState
+        {
+            ($_ -eq "New-OSDomain/AutoTuneOptions_DesiredState") -Or
+            ($_ -eq "Update-OSDomainConfig/AutoTuneOptions_DesiredState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.OpenSearchService.EngineType
+        "Get-OSDomainNameList/EngineType"
+        {
+            $v = "Elasticsearch","OpenSearch"
+            break
+        }
+
+        # Amazon.OpenSearchService.OpenSearchPartitionInstanceType
+        {
+            ($_ -eq "New-OSDomain/ClusterConfig_DedicatedMasterType") -Or
+            ($_ -eq "Update-OSDomainConfig/ClusterConfig_DedicatedMasterType") -Or
+            ($_ -eq "New-OSDomain/ClusterConfig_InstanceType") -Or
+            ($_ -eq "Update-OSDomainConfig/ClusterConfig_InstanceType") -Or
+            ($_ -eq "Get-OSInstanceTypeLimit/InstanceType")
+        }
+        {
+            $v = "c4.2xlarge.search","c4.4xlarge.search","c4.8xlarge.search","c4.large.search","c4.xlarge.search","c5.18xlarge.search","c5.2xlarge.search","c5.4xlarge.search","c5.9xlarge.search","c5.large.search","c5.xlarge.search","c6g.12xlarge.search","c6g.2xlarge.search","c6g.4xlarge.search","c6g.8xlarge.search","c6g.large.search","c6g.xlarge.search","d2.2xlarge.search","d2.4xlarge.search","d2.8xlarge.search","d2.xlarge.search","i2.2xlarge.search","i2.xlarge.search","i3.16xlarge.search","i3.2xlarge.search","i3.4xlarge.search","i3.8xlarge.search","i3.large.search","i3.xlarge.search","m3.2xlarge.search","m3.large.search","m3.medium.search","m3.xlarge.search","m4.10xlarge.search","m4.2xlarge.search","m4.4xlarge.search","m4.large.search","m4.xlarge.search","m5.12xlarge.search","m5.24xlarge.search","m5.2xlarge.search","m5.4xlarge.search","m5.large.search","m5.xlarge.search","m6g.12xlarge.search","m6g.2xlarge.search","m6g.4xlarge.search","m6g.8xlarge.search","m6g.large.search","m6g.xlarge.search","r3.2xlarge.search","r3.4xlarge.search","r3.8xlarge.search","r3.large.search","r3.xlarge.search","r4.16xlarge.search","r4.2xlarge.search","r4.4xlarge.search","r4.8xlarge.search","r4.large.search","r4.xlarge.search","r5.12xlarge.search","r5.24xlarge.search","r5.2xlarge.search","r5.4xlarge.search","r5.large.search","r5.xlarge.search","r6g.12xlarge.search","r6g.2xlarge.search","r6g.4xlarge.search","r6g.8xlarge.search","r6g.large.search","r6g.xlarge.search","r6gd.12xlarge.search","r6gd.16xlarge.search","r6gd.2xlarge.search","r6gd.4xlarge.search","r6gd.8xlarge.search","r6gd.large.search","r6gd.xlarge.search","t2.medium.search","t2.micro.search","t2.small.search","t3.2xlarge.search","t3.large.search","t3.medium.search","t3.micro.search","t3.nano.search","t3.small.search","t3.xlarge.search","t4g.medium.search","t4g.small.search","ultrawarm1.large.search","ultrawarm1.medium.search","ultrawarm1.xlarge.search"
+            break
+        }
+
+        # Amazon.OpenSearchService.OpenSearchWarmPartitionInstanceType
+        {
+            ($_ -eq "New-OSDomain/ClusterConfig_WarmType") -Or
+            ($_ -eq "Update-OSDomainConfig/ClusterConfig_WarmType")
+        }
+        {
+            $v = "ultrawarm1.large.search","ultrawarm1.medium.search","ultrawarm1.xlarge.search"
+            break
+        }
+
+        # Amazon.OpenSearchService.PackageType
+        "New-OSPackage/PackageType"
+        {
+            $v = "TXT-DICTIONARY"
+            break
+        }
+
+        # Amazon.OpenSearchService.RollbackOnDisable
+        "Update-OSDomainConfig/AutoTuneOptions_RollbackOnDisable"
+        {
+            $v = "DEFAULT_ROLLBACK","NO_ROLLBACK"
+            break
+        }
+
+        # Amazon.OpenSearchService.TLSSecurityPolicy
+        {
+            ($_ -eq "New-OSDomain/DomainEndpointOptions_TLSSecurityPolicy") -Or
+            ($_ -eq "Update-OSDomainConfig/DomainEndpointOptions_TLSSecurityPolicy")
+        }
+        {
+            $v = "Policy-Min-TLS-1-0-2019-07","Policy-Min-TLS-1-2-2019-07"
+            break
+        }
+
+        # Amazon.OpenSearchService.VolumeType
+        {
+            ($_ -eq "New-OSDomain/EBSOptions_VolumeType") -Or
+            ($_ -eq "Update-OSDomainConfig/EBSOptions_VolumeType")
+        }
+        {
+            $v = "gp2","io1","standard"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$OS_map = @{
+    "AutoTuneOptions_DesiredState"=@("New-OSDomain","Update-OSDomainConfig")
+    "AutoTuneOptions_RollbackOnDisable"=@("Update-OSDomainConfig")
+    "ClusterConfig_DedicatedMasterType"=@("New-OSDomain","Update-OSDomainConfig")
+    "ClusterConfig_InstanceType"=@("New-OSDomain","Update-OSDomainConfig")
+    "ClusterConfig_WarmType"=@("New-OSDomain","Update-OSDomainConfig")
+    "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
+    "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
+    "EngineType"=@("Get-OSDomainNameList")
+    "InstanceType"=@("Get-OSInstanceTypeLimit")
+    "PackageType"=@("New-OSPackage")
+}
+
+_awsArgumentCompleterRegistration $OS_Completers $OS_map
+
+$OS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.OS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$OS_SelectMap = @{
+    "Select"=@("Approve-OSInboundConnection",
+               "Add-OSResourceTag",
+               "Start-OSAssociatePackage",
+               "Stop-OSServiceSoftwareUpdate",
+               "New-OSDomain",
+               "New-OSOutboundConnection",
+               "New-OSPackage",
+               "Remove-OSDomain",
+               "Remove-OSInboundConnection",
+               "Remove-OSOutboundConnection",
+               "Remove-OSPackage",
+               "Get-OSDomain",
+               "Get-OSDomainAutoTune",
+               "Get-OSDomainConfig",
+               "Get-OSDomainList",
+               "Get-OSInboundConnection",
+               "Get-OSInstanceTypeLimit",
+               "Get-OSOutboundConnection",
+               "Get-OSPackage",
+               "Get-OSReservedInstanceOfferingList",
+               "Get-OSReservedInstanceList",
+               "Start-OSDissociatePackage",
+               "Get-OSCompatibleVersion",
+               "Get-OSPackageVersionHistory",
+               "Get-OSUpgradeHistory",
+               "Get-OSUpgradeStatus",
+               "Get-OSDomainNameList",
+               "Get-OSDomainsForPackageList",
+               "Get-OSInstanceTypeDetailList",
+               "Get-OSPackagesForDomainList",
+               "Get-OSResourceTag",
+               "Get-OSVersionList",
+               "New-OSReservedInstanceOffering",
+               "Deny-OSInboundConnection",
+               "Remove-OSResourceTag",
+               "Start-OSServiceSoftwareUpdate",
+               "Update-OSDomainConfig",
+               "Update-OSPackage",
+               "Update-OSDomain")
+}
+
+_awsArgumentCompleterRegistration $OS_SelectCompleters $OS_SelectMap
 # Argument completions for service AWS OpsWorks
 
 
@@ -30466,6 +31898,40 @@ _awsArgumentCompleterRegistration $ORG_SelectCompleters $ORG_SelectMap
 # Argument completions for service AWS Outposts
 
 
+$OUTP_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Outposts.PaymentOption
+        "New-OUTPOrder/PaymentOption"
+        {
+            $v = "ALL_UPFRONT","NO_UPFRONT","PARTIAL_UPFRONT"
+            break
+        }
+
+        # Amazon.Outposts.PaymentTerm
+        "New-OUTPOrder/PaymentTerm"
+        {
+            $v = "THREE_YEARS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$OUTP_map = @{
+    "PaymentOption"=@("New-OUTPOrder")
+    "PaymentTerm"=@("New-OUTPOrder")
+}
+
+_awsArgumentCompleterRegistration $OUTP_Completers $OUTP_map
+
 $OUTP_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -30514,7 +31980,8 @@ $OUTP_SelectCompleters = {
 }
 
 $OUTP_SelectMap = @{
-    "Select"=@("New-OUTPOutpost",
+    "Select"=@("New-OUTPOrder",
+               "New-OUTPOutpost",
                "Remove-OUTPOutpost",
                "Remove-OUTPSite",
                "Get-OUTPOutpost",
@@ -30927,7 +32394,7 @@ $PIN_Completers = {
         # Amazon.Pinpoint.ChannelType
         "Update-PINEndpoint/EndpointRequest_ChannelType"
         {
-            $v = "ADM","APNS","APNS_SANDBOX","APNS_VOIP","APNS_VOIP_SANDBOX","BAIDU","CUSTOM","EMAIL","GCM","PUSH","SMS","VOICE"
+            $v = "ADM","APNS","APNS_SANDBOX","APNS_VOIP","APNS_VOIP_SANDBOX","BAIDU","CUSTOM","EMAIL","GCM","IN_APP","PUSH","SMS","VOICE"
             break
         }
 
@@ -30992,7 +32459,7 @@ $PIN_Completers = {
             ($_ -eq "Update-PINCampaign/WriteCampaignRequest_Schedule_Frequency")
         }
         {
-            $v = "DAILY","EVENT","HOURLY","MONTHLY","ONCE","WEEKLY"
+            $v = "DAILY","EVENT","HOURLY","IN_APP_EVENT","MONTHLY","ONCE","WEEKLY"
             break
         }
 
@@ -31003,6 +32470,18 @@ $PIN_Completers = {
         }
         {
             $v = "ALL","ANY","NONE"
+            break
+        }
+
+        # Amazon.Pinpoint.Layout
+        {
+            ($_ -eq "New-PINInAppTemplate/InAppTemplateRequest_Layout") -Or
+            ($_ -eq "Update-PINInAppTemplate/InAppTemplateRequest_Layout") -Or
+            ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_InAppMessage_Layout") -Or
+            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_MessageConfiguration_InAppMessage_Layout")
+        }
+        {
+            $v = "BOTTOM_BANNER","CAROUSEL","MIDDLE_BANNER","MOBILE_FEED","OVERLAYS","TOP_BANNER"
             break
         }
 
@@ -31061,6 +32540,7 @@ $PIN_Completers = {
 $PIN_map = @{
     "EndpointRequest_ChannelType"=@("Update-PINEndpoint")
     "ImportJobRequest_Format"=@("New-PINImportJob")
+    "InAppTemplateRequest_Layout"=@("New-PINInAppTemplate","Update-PINInAppTemplate")
     "JourneyStateRequest_State"=@("Update-PINJourneyState")
     "MessageRequest_MessageConfiguration_ADMMessage_Action"=@("Send-PINMessage")
     "MessageRequest_MessageConfiguration_APNSMessage_Action"=@("Send-PINMessage")
@@ -31086,6 +32566,7 @@ $PIN_map = @{
     "WriteCampaignRequest_MessageConfiguration_BaiduMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_MessageConfiguration_GCMMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
+    "WriteCampaignRequest_MessageConfiguration_InAppMessage_Layout"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_Schedule_EventFilter_Dimensions_EventType_DimensionType"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_Schedule_EventFilter_FilterType"=@("New-PINCampaign","Update-PINCampaign")
@@ -31160,6 +32641,7 @@ $PIN_SelectMap = @{
                "New-PINEmailTemplate",
                "New-PINExportJob",
                "New-PINImportJob",
+               "New-PINInAppTemplate",
                "New-PINJourney",
                "New-PINPushTemplate",
                "New-PINRecommenderConfiguration",
@@ -31179,6 +32661,7 @@ $PIN_SelectMap = @{
                "Remove-PINEndpoint",
                "Remove-PINEventStream",
                "Remove-PINGcmChannel",
+               "Remove-PINInAppTemplate",
                "Remove-PINJourney",
                "Remove-PINPushTemplate",
                "Remove-PINRecommenderConfiguration",
@@ -31214,6 +32697,8 @@ $PIN_SelectMap = @{
                "Get-PINGcmChannel",
                "Get-PINImportJob",
                "Get-PINImportJobList",
+               "Get-PINInAppMessage",
+               "Get-PINInAppTemplate",
                "Get-PINJourney",
                "Get-PINJourneyDateRangeKpi",
                "Get-PINJourneyExecutionActivityMetric",
@@ -31257,6 +32742,7 @@ $PIN_SelectMap = @{
                "Update-PINEndpoint",
                "Update-PINEndpointsBatch",
                "Update-PINGcmChannel",
+               "Update-PINInAppTemplate",
                "Update-PINJourney",
                "Update-PINJourneyState",
                "Update-PINPushTemplate",
@@ -31430,7 +32916,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/LanguageCode")
         }
         {
-            $v = "arb","cmn-CN","cy-GB","da-DK","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-US","es-ES","es-MX","es-US","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR"
+            $v = "arb","cmn-CN","cy-GB","da-DK","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR"
             break
         }
 
@@ -31467,7 +32953,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Amy","Astrid","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kevin","Kimberly","Lea","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Olivia","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
+            $v = "Aditi","Amy","Aria","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kevin","Kimberly","Lea","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Olivia","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
             break
         }
 
@@ -31607,6 +33093,92 @@ $PLS_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $PLS_SelectCompleters $PLS_SelectMap
+# Argument completions for service AWS Route53 Recovery Readiness
+
+
+$PD_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.PD.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PD_SelectMap = @{
+    "Select"=@("New-PDCell",
+               "New-PDCrossAccountAuthorization",
+               "New-PDReadinessCheck",
+               "New-PDRecoveryGroup",
+               "New-PDResourceSet",
+               "Remove-PDCell",
+               "Remove-PDCrossAccountAuthorization",
+               "Remove-PDReadinessCheck",
+               "Remove-PDRecoveryGroup",
+               "Remove-PDResourceSet",
+               "Get-PDArchitectureRecommendation",
+               "Get-PDCell",
+               "Get-PDCellReadinessSummary",
+               "Get-PDReadinessCheck",
+               "Get-PDReadinessCheckResourceStatus",
+               "Get-PDReadinessCheckStatus",
+               "Get-PDRecoveryGroup",
+               "Get-PDRecoveryGroupReadinessSummary",
+               "Get-PDResourceSet",
+               "Get-PDCellList",
+               "Get-PDCrossAccountAuthorizationList",
+               "Get-PDReadinessCheckList",
+               "Get-PDRecoveryGroupList",
+               "Get-PDResourceSetList",
+               "Get-PDRuleList",
+               "Get-PDTagsForResourceList",
+               "Add-PDResourceTag",
+               "Remove-PDResourceTag",
+               "Update-PDCell",
+               "Update-PDReadinessCheck",
+               "Update-PDRecoveryGroup",
+               "Update-PDResourceSet")
+}
+
+_awsArgumentCompleterRegistration $PD_SelectCompleters $PD_SelectMap
 # Argument completions for service AWS Proton
 
 
@@ -31991,7 +33563,7 @@ $QS_Completers = {
         # Amazon.QuickSight.DataSourceType
         "New-QSDataSource/Type"
         {
-            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TIMESTREAM","TWITTER"
+            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TIMESTREAM","TWITTER"
             break
         }
 
@@ -32053,6 +33625,18 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.Status
+        {
+            ($_ -eq "New-QSDataSet/RowLevelPermissionDataSet_Status") -Or
+            ($_ -eq "Update-QSDataSet/RowLevelPermissionDataSet_Status") -Or
+            ($_ -eq "New-QSDataSet/RowLevelPermissionTagConfiguration_Status") -Or
+            ($_ -eq "Update-QSDataSet/RowLevelPermissionTagConfiguration_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QuickSight.ThemeType
         "Get-QSThemeList/Type"
         {
@@ -32091,6 +33675,8 @@ $QS_map = @{
     "Role"=@("Update-QSUser")
     "RowLevelPermissionDataSet_FormatVersion"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
+    "RowLevelPermissionDataSet_Status"=@("New-QSDataSet","Update-QSDataSet")
+    "RowLevelPermissionTagConfiguration_Status"=@("New-QSDataSet","Update-QSDataSet")
     "Type"=@("Get-QSThemeList","New-QSDataSource")
     "UserRole"=@("Register-QSUser")
 }
@@ -32203,6 +33789,8 @@ $QS_SelectMap = @{
                "Get-QSThemeAlias",
                "Get-QSThemePermission",
                "Get-QSUser",
+               "New-QSEmbedUrlForAnonymousUser",
+               "New-QSEmbedUrlForRegisteredUser",
                "Get-QSDashboardEmbedUrl",
                "Get-QSSessionEmbedUrl",
                "Get-QSAnalysisList",
@@ -32755,6 +34343,20 @@ $RS_Completers = {
             break
         }
 
+        # Amazon.Redshift.DataShareStatusForConsumer
+        "Get-RSDataSharesForConsumer/Status"
+        {
+            $v = "ACTIVE","AVAILABLE"
+            break
+        }
+
+        # Amazon.Redshift.DataShareStatusForProducer
+        "Get-RSDataSharesForProducer/Status"
+        {
+            $v = "ACTIVE","AUTHORIZED","DEAUTHORIZED","PENDING_AUTHORIZATION","REJECTED"
+            break
+        }
+
         # Amazon.Redshift.PartnerIntegrationStatus
         "Update-RSPartnerStatus/Status"
         {
@@ -32826,7 +34428,7 @@ $RS_map = @{
     "LimitType"=@("New-RSUsageLimit")
     "Period"=@("New-RSUsageLimit")
     "SourceType"=@("Get-RSEvent")
-    "Status"=@("Update-RSPartnerStatus")
+    "Status"=@("Get-RSDataSharesForConsumer","Get-RSDataSharesForProducer","Update-RSPartnerStatus")
     "TargetActionType"=@("Get-RSScheduledAction")
 }
 
@@ -32882,13 +34484,16 @@ $RS_SelectCompleters = {
 $RS_SelectMap = @{
     "Select"=@("Switch-RSReservedNode",
                "Add-RSPartner",
+               "Add-RSDataShareConsumer",
                "Approve-RSClusterSecurityGroupIngress",
+               "Approve-RSDataShare",
                "Approve-RSEndpointAccess",
                "Approve-RSSnapshotAccess",
                "Remove-RSClusterSnapshotBatch",
                "Edit-RSClusterSnapshotBatch",
                "Stop-RSResize",
                "Copy-RSClusterSnapshot",
+               "New-RSAuthenticationProfile",
                "New-RSCluster",
                "New-RSClusterParameterGroup",
                "New-RSClusterSecurityGroup",
@@ -32903,6 +34508,8 @@ $RS_SelectMap = @{
                "New-RSSnapshotSchedule",
                "New-RSResourceTag",
                "New-RSUsageLimit",
+               "Revoke-RSDataShare",
+               "Remove-RSAuthenticationProfile",
                "Remove-RSCluster",
                "Remove-RSClusterParameterGroup",
                "Remove-RSClusterSecurityGroup",
@@ -32919,6 +34526,7 @@ $RS_SelectMap = @{
                "Remove-RSResourceTag",
                "Remove-RSUsageLimit",
                "Get-RSAccountAttribute",
+               "Get-RSAuthenticationProfile",
                "Get-RSClusterDbRevision",
                "Get-RSClusterParameterGroup",
                "Get-RSClusterParameter",
@@ -32928,6 +34536,9 @@ $RS_SelectMap = @{
                "Get-RSClusterSubnetGroup",
                "Get-RSClusterTrack",
                "Get-RSClusterVersion",
+               "Get-RSDataShare",
+               "Get-RSDataSharesForConsumer",
+               "Get-RSDataSharesForProducer",
                "Get-RSDefaultClusterParameter",
                "Get-RSEndpointAccess",
                "Get-RSEndpointAuthorization",
@@ -32952,11 +34563,13 @@ $RS_SelectMap = @{
                "Get-RSUsageLimit",
                "Disable-RSLogging",
                "Disable-RSSnapshotCopy",
+               "Remove-RSDataShareConsumer",
                "Enable-RSLogging",
                "Enable-RSSnapshotCopy",
                "Get-RSClusterCredential",
                "Get-RSReservedNodeExchangeOffering",
                "Edit-RSAquaConfiguration",
+               "Edit-RSAuthenticationProfile",
                "Edit-RSCluster",
                "Edit-RSClusterDbRevision",
                "Edit-RSClusterIamRole",
@@ -32974,6 +34587,7 @@ $RS_SelectMap = @{
                "Stop-RSCluster",
                "Request-RSReservedNodeOffering",
                "Restart-RSCluster",
+               "Deny-RSDataShare",
                "Reset-RSClusterParameterGroup",
                "Set-RSClusterSize",
                "Restore-RSFromClusterSnapshot",
@@ -33064,7 +34678,8 @@ $RSD_SelectCompleters = {
 }
 
 $RSD_SelectMap = @{
-    "Select"=@("Stop-RSDStatement",
+    "Select"=@("Push-RSDBatchStatement",
+               "Stop-RSDStatement",
                "Get-RSDStatement",
                "Get-RSDTable",
                "Send-RSDStatement",
@@ -33571,7 +35186,7 @@ $R53_Completers = {
         # Amazon.Route53.HealthCheckType
         "New-R53HealthCheck/HealthCheckConfig_Type"
         {
-            $v = "CALCULATED","CLOUDWATCH_METRIC","HTTP","HTTPS","HTTPS_STR_MATCH","HTTP_STR_MATCH","TCP"
+            $v = "CALCULATED","CLOUDWATCH_METRIC","HTTP","HTTPS","HTTPS_STR_MATCH","HTTP_STR_MATCH","RECOVERY_CONTROL","TCP"
             break
         }
 
@@ -33917,6 +35532,193 @@ $R53D_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $R53D_SelectCompleters $R53D_SelectMap
+# Argument completions for service Route53 Recovery Cluster
+
+
+$RRC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Route53RecoveryCluster.RoutingControlState
+        "Update-RRCRoutingControlState/RoutingControlState"
+        {
+            $v = "Off","On"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$RRC_map = @{
+    "RoutingControlState"=@("Update-RRCRoutingControlState")
+}
+
+_awsArgumentCompleterRegistration $RRC_Completers $RRC_map
+
+$RRC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.RRC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$RRC_SelectMap = @{
+    "Select"=@("Get-RRCRoutingControlState",
+               "Update-RRCRoutingControlState",
+               "Update-RRCRoutingControlStateBatch")
+}
+
+_awsArgumentCompleterRegistration $RRC_SelectCompleters $RRC_SelectMap
+# Argument completions for service AWS Route53 Recovery Control Config
+
+
+$R53RC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Route53RecoveryControlConfig.RuleType
+        {
+            ($_ -eq "New-R53RCSafetyRule/AssertionRule_RuleConfig_Type") -Or
+            ($_ -eq "New-R53RCSafetyRule/GatingRule_RuleConfig_Type")
+        }
+        {
+            $v = "AND","ATLEAST","OR"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$R53RC_map = @{
+    "AssertionRule_RuleConfig_Type"=@("New-R53RCSafetyRule")
+    "GatingRule_RuleConfig_Type"=@("New-R53RCSafetyRule")
+}
+
+_awsArgumentCompleterRegistration $R53RC_Completers $R53RC_map
+
+$R53RC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.R53RC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$R53RC_SelectMap = @{
+    "Select"=@("New-R53RCCluster",
+               "New-R53RCControlPanel",
+               "New-R53RCRoutingControl",
+               "New-R53RCSafetyRule",
+               "Remove-R53RCCluster",
+               "Remove-R53RCControlPanel",
+               "Remove-R53RCRoutingControl",
+               "Remove-R53RCSafetyRule",
+               "Get-R53RCCluster",
+               "Get-R53RCControlPanel",
+               "Get-R53RCRoutingControl",
+               "Get-R53RCSafetyRule",
+               "Get-R53RCAssociatedRoute53HealthCheckList",
+               "Get-R53RCClusterList",
+               "Get-R53RCControlPanelList",
+               "Get-R53RCRoutingControlList",
+               "Get-R53RCSafetyRuleList",
+               "Update-R53RCControlPanel",
+               "Update-R53RCRoutingControl",
+               "Update-R53RCSafetyRule")
+}
+
+_awsArgumentCompleterRegistration $R53RC_SelectCompleters $R53RC_SelectMap
 # Argument completions for service Amazon Route 53 Resolver
 
 
@@ -34422,7 +36224,8 @@ $SMR_SelectCompleters = {
 }
 
 $SMR_SelectMap = @{
-    "Select"=@("Invoke-SMREndpoint")
+    "Select"=@("Invoke-SMREndpoint",
+               "Invoke-SMREndpointAsync")
 }
 
 _awsArgumentCompleterRegistration $SMR_SelectCompleters $SMR_SelectMap
@@ -35028,6 +36831,7 @@ $S3C_SelectMap = @{
                "New-S3CAccessPointForObjectLambda",
                "New-S3CBucket",
                "New-S3CJob",
+               "New-S3CMultiRegionAccessPoint",
                "Remove-S3CAccessPoint",
                "Remove-S3CAccessPointForObjectLambda",
                "Remove-S3CAccessPointPolicy",
@@ -35037,10 +36841,12 @@ $S3C_SelectMap = @{
                "Remove-S3CBucketPolicy",
                "Remove-S3CBucketTagging",
                "Remove-S3CJobTagging",
+               "Remove-S3CMultiRegionAccessPoint",
                "Remove-S3CPublicAccessBlock",
                "Remove-S3CStorageLensConfiguration",
                "Remove-S3CStorageLensConfigurationTagging",
                "Get-S3CJob",
+               "Get-S3CMultiRegionAccessPointOperation",
                "Get-S3CAccessPoint",
                "Get-S3CAccessPointConfigurationForObjectLambda",
                "Get-S3CAccessPointForObjectLambda",
@@ -35053,12 +36859,16 @@ $S3C_SelectMap = @{
                "Get-S3CBucketPolicy",
                "Get-S3CBucketTagging",
                "Get-S3CJobTagging",
+               "Get-S3CMultiRegionAccessPoint",
+               "Get-S3CMultiRegionAccessPointPolicy",
+               "Get-S3CMultiRegionAccessPointPolicyStatus",
                "Get-S3CPublicAccessBlock",
                "Get-S3CStorageLensConfiguration",
                "Get-S3CStorageLensConfigurationTagging",
                "Get-S3CAccessPointList",
                "Get-S3CAccessPointsForObjectLambdaList",
                "Get-S3CJobList",
+               "Get-S3CMultiRegionAccessPointList",
                "Get-S3CRegionalBucketList",
                "Get-S3CStorageLensConfigurationList",
                "Write-S3CAccessPointConfigurationForObjectLambda",
@@ -35068,6 +36878,7 @@ $S3C_SelectMap = @{
                "Write-S3CBucketPolicy",
                "Write-S3CBucketTagging",
                "Add-S3CJobTagging",
+               "Write-S3CMultiRegionAccessPointPolicy",
                "Add-S3CPublicAccessBlock",
                "Write-S3CStorageLensConfiguration",
                "Write-S3CStorageLensConfigurationTagging",
@@ -35078,6 +36889,32 @@ $S3C_SelectMap = @{
 _awsArgumentCompleterRegistration $S3C_SelectCompleters $S3C_SelectMap
 # Argument completions for service Amazon S3 Outposts
 
+
+$S3O_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.S3Outposts.EndpointAccessType
+        "New-S3OEndpoint/AccessType"
+        {
+            $v = "CustomerOwnedIp","Private"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$S3O_map = @{
+    "AccessType"=@("New-S3OEndpoint")
+}
+
+_awsArgumentCompleterRegistration $S3O_Completers $S3O_map
 
 $S3O_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -35168,7 +37005,7 @@ $SM_Completers = {
         # Amazon.SageMaker.AppInstanceType
         "New-SMApp/ResourceSpec_InstanceType"
         {
-            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","system"
+            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","system"
             break
         }
 
@@ -35482,7 +37319,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMNotebookInstance/InstanceType")
         }
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5d.18xlarge","ml.c5d.2xlarge","ml.c5d.4xlarge","ml.c5d.9xlarge","ml.c5d.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.t2.2xlarge","ml.t2.large","ml.t2.medium","ml.t2.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5d.18xlarge","ml.c5d.2xlarge","ml.c5d.4xlarge","ml.c5d.9xlarge","ml.c5d.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.t2.2xlarge","ml.t2.large","ml.t2.medium","ml.t2.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge"
             break
         }
 
@@ -35748,7 +37585,7 @@ $SM_Completers = {
             ($_ -eq "Search-SMResource/Resource")
         }
         {
-            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","TrainingJob"
+            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","Project","TrainingJob"
             break
         }
 
@@ -35867,6 +37704,7 @@ $SM_Completers = {
             ($_ -eq "Get-SMPipelineExecutionStepList/SortOrder") -Or
             ($_ -eq "Get-SMPipelineList/SortOrder") -Or
             ($_ -eq "Get-SMProcessingJobList/SortOrder") -Or
+            ($_ -eq "Get-SMStudioLifecycleConfigList/SortOrder") -Or
             ($_ -eq "Get-SMTrainingJobList/SortOrder") -Or
             ($_ -eq "Get-SMTrainingJobsForHyperParameterTuningJobList/SortOrder") -Or
             ($_ -eq "Get-SMTransformJobList/SortOrder") -Or
@@ -35916,10 +37754,27 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.StudioLifecycleConfigAppType
+        {
+            ($_ -eq "Get-SMStudioLifecycleConfigList/AppTypeEquals") -Or
+            ($_ -eq "New-SMStudioLifecycleConfig/StudioLifecycleConfigAppType")
+        }
+        {
+            $v = "JupyterServer","KernelGateway"
+            break
+        }
+
+        # Amazon.SageMaker.StudioLifecycleConfigSortKey
+        "Get-SMStudioLifecycleConfigList/SortBy"
+        {
+            $v = "CreationTime","LastModifiedTime","Name"
+            break
+        }
+
         # Amazon.SageMaker.TargetDevice
         "New-SMCompilationJob/OutputConfig_TargetDevice"
         {
-            $v = "aisage","amba_cv22","coreml","deeplens","imx8qm","jacinto_tda4vm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_eia2","ml_g4dn","ml_inf1","ml_m4","ml_m5","ml_p2","ml_p3","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c","sitara_am57x","x86_win32","x86_win64"
+            $v = "aisage","amba_cv22","amba_cv25","coreml","deeplens","imx8mplus","imx8qm","jacinto_tda4vm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_eia2","ml_g4dn","ml_inf1","ml_m4","ml_m5","ml_p2","ml_p3","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c","sitara_am57x","x86_win32","x86_win64"
             break
         }
 
@@ -36024,6 +37879,7 @@ $SM_Completers = {
 $SM_map = @{
     "AppNetworkAccessType"=@("New-SMDomain")
     "AppType"=@("Get-SMApp","New-SMApp","Remove-SMApp")
+    "AppTypeEquals"=@("Get-SMStudioLifecycleConfigList")
     "AssociationType"=@("Add-SMAssociation","Get-SMAssociationList")
     "AuthMode"=@("New-SMDomain")
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob")
@@ -36066,11 +37922,12 @@ $SM_map = @{
     "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
     "RootAccess"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "SearchExpression_Operator"=@("Search-SMResource")
-    "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelBiasJobDefinitionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
-    "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelBiasJobDefinitionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
+    "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelBiasJobDefinitionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
+    "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelBiasJobDefinitionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
     "Status"=@("New-SMAction","Update-SMAction")
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
     "StatusEquals"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
+    "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
     "TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
     "TrainingJobDefinition_TuningObjective_Type"=@("New-SMHyperParameterTuningJob")
     "TransformInput_CompressionType"=@("New-SMTransformJob")
@@ -36171,6 +38028,7 @@ $SM_SelectMap = @{
                "New-SMPresignedNotebookInstanceUrl",
                "New-SMProcessingJob",
                "New-SMProject",
+               "New-SMStudioLifecycleConfig",
                "New-SMTrainingJob",
                "New-SMTransformJob",
                "New-SMTrial",
@@ -36209,6 +38067,7 @@ $SM_SelectMap = @{
                "Remove-SMNotebookInstanceLifecycleConfig",
                "Remove-SMPipeline",
                "Remove-SMProject",
+               "Remove-SMStudioLifecycleConfig",
                "Remove-SMResourceTag",
                "Remove-SMTrial",
                "Remove-SMTrialComponent",
@@ -36254,6 +38113,7 @@ $SM_SelectMap = @{
                "Get-SMPipelineExecution",
                "Get-SMProcessingJob",
                "Get-SMProject",
+               "Get-SMStudioLifecycleConfig",
                "Get-SMSubscribedWorkteam",
                "Get-SMTrainingJob",
                "Get-SMTransformJob",
@@ -36312,6 +38172,7 @@ $SM_SelectMap = @{
                "Get-SMPipelineList",
                "Get-SMProcessingJobList",
                "Get-SMProjectList",
+               "Get-SMStudioLifecycleConfigList",
                "Get-SMSubscribedWorkteamList",
                "Get-SMResourceTagList",
                "Get-SMTrainingJobList",
@@ -36325,6 +38186,7 @@ $SM_SelectMap = @{
                "Write-SMModelPackageGroupPolicy",
                "Register-SMDevice",
                "Invoke-SMUiTemplateRendering",
+               "Restart-SMPipelineExecution",
                "Search-SMResource",
                "Send-SMPipelineExecutionStepFailure",
                "Send-SMPipelineExecutionStepSuccess",
@@ -37412,6 +39274,7 @@ $SCAR_Completers = {
     {
         # Amazon.AppRegistry.ResourceType
         {
+            ($_ -eq "Get-SCARAssociatedResource/ResourceType") -Or
             ($_ -eq "Register-SCARResource/ResourceType") -Or
             ($_ -eq "Sync-SCARResource/ResourceType") -Or
             ($_ -eq "Unregister-SCARResource/ResourceType")
@@ -37430,7 +39293,7 @@ $SCAR_Completers = {
 }
 
 $SCAR_map = @{
-    "ResourceType"=@("Register-SCARResource","Sync-SCARResource","Unregister-SCARResource")
+    "ResourceType"=@("Get-SCARAssociatedResource","Register-SCARResource","Sync-SCARResource","Unregister-SCARResource")
 }
 
 _awsArgumentCompleterRegistration $SCAR_Completers $SCAR_map
@@ -37492,6 +39355,7 @@ $SCAR_SelectMap = @{
                "Unregister-SCARAttributeGroup",
                "Unregister-SCARResource",
                "Get-SCARApplication",
+               "Get-SCARAssociatedResource",
                "Get-SCARAttributeGroup",
                "Get-SCARApplicationList",
                "Get-SCARAssociatedAttributeGroupList",
@@ -37628,7 +39492,10 @@ $SD_SelectMap = @{
                "New-SDInstanceRegistration",
                "Add-SDResourceTag",
                "Remove-SDResourceTag",
+               "Update-SDHttpNamespace",
                "Update-SDInstanceCustomHealthStatus",
+               "Update-SDPrivateDnsNamespace",
+               "Update-SDPublicDnsNamespace",
                "Update-SDService")
 }
 
@@ -37778,6 +39645,16 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.DkimSigningKeyLength
+        {
+            ($_ -eq "New-SES2EmailIdentity/DkimSigningAttributes_NextSigningKeyLength") -Or
+            ($_ -eq "Write-SES2EmailIdentityDkimSigningAttribute/SigningAttributes_NextSigningKeyLength")
+        }
+        {
+            $v = "RSA_1024_BIT","RSA_2048_BIT"
+            break
+        }
+
         # Amazon.SimpleEmailV2.ImportDestinationType
         "Get-SES2ImportJobList/ImportDestinationType"
         {
@@ -37835,6 +39712,7 @@ $SES2_map = @{
     "BehaviorOnMxFailure"=@("Write-SES2EmailIdentityMailFromAttribute")
     "ContactLanguage"=@("Write-SES2AccountDetail")
     "DeliveryOptions_TlsPolicy"=@("New-SES2ConfigurationSet")
+    "DkimSigningAttributes_NextSigningKeyLength"=@("New-SES2EmailIdentity")
     "Filter_FilteredStatus"=@("Get-SES2ContactCollection")
     "ImportDataSource_DataFormat"=@("New-SES2ImportJob")
     "ImportDestination_ContactListDestination_ContactListImportAction"=@("New-SES2ImportJob")
@@ -37842,6 +39720,7 @@ $SES2_map = @{
     "ImportDestinationType"=@("Get-SES2ImportJobList")
     "MailType"=@("Write-SES2AccountDetail")
     "Reason"=@("Write-SES2SuppressedDestination")
+    "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
 }
@@ -38289,6 +40168,16 @@ $SNOW_Completers = {
             break
         }
 
+        # Amazon.Snowball.RemoteManagement
+        {
+            ($_ -eq "New-SNOWCluster/RemoteManagement") -Or
+            ($_ -eq "New-SNOWJob/RemoteManagement")
+        }
+        {
+            $v = "INSTALLED_AUTOSTART","INSTALLED_ONLY"
+            break
+        }
+
         # Amazon.Snowball.ShipmentState
         "Update-SNOWJobShipmentState/ShipmentState"
         {
@@ -38330,6 +40219,18 @@ $SNOW_Completers = {
             break
         }
 
+        # Amazon.Snowball.StorageUnit
+        {
+            ($_ -eq "New-SNOWCluster/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
+            ($_ -eq "New-SNOWJob/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWCluster/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWJob/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit")
+        }
+        {
+            $v = "TB"
+            break
+        }
+
 
     }
 
@@ -38341,6 +40242,8 @@ $SNOW_Completers = {
 $SNOW_map = @{
     "JobType"=@("New-SNOWCluster","New-SNOWJob")
     "LongTermPricingType"=@("New-SNOWLongTermPricing")
+    "OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
+    "RemoteManagement"=@("New-SNOWCluster","New-SNOWJob")
     "ShipmentState"=@("Update-SNOWJobShipmentState")
     "ShippingOption"=@("New-SNOWCluster","New-SNOWJob","New-SNOWReturnShippingLabel","Update-SNOWCluster","Update-SNOWJob")
     "SnowballCapacityPreference"=@("New-SNOWJob","Update-SNOWJob")
@@ -38425,6 +40328,106 @@ $SNOW_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SNOW_SelectCompleters $SNOW_SelectMap
+# Argument completions for service AWS Snow Device Management
+
+
+$SDMS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SnowDeviceManagement.ExecutionState
+        "Get-SDMSExecutionList/State"
+        {
+            $v = "CANCELED","FAILED","IN_PROGRESS","QUEUED","REJECTED","SUCCEEDED","TIMED_OUT"
+            break
+        }
+
+        # Amazon.SnowDeviceManagement.TaskState
+        "Get-SDMSTaskList/State"
+        {
+            $v = "CANCELED","COMPLETED","IN_PROGRESS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SDMS_map = @{
+    "State"=@("Get-SDMSExecutionList","Get-SDMSTaskList")
+}
+
+_awsArgumentCompleterRegistration $SDMS_Completers $SDMS_map
+
+$SDMS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SDMS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SDMS_SelectMap = @{
+    "Select"=@("Stop-SDMSTask",
+               "New-SDMSTask",
+               "Get-SDMSDevice",
+               "Get-SDMSDeviceEc2Instance",
+               "Get-SDMSExecution",
+               "Get-SDMSTask",
+               "Get-SDMSDeviceResourceList",
+               "Get-SDMSDeviceList",
+               "Get-SDMSExecutionList",
+               "Get-SDMSResourceTag",
+               "Get-SDMSTaskList",
+               "Add-SDMSResourceTag",
+               "Remove-SDMSResourceTag")
+}
+
+_awsArgumentCompleterRegistration $SDMS_SelectCompleters $SDMS_SelectMap
 # Argument completions for service Amazon Simple Notification Service (SNS)
 
 
@@ -38738,6 +40741,16 @@ $SSM_Completers = {
             break
         }
 
+        # Amazon.SimpleSystemsManagement.MaintenanceWindowTaskCutoffBehavior
+        {
+            ($_ -eq "Register-SSMTaskWithMaintenanceWindow/CutoffBehavior") -Or
+            ($_ -eq "Update-SSMMaintenanceWindowTask/CutoffBehavior")
+        }
+        {
+            $v = "CANCEL_TASK","CONTINUE_TASK"
+            break
+        }
+
         # Amazon.SimpleSystemsManagement.MaintenanceWindowTaskType
         "Register-SSMTaskWithMaintenanceWindow/TaskType"
         {
@@ -38772,7 +40785,7 @@ $SSM_Completers = {
         # Amazon.SimpleSystemsManagement.OpsItemStatus
         "Update-SSMOpsItem/Status"
         {
-            $v = "Approved","Cancelled","Cancelling","ChangeCalendarOverrideApproved","ChangeCalendarOverrideRejected","CompletedWithFailure","CompletedWithSuccess","Failed","InProgress","Open","Pending","PendingApproval","PendingChangeCalendarOverride","Rejected","Resolved","RunbookInProgress","Scheduled","TimedOut"
+            $v = "Approved","Cancelled","Cancelling","ChangeCalendarOverrideApproved","ChangeCalendarOverrideRejected","Closed","CompletedWithFailure","CompletedWithSuccess","Failed","InProgress","Open","Pending","PendingApproval","PendingChangeCalendarOverride","Rejected","Resolved","RunbookInProgress","Scheduled","TimedOut"
             break
         }
 
@@ -38880,6 +40893,7 @@ $SSM_map = @{
     "BaselineOverride_OperatingSystem"=@("Get-SSMDeployablePatchSnapshotForInstance")
     "BaselineOverride_RejectedPatchesAction"=@("Get-SSMDeployablePatchSnapshotForInstance")
     "ComplianceSeverity"=@("New-SSMAssociation","Update-SSMAssociation")
+    "CutoffBehavior"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
     "DocumentFormat"=@("Get-SSMDocument","New-SSMDocument","Update-SSMDocument")
     "DocumentHashType"=@("Send-SSMCommand")
     "DocumentReviews_Action"=@("Update-SSMDocumentMetadata")
@@ -39104,6 +41118,13 @@ $SMC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SSMContacts.AcceptCodeValidation
+        "Confirm-SMCPage/AcceptCodeValidation"
+        {
+            $v = "ENFORCE","IGNORE"
+            break
+        }
+
         # Amazon.SSMContacts.AcceptType
         "Confirm-SMCPage/AcceptType"
         {
@@ -39137,6 +41158,7 @@ $SMC_Completers = {
 }
 
 $SMC_map = @{
+    "AcceptCodeValidation"=@("Confirm-SMCPage")
     "AcceptType"=@("Confirm-SMCPage")
     "Type"=@("Get-SMCContactList","New-SMCContact","New-SMCContactChannel")
 }
@@ -39768,6 +41790,13 @@ $SG_Completers = {
             break
         }
 
+        # Amazon.StorageGateway.GatewayCapacity
+        "Update-SGGatewayInformation/GatewayCapacity"
+        {
+            $v = "Large","Medium","Small"
+            break
+        }
+
         # Amazon.StorageGateway.ObjectACL
         {
             ($_ -eq "New-SGNFSFileShare/ObjectACL") -Or
@@ -39811,6 +41840,7 @@ $SG_Completers = {
 
 $SG_map = @{
     "CaseSensitivity"=@("New-SGSMBFileShare","Update-SGSMBFileShare")
+    "GatewayCapacity"=@("Update-SGGatewayInformation")
     "ObjectACL"=@("New-SGNFSFileShare","New-SGSMBFileShare","Update-SGNFSFileShare","Update-SGSMBFileShare")
     "RetentionLockType"=@("New-SGTapePool")
     "SMBSecurityStrategy"=@("Update-SGSMBSecurityStrategy")
@@ -40229,6 +42259,35 @@ _awsArgumentCompleterRegistration $SWF_SelectCompleters $SWF_SelectMap
 # Argument completions for service Amazon CloudWatch Synthetics
 
 
+$CWSYN_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Synthetics.EncryptionMode
+        {
+            ($_ -eq "New-CWSYNCanary/ArtifactConfig_S3Encryption_EncryptionMode") -Or
+            ($_ -eq "Update-CWSYNCanary/ArtifactConfig_S3Encryption_EncryptionMode")
+        }
+        {
+            $v = "SSE_KMS","SSE_S3"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWSYN_map = @{
+    "ArtifactConfig_S3Encryption_EncryptionMode"=@("New-CWSYNCanary","Update-CWSYNCanary")
+}
+
+_awsArgumentCompleterRegistration $CWSYN_Completers $CWSYN_map
+
 $CWSYN_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -40345,6 +42404,7 @@ $TXT_SelectCompleters = {
 
 $TXT_SelectMap = @{
     "Select"=@("Invoke-TXTDocumentAnalysis",
+               "Invoke-TXTExpenseAnalysis",
                "Find-TXTDocumentText",
                "Get-TXTDocumentAnalysis",
                "Get-TXTDocumentTextDetection",
@@ -40528,6 +42588,13 @@ $TRS_Completers = {
             break
         }
 
+        # Amazon.TranscribeService.CallAnalyticsJobStatus
+        "Get-TRSCallAnalyticsJobList/Status"
+        {
+            $v = "COMPLETED","FAILED","IN_PROGRESS","QUEUED"
+            break
+        }
+
         # Amazon.TranscribeService.CLMLanguageCode
         "New-TRSLanguageModel/LanguageCode"
         {
@@ -40546,7 +42613,7 @@ $TRS_Completers = {
             ($_ -eq "Update-TRSVocabulary/LanguageCode")
         }
         {
-            $v = "af-ZA","ar-AE","ar-SA","cy-GB","da-DK","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-US","en-WL","es-ES","es-US","fa-IR","fr-CA","fr-FR","ga-IE","gd-GB","he-IL","hi-IN","id-ID","it-IT","ja-JP","ko-KR","ms-MY","nl-NL","pt-BR","pt-PT","ru-RU","ta-IN","te-IN","tr-TR","zh-CN"
+            $v = "af-ZA","ar-AE","ar-SA","cy-GB","da-DK","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-US","en-WL","en-ZA","es-ES","es-US","fa-IR","fr-CA","fr-FR","ga-IE","gd-GB","he-IL","hi-IN","id-ID","it-IT","ja-JP","ko-KR","ms-MY","nl-NL","pt-BR","pt-PT","ru-RU","ta-IN","te-IN","th-TH","tr-TR","zh-CN","zh-TW"
             break
         }
 
@@ -40575,14 +42642,20 @@ $TRS_Completers = {
         }
 
         # Amazon.TranscribeService.RedactionOutput
-        "Start-TRSTranscriptionJob/ContentRedaction_RedactionOutput"
+        {
+            ($_ -eq "Start-TRSTranscriptionJob/ContentRedaction_RedactionOutput") -Or
+            ($_ -eq "Start-TRSCallAnalyticsJob/Settings_ContentRedaction_RedactionOutput")
+        }
         {
             $v = "redacted","redacted_and_unredacted"
             break
         }
 
         # Amazon.TranscribeService.RedactionType
-        "Start-TRSTranscriptionJob/ContentRedaction_RedactionType"
+        {
+            ($_ -eq "Start-TRSTranscriptionJob/ContentRedaction_RedactionType") -Or
+            ($_ -eq "Start-TRSCallAnalyticsJob/Settings_ContentRedaction_RedactionType")
+        }
         {
             $v = "PII"
             break
@@ -40613,7 +42686,10 @@ $TRS_Completers = {
         }
 
         # Amazon.TranscribeService.VocabularyFilterMethod
-        "Start-TRSTranscriptionJob/Settings_VocabularyFilterMethod"
+        {
+            ($_ -eq "Start-TRSCallAnalyticsJob/Settings_VocabularyFilterMethod") -Or
+            ($_ -eq "Start-TRSTranscriptionJob/Settings_VocabularyFilterMethod")
+        }
         {
             $v = "mask","remove","tag"
             break
@@ -40644,10 +42720,12 @@ $TRS_map = @{
     "ContentRedaction_RedactionType"=@("Start-TRSTranscriptionJob")
     "LanguageCode"=@("New-TRSLanguageModel","New-TRSMedicalVocabulary","New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob","Update-TRSMedicalVocabulary","Update-TRSVocabulary")
     "MediaFormat"=@("Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob")
-    "Settings_VocabularyFilterMethod"=@("Start-TRSTranscriptionJob")
+    "Settings_ContentRedaction_RedactionOutput"=@("Start-TRSCallAnalyticsJob")
+    "Settings_ContentRedaction_RedactionType"=@("Start-TRSCallAnalyticsJob")
+    "Settings_VocabularyFilterMethod"=@("Start-TRSCallAnalyticsJob","Start-TRSTranscriptionJob")
     "Specialty"=@("Start-TRSMedicalTranscriptionJob")
     "StateEquals"=@("Get-TRSMedicalVocabularyList","Get-TRSVocabularyList")
-    "Status"=@("Get-TRSMedicalTranscriptionJobList","Get-TRSTranscriptionJobList")
+    "Status"=@("Get-TRSCallAnalyticsJobList","Get-TRSMedicalTranscriptionJobList","Get-TRSTranscriptionJobList")
     "StatusEquals"=@("Get-TRSLanguageModelList")
     "Type"=@("Start-TRSMedicalTranscriptionJob")
 }
@@ -40702,10 +42780,13 @@ $TRS_SelectCompleters = {
 }
 
 $TRS_SelectMap = @{
-    "Select"=@("New-TRSLanguageModel",
+    "Select"=@("New-TRSCallAnalyticsCategory",
+               "New-TRSLanguageModel",
                "New-TRSMedicalVocabulary",
                "New-TRSVocabulary",
                "New-TRSVocabularyFilter",
+               "Remove-TRSCallAnalyticsCategory",
+               "Remove-TRSCallAnalyticsJob",
                "Remove-TRSLanguageModel",
                "Remove-TRSMedicalTranscriptionJob",
                "Remove-TRSMedicalVocabulary",
@@ -40713,19 +42794,28 @@ $TRS_SelectMap = @{
                "Remove-TRSVocabulary",
                "Remove-TRSVocabularyFilter",
                "Get-TRSLanguageModel",
+               "Get-TRSCallAnalyticsCategory",
+               "Get-TRSCallAnalyticsJob",
                "Get-TRSMedicalTranscriptionJob",
                "Get-TRSMedicalVocabulary",
                "Get-TRSTranscriptionJob",
                "Get-TRSVocabulary",
                "Get-TRSVocabularyFilter",
+               "Get-TRSCallAnalyticsCategoryList",
+               "Get-TRSCallAnalyticsJobList",
                "Get-TRSLanguageModelList",
                "Get-TRSMedicalTranscriptionJobList",
                "Get-TRSMedicalVocabularyList",
+               "Get-TRSResourceTag",
                "Get-TRSTranscriptionJobList",
                "Get-TRSVocabularyList",
                "Get-TRSVocabularyFilterList",
+               "Start-TRSCallAnalyticsJob",
                "Start-TRSMedicalTranscriptionJob",
                "Start-TRSTranscriptionJob",
+               "Add-TRSResourceTag",
+               "Remove-TRSResourceTag",
+               "Update-TRSCallAnalyticsCategory",
                "Update-TRSMedicalVocabulary",
                "Update-TRSVocabulary",
                "Update-TRSVocabularyFilter")
@@ -40740,6 +42830,13 @@ $TFR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Transfer.CustomStepStatus
+        "Send-TFRWorkflowStepState/Status"
+        {
+            $v = "FAILURE","SUCCESS"
+            break
+        }
+
         # Amazon.Transfer.Domain
         "New-TFRServer/Domain"
         {
@@ -40797,6 +42894,7 @@ $TFR_map = @{
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderType"=@("New-TFRServer")
     "ServerProtocol"=@("Test-TFRIdentityProvider")
+    "Status"=@("Send-TFRWorkflowStepState")
 }
 
 _awsArgumentCompleterRegistration $TFR_Completers $TFR_map
@@ -40852,20 +42950,27 @@ $TFR_SelectMap = @{
     "Select"=@("New-TFRAccess",
                "New-TFRServer",
                "New-TFRUser",
+               "New-TFRWorkflow",
                "Remove-TFRAccess",
                "Remove-TFRServer",
                "Remove-TFRSshPublicKey",
                "Remove-TFRUser",
+               "Remove-TFRWorkflow",
                "Get-TFRAccess",
+               "Get-TFRExecution",
                "Get-TFRSecurityPolicy",
                "Get-TFRServer",
                "Get-TFRUser",
+               "Get-TFRWorkflow",
                "Import-TFRSshPublicKey",
                "Get-TFRAccessList",
+               "Get-TFRExecutionList",
                "Get-TFRSecurityPolicyList",
                "Get-TFRServerList",
                "Get-TFRResourceTagList",
                "Get-TFRUserList",
+               "Get-TFRWorkflowList",
+               "Send-TFRWorkflowStepState",
                "Start-TFRServer",
                "Stop-TFRServer",
                "Add-TFRResourceTag",
@@ -41013,6 +43118,138 @@ $TRN_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $TRN_SelectCompleters $TRN_SelectMap
+# Argument completions for service Amazon Voice ID
+
+
+$VID_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.VoiceID.DuplicateRegistrationAction
+        "Start-VIDFraudsterRegistrationJob/RegistrationConfig_DuplicateRegistrationAction"
+        {
+            $v = "REGISTER_AS_NEW","SKIP"
+            break
+        }
+
+        # Amazon.VoiceID.ExistingEnrollmentAction
+        "Start-VIDSpeakerEnrollmentJob/EnrollmentConfig_ExistingEnrollmentAction"
+        {
+            $v = "OVERWRITE","SKIP"
+            break
+        }
+
+        # Amazon.VoiceID.FraudDetectionAction
+        "Start-VIDSpeakerEnrollmentJob/EnrollmentConfig_FraudDetectionConfig_FraudDetectionAction"
+        {
+            $v = "FAIL","IGNORE"
+            break
+        }
+
+        # Amazon.VoiceID.FraudsterRegistrationJobStatus
+        "Get-VIDFraudsterRegistrationJobList/JobStatus"
+        {
+            $v = "COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","SUBMITTED"
+            break
+        }
+
+        # Amazon.VoiceID.SpeakerEnrollmentJobStatus
+        "Get-VIDSpeakerEnrollmentJobList/JobStatus"
+        {
+            $v = "COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","SUBMITTED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$VID_map = @{
+    "EnrollmentConfig_ExistingEnrollmentAction"=@("Start-VIDSpeakerEnrollmentJob")
+    "EnrollmentConfig_FraudDetectionConfig_FraudDetectionAction"=@("Start-VIDSpeakerEnrollmentJob")
+    "JobStatus"=@("Get-VIDFraudsterRegistrationJobList","Get-VIDSpeakerEnrollmentJobList")
+    "RegistrationConfig_DuplicateRegistrationAction"=@("Start-VIDFraudsterRegistrationJob")
+}
+
+_awsArgumentCompleterRegistration $VID_Completers $VID_map
+
+$VID_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.VID.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$VID_SelectMap = @{
+    "Select"=@("New-VIDDomain",
+               "Remove-VIDDomain",
+               "Remove-VIDFraudster",
+               "Remove-VIDSpeaker",
+               "Get-VIDDomain",
+               "Get-VIDFraudster",
+               "Get-VIDFraudsterRegistrationJob",
+               "Get-VIDSpeaker",
+               "Get-VIDSpeakerEnrollmentJob",
+               "Get-VIDSessionEvaluation",
+               "Get-VIDDomainList",
+               "Get-VIDFraudsterRegistrationJobList",
+               "Get-VIDSpeakerEnrollmentJobList",
+               "Get-VIDSpeakerList",
+               "Get-VIDResourceTag",
+               "Set-VIDOptOutSpeaker",
+               "Start-VIDFraudsterRegistrationJob",
+               "Start-VIDSpeakerEnrollmentJob",
+               "Add-VIDResourceTag",
+               "Remove-VIDResourceTag",
+               "Edit-VIDDomain")
+}
+
+_awsArgumentCompleterRegistration $VID_SelectCompleters $VID_SelectMap
 # Argument completions for service AWS WAF
 
 
@@ -41393,10 +43630,13 @@ $WAF2_Completers = {
         # Amazon.WAFV2.Scope
         {
             ($_ -eq "Get-WAF2AvailableManagedRuleGroupList/Scope") -Or
+            ($_ -eq "Get-WAF2AvailableManagedRuleGroupVersionList/Scope") -Or
             ($_ -eq "Get-WAF2IPSet/Scope") -Or
             ($_ -eq "Get-WAF2IPSetList/Scope") -Or
             ($_ -eq "Get-WAF2LoggingConfigurationList/Scope") -Or
             ($_ -eq "Get-WAF2ManagedRuleGroup/Scope") -Or
+            ($_ -eq "Get-WAF2ManagedRuleSet/Scope") -Or
+            ($_ -eq "Get-WAF2ManagedRuleSetList/Scope") -Or
             ($_ -eq "Get-WAF2RateBasedStatementManagedKey/Scope") -Or
             ($_ -eq "Get-WAF2RegexPatternSet/Scope") -Or
             ($_ -eq "Get-WAF2RegexPatternSetList/Scope") -Or
@@ -41415,9 +43655,11 @@ $WAF2_Completers = {
             ($_ -eq "Remove-WAF2WebACL/Scope") -Or
             ($_ -eq "Test-WAF2Capacity/Scope") -Or
             ($_ -eq "Update-WAF2IPSet/Scope") -Or
+            ($_ -eq "Update-WAF2ManagedRuleSetVersionExpiryDate/Scope") -Or
             ($_ -eq "Update-WAF2RegexPatternSet/Scope") -Or
             ($_ -eq "Update-WAF2RuleGroup/Scope") -Or
-            ($_ -eq "Update-WAF2WebACL/Scope")
+            ($_ -eq "Update-WAF2WebACL/Scope") -Or
+            ($_ -eq "Write-WAF2ManagedRuleSetVersion/Scope")
         }
         {
             $v = "CLOUDFRONT","REGIONAL"
@@ -41436,7 +43678,7 @@ $WAF2_map = @{
     "IPAddressVersion"=@("New-WAF2IPSet")
     "LoggingConfiguration_LoggingFilter_DefaultBehavior"=@("Write-WAF2LoggingConfiguration")
     "ResourceType"=@("Get-WAF2ResourcesForWebACLList")
-    "Scope"=@("Get-WAF2AvailableManagedRuleGroupList","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedRuleGroup","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL")
+    "Scope"=@("Get-WAF2AvailableManagedRuleGroupList","Get-WAF2AvailableManagedRuleGroupVersionList","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedRuleGroup","Get-WAF2ManagedRuleSet","Get-WAF2ManagedRuleSetList","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2ManagedRuleSetVersionExpiryDate","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL","Write-WAF2ManagedRuleSetVersion")
 }
 
 _awsArgumentCompleterRegistration $WAF2_Completers $WAF2_map
@@ -41506,6 +43748,7 @@ $WAF2_SelectMap = @{
                "Remove-WAF2WebACLFromResource",
                "Get-WAF2IPSet",
                "Get-WAF2LoggingConfiguration",
+               "Get-WAF2ManagedRuleSet",
                "Get-WAF2PermissionPolicy",
                "Get-WAF2RateBasedStatementManagedKey",
                "Get-WAF2RegexPatternSet",
@@ -41514,18 +43757,22 @@ $WAF2_SelectMap = @{
                "Get-WAF2WebACL",
                "Get-WAF2WebACLForResource",
                "Get-WAF2AvailableManagedRuleGroupList",
+               "Get-WAF2AvailableManagedRuleGroupVersionList",
                "Get-WAF2IPSetList",
                "Get-WAF2LoggingConfigurationList",
+               "Get-WAF2ManagedRuleSetList",
                "Get-WAF2RegexPatternSetList",
                "Get-WAF2ResourcesForWebACLList",
                "Get-WAF2RuleGroupList",
                "Get-WAF2ResourceTag",
                "Get-WAF2WebACLsList",
                "Write-WAF2LoggingConfiguration",
+               "Write-WAF2ManagedRuleSetVersion",
                "Write-WAF2PermissionPolicy",
                "Add-WAF2ResourceTag",
                "Remove-WAF2ResourceTag",
                "Update-WAF2IPSet",
+               "Update-WAF2ManagedRuleSetVersionExpiryDate",
                "Update-WAF2RegexPatternSet",
                "Update-WAF2RuleGroup",
                "Update-WAF2WebACL")
@@ -41540,6 +43787,13 @@ $WAT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WellArchitected.AnswerReason
+        "Update-WATAnswer/Reason"
+        {
+            $v = "ARCHITECTURE_CONSTRAINTS","BUSINESS_PRIORITIES","NONE","OTHER","OUT_OF_SCOPE"
+            break
+        }
+
         # Amazon.WellArchitected.PermissionType
         {
             ($_ -eq "New-WATWorkloadShare/PermissionType") -Or
@@ -41586,6 +43840,7 @@ $WAT_map = @{
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
     "ImprovementStatus"=@("Update-WATWorkload")
     "PermissionType"=@("New-WATWorkloadShare","Update-WATWorkloadShare")
+    "Reason"=@("Update-WATAnswer")
     "ShareInvitationAction"=@("Update-WATShareInvitation")
 }
 
@@ -41673,6 +43928,133 @@ $WAT_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $WAT_SelectCompleters $WAT_SelectMap
+# Argument completions for service Amazon Connect Wisdom Service
+
+
+$WSDM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ConnectWisdomService.AssistantType
+        "New-WSDMAssistant/Type"
+        {
+            $v = "AGENT"
+            break
+        }
+
+        # Amazon.ConnectWisdomService.AssociationType
+        "New-WSDMAssistantAssociation/AssociationType"
+        {
+            $v = "KNOWLEDGE_BASE"
+            break
+        }
+
+        # Amazon.ConnectWisdomService.KnowledgeBaseType
+        "New-WSDMKnowledgeBase/KnowledgeBaseType"
+        {
+            $v = "CUSTOM","EXTERNAL"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$WSDM_map = @{
+    "AssociationType"=@("New-WSDMAssistantAssociation")
+    "KnowledgeBaseType"=@("New-WSDMKnowledgeBase")
+    "Type"=@("New-WSDMAssistant")
+}
+
+_awsArgumentCompleterRegistration $WSDM_Completers $WSDM_map
+
+$WSDM_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.WSDM.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$WSDM_SelectMap = @{
+    "Select"=@("New-WSDMAssistant",
+               "New-WSDMAssistantAssociation",
+               "New-WSDMContent",
+               "New-WSDMKnowledgeBase",
+               "New-WSDMSession",
+               "Remove-WSDMAssistant",
+               "Remove-WSDMAssistantAssociation",
+               "Remove-WSDMContent",
+               "Remove-WSDMKnowledgeBase",
+               "Get-WSDMAssistant",
+               "Get-WSDMAssistantAssociation",
+               "Get-WSDMContent",
+               "Get-WSDMContentSummary",
+               "Get-WSDMKnowledgeBase",
+               "Get-WSDMRecommendation",
+               "Get-WSDMSession",
+               "Get-WSDMAssistantAssociationList",
+               "Get-WSDMAssistantList",
+               "Get-WSDMContentList",
+               "Get-WSDMKnowledgeBasisList",
+               "Get-WSDMResourceTag",
+               "Remove-WSDMRecommendationsReceived",
+               "Search-WSDMAssistant",
+               "Remove-WSDMKnowledgeBaseTemplateUri",
+               "Search-WSDMContent",
+               "Search-WSDMSession",
+               "Start-WSDMContentUpload",
+               "Add-WSDMResourceTag",
+               "Remove-WSDMResourceTag",
+               "Update-WSDMContent",
+               "Update-WSDMKnowledgeBaseTemplateUri")
+}
+
+_awsArgumentCompleterRegistration $WSDM_SelectCompleters $WSDM_SelectMap
 # Argument completions for service Amazon WorkDocs
 
 
@@ -42059,7 +44441,8 @@ $WM_Completers = {
         # Amazon.WorkMail.MobileDeviceAccessRuleEffect
         {
             ($_ -eq "New-WMMobileDeviceAccessRule/Effect") -Or
-            ($_ -eq "Update-WMMobileDeviceAccessRule/Effect")
+            ($_ -eq "Update-WMMobileDeviceAccessRule/Effect") -Or
+            ($_ -eq "Write-WMMobileDeviceAccessOverride/Effect")
         }
         {
             $v = "ALLOW","DENY"
@@ -42082,7 +44465,7 @@ $WM_Completers = {
 }
 
 $WM_map = @{
-    "Effect"=@("New-WMMobileDeviceAccessRule","Update-WMMobileDeviceAccessRule","Write-WMAccessControlRule")
+    "Effect"=@("New-WMMobileDeviceAccessRule","Update-WMMobileDeviceAccessRule","Write-WMAccessControlRule","Write-WMMobileDeviceAccessOverride")
     "Type"=@("New-WMResource")
 }
 
@@ -42149,6 +44532,7 @@ $WM_SelectMap = @{
                "Remove-WMAlias",
                "Remove-WMGroup",
                "Remove-WMMailboxPermission",
+               "Remove-WMMobileDeviceAccessOverride",
                "Remove-WMMobileDeviceAccessRule",
                "Remove-WMOrganization",
                "Remove-WMResource",
@@ -42166,12 +44550,14 @@ $WM_SelectMap = @{
                "Get-WMDefaultRetentionPolicy",
                "Get-WMMailboxDetail",
                "Get-WMMobileDeviceAccessEffect",
+               "Get-WMMobileDeviceAccessOverride",
                "Get-WMAccessControlRuleList",
                "Get-WMAliasList",
                "Get-WMMemberList",
                "Get-WMGroupList",
                "Get-WMMailboxExportJobList",
                "Get-WMMailboxPermissionList",
+               "Get-WMMobileDeviceAccessOverrideList",
                "Get-WMMobileDeviceAccessRuleList",
                "Get-WMOrganizationList",
                "Get-WMDelegateList",
@@ -42180,6 +44566,7 @@ $WM_SelectMap = @{
                "Get-WMUserList",
                "Write-WMAccessControlRule",
                "Write-WMMailboxPermission",
+               "Write-WMMobileDeviceAccessOverride",
                "Write-WMRetentionPolicy",
                "Register-WMToWorkMail",
                "Reset-WMPassword",
@@ -42429,6 +44816,7 @@ $WKS_SelectMap = @{
                "New-WKSConnectionAlias",
                "New-WKSIpGroup",
                "New-WKSTag",
+               "New-WKSUpdatedWorkspaceImage",
                "New-WKSWorkspaceBundle",
                "New-WKSWorkspace",
                "Remove-WKSConnectionAlias",

@@ -28,11 +28,12 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Provides information to AWS about your VPN customer gateway device. The customer gateway
-    /// is the appliance at your end of the VPN connection. (The device on the AWS side of
-    /// the VPN connection is the virtual private gateway.) You must provide the internet-routable
-    /// IP address of the customer gateway's external interface. The IP address must be static
-    /// and can be behind a device performing network address translation (NAT).
+    /// Provides information to Amazon Web Services about your VPN customer gateway device.
+    /// The customer gateway is the appliance at your end of the VPN connection. (The device
+    /// on the Amazon Web Services side of the VPN connection is the virtual private gateway.)
+    /// You must provide the internet-routable IP address of the customer gateway's external
+    /// interface. The IP address must be static and can be behind a device performing network
+    /// address translation (NAT).
     /// 
     ///  
     /// <para>
@@ -52,8 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></li><li><para>
     /// 10124 - reserved in the <code>ap-northeast-1</code> Region
     /// </para></li></ul></note><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-    /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+    /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+    /// Guide</i>.
     /// </para><important><para>
     /// To create more than one customer gateway with the same VPN type, IP address, and BGP
     /// ASN, specify a unique device name for each customer gateway. Identical requests return

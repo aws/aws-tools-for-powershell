@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set that you want to add a custom tracking domain to.</para>
+        /// <para>The name of the configuration set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter CustomRedirectDomain
         /// <summary>
         /// <para>
-        /// <para>The domain that you want to use to track open and click events.</para>
+        /// <para>The domain to use to track open and click events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Creates a custom framework in AWS Audit Manager.
+    /// Creates a custom framework in Audit Manager.
     /// </summary>
     [Cmdlet("New", "AUDMAssessmentFramework", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.Model.Framework")]

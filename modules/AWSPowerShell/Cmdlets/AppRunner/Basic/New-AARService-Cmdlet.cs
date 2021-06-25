@@ -28,7 +28,7 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Create an AWS App Runner service. After the service is created, the action also automatically
+    /// Create an App Runner service. After the service is created, the action also automatically
     /// starts a deployment.
     /// 
     ///  
@@ -64,8 +64,12 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>If <code>true</code>, continuous integration from the source repository is enabled
-        /// for the App Runner service. Each repository change (source code commit or new image
-        /// version) starts a deployment.</para><para>Default: <code>true</code></para>
+        /// for the App Runner service. Each repository change (including any source code commit
+        /// or new image version) starts a deployment.</para><para>Default: App Runner sets to <code>false</code> for a source image that uses an ECR
+        /// Public repository or an ECR repository that's in an Amazon Web Services account other
+        /// than the one that the service is in. App Runner sets to <code>true</code> in all other
+        /// cases (which currently include a source code repository or a source image using a
+        /// same-account ECR repository).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>The number of consecutive checks that must succeed before App Runner decides that
-        /// the service is healthy.</para><para>Default: <code>3</code></para>
+        /// the service is healthy.</para><para>Default: <code>1</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App
-        /// Runner service. These are permissions that your code needs when it calls any AWS APIs.</para>
+        /// Runner service. These are permissions that your code needs when it calls any Amazon
+        /// Web Services APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>A name for the new service. It must be unique across all the running App Runner services
-        /// in your AWS account in the AWS Region.</para>
+        /// in your Amazon Web Services account in the Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -382,7 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>The number of consecutive checks that must fail before App Runner decides that the
-        /// service is unhealthy.</para><para>Default: <code>3</code></para>
+        /// service is unhealthy.</para><para>Default: <code>5</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns a framework from AWS Audit Manager.
+    /// Returns a framework from Audit Manager.
     /// </summary>
     [Cmdlet("Get", "AUDMAssessmentFramework")]
     [OutputType("Amazon.AuditManager.Model.Framework")]

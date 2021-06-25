@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Returns information about a billing group.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeBillingGroup</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTBillingGroup")]
     [OutputType("Amazon.IoT.Model.DescribeBillingGroupResponse")]

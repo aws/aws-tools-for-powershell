@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The unique identifier of a cluster whose resize progress you are requesting. This
-        /// parameter is case-sensitive.</para><para>By default, resize operations for all clusters defined for an AWS account are returned.</para>
+        /// parameter is case-sensitive.</para><para>By default, resize operations for all clusters defined for an Amazon Web Services
+        /// account are returned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

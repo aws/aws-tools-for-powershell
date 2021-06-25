@@ -97,6 +97,16 @@ $SNOW_Completers = {
             break
         }
 
+        # Amazon.Snowball.RemoteManagement
+        {
+            ($_ -eq "New-SNOWCluster/RemoteManagement") -Or
+            ($_ -eq "New-SNOWJob/RemoteManagement")
+        }
+        {
+            $v = "INSTALLED_AUTOSTART","INSTALLED_ONLY"
+            break
+        }
+
         # Amazon.Snowball.ShipmentState
         "Update-SNOWJobShipmentState/ShipmentState"
         {
@@ -138,6 +148,18 @@ $SNOW_Completers = {
             break
         }
 
+        # Amazon.Snowball.StorageUnit
+        {
+            ($_ -eq "New-SNOWCluster/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
+            ($_ -eq "New-SNOWJob/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWCluster/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWJob/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit")
+        }
+        {
+            $v = "TB"
+            break
+        }
+
 
     }
 
@@ -149,6 +171,8 @@ $SNOW_Completers = {
 $SNOW_map = @{
     "JobType"=@("New-SNOWCluster","New-SNOWJob")
     "LongTermPricingType"=@("New-SNOWLongTermPricing")
+    "OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
+    "RemoteManagement"=@("New-SNOWCluster","New-SNOWJob")
     "ShipmentState"=@("Update-SNOWJobShipmentState")
     "ShippingOption"=@("New-SNOWCluster","New-SNOWJob","New-SNOWReturnShippingLabel","Update-SNOWCluster","Update-SNOWJob")
     "SnowballCapacityPreference"=@("New-SNOWJob","Update-SNOWJob")

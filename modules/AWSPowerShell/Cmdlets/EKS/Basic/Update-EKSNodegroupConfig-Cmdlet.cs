@@ -119,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter UpdateConfig_MaxUnavailable
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum number of nodes unavailable at once during a version update. Nodes will
+        /// be updated in parallel. This value or <code>maxUnavailablePercentage</code> is required
+        /// to have a value.The maximum number is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter UpdateConfig_MaxUnavailablePercentage
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum percentage of nodes unavailable during a version update. This percentage
+        /// of nodes will be updated in parallel, up to 100 nodes at once. This value or <code>maxUnavailable</code>
+        /// is required to have a value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,8 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ScalingConfig_MinSize
         /// <summary>
         /// <para>
-        /// <para>The minimum number of nodes that the managed node group can scale in to. This number
-        /// must be greater than zero.</para>
+        /// <para>The minimum number of nodes that the managed node group can scale in to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <para>
     /// If you choose to host your model using Amazon SageMaker hosting services, you can
     /// use the resulting model artifacts as part of the model. You can also use the artifacts
-    /// with AWS IoT Greengrass. In that case, deploy them as an ML resource.
+    /// with Amazon Web Services IoT Greengrass. In that case, deploy them as an ML resource.
     /// </para><para>
     /// In the request body, you provide the following:
     /// </para><ul><li><para>
@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CompilationJobName
         /// <summary>
         /// <para>
-        /// <para>A name for the model compilation job. The name must be unique within the AWS Region
-        /// and within your AWS account. </para>
+        /// <para>A name for the model compilation job. The name must be unique within the Amazon Web
+        /// Services Region and within your Amazon Web Services account. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -230,9 +230,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
-        /// data on the storage volume after compilation job. If you don't provide a KMS key ID,
-        /// Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
+        /// <para>The Amazon Web Services Key Management Service key (Amazon Web Services KMS) that
+        /// Amazon SageMaker uses to encrypt your output models with Amazon S3 server-side encryption
+        /// after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the
+        /// default KMS key for Amazon S3 for your role's account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed
+        /// Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i></para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,9 +244,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that a training or compilation job can run.
-        /// If the job does not complete during this time, Amazon SageMaker ends the job.</para><para>When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
-        /// specifies the maximum time for all of the attempts in total, not each individual attempt.</para><para>The default value is 1 day. The maximum value is 28 days.</para>
+        /// <para>The maximum length of time, in seconds, that a training or compilation job can run.</para><para>For compilation jobs, if the job does not complete during this time, you will receive
+        /// a <code>TimeOut</code> error. We recommend starting with 900 seconds and increase
+        /// as necessary based on your model.</para><para>For all other jobs, if the job does not complete during this time, Amazon SageMaker
+        /// ends the job. When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
+        /// specifies the maximum time for all of the attempts in total, not each individual attempt.
+        /// The default value is 1 day. The maximum value is 28 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -338,13 +343,37 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String InputConfig_S3Uri { get; set; }
         #endregion
         
+        #region Parameter VpcConfig_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The VPC security group IDs. IDs have the form of <code>sg-xxxxxxxx</code>. Specify
+        /// the security groups for the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfig_SecurityGroupIds")]
+        public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the subnets in the VPC that you want to connect the compilation job to for
+        /// accessing the model in Amazon S3.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfig_Subnets")]
+        public System.String[] VpcConfig_Subnet { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
-        /// different ways, for example, by purpose, owner, or environment. For more information,
-        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS Resources</a>.</para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+        /// resources in different ways, for example, by purpose, owner, or environment. For more
+        /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services Resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -481,6 +510,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
+            }
+            if (this.VpcConfig_SecurityGroupId != null)
+            {
+                context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
+            }
+            if (this.VpcConfig_Subnet != null)
+            {
+                context.VpcConfig_Subnet = new List<System.String>(this.VpcConfig_Subnet);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -683,6 +720,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.Tags = cmdletContext.Tag;
             }
             
+             // populate VpcConfig
+            var requestVpcConfigIsNull = true;
+            request.VpcConfig = new Amazon.SageMaker.Model.NeoVpcConfig();
+            List<System.String> requestVpcConfig_vpcConfig_SecurityGroupId = null;
+            if (cmdletContext.VpcConfig_SecurityGroupId != null)
+            {
+                requestVpcConfig_vpcConfig_SecurityGroupId = cmdletContext.VpcConfig_SecurityGroupId;
+            }
+            if (requestVpcConfig_vpcConfig_SecurityGroupId != null)
+            {
+                request.VpcConfig.SecurityGroupIds = requestVpcConfig_vpcConfig_SecurityGroupId;
+                requestVpcConfigIsNull = false;
+            }
+            List<System.String> requestVpcConfig_vpcConfig_Subnet = null;
+            if (cmdletContext.VpcConfig_Subnet != null)
+            {
+                requestVpcConfig_vpcConfig_Subnet = cmdletContext.VpcConfig_Subnet;
+            }
+            if (requestVpcConfig_vpcConfig_Subnet != null)
+            {
+                request.VpcConfig.Subnets = requestVpcConfig_vpcConfig_Subnet;
+                requestVpcConfigIsNull = false;
+            }
+             // determine if request.VpcConfig should be set to null
+            if (requestVpcConfigIsNull)
+            {
+                request.VpcConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -759,6 +825,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
+            public List<System.String> VpcConfig_SecurityGroupId { get; set; }
+            public List<System.String> VpcConfig_Subnet { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateCompilationJobResponse, NewSMCompilationJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CompilationJobArn;
         }

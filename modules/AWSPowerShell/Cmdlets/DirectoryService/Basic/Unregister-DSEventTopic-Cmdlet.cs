@@ -28,7 +28,7 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Removes the specified directory as a publisher to the specified SNS topic.
+    /// Removes the specified directory as a publisher to the specified Amazon SNS topic.
     /// </summary>
     [Cmdlet("Unregister", "DSEventTopic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <summary>
         /// <para>
         /// <para>The Directory ID to remove as a publisher. This directory will no longer send messages
-        /// to the specified SNS topic.</para>
+        /// to the specified Amazon SNS topic.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter TopicName
         /// <summary>
         /// <para>
-        /// <para>The name of the SNS topic from which to remove the directory as a publisher.</para>
+        /// <para>The name of the Amazon SNS topic from which to remove the directory as a publisher.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

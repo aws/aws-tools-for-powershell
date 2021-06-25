@@ -156,6 +156,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.StorageType
+        "Write-IOTSWStorageConfiguration/StorageType"
+        {
+            $v = "MULTI_LAYER_STORAGE","SITEWISE_DEFAULT_STORAGE"
+            break
+        }
+
         # Amazon.IoTSiteWise.TimeOrdering
         {
             ($_ -eq "Get-IOTSWAssetPropertyAggregate/TimeOrdering") -Or
@@ -200,6 +207,7 @@ $IOTSW_map = @{
     "PropertyNotificationState"=@("Update-IOTSWAssetProperty")
     "Quality"=@("Get-IOTSWInterpolatedAssetPropertyValue")
     "ResourceType"=@("Get-IOTSWAccessPolicyList")
+    "StorageType"=@("Write-IOTSWStorageConfiguration")
     "TimeOrdering"=@("Get-IOTSWAssetPropertyAggregate","Get-IOTSWAssetPropertyValueHistory")
     "TraversalDirection"=@("Get-IOTSWAssociatedAssetList")
     "TraversalType"=@("Get-IOTSWAssetRelationshipList")
@@ -284,6 +292,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWLoggingOption",
                "Get-IOTSWPortal",
                "Get-IOTSWProject",
+               "Get-IOTSWStorageConfiguration",
                "Disconnect-IOTSWAsset",
                "Get-IOTSWAssetPropertyAggregate",
                "Get-IOTSWAssetPropertyValue",
@@ -302,6 +311,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWResourceTag",
                "Write-IOTSWDefaultEncryptionConfiguration",
                "Write-IOTSWLoggingOption",
+               "Write-IOTSWStorageConfiguration",
                "Add-IOTSWResourceTag",
                "Remove-IOTSWResourceTag",
                "Update-IOTSWAccessPolicy",

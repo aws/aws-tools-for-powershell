@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter ConfigurationId
         /// <summary>
         /// <para>
-        /// The unique ID that Amazon MQ generates
-        /// for the configuration.
+        /// <para>The unique ID that Amazon MQ generates for the configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The maximum number of configurations that Amazon
-        /// MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+        /// <para>The maximum number of brokers that Amazon MQ can return per page (20 by default).
+        /// This value must be an integer from 5 to 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -79,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The token that specifies the next page of results
-        /// Amazon MQ should return. To request the first page, leave nextToken empty.
+        /// <para>The token that specifies the next page of results Amazon MQ should return. To request
+        /// the first page, leave nextToken empty.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

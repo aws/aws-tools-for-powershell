@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Stops a maintenance window execution that is already in progress and cancels any tasks
-    /// in the window that have not already starting running. (Tasks already in progress will
-    /// continue to completion.)
+    /// in the window that haven't already starting running. Tasks already in progress will
+    /// continue to completion.
     /// </summary>
     [Cmdlet("Stop", "SSMMaintenanceWindowExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

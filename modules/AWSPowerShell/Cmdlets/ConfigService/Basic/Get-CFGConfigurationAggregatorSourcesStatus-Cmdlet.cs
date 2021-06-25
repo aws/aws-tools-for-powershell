@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Returns status information for sources within an aggregator. The status includes information
-    /// about the last time AWS Config verified authorization between the source account and
-    /// an aggregator account. In case of a failure, the status contains the related error
-    /// code or message.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// about the last time Config verified authorization between the source account and an
+    /// aggregator account. In case of a failure, the status contains the related error code
+    /// or message.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGConfigurationAggregatorSourcesStatus")]
     [OutputType("Amazon.ConfigService.Model.AggregatedSourceStatus")]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of AggregatorSourceStatus returned on each page. The default is
-        /// maximum. If you specify 0, AWS Config uses the default.</para>
+        /// maximum. If you specify 0, Config uses the default.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

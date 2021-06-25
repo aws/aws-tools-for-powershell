@@ -28,8 +28,8 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// This is used by SaaS partners to write events to a customer's partner event bus. AWS
-    /// customers do not use this operation.
+    /// This is used by SaaS partners to write events to a customer's partner event bus. Amazon
+    /// Web Services customers do not use this operation.
     /// </summary>
     [Cmdlet("Write", "CWEPartnerEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchEvents.Model.PutPartnerEventsResultEntry")]

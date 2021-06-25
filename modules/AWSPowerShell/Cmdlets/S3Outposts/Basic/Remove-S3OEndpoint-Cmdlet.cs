@@ -28,14 +28,18 @@ using Amazon.S3Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.S3O
 {
     /// <summary>
-    /// S3 on Outposts access points simplify managing data access at scale for shared datasets
-    /// in Amazon S3 on Outposts. S3 on Outposts uses endpoints to connect to Outposts buckets
-    /// so that you can perform actions within your virtual private cloud (VPC). 
+    /// Amazon S3 on Outposts Access Points simplify managing data access at scale for shared
+    /// datasets in S3 on Outposts. S3 on Outposts uses endpoints to connect to Outposts buckets
+    /// so that you can perform actions within your virtual private cloud (VPC). For more
+    /// information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html">
+    /// Accessing S3 on Outposts using VPC only access points</a>.
     /// 
     ///  
     /// <para>
-    /// This action deletes an endpoint. 
-    /// </para><para>
+    /// This action deletes an endpoint.
+    /// </para><note><para>
+    /// It can take up to 5 minutes for this action to complete.
+    /// </para></note><para>
     /// Related actions include:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html">ListEndpoints</a></para></li></ul>
     /// </summary>
@@ -52,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.S3O
         #region Parameter EndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the end point.</para>
+        /// <para>The ID of the endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.S3O
         #region Parameter OutpostId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Outpost. </para>
+        /// <para>The ID of the AWS Outposts. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

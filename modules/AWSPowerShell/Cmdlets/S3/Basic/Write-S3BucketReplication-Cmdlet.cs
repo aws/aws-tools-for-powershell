@@ -32,10 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a>
     /// in the <i>Amazon S3 User Guide</i>. 
     /// 
-    ///  <note><para>
-    /// To perform this operation, the user or role performing the action must have the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a>
-    /// permission.
-    /// </para></note><para>
+    ///  
+    /// <para>
     /// Specify the replication configuration in the request body. In the replication configuration,
     /// you provide the name of the destination bucket or buckets where you want Amazon S3
     /// to replicate objects, the IAM role that Amazon S3 can assume to replicate objects
@@ -58,22 +56,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></note><para>
     /// For information about enabling versioning on a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Using
     /// Versioning</a>.
-    /// </para><para>
-    /// By default, a resource owner, in this case the AWS account that created the bucket,
-    /// can perform this operation. The resource owner can also grant others permissions to
-    /// perform the operation. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
-    /// Permissions in a Policy</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
-    /// Access Permissions to Your Amazon S3 Resources</a>.
     /// </para><para><b>Handling Replication of Encrypted Objects</b></para><para>
     /// By default, Amazon S3 doesn't replicate objects that are stored at rest using server-side
-    /// encryption with CMKs stored in AWS KMS. To replicate AWS KMS-encrypted objects, add
-    /// the following: <code>SourceSelectionCriteria</code>, <code>SseKmsEncryptedObjects</code>,
+    /// encryption with KMS keys. To replicate Amazon Web Services KMS-encrypted objects,
+    /// add the following: <code>SourceSelectionCriteria</code>, <code>SseKmsEncryptedObjects</code>,
     /// <code>Status</code>, <code>EncryptionConfiguration</code>, and <code>ReplicaKmsKeyID</code>.
     /// For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating
-    /// Objects Created with SSE Using CMKs stored in AWS KMS</a>.
+    /// Objects Created with SSE Using KMS keys</a>.
     /// </para><para>
     /// For information on <code>PutBucketReplication</code> errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList">List
-    /// of replication-related error codes</a></para><para>
+    /// of replication-related error codes</a></para><para><b>Permissions</b></para><para>
+    /// To create a <code>PutBucketReplication</code> request, you must have <code>s3:PutReplicationConfiguration</code>
+    /// permissions for the bucket. 
+    /// </para><para>
+    /// By default, a resource owner, in this case the Amazon Web Services account that created
+    /// the bucket, can perform this operation. The resource owner can also grant others permissions
+    /// to perform the operation. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
+    /// Permissions in a Policy</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+    /// Access Permissions to Your Amazon S3 Resources</a>.
+    /// </para><note><para>
+    /// To perform this operation, the user or role performing the action must have the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a>
+    /// permission.
+    /// </para></note><para>
     /// The following operations are related to <code>PutBucketReplication</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html">GetBucketReplication</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html">DeleteBucketReplication</a></para></li></ul>
     /// </summary>
@@ -111,7 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Configuration_Role
         /// <summary>
         /// <para>
-        /// Indicates the ARN of the role to assume.
+        /// <para>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that
+        /// Amazon S3 assumes when replicating objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html">How
+        /// to Set Up Replication</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

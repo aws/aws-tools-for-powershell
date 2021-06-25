@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MonitoringScheduleName
         /// <summary>
         /// <para>
-        /// <para>The name of the monitoring schedule. The name must be unique within an AWS Region
-        /// within an AWS account.</para>
+        /// <para>The name of the monitoring schedule. The name must be unique within an Amazon Web
+        /// Services Region within an Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>(Optional) An array of key-value pairs. For more information, see <a href=" https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using
-        /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.</para>
+        /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

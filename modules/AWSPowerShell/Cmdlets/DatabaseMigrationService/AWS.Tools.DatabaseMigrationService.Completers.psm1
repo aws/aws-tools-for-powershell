@@ -100,6 +100,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.CannedAclForObjectsValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/S3Settings_CannedAclForObjects") -Or
+            ($_ -eq "New-DMSEndpoint/S3Settings_CannedAclForObjects")
+        }
+        {
+            $v = "authenticated-read","aws-exec-read","bucket-owner-full-control","bucket-owner-read","none","private","public-read","public-read-write"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.CharLengthSemantics
         {
             ($_ -eq "Edit-DMSEndpoint/OracleSettings_CharLengthSemantics") -Or
@@ -237,6 +247,26 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.PluginNameValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/PostgreSQLSettings_PluginName") -Or
+            ($_ -eq "New-DMSEndpoint/PostgreSQLSettings_PluginName")
+        }
+        {
+            $v = "no-preference","pglogical","test-decoding"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.RedisAuthTypeValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/RedisSettings_AuthType") -Or
+            ($_ -eq "New-DMSEndpoint/RedisSettings_AuthType")
+        }
+        {
+            $v = "auth-role","auth-token","none"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.ReloadOptionValue
         "Restore-DMSTable/ReloadOption"
         {
@@ -268,6 +298,16 @@ $DMS_Completers = {
         "Get-DMSEvent/SourceType"
         {
             $v = "replication-instance"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.SslSecurityProtocolValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/RedisSettings_SslSecurityProtocol") -Or
+            ($_ -eq "New-DMSEndpoint/RedisSettings_SslSecurityProtocol")
+        }
+        {
+            $v = "plaintext","ssl-encryption"
             break
         }
 
@@ -309,8 +349,12 @@ $DMS_map = @{
     "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_CharLengthSemantics"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "PostgreSQLSettings_PluginName"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "RedisSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "RedisSettings_SslSecurityProtocol"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "RedshiftSettings_EncryptionMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "ReloadOption"=@("Restore-DMSTable")
+    "S3Settings_CannedAclForObjects"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_CompressionType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_DataFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_DatePartitionDelimiter"=@("Edit-DMSEndpoint","New-DMSEndpoint")

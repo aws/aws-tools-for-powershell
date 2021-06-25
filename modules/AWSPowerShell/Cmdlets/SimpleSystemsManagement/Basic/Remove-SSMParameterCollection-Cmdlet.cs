@@ -28,7 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Delete a list of parameters.
+    /// Delete a list of parameters. After deleting a parameter, wait for at least 30 seconds
+    /// to create a parameter with the same name.
     /// </summary>
     [Cmdlet("Remove", "SSMParameterCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse")]
@@ -42,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The names of the parameters to delete.</para>
+        /// <para>The names of the parameters to delete. After deleting a parameter, wait for at least
+        /// 30 seconds to create a parameter with the same name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <summary>
     /// Disassociates an identity provider configuration from a cluster. If you disassociate
     /// an identity provider from your cluster, users included in the provider can no longer
-    /// access the cluster. However, you can still access the cluster with AWS IAM users.
+    /// access the cluster. However, you can still access the cluster with Amazon Web Services
+    /// IAM users.
     /// </summary>
     [Cmdlet("Remove", "EKSIdentityProviderConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EKS.Model.Update")]

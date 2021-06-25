@@ -83,7 +83,7 @@ $LICM_Completers = {
         # Amazon.LicenseManager.CheckoutType
         "Invoke-LICMLicenseCheckout/CheckoutType"
         {
-            $v = "PROVISIONAL"
+            $v = "PERPETUAL","PROVISIONAL"
             break
         }
 
@@ -218,6 +218,7 @@ $LICM_SelectMap = @{
                "New-LICMGrantVersion",
                "New-LICMLicense",
                "New-LICMLicenseConfiguration",
+               "New-LICMLicenseConversionTaskForResource",
                "New-LICMLicenseManagerReportGenerator",
                "New-LICMLicenseVersion",
                "New-LICMToken",
@@ -231,6 +232,7 @@ $LICM_SelectMap = @{
                "Get-LICMGrant",
                "Get-LICMLicense",
                "Get-LICMLicenseConfiguration",
+               "Get-LICMLicenseConversionTask",
                "Get-LICMLicenseManagerReportGenerator",
                "Get-LICMLicenseUsage",
                "Get-LICMServiceSetting",
@@ -238,6 +240,7 @@ $LICM_SelectMap = @{
                "Get-LICMDistributedGrantList",
                "Get-LICMFailuresForLicenseConfigurationOperationList",
                "Get-LICMLicenseConfigurationList",
+               "Get-LICMLicenseConversionTaskList",
                "Get-LICMLicenseManagerReportGeneratorList",
                "Get-LICMLicenseList",
                "Get-LICMLicenseSpecificationsForResourceList",

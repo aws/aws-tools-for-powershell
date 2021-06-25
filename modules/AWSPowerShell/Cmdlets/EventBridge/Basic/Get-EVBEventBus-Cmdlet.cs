@@ -29,16 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
     /// Displays details about an event bus in your account. This can include the external
-    /// AWS accounts that are permitted to write events to your default event bus, and the
-    /// associated policy. For custom event buses and partner event buses, it displays the
-    /// name, ARN, policy, state, and creation time.
+    /// Amazon Web Services accounts that are permitted to write events to your default event
+    /// bus, and the associated policy. For custom event buses and partner event buses, it
+    /// displays the name, ARN, policy, state, and creation time.
     /// 
     ///  
     /// <para>
     ///  To enable your account to receive events from other accounts on its default event
-    /// bus, use <a>PutPermission</a>.
+    /// bus, use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html">PutPermission</a>.
     /// </para><para>
-    /// For more information about partner event buses, see <a>CreateEventBus</a>.
+    /// For more information about partner event buses, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html">CreateEventBus</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EVBEventBus")]

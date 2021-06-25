@@ -131,9 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The parts of the request that you want to keep out of the logs. For example, if you
-        /// redact the <code>HEADER</code> field, the <code>HEADER</code> field in the firehose
-        /// will be <code>xxx</code>. </para><note><para>You must use one of the following values: <code>URI</code>, <code>QUERY_STRING</code>,
-        /// <code>HEADER</code>, or <code>METHOD</code>.</para></note>
+        /// redact the <code>SingleHeader</code> field, the <code>HEADER</code> field in the firehose
+        /// will be <code>xxx</code>. </para><note><para>You can specify only the following fields for redaction: <code>UriPath</code>, <code>QueryString</code>,
+        /// <code>SingleHeader</code>, <code>Method</code>, and <code>JsonBody</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,12 +29,19 @@ namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
     /// Evaluates device positions against the geofence geometries from a given geofence collection.
-    /// The evaluation determines if the device has entered or exited a geofenced area, which
-    /// publishes ENTER or EXIT geofence events to Amazon EventBridge.
     /// 
-    ///  <note><para>
-    /// The last geofence that a device was observed within, if any, is tracked for 30 days
-    /// after the most recent device position update
+    ///  
+    /// <para>
+    /// This operation always returns an empty response because geofences are asynchronously
+    /// evaluated. The evaluation determines if the device has entered or exited a geofenced
+    /// area, and then publishes one of the following events to Amazon EventBridge:
+    /// </para><ul><li><para><code>ENTER</code> if Amazon Location determines that the tracked device has entered
+    /// a geofenced area.
+    /// </para></li><li><para><code>EXIT</code> if Amazon Location determines that the tracked device has exited
+    /// a geofenced area.
+    /// </para></li></ul><note><para>
+    /// The last geofence that a device was observed within is tracked for 30 days after the
+    /// most recent device position update.
     /// </para></note>
     /// </summary>
     [Cmdlet("Submit", "LOCGeofenceEvaluationBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

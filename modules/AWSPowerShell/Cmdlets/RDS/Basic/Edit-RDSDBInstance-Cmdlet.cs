@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
-        /// <para>The new amount of storage (in gibibytes) to allocate for the DB instance. </para><para>For MariaDB, MySQL, Oracle, and PostgreSQL, the value supplied must be at least 10%
+        /// <para>The new amount of storage in gibibytes (GiB) to allocate for the DB instance. </para><para>For MariaDB, MySQL, Oracle, and PostgreSQL, the value supplied must be at least 10%
         /// greater than the current value. Values that are not at least 10% greater than the
         /// existing value are rounded up so that they are 10% greater than the current value.
         /// </para><para>For the valid values for allocated storage for each engine, see <code>CreateDBInstance</code>.
@@ -435,8 +435,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MaxAllocatedStorage
         /// <summary>
         /// <para>
-        /// <para>The upper limit to which Amazon RDS can automatically scale the storage of the DB
-        /// instance.</para><para>For more information about this setting, including limitations that apply to it, see
+        /// <para>The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the
+        /// storage of the DB instance.</para><para>For more information about this setting, including limitations that apply to it, see
         /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
         /// Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon
         /// RDS User Guide</i>.</para>

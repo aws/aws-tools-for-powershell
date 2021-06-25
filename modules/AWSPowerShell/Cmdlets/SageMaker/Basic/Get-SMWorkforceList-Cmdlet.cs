@@ -28,8 +28,9 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Use this operation to list all private and vendor workforces in an AWS Region. Note
-    /// that you can only have one private workforce per AWS Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Use this operation to list all private and vendor workforces in an Amazon Web Services
+    /// Region. Note that you can only have one private workforce per Amazon Web Services
+    /// Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMWorkforceList")]
     [OutputType("Amazon.SageMaker.Model.Workforce")]

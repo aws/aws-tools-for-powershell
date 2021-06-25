@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// To perform the association, the VPC and the private hosted zone must already exist.
     /// You can't convert a public hosted zone into a private hosted zone.
     /// </para></important><note><para>
-    /// If you want to associate a VPC that was created by using one AWS account with a private
-    /// hosted zone that was created by using a different account, the AWS account that created
-    /// the private hosted zone must first submit a <code>CreateVPCAssociationAuthorization</code>
+    /// If you want to associate a VPC that was created by using one Amazon Web Services account
+    /// with a private hosted zone that was created by using a different account, the Amazon
+    /// Web Services account that created the private hosted zone must first submit a <code>CreateVPCAssociationAuthorization</code>
     /// request. Then the account that created the VPC must submit an <code>AssociateVPCWithHostedZone</code>
     /// request.
     /// </para></note>

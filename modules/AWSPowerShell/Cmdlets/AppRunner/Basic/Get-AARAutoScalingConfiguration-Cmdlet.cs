@@ -28,7 +28,7 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Return a full description of an AWS App Runner automatic scaling configuration resource.
+    /// Return a full description of an App Runner automatic scaling configuration resource.
     /// </summary>
     [Cmdlet("Get", "AARAutoScalingConfiguration")]
     [OutputType("Amazon.AppRunner.Model.AutoScalingConfiguration")]

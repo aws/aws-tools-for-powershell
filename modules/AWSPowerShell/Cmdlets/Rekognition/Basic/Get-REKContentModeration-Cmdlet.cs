@@ -28,25 +28,28 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Gets the unsafe content analysis results for a Amazon Rekognition Video analysis started
-    /// by <a>StartContentModeration</a>.
+    /// Gets the inappropriate, unwanted, or offensive content analysis results for a Amazon
+    /// Rekognition Video analysis started by <a>StartContentModeration</a>. For a list of
+    /// moderation labels in Amazon Rekognition, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api">Using
+    /// the image and video moderation APIs</a>.
     /// 
     ///  
     /// <para>
-    /// Unsafe content analysis of a video is an asynchronous operation. You start analysis
-    /// by calling <a>StartContentModeration</a> which returns a job identifier (<code>JobId</code>).
-    /// When analysis finishes, Amazon Rekognition Video publishes a completion status to
-    /// the Amazon Simple Notification Service topic registered in the initial call to <code>StartContentModeration</code>.
-    /// To get the results of the unsafe content analysis, first check that the status value
-    /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetContentModeration</code>
+    /// Amazon Rekognition Video inappropriate or offensive content detection in a stored
+    /// video is an asynchronous operation. You start analysis by calling <a>StartContentModeration</a>
+    /// which returns a job identifier (<code>JobId</code>). When analysis finishes, Amazon
+    /// Rekognition Video publishes a completion status to the Amazon Simple Notification
+    /// Service topic registered in the initial call to <code>StartContentModeration</code>.
+    /// To get the results of the content analysis, first check that the status value published
+    /// to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetContentModeration</code>
     /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>.
     /// 
     /// </para><para>
     /// For more information, see Working with Stored Videos in the Amazon Rekognition Devlopers
     /// Guide.
-    /// </para><para><code>GetContentModeration</code> returns detected unsafe content labels, and the
-    /// time they are detected, in an array, <code>ModerationLabels</code>, of <a>ContentModerationDetection</a>
-    /// objects. 
+    /// </para><para><code>GetContentModeration</code> returns detected inappropriate, unwanted, or offensive
+    /// content moderation labels, and the time they are detected, in an array, <code>ModerationLabels</code>,
+    /// of <a>ContentModerationDetection</a> objects. 
     /// </para><para>
     /// By default, the moderated labels are returned sorted by time, in milliseconds from
     /// the start of the video. You can also sort them by moderated label by specifying <code>NAME</code>
@@ -60,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// and populate the <code>NextToken</code> request parameter with the value of <code>NextToken</code>
     /// returned from the previous call to <code>GetContentModeration</code>.
     /// </para><para>
-    /// For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer
-    /// Guide.
+    /// For more information, see Content moderation in the Amazon Rekognition Developer Guide.
     /// </para><br/><br/>In the AWS.Tools.Rekognition module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "REKContentModeration")]
@@ -76,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the unsafe content job. Use <code>JobId</code> to identify the
-        /// job in a subsequent call to <code>GetContentModeration</code>.</para>
+        /// <para>The identifier for the inappropriate, unwanted, or offensive content moderation job.
+        /// Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>
         /// <para>If the previous response was incomplete (because there is more data to retrieve),
         /// Amazon Rekognition returns a pagination token in the response. You can use this pagination
-        /// token to retrieve the next set of unsafe content labels.</para>
+        /// token to retrieve the next set of content moderation labels.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.Rekognition module, this parameter is only used if you are manually controlling output pagination of the service API call.

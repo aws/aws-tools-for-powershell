@@ -28,13 +28,13 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Submits an AWS Batch job from a job definition. Parameters that are specified during
-    /// <a>SubmitJob</a> override parameters defined in the job definition. vCPU and memory
-    /// requirements that are specified in the <code>ResourceRequirements</code> objects in
-    /// the job definition are the exception. They can't be overridden this way using the
-    /// <code>memory</code> and <code>vcpus</code> parameters. Rather, you must specify updates
-    /// to job definition parameters in a <code>ResourceRequirements</code> object that's
-    /// included in the <code>containerOverrides</code> parameter.
+    /// Submits an Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a>
+    /// override parameters defined in the job definition. vCPU and memory requirements that
+    /// are specified in the <code>ResourceRequirements</code> objects in the job definition
+    /// are the exception. They can't be overridden this way using the <code>memory</code>
+    /// and <code>vcpus</code> parameters. Rather, you must specify updates to job definition
+    /// parameters in a <code>ResourceRequirements</code> object that's included in the <code>containerOverrides</code>
+    /// parameter.
     /// 
     ///  <important><para>
     /// Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days.
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The environment variables to send to the container. You can add new environment variables,
         /// which are added to the container at launch, or you can override the existing environment
         /// variables from the Docker image or the job definition.</para><note><para>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention
-        /// is reserved for variables that are set by the AWS Batch service.</para></note>
+        /// is reserved for variables that are set by the Batch service.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerOverrides_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type to use for a multi-node parallel job.</para><note><para>This parameter isn't applicable to single-node container jobs or for jobs running
-        /// on Fargate resources and shouldn't be provided.</para></note>
+        /// <para>The instance type to use for a multi-node parallel job.</para><note><para>This parameter isn't applicable to single-node container jobs or jobs that run on
+        /// Fargate resources, and shouldn't be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The tags that you apply to the job request to help you categorize and organize your
         /// resources. Each tag consists of a key and an optional value. For more information,
         /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS Resources</a> in <i>AWS General Reference</i>.</para>
+        /// Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,8 +278,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The timeout configuration for this <a>SubmitJob</a> operation. You can specify a timeout
-        /// duration after which AWS Batch terminates your jobs if they haven't finished. If a
-        /// job is terminated due to a timeout, it isn't retried. The minimum value for the timeout
+        /// duration after which Batch terminates your jobs if they haven't finished. If a job
+        /// is terminated due to a timeout, it isn't retried. The minimum value for the timeout
         /// is 60 seconds. This configuration overrides any timeout configuration specified in
         /// the job definition. For array jobs, child jobs have the same timeout configuration
         /// as the parent job. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
@@ -296,7 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>This parameter indicates the amount of memory (in MiB) that's reserved for the job.
         /// It overrides the <code>memory</code> parameter set in the job definition, but doesn't
         /// override any memory requirement specified in the <code>ResourceRequirement</code>
-        /// structure in the job definition.</para><para>This parameter is supported for jobs that run on EC2 resources, but isn't supported
+        /// structure in the job definition. To override memory requirements that are specified
+        /// in the <code>ResourceRequirement</code> structure in the job definition, <code>ResourceRequirement</code>
+        /// must be specified in the <code>SubmitJob</code> request, with <code>type</code> set
+        /// to <code>MEMORY</code> and <code>value</code> set to the new value.</para><para>This parameter is supported for jobs that run on EC2 resources, but isn't supported
         /// for jobs that run on Fargate resources. For these resources, use <code>resourceRequirement</code>
         /// instead.</para>
         /// </para>
@@ -313,16 +316,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>This parameter indicates the number of vCPUs reserved for the container.It overrides
         /// the <code>vcpus</code> parameter that's set in the job definition, but doesn't override
         /// any vCPU requirement specified in the <code>resourceRequirement</code> structure in
-        /// the job definition.</para><para>This parameter is supported for jobs that run on EC2 resources, but isn't supported
-        /// for jobs that run on Fargate resources. For Fargate resources, you can only use <code>resourceRequirement</code>.
-        /// For EC2 resources, you can use either this parameter or <code>resourceRequirement</code>
-        /// but not both. </para><para>This parameter maps to <code>CpuShares</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
+        /// the job definition. To override vCPU requirements that are specified in the <code>ResourceRequirement</code>
+        /// structure in the job definition, <code>ResourceRequirement</code> must be specified
+        /// in the <code>SubmitJob</code> request, with <code>type</code> set to <code>VCPU</code>
+        /// and <code>value</code> set to the new value.</para><para>This parameter maps to <code>CpuShares</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one
-        /// vCPU.</para><note><para>This parameter isn't applicable to jobs that run on Fargate resources and shouldn't
-        /// be provided. For jobs that run on Fargate resources, you must specify the vCPU requirement
-        /// for the job using <code>resourceRequirements</code>.</para></note>
+        /// vCPU.</para><note><para>This parameter is supported for jobs that run on EC2 resources, but isn't supported
+        /// for jobs that run on Fargate resources. For Fargate resources, you can only use <code>resourceRequirement</code>.
+        /// For EC2 resources, you can use either this parameter or <code>resourceRequirement</code>
+        /// but not both.</para></note>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

@@ -28,7 +28,7 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Attempts to unpeer the Lightsail VPC from the user's default VPC.
+    /// Unpeers the Lightsail VPC from the user's default VPC.
     /// </summary>
     [Cmdlet("Remove", "LSPeerVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Lightsail.Model.Operation")]

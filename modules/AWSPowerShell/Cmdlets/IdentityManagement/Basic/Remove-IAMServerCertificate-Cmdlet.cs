@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <para>
     /// For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
     /// with server certificates</a> in the <i>IAM User Guide</i>. This topic also includes
-    /// a list of AWS services that can use the server certificates that you manage with IAM.
+    /// a list of Amazon Web Services services that can use the server certificates that you
+    /// manage with IAM.
     /// </para><important><para>
     ///  If you are using a server certificate with Elastic Load Balancing, deleting the certificate
     /// could have implications for your application. If Elastic Load Balancing doesn't detect

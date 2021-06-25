@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Gets the file system association information. This operation is only supported for
-    /// Amazon FSx file gateways.
+    /// FSx File Gateways.
     /// </summary>
     [Cmdlet("Get", "SGSGFileSystemAssociation")]
     [OutputType("Amazon.StorageGateway.Model.FileSystemAssociationInfo")]

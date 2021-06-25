@@ -28,8 +28,8 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Enables an AWS account within the organization as the delegated administrator for
-    /// AWS Audit Manager.
+    /// Enables an account within the organization as the delegated administrator for Audit
+    /// Manager.
     /// </summary>
     [Cmdlet("Register", "AUDMOrganizationAdminAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.Model.RegisterOrganizationAdminAccountResponse")]

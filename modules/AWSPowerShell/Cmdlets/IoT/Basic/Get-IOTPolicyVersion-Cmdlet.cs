@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Gets information about the specified policy version.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPolicyVersion</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTPolicyVersion")]
     [OutputType("Amazon.IoT.Model.GetPolicyVersionResponse")]

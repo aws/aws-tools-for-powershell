@@ -131,7 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>If you want to simulate a request from a specific DNS resolver, specify the IP address
         /// for that resolver. If you omit this value, <code>TestDnsAnswer</code> uses the IP
-        /// address of a DNS resolver in the AWS US East (N. Virginia) Region (<code>us-east-1</code>).</para>
+        /// address of a DNS resolver in the Amazon Web Services US East (N. Virginia) Region
+        /// (<code>us-east-1</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

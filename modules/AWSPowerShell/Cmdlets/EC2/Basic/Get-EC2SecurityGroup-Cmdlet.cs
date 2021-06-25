@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// A security group is for use with instances either in the EC2-Classic platform or in
     /// a specific VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
-    /// EC2 Security Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and
+    /// EC2 security groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and
     /// <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
-    /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// groups for your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2SecurityGroup")]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// a security group rule allows outbound access.</para></li><li><para><code>egress.ip-permission.protocol</code> - The IP protocol for an outbound security
         /// group rule (<code>tcp</code> | <code>udp</code> | <code>icmp</code>, a protocol number,
         /// or -1 for all protocols).</para></li><li><para><code>egress.ip-permission.to-port</code> - For an outbound rule, the end of port
-        /// range for the TCP and UDP protocols, or an ICMP code.</para></li><li><para><code>egress.ip-permission.user-id</code> - The ID of an AWS account that has been
-        /// referenced in an outbound security group rule.</para></li><li><para><code>group-id</code> - The ID of the security group. </para></li><li><para><code>group-name</code> - The name of the security group.</para></li><li><para><code>ip-permission.cidr</code> - An IPv4 CIDR block for an inbound security group
+        /// range for the TCP and UDP protocols, or an ICMP code.</para></li><li><para><code>egress.ip-permission.user-id</code> - The ID of an Amazon Web Services account
+        /// that has been referenced in an outbound security group rule.</para></li><li><para><code>group-id</code> - The ID of the security group. </para></li><li><para><code>group-name</code> - The name of the security group.</para></li><li><para><code>ip-permission.cidr</code> - An IPv4 CIDR block for an inbound security group
         /// rule.</para></li><li><para><code>ip-permission.from-port</code> - For an inbound rule, the start of port range
         /// for the TCP and UDP protocols, or an ICMP type number.</para></li><li><para><code>ip-permission.group-id</code> - The ID of a security group that has been referenced
         /// in an inbound security group rule.</para></li><li><para><code>ip-permission.group-name</code> - The name of a security group that is referenced
@@ -72,8 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// security group rule allows inbound access.</para></li><li><para><code>ip-permission.protocol</code> - The IP protocol for an inbound security group
         /// rule (<code>tcp</code> | <code>udp</code> | <code>icmp</code>, a protocol number,
         /// or -1 for all protocols).</para></li><li><para><code>ip-permission.to-port</code> - For an inbound rule, the end of port range for
-        /// the TCP and UDP protocols, or an ICMP code.</para></li><li><para><code>ip-permission.user-id</code> - The ID of an AWS account that has been referenced
-        /// in an inbound security group rule.</para></li><li><para><code>owner-id</code> - The AWS account ID of the owner of the security group.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// the TCP and UDP protocols, or an ICMP code.</para></li><li><para><code>ip-permission.user-id</code> - The ID of an Amazon Web Services account that
+        /// has been referenced in an inbound security group rule.</para></li><li><para><code>owner-id</code> - The Amazon Web Services account ID of the owner of the security
+        /// group.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
@@ -89,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the security groups. Required for security groups in a nondefault VPC.</para><para>Default: Describes all your security groups.</para>
+        /// <para>The IDs of the security groups. Required for security groups in a nondefault VPC.</para><para>Default: Describes all of your security groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -103,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>[EC2-Classic and default VPC only] The names of the security groups. You can specify
         /// either the security group name or the security group ID. For security groups in a
         /// nondefault VPC, use the <code>group-name</code> filter to describe security groups
-        /// by name.</para><para>Default: Describes all your security groups.</para>
+        /// by name.</para><para>Default: Describes all of your security groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

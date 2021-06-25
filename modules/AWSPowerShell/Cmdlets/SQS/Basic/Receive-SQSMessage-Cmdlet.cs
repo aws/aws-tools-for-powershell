@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// <summary>
     /// Retrieves one or more messages (up to 10), from the specified queue. Using the <code>WaitTimeSeconds</code>
     /// parameter enables long-poll support. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon
-    /// SQS Long Polling</a> in the <i>Amazon Simple Queue Service Developer Guide</i>. 
+    /// SQS Long Polling</a> in the <i>Amazon SQS Developer Guide</i>. 
     /// 
     ///  
     /// <para>
@@ -58,13 +58,13 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </para></li></ul><para>
     /// The receipt handle is the identifier you must provide when deleting the message. For
     /// more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html">Queue
-    /// and Message Identifiers</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
+    /// and Message Identifiers</a> in the <i>Amazon SQS Developer Guide</i>.
     /// </para><para>
     /// You can provide the <code>VisibilityTimeout</code> parameter in your request. The
     /// parameter is applied to the messages that Amazon SQS returns in the response. If you
     /// don't include the parameter, the overall visibility timeout for the queue is used
     /// for the returned messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
-    /// Timeout</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
+    /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>.
     /// </para><para>
     /// A message that isn't deleted or a message whose visibility isn't extended before the
     /// visibility timeout expires counts as a failed receive. Depending on the configuration
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// include:</para><ul><li><para><code>All</code> – Returns all values.</para></li><li><para><code>ApproximateFirstReceiveTimestamp</code> – Returns the time the message was
         /// first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch
         /// time</a> in milliseconds).</para></li><li><para><code>ApproximateReceiveCount</code> – Returns the number of times a message has
-        /// been received across all queues but not deleted.</para></li><li><para><code>AWSTraceHeader</code> – Returns the AWS X-Ray trace header string. </para></li><li><para><code>SenderId</code></para><ul><li><para>For an IAM user, returns the IAM user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</para></li><li><para>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</para></li></ul></li><li><para><code>SentTimestamp</code> – Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</para></li><li><para><code>MessageDeduplicationId</code> – Returns the value provided by the producer
+        /// been received across all queues but not deleted.</para></li><li><para><code>AWSTraceHeader</code> – Returns the X-Ray trace header string. </para></li><li><para><code>SenderId</code></para><ul><li><para>For an IAM user, returns the IAM user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</para></li><li><para>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</para></li></ul></li><li><para><code>SentTimestamp</code> – Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</para></li><li><para><code>MessageDeduplicationId</code> – Returns the value provided by the producer
         /// that calls the <code><a>SendMessage</a></code> action.</para></li><li><para><code>MessageGroupId</code> – Returns the value provided by the producer that calls
         /// the <code><a>SendMessage</a></code> action. Messages with the same <code>MessageGroupId</code>
         /// are returned in sequence.</para></li><li><para><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</para></li></ul>
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// if none of the messages have been modified (deleted or had their visibility changes).</para></li><li><para>During a visibility timeout, subsequent calls with the same <code>ReceiveRequestAttemptId</code>
         /// return the same messages and receipt handles. If a retry occurs within the deduplication
         /// interval, it resets the visibility timeout. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
-        /// Timeout</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para><important><para>If a caller of the <code>ReceiveMessage</code> action still processes messages when
+        /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</para><important><para>If a caller of the <code>ReceiveMessage</code> action still processes messages when
         /// the visibility timeout expires and messages become visible, another worker consuming
         /// from the same queue can receive the same messages and therefore process duplicates.
         /// Also, if a consumer whose message processing time is longer than the visibility timeout
@@ -176,8 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// might occur but the messages in the queue remain in a strict order.</para></li></ul><para>The maximum length of <code>ReceiveRequestAttemptId</code> is 128 characters. <code>ReceiveRequestAttemptId</code>
         /// can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>)
         /// and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code>).</para><para>For best practices of using <code>ReceiveRequestAttemptId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html">Using
-        /// the ReceiveRequestAttemptId Request Parameter</a> in the <i>Amazon Simple Queue Service
-        /// Developer Guide</i>.</para>
+        /// the ReceiveRequestAttemptId Request Parameter</a> in the <i>Amazon SQS Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

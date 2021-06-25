@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// <para>
     /// If you authorize access to an Amazon EC2 security group, specify <i>EC2SecurityGroupName</i>
     /// and <i>EC2SecurityGroupOwnerId</i>. The Amazon EC2 security group and Amazon Redshift
-    /// cluster must be in the same AWS Region. 
+    /// cluster must be in the same Amazon Web Services Region. 
     /// </para><para>
     /// If you authorize access to a CIDR/IP address range, specify <i>CIDRIP</i>. For an
     /// overview of CIDR blocks, see the Wikipedia article on <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
@@ -100,8 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter EC2SecurityGroupOwnerId
         /// <summary>
         /// <para>
-        /// <para>The AWS account number of the owner of the security group specified by the <i>EC2SecurityGroupName</i>
-        /// parameter. The AWS Access Key ID is not an acceptable value. </para><para>Example: <code>111122223333</code></para>
+        /// <para>The Amazon Web Services account number of the owner of the security group specified
+        /// by the <i>EC2SecurityGroupName</i> parameter. The Amazon Web Services Access Key ID
+        /// is not an acceptable value. </para><para>Example: <code>111122223333</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

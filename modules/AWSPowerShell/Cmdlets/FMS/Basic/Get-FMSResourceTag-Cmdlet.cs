@@ -28,7 +28,7 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Retrieves the list of tags for the specified AWS resource.
+    /// Retrieves the list of tags for the specified Amazon Web Services resource.
     /// </summary>
     [Cmdlet("Get", "FMSResourceTag")]
     [OutputType("Amazon.FMS.Model.Tag")]
@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall
-        /// Manager resources that support tagging are policies, applications lists, and protocols
-        /// lists. </para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to return tags for. The Firewall Manager
+        /// resources that support tagging are policies, applications lists, and protocols lists.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

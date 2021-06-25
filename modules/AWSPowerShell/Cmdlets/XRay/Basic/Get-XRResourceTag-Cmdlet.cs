@@ -28,8 +28,8 @@ using Amazon.XRay.Model;
 namespace Amazon.PowerShell.Cmdlets.XR
 {
     /// <summary>
-    /// Returns a list of tags that are applied to the specified AWS X-Ray group or sampling
-    /// rule.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of tags that are applied to the specified Amazon Web Services X-Ray
+    /// group or sampling rule.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "XRResourceTag")]
     [OutputType("Amazon.XRay.Model.Tag")]

@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Optional filters that can be used to narrow down the scope of the returned window
-        /// targets. The supported filter keys are Type, WindowTargetId and OwnerInformation.</para>
+        /// targets. The supported filter keys are <code>Type</code>, <code>WindowTargetId</code>,
+        /// and <code>OwnerInformation</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

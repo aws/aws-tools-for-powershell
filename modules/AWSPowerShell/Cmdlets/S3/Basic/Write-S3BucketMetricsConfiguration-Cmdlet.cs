@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Metrics with Amazon CloudWatch</a>.
     /// </para><para>
     /// The following operations are related to <code>PutBucketMetricsConfiguration</code>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html">DeleteBucketMetricsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html">PutBucketMetricsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html">ListBucketMetricsConfigurations</a></para></li></ul><para><code>GetBucketLifecycle</code> has the following special error:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html">DeleteBucketMetricsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetricsConfiguration.html">GetBucketMetricsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html">ListBucketMetricsConfigurations</a></para></li></ul><para><code>GetBucketLifecycle</code> has the following special error:
     /// </para><ul><li><para>
     /// Error code: <code>TooManyConfigurations</code></para><ul><li><para>
     /// Description: You are attempting to create a new configuration but have already reached

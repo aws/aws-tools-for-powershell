@@ -80,6 +80,13 @@ $WAT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WellArchitected.AnswerReason
+        "Update-WATAnswer/Reason"
+        {
+            $v = "ARCHITECTURE_CONSTRAINTS","BUSINESS_PRIORITIES","NONE","OTHER","OUT_OF_SCOPE"
+            break
+        }
+
         # Amazon.WellArchitected.PermissionType
         {
             ($_ -eq "New-WATWorkloadShare/PermissionType") -Or
@@ -126,6 +133,7 @@ $WAT_map = @{
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
     "ImprovementStatus"=@("Update-WATWorkload")
     "PermissionType"=@("New-WATWorkloadShare","Update-WATWorkloadShare")
+    "Reason"=@("Update-WATAnswer")
     "ShareInvitationAction"=@("Update-WATShareInvitation")
 }
 

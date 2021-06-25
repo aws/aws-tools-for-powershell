@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// </para><para>
     /// For an example that calls this method when deploying a model to Amazon SageMaker hosting
     /// services, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto">Deploy
-    /// the Model to Amazon SageMaker Hosting Services (AWS SDK for Python (Boto 3)).</a></para><para>
+    /// the Model to Amazon SageMaker Hosting Services (Amazon Web Services SDK for Python
+    /// (Boto 3)).</a></para><para>
     /// To run a batch transform using your model, you start a job with the <code>CreateTransformJob</code>
     /// API. Amazon SageMaker uses your model and your dataset to get inferences which are
     /// then saved to a specified S3 location.
@@ -56,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// In the request, you also provide an IAM role that Amazon SageMaker can assume to access
     /// model artifacts and docker image for deployment on ML compute hosting instances or
     /// for batch transform jobs. In addition, you also use the IAM role to manage permissions
-    /// the inference code needs. For example, if the inference code access any other AWS
-    /// resources, you grant necessary permissions via this role.
+    /// the inference code needs. For example, if the inference code access any other Amazon
+    /// Web Services resources, you grant necessary permissions via this role.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SMModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -182,10 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
-        /// different ways, for example, by purpose, owner, or environment. For more information,
-        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS Resources</a>.</para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+        /// resources in different ways, for example, by purpose, owner, or environment. For more
+        /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services Resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

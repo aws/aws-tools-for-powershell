@@ -51,6 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class UpdateLMFunctionCodeCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        #region Parameter Architecture
+        /// <summary>
+        /// <para>
+        /// <para>The instruction set architecture that the function supports. Enter a string array
+        /// with one of the valid values. The default value is <code>x86_64</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Architectures")]
+        public System.String[] Architecture { get; set; }
+        #endregion
+        
         #region Parameter DryRun
         /// <summary>
         /// <para>
@@ -107,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter S3Bucket
         /// <summary>
         /// <para>
-        /// <para>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in
-        /// a different AWS account.</para>
+        /// <para>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket
+        /// can be in a different Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "FromS3Object", Mandatory = true)]
@@ -141,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter ZipFile
         /// <summary>
         /// <para>
-        /// <para>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients
-        /// handle the encoding for you.</para>
+        /// <para>The base64-encoded contents of the deployment package. Amazon Web Services SDK and
+        /// Amazon Web Services CLI clients handle the encoding for you.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -213,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.Select = (response, cmdlet) => this.FunctionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Architecture != null)
+            {
+                context.Architecture = new List<System.String>(this.Architecture);
+            }
             context.DryRun = this.DryRun;
             context.FunctionName = this.FunctionName;
             #if MODULAR
@@ -248,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 // create request
                 var request = new Amazon.Lambda.Model.UpdateFunctionCodeRequest();
                 
+                if (cmdletContext.Architecture != null)
+                {
+                    request.Architectures = cmdletContext.Architecture;
+                }
                 if (cmdletContext.DryRun != null)
                 {
                     request.DryRun = cmdletContext.DryRun.Value;
@@ -354,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Architecture { get; set; }
             public System.Boolean? DryRun { get; set; }
             public System.String FunctionName { get; set; }
             public System.String ImageUri { get; set; }

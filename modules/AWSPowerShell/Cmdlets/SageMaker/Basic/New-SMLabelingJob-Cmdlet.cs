@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// experts. Use a private workforce when want the data to stay within your organization
     /// or when a specific set of skills is required.
     /// </para></li><li><para>
-    /// One or more vendors that you select from the AWS Marketplace. Vendors provide expertise
-    /// in specific areas. 
+    /// One or more vendors that you select from the Amazon Web Services Marketplace. Vendors
+    /// provide expertise in specific areas. 
     /// </para></li><li><para>
     /// The Amazon Mechanical Turk workforce. This is the largest workforce, but it should
     /// only be used for public data or data that has been stripped of any personally identifiable
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// approach to estimate the true classes of an image based on annotations from individual
         /// workers.</para><ul><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-ImageMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-ImageMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-ImageMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-ImageMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-ImageMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-ImageMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-ImageMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-ImageMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-ImageMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-ImageMultiClassMultiLabel</code></para></li></ul><para><b>Semantic segmentation</b> - Treats each pixel in an image as a multi-class classification
         /// and treats pixel annotations from workers as "votes" for the correct label.</para><ul><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-SemanticSegmentation</code></para></li></ul><para><b>Text classification</b> - Uses a variant of the Expectation Maximization approach
-        /// to estimate the true class of text based on annotations from individual workers.</para><ul><li><para><code>rn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-TextMultiClass</code></para></li></ul><para><b>Multi-label text classification</b> - Uses a variant of the Expectation Maximization
+        /// to estimate the true class of text based on annotations from individual workers.</para><ul><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-TextMultiClass</code></para></li><li><para><code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-TextMultiClass</code></para></li></ul><para><b>Multi-label text classification</b> - Uses a variant of the Expectation Maximization
         /// approach to estimate the true classes of text based on annotations from individual
         /// workers.</para><ul><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-TextMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-TextMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-TextMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-TextMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-TextMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-TextMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-TextMultiClassMultiLabel</code></para></li><li><para><code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-TextMultiClassMultiLabel</code></para></li></ul><para><b>Named entity recognition</b> - Groups similar selections and calculates aggregate
         /// boundaries, resolving to most-assigned label.</para><ul><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-NamedEntityRecognition</code></para></li><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-NamedEntityRecognition</code></para></li><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition</code></para></li><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-NamedEntityRecognition</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-NamedEntityRecognition</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-NamedEntityRecognition</code></para></li><li><para><code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-NamedEntityRecognition</code></para></li><li><para><code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-NamedEntityRecognition</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-NamedEntityRecognition</code></para></li><li><para><code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-NamedEntityRecognition</code></para></li><li><para><code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-NamedEntityRecognition</code></para></li><li><para><code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-NamedEntityRecognition</code></para></li></ul><para><b>Video Classification</b> - Use this task type when you need workers to classify
@@ -187,10 +187,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The ARN of the worker task template used to render the worker UI and tools for labeling
-        /// job tasks.</para><para>Use this parameter when you are creating a labeling job for 3D point cloud and video
-        /// fram labeling jobs. Use your labeling job task type to select one of the following
-        /// ARNs and use it with this parameter when you create a labeling job. Replace <code>aws-region</code>
-        /// with the AWS region you are creating your labeling job in.</para><para><b>3D Point Cloud HumanTaskUiArns</b></para><para>Use this <code>HumanTaskUiArn</code> for 3D point cloud object detection and 3D point
+        /// job tasks.</para><para>Use this parameter when you are creating a labeling job for named entity recognition,
+        /// 3D point cloud and video frame labeling jobs. Use your labeling job task type to select
+        /// one of the following ARNs and use it with this parameter when you create a labeling
+        /// job. Replace <code>aws-region</code> with the Amazon Web Services Region you are creating
+        /// your labeling job in. For example, replace <code>aws-region</code> with <code>us-west-1</code>
+        /// if you create a labeling job in US West (N. California).</para><para><b>Named Entity Recognition</b></para><para>Use the following <code>HumanTaskUiArn</code> for named entity recognition labeling
+        /// jobs:</para><para><code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/NamedEntityRecognition</code></para><para><b>3D Point Cloud HumanTaskUiArns</b></para><para>Use this <code>HumanTaskUiArn</code> for 3D point cloud object detection and 3D point
         /// cloud object detection adjustment labeling jobs. </para><ul><li><para><code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectDetection</code></para></li></ul><para> Use this <code>HumanTaskUiArn</code> for 3D point cloud object tracking and 3D point
         /// cloud object tracking adjustment labeling jobs. </para><ul><li><para><code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectTracking</code></para></li></ul><para> Use this <code>HumanTaskUiArn</code> for 3D point cloud semantic segmentation and
         /// 3D point cloud semantic segmentation adjustment labeling jobs.</para><ul><li><para><code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudSemanticSegmentation</code></para></li></ul><para><b>Video Frame HumanTaskUiArns</b></para><para>Use this <code>HumanTaskUiArn</code> for video frame object detection and video frame
@@ -218,10 +221,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service ID of the key used to encrypt the output data, if any.</para><para>If you provide your own KMS key ID, you must add the required permissions to your
+        /// <para>The Amazon Web Services Key Management Service ID of the key used to encrypt the output
+        /// data, if any.</para><para>If you provide your own KMS key ID, you must add the required permissions to your
         /// KMS key described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-permission.html#sms-security-kms-permissions">Encrypt
-        /// Output Data and Storage Volume with AWS KMS</a>.</para><para>If you don't provide a KMS key ID, Amazon SageMaker uses the default AWS KMS key for
-        /// Amazon S3 for your role's account to encrypt your output data.</para><para>If you use a bucket policy with an <code>s3:PutObject</code> permission that only
+        /// Output Data and Storage Volume with Amazon Web Services KMS</a>.</para><para>If you don't provide a KMS key ID, Amazon SageMaker uses the default Amazon Web Services
+        /// KMS key for Amazon S3 for your role's account to encrypt your output data.</para><para>If you use a bucket policy with an <code>s3:PutObject</code> permission that only
         /// allows objects with server-side encryption, set the condition key of <code>s3:x-amz-server-side-encryption</code>
         /// to <code>"aws:kms"</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed
         /// Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i></para>
@@ -273,7 +277,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// that defines the categories used to label the data objects.</para><para>For 3D point cloud and video frame task types, you can add label category attributes
         /// and frame attributes to your label category configuration file. To learn how, see
         /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-label-category-config.html">Create
-        /// a Labeling Category Configuration File for 3D Point Cloud Labeling Jobs</a>. </para><para>For all other <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in
+        /// a Labeling Category Configuration File for 3D Point Cloud Labeling Jobs</a>. </para><para>For named entity recognition jobs, in addition to <code>"labels"</code>, you must
+        /// provide worker instructions in the label category configuration file using the <code>"instructions"</code>
+        /// parameter: <code>"instructions": {"shortInstruction":"&lt;h1&gt;Add header&lt;/h1&gt;&lt;p&gt;Add
+        /// Instructions&lt;/p&gt;", "fullInstruction":"&lt;p&gt;Add additional instructions.&lt;/p&gt;"}</code>.
+        /// For details and an example, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api">Create
+        /// a Named Entity Recognition Labeling Job (API) </a>.</para><para>For all other <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in
         /// task types</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates.html">custom
         /// tasks</a>, your label category configuration file must be a JSON file in the following
         /// format. Identify the labels you want to use by replacing <code>label_1</code>, <code>label_2</code>,<code>...</code>,<code>label_n</code>
@@ -304,9 +313,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the labeling job. This name is used to identify the job in a list of labeling
-        /// jobs. Labeling job names must be unique within an AWS account and region. <code>LabelingJobName</code>
-        /// is not case sensitive. For example, Example-job and example-job are considered the
-        /// same labeling job name by Ground Truth.</para>
+        /// jobs. Labeling job names must be unique within an Amazon Web Services account and
+        /// region. <code>LabelingJobName</code> is not case sensitive. For example, Example-job
+        /// and example-job are considered the same labeling job name by Ground Truth.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -519,7 +528,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>An array of key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-        /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.</para>
+        /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -535,7 +545,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// use.</para><ul><li><para>If you choose the Amazon Mechanical Turk workforce, the maximum is 12 hours (43,200
         /// seconds). The default is 6 hours (21,600 seconds).</para></li><li><para>If you choose a private or vendor workforce, the default value is 10 days (864,000
         /// seconds). For most users, the maximum is also 10 days. If you want to change this
-        /// limit, contact AWS Support.</para></li></ul>
+        /// limit, contact Amazon Web Services Support.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -582,7 +592,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// labeling jobs, the maximum is 8 hours (28,800 seconds).</para></li><li><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html">3D
         /// point cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html">video
         /// frame</a> labeling jobs, the maximum is 7 days (604,800 seconds). If you want to change
-        /// these limits, contact AWS Support.</para></li></ul>
+        /// these limits, contact Amazon Web Services Support.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -641,11 +651,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter LabelingJobResourceConfig_VolumeKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
-        /// data on the storage volume attached to the ML compute instance(s) that run the training
-        /// and inference jobs used for automated data labeling. </para><para>You can only specify a <code>VolumeKmsKeyId</code> when you create a labeling job
+        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+        /// Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute
+        /// instance(s) that run the training and inference jobs used for automated data labeling.
+        /// </para><para>You can only specify a <code>VolumeKmsKeyId</code> when you create a labeling job
         /// with automated data labeling enabled using the API operation <code>CreateLabelingJob</code>.
-        /// You cannot specify an AWS KMS customer managed CMK to encrypt the storage volume used
+        /// You cannot specify an Amazon Web Services KMS key to encrypt the storage volume used
         /// for automated data labeling model training and inference when you create a labeling
         /// job using the console. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security.html">Output
         /// Data and Storage Volume Encryption</a>.</para><para>The <code>VolumeKmsKeyId</code> can be any of the following formats:</para><ul><li><para>KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>

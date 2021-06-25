@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter EventSourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the event source associated with the replay.</para>
+        /// <para>The ARN of the archive from which the events are replayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Updates information related to approval reviews for a specific version of a document.
+    /// Updates information related to approval reviews for a specific version of a change
+    /// template in Change Manager.
     /// </summary>
     [Cmdlet("Update", "SSMDocumentMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -70,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentVersion
         /// <summary>
         /// <para>
-        /// <para>The version of a document to update.</para>
+        /// <para>The version of a change template in which to update approval metadata.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the document for which a version is to be updated.</para>
+        /// <para>The name of the change template for which a version's metadata is to be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

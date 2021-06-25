@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Deletes a dashboard from AWS IoT SiteWise Monitor.
+    /// Deletes a dashboard from IoT SiteWise Monitor.
     /// </summary>
     [Cmdlet("Remove", "IOTSWDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -224,6 +224,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String GCMMessage_Body { get; set; }
         #endregion
         
+        #region Parameter InAppMessage_Body
+        /// <summary>
+        /// <para>
+        /// <para>The message body of the notification, the email body or the text message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteCampaignRequest_MessageConfiguration_InAppMessage_Body")]
+        public System.String InAppMessage_Body { get; set; }
+        #endregion
+        
         #region Parameter SMSMessage_Body
         /// <summary>
         /// <para>
@@ -233,6 +244,28 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WriteCampaignRequest_MessageConfiguration_SMSMessage_Body")]
         public System.String SMSMessage_Body { get; set; }
+        #endregion
+        
+        #region Parameter InAppMessage_Content
+        /// <summary>
+        /// <para>
+        /// <para>In-app message content.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteCampaignRequest_MessageConfiguration_InAppMessage_Content")]
+        public Amazon.Pinpoint.Model.InAppMessageContent[] InAppMessage_Content { get; set; }
+        #endregion
+        
+        #region Parameter InAppMessage_CustomConfig
+        /// <summary>
+        /// <para>
+        /// <para>Custom config to be sent to client.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteCampaignRequest_MessageConfiguration_InAppMessage_CustomConfig")]
+        public System.Collections.Hashtable InAppMessage_CustomConfig { get; set; }
         #endregion
         
         #region Parameter Limits_Daily
@@ -678,6 +711,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String Hook_LambdaFunctionName { get; set; }
         #endregion
         
+        #region Parameter InAppMessage_Layout
+        /// <summary>
+        /// <para>
+        /// <para>In-app message layout.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteCampaignRequest_MessageConfiguration_InAppMessage_Layout")]
+        [AWSConstantClassSource("Amazon.Pinpoint.Layout")]
+        public Amazon.Pinpoint.Layout InAppMessage_Layout { get; set; }
+        #endregion
+        
         #region Parameter Limits_MaximumDuration
         /// <summary>
         /// <para>
@@ -872,6 +917,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String SMSMessage_OriginationNumber { get; set; }
         #endregion
         
+        #region Parameter WriteCampaignRequest_Priority
+        /// <summary>
+        /// <para>
+        /// <para>Defines the priority of the campaign, used to decide the order of messages displayed
+        /// to user if there are multiple messages scheduled to be displayed at the same moment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? WriteCampaignRequest_Priority { get; set; }
+        #endregion
+        
         #region Parameter ADMMessage_RawContent
         /// <summary>
         /// <para>
@@ -961,6 +1017,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WriteCampaignRequest_MessageConfiguration_SMSMessage_SenderId")]
         public System.String SMSMessage_SenderId { get; set; }
+        #endregion
+        
+        #region Parameter Limits_Session
+        /// <summary>
+        /// <para>
+        /// <para>The maximum total number of messages that the campaign can send per user session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteCampaignRequest_Limits_Session")]
+        public System.Int32? Limits_Session { get; set; }
         #endregion
         
         #region Parameter ADMMessage_SilentPush
@@ -1516,6 +1583,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.Limits_Daily = this.Limits_Daily;
             context.Limits_MaximumDuration = this.Limits_MaximumDuration;
             context.Limits_MessagesPerSecond = this.Limits_MessagesPerSecond;
+            context.Limits_Session = this.Limits_Session;
             context.Limits_Total = this.Limits_Total;
             context.ADMMessage_Action = this.ADMMessage_Action;
             context.ADMMessage_Body = this.ADMMessage_Body;
@@ -1582,6 +1650,20 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.GCMMessage_TimeToLive = this.GCMMessage_TimeToLive;
             context.GCMMessage_Title = this.GCMMessage_Title;
             context.GCMMessage_Url = this.GCMMessage_Url;
+            context.InAppMessage_Body = this.InAppMessage_Body;
+            if (this.InAppMessage_Content != null)
+            {
+                context.InAppMessage_Content = new List<Amazon.Pinpoint.Model.InAppMessageContent>(this.InAppMessage_Content);
+            }
+            if (this.InAppMessage_CustomConfig != null)
+            {
+                context.InAppMessage_CustomConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.InAppMessage_CustomConfig.Keys)
+                {
+                    context.InAppMessage_CustomConfig.Add((String)hashKey, (String)(this.InAppMessage_CustomConfig[hashKey]));
+                }
+            }
+            context.InAppMessage_Layout = this.InAppMessage_Layout;
             context.SMSMessage_Body = this.SMSMessage_Body;
             context.SMSMessage_EntityId = this.SMSMessage_EntityId;
             context.SMSMessage_MessageType = this.SMSMessage_MessageType;
@@ -1589,6 +1671,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.SMSMessage_SenderId = this.SMSMessage_SenderId;
             context.SMSMessage_TemplateId = this.SMSMessage_TemplateId;
             context.WriteCampaignRequest_Name = this.WriteCampaignRequest_Name;
+            context.WriteCampaignRequest_Priority = this.WriteCampaignRequest_Priority;
             context.Schedule_EndTime = this.Schedule_EndTime;
             if (this.Dimensions_Attribute != null)
             {
@@ -1710,6 +1793,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_Name != null)
             {
                 request.WriteCampaignRequest.Name = requestWriteCampaignRequest_writeCampaignRequest_Name;
+                requestWriteCampaignRequestIsNull = false;
+            }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Priority = null;
+            if (cmdletContext.WriteCampaignRequest_Priority != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Priority = cmdletContext.WriteCampaignRequest_Priority.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Priority != null)
+            {
+                request.WriteCampaignRequest.Priority = requestWriteCampaignRequest_writeCampaignRequest_Priority.Value;
                 requestWriteCampaignRequestIsNull = false;
             }
             System.String requestWriteCampaignRequest_writeCampaignRequest_SegmentId = null;
@@ -1840,61 +1933,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_Hook != null)
             {
                 request.WriteCampaignRequest.Hook = requestWriteCampaignRequest_writeCampaignRequest_Hook;
-                requestWriteCampaignRequestIsNull = false;
-            }
-            Amazon.Pinpoint.Model.CampaignLimits requestWriteCampaignRequest_writeCampaignRequest_Limits = null;
-            
-             // populate Limits
-            var requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = true;
-            requestWriteCampaignRequest_writeCampaignRequest_Limits = new Amazon.Pinpoint.Model.CampaignLimits();
-            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily = null;
-            if (cmdletContext.Limits_Daily != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily = cmdletContext.Limits_Daily.Value;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits.Daily = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily.Value;
-                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
-            }
-            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration = null;
-            if (cmdletContext.Limits_MaximumDuration != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration = cmdletContext.Limits_MaximumDuration.Value;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits.MaximumDuration = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration.Value;
-                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
-            }
-            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond = null;
-            if (cmdletContext.Limits_MessagesPerSecond != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond = cmdletContext.Limits_MessagesPerSecond.Value;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits.MessagesPerSecond = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond.Value;
-                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
-            }
-            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total = null;
-            if (cmdletContext.Limits_Total != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total = cmdletContext.Limits_Total.Value;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits.Total = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total.Value;
-                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
-            }
-             // determine if requestWriteCampaignRequest_writeCampaignRequest_Limits should be set to null
-            if (requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits = null;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Limits != null)
-            {
-                request.WriteCampaignRequest.Limits = requestWriteCampaignRequest_writeCampaignRequest_Limits;
                 requestWriteCampaignRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.TemplateConfiguration requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration = null;
@@ -2050,6 +2088,71 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration != null)
             {
                 request.WriteCampaignRequest.TemplateConfiguration = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration;
+                requestWriteCampaignRequestIsNull = false;
+            }
+            Amazon.Pinpoint.Model.CampaignLimits requestWriteCampaignRequest_writeCampaignRequest_Limits = null;
+            
+             // populate Limits
+            var requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_Limits = new Amazon.Pinpoint.Model.CampaignLimits();
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily = null;
+            if (cmdletContext.Limits_Daily != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily = cmdletContext.Limits_Daily.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits.Daily = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
+            }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration = null;
+            if (cmdletContext.Limits_MaximumDuration != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration = cmdletContext.Limits_MaximumDuration.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits.MaximumDuration = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
+            }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond = null;
+            if (cmdletContext.Limits_MessagesPerSecond != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond = cmdletContext.Limits_MessagesPerSecond.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits.MessagesPerSecond = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
+            }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Session = null;
+            if (cmdletContext.Limits_Session != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Session = cmdletContext.Limits_Session.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Session != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits.Session = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Session.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
+            }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total = null;
+            if (cmdletContext.Limits_Total != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total = cmdletContext.Limits_Total.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits.Total = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_Limits should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Limits != null)
+            {
+                request.WriteCampaignRequest.Limits = requestWriteCampaignRequest_writeCampaignRequest_Limits;
                 requestWriteCampaignRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.Schedule requestWriteCampaignRequest_writeCampaignRequest_Schedule = null;
@@ -2330,6 +2433,61 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage != null)
             {
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration.EmailMessage = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfigurationIsNull = false;
+            }
+            Amazon.Pinpoint.Model.CampaignInAppMessage requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage = null;
+            
+             // populate InAppMessage
+            var requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessageIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage = new Amazon.Pinpoint.Model.CampaignInAppMessage();
+            System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_Body = null;
+            if (cmdletContext.InAppMessage_Body != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_Body = cmdletContext.InAppMessage_Body;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_Body != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage.Body = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_Body;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessageIsNull = false;
+            }
+            List<Amazon.Pinpoint.Model.InAppMessageContent> requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_Content = null;
+            if (cmdletContext.InAppMessage_Content != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_Content = cmdletContext.InAppMessage_Content;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_Content != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage.Content = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_Content;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessageIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_CustomConfig = null;
+            if (cmdletContext.InAppMessage_CustomConfig != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_CustomConfig = cmdletContext.InAppMessage_CustomConfig;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_CustomConfig != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage.CustomConfig = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_CustomConfig;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessageIsNull = false;
+            }
+            Amazon.Pinpoint.Layout requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_Layout = null;
+            if (cmdletContext.InAppMessage_Layout != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_Layout = cmdletContext.InAppMessage_Layout;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_Layout != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage.Layout = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage_inAppMessage_Layout;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessageIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessageIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration.InAppMessage = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_InAppMessage;
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfigurationIsNull = false;
             }
             Amazon.Pinpoint.Model.CampaignSmsMessage requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage = null;
@@ -3171,6 +3329,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.Int32? Limits_Daily { get; set; }
             public System.Int32? Limits_MaximumDuration { get; set; }
             public System.Int32? Limits_MessagesPerSecond { get; set; }
+            public System.Int32? Limits_Session { get; set; }
             public System.Int32? Limits_Total { get; set; }
             public Amazon.Pinpoint.Action ADMMessage_Action { get; set; }
             public System.String ADMMessage_Body { get; set; }
@@ -3237,6 +3396,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.Int32? GCMMessage_TimeToLive { get; set; }
             public System.String GCMMessage_Title { get; set; }
             public System.String GCMMessage_Url { get; set; }
+            public System.String InAppMessage_Body { get; set; }
+            public List<Amazon.Pinpoint.Model.InAppMessageContent> InAppMessage_Content { get; set; }
+            public Dictionary<System.String, System.String> InAppMessage_CustomConfig { get; set; }
+            public Amazon.Pinpoint.Layout InAppMessage_Layout { get; set; }
             public System.String SMSMessage_Body { get; set; }
             public System.String SMSMessage_EntityId { get; set; }
             public Amazon.Pinpoint.MessageType SMSMessage_MessageType { get; set; }
@@ -3244,6 +3407,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String SMSMessage_SenderId { get; set; }
             public System.String SMSMessage_TemplateId { get; set; }
             public System.String WriteCampaignRequest_Name { get; set; }
+            public System.Int32? WriteCampaignRequest_Priority { get; set; }
             public System.String Schedule_EndTime { get; set; }
             public Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension> Dimensions_Attribute { get; set; }
             public Amazon.Pinpoint.DimensionType EventType_DimensionType { get; set; }

@@ -28,7 +28,7 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Returns descriptive information about an AWS Fargate profile.
+    /// Returns descriptive information about an Fargate profile.
     /// </summary>
     [Cmdlet("Get", "EKSFargateProfile")]
     [OutputType("Amazon.EKS.Model.FargateProfile")]

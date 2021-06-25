@@ -28,17 +28,17 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Creates a template from an existing QuickSight analysis or template. You can use the
-    /// resulting template to create a dashboard.
+    /// Creates a template from an existing Amazon QuickSight analysis or template. You can
+    /// use the resulting template to create a dashboard.
     /// 
     ///  
     /// <para>
-    /// A <i>template</i> is an entity in QuickSight that encapsulates the metadata required
-    /// to create an analysis and that you can use to create s dashboard. A template adds
-    /// a layer of abstraction by using placeholders to replace the dataset associated with
-    /// the analysis. You can use templates to create dashboards by replacing dataset placeholders
-    /// with datasets that follow the same schema that was used to create the source analysis
-    /// and template.
+    /// A <i>template</i> is an entity in Amazon QuickSight that encapsulates the metadata
+    /// required to create an analysis and that you can use to create s dashboard. A template
+    /// adds a layer of abstraction by using placeholders to replace the dataset associated
+    /// with the analysis. You can use templates to create dashboards by replacing dataset
+    /// placeholders with datasets that follow the same schema that was used to create the
+    /// source analysis and template.
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the AWS account that the group is in. Currently, you use the ID for the
-        /// AWS account that contains your Amazon QuickSight account.</para>
+        /// <para>The ID for the Amazon Web Services account that the group is in. You use the ID for
+        /// the Amazon Web Services account that contains your Amazon QuickSight account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter TemplateId
         /// <summary>
         /// <para>
-        /// <para>An ID for the template that you want to create. This template is unique per AWS Region
-        /// in each AWS account.</para>
+        /// <para>An ID for the template that you want to create. This template is unique per Amazon
+        /// Web Services Region; in each Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Associate your own domain name with the AWS App Runner subdomain URL of your App Runner
+    /// Associate your own domain name with the App Runner subdomain URL of your App Runner
     /// service.
     /// 
     ///  

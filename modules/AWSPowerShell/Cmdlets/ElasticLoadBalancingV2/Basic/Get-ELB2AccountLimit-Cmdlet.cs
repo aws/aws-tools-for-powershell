@@ -28,7 +28,8 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Describes the current Elastic Load Balancing resource limits for your AWS account.
+    /// Describes the current Elastic Load Balancing resource limits for your Amazon Web Services
+    /// account.
     /// 
     ///  
     /// <para>

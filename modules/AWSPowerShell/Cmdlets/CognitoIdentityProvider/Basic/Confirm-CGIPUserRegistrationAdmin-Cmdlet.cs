@@ -51,16 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>A map of custom key-value pairs that you can provide as input for any custom workflows
         /// that this action triggers. </para><para>If your user pool configuration includes triggers, the AdminConfirmSignUp API action
-        /// invokes the AWS Lambda function that is specified for the <i>post confirmation</i>
-        /// trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which
-        /// the function receives as input. In this payload, the <code>clientMetadata</code> attribute
-        /// provides the data that you assigned to the ClientMetadata parameter in your AdminConfirmSignUp
-        /// request. In your function code in AWS Lambda, you can process the ClientMetadata value
+        /// invokes the Lambda function that is specified for the <i>post confirmation</i> trigger.
+        /// When Amazon Cognito invokes this function, it passes a JSON payload, which the function
+        /// receives as input. In this payload, the <code>clientMetadata</code> attribute provides
+        /// the data that you assigned to the ClientMetadata parameter in your AdminConfirmSignUp
+        /// request. In your function code in Lambda, you can process the ClientMetadata value
         /// to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing
         /// User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>Take the following limitations into consideration when you use the ClientMetadata
         /// parameter:</para><ul><li><para>Amazon Cognito does not store the ClientMetadata value. This data is available only
-        /// to AWS Lambda triggers that are assigned to a user pool to support custom workflows.
-        /// If your user pool configuration does not include triggers, the ClientMetadata parameter
+        /// to Lambda triggers that are assigned to a user pool to support custom workflows. If
+        /// your user pool configuration does not include triggers, the ClientMetadata parameter
         /// serves no purpose.</para></li><li><para>Amazon Cognito does not validate the ClientMetadata value.</para></li><li><para>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide
         /// sensitive information.</para></li></ul></note>
         /// </para>

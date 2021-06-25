@@ -71,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of vocabularies to return in the response.</para>
+        /// <para>The maximum number of vocabularies to return in each page of results. If there are
+        /// fewer results than the value you specify, only the actual results are returned. If
+        /// you do not specify a value, the default of 5 is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

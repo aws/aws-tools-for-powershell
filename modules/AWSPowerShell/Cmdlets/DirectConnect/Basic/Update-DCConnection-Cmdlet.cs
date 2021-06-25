@@ -28,7 +28,7 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Updates the AWS Direct Connect dedicated connection configuration.
+    /// Updates the Direct Connect dedicated connection configuration.
     /// 
     ///  
     /// <para>

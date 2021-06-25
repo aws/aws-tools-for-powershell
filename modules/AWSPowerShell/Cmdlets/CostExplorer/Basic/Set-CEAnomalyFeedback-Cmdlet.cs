@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalyId
         /// <summary>
         /// <para>
-        /// <para> A cost anomaly ID. </para>
+        /// <para>A cost anomaly ID. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

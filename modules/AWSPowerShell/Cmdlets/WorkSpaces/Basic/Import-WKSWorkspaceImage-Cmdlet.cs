@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
     /// Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon WorkSpaces.
-    /// The image must be an already licensed Amazon EC2 image that is in your AWS account,
-    /// and you must own the image. For more information about creating BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
+    /// The image must be an already licensed Amazon EC2 image that is in your Amazon Web
+    /// Services account, and you must own the image. For more information about creating
+    /// BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
     /// Bring Your Own Windows Desktop Licenses</a>.
     /// </summary>
     [Cmdlet("Import", "WKSWorkspaceImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

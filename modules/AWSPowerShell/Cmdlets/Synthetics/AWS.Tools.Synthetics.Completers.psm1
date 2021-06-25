@@ -75,6 +75,35 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon CloudWatch Synthetics
 
 
+$CWSYN_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Synthetics.EncryptionMode
+        {
+            ($_ -eq "New-CWSYNCanary/ArtifactConfig_S3Encryption_EncryptionMode") -Or
+            ($_ -eq "Update-CWSYNCanary/ArtifactConfig_S3Encryption_EncryptionMode")
+        }
+        {
+            $v = "SSE_KMS","SSE_S3"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWSYN_map = @{
+    "ArtifactConfig_S3Encryption_EncryptionMode"=@("New-CWSYNCanary","Update-CWSYNCanary")
+}
+
+_awsArgumentCompleterRegistration $CWSYN_Completers $CWSYN_map
+
 $CWSYN_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 

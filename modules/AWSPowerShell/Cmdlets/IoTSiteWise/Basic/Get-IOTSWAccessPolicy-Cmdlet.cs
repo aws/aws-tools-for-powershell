@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Describes an access policy, which specifies an identity's access to an AWS IoT SiteWise
+    /// Describes an access policy, which specifies an identity's access to an IoT SiteWise
     /// Monitor portal or project.
     /// </summary>
     [Cmdlet("Get", "IOTSWAccessPolicy")]

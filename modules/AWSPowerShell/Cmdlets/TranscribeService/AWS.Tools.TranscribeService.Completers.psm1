@@ -87,6 +87,13 @@ $TRS_Completers = {
             break
         }
 
+        # Amazon.TranscribeService.CallAnalyticsJobStatus
+        "Get-TRSCallAnalyticsJobList/Status"
+        {
+            $v = "COMPLETED","FAILED","IN_PROGRESS","QUEUED"
+            break
+        }
+
         # Amazon.TranscribeService.CLMLanguageCode
         "New-TRSLanguageModel/LanguageCode"
         {
@@ -105,7 +112,7 @@ $TRS_Completers = {
             ($_ -eq "Update-TRSVocabulary/LanguageCode")
         }
         {
-            $v = "af-ZA","ar-AE","ar-SA","cy-GB","da-DK","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-US","en-WL","es-ES","es-US","fa-IR","fr-CA","fr-FR","ga-IE","gd-GB","he-IL","hi-IN","id-ID","it-IT","ja-JP","ko-KR","ms-MY","nl-NL","pt-BR","pt-PT","ru-RU","ta-IN","te-IN","tr-TR","zh-CN"
+            $v = "af-ZA","ar-AE","ar-SA","cy-GB","da-DK","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-US","en-WL","en-ZA","es-ES","es-US","fa-IR","fr-CA","fr-FR","ga-IE","gd-GB","he-IL","hi-IN","id-ID","it-IT","ja-JP","ko-KR","ms-MY","nl-NL","pt-BR","pt-PT","ru-RU","ta-IN","te-IN","th-TH","tr-TR","zh-CN","zh-TW"
             break
         }
 
@@ -134,14 +141,20 @@ $TRS_Completers = {
         }
 
         # Amazon.TranscribeService.RedactionOutput
-        "Start-TRSTranscriptionJob/ContentRedaction_RedactionOutput"
+        {
+            ($_ -eq "Start-TRSTranscriptionJob/ContentRedaction_RedactionOutput") -Or
+            ($_ -eq "Start-TRSCallAnalyticsJob/Settings_ContentRedaction_RedactionOutput")
+        }
         {
             $v = "redacted","redacted_and_unredacted"
             break
         }
 
         # Amazon.TranscribeService.RedactionType
-        "Start-TRSTranscriptionJob/ContentRedaction_RedactionType"
+        {
+            ($_ -eq "Start-TRSTranscriptionJob/ContentRedaction_RedactionType") -Or
+            ($_ -eq "Start-TRSCallAnalyticsJob/Settings_ContentRedaction_RedactionType")
+        }
         {
             $v = "PII"
             break
@@ -172,7 +185,10 @@ $TRS_Completers = {
         }
 
         # Amazon.TranscribeService.VocabularyFilterMethod
-        "Start-TRSTranscriptionJob/Settings_VocabularyFilterMethod"
+        {
+            ($_ -eq "Start-TRSCallAnalyticsJob/Settings_VocabularyFilterMethod") -Or
+            ($_ -eq "Start-TRSTranscriptionJob/Settings_VocabularyFilterMethod")
+        }
         {
             $v = "mask","remove","tag"
             break
@@ -203,10 +219,12 @@ $TRS_map = @{
     "ContentRedaction_RedactionType"=@("Start-TRSTranscriptionJob")
     "LanguageCode"=@("New-TRSLanguageModel","New-TRSMedicalVocabulary","New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob","Update-TRSMedicalVocabulary","Update-TRSVocabulary")
     "MediaFormat"=@("Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob")
-    "Settings_VocabularyFilterMethod"=@("Start-TRSTranscriptionJob")
+    "Settings_ContentRedaction_RedactionOutput"=@("Start-TRSCallAnalyticsJob")
+    "Settings_ContentRedaction_RedactionType"=@("Start-TRSCallAnalyticsJob")
+    "Settings_VocabularyFilterMethod"=@("Start-TRSCallAnalyticsJob","Start-TRSTranscriptionJob")
     "Specialty"=@("Start-TRSMedicalTranscriptionJob")
     "StateEquals"=@("Get-TRSMedicalVocabularyList","Get-TRSVocabularyList")
-    "Status"=@("Get-TRSMedicalTranscriptionJobList","Get-TRSTranscriptionJobList")
+    "Status"=@("Get-TRSCallAnalyticsJobList","Get-TRSMedicalTranscriptionJobList","Get-TRSTranscriptionJobList")
     "StatusEquals"=@("Get-TRSLanguageModelList")
     "Type"=@("Start-TRSMedicalTranscriptionJob")
 }
@@ -261,10 +279,13 @@ $TRS_SelectCompleters = {
 }
 
 $TRS_SelectMap = @{
-    "Select"=@("New-TRSLanguageModel",
+    "Select"=@("New-TRSCallAnalyticsCategory",
+               "New-TRSLanguageModel",
                "New-TRSMedicalVocabulary",
                "New-TRSVocabulary",
                "New-TRSVocabularyFilter",
+               "Remove-TRSCallAnalyticsCategory",
+               "Remove-TRSCallAnalyticsJob",
                "Remove-TRSLanguageModel",
                "Remove-TRSMedicalTranscriptionJob",
                "Remove-TRSMedicalVocabulary",
@@ -272,19 +293,28 @@ $TRS_SelectMap = @{
                "Remove-TRSVocabulary",
                "Remove-TRSVocabularyFilter",
                "Get-TRSLanguageModel",
+               "Get-TRSCallAnalyticsCategory",
+               "Get-TRSCallAnalyticsJob",
                "Get-TRSMedicalTranscriptionJob",
                "Get-TRSMedicalVocabulary",
                "Get-TRSTranscriptionJob",
                "Get-TRSVocabulary",
                "Get-TRSVocabularyFilter",
+               "Get-TRSCallAnalyticsCategoryList",
+               "Get-TRSCallAnalyticsJobList",
                "Get-TRSLanguageModelList",
                "Get-TRSMedicalTranscriptionJobList",
                "Get-TRSMedicalVocabularyList",
+               "Get-TRSResourceTag",
                "Get-TRSTranscriptionJobList",
                "Get-TRSVocabularyList",
                "Get-TRSVocabularyFilterList",
+               "Start-TRSCallAnalyticsJob",
                "Start-TRSMedicalTranscriptionJob",
                "Start-TRSTranscriptionJob",
+               "Add-TRSResourceTag",
+               "Remove-TRSResourceTag",
+               "Update-TRSCallAnalyticsCategory",
                "Update-TRSMedicalVocabulary",
                "Update-TRSVocabulary",
                "Update-TRSVocabularyFilter")

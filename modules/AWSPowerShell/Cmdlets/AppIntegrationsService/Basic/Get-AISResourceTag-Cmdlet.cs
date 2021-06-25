@@ -28,12 +28,7 @@ using Amazon.AppIntegrationsService.Model;
 namespace Amazon.PowerShell.Cmdlets.AIS
 {
     /// <summary>
-    /// The Amazon AppIntegrations APIs are in preview release and are subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Lists the tags for the specified resource.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "AISResourceTag")]
     [OutputType("System.String")]

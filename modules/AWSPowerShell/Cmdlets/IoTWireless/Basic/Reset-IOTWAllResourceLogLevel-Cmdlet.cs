@@ -28,8 +28,8 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Remove log-level overrides if any for all resources (both wireless devices and wireless
-    /// gateways).
+    /// Removes the log-level overrides for all resources; both wireless devices and wireless
+    /// gateways.
     /// </summary>
     [Cmdlet("Reset", "IOTWAllResourceLogLevel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

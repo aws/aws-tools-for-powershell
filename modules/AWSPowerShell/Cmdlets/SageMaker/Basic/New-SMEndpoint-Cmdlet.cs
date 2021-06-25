@@ -37,14 +37,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
     ///  Use this API to deploy models using Amazon SageMaker hosting services. 
     /// </para><para>
     /// For an example that calls this method when deploying a model to Amazon SageMaker hosting
-    /// services, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto">Deploy
-    /// the Model to Amazon SageMaker Hosting Services (AWS SDK for Python (Boto 3)).</a></para><note><para>
+    /// services, see the <a href="https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-fundamentals/create-endpoint/create_endpoint.ipynb">Create
+    /// Endpoint example notebook.</a></para><note><para>
     ///  You must not delete an <code>EndpointConfig</code> that is in use by an endpoint
     /// that is live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code>
     /// operations are being performed on the endpoint. To update an endpoint, you must create
     /// a new <code>EndpointConfig</code>.
     /// </para></note><para>
-    /// The endpoint name must be unique within an AWS Region in your AWS account. 
+    /// The endpoint name must be unique within an Amazon Web Services Region in your Amazon
+    /// Web Services account. 
     /// </para><para>
     /// When it receives the request, Amazon SageMaker creates the endpoint, launches the
     /// resources (ML compute instances), and deploys the model(s) on them. 
@@ -65,12 +66,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// an endpoint, use the <a>DescribeEndpoint</a> API.
     /// </para><para>
     /// If any of the models hosted at this endpoint get model data from an Amazon S3 location,
-    /// Amazon SageMaker uses AWS Security Token Service to download model artifacts from
-    /// the S3 path you provided. AWS STS is activated in your IAM user account by default.
-    /// If you previously deactivated AWS STS for a region, you need to reactivate AWS STS
-    /// for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
-    /// and Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management
-    /// User Guide</i>.
+    /// Amazon SageMaker uses Amazon Web Services Security Token Service to download model
+    /// artifacts from the S3 path you provided. Amazon Web Services STS is activated in your
+    /// IAM user account by default. If you previously deactivated Amazon Web Services STS
+    /// for a region, you need to reactivate Amazon Web Services STS for that region. For
+    /// more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
+    /// and Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
+    /// <i>Amazon Web Services Identity and Access Management User Guide</i>.
     /// </para><note><para>
     ///  To add the IAM role policies for using this API operation, go to the <a href="https://console.aws.amazon.com/iam/">IAM
     /// console</a>, and choose Roles in the left navigation pane. Search the IAM role that
@@ -118,9 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EndpointName
         /// <summary>
         /// <para>
-        /// <para>The name of the endpoint.The name must be unique within an AWS Region in your AWS
-        /// account. The name is case-insensitive in <code>CreateEndpoint</code>, but the case
-        /// is preserved and must be matched in .</para>
+        /// <para>The name of the endpoint.The name must be unique within an Amazon Web Services Region
+        /// in your Amazon Web Services account. The name is case-insensitive in <code>CreateEndpoint</code>,
+        /// but the case is preserved and must be matched in .</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -137,10 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
-        /// different ways, for example, by purpose, owner, or environment. For more information,
-        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS Resources</a>.</para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+        /// resources in different ways, for example, by purpose, owner, or environment. For more
+        /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services Resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

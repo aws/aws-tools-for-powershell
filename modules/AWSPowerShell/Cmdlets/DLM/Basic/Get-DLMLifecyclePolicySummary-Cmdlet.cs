@@ -81,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter TagsToAdd
         /// <summary>
         /// <para>
-        /// <para>The tags to add to objects created by the policy.</para><para>Tags are strings in the format <code>key=value</code>.</para><para>These user-defined tags are added in addition to the AWS-added lifecycle tags.</para>
+        /// <para>The tags to add to objects created by the policy.</para><para>Tags are strings in the format <code>key=value</code>.</para><para>These user-defined tags are added in addition to the Amazon Web Services-added lifecycle
+        /// tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,25 +28,28 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Creates an AWS Firewall Manager policy.
+    /// Creates an Firewall Manager policy.
     /// 
     ///  
     /// <para>
     /// Firewall Manager provides the following types of policies: 
     /// </para><ul><li><para>
-    /// An AWS WAF policy (type WAFV2), which defines rule groups to run first in the corresponding
-    /// AWS WAF web ACL and rule groups to run last in the web ACL.
+    /// An WAF policy (type WAFV2), which defines rule groups to run first in the corresponding
+    /// WAF web ACL and rule groups to run last in the web ACL.
     /// </para></li><li><para>
-    /// An AWS WAF Classic policy (type WAF), which defines a rule group. 
+    /// An WAF Classic policy (type WAF), which defines a rule group. 
     /// </para></li><li><para>
     /// A Shield Advanced policy, which applies Shield Advanced protection to specified accounts
     /// and resources.
     /// </para></li><li><para>
-    /// A security group policy, which manages VPC security groups across your AWS organization.
-    /// 
+    /// A security group policy, which manages VPC security groups across your Amazon Web
+    /// Services organization. 
     /// </para></li><li><para>
-    /// An AWS Network Firewall policy, which provides firewall rules to filter network traffic
+    /// An Network Firewall policy, which provides firewall rules to filter network traffic
     /// in specified Amazon VPCs.
+    /// </para></li><li><para>
+    /// A DNS Firewall policy, which provides Route 53 Resolver DNS Firewall rules to filter
+    /// DNS queries for specified VPCs.
     /// </para></li></ul><para>
     /// Each policy is specific to one of the types. If you want to enforce more than one
     /// policy type across accounts, create multiple policies. You can create multiple policies
@@ -68,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The details of the AWS Firewall Manager policy to be created.</para>
+        /// <para>The details of the Firewall Manager policy to be created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter TagList
         /// <summary>
         /// <para>
-        /// <para>The tags to add to the AWS resource.</para>
+        /// <para>The tags to add to the Amazon Web Services resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <summary>
     /// Records the configuration state for a custom resource that has been deleted. This
     /// API records a new ConfigurationItem with a ResourceDeleted status. You can retrieve
-    /// the ConfigurationItems recorded for this resource in your AWS Config History.
+    /// the ConfigurationItems recorded for this resource in your Config History.
     /// </summary>
     [Cmdlet("Remove", "CFGResourceConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

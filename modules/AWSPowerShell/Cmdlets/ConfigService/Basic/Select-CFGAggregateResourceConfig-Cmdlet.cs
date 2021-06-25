@@ -29,13 +29,25 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Accepts a structured query language (SQL) SELECT command and an aggregator to query
-    /// configuration state of AWS resources across multiple accounts and regions, performs
-    /// the corresponding search, and returns resource configurations matching the properties.
+    /// configuration state of Amazon Web Services resources across multiple accounts and
+    /// regions, performs the corresponding search, and returns resource configurations matching
+    /// the properties.
     /// 
     ///  
     /// <para>
-    /// For more information about query components, see the <a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html"><b>Query Components</b></a> section in the AWS Config Developer Guide.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// For more information about query components, see the <a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html"><b>Query Components</b></a> section in the Config Developer Guide.
+    /// </para><note><para>
+    /// If you run an aggregation query (i.e., using <code>GROUP BY</code> or using aggregate
+    /// functions such as <code>COUNT</code>; e.g., <code>SELECT resourceId, COUNT(*) WHERE
+    /// resourceType = 'AWS::IAM::Role' GROUP BY resourceId</code>) and do not specify the
+    /// <code>MaxResults</code> or the <code>Limit</code> query parameters, the default page
+    /// size is set to 500.
+    /// </para><para>
+    /// If you run a non-aggregation query (i.e., not using <code>GROUP BY</code> or aggregate
+    /// function; e.g., <code>SELECT * WHERE resourceType = 'AWS::IAM::Role'</code>) and do
+    /// not specify the <code>MaxResults</code> or the <code>Limit</code> query parameters,
+    /// the default page size is set to 25.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Select", "CFGAggregateResourceConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -94,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of query results returned on each page. AWS Config also allows
-        /// the Limit request parameter.</para>
+        /// <para>The maximum number of query results returned on each page. Config also allows the
+        /// Limit request parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

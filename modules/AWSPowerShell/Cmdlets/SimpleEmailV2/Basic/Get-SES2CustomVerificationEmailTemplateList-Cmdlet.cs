@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
     /// Lists the existing custom verification email templates for your account in the current
-    /// AWS Region.
+    /// Amazon Web Services Region.
     /// 
     ///  
     /// <para>

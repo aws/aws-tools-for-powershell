@@ -115,7 +115,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-MSKClusterConfiguration', 
         'Update-MSKClusterKafkaVersion', 
         'Update-MSKConfiguration', 
-        'Update-MSKMonitoring')
+        'Update-MSKMonitoring', 
+        'Update-MSKSecurity')
 
     # Variables to export from this module
     VariablesToExport = '*'

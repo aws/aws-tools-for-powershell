@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Add or updates the evaluations for process checks. This API checks if the rule is
-    /// a process check when the name of the AWS Config rule is provided.
+    /// a process check when the name of the Config rule is provided.
     /// </summary>
     [Cmdlet("Write", "CFGExternalEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ExternalEvaluation_ComplianceResourceId
         /// <summary>
         /// <para>
-        /// <para>The evaluated compliance resource ID. AWS Config accepts only AWS account ID.</para>
+        /// <para>The evaluated compliance resource ID. Config accepts only Amazon Web Services account
+        /// ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ExternalEvaluation_ComplianceResourceType
         /// <summary>
         /// <para>
-        /// <para>The evaluated compliance resource type. AWS Config accepts <code>AWS::::Account</code>
+        /// <para>The evaluated compliance resource type. Config accepts <code>AWS::::Account</code>
         /// resource type.</para>
         /// </para>
         /// </summary>
@@ -90,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ExternalEvaluation_ComplianceType
         /// <summary>
         /// <para>
-        /// <para>The compliance of the AWS resource. The valid values are <code>COMPLIANT, NON_COMPLIANT,
-        /// </code> and <code>NOT_APPLICABLE</code>.</para>
+        /// <para>The compliance of the Amazon Web Services resource. The valid values are <code>COMPLIANT,
+        /// NON_COMPLIANT, </code> and <code>NOT_APPLICABLE</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS Config rule.</para>
+        /// <para>The name of the Config rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

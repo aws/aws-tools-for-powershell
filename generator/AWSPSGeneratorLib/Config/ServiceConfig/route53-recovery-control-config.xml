@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>route53-recovery-control-config</C2jFilename>
+    <AssemblyName>Route53RecoveryControlConfig</AssemblyName>
+    <ServiceNounPrefix>R53RC</ServiceNounPrefix>
+    <ServiceName>AWS Route53 Recovery Control Config</ServiceName>
+    <ServiceClientInterface>IAmazonRoute53RecoveryControlConfig</ServiceClientInterface>
+    <ServiceClient>AmazonRoute53RecoveryControlConfigClient</ServiceClient>
+    <ServiceModuleGuid>f3994353-a65e-4449-ba43-4c3642c3db10</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateControlPanel" OutputProperty="ControlPanel" Verb="New" Noun="ControlPanel" ShouldProcessTarget="ControlPanelName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRoutingControl" OutputProperty="RoutingControl" Verb="New" Noun="RoutingControl" ShouldProcessTarget="RoutingControlName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSafetyRule" OutputProperty="*" Verb="New" Noun="SafetyRule" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="AssertionRule_RuleConfig_Inverted" NewName="AssertionRule_RuleConfig_Inverted" />
+                <Param Name="GatingRule_RuleConfig_Inverted" NewName="GatingRule_RuleConfig_Inverted" />
+                <Param Name="AssertionRule_RuleConfig_Threshold" NewName="AssertionRule_RuleConfig_Threshold" />
+                <Param Name="GatingRule_RuleConfig_Threshold" NewName="GatingRule_RuleConfig_Threshold" />
+                <Param Name="AssertionRule_RuleConfig_Type" NewName="AssertionRule_RuleConfig_Type" />
+                <Param Name="GatingRule_RuleConfig_Type" NewName="GatingRule_RuleConfig_Type" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteControlPanel" Verb="Remove" Noun="ControlPanel" ShouldProcessTarget="ControlPanelArn" PipelineParameter="ControlPanelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRoutingControl" Verb="Remove" Noun="RoutingControl" ShouldProcessTarget="RoutingControlArn" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSafetyRule" Verb="Remove" Noun="SafetyRule" ShouldProcessTarget="SafetyRuleArn" PipelineParameter="SafetyRuleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCluster" OutputProperty="Cluster" Verb="Get" Noun="Cluster" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeControlPanel" OutputProperty="ControlPanel" Verb="Get" Noun="ControlPanel" PipelineParameter="ControlPanelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRoutingControl" OutputProperty="RoutingControl" Verb="Get" Noun="RoutingControl" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSafetyRule" OutputProperty="*" Verb="Get" Noun="SafetyRule" PipelineParameter="SafetyRuleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociatedRoute53HealthChecks" OutputProperty="HealthCheckIds" Verb="Get" Noun="AssociatedRoute53HealthCheckList" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListControlPanels" OutputProperty="ControlPanels" Verb="Get" Noun="ControlPanelList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRoutingControls" OutputProperty="RoutingControls" Verb="Get" Noun="RoutingControlList" PipelineParameter="ControlPanelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSafetyRules" OutputProperty="SafetyRules" Verb="Get" Noun="SafetyRuleList" PipelineParameter="ControlPanelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateControlPanel" OutputProperty="ControlPanel" Verb="Update" Noun="ControlPanel" ShouldProcessTarget="ControlPanelArn" PipelineParameter="ControlPanelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRoutingControl" OutputProperty="RoutingControl" Verb="Update" Noun="RoutingControl" ShouldProcessTarget="RoutingControlArn" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSafetyRule" OutputProperty="*" Verb="Update" Noun="SafetyRule" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

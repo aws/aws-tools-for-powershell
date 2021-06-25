@@ -28,7 +28,7 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Deletes an AWS Shield Advanced <a>Protection</a>.
+    /// Deletes an Shield Advanced <a>Protection</a>.
     /// </summary>
     [Cmdlet("Remove", "SHLDProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

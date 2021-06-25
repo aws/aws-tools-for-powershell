@@ -30,13 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Update a resource data sync. After you create a resource data sync for a Region, you
     /// can't change the account options for that sync. For example, if you create a sync
-    /// in the us-east-2 (Ohio) Region and you choose the Include only the current account
-    /// option, you can't edit that sync later and choose the Include all accounts from my
-    /// AWS Organizations configuration option. Instead, you must delete the first resource
+    /// in the us-east-2 (Ohio) Region and you choose the <code>Include only the current account</code>
+    /// option, you can't edit that sync later and choose the <code>Include all accounts from
+    /// my Organizations configuration</code> option. Instead, you must delete the first resource
     /// data sync, and create a new one.
     /// 
     ///  <note><para>
-    /// This API action only supports a resource data sync that was created with a SyncFromSource
+    /// This API operation only supports a resource data sync that was created with a SyncFromSource
     /// <code>SyncType</code>.
     /// </para></note>
     /// </summary>
@@ -53,12 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SyncSource_EnableAllOpsDataSource
         /// <summary>
         /// <para>
-        /// <para>When you create a resource data sync, if you choose one of the AWS Organizations options,
-        /// then Systems Manager automatically enables all OpsData sources in the selected AWS
-        /// Regions for all AWS accounts in your organization (or in the selected organization
-        /// units). For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html">About
-        /// multiple account and Region resource data syncs</a> in the <i>AWS Systems Manager
-        /// User Guide</i>.</para>
+        /// <para>When you create a resource data sync, if you choose one of the Organizations options,
+        /// then Systems Manager automatically enables all OpsData sources in the selected Amazon
+        /// Web Services Regions for all Amazon Web Services accounts in your organization (or
+        /// in the selected organization units). For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html">About
+        /// multiple account and Region resource data syncs</a> in the <i>Amazon Web Services
+        /// Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SyncSource_IncludeFutureRegion
         /// <summary>
         /// <para>
-        /// <para>Whether to automatically synchronize and aggregate data from new AWS Regions when
-        /// those Regions come online.</para>
+        /// <para>Whether to automatically synchronize and aggregate data from new Amazon Web Services
+        /// Regions when those Regions come online.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AwsOrganizationsSource_OrganizationalUnit
         /// <summary>
         /// <para>
-        /// <para>The AWS Organizations organization units included in the sync.</para>
+        /// <para>The Organizations organization units included in the sync.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,10 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AwsOrganizationsSource_OrganizationSourceType
         /// <summary>
         /// <para>
-        /// <para>If an AWS Organization is present, this is either <code>OrganizationalUnits</code>
+        /// <para>If an Amazon Web Services organization is present, this is either <code>OrganizationalUnits</code>
         /// or <code>EntireOrganization</code>. For <code>OrganizationalUnits</code>, the data
         /// is aggregated from a set of organization units. For <code>EntireOrganization</code>,
-        /// the data is aggregated from the entire AWS Organization. </para>
+        /// the data is aggregated from the entire Amazon Web Services organization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SyncSource_SourceRegion
         /// <summary>
         /// <para>
-        /// <para>The <code>SyncSource</code> AWS Regions included in the resource data sync.</para>
+        /// <para>The <code>SyncSource</code> Amazon Web Services Regions included in the resource data
+        /// sync.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The type of data source for the resource data sync. <code>SourceType</code> is either
-        /// <code>AwsOrganizations</code> (if an organization is present in AWS Organizations)
-        /// or <code>SingleAccountMultiRegions</code>.</para>
+        /// <code>AwsOrganizations</code> (if an organization is present in Organizations) or
+        /// <code>SingleAccountMultiRegions</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

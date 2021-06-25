@@ -28,7 +28,16 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Returns the list of component build versions for the specified semantic version.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the list of component build versions for the specified semantic version.
+    /// 
+    ///  <note><para>
+    /// The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
+    /// You can assign values for the first three, and can filter on all of them.
+    /// </para><para><b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards
+    /// (x) to specify the most recent versions or nodes when selecting the base image or
+    /// components for your recipe. When you use a wildcard in any node, all nodes to the
+    /// right of the first wildcard must also be wildcards.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IBComponentBuildVersionList")]
     [OutputType("Amazon.Imagebuilder.Model.ComponentSummary")]

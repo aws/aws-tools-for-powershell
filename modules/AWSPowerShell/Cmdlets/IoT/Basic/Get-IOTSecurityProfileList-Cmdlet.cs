@@ -31,7 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Lists the Device Defender security profiles you've created. You can filter security
     /// profiles by dimension or custom metric.
     /// 
-    ///  <note><para><code>dimensionName</code> and <code>metricName</code> cannot be used in the same
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSecurityProfiles</a>
+    /// action.
+    /// </para><note><para><code>dimensionName</code> and <code>metricName</code> cannot be used in the same
     /// request.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

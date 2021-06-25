@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The Amazon Transcribe standard language model, or base model used to create your custom
         /// language model.</para><para>If you want to use your custom language model to transcribe audio with a sample rate
-        /// of 16 kHz or greater, choose <code>Wideband</code>.</para><para>If you want to use your custom language model to transcribe audio with a sample rate
-        /// that is less than 16 kHz, choose <code>Narrowband</code>.</para>
+        /// of 16,000 Hz or greater, choose <code>Wideband</code>.</para><para>If you want to use your custom language model to transcribe audio with a sample rate
+        /// that is less than 16,000 Hz, choose <code>Narrowband</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,6 +130,18 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InputDataConfig_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Adds one or more tags, each in the form of a key:value pair, to a new language model
+        /// at the time you create this new model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.TranscribeService.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter InputDataConfig_TuningDataS3Uri
@@ -240,6 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 WriteWarning("You are passing $null as a value for parameter ModelName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.TranscribeService.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -306,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.ModelName != null)
             {
                 request.ModelName = cmdletContext.ModelName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -374,6 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.String InputDataConfig_TuningDataS3Uri { get; set; }
             public Amazon.TranscribeService.CLMLanguageCode LanguageCode { get; set; }
             public System.String ModelName { get; set; }
+            public List<Amazon.TranscribeService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.TranscribeService.Model.CreateLanguageModelResponse, NewTRSLanguageModelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

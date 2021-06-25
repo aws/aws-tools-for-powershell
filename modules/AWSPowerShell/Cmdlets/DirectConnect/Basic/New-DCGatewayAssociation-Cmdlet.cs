@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <summary>
         /// <para>
         /// <para>The Amazon VPC prefixes to advertise to the Direct Connect gateway</para><para>This parameter is required when you create an association to a transit gateway.</para><para>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed
-        /// Prefixes</a> in the <i>AWS Direct Connect User Guide</i>.</para>
+        /// Prefixes</a> in the <i>Direct Connect User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,24 +28,25 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Starts asynchronous detection of unsafe content in a stored video.
+    /// Starts asynchronous detection of inappropriate, unwanted, or offensive content in
+    /// a stored video. For a list of moderation labels in Amazon Rekognition, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api">Using
+    /// the image and video moderation APIs</a>.
     /// 
     ///  
     /// <para>
     /// Amazon Rekognition Video can moderate content in a video stored in an Amazon S3 bucket.
     /// Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartContentModeration</code>
     /// returns a job identifier (<code>JobId</code>) which you use to get the results of
-    /// the analysis. When unsafe content analysis is finished, Amazon Rekognition Video publishes
+    /// the analysis. When content analysis is finished, Amazon Rekognition Video publishes
     /// a completion status to the Amazon Simple Notification Service topic that you specify
     /// in <code>NotificationChannel</code>.
     /// </para><para>
-    /// To get the results of the unsafe content analysis, first check that the status value
-    /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a>
+    /// To get the results of the content analysis, first check that the status value published
+    /// to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a>
     /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>.
     /// 
     /// </para><para>
-    /// For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer
-    /// Guide.
+    /// For more information, see Content moderation in the Amazon Rekognition Developer Guide.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "REKContentModeration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -123,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter Video
         /// <summary>
         /// <para>
-        /// <para>The video in which you want to detect unsafe content. The video must be stored in
-        /// an Amazon S3 bucket.</para>
+        /// <para>The video in which you want to detect inappropriate, unwanted, or offensive content.
+        /// The video must be stored in an Amazon S3 bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

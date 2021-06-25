@@ -42,9 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry that contains the repository in which
-        /// to update the image scanning configuration setting. If you do not specify a registry,
-        /// the default registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID associated with the registry that contains the
+        /// repository in which to update the image scanning configuration setting. If you do
+        /// not specify a registry, the default registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <para>The setting that determines whether images are scanned after being pushed to a repository.
         /// If set to <code>true</code>, images will be scanned after being pushed. If this parameter
         /// is not specified, it will default to <code>false</code> and images will not be scanned
-        /// unless a scan is manually started with the <a>StartImageScan</a> API.</para>
+        /// unless a scan is manually started with the <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_StartImageScan.html">API_StartImageScan</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

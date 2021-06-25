@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates an existing IAM policy assignment. This operation updates only the optional
+    /// Updates an existing IAMpolicy assignment. This operation updates only the optional
     /// parameter or parameters that are specified in the request. This overwrites all of
     /// the users included in <code>Identities</code>.
     /// </summary>
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The name of the assignment, also called a rule. This name must be unique within an
-        /// AWS account.</para>
+        /// Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that contains the IAM policy assignment. </para>
+        /// <para>The ID of the Amazon Web Services account that contains the IAMpolicy assignment.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Identity
         /// <summary>
         /// <para>
-        /// <para>The QuickSight users, groups, or both that you want to assign the policy to.</para>
+        /// <para>The Amazon QuickSight users, groups, or both that you want to assign the policy to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the IAM policy to apply to the QuickSight users and groups specified in
-        /// this assignment.</para>
+        /// <para>The ARN for the IAMpolicy to apply to the Amazon QuickSight users and groups specified
+        /// in this assignment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,9 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// If you create a new application in Application Manager, Systems Manager calls this
-    /// API action to specify information about the new application, including the application
-    /// type.
+    /// If you create a new application in Application Manager, Amazon Web Services Systems
+    /// Manager calls this API operation to specify information about the new application,
+    /// including the application type.
     /// </summary>
     [Cmdlet("New", "SSMOpsMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>Optional metadata that you assign to a resource. You can specify a maximum of five
         /// tags for an OpsMetadata object. Tags enable you to categorize a resource in different
         /// ways, such as by purpose, owner, or environment. For example, you might want to tag
-        /// an OpsMetadata object to identify an environment or target AWS Region. In this case,
-        /// you could specify the following key-value pairs:</para><ul><li><para><code>Key=Environment,Value=Production</code></para></li><li><para><code>Key=Region,Value=us-east-2</code></para></li></ul>
+        /// an OpsMetadata object to identify an environment or target Amazon Web Services Region.
+        /// In this case, you could specify the following key-value pairs:</para><ul><li><para><code>Key=Environment,Value=Production</code></para></li><li><para><code>Key=Region,Value=us-east-2</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,0 +1,3 @@
+﻿# ChimeSDKMessaging
+
+Export-ModuleMember -Alias *

@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// When you modify the VPN connection options, the VPN endpoint IP addresses on the AWS
-    /// side do not change, and the tunnel options do not change. Your VPN connection will
-    /// be temporarily unavailable for a brief period while the VPN connection is updated.
+    /// When you modify the VPN connection options, the VPN endpoint IP addresses on the Amazon
+    /// Web Services side do not change, and the tunnel options do not change. Your VPN connection
+    /// will be temporarily unavailable for a brief period while the VPN connection is updated.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2VpnConnectionOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoteIpv4NetworkCidr
         /// <summary>
         /// <para>
-        /// <para>The IPv4 CIDR on the AWS side of the VPN connection.</para><para>Default: <code>0.0.0.0/0</code></para>
+        /// <para>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</para><para>Default: <code>0.0.0.0/0</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoteIpv6NetworkCidr
         /// <summary>
         /// <para>
-        /// <para>The IPv6 CIDR on the AWS side of the VPN connection.</para><para>Default: <code>::/0</code></para>
+        /// <para>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</para><para>Default: <code>::/0</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

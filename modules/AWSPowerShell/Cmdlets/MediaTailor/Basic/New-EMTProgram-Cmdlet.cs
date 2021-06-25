@@ -87,8 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Transition_RelativePosition
         /// <summary>
         /// <para>
-        /// <para>The position where this program will be inserted relative to the RelativeProgram.
-        /// Possible values are: AFTER_PROGRAM, and BEFORE_PROGRAM.</para>
+        /// <para>The position where this program will be inserted relative to the RelativePosition.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,6 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String Transition_RelativeProgram { get; set; }
         #endregion
         
+        #region Parameter Transition_ScheduledStartTimeMilli
+        /// <summary>
+        /// <para>
+        /// <para>The date and time that the program is scheduled to start, in epoch milliseconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ScheduleConfiguration_Transition_ScheduledStartTimeMillis")]
+        public System.Int64? Transition_ScheduledStartTimeMilli { get; set; }
+        #endregion
+        
         #region Parameter SourceLocationName
         /// <summary>
         /// <para>
@@ -135,7 +145,12 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Transition_Type
         /// <summary>
         /// <para>
-        /// <para>When the program should be played. RELATIVE means that programs will be played back-to-back.</para>
+        /// <para>Defines when the program plays in the schedule. You can set the value to ABSOLUTE
+        /// or RELATIVE.</para><para>ABSOLUTE - The program plays at a specific wall clock time. This setting can only
+        /// be used for channels using the LINEAR PlaybackMode.</para><para>Note the following considerations when using ABSOLUTE transitions:</para><para>If the preceding program in the schedule has a duration that extends past the wall
+        /// clock time, MediaTailor truncates the preceding program on a common segment boundary.</para><para>If there are gaps in playback, MediaTailor plays the FillerSlate you configured for
+        /// your linear channel.</para><para>RELATIVE - The program is inserted into the schedule either before or after a program
+        /// that you specify via RelativePosition.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -234,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             }
             #endif
             context.Transition_RelativeProgram = this.Transition_RelativeProgram;
+            context.Transition_ScheduledStartTimeMilli = this.Transition_ScheduledStartTimeMilli;
             context.Transition_Type = this.Transition_Type;
             #if MODULAR
             if (this.Transition_Type == null && ParameterWasBound(nameof(this.Transition_Type)))
@@ -310,6 +326,16 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestScheduleConfiguration_scheduleConfiguration_Transition_transition_RelativeProgram != null)
             {
                 requestScheduleConfiguration_scheduleConfiguration_Transition.RelativeProgram = requestScheduleConfiguration_scheduleConfiguration_Transition_transition_RelativeProgram;
+                requestScheduleConfiguration_scheduleConfiguration_TransitionIsNull = false;
+            }
+            System.Int64? requestScheduleConfiguration_scheduleConfiguration_Transition_transition_ScheduledStartTimeMilli = null;
+            if (cmdletContext.Transition_ScheduledStartTimeMilli != null)
+            {
+                requestScheduleConfiguration_scheduleConfiguration_Transition_transition_ScheduledStartTimeMilli = cmdletContext.Transition_ScheduledStartTimeMilli.Value;
+            }
+            if (requestScheduleConfiguration_scheduleConfiguration_Transition_transition_ScheduledStartTimeMilli != null)
+            {
+                requestScheduleConfiguration_scheduleConfiguration_Transition.ScheduledStartTimeMillis = requestScheduleConfiguration_scheduleConfiguration_Transition_transition_ScheduledStartTimeMilli.Value;
                 requestScheduleConfiguration_scheduleConfiguration_TransitionIsNull = false;
             }
             System.String requestScheduleConfiguration_scheduleConfiguration_Transition_transition_Type = null;
@@ -411,6 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public System.String ProgramName { get; set; }
             public Amazon.MediaTailor.RelativePosition Transition_RelativePosition { get; set; }
             public System.String Transition_RelativeProgram { get; set; }
+            public System.Int64? Transition_ScheduledStartTimeMilli { get; set; }
             public System.String Transition_Type { get; set; }
             public System.String SourceLocationName { get; set; }
             public System.String VodSourceName { get; set; }

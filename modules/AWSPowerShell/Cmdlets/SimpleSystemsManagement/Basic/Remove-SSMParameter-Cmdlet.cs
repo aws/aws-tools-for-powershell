@@ -28,7 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Delete a parameter from the system.
+    /// Delete a parameter from the system. After deleting a parameter, wait for at least
+    /// 30 seconds to create a parameter with the same name.
     /// </summary>
     [Cmdlet("Remove", "SSMParameter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

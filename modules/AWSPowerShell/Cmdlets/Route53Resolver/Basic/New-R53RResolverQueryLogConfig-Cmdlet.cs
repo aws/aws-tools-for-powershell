@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     /// For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverQueryLogConfig.html">AssociateResolverQueryLogConfig</a>.
     /// 
     /// </para><para>
-    /// You can optionally use AWS Resource Access Manager (AWS RAM) to share a query logging
-    /// configuration with other AWS accounts. The other accounts can then associate VPCs
+    /// You can optionally use Resource Access Manager (RAM) to share a query logging configuration
+    /// with other Amazon Web Services accounts. The other accounts can then associate VPCs
     /// with the configuration. The query logs that Resolver creates for a configuration include
     /// all DNS queries that originate in all VPCs that are associated with the configuration.
     /// </para>

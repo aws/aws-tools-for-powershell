@@ -28,9 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Deletes the association between an OpsItem and a related resource. For example, this
-    /// API action can delete an Incident Manager incident from an OpsItem. Incident Manager
-    /// is a capability of AWS Systems Manager.
+    /// Deletes the association between an OpsItem and a related item. For example, this API
+    /// operation can delete an Incident Manager incident from an OpsItem. Incident Manager
+    /// is a capability of Amazon Web Services Systems Manager.
     /// </summary>
     [Cmdlet("Unregister", "SSMOpsItemRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The ID of the association for which you want to delete an association between the
-        /// OpsItem and a related resource.</para>
+        /// OpsItem and a related item.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The ID of the OpsItem for which you want to delete an association between the OpsItem
-        /// and a related resource.</para>
+        /// and a related item.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Creates an AWS Firewall Manager protocols list.
+    /// Creates an Firewall Manager protocols list.
     /// </summary>
     [Cmdlet("Write", "FMSProtocolList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FMS.Model.PutProtocolsListResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter ProtocolsList_CreateTime
         /// <summary>
         /// <para>
-        /// <para>The time that the AWS Firewall Manager protocols list was created.</para>
+        /// <para>The time that the Firewall Manager protocols list was created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter ProtocolsList_LastUpdateTime
         /// <summary>
         /// <para>
-        /// <para>The time that the AWS Firewall Manager protocols list was last updated.</para>
+        /// <para>The time that the Firewall Manager protocols list was last updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter ProtocolsList_ListId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Firewall Manager protocols list.</para>
+        /// <para>The ID of the Firewall Manager protocols list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter ProtocolsList_ListName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS Firewall Manager protocols list.</para>
+        /// <para>The name of the Firewall Manager protocols list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter ProtocolsList_ProtocolsList
         /// <summary>
         /// <para>
-        /// <para>An array of protocols in the AWS Firewall Manager protocols list.</para>
+        /// <para>An array of protocols in the Firewall Manager protocols list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

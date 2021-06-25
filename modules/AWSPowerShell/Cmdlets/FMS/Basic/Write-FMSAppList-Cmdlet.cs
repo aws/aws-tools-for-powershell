@@ -28,7 +28,7 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Creates an AWS Firewall Manager applications list.
+    /// Creates an Firewall Manager applications list.
     /// </summary>
     [Cmdlet("Write", "FMSAppList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FMS.Model.PutAppsListResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter AppsList_AppsList
         /// <summary>
         /// <para>
-        /// <para>An array of applications in the AWS Firewall Manager applications list.</para>
+        /// <para>An array of applications in the Firewall Manager applications list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter AppsList_CreateTime
         /// <summary>
         /// <para>
-        /// <para>The time that the AWS Firewall Manager applications list was created.</para>
+        /// <para>The time that the Firewall Manager applications list was created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter AppsList_LastUpdateTime
         /// <summary>
         /// <para>
-        /// <para>The time that the AWS Firewall Manager applications list was last updated.</para>
+        /// <para>The time that the Firewall Manager applications list was last updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter AppsList_ListId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Firewall Manager applications list.</para>
+        /// <para>The ID of the Firewall Manager applications list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter AppsList_ListName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS Firewall Manager applications list.</para>
+        /// <para>The name of the Firewall Manager applications list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

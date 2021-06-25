@@ -29,14 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Creates and updates the retention configuration with details about retention period
-    /// (number of days) that AWS Config stores your historical information. The API creates
-    /// the <code>RetentionConfiguration</code> object and names the object as <b>default</b>.
+    /// (number of days) that Config stores your historical information. The API creates the
+    /// <code>RetentionConfiguration</code> object and names the object as <b>default</b>.
     /// When you have a <code>RetentionConfiguration</code> object named <b>default</b>, calling
     /// the API modifies the default object. 
     /// 
     ///  <note><para>
-    /// Currently, AWS Config supports only one retention configuration per region in your
-    /// account.
+    /// Currently, Config supports only one retention configuration per region in your account.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGRetentionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter RetentionPeriodInDay
         /// <summary>
         /// <para>
-        /// <para>Number of days AWS Config stores your historical information.</para><note><para>Currently, only applicable to the configuration item history.</para></note>
+        /// <para>Number of days Config stores your historical information.</para><note><para>Currently, only applicable to the configuration item history.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,16 +28,16 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Query a set of OpsItems. You must have permission in AWS Identity and Access Management
+    /// Query a set of OpsItems. You must have permission in Identity and Access Management
     /// (IAM) to query a list of OpsItems. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting
-    /// started with OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.
+    /// started with OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
     /// 
     ///  
     /// <para>
-    /// Operations engineers and IT professionals use OpsCenter to view, investigate, and
-    /// remediate operational issues impacting the performance and health of their AWS resources.
-    /// For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS
-    /// Systems Manager OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>. 
+    /// Operations engineers and IT professionals use Amazon Web Services Systems Manager
+    /// OpsCenter to view, investigate, and remediate operational issues impacting the performance
+    /// and health of their Amazon Web Services resources. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">OpsCenter</a>
+    /// in the <i>Amazon Web Services Systems Manager User Guide</i>. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMOpsItemSummary")]
@@ -53,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter OpsItemFilter
         /// <summary>
         /// <para>
-        /// <para>One or more filters to limit the response.</para><ul><li><para>Key: CreatedTime</para><para>Operations: GreaterThan, LessThan</para></li><li><para>Key: LastModifiedBy</para><para>Operations: Contains, Equals</para></li><li><para>Key: LastModifiedTime</para><para>Operations: GreaterThan, LessThan</para></li><li><para>Key: Priority</para><para>Operations: Equals</para></li><li><para>Key: Source</para><para>Operations: Contains, Equals</para></li><li><para>Key: Status</para><para>Operations: Equals</para></li><li><para>Key: Title</para><para>Operations: Contains</para></li><li><para>Key: OperationalData*</para><para>Operations: Equals</para></li><li><para>Key: OperationalDataKey</para><para>Operations: Equals</para></li><li><para>Key: OperationalDataValue</para><para>Operations: Equals, Contains</para></li><li><para>Key: OpsItemId</para><para>Operations: Equals</para></li><li><para>Key: ResourceId</para><para>Operations: Contains</para></li><li><para>Key: AutomationId</para><para>Operations: Equals</para></li></ul><para>*If you filter the response by using the OperationalData operator, specify a key-value
+        /// <para>One or more filters to limit the response.</para><ul><li><para>Key: CreatedTime</para><para>Operations: GreaterThan, LessThan</para></li><li><para>Key: LastModifiedBy</para><para>Operations: Contains, Equals</para></li><li><para>Key: LastModifiedTime</para><para>Operations: GreaterThan, LessThan</para></li><li><para>Key: Priority</para><para>Operations: Equals</para></li><li><para>Key: Source</para><para>Operations: Contains, Equals</para></li><li><para>Key: Status</para><para>Operations: Equals</para></li><li><para>Key: Title*</para><para>Operations: Equals,Contains</para></li><li><para>Key: OperationalData**</para><para>Operations: Equals</para></li><li><para>Key: OperationalDataKey</para><para>Operations: Equals</para></li><li><para>Key: OperationalDataValue</para><para>Operations: Equals, Contains</para></li><li><para>Key: OpsItemId</para><para>Operations: Equals</para></li><li><para>Key: ResourceId</para><para>Operations: Contains</para></li><li><para>Key: AutomationId</para><para>Operations: Equals</para></li></ul><para>*The Equals operator for Title matches the first 100 characters. If you specify more
+        /// than 100 characters, they system returns an error that the filter value exceeds the
+        /// length limit.</para><para>**If you filter the response by using the OperationalData operator, specify a key-value
         /// pair by using the following JSON format: {"key":"key_name","value":"a_value"}</para>
         /// </para>
         /// </summary>

@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that contains the theme alias that you're updating.</para>
+        /// <para>The ID of the Amazon Web Services account that contains the theme alias that you're
+        /// updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

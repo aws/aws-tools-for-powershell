@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Updates AWS Audit Manager settings for the current user account.
+    /// Updates Audit Manager settings for the current user account.
     /// </summary>
     [Cmdlet("Edit", "AUDMSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.Model.Settings")]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter KmsKey
         /// <summary>
         /// <para>
-        /// <para> The AWS KMS key details. </para>
+        /// <para> The KMS key details. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter SnsTopic
         /// <summary>
         /// <para>
-        /// <para> The Amazon Simple Notification Service (Amazon SNS) topic to which AWS Audit Manager
+        /// <para> The Amazon Simple Notification Service (Amazon SNS) topic to which Audit Manager
         /// sends notifications. </para>
         /// </para>
         /// </summary>

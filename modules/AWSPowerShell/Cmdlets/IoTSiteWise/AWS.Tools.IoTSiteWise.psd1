@@ -117,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTSWProjectAssetList', 
         'Get-IOTSWProjectList', 
         'Get-IOTSWResourceTag', 
+        'Get-IOTSWStorageConfiguration', 
         'Import-IOTSWPutAssetPropertyValue', 
         'New-IOTSWAccessPolicy', 
         'New-IOTSWAsset', 
@@ -143,7 +144,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-IOTSWPortal', 
         'Update-IOTSWProject', 
         'Write-IOTSWDefaultEncryptionConfiguration', 
-        'Write-IOTSWLoggingOption')
+        'Write-IOTSWLoggingOption', 
+        'Write-IOTSWStorageConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

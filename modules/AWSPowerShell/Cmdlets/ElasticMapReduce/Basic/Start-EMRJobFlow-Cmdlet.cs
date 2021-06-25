@@ -286,7 +286,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_EmrManagedMasterSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon EC2 security group for the master node.</para>
+        /// <para>The identifier of the Amazon EC2 security group for the master node. If you specify
+        /// <code>EmrManagedMasterSecurityGroup</code>, you must also specify <code>EmrManagedSlaveSecurityGroup</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -296,7 +297,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_EmrManagedSlaveSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon EC2 security group for the core and task nodes.</para>
+        /// <para>The identifier of the Amazon EC2 security group for the core and task nodes. If you
+        /// specify <code>EmrManagedSlaveSecurityGroup</code>, you must also specify <code>EmrManagedMasterSecurityGroup</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -316,6 +318,18 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Instances_HadoopVersion { get; set; }
+        #endregion
+        
+        #region Parameter AutoTerminationPolicy_IdleTimeout
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the amount of idle time in seconds after which the cluster automatically
+        /// terminates. You can specify a minimum of 60 seconds and a maximum of 604800 seconds
+        /// (seven days).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? AutoTerminationPolicy_IdleTimeout { get; set; }
         #endregion
         
         #region Parameter Instances_InstanceCount
@@ -379,7 +393,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_KeepJobFlowAliveWhenNoStep
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the cluster should remain available after completing all steps.</para>
+        /// <para>Specifies whether the cluster should remain available after completing all steps.
+        /// Defaults to <code>true</code>. For more information about configuring cluster termination,
+        /// see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control
+        /// Cluster Termination</a> in the <i>EMR Management Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -390,9 +407,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter LogEncryptionKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS customer master key (CMK) used for encrypting log files. If a value is
-        /// not provided, the logs remain encrypted by AES-256. This attribute is only available
-        /// with Amazon EMR version 5.30.0 and later, excluding Amazon EMR 6.0.0.</para>
+        /// <para>The KMS key used for encrypting log files. If a value is not provided, the logs remain
+        /// encrypted by AES-256. This attribute is only available with Amazon EMR version 5.30.0
+        /// and later, excluding Amazon EMR 6.0.0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -608,7 +625,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ServiceRole
         /// <summary>
         /// <para>
-        /// <para>The IAM role that will be assumed by the Amazon EMR service to access AWS resources
+        /// <para>The IAM role that Amazon EMR assumes in order to access Amazon Web Services resources
         /// on your behalf.</para>
         /// </para>
         /// </summary>
@@ -698,10 +715,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter VisibleToAllUser
         /// <summary>
         /// <para>
-        /// <para>A value of <code>true</code> indicates that all IAM users in the AWS account can perform
-        /// cluster actions if they have the proper IAM policy permissions. This is the default.
-        /// A value of <code>false</code> indicates that only the IAM user who created the cluster
-        /// can perform actions.</para>
+        /// <para>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services
+        /// account associated with the cluster can perform EMR actions on the cluster that their
+        /// IAM policies allow. This value defaults to <code>true</code> for clusters created
+        /// using the EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a>
+        /// command.</para><para>When set to <code>false</code>, only the IAM principal that created the cluster and
+        /// the Amazon Web Services account root user can perform EMR actions for the cluster,
+        /// regardless of the IAM permissions policies attached to other IAM principals. For more
+        /// information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding
+        /// the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -777,6 +799,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 context.Application = new List<Amazon.ElasticMapReduce.Model.Application>(this.Application);
             }
             context.AutoScalingRole = this.AutoScalingRole;
+            context.AutoTerminationPolicy_IdleTimeout = this.AutoTerminationPolicy_IdleTimeout;
             if (this.BootstrapAction != null)
             {
                 context.BootstrapAction = new List<Amazon.ElasticMapReduce.Model.BootstrapActionConfig>(this.BootstrapAction);
@@ -901,6 +924,25 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (cmdletContext.AutoScalingRole != null)
             {
                 request.AutoScalingRole = cmdletContext.AutoScalingRole;
+            }
+            
+             // populate AutoTerminationPolicy
+            var requestAutoTerminationPolicyIsNull = true;
+            request.AutoTerminationPolicy = new Amazon.ElasticMapReduce.Model.AutoTerminationPolicy();
+            System.Int64? requestAutoTerminationPolicy_autoTerminationPolicy_IdleTimeout = null;
+            if (cmdletContext.AutoTerminationPolicy_IdleTimeout != null)
+            {
+                requestAutoTerminationPolicy_autoTerminationPolicy_IdleTimeout = cmdletContext.AutoTerminationPolicy_IdleTimeout.Value;
+            }
+            if (requestAutoTerminationPolicy_autoTerminationPolicy_IdleTimeout != null)
+            {
+                request.AutoTerminationPolicy.IdleTimeout = requestAutoTerminationPolicy_autoTerminationPolicy_IdleTimeout.Value;
+                requestAutoTerminationPolicyIsNull = false;
+            }
+             // determine if request.AutoTerminationPolicy should be set to null
+            if (requestAutoTerminationPolicyIsNull)
+            {
+                request.AutoTerminationPolicy = null;
             }
             if (cmdletContext.BootstrapAction != null)
             {
@@ -1384,6 +1426,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.String AmiVersion { get; set; }
             public List<Amazon.ElasticMapReduce.Model.Application> Application { get; set; }
             public System.String AutoScalingRole { get; set; }
+            public System.Int64? AutoTerminationPolicy_IdleTimeout { get; set; }
             public List<Amazon.ElasticMapReduce.Model.BootstrapActionConfig> BootstrapAction { get; set; }
             public List<Amazon.ElasticMapReduce.Model.Configuration> Configuration { get; set; }
             public System.String CustomAmiId { get; set; }

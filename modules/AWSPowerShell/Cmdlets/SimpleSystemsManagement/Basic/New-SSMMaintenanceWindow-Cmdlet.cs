@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AllowUnassociatedTarget
         /// <summary>
         /// <para>
-        /// <para>Enables a maintenance window task to run on managed instances, even if you have not
+        /// <para>Enables a maintenance window task to run on managed instances, even if you haven't
         /// registered those instances as targets. If enabled, then you must specify the unregistered
         /// instances (by instance ID) when you register a task with the maintenance window.</para><para>If you don't enable this option, then you must specify previously-registered targets
         /// when you register a task with the maintenance window.</para>
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Cutoff
         /// <summary>
         /// <para>
-        /// <para>The number of hours before the end of the maintenance window that Systems Manager
-        /// stops scheduling new tasks for execution.</para>
+        /// <para>The number of hours before the end of the maintenance window that Amazon Web Services
+        /// Systems Manager stops scheduling new tasks for execution.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -117,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The date and time, in ISO-8601 Extended format, for when you want the maintenance
-        /// window to become inactive. EndDate allows you to set a date and time in the future
-        /// when the maintenance window will no longer run.</para>
+        /// window to become inactive. <code>EndDate</code> allows you to set a date and time
+        /// in the future when the maintenance window will no longer run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ScheduleOffset
         /// <summary>
         /// <para>
-        /// <para>The number of days to wait after the date and time specified by a CRON expression
+        /// <para>The number of days to wait after the date and time specified by a cron expression
         /// before running the maintenance window.</para><para>For example, the following cron expression schedules a maintenance window to run on
         /// the third Tuesday of every month at 11:30 PM.</para><para><code>cron(30 23 ? * TUE#3 *)</code></para><para>If the schedule offset is <code>2</code>, the maintenance window won't run until two
         /// days later.</para>
@@ -189,8 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The date and time, in ISO-8601 Extended format, for when you want the maintenance
-        /// window to become active. StartDate allows you to delay activation of the maintenance
-        /// window until the specified future date.</para>
+        /// window to become active. <code>StartDate</code> allows you to delay activation of
+        /// the maintenance window until the specified future date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// in different ways, such as by purpose, owner, or environment. For example, you might
         /// want to tag a maintenance window to identify the type of tasks it will run, the types
         /// of targets, and the environment it will run in. In this case, you could specify the
-        /// following key name/value pairs:</para><ul><li><para><code>Key=TaskType,Value=AgentUpdate</code></para></li><li><para><code>Key=OS,Value=Windows</code></para></li><li><para><code>Key=Environment,Value=Production</code></para></li></ul><note><para>To add tags to an existing maintenance window, use the <a>AddTagsToResource</a> action.</para></note>
+        /// following key-value pairs:</para><ul><li><para><code>Key=TaskType,Value=AgentUpdate</code></para></li><li><para><code>Key=OS,Value=Windows</code></para></li><li><para><code>Key=Environment,Value=Production</code></para></li></ul><note><para>To add tags to an existing maintenance window, use the <a>AddTagsToResource</a> operation.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

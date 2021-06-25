@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter DestinationRegion
         /// <summary>
         /// <para>
-        /// <para>The destination AWS Region that you want to copy snapshots to.</para><para>Constraints: Must be the name of a valid AWS Region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
+        /// <para>The destination Amazon Web Services Region that you want to copy snapshots to.</para><para>Constraints: Must be the name of a valid Amazon Web Services Region. For more information,
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
         /// and Endpoints</a> in the Amazon Web Services General Reference. </para>
         /// </para>
         /// </summary>
@@ -80,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ManualSnapshotRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain newly copied snapshots in the destination AWS Region
-        /// after they are copied from the source AWS Region. If the value is -1, the manual snapshot
-        /// is retained indefinitely. </para><para>The value must be either -1 or an integer between 1 and 3,653.</para>
+        /// <para>The number of days to retain newly copied snapshots in the destination Amazon Web
+        /// Services Region after they are copied from the source Amazon Web Services Region.
+        /// If the value is -1, the manual snapshot is retained indefinitely. </para><para>The value must be either -1 or an integer between 1 and 3,653.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SnapshotCopyGrantName
         /// <summary>
         /// <para>
-        /// <para>The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted
-        /// cluster are copied to the destination region.</para>
+        /// <para>The name of the snapshot copy grant to use when snapshots of an Amazon Web Services
+        /// KMS-encrypted cluster are copied to the destination region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

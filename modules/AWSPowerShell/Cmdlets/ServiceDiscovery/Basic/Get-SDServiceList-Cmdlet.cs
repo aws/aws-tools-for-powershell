@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of services that you want AWS Cloud Map to return in the response
-        /// to a <code>ListServices</code> request. If you don't specify a value for <code>MaxResults</code>,
-        /// AWS Cloud Map returns up to 100 services.</para>
+        /// <para>The maximum number of services that you want Cloud Map to return in the response to
+        /// a <code>ListServices</code> request. If you don't specify a value for <code>MaxResults</code>,
+        /// Cloud Map returns up to 100 services.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <para>
         /// <para>For the first <code>ListServices</code> request, omit this value.</para><para>If the response contains <code>NextToken</code>, submit another <code>ListServices</code>
         /// request to get the next group of results. Specify the value of <code>NextToken</code>
-        /// from the previous response in the next request.</para><note><para>AWS Cloud Map gets <code>MaxResults</code> services and then filters them based on
-        /// the specified criteria. It's possible that no services in the first <code>MaxResults</code>
+        /// from the previous response in the next request.</para><note><para>Cloud Map gets <code>MaxResults</code> services and then filters them based on the
+        /// specified criteria. It's possible that no services in the first <code>MaxResults</code>
         /// services matched the specified criteria but that subsequent groups of <code>MaxResults</code>
         /// services do contain services that match the criteria.</para></note>
         /// </para>

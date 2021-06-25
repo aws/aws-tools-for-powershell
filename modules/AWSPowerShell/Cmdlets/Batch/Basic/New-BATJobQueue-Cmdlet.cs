@@ -28,13 +28,13 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Creates an AWS Batch job queue. When you create a job queue, you associate one or
-    /// more compute environments to the queue and assign an order of preference for the compute
+    /// Creates an Batch job queue. When you create a job queue, you associate one or more
+    /// compute environments to the queue and assign an order of preference for the compute
     /// environments.
     /// 
     ///  
     /// <para>
-    /// You also set a priority to the job queue that determines the order that the AWS Batch
+    /// You also set a priority to the job queue that determines the order that the Batch
     /// scheduler places jobs onto its associated compute environments. For example, if a
     /// compute environment is associated with more than one job queue, the job queue with
     /// a higher priority is given preference for scheduling jobs to that compute environment.
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// compute environments with a job queue. All of the compute environments must be either
         /// EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>);
         /// EC2 and Fargate compute environments can't be mixed.</para><note><para>All compute environments that are associated with a job queue must share the same
-        /// architecture. AWS Batch doesn't support mixing compute environment architecture types
+        /// architecture. Batch doesn't support mixing compute environment architecture types
         /// in a single job queue.</para></note>
         /// </para>
         /// </summary>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// preference over a job queue with a priority value of <code>1</code>. All of the compute
         /// environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate
         /// (<code>FARGATE</code> or <code>FARGATE_SPOT</code>); EC2 and Fargate compute environments
-        /// cannot be mixed.</para>
+        /// can't be mixed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The tags that you apply to the job queue to help you categorize and organize your
         /// resources. Each tag consists of a key and an optional value. For more information,
         /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging
-        /// your AWS Batch resources</a> in <i>AWS Batch User Guide</i>.</para>
+        /// your Batch resources</a> in <i>Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

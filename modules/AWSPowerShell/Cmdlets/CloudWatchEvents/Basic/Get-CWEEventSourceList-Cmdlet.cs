@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
     /// You can use this to see all the partner event sources that have been shared with your
-    /// AWS account. For more information about partner event sources, see <a>CreateEventBus</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Amazon Web Services account. For more information about partner event sources, see
+    /// <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html">CreateEventBus</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWEEventSourceList")]
     [OutputType("Amazon.CloudWatchEvents.Model.EventSource")]

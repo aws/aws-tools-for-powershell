@@ -53,6 +53,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateBucket" OutputProperty="*" Verb="New" Noun="Bucket" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBucketAccessKey" OutputProperty="*" Verb="New" Noun="BucketAccessKey" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCertificate" OutputProperty="*" Verb="New" Noun="Certificate" ShouldProcessTarget="CertificateName" PipelineParameter="CertificateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -142,6 +150,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAutoSnapshot" OutputProperty="Operations" Verb="Remove" Noun="AutoSnapshot" ShouldProcessTarget="ResourceName" PipelineParameter="Date" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBucket" OutputProperty="Operations" Verb="Remove" Noun="Bucket" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBucketAccessKey" OutputProperty="Operations" Verb="Remove" Noun="BucketAccessKey" ShouldProcessTarget="AccessKeyId" PipelineParameter="AccessKeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -260,6 +276,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBlueprints" OutputProperty="Blueprints" Verb="Get" Noun="BlueprintList" PipelineParameter="IncludeInactive" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBucketAccessKeys" OutputProperty="AccessKeys" Verb="Get" Noun="BucketAccessKey" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBucketBundles" OutputProperty="Bundles" Verb="Get" Noun="BucketBundle" PipelineParameter="IncludeInactive" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBucketMetricData" OutputProperty="*" Verb="Get" Noun="BucketMetricData" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBuckets" OutputProperty="Buckets" Verb="Get" Noun="Bucket" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -531,6 +563,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SetResourceAccessForBucket" OutputProperty="Operations" Verb="Set" Noun="ResourceAccessForBucket" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartInstance" OutputProperty="Operations" Verb="Start" Noun="Instance" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -562,6 +598,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" OutputProperty="Operations" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBucket" OutputProperty="*" Verb="Update" Noun="Bucket" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBucketBundle" OutputProperty="Operations" Verb="Update" Noun="BucketBundle" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

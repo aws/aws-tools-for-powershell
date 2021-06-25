@@ -36,12 +36,19 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// The list that you pass with this operation completely replaces the existing list of
     /// thumbprints. (The lists are not merged.)
     /// </para><para>
-    /// Typically, you need to update a thumbprint only when the identity provider's certificate
+    /// Typically, you need to update a thumbprint only when the identity provider certificate
     /// changes, which occurs rarely. However, if the provider's certificate <i>does</i> change,
     /// any attempt to assume an IAM role that specifies the OIDC provider as a principal
     /// fails until the certificate thumbprint is updated.
     /// </para><note><para>
-    /// Trust for the OIDC provider is derived from the provider's certificate and is validated
+    /// Amazon Web Services secures communication with some OIDC identity providers (IdPs)
+    /// through our library of trusted certificate authorities (CAs) instead of using a certificate
+    /// thumbprint to verify your IdP server certificate. These OIDC IdPs include Google,
+    /// and those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint.
+    /// In these cases, your legacy thumbprint remains in your configuration, but is no longer
+    /// used for validation.
+    /// </para></note><note><para>
+    /// Trust for the OIDC provider is derived from the provider certificate and is validated
     /// by the thumbprint. Therefore, it is best to limit access to the <code>UpdateOpenIDConnectProviderThumbprint</code>
     /// operation to highly privileged users.
     /// </para></note>
@@ -62,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which
         /// you want to update the thumbprint. You can get a list of OIDC provider ARNs by using
         /// the <a>ListOpenIDConnectProviders</a> operation.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
+        /// Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

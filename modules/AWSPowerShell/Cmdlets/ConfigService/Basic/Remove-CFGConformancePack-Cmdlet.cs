@@ -28,13 +28,13 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Deletes the specified conformance pack and all the AWS Config rules, remediation actions,
+    /// Deletes the specified conformance pack and all the Config rules, remediation actions,
     /// and all evaluation results within that conformance pack.
     /// 
     ///  
     /// <para>
-    /// AWS Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the
-    /// deletion is complete. You cannot update a conformance pack while it is in this state.
+    /// Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion
+    /// is complete. You cannot update a conformance pack while it is in this state.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CFGConformancePack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

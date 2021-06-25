@@ -30,7 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// Lists the things associated with the specified principal. A principal can be X.509
     /// certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
-    /// identities.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// identities. 
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPrincipalThings</a>
+    /// action.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTPrincipalThingList")]
     [OutputType("System.String")]

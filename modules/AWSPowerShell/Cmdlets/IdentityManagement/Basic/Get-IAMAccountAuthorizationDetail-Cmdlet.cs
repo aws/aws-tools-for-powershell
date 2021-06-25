@@ -28,10 +28,10 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Retrieves information about all IAM users, groups, roles, and policies in your AWS
-    /// account, including their relationships to one another. Use this operation to obtain
-    /// a snapshot of the configuration of IAM permissions (users, groups, roles, and policies)
-    /// in your account.
+    /// Retrieves information about all IAM users, groups, roles, and policies in your Amazon
+    /// Web Services account, including their relationships to one another. Use this operation
+    /// to obtain a snapshot of the configuration of IAM permissions (users, groups, roles,
+    /// and policies) in your account.
     /// 
     ///  <note><para>
     /// Policies returned by this operation are URL-encoded compliant with <a href="https://tools.ietf.org/html/rfc3986">RFC

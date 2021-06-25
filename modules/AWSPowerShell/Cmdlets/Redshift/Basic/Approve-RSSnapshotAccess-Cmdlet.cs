@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Authorizes the specified AWS customer account to restore the specified snapshot.
+    /// Authorizes the specified Amazon Web Services account to restore the specified snapshot.
     /// 
     ///  
     /// <para>
@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AccountWithRestoreAccess
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AWS customer account authorized to restore the specified snapshot.</para><para>To share a snapshot with AWS support, specify amazon-redshift-support.</para>
+        /// <para>The identifier of the Amazon Web Services account authorized to restore the specified
+        /// snapshot.</para><para>To share a snapshot with Amazon Web Services Support, specify amazon-redshift-support.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -100,7 +100,7 @@ $EMT_Completers = {
         # Amazon.MediaTailor.PlaybackMode
         "New-EMTChannel/PlaybackMode"
         {
-            $v = "LOOP"
+            $v = "LINEAR","LOOP"
             break
         }
 
@@ -176,7 +176,8 @@ $EMT_SelectCompleters = {
 }
 
 $EMT_SelectMap = @{
-    "Select"=@("New-EMTChannel",
+    "Select"=@("Add-EMTLogsForPlaybackConfiguration",
+               "New-EMTChannel",
                "New-EMTProgram",
                "New-EMTSourceLocation",
                "New-EMTVodSource",
@@ -193,6 +194,7 @@ $EMT_SelectMap = @{
                "Get-EMTChannelPolicy",
                "Get-EMTChannelSchedule",
                "Get-EMTPlaybackConfiguration",
+               "Get-EMTAlertList",
                "Get-EMTChannelList",
                "Get-EMTPlaybackConfigurationList",
                "Get-EMTSourceLocationList",

@@ -28,16 +28,15 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Creates a continuous deployment for a target, which is a AWS IoT Greengrass core device
-    /// or group of core devices. When you add a new core device to a group of core devices
-    /// that has a deployment, AWS IoT Greengrass deploys that group's deployment to the new
-    /// device.
+    /// Creates a continuous deployment for a target, which is a Greengrass core device or
+    /// group of core devices. When you add a new core device to a group of core devices that
+    /// has a deployment, IoT Greengrass deploys that group's deployment to the new device.
     /// 
     ///  
     /// <para>
     /// You can define one deployment for each target. When you create a new deployment for
-    /// a target that has an existing deployment, you replace the previous deployment. AWS
-    /// IoT Greengrass applies the new deployment to the target devices.
+    /// a target that has an existing deployment, you replace the previous deployment. IoT
+    /// Greengrass applies the new deployment to the target devices.
     /// </para><para>
     /// Every deployment has a revision number that indicates how many deployment revisions
     /// you define for a target. Use this operation to create a new revision of an existing
@@ -45,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// you create it.
     /// </para><para>
     /// For more information, see the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create
-    /// deployments</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.
+    /// deployments</a> in the <i>IoT Greengrass V2 Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "GGV2Deployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// IPC operation to receive these notifications. Then, components can respond with the
         /// <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate">DeferComponentUpdate</a>
         /// IPC operation. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create
-        /// deployments</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</para></li><li><para><code>SKIP_NOTIFY_COMPONENTS</code> – The deployment doesn't notify components or
+        /// deployments</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</para></li><li><para><code>SKIP_NOTIFY_COMPONENTS</code> – The deployment doesn't notify components or
         /// wait for them to be safe to update.</para></li></ul><para>Default: <code>NOTIFY_COMPONENTS</code></para>
         /// </para>
         /// </summary>
@@ -114,10 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter DeploymentName
         /// <summary>
         /// <para>
-        /// <para>The name of the deployment.</para><para>You can create deployments without names. If you create a deployment without a name,
-        /// the AWS IoT Greengrass V2 console shows the deployment name as <code>&lt;targetType&gt;:&lt;targetName&gt;</code>,
-        /// where <code>targetType</code> and <code>targetName</code> are the type and name of
-        /// the deployment target.</para>
+        /// <para>The name of the deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <para>
         /// <para>A list of key-value pairs that contain metadata for the resource. For more information,
         /// see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag
-        /// your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</para>
+        /// your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
-        /// of the target AWS IoT thing or thing group.</para>
+        /// of the target IoT thing or thing group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -251,6 +247,21 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DeploymentPolicies_ConfigurationValidationPolicy_TimeoutInSeconds")]
         public System.Int32? ConfigurationValidationPolicy_TimeoutInSecond { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you can provide to ensure that the request
+        /// is idempotent. Idempotency means that the request is successfully processed only once,
+        /// even if you send the request multiple times. When a request succeeds, and you specify
+        /// the same client token for subsequent successful requests, the IoT Greengrass V2 service
+        /// returns the successful response that it caches from the previous request. IoT Greengrass
+        /// V2 caches successful responses for idempotent requests for up to 8 hours.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -314,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
                 context.Select = (response, cmdlet) => this.TargetArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             if (this.Component != null)
             {
                 context.Component = new Dictionary<System.String, Amazon.GreengrassV2.Model.ComponentDeploymentSpecification>(StringComparer.Ordinal);
@@ -368,6 +380,10 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             // create request
             var request = new Amazon.GreengrassV2.Model.CreateDeploymentRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.Component != null)
             {
                 request.Components = cmdletContext.Component;
@@ -678,6 +694,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public Dictionary<System.String, Amazon.GreengrassV2.Model.ComponentDeploymentSpecification> Component { get; set; }
             public System.String DeploymentName { get; set; }
             public Amazon.GreengrassV2.DeploymentComponentUpdatePolicyAction ComponentUpdatePolicy_Action { get; set; }

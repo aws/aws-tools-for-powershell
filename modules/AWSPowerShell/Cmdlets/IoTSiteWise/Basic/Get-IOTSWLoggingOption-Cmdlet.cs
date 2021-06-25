@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Retrieves the current AWS IoT SiteWise logging options.
+    /// Retrieves the current IoT SiteWise logging options.
     /// </summary>
     [Cmdlet("Get", "IOTSWLoggingOption")]
     [OutputType("Amazon.IoTSiteWise.Model.LoggingOptions")]

@@ -93,6 +93,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-EMRCluster', 
         'Edit-EMRInstanceFleet', 
         'Edit-EMRInstanceGroup', 
+        'Find-EMRReleaseLabel', 
+        'Get-EMRAutoTerminationPolicy', 
         'Get-EMRBlockPublicAccessConfiguration', 
         'Get-EMRBootstrapActionList', 
         'Get-EMRCluster', 
@@ -104,6 +106,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EMRManagedScalingPolicy', 
         'Get-EMRNotebookExecution', 
         'Get-EMRNotebookExecutionList', 
+        'Get-EMRReleaseLabel', 
         'Get-EMRSecurityConfiguration', 
         'Get-EMRSecurityConfigurationList', 
         'Get-EMRStep', 
@@ -116,6 +119,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-EMRStudio', 
         'New-EMRStudioSessionMapping', 
         'Remove-EMRAutoScalingPolicy', 
+        'Remove-EMRAutoTerminationPolicy', 
         'Remove-EMRManagedScalingPolicy', 
         'Remove-EMRResourceTag', 
         'Remove-EMRSecurityConfiguration', 
@@ -131,6 +135,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-EMRStudio', 
         'Update-EMRStudioSessionMapping', 
         'Write-EMRAutoScalingPolicy', 
+        'Write-EMRAutoTerminationPolicy', 
         'Write-EMRBlockPublicAccessConfiguration', 
         'Write-EMRManagedScalingPolicy')
 

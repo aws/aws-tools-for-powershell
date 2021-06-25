@@ -23,6 +23,10 @@
         <Property>ETag</Property>
     </MetadataProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateAlias" Verb="Move" Noun="Alias" ShouldProcessTarget="TargetDistributionId" PipelineParameter="Alias" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCachePolicy" OutputProperty="*" Verb="New" Noun="CachePolicy" ShouldProcessTarget="CachePolicyConfig_Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -228,6 +232,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCloudFrontOriginAccessIdentities" OutputProperty="CloudFrontOriginAccessIdentityList.Items" OutputWrapper="CloudFrontOriginAccessIdentityList" Verb="Get" Noun="CloudFrontOriginAccessIdentityList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CFCloudFrontOriginAccessIdentities">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConflictingAliases" OutputProperty="ConflictingAliasesList" Verb="Get" Noun="ConflictingAlias" PipelineParameter="Alias" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

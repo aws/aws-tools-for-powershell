@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Lists events for a given source identifier and source type. You can also specify
-    /// a start and end time. For more information on AWS DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
-    /// with Events and Notifications</a> in the <i>AWS Database Migration User Guide.</i><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// a start and end time. For more information on DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
+    /// with Events and Notifications</a> in the <i>Database Migration Service User Guide.</i><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DMSEvent")]
     [OutputType("Amazon.DatabaseMigrationService.Model.DMSEvent")]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SourceType
         /// <summary>
         /// <para>
-        /// <para>The type of AWS DMS resource that generates events.</para><para>Valid values: replication-instance | replication-task</para>
+        /// <para>The type of DMS resource that generates events.</para><para>Valid values: replication-instance | replication-task</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

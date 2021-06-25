@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the template that you want to render.</para>
+        /// <para>The name of the template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

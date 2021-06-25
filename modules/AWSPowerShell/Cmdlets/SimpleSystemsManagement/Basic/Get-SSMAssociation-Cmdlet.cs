@@ -30,9 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Describes the association for the specified target or instance. If you created the
     /// association by using the <code>Targets</code> parameter, then you must retrieve the
-    /// association by using the association ID. If you created the association by specifying
-    /// an instance ID and a Systems Manager document, then you retrieve the association by
-    /// specifying the document name and the instance ID.
+    /// association by using the association ID.
     /// </summary>
     [Cmdlet("Get", "SSMAssociation")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
@@ -80,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the Systems Manager document.</para>
+        /// <para>The name of the SSM document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

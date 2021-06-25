@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <summary>
     /// Adds a resouce policy to control access to a model group. For information about resoure
     /// policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based
-    /// policies and resource-based policies</a> in the <i>AWS Identity and Access Management
-    /// User Guide.</i>.
+    /// policies and resource-based policies</a> in the <i>Amazon Web Services Identity and
+    /// Access Management User Guide.</i>.
     /// </summary>
     [Cmdlet("Write", "SMModelPackageGroupPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

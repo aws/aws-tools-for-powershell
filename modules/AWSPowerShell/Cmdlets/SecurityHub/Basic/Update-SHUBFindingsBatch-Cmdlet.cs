@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// You can configure IAM policies to restrict access to fields and field values. For
     /// example, you might not want member accounts to be able to suppress findings or change
     /// the finding severity. See <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring
-    /// access to BatchUpdateFindings</a> in the <i>AWS Security Hub User Guide</i>.
+    /// access to BatchUpdateFindings</a> in the <i>Security Hub User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SHUBFindingsBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Severity_Product
         /// <summary>
         /// <para>
-        /// <para>The native severity as defined by the AWS service or integrated partner product that
-        /// generated the finding.</para>
+        /// <para>The native severity as defined by the Amazon Web Services service or integrated partner
+        /// product that generated the finding.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,13 +149,16 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Workflow_Status
         /// <summary>
         /// <para>
-        /// <para>The status of the investigation into the finding. The allowed values are the following.</para><ul><li><para><code>NEW</code> - The initial state of a finding, before it is reviewed.</para><para>Security Hub also resets <code>WorkFlowStatus</code> from <code>NOTIFIED</code> or
+        /// <para>The status of the investigation into the finding. The workflow status is specific
+        /// to an individual finding. It does not affect the generation of new findings. For example,
+        /// setting the workflow status to <code>SUPPRESSED</code> or <code>RESOLVED</code> does
+        /// not prevent a new finding for the same issue.</para><para>The allowed values are the following.</para><ul><li><para><code>NEW</code> - The initial state of a finding, before it is reviewed.</para><para>Security Hub also resets <code>WorkFlowStatus</code> from <code>NOTIFIED</code> or
         /// <code>RESOLVED</code> to <code>NEW</code> in the following cases:</para><ul><li><para>The record state changes from <code>ARCHIVED</code> to <code>ACTIVE</code>.</para></li><li><para>The compliance status changes from <code>PASSED</code> to either <code>WARNING</code>,
         /// <code>FAILED</code>, or <code>NOT_AVAILABLE</code>.</para></li></ul></li><li><para><code>NOTIFIED</code> - Indicates that you notified the resource owner about the
         /// security issue. Used when the initial reviewer is not the resource owner, and needs
         /// intervention from the resource owner.</para></li><li><para><code>RESOLVED</code> - The finding was reviewed and remediated and is now considered
-        /// resolved.</para></li><li><para><code>SUPPRESSED</code> - The finding will not be reviewed again and will not be
-        /// acted upon.</para></li></ul>
+        /// resolved.</para></li><li><para><code>SUPPRESSED</code> - Indicates that you reviewed the finding and do not believe
+        /// that any action is needed. The finding is no longer updated.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

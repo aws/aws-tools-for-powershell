@@ -28,7 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Deletes invitations received by the AWS account to become a member account.
+    /// Deletes invitations received by the Amazon Web Services account to become a member
+    /// account.
     /// 
     ///  
     /// <para>

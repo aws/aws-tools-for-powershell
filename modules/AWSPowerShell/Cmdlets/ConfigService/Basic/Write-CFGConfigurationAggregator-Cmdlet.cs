@@ -36,17 +36,17 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// If you want to add additional accounts into the aggregator, call <code>DescribeAggregator</code>
     /// to get the previous accounts and then append new ones.
     /// </para><note><para>
-    /// AWS Config should be enabled in source accounts and regions you want to aggregate.
+    /// Config should be enabled in source accounts and regions you want to aggregate.
     /// </para><para>
     /// If your source type is an organization, you must be signed in to the management account
     /// or a registered delegated administrator and all the features must be enabled in your
-    /// organization. If the caller is a management account, AWS Config calls <code>EnableAwsServiceAccess</code>
-    /// API to enable integration between AWS Config and AWS Organizations. If the caller
-    /// is a registered delegated administrator, AWS Config calls <code>ListDelegatedAdministrators</code>
-    /// API to verify whether the caller is a valid delegated administrator.
+    /// organization. If the caller is a management account, Config calls <code>EnableAwsServiceAccess</code>
+    /// API to enable integration between Config and Organizations. If the caller is a registered
+    /// delegated administrator, Config calls <code>ListDelegatedAdministrators</code> API
+    /// to verify whether the caller is a valid delegated administrator.
     /// </para><para>
     /// To register a delegated administrator, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/set-up-aggregator-cli.html#register-a-delegated-administrator-cli">Register
-    /// a Delegated Administrator</a> in the AWS Config developer guide. 
+    /// a Delegated Administrator</a> in the Config developer guide. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGConfigurationAggregator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationAggregationSource_AllAwsRegion
         /// <summary>
         /// <para>
-        /// <para>If true, aggregate existing AWS Config regions and future regions.</para>
+        /// <para>If true, aggregate existing Config regions and future regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationAggregationSource_RoleArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the IAM role used to retrieve AWS Organization details associated with the
-        /// aggregator account.</para>
+        /// <para>ARN of the IAM role used to retrieve Amazon Web Services Organization details associated
+        /// with the aggregator account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

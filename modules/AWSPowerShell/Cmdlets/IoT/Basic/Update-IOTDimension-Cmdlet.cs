@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// Updates the definition for a dimension. You cannot change the type of a dimension
     /// after it is created (you can delete it and recreate it).
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDimension</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "IOTDimension", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.UpdateDimensionResponse")]

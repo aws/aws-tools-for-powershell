@@ -28,15 +28,16 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Invites other AWS accounts to become member accounts for the Security Hub administrator
-    /// account that the invitation is sent from.
+    /// Invites other Amazon Web Services accounts to become member accounts for the Security
+    /// Hub administrator account that the invitation is sent from.
     /// 
     ///  
     /// <para>
     /// This operation is only used to invite accounts that do not belong to an organization.
     /// Organization accounts do not receive invitations.
     /// </para><para>
-    /// Before you can use this action to invite a member, you must first use the <code><a>CreateMembers</a></code> action to create the member account in Security Hub.
+    /// Before you can use this action to invite a member, you must first use the <code>CreateMembers</code>
+    /// action to create the member account in Security Hub.
     /// </para><para>
     /// When the account owner enables Security Hub and accepts the invitation to become a
     /// member account, the administrator account can view the findings generated from the
@@ -56,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The list of account IDs of the AWS accounts to invite to Security Hub as members.
-        /// </para>
+        /// <para>The list of account IDs of the Amazon Web Services accounts to invite to Security
+        /// Hub as members. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

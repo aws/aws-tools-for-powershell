@@ -201,7 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The HTTP codes to use when checking for a successful response from a container. You
-        /// can specify values between 200 and 499.</para>
+        /// can specify values between <code>200</code> and <code>499</code>. You can specify
+        /// multiple values (for example, <code>200,202</code>) or a range of values (for example,
+        /// <code>200-299</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,8 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values for the container service.</para><para>For more information about tags in Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
-        /// Dev Guide</a>.</para>
+        /// <para>The tag keys and optional values to add to the certificate during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para><para>For more information about tags in Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon
+        /// Lightsail Developer Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

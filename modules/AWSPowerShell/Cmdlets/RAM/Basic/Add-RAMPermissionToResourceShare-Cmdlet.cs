@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter PermissionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS RAM permissions to associate with the resource
+        /// <para>The Amazon Resource Name (ARN) of the RAM permission to associate with the resource
         /// share.</para>
         /// </para>
         /// </summary>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter PermissionVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the AWS RAM permissions to associate with the resource share.</para>
+        /// <para>The version of the RAM permissions to associate with the resource share.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

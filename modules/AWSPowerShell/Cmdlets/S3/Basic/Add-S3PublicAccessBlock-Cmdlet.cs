@@ -79,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentMD5
         /// <summary>
         /// <para>
-        /// <para> The MD5 hash of the <code>PutPublicBlock</code> request body. </para>
+        /// <para>The MD5 hash of the <code>PutPublicAccessBlock</code> request body. </para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
+        /// Web Services SDKs, this field is calculated automatically.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,12 +115,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter PublicAccessBlockConfiguration_RestrictPublicBucket
         /// <summary>
         /// <para>
-        /// <para>Specifies whether Amazon S3 should restrict public bucket policies for this bucket. 
-        /// Setting this element to <code>TRUE</code> restricts access to this bucket to only AWS 
-        /// service principals and authorized users within this account if the bucket has a 
-        /// public policy.</para><para>Enabling this setting doesn't affect previously stored bucket policies, 
-        /// except that public and cross-account access within any public bucket policy, 
-        /// including non-public delegation to specific accounts, is blocked.</para>
+        /// <para>Specifies whether Amazon S3 should restrict public bucket policies for this bucket.
+        /// Setting this element to <code>TRUE</code> restricts access to this bucket to only
+        /// Amazon Web Service principals and authorized users within this account if the bucket
+        /// has a public policy.</para><para>Enabling this setting doesn't affect previously stored bucket policies, except that
+        /// public and cross-account access within any public bucket policy, including non-public
+        /// delegation to specific accounts, is blocked.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

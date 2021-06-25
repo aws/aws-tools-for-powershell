@@ -28,10 +28,10 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Starts an image vulnerability scan. An image scan can only be started once per day
-    /// on an individual image. This limit includes if an image was scanned on initial push.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html">Image
-    /// Scanning</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
+    /// Starts an image vulnerability scan. An image scan can only be started once per 24
+    /// hours on an individual image. This limit includes if an image was scanned on initial
+    /// push. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html">Image
+    /// scanning</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
     /// </summary>
     [Cmdlet("Start", "ECRImageScan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.StartImageScanResponse")]
@@ -65,9 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry that contains the repository in which
-        /// to start an image scan request. If you do not specify a registry, the default registry
-        /// is assumed.</para>
+        /// <para>The Amazon Web Services account ID associated with the registry that contains the
+        /// repository in which to start an image scan request. If you do not specify a registry,
+        /// the default registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

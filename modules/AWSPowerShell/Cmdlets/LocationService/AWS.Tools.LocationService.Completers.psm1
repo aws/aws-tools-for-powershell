@@ -95,7 +95,10 @@ $LOC_Completers = {
         }
 
         # Amazon.LocationService.IntendedUse
-        "New-LOCPlaceIndex/DataSourceConfiguration_IntendedUse"
+        {
+            ($_ -eq "Edit-LOCPlaceIndex/DataSourceConfiguration_IntendedUse") -Or
+            ($_ -eq "New-LOCPlaceIndex/DataSourceConfiguration_IntendedUse")
+        }
         {
             $v = "SingleUse","Storage"
             break
@@ -103,6 +106,11 @@ $LOC_Completers = {
 
         # Amazon.LocationService.PricingPlan
         {
+            ($_ -eq "Edit-LOCGeofenceCollection/PricingPlan") -Or
+            ($_ -eq "Edit-LOCMap/PricingPlan") -Or
+            ($_ -eq "Edit-LOCPlaceIndex/PricingPlan") -Or
+            ($_ -eq "Edit-LOCRouteCalculator/PricingPlan") -Or
+            ($_ -eq "Edit-LOCTracker/PricingPlan") -Or
             ($_ -eq "New-LOCGeofenceCollection/PricingPlan") -Or
             ($_ -eq "New-LOCMap/PricingPlan") -Or
             ($_ -eq "New-LOCPlaceIndex/PricingPlan") -Or
@@ -137,9 +145,9 @@ $LOC_Completers = {
 }
 
 $LOC_map = @{
-    "DataSourceConfiguration_IntendedUse"=@("New-LOCPlaceIndex")
+    "DataSourceConfiguration_IntendedUse"=@("Edit-LOCPlaceIndex","New-LOCPlaceIndex")
     "DistanceUnit"=@("Get-LOCRoute")
-    "PricingPlan"=@("New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCRouteCalculator","New-LOCTracker")
+    "PricingPlan"=@("Edit-LOCGeofenceCollection","Edit-LOCMap","Edit-LOCPlaceIndex","Edit-LOCRouteCalculator","Edit-LOCTracker","New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCRouteCalculator","New-LOCTracker")
     "TravelMode"=@("Get-LOCRoute")
     "TruckModeOptions_Dimensions_Unit"=@("Get-LOCRoute")
     "TruckModeOptions_Weight_Unit"=@("Get-LOCRoute")
@@ -239,7 +247,12 @@ $LOC_SelectMap = @{
                "Search-LOCPlaceIndexForPosition",
                "Search-LOCPlaceIndexForText",
                "Add-LOCResourceTagSet",
-               "Remove-LOCResourceTagSet")
+               "Remove-LOCResourceTagSet",
+               "Edit-LOCGeofenceCollection",
+               "Edit-LOCMap",
+               "Edit-LOCPlaceIndex",
+               "Edit-LOCRouteCalculator",
+               "Edit-LOCTracker")
 }
 
 _awsArgumentCompleterRegistration $LOC_SelectCompleters $LOC_SelectMap

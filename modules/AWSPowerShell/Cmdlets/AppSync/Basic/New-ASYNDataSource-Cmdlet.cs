@@ -67,6 +67,16 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public Amazon.AppSync.Model.AuthorizationConfig HttpConfig_AuthorizationConfig { get; set; }
         #endregion
         
+        #region Parameter OpenSearchServiceConfig_AwsRegion
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OpenSearchServiceConfig_AwsRegion { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -90,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ElasticsearchConfig
         /// <summary>
         /// <para>
-        /// <para>Amazon Elasticsearch Service settings.</para>
+        /// <para>Amazon OpenSearch Service settings.</para><para>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This
+        /// configuration is deprecated. For new data sources, use <a>CreateDataSourceRequest$openSearchServiceConfig</a>
+        /// to create an OpenSearch data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,18 +113,28 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The HTTP URL endpoint. You can either specify the domain name or IP, and port combination,
-        /// and the URL scheme must be HTTP or HTTPS. If the port is not specified, AWS AppSync
-        /// uses the default port 80 for the HTTP endpoint and port 443 for HTTPS endpoints.</para>
+        /// and the URL scheme must be HTTP or HTTPS. If the port is not specified, AppSync uses
+        /// the default port 80 for the HTTP endpoint and port 443 for HTTPS endpoints.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HttpConfig_Endpoint { get; set; }
         #endregion
         
+        #region Parameter OpenSearchServiceConfig_Endpoint
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OpenSearchServiceConfig_Endpoint { get; set; }
+        #endregion
+        
         #region Parameter LambdaConfig
         /// <summary>
         /// <para>
-        /// <para>AWS Lambda settings.</para>
+        /// <para>Amazon Web Services Lambda settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The AWS IAM service role ARN for the data source. The system assumes this role when
-        /// accessing the data source.</para>
+        /// <para>The Identity and Access Management service role ARN for the data source. The system
+        /// assumes this role when accessing the data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,6 +289,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OpenSearchServiceConfig_AwsRegion = this.OpenSearchServiceConfig_AwsRegion;
+            context.OpenSearchServiceConfig_Endpoint = this.OpenSearchServiceConfig_Endpoint;
             context.RelationalDatabaseConfig_RdsHttpEndpointConfig = this.RelationalDatabaseConfig_RdsHttpEndpointConfig;
             context.RelationalDatabaseConfig_RelationalDatabaseSourceType = this.RelationalDatabaseConfig_RelationalDatabaseSourceType;
             context.ServiceRoleArn = this.ServiceRoleArn;
@@ -345,6 +369,35 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate OpenSearchServiceConfig
+            var requestOpenSearchServiceConfigIsNull = true;
+            request.OpenSearchServiceConfig = new Amazon.AppSync.Model.OpenSearchServiceDataSourceConfig();
+            System.String requestOpenSearchServiceConfig_openSearchServiceConfig_AwsRegion = null;
+            if (cmdletContext.OpenSearchServiceConfig_AwsRegion != null)
+            {
+                requestOpenSearchServiceConfig_openSearchServiceConfig_AwsRegion = cmdletContext.OpenSearchServiceConfig_AwsRegion;
+            }
+            if (requestOpenSearchServiceConfig_openSearchServiceConfig_AwsRegion != null)
+            {
+                request.OpenSearchServiceConfig.AwsRegion = requestOpenSearchServiceConfig_openSearchServiceConfig_AwsRegion;
+                requestOpenSearchServiceConfigIsNull = false;
+            }
+            System.String requestOpenSearchServiceConfig_openSearchServiceConfig_Endpoint = null;
+            if (cmdletContext.OpenSearchServiceConfig_Endpoint != null)
+            {
+                requestOpenSearchServiceConfig_openSearchServiceConfig_Endpoint = cmdletContext.OpenSearchServiceConfig_Endpoint;
+            }
+            if (requestOpenSearchServiceConfig_openSearchServiceConfig_Endpoint != null)
+            {
+                request.OpenSearchServiceConfig.Endpoint = requestOpenSearchServiceConfig_openSearchServiceConfig_Endpoint;
+                requestOpenSearchServiceConfigIsNull = false;
+            }
+             // determine if request.OpenSearchServiceConfig should be set to null
+            if (requestOpenSearchServiceConfigIsNull)
+            {
+                request.OpenSearchServiceConfig = null;
             }
             
              // populate RelationalDatabaseConfig
@@ -452,6 +505,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String HttpConfig_Endpoint { get; set; }
             public Amazon.AppSync.Model.LambdaDataSourceConfig LambdaConfig { get; set; }
             public System.String Name { get; set; }
+            public System.String OpenSearchServiceConfig_AwsRegion { get; set; }
+            public System.String OpenSearchServiceConfig_Endpoint { get; set; }
             public Amazon.AppSync.Model.RdsHttpEndpointConfig RelationalDatabaseConfig_RdsHttpEndpointConfig { get; set; }
             public Amazon.AppSync.RelationalDatabaseSourceType RelationalDatabaseConfig_RelationalDatabaseSourceType { get; set; }
             public System.String ServiceRoleArn { get; set; }

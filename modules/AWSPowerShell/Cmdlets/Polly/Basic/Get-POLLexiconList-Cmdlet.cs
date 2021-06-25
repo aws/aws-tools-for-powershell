@@ -28,8 +28,8 @@ using Amazon.Polly.Model;
 namespace Amazon.PowerShell.Cmdlets.POL
 {
     /// <summary>
-    /// Returns a list of pronunciation lexicons stored in an AWS Region. For more information,
-    /// see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
+    /// Returns a list of pronunciation lexicons stored in an Amazon Web Services Region.
+    /// For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
     /// Lexicons</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "POLLexiconList")]

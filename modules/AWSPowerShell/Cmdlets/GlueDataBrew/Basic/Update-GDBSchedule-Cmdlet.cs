@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <para>
         /// <para>The date or dates and time or times when the jobs are to be run. For more information,
         /// see <a href="https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html">Cron expressions</a>
-        /// in the <i>AWS Glue DataBrew Developer Guide</i>.</para>
+        /// in the <i>Glue DataBrew Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

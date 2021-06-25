@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The account ID to list the jobs from. Returns only backup jobs associated with the
-        /// specified account ID.</para><para>If used from an AWS Organizations management account, passing <code>*</code> returns
-        /// all jobs across the organization.</para>
+        /// specified account ID.</para><para>If used from an Organizations management account, passing <code>*</code> returns all
+        /// jobs across the organization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>Returns only backup jobs that will be stored in the specified backup vault. Backup
         /// vaults are identified by names that are unique to the account used to create them
-        /// and the AWS Region where they are created. They consist of lowercase letters, numbers,
-        /// and hyphens.</para>
+        /// and the Amazon Web Services Region where they are created. They consist of lowercase
+        /// letters, numbers, and hyphens.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ByResourceType
         /// <summary>
         /// <para>
-        /// <para>Returns only backup jobs for the specified resources:</para><ul><li><para><code>DynamoDB</code> for Amazon DynamoDB</para></li><li><para><code>EBS</code> for Amazon Elastic Block Store</para></li><li><para><code>EC2</code> for Amazon Elastic Compute Cloud</para></li><li><para><code>EFS</code> for Amazon Elastic File System</para></li><li><para><code>RDS</code> for Amazon Relational Database Service</para></li><li><para><code>Aurora</code> for Amazon Aurora</para></li><li><para><code>Storage Gateway</code> for AWS Storage Gateway</para></li></ul>
+        /// <para>Returns only backup jobs for the specified resources:</para><ul><li><para><code>DynamoDB</code> for Amazon DynamoDB</para></li><li><para><code>EBS</code> for Amazon Elastic Block Store</para></li><li><para><code>EC2</code> for Amazon Elastic Compute Cloud</para></li><li><para><code>EFS</code> for Amazon Elastic File System</para></li><li><para><code>RDS</code> for Amazon Relational Database Service</para></li><li><para><code>Aurora</code> for Amazon Aurora</para></li><li><para><code>Storage Gateway</code> for Storage Gateway</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

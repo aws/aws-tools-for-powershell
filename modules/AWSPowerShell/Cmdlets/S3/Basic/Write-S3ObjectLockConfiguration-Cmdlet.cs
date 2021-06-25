@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// at the same time.
     /// </para></li><li><para>
     /// You can only enable Object Lock for new buckets. If you want to turn on Object Lock
-    /// for an existing bucket, contact AWS Support.
+    /// for an existing bucket, contact Amazon Web Services Support.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Write", "S3ObjectLockConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentMD5
         /// <summary>
         /// <para>
-        /// <para>The MD5 signature for the configuration included in your request.</para>
+        /// <para>The MD5 hash for the request body.</para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
+        /// Web Services SDKs, this field is calculated automatically.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

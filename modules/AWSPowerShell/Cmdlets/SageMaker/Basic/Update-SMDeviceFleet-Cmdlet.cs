@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EnableIotRoleAlias
         /// <summary>
         /// <para>
-        /// <para>Whether to create an AWS IoT Role Alias during device fleet creation. The name of
-        /// the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".</para><para>For example, if your device fleet is called "demo-fleet", the name of the role alias
+        /// <para>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
+        /// The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".</para><para>For example, if your device fleet is called "demo-fleet", the name of the role alias
         /// will be "SageMakerEdge-demo-fleet".</para>
         /// </para>
         /// </summary>
@@ -82,9 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
-        /// data on the storage volume after compilation job. If you don't provide a KMS key ID,
-        /// Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.</para>
+        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+        /// Amazon SageMaker uses to encrypt data on the storage volume after compilation job.
+        /// If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon
+        /// S3 for your role's account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,10 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The configuration used to create deployment artifacts. Specify configuration options
         /// with a JSON string. The available configuration options for each type are:</para><ul><li><para><code>ComponentName</code> (optional) - Name of the GreenGrass V2 component. If not
         /// specified, the default name generated consists of "SagemakerEdgeManager" and the name
-        /// of your SageMaker Edge Manager packaging job.</para></li><li><para><code>ComponentDescription</code> (optional) - Description of the component.</para></li><li><para><code>ComponentVersion</code> (optional) - The version of the component.</para><note><para>AWS IoT Greengrass uses semantic versions for components. Semantic versions follow
-        /// a<i> major.minor.patch</i> number system. For example, version 1.0.0 represents the
-        /// first major release for a component. For more information, see the <a href="https://semver.org/">semantic
-        /// version specification</a>.</para></note></li><li><para><code>PlatformOS</code> (optional) - The name of the operating system for the platform.
+        /// of your SageMaker Edge Manager packaging job.</para></li><li><para><code>ComponentDescription</code> (optional) - Description of the component.</para></li><li><para><code>ComponentVersion</code> (optional) - The version of the component.</para><note><para>Amazon Web Services IoT Greengrass uses semantic versions for components. Semantic
+        /// versions follow a<i> major.minor.patch</i> number system. For example, version 1.0.0
+        /// represents the first major release for a component. For more information, see the
+        /// <a href="https://semver.org/">semantic version specification</a>.</para></note></li><li><para><code>PlatformOS</code> (optional) - The name of the operating system for the platform.
         /// Supported platforms include Windows and Linux.</para></li><li><para><code>PlatformArchitecture</code> (optional) - The processor architecture for the
         /// platform. </para><para>Supported architectures Windows include: Windows32_x86, Windows64_x64.</para><para>Supported architectures for Linux include: Linux x86_64, Linux ARMV8.</para></li></ul>
         /// </para>
@@ -112,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputConfig_PresetDeploymentType
         /// <summary>
         /// <para>
-        /// <para>The deployment type SageMaker Edge Manager will create. Currently only supports AWS
-        /// IoT Greengrass Version 2 components.</para>
+        /// <para>The deployment type SageMaker Edge Manager will create. Currently only supports Amazon
+        /// Web Services IoT Greengrass Version 2 components.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

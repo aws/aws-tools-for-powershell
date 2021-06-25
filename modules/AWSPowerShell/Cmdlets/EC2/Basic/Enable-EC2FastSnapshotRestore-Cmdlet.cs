@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>.
-        /// You can specify a snapshot that was shared with you from another AWS account.</para>
+        /// You can specify a snapshot that was shared with you from another Amazon Web Services
+        /// account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

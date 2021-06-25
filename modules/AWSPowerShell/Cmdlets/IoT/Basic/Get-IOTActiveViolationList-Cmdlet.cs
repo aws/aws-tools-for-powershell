@@ -28,7 +28,13 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Lists the active violations for a given Device Defender security profile.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the active violations for a given Device Defender security profile.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListActiveViolations</a>
+    /// action.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTActiveViolationList")]
     [OutputType("Amazon.IoT.Model.ActiveViolation")]
@@ -80,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ThingName { get; set; }
+        #endregion
+        
+        #region Parameter VerificationState
+        /// <summary>
+        /// <para>
+        /// <para>The verification state of the violation (detect alarm).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.VerificationState")]
+        public Amazon.IoT.VerificationState VerificationState { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -182,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.NextToken = this.NextToken;
             context.SecurityProfileName = this.SecurityProfileName;
             context.ThingName = this.ThingName;
+            context.VerificationState = this.VerificationState;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -222,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.ThingName != null)
             {
                 request.ThingName = cmdletContext.ThingName;
+            }
+            if (cmdletContext.VerificationState != null)
+            {
+                request.VerificationState = cmdletContext.VerificationState;
             }
             
             // Initialize loop variant and commence piping
@@ -293,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.ThingName != null)
             {
                 request.ThingName = cmdletContext.ThingName;
+            }
+            if (cmdletContext.VerificationState != null)
+            {
+                request.VerificationState = cmdletContext.VerificationState;
             }
             
             // Initialize loop variants and commence piping
@@ -419,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String NextToken { get; set; }
             public System.String SecurityProfileName { get; set; }
             public System.String ThingName { get; set; }
+            public Amazon.IoT.VerificationState VerificationState { get; set; }
             public System.Func<Amazon.IoT.Model.ListActiveViolationsResponse, GetIOTActiveViolationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ActiveViolations;
         }

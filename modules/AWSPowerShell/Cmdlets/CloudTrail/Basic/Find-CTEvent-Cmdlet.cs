@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// management events:
     /// 
     ///  <ul><li><para>
-    /// AWS access key
+    /// Amazon Web Services access key
     /// </para></li><li><para>
     /// Event ID
     /// </para></li><li><para>

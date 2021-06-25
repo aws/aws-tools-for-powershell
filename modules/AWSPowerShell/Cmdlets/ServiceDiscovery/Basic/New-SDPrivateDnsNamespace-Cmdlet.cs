@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// the resulting DNS name for the service is <code>backend.example.com</code>. Service
     /// instances that are registered using a private DNS namespace can be discovered using
     /// either a <code>DiscoverInstances</code> request or using DNS. For the current quota
-    /// on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud
-    /// Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
+    /// on the number of namespaces that you can create using the same account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+    /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
     /// </summary>
     [Cmdlet("New", "SDPrivateDnsNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>The name that you want to assign to this namespace. When you create a private DNS
-        /// namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone
+        /// namespace, Cloud Map automatically creates an Amazon Route 53 private hosted zone
         /// that has the same name as the namespace.</para>
         /// </para>
         /// </summary>
@@ -99,6 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.SD
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.ServiceDiscovery.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter SOA_TTL
+        /// <summary>
+        /// <para>
+        /// <para>The time to live (TTL) for purposes of negative caching.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Properties_DnsProperties_SOA_TTL")]
+        public System.Int64? SOA_TTL { get; set; }
         #endregion
         
         #region Parameter Vpc
@@ -188,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SOA_TTL = this.SOA_TTL;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ServiceDiscovery.Model.Tag>(this.Tag);
@@ -226,6 +238,55 @@ namespace Amazon.PowerShell.Cmdlets.SD
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate Properties
+            var requestPropertiesIsNull = true;
+            request.Properties = new Amazon.ServiceDiscovery.Model.PrivateDnsNamespaceProperties();
+            Amazon.ServiceDiscovery.Model.PrivateDnsPropertiesMutable requestProperties_properties_DnsProperties = null;
+            
+             // populate DnsProperties
+            var requestProperties_properties_DnsPropertiesIsNull = true;
+            requestProperties_properties_DnsProperties = new Amazon.ServiceDiscovery.Model.PrivateDnsPropertiesMutable();
+            Amazon.ServiceDiscovery.Model.SOA requestProperties_properties_DnsProperties_properties_DnsProperties_SOA = null;
+            
+             // populate SOA
+            var requestProperties_properties_DnsProperties_properties_DnsProperties_SOAIsNull = true;
+            requestProperties_properties_DnsProperties_properties_DnsProperties_SOA = new Amazon.ServiceDiscovery.Model.SOA();
+            System.Int64? requestProperties_properties_DnsProperties_properties_DnsProperties_SOA_sOA_TTL = null;
+            if (cmdletContext.SOA_TTL != null)
+            {
+                requestProperties_properties_DnsProperties_properties_DnsProperties_SOA_sOA_TTL = cmdletContext.SOA_TTL.Value;
+            }
+            if (requestProperties_properties_DnsProperties_properties_DnsProperties_SOA_sOA_TTL != null)
+            {
+                requestProperties_properties_DnsProperties_properties_DnsProperties_SOA.TTL = requestProperties_properties_DnsProperties_properties_DnsProperties_SOA_sOA_TTL.Value;
+                requestProperties_properties_DnsProperties_properties_DnsProperties_SOAIsNull = false;
+            }
+             // determine if requestProperties_properties_DnsProperties_properties_DnsProperties_SOA should be set to null
+            if (requestProperties_properties_DnsProperties_properties_DnsProperties_SOAIsNull)
+            {
+                requestProperties_properties_DnsProperties_properties_DnsProperties_SOA = null;
+            }
+            if (requestProperties_properties_DnsProperties_properties_DnsProperties_SOA != null)
+            {
+                requestProperties_properties_DnsProperties.SOA = requestProperties_properties_DnsProperties_properties_DnsProperties_SOA;
+                requestProperties_properties_DnsPropertiesIsNull = false;
+            }
+             // determine if requestProperties_properties_DnsProperties should be set to null
+            if (requestProperties_properties_DnsPropertiesIsNull)
+            {
+                requestProperties_properties_DnsProperties = null;
+            }
+            if (requestProperties_properties_DnsProperties != null)
+            {
+                request.Properties.DnsProperties = requestProperties_properties_DnsProperties;
+                requestPropertiesIsNull = false;
+            }
+             // determine if request.Properties should be set to null
+            if (requestPropertiesIsNull)
+            {
+                request.Properties = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -299,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
             public System.String CreatorRequestId { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public System.Int64? SOA_TTL { get; set; }
             public List<Amazon.ServiceDiscovery.Model.Tag> Tag { get; set; }
             public System.String Vpc { get; set; }
             public System.Func<Amazon.ServiceDiscovery.Model.CreatePrivateDnsNamespaceResponse, NewSDPrivateDnsNamespaceCmdlet, object> Select { get; set; } =

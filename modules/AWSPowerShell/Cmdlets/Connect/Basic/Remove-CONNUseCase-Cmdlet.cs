@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes a use case from an AppIntegration association.
+    /// Deletes a use case from an integration association.
     /// </summary>
     [Cmdlet("Remove", "CONNUseCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter IntegrationAssociationId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the AppIntegration association.</para>
+        /// <para>The identifier for the integration association.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

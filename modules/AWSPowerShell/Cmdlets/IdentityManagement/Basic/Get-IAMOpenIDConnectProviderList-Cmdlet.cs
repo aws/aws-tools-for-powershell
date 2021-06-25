@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Lists information about the IAM OpenID Connect (OIDC) provider resource objects defined
-    /// in the AWS account.
+    /// in the Amazon Web Services account.
     /// 
     ///  <note><para>
     /// IAM resource-listing operations return a subset of the available attributes for the

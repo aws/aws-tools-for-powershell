@@ -28,7 +28,7 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Runs an on-demand evaluation for the specified AWS Config rules against the last known
+    /// Runs an on-demand evaluation for the specified Config rules against the last known
     /// configuration state of the resources. Use <code>StartConfigRulesEvaluation</code>
     /// when you want to test that a rule you updated is working as expected. <code>StartConfigRulesEvaluation</code>
     /// does not re-record the latest configuration state for your resources. It re-runs an
@@ -36,16 +36,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// You can specify up to 25 AWS Config rules per request. 
+    /// You can specify up to 25 Config rules per request. 
     /// </para><para>
     /// An existing <code>StartConfigRulesEvaluation</code> call for the specified rules must
-    /// complete before you can call the API again. If you chose to have AWS Config stream
-    /// to an Amazon SNS topic, you will receive a <code>ConfigRuleEvaluationStarted</code>
-    /// notification when the evaluation starts.
+    /// complete before you can call the API again. If you chose to have Config stream to
+    /// an Amazon SNS topic, you will receive a <code>ConfigRuleEvaluationStarted</code> notification
+    /// when the evaluation starts.
     /// </para><note><para>
     /// You don't need to call the <code>StartConfigRulesEvaluation</code> API to run an evaluation
-    /// for a new rule. When you create a rule, AWS Config evaluates your resources against
-    /// the rule automatically. 
+    /// for a new rule. When you create a rule, Config evaluates your resources against the
+    /// rule automatically. 
     /// </para></note><para>
     /// The <code>StartConfigRulesEvaluation</code> API is useful if you want to run on-demand
     /// evaluations, such as the following example:
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// Instead of waiting for the next periodic evaluation, you call the <code>StartConfigRulesEvaluation</code>
     /// API.
     /// </para></li><li><para>
-    /// AWS Config invokes your Lambda function and evaluates your IAM resources.
+    /// Config invokes your Lambda function and evaluates your IAM resources.
     /// </para></li><li><para>
     /// Your custom rule will still run periodic evaluations every 24 hours.
     /// </para></li></ol>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The list of names of AWS Config rules that you want to run evaluations for.</para>
+        /// <para>The list of names of Config rules that you want to run evaluations for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

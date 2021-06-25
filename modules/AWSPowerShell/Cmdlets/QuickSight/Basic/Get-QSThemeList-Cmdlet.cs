@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists all the themes in the current AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all the themes in the current Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSThemeList")]
     [OutputType("Amazon.QuickSight.Model.ThemeSummary")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that contains the themes that you're listing.</para>
+        /// <para>The ID of the Amazon Web Services account that contains the themes that you're listing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of themes that you want to list. Valid options include the following:</para><ul><li><para><code>ALL (default)</code>- Display all existing themes.</para></li><li><para><code>CUSTOM</code> - Display only the themes created by people using Amazon QuickSight.</para></li><li><para><code>QUICKSIGHT</code> - Display only the starting themes defined by QuickSight.</para></li></ul>
+        /// <para>The type of themes that you want to list. Valid options include the following:</para><ul><li><para><code>ALL (default)</code>- Display all existing themes.</para></li><li><para><code>CUSTOM</code> - Display only the themes created by people using Amazon QuickSight.</para></li><li><para><code>QUICKSIGHT</code> - Display only the starting themes defined by Amazon QuickSight.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
     /// Obtain information about the email-sending status and capabilities of your Amazon
-    /// SES account in the current AWS Region.
+    /// SES account in the current Amazon Web Services Region.
     /// </summary>
     [Cmdlet("Get", "SES2Account")]
     [OutputType("Amazon.SimpleEmailV2.Model.GetAccountResponse")]

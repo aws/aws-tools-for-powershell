@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateOrder" OutputProperty="Order" Verb="New" Noun="Order" ShouldProcessTarget="OutpostIdentifier" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateOutpost" OutputProperty="Outpost" Verb="New" Noun="Outpost" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

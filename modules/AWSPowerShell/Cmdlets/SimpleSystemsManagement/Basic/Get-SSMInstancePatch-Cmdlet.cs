@@ -44,9 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An array of structures. Each entry in the array is a structure containing a Key, Value
-        /// combination. Valid values for Key are <code>Classification</code> | <code>KBId</code>
-        /// | <code>Severity</code> | <code>State</code>.</para>
+        /// <para>Each element in the array is a structure containing a key-value pair.</para><para>Supported keys for <code>DescribeInstancePatches</code>include the following:</para><ul><li><para><b><code>Classification</code></b></para><para>Sample values: <code>Security</code> | <code>SecurityUpdates</code></para></li><li><para><b><code>KBId</code></b></para><para>Sample values: <code>KB4480056</code> | <code>java-1.7.0-openjdk.x86_64</code></para></li><li><para><b><code>Severity</code></b></para><para>Sample values: <code>Important</code> | <code>Medium</code> | <code>Low</code></para></li><li><para><b><code>State</code></b></para><para>Sample values: <code>Installed</code> | <code>InstalledOther</code> | <code>InstalledPendingReboot</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter AddonName
         /// <summary>
         /// <para>
-        /// <para>The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html"><code>ListAddons</code></a>.</para>
+        /// <para>The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html"><code>DescribeAddonVersions</code></a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter ColdStorageOptions_Enabled
         /// <summary>
         /// <para>
-        /// <para>True to enable cold storage for an Elasticsearch domain.</para>
+        /// <para>Enable cold storage option. Accepted values true or false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Disassociates a group (batch) of assets from an AWS IoT SiteWise Monitor project.
+    /// Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.
     /// </summary>
     [Cmdlet("Disconnect", "IOTSWDisassociateProjectAsset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSiteWise.Model.AssetErrorDetails")]

@@ -28,7 +28,7 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Gets information on the specified report generator.
+    /// Gets information about the specified report generator.
     /// </summary>
     [Cmdlet("Get", "LICMLicenseManagerReportGenerator")]
     [OutputType("Amazon.LicenseManager.Model.ReportGenerator")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseManagerReportGeneratorArn
         /// <summary>
         /// <para>
-        /// <para>mazon Resource Number (ARN) of the report generator to retrieve information on.</para>
+        /// <para>Amazon Resource Name (ARN) of the report generator.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

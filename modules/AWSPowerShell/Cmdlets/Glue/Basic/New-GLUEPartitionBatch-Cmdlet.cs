@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The ID of the catalog in which the partition is to be created. Currently, this should
-        /// be the AWS account ID.</para>
+        /// be the Amazon Web Services account ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Request filters that are used to narrow the list of container images that are returned.</para>
+        /// <para>Use the following filters to streamline results:</para><ul><li><para><code>containerType</code></para></li><li><para><code>name</code></para></li><li><para><code>parentImage</code></para></li><li><para><code>platform</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

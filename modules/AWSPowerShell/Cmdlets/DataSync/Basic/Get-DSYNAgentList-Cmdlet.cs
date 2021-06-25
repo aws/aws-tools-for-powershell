@@ -28,8 +28,9 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns a list of agents owned by an AWS account in the AWS Region specified in the
-    /// request. The returned list is ordered by agent Amazon Resource Name (ARN).
+    /// Returns a list of agents owned by an Amazon Web Services account in the Amazon Web
+    /// Services Region specified in the request. The returned list is ordered by agent Amazon
+    /// Resource Name (ARN).
     /// 
     ///  
     /// <para>

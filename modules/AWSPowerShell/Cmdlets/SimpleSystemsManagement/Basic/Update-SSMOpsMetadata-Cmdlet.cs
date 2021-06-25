@@ -28,7 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Systems Manager calls this API action when you edit OpsMetadata in Application Manager.
+    /// Amazon Web Services Systems Manager calls this API operation when you edit OpsMetadata
+    /// in Application Manager.
     /// </summary>
     [Cmdlet("Update", "SSMOpsMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

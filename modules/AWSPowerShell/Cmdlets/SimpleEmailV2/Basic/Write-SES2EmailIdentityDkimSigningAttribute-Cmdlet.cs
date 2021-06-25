@@ -34,6 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     ///  <ul><li><para>
     /// Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
     /// </para></li><li><para>
+    /// Update the key length that should be used for Easy DKIM.
+    /// </para></li><li><para>
     /// Change from using no DKIM authentication to using Easy DKIM.
     /// </para></li><li><para>
     /// Change from using no DKIM authentication to using BYODKIM.
@@ -55,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter SigningAttributes_DomainSigningPrivateKey
         /// <summary>
         /// <para>
-        /// <para>A private key that's used to generate a DKIM signature.</para><para>The private key must use 1024-bit RSA encryption, and must be encoded using base64
-        /// encoding.</para>
+        /// <para>[Bring Your Own DKIM] A private key that's used to generate a DKIM signature.</para><para>The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using
+        /// base64 encoding.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter SigningAttributes_DomainSigningSelector
         /// <summary>
         /// <para>
-        /// <para>A string that's used to identify a public key in the DNS configuration for a domain.</para>
+        /// <para>[Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration
+        /// for a domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EmailIdentity
         /// <summary>
         /// <para>
-        /// <para>The email identity that you want to configure DKIM for.</para>
+        /// <para>The email identity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,11 +93,23 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String EmailIdentity { get; set; }
         #endregion
         
+        #region Parameter SigningAttributes_NextSigningKeyLength
+        /// <summary>
+        /// <para>
+        /// <para>[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be
+        /// changed at most once per day.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.DkimSigningKeyLength")]
+        public Amazon.SimpleEmailV2.DkimSigningKeyLength SigningAttributes_NextSigningKeyLength { get; set; }
+        #endregion
+        
         #region Parameter SigningAttributesOrigin
         /// <summary>
         /// <para>
-        /// <para>The method that you want to use to configure DKIM for the identity. There are two
-        /// possible values:</para><ul><li><para><code>AWS_SES</code> – Configure DKIM for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
+        /// <para>The method to use to configure DKIM for the identity. There are the following possible
+        /// values:</para><ul><li><para><code>AWS_SES</code> – Configure DKIM for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
         /// DKIM</a>.</para></li><li><para><code>EXTERNAL</code> – Configure DKIM for the identity by using Bring Your Own DKIM
         /// (BYODKIM).</para></li></ul>
         /// </para>
@@ -180,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             #endif
             context.SigningAttributes_DomainSigningPrivateKey = this.SigningAttributes_DomainSigningPrivateKey;
             context.SigningAttributes_DomainSigningSelector = this.SigningAttributes_DomainSigningSelector;
+            context.SigningAttributes_NextSigningKeyLength = this.SigningAttributes_NextSigningKeyLength;
             context.SigningAttributesOrigin = this.SigningAttributesOrigin;
             #if MODULAR
             if (this.SigningAttributesOrigin == null && ParameterWasBound(nameof(this.SigningAttributesOrigin)))
@@ -229,6 +245,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestSigningAttributes_signingAttributes_DomainSigningSelector != null)
             {
                 request.SigningAttributes.DomainSigningSelector = requestSigningAttributes_signingAttributes_DomainSigningSelector;
+                requestSigningAttributesIsNull = false;
+            }
+            Amazon.SimpleEmailV2.DkimSigningKeyLength requestSigningAttributes_signingAttributes_NextSigningKeyLength = null;
+            if (cmdletContext.SigningAttributes_NextSigningKeyLength != null)
+            {
+                requestSigningAttributes_signingAttributes_NextSigningKeyLength = cmdletContext.SigningAttributes_NextSigningKeyLength;
+            }
+            if (requestSigningAttributes_signingAttributes_NextSigningKeyLength != null)
+            {
+                request.SigningAttributes.NextSigningKeyLength = requestSigningAttributes_signingAttributes_NextSigningKeyLength;
                 requestSigningAttributesIsNull = false;
             }
              // determine if request.SigningAttributes should be set to null
@@ -304,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.String EmailIdentity { get; set; }
             public System.String SigningAttributes_DomainSigningPrivateKey { get; set; }
             public System.String SigningAttributes_DomainSigningSelector { get; set; }
+            public Amazon.SimpleEmailV2.DkimSigningKeyLength SigningAttributes_NextSigningKeyLength { get; set; }
             public Amazon.SimpleEmailV2.DkimSigningAttributesOrigin SigningAttributesOrigin { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimSigningAttributesResponse, WriteSES2EmailIdentityDkimSigningAttributeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

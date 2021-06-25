@@ -89,6 +89,8 @@ $DTEX_Completers = {
 
         # Amazon.DataExchange.ServerSideEncryptionTypes
         {
+            ($_ -eq "New-DTEXEventAction/Action_ExportRevisionToS3_Encryption_Type") -Or
+            ($_ -eq "Update-DTEXEventAction/Action_ExportRevisionToS3_Encryption_Type") -Or
             ($_ -eq "New-DTEXJob/Details_ExportAssetsToS3_Encryption_Type") -Or
             ($_ -eq "New-DTEXJob/Details_ExportRevisionsToS3_Encryption_Type")
         }
@@ -113,6 +115,7 @@ $DTEX_Completers = {
 }
 
 $DTEX_map = @{
+    "Action_ExportRevisionToS3_Encryption_Type"=@("New-DTEXEventAction","Update-DTEXEventAction")
     "AssetType"=@("New-DTEXDataSet")
     "Details_ExportAssetsToS3_Encryption_Type"=@("New-DTEXJob")
     "Details_ExportRevisionsToS3_Encryption_Type"=@("New-DTEXJob")
@@ -171,17 +174,21 @@ $DTEX_SelectCompleters = {
 $DTEX_SelectMap = @{
     "Select"=@("Stop-DTEXJob",
                "New-DTEXDataSet",
+               "New-DTEXEventAction",
                "New-DTEXJob",
                "New-DTEXRevision",
                "Remove-DTEXAsset",
                "Remove-DTEXDataSet",
+               "Remove-DTEXEventAction",
                "Remove-DTEXRevision",
                "Get-DTEXAsset",
                "Get-DTEXDataSet",
+               "Get-DTEXEventAction",
                "Get-DTEXJob",
                "Get-DTEXRevision",
                "Get-DTEXDataSetRevisionList",
                "Get-DTEXDataSetList",
+               "Get-DTEXEventActionList",
                "Get-DTEXJobList",
                "Get-DTEXRevisionAssetList",
                "Get-DTEXResourceTag",
@@ -190,6 +197,7 @@ $DTEX_SelectMap = @{
                "Remove-DTEXResourceTag",
                "Update-DTEXAsset",
                "Update-DTEXDataSet",
+               "Update-DTEXEventAction",
                "Update-DTEXRevision")
 }
 

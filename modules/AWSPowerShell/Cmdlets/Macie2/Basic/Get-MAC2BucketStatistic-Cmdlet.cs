@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the AWS account.</para>
+        /// <para>The unique identifier for the Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

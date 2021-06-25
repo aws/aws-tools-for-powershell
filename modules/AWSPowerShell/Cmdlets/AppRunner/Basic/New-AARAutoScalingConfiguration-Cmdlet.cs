@@ -28,7 +28,7 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Create an AWS App Runner automatic scaling configuration resource. App Runner requires
+    /// Create an App Runner automatic scaling configuration resource. App Runner requires
     /// this resource when you create App Runner services that require non-default auto scaling
     /// settings. You can share an auto scaling configuration across multiple services.
     /// 
@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     /// or a specific revision.
     /// </para><para>
     /// Configure a higher <code>MinSize</code> to increase the spread of your App Runner
-    /// service over more Availability Zones in the AWS Region. The tradeoff is a higher minimal
-    /// cost.
+    /// service over more Availability Zones in the Amazon Web Services Region. The tradeoff
+    /// is a higher minimal cost.
     /// </para><para>
     /// Configure a lower <code>MaxSize</code> to control your cost. The tradeoff is lower
     /// responsiveness during peak demand.
@@ -61,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>A name for the auto scaling configuration. When you use it for the first time in an
-        /// AWS Region, App Runner creates revision number <code>1</code> of this name. When you
-        /// use the same name in subsequent calls, App Runner creates incremental revisions of
-        /// the configuration.</para>
+        /// Amazon Web Services Region, App Runner creates revision number <code>1</code> of this
+        /// name. When you use the same name in subsequent calls, App Runner creates incremental
+        /// revisions of the configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

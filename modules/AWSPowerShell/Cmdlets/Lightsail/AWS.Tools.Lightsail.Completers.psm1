@@ -80,6 +80,13 @@ $LS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Lightsail.AccessType
+        "Update-LSBucket/AccessRules_GetObject"
+        {
+            $v = "private","public"
+            break
+        }
+
         # Amazon.Lightsail.AddOnType
         {
             ($_ -eq "Enable-LSAddOn/AddOnRequest_AddOnType") -Or
@@ -104,6 +111,13 @@ $LS_Completers = {
         }
         {
             $v = "cache","dont-cache"
+            break
+        }
+
+        # Amazon.Lightsail.BucketMetricName
+        "Get-LSBucketMetricData/MetricName"
+        {
+            $v = "BucketSizeBytes","NumberOfObjects"
             break
         }
 
@@ -217,6 +231,7 @@ $LS_Completers = {
 
         # Amazon.Lightsail.MetricUnit
         {
+            ($_ -eq "Get-LSBucketMetricData/Unit") -Or
             ($_ -eq "Get-LSDistributionMetricData/Unit") -Or
             ($_ -eq "Get-LSInstanceMetricData/Unit") -Or
             ($_ -eq "Get-LSLoadBalancerMetricData/Unit") -Or
@@ -254,7 +269,7 @@ $LS_Completers = {
             ($_ -eq "Copy-LSSnapshot/SourceRegion")
         }
         {
-            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","eu-central-1","eu-west-1","eu-west-2","eu-west-3","us-east-1","us-east-2","us-west-1","us-west-2"
+            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","eu-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","us-east-1","us-east-2","us-west-1","us-west-2"
             break
         }
 
@@ -272,10 +287,17 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.ResourceBucketAccess
+        "Set-LSResourceAccessForBucket/Access"
+        {
+            $v = "allow","deny"
+            break
+        }
+
         # Amazon.Lightsail.ResourceType
         "Set-LSIpAddressType/ResourceType"
         {
-            $v = "Alarm","Certificate","CloudFormationStackRecord","ContactMethod","ContainerService","Disk","DiskSnapshot","Distribution","Domain","ExportSnapshotRecord","Instance","InstanceSnapshot","KeyPair","LoadBalancer","LoadBalancerTlsCertificate","PeeredVpc","RelationalDatabase","RelationalDatabaseSnapshot","StaticIp"
+            $v = "Alarm","Bucket","Certificate","CloudFormationStackRecord","ContactMethod","ContainerService","Disk","DiskSnapshot","Distribution","Domain","ExportSnapshotRecord","Instance","InstanceSnapshot","KeyPair","LoadBalancer","LoadBalancerTlsCertificate","PeeredVpc","RelationalDatabase","RelationalDatabaseSnapshot","StaticIp"
             break
         }
 
@@ -295,6 +317,8 @@ $LS_Completers = {
 }
 
 $LS_map = @{
+    "Access"=@("Set-LSResourceAccessForBucket")
+    "AccessRules_GetObject"=@("Update-LSBucket")
     "AddOnRequest_AddOnType"=@("Enable-LSAddOn")
     "AddOnType"=@("Disable-LSAddOn")
     "AttributeName"=@("Update-LSLoadBalancerAttribute")
@@ -303,7 +327,7 @@ $LS_map = @{
     "ComparisonOperator"=@("Add-LSAlarm")
     "DefaultCacheBehavior_Behavior"=@("New-LSDistribution","Update-LSDistribution")
     "IpAddressType"=@("New-LSDistribution","New-LSInstance","New-LSInstancesFromSnapshot","New-LSLoadBalancer","Set-LSIpAddressType")
-    "MetricName"=@("Add-LSAlarm","Get-LSContainerServiceMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
+    "MetricName"=@("Add-LSAlarm","Get-LSBucketMetricData","Get-LSContainerServiceMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
     "Origin_ProtocolPolicy"=@("New-LSDistribution","Update-LSDistribution")
     "Origin_RegionName"=@("New-LSDistribution","Update-LSDistribution")
     "PasswordVersion"=@("Get-LSRelationalDatabaseMasterUserPassword")
@@ -314,7 +338,7 @@ $LS_map = @{
     "SourceRegion"=@("Copy-LSSnapshot")
     "State"=@("Test-LSAlarm")
     "TreatMissingData"=@("Add-LSAlarm")
-    "Unit"=@("Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
+    "Unit"=@("Get-LSBucketMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
 }
 
 _awsArgumentCompleterRegistration $LS_Completers $LS_map
@@ -375,6 +399,8 @@ $LS_SelectMap = @{
                "Mount-LSStaticIp",
                "Close-LSInstancePublicPort",
                "Copy-LSSnapshot",
+               "New-LSBucket",
+               "New-LSBucketAccessKey",
                "New-LSCertificate",
                "New-LSCloudFormationStack",
                "New-LSContactMethod",
@@ -398,6 +424,8 @@ $LS_SelectMap = @{
                "New-LSRelationalDatabaseSnapshot",
                "Remove-LSAlarm",
                "Remove-LSAutoSnapshot",
+               "Remove-LSBucket",
+               "Remove-LSBucketAccessKey",
                "Remove-LSCertificate",
                "Remove-LSContactMethod",
                "Remove-LSContainerImage",
@@ -427,6 +455,10 @@ $LS_SelectMap = @{
                "Get-LSAlarm",
                "Get-LSAutoSnapshot",
                "Get-LSBlueprintList",
+               "Get-LSBucketAccessKey",
+               "Get-LSBucketBundle",
+               "Get-LSBucketMetricData",
+               "Get-LSBucket",
                "Get-LSBundleList",
                "Get-LSCertificate",
                "Get-LSCloudFormationStackRecord",
@@ -494,6 +526,7 @@ $LS_SelectMap = @{
                "Reset-LSDistributionCache",
                "Send-LSContactMethodVerification",
                "Set-LSIpAddressType",
+               "Set-LSResourceAccessForBucket",
                "Start-LSInstance",
                "Start-LSRelationalDatabase",
                "Stop-LSInstance",
@@ -502,6 +535,8 @@ $LS_SelectMap = @{
                "Test-LSAlarm",
                "Remove-LSPeerVpc",
                "Remove-LSResourceTag",
+               "Update-LSBucket",
+               "Update-LSBucketBundle",
                "Update-LSContainerService",
                "Update-LSDistribution",
                "Update-LSDistributionBundle",

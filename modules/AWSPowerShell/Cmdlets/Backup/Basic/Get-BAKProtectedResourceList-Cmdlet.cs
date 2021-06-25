@@ -28,9 +28,9 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns an array of resources successfully backed up by AWS Backup, including the
-    /// time the resource was saved, an Amazon Resource Name (ARN) of the resource, and a
-    /// resource type.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns an array of resources successfully backed up by Backup, including the time
+    /// the resource was saved, an Amazon Resource Name (ARN) of the resource, and a resource
+    /// type.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKProtectedResourceList")]
     [OutputType("Amazon.Backup.Model.ProtectedResource")]

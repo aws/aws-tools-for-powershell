@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Deletes a project from AWS IoT SiteWise Monitor.
+    /// Deletes a project from IoT SiteWise Monitor.
     /// </summary>
     [Cmdlet("Remove", "IOTSWProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

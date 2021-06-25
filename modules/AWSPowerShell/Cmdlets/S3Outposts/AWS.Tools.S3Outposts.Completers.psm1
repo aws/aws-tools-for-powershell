@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon S3 Outposts
 
 
+$S3O_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.S3Outposts.EndpointAccessType
+        "New-S3OEndpoint/AccessType"
+        {
+            $v = "CustomerOwnedIp","Private"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$S3O_map = @{
+    "AccessType"=@("New-S3OEndpoint")
+}
+
+_awsArgumentCompleterRegistration $S3O_Completers $S3O_map
+
 $S3O_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 

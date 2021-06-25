@@ -100,10 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// EFS path. If you only specify a target, it is displayed as is. You also must ensure
         /// that your Amazon Web Services Identity and Access Management (IAM) role provides access
         /// to paths in <code>Target</code>. This value can only be set when <code>HomeDirectoryType</code>
-        /// is set to <i>LOGICAL</i>.</para><para>The following is an <code>Entry</code> and <code>Target</code> pair example.</para><para><code>[ { "Entry": "your-personal-report.pdf", "Target": "/bucket3/customized-reports/${transfer:UserName}.pdf"
-        /// } ]</code></para><para>In most cases, you can use this value instead of the scope-down policy to lock down
-        /// your user to the designated home directory ("<code>chroot</code>"). To do this, you
-        /// can set <code>Entry</code> to <code>/</code> and set <code>Target</code> to the <code>HomeDirectory</code>
+        /// is set to <i>LOGICAL</i>.</para><para>The following is an <code>Entry</code> and <code>Target</code> pair example.</para><para><code>[ { "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" } ]</code></para><para>In most cases, you can use this value instead of the session policy to lock down your
+        /// user to the designated home directory ("<code>chroot</code>"). To do this, you can
+        /// set <code>Entry</code> to <code>/</code> and set <code>Target</code> to the <code>HomeDirectory</code>
         /// parameter value.</para><para>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</para><para><code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code></para><note><para>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the
         /// entry is ignored. As a workaround, you can use the Amazon S3 API or EFS API to create
         /// 0 byte objects as place holders for your directory. If using the CLI, use the <code>s3api</code>
@@ -124,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>The type of landing directory (folder) you want your users' home directory to be when
         /// they log into the server. If you set it to <code>PATH</code>, the user will see the
         /// absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients.
-        /// If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code>
+        /// If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code>
         /// for how you want to make Amazon S3 or EFS paths visible to your users.</para>
         /// </para>
         /// </summary>
@@ -136,14 +135,14 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>A scope-down policy for your user so that you can use the same IAM role across multiple
+        /// <para>A session policy for your user so that you can use the same IAM role across multiple
         /// users. This policy scopes down user access to portions of their Amazon S3 bucket.
         /// Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
-        /// <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</para><note><para>This only applies when domain of <code>ServerId</code> is S3. Amazon EFS does not
-        /// use scope-down policies.</para><para>For scope-down policies, Amazon Web Services Transfer Family stores the policy as
-        /// a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the
-        /// policy as a JSON blob and pass it in the <code>Policy</code> argument.</para><para>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/scope-down-policy.html">Example
-        /// scope-down policy</a>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a>
+        /// <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</para><note><para>This only applies when the domain of <code>ServerId</code> is S3. EFS does not use
+        /// session policies.</para><para>For session policies, Amazon Web Services Transfer Family stores the policy as a JSON
+        /// blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy
+        /// as a JSON blob and pass it in the <code>Policy</code> argument.</para><para>For an example of a session policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html">Example
+        /// session policy</a>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a>
         /// in the <i>Amazon Web Services Security Token Service API Reference</i>.</para></note>
         /// </para>
         /// </summary>

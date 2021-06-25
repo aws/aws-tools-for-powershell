@@ -28,8 +28,8 @@ using Amazon.Polly.Model;
 namespace Amazon.PowerShell.Cmdlets.POL
 {
     /// <summary>
-    /// Returns the content of the specified pronunciation lexicon stored in an AWS Region.
-    /// For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
+    /// Returns the content of the specified pronunciation lexicon stored in an Amazon Web
+    /// Services Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
     /// Lexicons</a>.
     /// </summary>
     [Cmdlet("Get", "POLLexicon")]

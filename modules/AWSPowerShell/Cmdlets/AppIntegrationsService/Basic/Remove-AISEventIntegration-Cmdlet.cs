@@ -28,13 +28,8 @@ using Amazon.AppIntegrationsService.Model;
 namespace Amazon.PowerShell.Cmdlets.AIS
 {
     /// <summary>
-    /// The Amazon AppIntegrations APIs are in preview release and are subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Deletes the specified existing event integration. If the event integration is associated
     /// with clients, the request is rejected.
-    /// </para>
     /// </summary>
     [Cmdlet("Remove", "AISEventIntegration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

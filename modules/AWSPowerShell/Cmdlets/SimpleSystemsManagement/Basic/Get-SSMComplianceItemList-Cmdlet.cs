@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// For a specified resource ID, this API action returns a list of compliance statuses
+    /// For a specified resource ID, this API operation returns a list of compliance statuses
     /// for different resource types. Currently, you can only specify one resource ID per
     /// call. List results depend on the criteria specified in the filter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

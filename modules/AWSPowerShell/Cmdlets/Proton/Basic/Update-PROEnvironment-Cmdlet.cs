@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// </para><para>
     /// You can only update to a new environment account connection if it was created in the
     /// same environment account that the current environment account connection was created
-    /// in and associated with the current environment.
+    /// in and is associated with the current environment.
     /// </para><para>
     /// If the environment <i>isn't</i> associated with an environment account connection,
     /// <i>don't</i> update or include the <code>environmentAccountConnectionId</code> parameter
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>The ID of the environment account connection.</para><para>You can only update to a new environment account connection if it was created in the
         /// same environment account that the current environment account connection was created
-        /// in and associated with the current environment.</para>
+        /// in and is associated with the current environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ProtonServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Proton service role that allows AWS Proton to make API calls to
-        /// other services your behalf.</para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton
+        /// to make API calls to other services your behalf.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

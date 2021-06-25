@@ -28,11 +28,11 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves a sortable, filterable list of existing AWS Glue machine learning transforms
-    /// in this AWS account, or the resources with the specified tag. This operation takes
-    /// the optional <code>Tags</code> field, which you can use as a filter of the responses
-    /// so that tagged resources can be retrieved as a group. If you choose to use tag filtering,
-    /// only resources with the tags are retrieved.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a sortable, filterable list of existing Glue machine learning transforms
+    /// in this Amazon Web Services account, or the resources with the specified tag. This
+    /// operation takes the optional <code>Tags</code> field, which you can use as a filter
+    /// of the responses so that tagged resources can be retrieved as a group. If you choose
+    /// to use tag filtering, only resources with the tags are retrieved.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GLUEMLTransformIdentifier")]
     [OutputType("System.String")]
@@ -79,10 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Filter_GlueVersion
         /// <summary>
         /// <para>
-        /// <para>This value determines which version of AWS Glue this machine learning transform is
-        /// compatible with. Glue 1.0 is recommended for most customers. If the value is not set,
-        /// the Glue compatibility defaults to Glue 0.9. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS
-        /// Glue Versions</a> in the developer guide.</para>
+        /// <para>This value determines which version of Glue this machine learning transform is compatible
+        /// with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue
+        /// compatibility defaults to Glue 0.9. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue
+        /// Versions</a> in the developer guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

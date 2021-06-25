@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter WorkspaceAccessProperties_DeviceTypeAndroid
         /// <summary>
         /// <para>
-        /// <para>Indicates whether users can use Android devices to access their WorkSpaces.</para>
+        /// <para>Indicates whether users can use Android and Android-compatible Chrome OS devices to
+        /// access their WorkSpaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,10 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter WorkspaceAccessProperties_DeviceTypeOsx
         /// <summary>
         /// <para>
-        /// <para>Indicates whether users can use macOS clients to access their WorkSpaces. To restrict
-        /// WorkSpaces access to trusted devices (also known as managed devices) with valid certificates,
-        /// specify a value of <code>TRUST</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html">Restrict
-        /// WorkSpaces Access to Trusted Devices</a>. </para>
+        /// <para>Indicates whether users can use macOS clients to access their WorkSpaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,10 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter WorkspaceAccessProperties_DeviceTypeWindow
         /// <summary>
         /// <para>
-        /// <para>Indicates whether users can use Windows clients to access their WorkSpaces. To restrict
-        /// WorkSpaces access to trusted devices (also known as managed devices) with valid certificates,
-        /// specify a value of <code>TRUST</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html">Restrict
-        /// WorkSpaces Access to Trusted Devices</a>. </para>
+        /// <para>Indicates whether users can use Windows clients to access their WorkSpaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

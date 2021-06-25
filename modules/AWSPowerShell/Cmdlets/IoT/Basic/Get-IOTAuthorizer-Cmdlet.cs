@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Describes an authorizer.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuthorizer</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTAuthorizer")]
     [OutputType("Amazon.IoT.Model.AuthorizerDescription")]

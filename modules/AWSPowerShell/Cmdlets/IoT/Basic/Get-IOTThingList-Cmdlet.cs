@@ -33,7 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// and attributeValue=Red retrieves all things in the registry that contain an attribute
     /// <b>Color</b> with the value <b>Red</b>. 
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThings</a>
+    /// action.
+    /// </para><note><para>
     /// You will not be charged for calling this API if an <code>Access denied</code> error
     /// is returned. You will also not be charged if no attributes or pagination token was
     /// provided in request and no pagination token and no results were returned.

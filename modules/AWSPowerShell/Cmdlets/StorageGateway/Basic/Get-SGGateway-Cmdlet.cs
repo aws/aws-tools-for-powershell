@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Lists gateways owned by an AWS account in an AWS Region specified in the request.
-    /// The returned list is ordered by gateway Amazon Resource Name (ARN).
+    /// Lists gateways owned by an account in an Region specified in the request. The returned
+    /// list is ordered by gateway Amazon Resource Name (ARN).
     /// 
     ///  
     /// <para>

@@ -44,6 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// UK mobile numbers, you must submit a service quota increase request. For more information,
     /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon
     /// Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. 
+    /// </para></note><note><para>
+    /// Campaign calls are not allowed by default. Before you can make a call with <code>TrafficType</code>
+    /// = <code>CAMPAIGN</code>, you must submit a service quota increase request. For more
+    /// information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon
+    /// Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "CONNOutboundVoiceContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -68,6 +73,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Attributes")]
         public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
+        
+        #region Parameter AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt
+        /// <summary>
+        /// <para>
+        /// <para>Wait for the answering machine prompt.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt { get; set; }
+        #endregion
+        
+        #region Parameter CampaignId
+        /// <summary>
+        /// <para>
+        /// <para>The campaign identifier of the outbound communication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CampaignId { get; set; }
         #endregion
         
         #region Parameter ContactFlowId
@@ -106,6 +131,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DestinationPhoneNumber { get; set; }
+        #endregion
+        
+        #region Parameter AnswerMachineDetectionConfig_EnableAnswerMachineDetection
+        /// <summary>
+        /// <para>
+        /// <para>The flag to indicate if answer machine detection analysis needs to be performed for
+        /// a voice call. If set to <code>true</code>, <code>TrafficType</code> must be set as
+        /// <code>CAMPAIGN</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AnswerMachineDetectionConfig_EnableAnswerMachineDetection { get; set; }
         #endregion
         
         #region Parameter InstanceId
@@ -148,6 +185,20 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SourcePhoneNumber { get; set; }
+        #endregion
+        
+        #region Parameter TrafficType
+        /// <summary>
+        /// <para>
+        /// <para>Denotes the class of traffic. Calls with different traffic types are handled differently
+        /// by Amazon Connect. The default value is <code>GENERAL</code>. Use <code>CAMPAIGN</code>
+        /// if <code>EnableAnswerMachineDetection</code> is set to <code>true</code>. For all
+        /// other cases, use <code>GENERAL</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.TrafficType")]
+        public Amazon.Connect.TrafficType TrafficType { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -223,6 +274,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.ContactFlowId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt = this.AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt;
+            context.AnswerMachineDetectionConfig_EnableAnswerMachineDetection = this.AnswerMachineDetectionConfig_EnableAnswerMachineDetection;
             if (this.Attribute != null)
             {
                 context.Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -231,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     context.Attribute.Add((String)hashKey, (String)(this.Attribute[hashKey]));
                 }
             }
+            context.CampaignId = this.CampaignId;
             context.ClientToken = this.ClientToken;
             context.ContactFlowId = this.ContactFlowId;
             #if MODULAR
@@ -255,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #endif
             context.QueueId = this.QueueId;
             context.SourcePhoneNumber = this.SourcePhoneNumber;
+            context.TrafficType = this.TrafficType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -271,9 +326,42 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.StartOutboundVoiceContactRequest();
             
+            
+             // populate AnswerMachineDetectionConfig
+            var requestAnswerMachineDetectionConfigIsNull = true;
+            request.AnswerMachineDetectionConfig = new Amazon.Connect.Model.AnswerMachineDetectionConfig();
+            System.Boolean? requestAnswerMachineDetectionConfig_answerMachineDetectionConfig_AwaitAnswerMachinePrompt = null;
+            if (cmdletContext.AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt != null)
+            {
+                requestAnswerMachineDetectionConfig_answerMachineDetectionConfig_AwaitAnswerMachinePrompt = cmdletContext.AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt.Value;
+            }
+            if (requestAnswerMachineDetectionConfig_answerMachineDetectionConfig_AwaitAnswerMachinePrompt != null)
+            {
+                request.AnswerMachineDetectionConfig.AwaitAnswerMachinePrompt = requestAnswerMachineDetectionConfig_answerMachineDetectionConfig_AwaitAnswerMachinePrompt.Value;
+                requestAnswerMachineDetectionConfigIsNull = false;
+            }
+            System.Boolean? requestAnswerMachineDetectionConfig_answerMachineDetectionConfig_EnableAnswerMachineDetection = null;
+            if (cmdletContext.AnswerMachineDetectionConfig_EnableAnswerMachineDetection != null)
+            {
+                requestAnswerMachineDetectionConfig_answerMachineDetectionConfig_EnableAnswerMachineDetection = cmdletContext.AnswerMachineDetectionConfig_EnableAnswerMachineDetection.Value;
+            }
+            if (requestAnswerMachineDetectionConfig_answerMachineDetectionConfig_EnableAnswerMachineDetection != null)
+            {
+                request.AnswerMachineDetectionConfig.EnableAnswerMachineDetection = requestAnswerMachineDetectionConfig_answerMachineDetectionConfig_EnableAnswerMachineDetection.Value;
+                requestAnswerMachineDetectionConfigIsNull = false;
+            }
+             // determine if request.AnswerMachineDetectionConfig should be set to null
+            if (requestAnswerMachineDetectionConfigIsNull)
+            {
+                request.AnswerMachineDetectionConfig = null;
+            }
             if (cmdletContext.Attribute != null)
             {
                 request.Attributes = cmdletContext.Attribute;
+            }
+            if (cmdletContext.CampaignId != null)
+            {
+                request.CampaignId = cmdletContext.CampaignId;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -298,6 +386,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.SourcePhoneNumber != null)
             {
                 request.SourcePhoneNumber = cmdletContext.SourcePhoneNumber;
+            }
+            if (cmdletContext.TrafficType != null)
+            {
+                request.TrafficType = cmdletContext.TrafficType;
             }
             
             CmdletOutput output;
@@ -360,13 +452,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt { get; set; }
+            public System.Boolean? AnswerMachineDetectionConfig_EnableAnswerMachineDetection { get; set; }
             public Dictionary<System.String, System.String> Attribute { get; set; }
+            public System.String CampaignId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String ContactFlowId { get; set; }
             public System.String DestinationPhoneNumber { get; set; }
             public System.String InstanceId { get; set; }
             public System.String QueueId { get; set; }
             public System.String SourcePhoneNumber { get; set; }
+            public Amazon.Connect.TrafficType TrafficType { get; set; }
             public System.Func<Amazon.Connect.Model.StartOutboundVoiceContactResponse, StartCONNOutboundVoiceContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ContactId;
         }

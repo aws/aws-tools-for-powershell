@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID that the user is in. Currently, you use the ID for the AWS account
-        /// that contains your Amazon QuickSight account.</para>
+        /// <para>The Amazon Web Services account ID that the user is in. Currently, you use the ID
+        /// for the Amazon Web Services account that contains your Amazon QuickSight account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

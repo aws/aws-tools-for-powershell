@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the resource
-        /// tag.
+        /// <para>The Amazon Resource Name (ARN) of the resource tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The key-value pair for the resource tag.
+        /// <para>The key-value pair for the resource tag.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

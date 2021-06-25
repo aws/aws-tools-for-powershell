@@ -28,7 +28,7 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Permanently deletes an AWS Firewall Manager applications list.
+    /// Permanently deletes an Firewall Manager applications list.
     /// </summary>
     [Cmdlet("Remove", "FMSAppList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

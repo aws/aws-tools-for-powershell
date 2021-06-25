@@ -28,9 +28,9 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns the estimated monthly cost of a template. The return value is an AWS Simple
-    /// Monthly Calculator URL with a query string that describes the resources required to
-    /// run the template.
+    /// Returns the estimated monthly cost of a template. The return value is an Amazon Web
+    /// Services Simple Monthly Calculator URL with a query string that describes the resources
+    /// required to run the template.
     /// </summary>
     [Cmdlet("Measure", "CFNTemplateCost", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
         /// length of 51,200 bytes. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the AWS CloudFormation User Guide.)</para><para>Conditional: You must pass <code>TemplateBody</code> or <code>TemplateURL</code>.
+        /// Anatomy</a> in the CloudFormation User Guide.)</para><para>Conditional: You must pass <code>TemplateBody</code> or <code>TemplateURL</code>.
         /// If both are passed, only <code>TemplateBody</code> is used.</para>
         /// </para>
         /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>Location of file containing the template body. The URL must point to a template that
         /// is located in an Amazon S3 bucket or a Systems Manager document. For more information,
         /// go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>.
+        /// Anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>.
         /// If both are passed, only <code>TemplateBody</code> is used.</para>
         /// </para>
         /// </summary>

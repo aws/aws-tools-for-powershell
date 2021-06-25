@@ -28,7 +28,7 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Deletes an AWS Fargate profile.
+    /// Deletes an Fargate profile.
     /// 
     ///  
     /// <para>

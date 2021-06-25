@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// for that account.
     /// 
     ///  <note><para>
-    /// Currently, AWS Config supports only one retention configuration per region in your
-    /// account.
+    /// Currently, Config supports only one retention configuration per region in your account.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGRetentionConfiguration")]
@@ -51,9 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>A list of names of retention configurations for which you want details. If you do
-        /// not specify a name, AWS Config returns details for all the retention configurations
-        /// for that account.</para><note><para>Currently, AWS Config supports only one retention configuration per region in your
-        /// account.</para></note>
+        /// not specify a name, Config returns details for all the retention configurations for
+        /// that account.</para><note><para>Currently, Config supports only one retention configuration per region in your account.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

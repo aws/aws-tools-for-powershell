@@ -28,9 +28,10 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Returns all State Manager associations in the current AWS account and Region. You
-    /// can limit the results to a specific State Manager association document or instance
-    /// by specifying a filter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns all State Manager associations in the current Amazon Web Services account
+    /// and Amazon Web Services Region. You can limit the results to a specific State Manager
+    /// association document or instance by specifying a filter. State Manager is a capability
+    /// of Amazon Web Services Systems Manager.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMAssociationList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Association")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>One or more filters. Use a filter to return a more specific list of results.</para><note><para>Filtering associations using the <code>InstanceID</code> attribute only returns legacy
         /// associations created using the <code>InstanceID</code> attribute. Associations targeting
         /// the instance that are part of the Target Attributes <code>ResourceGroup</code> or
-        /// <code>Tags</code> are not returned.</para></note>
+        /// <code>Tags</code> aren't returned.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

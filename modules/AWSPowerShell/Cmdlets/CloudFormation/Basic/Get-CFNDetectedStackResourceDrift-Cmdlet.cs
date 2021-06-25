@@ -30,12 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Returns drift information for the resources that have been checked for drift in the
     /// specified stack. This includes actual and expected configuration values for resources
-    /// where AWS CloudFormation detects configuration drift.
+    /// where CloudFormation detects configuration drift.
     /// 
     ///  
     /// <para>
     /// For a given stack, there will be one <code>StackResourceDrift</code> for each stack
-    /// resource that has been checked for drift. Resources that have not yet been checked
+    /// resource that has been checked for drift. Resources that haven't yet been checked
     /// for drift are not included. Resources that do not currently support drift detection
     /// are not checked, and so not included. For a list of resources that support drift detection,
     /// see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// returned.</para><ul><li><para><code>DELETED</code>: The resource differs from its expected template configuration
         /// in that the resource has been deleted.</para></li><li><para><code>MODIFIED</code>: One or more resource properties differ from their expected
         /// template values.</para></li><li><para><code>IN_SYNC</code>: The resources's actual configuration matches its expected template
-        /// configuration.</para></li><li><para><code>NOT_CHECKED</code>: AWS CloudFormation does not currently return this value.</para></li></ul>
+        /// configuration.</para></li><li><para><code>NOT_CHECKED</code>: CloudFormation does not currently return this value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Indicates whether or not your account should have production access in the current
-        /// AWS Region.</para><para>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When
+        /// Amazon Web Services Region.</para><para>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When
         /// your account is in the sandbox, you can only send email to verified identities. Additionally,
         /// the maximum number of emails you can send in a 24-hour period (your sending quota)
         /// is 200, and the maximum number of emails you can send per second (your maximum sending

@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Registers an extension with the CloudFormation service. Registering an extension makes
-    /// it available for use in CloudFormation templates in your AWS account, and includes:
+    /// it available for use in CloudFormation templates in your Amazon Web Services account,
+    /// and includes:
     /// 
     ///  <ul><li><para>
     /// Validating the extension schema
@@ -85,12 +86,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// the extension.</para><para>For CloudFormation to assume the specified execution role, the role must contain a
         /// trust relationship with the CloudFormation service principle (<code>resources.cloudformation.amazonaws.com</code>).
         /// For more information on adding trust relationships, see <a href="IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy">Modifying
-        /// a role trust policy</a> in the <i>AWS Identity and Access Management User Guide</i>.</para><para>If your extension calls AWS APIs in any of its handlers, you must create an <i><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM execution
-        /// role</a></i> that includes the necessary permissions to call those AWS APIs, and
-        /// provision that execution role in your account. When CloudFormation needs to invoke
-        /// the resource type handler, CloudFormation assumes this execution role to create a
-        /// temporary session token, which it then passes to the resource type handler, thereby
-        /// supplying your resource type with the appropriate credentials.</para>
+        /// a role trust policy</a> in the <i>Identity and Access Management User Guide</i>.</para><para>If your extension calls Amazon Web Services APIs in any of its handlers, you must
+        /// create an <i><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// execution role</a></i> that includes the necessary permissions to call those Amazon
+        /// Web Services APIs, and provision that execution role in your account. When CloudFormation
+        /// needs to invoke the resource type handler, CloudFormation assumes this execution role
+        /// to create a temporary session token, which it then passes to the resource type handler,
+        /// thereby supplying your resource type with the appropriate credentials.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// in the <i>CloudFormation CLI User Guide</i>.</para><note><para>The user registering the extension must be able to access the package in the S3 bucket.
         /// That is, the user needs to have <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
         /// permissions for the schema handler package. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html">Actions,
-        /// Resources, and Condition Keys for Amazon S3</a> in the <i>AWS Identity and Access
-        /// Management User Guide</i>.</para></note>
+        /// Resources, and Condition Keys for Amazon S3</a> in the <i>Identity and Access Management
+        /// User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

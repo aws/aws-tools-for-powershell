@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter OutputLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>The S3 bucket name.</para>
+        /// <para>The Amazon S3 bucket name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,6 +55,20 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String OutputLocation_Bucket { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_ColumnStatisticsConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>List of configurations for column evaluations. ColumnStatisticsConfigurations are
+        /// used to select evaluations and override parameters of evaluations for particular columns.
+        /// When ColumnStatisticsConfigurations is undefined, the profile job will profile all
+        /// supported columns and run all supported evaluations. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ColumnStatisticsConfigurations")]
+        public Amazon.GlueDataBrew.Model.ColumnStatisticsConfiguration[] Configuration_ColumnStatisticsConfiguration { get; set; }
         #endregion
         
         #region Parameter EncryptionKeyArn
@@ -70,12 +84,24 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter EncryptionMode
         /// <summary>
         /// <para>
-        /// <para>The encryption mode for the job, which can be one of the following:</para><ul><li><para><code>SSE-KMS</code> - Server-side encryption with keys managed by AWS KMS.</para></li><li><para><code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</para></li></ul>
+        /// <para>The encryption mode for the job, which can be one of the following:</para><ul><li><para><code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</para></li><li><para><code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.GlueDataBrew.EncryptionMode")]
         public Amazon.GlueDataBrew.EncryptionMode EncryptionMode { get; set; }
+        #endregion
+        
+        #region Parameter DatasetStatisticsConfiguration_IncludedStatistic
+        /// <summary>
+        /// <para>
+        /// <para>List of included evaluations. When the list is undefined, all supported evaluations
+        /// will be included.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_DatasetStatisticsConfiguration_IncludedStatistics")]
+        public System.String[] DatasetStatisticsConfiguration_IncludedStatistic { get; set; }
         #endregion
         
         #region Parameter OutputLocation_Key
@@ -151,11 +177,35 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter DatasetStatisticsConfiguration_Override
+        /// <summary>
+        /// <para>
+        /// <para>List of overrides for evaluations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_DatasetStatisticsConfiguration_Overrides")]
+        public Amazon.GlueDataBrew.Model.StatisticOverride[] DatasetStatisticsConfiguration_Override { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_ProfileColumn
+        /// <summary>
+        /// <para>
+        /// <para>List of column selectors. ProfileColumns can be used to select columns from the dataset.
+        /// When ProfileColumns is undefined, the profile job will profile all supported columns.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ProfileColumns")]
+        public Amazon.GlueDataBrew.Model.ColumnSelector[] Configuration_ProfileColumn { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
-        /// to be assumed when DataBrew runs the job.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to
+        /// be assumed when DataBrew runs the job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -253,6 +303,22 @@ namespace Amazon.PowerShell.Cmdlets.GDB
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Configuration_ColumnStatisticsConfiguration != null)
+            {
+                context.Configuration_ColumnStatisticsConfiguration = new List<Amazon.GlueDataBrew.Model.ColumnStatisticsConfiguration>(this.Configuration_ColumnStatisticsConfiguration);
+            }
+            if (this.DatasetStatisticsConfiguration_IncludedStatistic != null)
+            {
+                context.DatasetStatisticsConfiguration_IncludedStatistic = new List<System.String>(this.DatasetStatisticsConfiguration_IncludedStatistic);
+            }
+            if (this.DatasetStatisticsConfiguration_Override != null)
+            {
+                context.DatasetStatisticsConfiguration_Override = new List<Amazon.GlueDataBrew.Model.StatisticOverride>(this.DatasetStatisticsConfiguration_Override);
+            }
+            if (this.Configuration_ProfileColumn != null)
+            {
+                context.Configuration_ProfileColumn = new List<Amazon.GlueDataBrew.Model.ColumnSelector>(this.Configuration_ProfileColumn);
+            }
             context.EncryptionKeyArn = this.EncryptionKeyArn;
             context.EncryptionMode = this.EncryptionMode;
             context.JobSample_Mode = this.JobSample_Mode;
@@ -299,6 +365,70 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             // create request
             var request = new Amazon.GlueDataBrew.Model.UpdateProfileJobRequest();
             
+            
+             // populate Configuration
+            var requestConfigurationIsNull = true;
+            request.Configuration = new Amazon.GlueDataBrew.Model.ProfileConfiguration();
+            List<Amazon.GlueDataBrew.Model.ColumnStatisticsConfiguration> requestConfiguration_configuration_ColumnStatisticsConfiguration = null;
+            if (cmdletContext.Configuration_ColumnStatisticsConfiguration != null)
+            {
+                requestConfiguration_configuration_ColumnStatisticsConfiguration = cmdletContext.Configuration_ColumnStatisticsConfiguration;
+            }
+            if (requestConfiguration_configuration_ColumnStatisticsConfiguration != null)
+            {
+                request.Configuration.ColumnStatisticsConfigurations = requestConfiguration_configuration_ColumnStatisticsConfiguration;
+                requestConfigurationIsNull = false;
+            }
+            List<Amazon.GlueDataBrew.Model.ColumnSelector> requestConfiguration_configuration_ProfileColumn = null;
+            if (cmdletContext.Configuration_ProfileColumn != null)
+            {
+                requestConfiguration_configuration_ProfileColumn = cmdletContext.Configuration_ProfileColumn;
+            }
+            if (requestConfiguration_configuration_ProfileColumn != null)
+            {
+                request.Configuration.ProfileColumns = requestConfiguration_configuration_ProfileColumn;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.GlueDataBrew.Model.StatisticsConfiguration requestConfiguration_configuration_DatasetStatisticsConfiguration = null;
+            
+             // populate DatasetStatisticsConfiguration
+            var requestConfiguration_configuration_DatasetStatisticsConfigurationIsNull = true;
+            requestConfiguration_configuration_DatasetStatisticsConfiguration = new Amazon.GlueDataBrew.Model.StatisticsConfiguration();
+            List<System.String> requestConfiguration_configuration_DatasetStatisticsConfiguration_datasetStatisticsConfiguration_IncludedStatistic = null;
+            if (cmdletContext.DatasetStatisticsConfiguration_IncludedStatistic != null)
+            {
+                requestConfiguration_configuration_DatasetStatisticsConfiguration_datasetStatisticsConfiguration_IncludedStatistic = cmdletContext.DatasetStatisticsConfiguration_IncludedStatistic;
+            }
+            if (requestConfiguration_configuration_DatasetStatisticsConfiguration_datasetStatisticsConfiguration_IncludedStatistic != null)
+            {
+                requestConfiguration_configuration_DatasetStatisticsConfiguration.IncludedStatistics = requestConfiguration_configuration_DatasetStatisticsConfiguration_datasetStatisticsConfiguration_IncludedStatistic;
+                requestConfiguration_configuration_DatasetStatisticsConfigurationIsNull = false;
+            }
+            List<Amazon.GlueDataBrew.Model.StatisticOverride> requestConfiguration_configuration_DatasetStatisticsConfiguration_datasetStatisticsConfiguration_Override = null;
+            if (cmdletContext.DatasetStatisticsConfiguration_Override != null)
+            {
+                requestConfiguration_configuration_DatasetStatisticsConfiguration_datasetStatisticsConfiguration_Override = cmdletContext.DatasetStatisticsConfiguration_Override;
+            }
+            if (requestConfiguration_configuration_DatasetStatisticsConfiguration_datasetStatisticsConfiguration_Override != null)
+            {
+                requestConfiguration_configuration_DatasetStatisticsConfiguration.Overrides = requestConfiguration_configuration_DatasetStatisticsConfiguration_datasetStatisticsConfiguration_Override;
+                requestConfiguration_configuration_DatasetStatisticsConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_DatasetStatisticsConfiguration should be set to null
+            if (requestConfiguration_configuration_DatasetStatisticsConfigurationIsNull)
+            {
+                requestConfiguration_configuration_DatasetStatisticsConfiguration = null;
+            }
+            if (requestConfiguration_configuration_DatasetStatisticsConfiguration != null)
+            {
+                request.Configuration.DatasetStatisticsConfiguration = requestConfiguration_configuration_DatasetStatisticsConfiguration;
+                requestConfigurationIsNull = false;
+            }
+             // determine if request.Configuration should be set to null
+            if (requestConfigurationIsNull)
+            {
+                request.Configuration = null;
+            }
             if (cmdletContext.EncryptionKeyArn != null)
             {
                 request.EncryptionKeyArn = cmdletContext.EncryptionKeyArn;
@@ -450,6 +580,10 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.GlueDataBrew.Model.ColumnStatisticsConfiguration> Configuration_ColumnStatisticsConfiguration { get; set; }
+            public List<System.String> DatasetStatisticsConfiguration_IncludedStatistic { get; set; }
+            public List<Amazon.GlueDataBrew.Model.StatisticOverride> DatasetStatisticsConfiguration_Override { get; set; }
+            public List<Amazon.GlueDataBrew.Model.ColumnSelector> Configuration_ProfileColumn { get; set; }
             public System.String EncryptionKeyArn { get; set; }
             public Amazon.GlueDataBrew.EncryptionMode EncryptionMode { get; set; }
             public Amazon.GlueDataBrew.SampleMode JobSample_Mode { get; set; }

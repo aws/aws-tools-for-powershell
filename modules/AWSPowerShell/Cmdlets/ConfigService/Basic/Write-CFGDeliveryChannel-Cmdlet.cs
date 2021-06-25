@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigSnapshotDeliveryProperties_DeliveryFrequency
         /// <summary>
         /// <para>
-        /// <para>The frequency with which AWS Config delivers configuration snapshots.</para>
+        /// <para>The frequency with which Config delivers configuration snapshots.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,11 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryChannelName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery channel. By default, AWS Config assigns the name "default"
-        /// when creating the delivery channel. To change the delivery channel name, you must
-        /// use the DeleteDeliveryChannel action to delete your current delivery channel, and
-        /// then you must use the PutDeliveryChannel command to create a delivery channel that
-        /// has the desired name.</para>
+        /// <para>The name of the delivery channel. By default, Config assigns the name "default" when
+        /// creating the delivery channel. To change the delivery channel name, you must use the
+        /// DeleteDeliveryChannel action to delete your current delivery channel, and then you
+        /// must use the PutDeliveryChannel command to create a delivery channel that has the
+        /// desired name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -84,10 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryChannel_S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots
-        /// and configuration history files.</para><para>If you specify a bucket that belongs to another AWS account, that bucket must have
-        /// policies that grant access permissions to AWS Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html">Permissions
-        /// for the Amazon S3 Bucket</a> in the AWS Config Developer Guide.</para>
+        /// <para>The name of the Amazon S3 bucket to which Config delivers configuration snapshots
+        /// and configuration history files.</para><para>If you specify a bucket that belongs to another Amazon Web Services account, that
+        /// bucket must have policies that grant access permissions to Config. For more information,
+        /// see <a href="https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html">Permissions
+        /// for the Amazon S3 Bucket</a> in the Config Developer Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryChannel_S3KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) customer managed
-        /// key (CMK) used to encrypt objects delivered by AWS Config. Must belong to the same
-        /// Region as the destination S3 bucket.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Key Management Service (KMS ) KMS key (KMS key)
+        /// used to encrypt objects delivered by Config. Must belong to the same Region as the
+        /// destination S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,10 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryChannel_SnsTopicARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications
+        /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config sends notifications
         /// about configuration changes.</para><para>If you choose a topic from another account, the topic must have policies that grant
-        /// access permissions to AWS Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html">Permissions
-        /// for the Amazon SNS Topic</a> in the AWS Config Developer Guide.</para>
+        /// access permissions to Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html">Permissions
+        /// for the Amazon SNS Topic</a> in the Config Developer Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

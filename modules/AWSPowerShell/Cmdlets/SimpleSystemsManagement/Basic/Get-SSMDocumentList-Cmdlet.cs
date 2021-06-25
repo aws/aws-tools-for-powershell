@@ -28,8 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Returns all Systems Manager (SSM) documents in the current AWS account and Region.
-    /// You can limit the results of this request by using a filter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns all Systems Manager (SSM) documents in the current Amazon Web Services account
+    /// and Amazon Web Services Region. You can limit the results of this request by using
+    /// a filter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMDocumentList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentIdentifier")]
@@ -59,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// tags that have been applied to a document. Other valid keys include <code>Owner</code>,
         /// <code>Name</code>, <code>PlatformTypes</code>, <code>DocumentType</code>, and <code>TargetType</code>.
         /// For example, to return documents you own use <code>Key=Owner,Values=Self</code>. To
-        /// specify a custom key-value pair, use the format <code>Key=tag:tagName,Values=valueName</code>.</para><note><para>This API action only supports filtering documents by using a single tag key and one
-        /// or more tag values. For example: <code>Key=tag:tagName,Values=valueName1,valueName2</code></para></note>
+        /// specify a custom key-value pair, use the format <code>Key=tag:tagName,Values=valueName</code>.</para><note><para>This API operation only supports filtering documents by using a single tag key and
+        /// one or more tag values. For example: <code>Key=tag:tagName,Values=valueName1,valueName2</code></para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

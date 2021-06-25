@@ -28,8 +28,8 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// Creates or modifies the <code>PublicAccessBlock</code> configuration for an AWS account.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">
+    /// Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon
+    /// Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">
     /// Using Amazon S3 block public access</a>.
     /// 
     ///  
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID for the AWS account whose <code>PublicAccessBlock</code> configuration
-        /// you want to set.</para>
+        /// <para>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code>
+        /// configuration you want to set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>Specifies whether Amazon S3 should restrict public bucket policies for buckets in
         /// this account. Setting this element to <code>TRUE</code> restricts access to buckets
-        /// with public policies to only AWS service principals and authorized users within this
-        /// account.</para><para>Enabling this setting doesn't affect previously stored bucket policies, except that
+        /// with public policies to only Amazon Web Service principals and authorized users within
+        /// this account.</para><para>Enabling this setting doesn't affect previously stored bucket policies, except that
         /// public and cross-account access within any public bucket policy, including non-public
         /// delegation to specific accounts, is blocked.</para><para>This is not supported for Amazon S3 on Outposts.</para>
         /// </para>

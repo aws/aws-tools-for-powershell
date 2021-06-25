@@ -59,6 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Adds one or more tags, each in the form of a key:value pair, to a new Amazon Transcribe
+        /// vocabulary filter at the time you create this new vocabulary filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.TranscribeService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter VocabularyFilterFileUri
         /// <summary>
         /// <para>
@@ -174,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 WriteWarning("You are passing $null as a value for parameter LanguageCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.TranscribeService.Model.Tag>(this.Tag);
+            }
             context.VocabularyFilterFileUri = this.VocabularyFilterFileUri;
             context.VocabularyFilterName = this.VocabularyFilterName;
             #if MODULAR
@@ -205,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.LanguageCode != null)
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.VocabularyFilterFileUri != null)
             {
@@ -280,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
+            public List<Amazon.TranscribeService.Model.Tag> Tag { get; set; }
             public System.String VocabularyFilterFileUri { get; set; }
             public System.String VocabularyFilterName { get; set; }
             public List<System.String> Word { get; set; }

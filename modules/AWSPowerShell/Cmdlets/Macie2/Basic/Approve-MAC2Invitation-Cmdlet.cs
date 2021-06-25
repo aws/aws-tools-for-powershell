@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter AdministratorAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID for the account that sent the invitation.</para>
+        /// <para>The Amazon Web Services account ID for the account that sent the invitation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter MasterAccount
         /// <summary>
         /// <para>
-        /// <para>(Deprecated) The AWS account ID for the account that sent the invitation. This property
-        /// has been replaced by the administratorAccountId property and is retained only for
-        /// backward compatibility.</para>
+        /// <para>(Deprecated) The Amazon Web Services account ID for the account that sent the invitation.
+        /// This property has been replaced by the administratorAccountId property and is retained
+        /// only for backward compatibility.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

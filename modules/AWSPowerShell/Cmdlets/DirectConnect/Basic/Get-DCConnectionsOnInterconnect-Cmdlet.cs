@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// <para>
     /// Lists the connections that have been provisioned on the specified interconnect.
     /// </para><note><para>
-    /// Intended for use by AWS Direct Connect Partners only.
+    /// Intended for use by Direct Connect Partners only.
     /// </para></note><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "DCConnectionsOnInterconnect")]

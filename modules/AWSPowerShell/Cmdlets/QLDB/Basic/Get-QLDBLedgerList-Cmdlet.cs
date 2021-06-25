@@ -28,7 +28,7 @@ using Amazon.QLDB.Model;
 namespace Amazon.PowerShell.Cmdlets.QLDB
 {
     /// <summary>
-    /// Returns an array of ledger summaries that are associated with the current AWS account
+    /// Returns an array of ledger summaries that are associated with the current account
     /// and Region.
     /// 
     ///  

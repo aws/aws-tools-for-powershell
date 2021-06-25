@@ -47,8 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// This is an idempotent operation. If you perform the operation more than once, Amazon
     /// EC2 doesn't return an error.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-    /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+    /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2VpnConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -111,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_RemoteIpv4NetworkCidr
         /// <summary>
         /// <para>
-        /// <para>The IPv4 CIDR on the AWS side of the VPN connection.</para><para>Default: <code>0.0.0.0/0</code></para>
+        /// <para>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</para><para>Default: <code>0.0.0.0/0</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_RemoteIpv6NetworkCidr
         /// <summary>
         /// <para>
-        /// <para>The IPv6 CIDR on the AWS side of the VPN connection.</para><para>Default: <code>::/0</code></para>
+        /// <para>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</para><para>Default: <code>::/0</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

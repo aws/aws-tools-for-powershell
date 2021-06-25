@@ -28,9 +28,9 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Returns the AWS Identity and Access Management (AWS IAM) policy for sharing the specified
-    /// rule group. You can use the policy to share the rule group using AWS Resource Access
-    /// Manager (AWS RAM).
+    /// Returns the Identity and Access Management (Amazon Web Services IAM) policy for sharing
+    /// the specified rule group. You can use the policy to share the rule group using Resource
+    /// Access Manager (RAM).
     /// </summary>
     [Cmdlet("Get", "R53RFirewallRuleGroupPolicy")]
     [OutputType("System.String")]

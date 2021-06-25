@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Lists the tasks in a maintenance window.
     /// 
     ///  <note><para>
-    /// For maintenance window tasks without a specified target, you cannot supply values
-    /// for <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system
+    /// For maintenance window tasks without a specified target, you can't supply values for
+    /// <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system
     /// inserts a placeholder value of <code>1</code>, which may be reported in the response
-    /// to this command. These values do not affect the running of your task and can be ignored.
+    /// to this command. These values don't affect the running of your task and can be ignored.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowTaskList")]
@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Optional filters used to narrow down the scope of the returned tasks. The supported
-        /// filter keys are WindowTaskId, TaskArn, Priority, and TaskType.</para>
+        /// filter keys are <code>WindowTaskId</code>, <code>TaskArn</code>, <code>Priority</code>,
+        /// and <code>TaskType</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

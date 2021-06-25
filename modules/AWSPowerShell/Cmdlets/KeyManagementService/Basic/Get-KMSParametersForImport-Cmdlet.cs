@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Returns the items you need to import key material into a symmetric, customer managed
-    /// customer master key (CMK). For more information about importing key material into
-    /// AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing
-    /// Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// KMS key. For more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing
+    /// Key Material</a> in the <i>Key Management Service Developer Guide</i>.
     /// 
     ///  
     /// <para>
@@ -39,11 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// the symmetric key material. Store the import token to send with a subsequent <a>ImportKeyMaterial</a>
     /// request.
     /// </para><para>
-    /// You must specify the key ID of the symmetric CMK into which you will import key material.
-    /// This CMK's <code>Origin</code> must be <code>EXTERNAL</code>. You must also specify
-    /// the wrapping algorithm and type of wrapping key (public key) that you will use to
-    /// encrypt the key material. You cannot perform this operation on an asymmetric CMK or
-    /// on any CMK in a different AWS account.
+    /// You must specify the key ID of the symmetric KMS key into which you will import key
+    /// material. This KMS key's <code>Origin</code> must be <code>EXTERNAL</code>. You must
+    /// also specify the wrapping algorithm and type of wrapping key (public key) that you
+    /// will use to encrypt the key material. You cannot perform this operation on an asymmetric
+    /// KMS key or on any KMS key in a different Amazon Web Services account.
     /// </para><para>
     /// To import key material, you must use the public key and import token from the same
     /// response. These items are valid for 24 hours. The expiration date and time appear
@@ -51,11 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// in an <a>ImportKeyMaterial</a> request. If your key and token expire, send another
     /// <code>GetParametersForImport</code> request.
     /// </para><para>
-    /// The CMK that you use for this operation must be in a compatible key state. For details,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.
-    /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different
-    /// AWS account.
+    /// The KMS key that you use for this operation must be in a compatible key state. For
+    /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
+    /// state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.
+    /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
+    /// different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetParametersForImport</a>
     /// (key policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>ImportKeyMaterial</a></para></li><li><para><a>DeleteImportedKeyMaterial</a></para></li></ul>
@@ -72,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the symmetric CMK into which you will import key material. The <code>Origin</code>
-        /// of the CMK must be <code>EXTERNAL</code>.</para><para>Specify the key ID or key ARN of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// <para>The identifier of the symmetric KMS key into which you will import key material. The
+        /// <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.
         /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt
-        /// the Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
+        /// the Key Material</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

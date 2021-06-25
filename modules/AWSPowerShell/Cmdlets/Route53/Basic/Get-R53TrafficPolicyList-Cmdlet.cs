@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Gets information about the latest version for every traffic policy that is associated
-    /// with the current AWS account. Policies are listed in the order that they were created
-    /// in. 
+    /// with the current Amazon Web Services account. Policies are listed in the order that
+    /// they were created in. 
     /// 
     ///  
     /// <para>

@@ -50,6 +50,29 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String ArtifactsOverride_ArtifactIdentifier { get; set; }
         #endregion
         
+        #region Parameter ArtifactsOverride_BucketOwnerAccess
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeBuild.BucketOwnerAccess")]
+        public Amazon.CodeBuild.BucketOwnerAccess ArtifactsOverride_BucketOwnerAccess { get; set; }
+        #endregion
+        
+        #region Parameter S3Logs_BucketOwnerAccess
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogsConfigOverride_S3Logs_BucketOwnerAccess")]
+        [AWSConstantClassSource("Amazon.CodeBuild.BucketOwnerAccess")]
+        public Amazon.CodeBuild.BucketOwnerAccess S3Logs_BucketOwnerAccess { get; set; }
+        #endregion
+        
         #region Parameter BuildspecOverride
         /// <summary>
         /// <para>
@@ -57,10 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// defined in the build project.</para><para>If this value is set, it can be either an inline buildspec definition, the path to
         /// an alternate buildspec file relative to the value of the built-in <code>CODEBUILD_SRC_DIR</code>
         /// environment variable, or the path to an S3 bucket. The bucket must be in the same
-        /// Region as the build project. Specify the buildspec file using its ARN (for example,
-        /// <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
-        /// provided or is set to an empty string, the source code must contain a buildspec file
-        /// in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec
+        /// Amazon Web Services Region as the build project. Specify the buildspec file using
+        /// its ARN (for example, <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>).
+        /// If this value is not provided or is set to an empty string, the source code must contain
+        /// a buildspec file in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec
         /// File Name and Storage Location</a>. </para>
         /// </para>
         /// </summary>
@@ -132,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> The Amazon Resource Name (ARN) or name of credentials created using Secrets Manager.
         /// </para><note><para> The <code>credential</code> can use the name of the credentials only if they exist
-        /// in your current Region. </para></note>
+        /// in your current Amazon Web Services Region. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -773,6 +796,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ArtifactsOverride_ArtifactIdentifier = this.ArtifactsOverride_ArtifactIdentifier;
+            context.ArtifactsOverride_BucketOwnerAccess = this.ArtifactsOverride_BucketOwnerAccess;
             context.ArtifactsOverride_EncryptionDisabled = this.ArtifactsOverride_EncryptionDisabled;
             context.ArtifactsOverride_Location = this.ArtifactsOverride_Location;
             context.ArtifactsOverride_Name = this.ArtifactsOverride_Name;
@@ -815,6 +839,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.CloudWatchLogs_GroupName = this.CloudWatchLogs_GroupName;
             context.CloudWatchLogs_Status = this.CloudWatchLogs_Status;
             context.CloudWatchLogs_StreamName = this.CloudWatchLogs_StreamName;
+            context.S3Logs_BucketOwnerAccess = this.S3Logs_BucketOwnerAccess;
             context.S3Logs_EncryptionDisabled = this.S3Logs_EncryptionDisabled;
             context.S3Logs_Location = this.S3Logs_Location;
             context.S3Logs_Status = this.S3Logs_Status;
@@ -876,6 +901,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestArtifactsOverride_artifactsOverride_ArtifactIdentifier != null)
             {
                 request.ArtifactsOverride.ArtifactIdentifier = requestArtifactsOverride_artifactsOverride_ArtifactIdentifier;
+                requestArtifactsOverrideIsNull = false;
+            }
+            Amazon.CodeBuild.BucketOwnerAccess requestArtifactsOverride_artifactsOverride_BucketOwnerAccess = null;
+            if (cmdletContext.ArtifactsOverride_BucketOwnerAccess != null)
+            {
+                requestArtifactsOverride_artifactsOverride_BucketOwnerAccess = cmdletContext.ArtifactsOverride_BucketOwnerAccess;
+            }
+            if (requestArtifactsOverride_artifactsOverride_BucketOwnerAccess != null)
+            {
+                request.ArtifactsOverride.BucketOwnerAccess = requestArtifactsOverride_artifactsOverride_BucketOwnerAccess;
                 requestArtifactsOverrideIsNull = false;
             }
             System.Boolean? requestArtifactsOverride_artifactsOverride_EncryptionDisabled = null;
@@ -1201,6 +1236,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate S3Logs
             var requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = true;
             requestLogsConfigOverride_logsConfigOverride_S3Logs = new Amazon.CodeBuild.Model.S3LogsConfig();
+            Amazon.CodeBuild.BucketOwnerAccess requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_BucketOwnerAccess = null;
+            if (cmdletContext.S3Logs_BucketOwnerAccess != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_BucketOwnerAccess = cmdletContext.S3Logs_BucketOwnerAccess;
+            }
+            if (requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_BucketOwnerAccess != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs.BucketOwnerAccess = requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_BucketOwnerAccess;
+                requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = false;
+            }
             System.Boolean? requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_EncryptionDisabled = null;
             if (cmdletContext.S3Logs_EncryptionDisabled != null)
             {
@@ -1410,6 +1455,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ArtifactsOverride_ArtifactIdentifier { get; set; }
+            public Amazon.CodeBuild.BucketOwnerAccess ArtifactsOverride_BucketOwnerAccess { get; set; }
             public System.Boolean? ArtifactsOverride_EncryptionDisabled { get; set; }
             public System.String ArtifactsOverride_Location { get; set; }
             public System.String ArtifactsOverride_Name { get; set; }
@@ -1443,6 +1489,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String CloudWatchLogs_GroupName { get; set; }
             public Amazon.CodeBuild.LogsConfigStatusType CloudWatchLogs_Status { get; set; }
             public System.String CloudWatchLogs_StreamName { get; set; }
+            public Amazon.CodeBuild.BucketOwnerAccess S3Logs_BucketOwnerAccess { get; set; }
             public System.Boolean? S3Logs_EncryptionDisabled { get; set; }
             public System.String S3Logs_Location { get; set; }
             public Amazon.CodeBuild.LogsConfigStatusType S3Logs_Status { get; set; }

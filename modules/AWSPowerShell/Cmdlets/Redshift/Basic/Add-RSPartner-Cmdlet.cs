@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID that owns the cluster.</para>
+        /// <para>The Amazon Web Services account ID that owns the cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

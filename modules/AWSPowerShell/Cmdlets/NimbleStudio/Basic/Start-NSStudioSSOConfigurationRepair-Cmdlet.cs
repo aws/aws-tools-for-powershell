@@ -32,15 +32,15 @@ namespace Amazon.PowerShell.Cmdlets.NS
     /// 
     ///  
     /// <para>
-    /// If the studio has a valid AWS SSO configuration currently associated with it, this
-    /// operation will fail with a validation error.
+    /// If the studio has a valid Amazon Web Services SSO configuration currently associated
+    /// with it, this operation will fail with a validation error.
     /// </para><para>
-    /// If the studio does not have a valid AWS SSO configuration currently associated with
-    /// it, then a new AWS SSO application is created for the studio and the studio is changed
-    /// to the READY state.
+    /// If the studio does not have a valid Amazon Web Services SSO configuration currently
+    /// associated with it, then a new Amazon Web Services SSO application is created for
+    /// the studio and the studio is changed to the READY state.
     /// </para><para>
-    /// After the AWS SSO application is repaired, you must use the Amazon Nimble Studio console
-    /// to add administrators and users to your studio.
+    /// After the Amazon Web Services SSO application is repaired, you must use the Amazon
+    /// Nimble Studio console to add administrators and users to your studio.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "NSStudioSSOConfigurationRepair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

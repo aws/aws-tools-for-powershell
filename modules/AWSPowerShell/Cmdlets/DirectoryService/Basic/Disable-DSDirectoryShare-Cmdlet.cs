@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AWS Managed Microsoft AD directory that you want to stop sharing.</para>
+        /// <para>The identifier of the Managed Microsoft AD directory that you want to stop sharing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

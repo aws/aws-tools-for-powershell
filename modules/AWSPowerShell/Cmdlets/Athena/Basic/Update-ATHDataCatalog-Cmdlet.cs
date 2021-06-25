@@ -53,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the data catalog to update. The catalog name must be unique for the AWS
-        /// account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen
-        /// characters.</para>
+        /// <para>The name of the data catalog to update. The catalog name must be unique for the Amazon
+        /// Web Services account and can use a maximum of 128 alphanumeric, underscore, at sign,
+        /// or hyphen characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,9 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>Specifies the type of data catalog to update. Specify <code>LAMBDA</code> for a federated
-        /// catalog or <code>HIVE</code> for an external hive metastore.</para><note><para>Do not use the <code>GLUE</code> type. This refers to the <code>AwsDataCatalog</code>
-        /// that already exists in your account, of which you can have only one. Specifying the
-        /// <code>GLUE</code> type will result in an <code>INVALID_INPUT</code> error.</para></note>
+        /// catalog, <code>HIVE</code> for an external hive metastore, or <code>GLUE</code> for
+        /// an Glue Data Catalog.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

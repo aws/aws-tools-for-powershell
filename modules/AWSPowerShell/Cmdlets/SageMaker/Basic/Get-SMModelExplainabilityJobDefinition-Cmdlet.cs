@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the model explainability job definition. The name must be unique within
-        /// an AWS Region in the AWS account.</para>
+        /// an Amazon Web Services Region in the Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

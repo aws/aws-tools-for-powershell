@@ -28,8 +28,8 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns a list of jobs that AWS Backup initiated to restore a saved resource, including
-    /// metadata about the recovery process.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of jobs that Backup initiated to restore a saved resource, including
+    /// details about the recovery process.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKRestoreJobList")]
     [OutputType("Amazon.Backup.Model.RestoreJobsListMember")]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
     /// List the Packages that are associated with an Image Build Version, as determined by
-    /// AWS Systems Manager Inventory at build time.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Amazon Web Services Systems Manager Inventory at build time.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IBImagePackageList")]
     [OutputType("Amazon.Imagebuilder.Model.ImagePackage")]

@@ -70,6 +70,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int64? CurrentVersion { get; set; }
         #endregion
         
+        #region Parameter MaxEntry
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of entries for the prefix list. You cannot modify the entries of
+        /// a prefix list and modify the size of a prefix list at the same time.</para><para>If any of the resources that reference the prefix list cannot support the new maximum
+        /// size, the modify operation fails. Check the state message for the IDs of the first
+        /// ten resources that do not support the new maximum size.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxEntries")]
+        public System.Int32? MaxEntry { get; set; }
+        #endregion
+        
         #region Parameter PrefixListId
         /// <summary>
         /// <para>
@@ -174,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.AddEntry = new List<Amazon.EC2.Model.AddPrefixListEntry>(this.AddEntry);
             }
             context.CurrentVersion = this.CurrentVersion;
+            context.MaxEntry = this.MaxEntry;
             context.PrefixListId = this.PrefixListId;
             #if MODULAR
             if (this.PrefixListId == null && ParameterWasBound(nameof(this.PrefixListId)))
@@ -209,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.CurrentVersion != null)
             {
                 request.CurrentVersion = cmdletContext.CurrentVersion.Value;
+            }
+            if (cmdletContext.MaxEntry != null)
+            {
+                request.MaxEntries = cmdletContext.MaxEntry.Value;
             }
             if (cmdletContext.PrefixListId != null)
             {
@@ -285,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public List<Amazon.EC2.Model.AddPrefixListEntry> AddEntry { get; set; }
             public System.Int64? CurrentVersion { get; set; }
+            public System.Int32? MaxEntry { get; set; }
             public System.String PrefixListId { get; set; }
             public System.String PrefixListName { get; set; }
             public List<Amazon.EC2.Model.RemovePrefixListEntry> RemoveEntry { get; set; }

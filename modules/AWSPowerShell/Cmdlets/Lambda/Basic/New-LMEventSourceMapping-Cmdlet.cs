@@ -28,19 +28,19 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Creates a mapping between an event source and an AWS Lambda function. Lambda reads
-    /// items from the event source and triggers the function.
+    /// Creates a mapping between an event source and an Lambda function. Lambda reads items
+    /// from the event source and triggers the function.
     /// 
     ///  
     /// <para>
-    /// For details about each event source type, see the following topics.
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda
-    /// with Amazon DynamoDB</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS
-    /// Lambda with Amazon Kinesis</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda
-    /// with Amazon SQS</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Using AWS Lambda
-    /// with Amazon MQ</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda
-    /// with Amazon MSK</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">Using AWS
-    /// Lambda with Self-Managed Apache Kafka</a></para></li></ul><para>
+    /// For details about each event source type, see the following topics. 
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping">
+    /// Configuring a Dynamo DB stream as an event source</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping">
+    /// Configuring a Kinesis stream as an event source</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
+    /// Configuring an Amazon SQS queue as an event source</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
+    /// Configuring an MQ broker as an event source</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Configuring
+    /// MSK as an event source</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Configuring
+    /// Self-Managed Apache Kafka as an event source</a></para></li></ul><para>
     /// The following error handling options are only available for stream sources (DynamoDB
     /// and Kinesis):
     /// </para><ul><li><para><code>BisectBatchOnFunctionError</code> - If the function returns an error, split
@@ -68,7 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter BatchSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to retrieve in a single batch.</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000.
+        /// <para>The maximum number of records in each batch that Lambda pulls from your stream or
+        /// queue and sends to your function. Lambda passes all of the records in the batch to
+        /// the function in a single call, up to the payload limit for synchronous invocation
+        /// (6 MB).</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000.
         /// For FIFO queues the max is 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</para></li></ul>
         /// </para>
         /// </summary>
@@ -79,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter BisectBatchOnFunctionError
         /// <summary>
         /// <para>
-        /// <para>(Streams) If the function returns an error, split the batch in two and retry.</para>
+        /// <para>(Streams only) If the function returns an error, split the batch in two and retry.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>If true, the event source mapping is active. Set to false to pause polling and invocation.</para>
+        /// <para>When true, the event source mapping is active. When false, Lambda pauses polling and
+        /// invocation.</para><para>Default: True</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionResponseType
         /// <summary>
         /// <para>
-        /// <para>(Streams) A list of current response type enums applied to the event source mapping.</para>
+        /// <para>(Streams only) A list of current response type enums applied to the event source mapping.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaximumBatchingWindowInSecond
         /// <summary>
         /// <para>
-        /// <para>(Streams and SQS standard queues) The maximum amount of time to gather records before
-        /// invoking the function, in seconds.</para>
+        /// <para>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that
+        /// Lambda spends gathering records before invoking the function.</para><para>Default: 0</para><para>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you
+        /// must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaximumRecordAgeInSecond
         /// <summary>
         /// <para>
-        /// <para>(Streams) Discard records older than the specified age. The default value is infinite
-        /// (-1).</para>
+        /// <para>(Streams only) Discard records older than the specified age. The default value is
+        /// infinite (-1).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,9 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaximumRetryAttempt
         /// <summary>
         /// <para>
-        /// <para>(Streams) Discard records after the specified number of retries. The default value
-        /// is infinite (-1). When set to infinite (-1), failed records will be retried until
-        /// the record expires.</para>
+        /// <para>(Streams only) Discard records after the specified number of retries. The default
+        /// value is infinite (-1). When set to infinite (-1), failed records will be retried
+        /// until the record expires.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter ParallelizationFactor
         /// <summary>
         /// <para>
-        /// <para>(Streams) The number of batches to process from each shard concurrently.</para>
+        /// <para>(Streams only) The number of batches to process from each shard concurrently.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter SourceAccessConfiguration
         /// <summary>
         /// <para>
-        /// <para>An array of the authentication protocol, or the VPC components to secure your event
+        /// <para>An array of authentication protocols or VPC components required to secure your event
         /// source.</para>
         /// </para>
         /// </summary>
@@ -276,8 +281,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter TumblingWindowInSecond
         /// <summary>
         /// <para>
-        /// <para>(Streams) The duration in seconds of a processing window. The range is between 1 second
-        /// up to 900 seconds.</para>
+        /// <para>(Streams only) The duration in seconds of a processing window. The range is between
+        /// 1 second up to 900 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

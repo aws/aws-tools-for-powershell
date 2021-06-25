@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the Outposts bucket.</para>
+        /// <para>The Amazon Web Services account ID of the Outposts bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter OutpostId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Outposts.</para><note><para>This is required by Amazon S3 on Outposts buckets.</para></note>
+        /// <para>The ID of the Outposts.</para><note><para>This is required by Amazon S3 on Outposts buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

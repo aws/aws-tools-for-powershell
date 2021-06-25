@@ -28,8 +28,8 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Resume an active AWS App Runner service. App Runner provisions compute capacity for
-    /// the service.
+    /// Resume an active App Runner service. App Runner provisions compute capacity for the
+    /// service.
     /// 
     ///  
     /// <para>

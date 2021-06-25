@@ -28,7 +28,7 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Updates the state when a the shipment states changes to a different state.
+    /// Updates the state when a shipment state changes to a different state.
     /// </summary>
     [Cmdlet("Update", "SNOWJobShipmentState", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

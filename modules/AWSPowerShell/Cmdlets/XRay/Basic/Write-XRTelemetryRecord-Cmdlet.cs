@@ -28,7 +28,7 @@ using Amazon.XRay.Model;
 namespace Amazon.PowerShell.Cmdlets.XR
 {
     /// <summary>
-    /// Used by the AWS X-Ray daemon to upload telemetry.
+    /// Used by the Amazon Web Services X-Ray daemon to upload telemetry.
     /// </summary>
     [Cmdlet("Write", "XRTelemetryRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

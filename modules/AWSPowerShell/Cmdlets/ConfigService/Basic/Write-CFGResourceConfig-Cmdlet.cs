@@ -29,17 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Records the configuration state for the resource provided in the request. The configuration
-    /// state of a resource is represented in AWS Config as Configuration Items. Once this
-    /// API records the configuration item, you can retrieve the list of configuration items
-    /// for the custom resource type using existing AWS Config APIs. 
+    /// state of a resource is represented in Config as Configuration Items. Once this API
+    /// records the configuration item, you can retrieve the list of configuration items for
+    /// the custom resource type using existing Config APIs. 
     /// 
     ///  <note><para>
-    /// The custom resource type must be registered with AWS CloudFormation. This API accepts
-    /// the configuration item registered with AWS CloudFormation.
+    /// The custom resource type must be registered with CloudFormation. This API accepts
+    /// the configuration item registered with CloudFormation.
     /// </para><para>
-    /// When you call this API, AWS Config only stores configuration state of the resource
-    /// provided in the request. This API does not change or remediate the configuration of
-    /// the resource. 
+    /// When you call this API, Config only stores configuration state of the resource provided
+    /// in the request. This API does not change or remediate the configuration of the resource.
+    /// 
     /// </para><para>
     /// Write-only schema properites are not recorded as part of the published configuration
     /// item.
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The configuration object of the resource in valid JSON format. It must match the schema
-        /// registered with AWS CloudFormation.</para><note><para>The configuration JSON must not exceed 64 KB.</para></note>
+        /// registered with CloudFormation.</para><note><para>The configuration JSON must not exceed 64 KB.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -103,9 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the resource. The custom resource type must be registered with AWS CloudFormation.
-        /// </para><note><para>You cannot use the organization names “aws”, “amzn”, “amazon”, “alexa”, “custom” with
-        /// custom resource types. It is the first part of the ResourceType up to the first ::.</para></note>
+        /// <para>The type of the resource. The custom resource type must be registered with CloudFormation.
+        /// </para><note><para>You cannot use the organization names “amzn”, “amazon”, “alexa”, “custom” with custom
+        /// resource types. It is the first part of the ResourceType up to the first ::.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter SchemaVersionId
         /// <summary>
         /// <para>
-        /// <para>Version of the schema registered for the ResourceType in AWS CloudFormation.</para>
+        /// <para>Version of the schema registered for the ResourceType in CloudFormation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the contact channel</para>
+        /// <para>The name of the contact channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

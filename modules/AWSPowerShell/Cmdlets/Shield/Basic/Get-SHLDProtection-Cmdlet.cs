@@ -55,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a> object
-        /// that is described. When submitting the <code>DescribeProtection</code> request you
-        /// must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>,
+        /// <para>The ARN (Amazon Resource Name) of the Amazon Web Services resource for the <a>Protection</a>
+        /// object that is described. When submitting the <code>DescribeProtection</code> request
+        /// you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>,
         /// but not both.</para>
         /// </para>
         /// </summary>

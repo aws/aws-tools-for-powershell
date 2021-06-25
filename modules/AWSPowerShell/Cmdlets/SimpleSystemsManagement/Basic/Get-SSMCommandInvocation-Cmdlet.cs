@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// An invocation is copy of a command sent to a specific instance. A command can apply
     /// to one or more instances. A command invocation applies to one instance. For example,
-    /// if a user runs SendCommand against three instances, then a command invocation is created
-    /// for each requested instance ID. ListCommandInvocations provide status about command
-    /// execution.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// if a user runs <code>SendCommand</code> against three instances, then a command invocation
+    /// is created for each requested instance ID. <code>ListCommandInvocations</code> provide
+    /// status about command execution.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMCommandInvocation")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.CommandInvocation")]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>(Optional) If set this returns the response of the command executions and any command
-        /// output. The default value is 'false'. </para>
+        /// output. The default value is <code>false</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

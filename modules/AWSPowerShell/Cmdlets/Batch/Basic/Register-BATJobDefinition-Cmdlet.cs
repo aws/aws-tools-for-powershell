@@ -28,7 +28,7 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Registers an AWS Batch job definition.
+    /// Registers an Batch job definition.
     /// </summary>
     [Cmdlet("Register", "BATJobDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Batch.Model.RegisterJobDefinitionResponse")]
@@ -42,10 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter NetworkConfiguration_AssignPublicIp
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the job should have a public IP address. For a job running on Fargate
-        /// resources in a private subnet to send outbound traffic to the internet (for example,
-        /// in order to pull container images), the private subnet requires a NAT gateway be attached
-        /// to route requests to the internet. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Amazon
+        /// <para>Indicates whether the job should have a public IP address. For a job that is running
+        /// on Fargate resources in a private subnet to send outbound traffic to the internet
+        /// (for example, to pull container images), the private subnet requires a NAT gateway
+        /// be attached to route requests to the internet. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Amazon
         /// ECS task networking</a>. The default value is "DISABLED".</para>
         /// </para>
         /// </summary>
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--device</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
-        /// be provided.</para></note>
+        /// run</a>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources and
+        /// shouldn't be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// Remote API</a> and the <code>--env</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><important><para>We don't recommend using plaintext environment variables for sensitive information,
         /// such as credential data.</para></important><note><para>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention
-        /// is reserved for variables that are set by the AWS Batch service.</para></note>
+        /// is reserved for variables that are set by the Batch service.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,10 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_ExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For
-        /// jobs that run on Fargate resources, you must provide an execution role. For more information,
-        /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">AWS
-        /// Batch execution IAM role</a> in the <i>AWS Batch User Guide</i>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For jobs
+        /// that run on Fargate resources, you must provide an execution role. For more information,
+        /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">Batch
+        /// execution IAM role</a> in the <i>Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The instance type to use for a multi-node parallel job. All node groups in a multi-node
-        /// parallel job must use the same instance type.</para><note><para>This parameter isn't applicable to single-node container jobs or for jobs that run
-        /// on Fargate resources and shouldn't be provided.</para></note>
+        /// parallel job must use the same instance type.</para><note><para>This parameter isn't applicable to single-node container jobs or jobs that run on
+        /// Fargate resources, and shouldn't be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,8 +212,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_JobRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS
-        /// permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that the container can assume for Amazon
+        /// Web Services permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
         /// Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -227,9 +227,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The log driver to use for the container. The valid values listed for this parameter
         /// are log drivers that the Amazon ECS container agent can communicate with by default.</para><para>The supported log drivers are <code>awslogs</code>, <code>fluentd</code>, <code>gelf</code>,
         /// <code>json-file</code>, <code>journald</code>, <code>logentries</code>, <code>syslog</code>,
-        /// and <code>splunk</code>.</para><note><para>Jobs running on Fargate resources are restricted to the <code>awslogs</code> and <code>splunk</code>
-        /// log drivers.</para></note><dl><dt>awslogs</dt><dd><para>Specifies the Amazon CloudWatch Logs logging driver. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html">Using
-        /// the awslogs Log Driver</a> in the <i>AWS Batch User Guide</i> and <a href="https://docs.docker.com/config/containers/logging/awslogs/">Amazon
+        /// and <code>splunk</code>.</para><note><para>Jobs that are running on Fargate resources are restricted to the <code>awslogs</code>
+        /// and <code>splunk</code> log drivers.</para></note><dl><dt>awslogs</dt><dd><para>Specifies the Amazon CloudWatch Logs logging driver. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html">Using
+        /// the awslogs Log Driver</a> in the <i>Batch User Guide</i> and <a href="https://docs.docker.com/config/containers/logging/awslogs/">Amazon
         /// CloudWatch Logs logging driver</a> in the Docker documentation.</para></dd><dt>fluentd</dt><dd><para>Specifies the Fluentd logging driver. For more information, including usage and options,
         /// see <a href="https://docs.docker.com/config/containers/logging/fluentd/">Fluentd logging
         /// driver</a> in the Docker documentation.</para></dd><dt>gelf</dt><dd><para>Specifies the Graylog Extended Format (GELF) logging driver. For more information,
@@ -280,8 +280,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// use swap. Accepted values are <code>0</code> or any positive integer. If the <code>maxSwap</code>
         /// parameter is omitted, the container doesn't use the swap configuration for the container
         /// instance it is running on. A <code>maxSwap</code> value must be set for the <code>swappiness</code>
-        /// parameter to be used.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
-        /// be provided.</para></note>
+        /// parameter to be used.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources and
+        /// shouldn't be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -368,13 +368,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter FargatePlatformConfiguration_PlatformVersion
         /// <summary>
         /// <para>
-        /// <para>The AWS Fargate platform version where the jobs are running. A platform version is
-        /// specified only for jobs running on Fargate resources. If one isn't specified, the
-        /// <code>LATEST</code> platform version is used by default. This uses a recent, approved
-        /// version of the AWS Fargate platform for compute resources. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
-        /// Fargate platform versions</a> in the <i>Amazon Elastic Container Service Developer
-        /// Guide</i>.</para>
+        /// <para>The Fargate platform version where the jobs are running. A platform version is specified
+        /// only for jobs that are running on Fargate resources. If one isn't specified, the <code>LATEST</code>
+        /// platform version is used by default. This uses a recent, approved version of the Fargate
+        /// platform for compute resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
+        /// platform versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -390,8 +388,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <code>Privileged</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--privileged</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>. The default value is false.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
-        /// be provided, or specified as false.</para></note>
+        /// run</a>. The default value is false.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources and
+        /// shouldn't be provided, or specified as false.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -443,7 +441,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html">Specifying
-        /// Sensitive Data</a> in the <i>AWS Batch User Guide</i>.</para>
+        /// Sensitive Data</a> in the <i>Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -455,7 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The secrets for the container. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html">Specifying
-        /// sensitive data</a> in the <i>AWS Batch User Guide</i>.</para>
+        /// sensitive data</a> in the <i>Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -468,8 +466,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The value for the size (in MiB) of the <code>/dev/shm</code> volume. This parameter
         /// maps to the <code>--shm-size</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
-        /// be provided.</para></note>
+        /// run</a>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources and
+        /// shouldn't be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -485,8 +483,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// A <code>swappiness</code> value of <code>100</code> causes pages to be swapped very
         /// aggressively. Accepted values are whole numbers between <code>0</code> and <code>100</code>.
         /// If the <code>swappiness</code> parameter isn't specified, a default value of <code>60</code>
-        /// is used. If a value isn't specified for <code>maxSwap</code> then this parameter is
-        /// ignored. If <code>maxSwap</code> is set to 0, the container doesn't use swap. This
+        /// is used. If a value isn't specified for <code>maxSwap</code>, then this parameter
+        /// is ignored. If <code>maxSwap</code> is set to 0, the container doesn't use swap. This
         /// parameter maps to the <code>--memory-swappiness</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><para>Consider the following when you use a per-container swap configuration.</para><ul><li><para>Swap space must be enabled and allocated on the container instance for the containers
         /// to use.</para><note><para>The Amazon ECS optimized AMIs don't have swap enabled by default. You must enable
@@ -497,8 +495,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// file?</a></para></note></li><li><para>The swap space parameters are only supported for job definitions using EC2 resources.</para></li><li><para>If the <code>maxSwap</code> and <code>swappiness</code> parameters are omitted from
         /// a job definition, each container will have a default <code>swappiness</code> value
         /// of 60, and the total swap usage will be limited to two times the memory reservation
-        /// of the container.</para></li></ul><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
-        /// be provided.</para></note>
+        /// of the container.</para></li></ul><note><para>This parameter isn't applicable to jobs that are running on Fargate resources and
+        /// shouldn't be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -512,7 +510,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The tags that you apply to the job definition to help you categorize and organize
         /// your resources. Each tag consists of a key and an optional value. For more information,
         /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging
-        /// AWS Resources</a> in <i>AWS Batch User Guide</i>.</para>
+        /// Amazon Web Services Resources</a> in <i>Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -524,11 +522,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The timeout configuration for jobs that are submitted with this job definition, after
-        /// which AWS Batch terminates your jobs if they have not finished. If a job is terminated
+        /// which Batch terminates your jobs if they have not finished. If a job is terminated
         /// due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
         /// Any timeout configuration that's specified during a <a>SubmitJob</a> operation overrides
         /// the timeout configuration defined here. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html">Job
-        /// Timeouts</a> in the <i>AWS Batch User Guide</i>.</para>
+        /// Timeouts</a> in the <i>Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -540,8 +538,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter
         /// maps to the <code>--tmpfs</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
-        /// be provided.</para></note>
+        /// run</a>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources and
+        /// shouldn't be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -554,7 +552,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The type of job definition. For more information about multi-node parallel jobs, see
         /// <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html">Creating
-        /// a multi-node parallel job definition</a> in the <i>AWS Batch User Guide</i>.</para><note><para>If the job is run on Fargate resources, then <code>multinode</code> isn't supported.</para></note>
+        /// a multi-node parallel job definition</a> in the <i>Batch User Guide</i>.</para><note><para>If the job is run on Fargate resources, then <code>multinode</code> isn't supported.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -575,8 +573,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
-        /// be provided.</para></note>
+        /// run</a>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources and
+        /// shouldn't be provided.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -613,16 +611,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>This parameter indicates the memory hard limit (in MiB) for a container. If your container
-        /// attempts to exceed the specified number, it is terminated. You must specify at least
+        /// attempts to exceed the specified number, it's terminated. You must specify at least
         /// 4 MiB of memory for a job using this parameter. The memory hard limit can be specified
         /// in several places. It must be specified for each node at least once.</para><para>This parameter maps to <code>Memory</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--memory</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><para>This parameter is supported on EC2 resources but isn't supported on Fargate resources.
         /// For Fargate resources, you should specify the memory requirement using <code>resourceRequirement</code>.
-        /// You can do this for EC2 resources.</para><note><para>If you're trying to maximize your resource utilization by providing your jobs as much
+        /// You can also do this for EC2 resources.</para><note><para>If you're trying to maximize your resource utilization by providing your jobs as much
         /// memory as possible for a particular instance type, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html">Memory
-        /// Management</a> in the <i>AWS Batch User Guide</i>.</para></note>
+        /// Management</a> in the <i>Batch User Guide</i>.</para></note>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -638,13 +636,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// This parameter maps to <code>CpuShares</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>. The number of vCPUs must be specified but can be be specified in several
-        /// places. You must specify it at least once for each node.</para><para>This parameter is supported on EC2 resources but isn't supported for jobs that run
+        /// run</a>. The number of vCPUs must be specified but can be specified in several places.
+        /// You must specify it at least once for each node.</para><para>This parameter is supported on EC2 resources but isn't supported for jobs that run
         /// on Fargate resources. For these resources, use <code>resourceRequirement</code> instead.
         /// You can use this parameter or <code>resourceRequirements</code> structure but not
-        /// both.</para><note><para>This parameter isn't applicable to jobs running on Fargate resources and shouldn't
-        /// be provided. For jobs that run on Fargate resources, you must specify the vCPU requirement
-        /// for the job using <code>resourceRequirements</code>.</para></note>
+        /// both.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources and
+        /// shouldn't be provided. For jobs that run on Fargate resources, you must specify the
+        /// vCPU requirement for the job using <code>resourceRequirements</code>.</para></note>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

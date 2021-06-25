@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     /// method, use one of the following combinations of request parameters: 
     /// 
     ///  <ul><li><para>
-    /// AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the
-    /// cluster identifier that matches the cluster in the secret. 
+    /// Secrets Manager - specify the Amazon Resource Name (ARN) of the secret, the database
+    /// name, and the cluster identifier that matches the cluster in the secret. 
     /// </para></li><li><para>
     /// Temporary credentials - specify the cluster identifier, the database name, and the
     /// database user name. Permission to call the <code>redshift:GetClusterCredentials</code>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         /// <summary>
         /// <para>
         /// <para>The cluster identifier. This parameter is required when authenticating using either
-        /// AWS Secrets Manager or temporary credentials. </para>
+        /// Secrets Manager or temporary credentials. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,11 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         #region Parameter Database
         /// <summary>
         /// <para>
-        /// <para>The name of the database. This parameter is required when authenticating using temporary
-        /// credentials.</para>
+        /// <para>The name of the database. This parameter is required when authenticating using either
+        /// Secrets Manager or temporary credentials. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Database { get; set; }
         #endregion
         
@@ -106,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         /// <summary>
         /// <para>
         /// <para>The name or ARN of the secret that enables access to the database. This parameter
-        /// is required when authenticating using AWS Secrets Manager. </para>
+        /// is required when authenticating using Secrets Manager. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,6 +208,12 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             }
             #endif
             context.Database = this.Database;
+            #if MODULAR
+            if (this.Database == null && ParameterWasBound(nameof(this.Database)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Database which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.DbUser = this.DbUser;
             if (this.Parameter != null)
             {

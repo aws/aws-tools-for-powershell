@@ -83,6 +83,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.NetworkInterfaceCreationType InterfaceType { get; set; }
         #endregion
         
+        #region Parameter Ipv4PrefixCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the
+        /// network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code>
+        /// option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Ipv4PrefixCount { get; set; }
+        #endregion
+        
+        #region Parameter Ipv4Prefix
+        /// <summary>
+        /// <para>
+        /// <para>One or more IPv4 prefixes assigned to the network interface. You cannot use this option
+        /// if you use the <code>Ipv4PrefixCount</code> option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Ipv4Prefixes")]
+        public Amazon.EC2.Model.Ipv4PrefixSpecificationRequest[] Ipv4Prefix { get; set; }
+        #endregion
+        
         #region Parameter Ipv6AddressCount
         /// <summary>
         /// <para>
@@ -107,6 +131,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Ipv6Addresses")]
         public Amazon.EC2.Model.InstanceIpv6Address[] Ipv6Address { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6PrefixCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the
+        /// network interface. You cannot use this option if you use the <code>Ipv6Prefixes</code>
+        /// option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Ipv6PrefixCount { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6Prefix
+        /// <summary>
+        /// <para>
+        /// <para>One or more IPv6 prefixes assigned to the network interface. You cannot use this option
+        /// if you use the <code>Ipv6PrefixCount</code> option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Ipv6Prefixes")]
+        public Amazon.EC2.Model.Ipv6PrefixSpecificationRequest[] Ipv6Prefix { get; set; }
         #endregion
         
         #region Parameter PrivateIpAddress
@@ -257,10 +305,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Group = new List<System.String>(this.Group);
             }
             context.InterfaceType = this.InterfaceType;
+            context.Ipv4PrefixCount = this.Ipv4PrefixCount;
+            if (this.Ipv4Prefix != null)
+            {
+                context.Ipv4Prefix = new List<Amazon.EC2.Model.Ipv4PrefixSpecificationRequest>(this.Ipv4Prefix);
+            }
             context.Ipv6AddressCount = this.Ipv6AddressCount;
             if (this.Ipv6Address != null)
             {
                 context.Ipv6Address = new List<Amazon.EC2.Model.InstanceIpv6Address>(this.Ipv6Address);
+            }
+            context.Ipv6PrefixCount = this.Ipv6PrefixCount;
+            if (this.Ipv6Prefix != null)
+            {
+                context.Ipv6Prefix = new List<Amazon.EC2.Model.Ipv6PrefixSpecificationRequest>(this.Ipv6Prefix);
             }
             context.PrivateIpAddress = this.PrivateIpAddress;
             if (this.PrivateIpAddressSet != null)
@@ -311,6 +369,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.InterfaceType = cmdletContext.InterfaceType;
             }
+            if (cmdletContext.Ipv4PrefixCount != null)
+            {
+                request.Ipv4PrefixCount = cmdletContext.Ipv4PrefixCount.Value;
+            }
+            if (cmdletContext.Ipv4Prefix != null)
+            {
+                request.Ipv4Prefixes = cmdletContext.Ipv4Prefix;
+            }
             if (cmdletContext.Ipv6AddressCount != null)
             {
                 request.Ipv6AddressCount = cmdletContext.Ipv6AddressCount.Value;
@@ -318,6 +384,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Ipv6Address != null)
             {
                 request.Ipv6Addresses = cmdletContext.Ipv6Address;
+            }
+            if (cmdletContext.Ipv6PrefixCount != null)
+            {
+                request.Ipv6PrefixCount = cmdletContext.Ipv6PrefixCount.Value;
+            }
+            if (cmdletContext.Ipv6Prefix != null)
+            {
+                request.Ipv6Prefixes = cmdletContext.Ipv6Prefix;
             }
             if (cmdletContext.PrivateIpAddress != null)
             {
@@ -404,8 +478,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Description { get; set; }
             public List<System.String> Group { get; set; }
             public Amazon.EC2.NetworkInterfaceCreationType InterfaceType { get; set; }
+            public System.Int32? Ipv4PrefixCount { get; set; }
+            public List<Amazon.EC2.Model.Ipv4PrefixSpecificationRequest> Ipv4Prefix { get; set; }
             public System.Int32? Ipv6AddressCount { get; set; }
             public List<Amazon.EC2.Model.InstanceIpv6Address> Ipv6Address { get; set; }
+            public System.Int32? Ipv6PrefixCount { get; set; }
+            public List<Amazon.EC2.Model.Ipv6PrefixSpecificationRequest> Ipv6Prefix { get; set; }
             public System.String PrivateIpAddress { get; set; }
             public List<Amazon.EC2.Model.PrivateIpAddressSpecification> PrivateIpAddressSet { get; set; }
             public System.Int32? SecondaryPrivateIpAddressCount { get; set; }

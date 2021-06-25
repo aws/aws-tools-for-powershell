@@ -29,28 +29,30 @@ namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
     /// Called by an SaaS partner to create a partner event source. This operation is not
-    /// used by AWS customers.
+    /// used by Amazon Web Services customers.
     /// 
     ///  
     /// <para>
-    /// Each partner event source can be used by one AWS account to create a matching partner
-    /// event bus in that AWS account. A SaaS partner must create one partner event source
-    /// for each AWS account that wants to receive those event types. 
+    /// Each partner event source can be used by one Amazon Web Services account to create
+    /// a matching partner event bus in that Amazon Web Services account. A SaaS partner must
+    /// create one partner event source for each Amazon Web Services account that wants to
+    /// receive those event types. 
     /// </para><para>
     /// A partner event source creates events based on resources within the SaaS partner's
     /// service or application.
     /// </para><para>
-    /// An AWS account that creates a partner event bus that matches the partner event source
-    /// can use that event bus to receive events from the partner, and then process them using
-    /// AWS Events rules and targets.
+    /// An Amazon Web Services account that creates a partner event bus that matches the partner
+    /// event source can use that event bus to receive events from the partner, and then process
+    /// them using Amazon Web Services Events rules and targets.
     /// </para><para>
     /// Partner event source names follow this format:
     /// </para><para><code><i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i></code></para><para><i>partner_name</i> is determined during partner registration and identifies the
-    /// partner to AWS customers. <i>event_namespace</i> is determined by the partner and
-    /// is a way for the partner to categorize their events. <i>event_name</i> is determined
-    /// by the partner, and should uniquely identify an event-generating resource within the
-    /// partner system. The combination of <i>event_namespace</i> and <i>event_name</i> should
-    /// help AWS customers decide whether to create an event bus to receive these events.
+    /// partner to Amazon Web Services customers. <i>event_namespace</i> is determined by
+    /// the partner and is a way for the partner to categorize their events. <i>event_name</i>
+    /// is determined by the partner, and should uniquely identify an event-generating resource
+    /// within the partner system. The combination of <i>event_namespace</i> and <i>event_name</i>
+    /// should help Amazon Web Services customers decide whether to create an event bus to
+    /// receive these events.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CWEPartnerEventSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID that is permitted to create a matching partner event bus for this
-        /// partner event source.</para>
+        /// <para>The Amazon Web Services account ID that is permitted to create a matching partner
+        /// event bus for this partner event source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <para>
         /// <para>The name of the partner event source. This name must be unique and must be in the
         /// format <code><i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i></code>.
-        /// The AWS account that wants to use this partner event source must create a partner
-        /// event bus with a name that matches the name of the partner event source.</para>
+        /// The Amazon Web Services account that wants to use this partner event source must create
+        /// a partner event bus with a name that matches the name of the partner event source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

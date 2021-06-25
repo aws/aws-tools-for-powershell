@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled,
     /// the operation throws the exception <code>InsightNotEnabledException</code><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging
-    /// CloudTrail Insights Events for Trails </a> in the <i>AWS CloudTrail User Guide</i>.
+    /// CloudTrail Insights Events for Trails </a> in the <i>CloudTrail User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CTInsightSelector")]

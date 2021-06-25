@@ -180,6 +180,7 @@ $CO_SelectMap = @{
                "Get-COEC2InstanceRecommendation",
                "Get-COEC2RecommendationProjectedMetric",
                "Get-COEnrollmentStatus",
+               "Get-COEnrollmentStatusesForOrganization",
                "Get-COLambdaFunctionRecommendation",
                "Get-CORecommendationSummary",
                "Update-COEnrollmentStatus")

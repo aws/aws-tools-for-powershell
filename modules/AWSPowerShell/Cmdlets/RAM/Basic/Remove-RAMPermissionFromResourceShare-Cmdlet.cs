@@ -28,7 +28,7 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Disassociates an AWS RAM permission from a resource share.
+    /// Disassociates an RAM permission from a resource share.
     /// </summary>
     [Cmdlet("Remove", "RAMPermissionFromResourceShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Boolean")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter PermissionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the permission to disassociate from the resource share.</para>
+        /// <para>The Amazon Resource Name (ARN) of the permission to disassociate from the resource
+        /// share.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

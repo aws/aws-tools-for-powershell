@@ -95,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-COEC2InstanceRecommendation', 
         'Get-COEC2RecommendationProjectedMetric', 
         'Get-COEnrollmentStatus', 
+        'Get-COEnrollmentStatusesForOrganization', 
         'Get-COLambdaFunctionRecommendation', 
         'Get-CORecommendationExportJob', 
         'Get-CORecommendationSummary', 

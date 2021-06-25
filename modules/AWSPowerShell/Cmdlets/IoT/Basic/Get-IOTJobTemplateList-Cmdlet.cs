@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Returns a list of job templates.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobTemplates</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTJobTemplateList")]
     [OutputType("Amazon.IoT.Model.JobTemplateSummary")]

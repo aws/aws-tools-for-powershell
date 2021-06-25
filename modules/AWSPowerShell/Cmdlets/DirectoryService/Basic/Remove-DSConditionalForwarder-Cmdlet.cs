@@ -28,7 +28,8 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Deletes a conditional forwarder that has been set up for your AWS directory.
+    /// Deletes a conditional forwarder that has been set up for your Amazon Web Services
+    /// directory.
     /// </summary>
     [Cmdlet("Remove", "DSConditionalForwarder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

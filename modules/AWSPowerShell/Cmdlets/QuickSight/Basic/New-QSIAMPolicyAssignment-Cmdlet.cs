@@ -28,10 +28,10 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Creates an assignment with one specified IAM policy, identified by its Amazon Resource
+    /// Creates an assignment with one specified IAMpolicy, identified by its Amazon Resource
     /// Name (ARN). This policy assignment is attached to the specified groups or users of
-    /// Amazon QuickSight. Assignment names are unique per AWS account. To avoid overwriting
-    /// rules in other namespaces, use assignment names that are unique.
+    /// Amazon QuickSight. Assignment names are unique per Amazon Web Services account. To
+    /// avoid overwriting rules in other namespaces, use assignment names that are unique.
     /// </summary>
     [Cmdlet("New", "QSIAMPolicyAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.CreateIAMPolicyAssignmentResponse")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AssignmentName
         /// <summary>
         /// <para>
-        /// <para>The name of the assignment, also called a rule. It must be unique within an AWS account.</para>
+        /// <para>The name of the assignment, also called a rule. It must be unique within an Amazon
+        /// Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account where you want to assign an IAM policy to QuickSight users
-        /// or groups.</para>
+        /// <para>The ID of the Amazon Web Services account where you want to assign an IAMpolicy to
+        /// Amazon QuickSight users or groups.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Identity
         /// <summary>
         /// <para>
-        /// <para>The QuickSight users, groups, or both that you want to assign the policy to.</para>
+        /// <para>The Amazon QuickSight users, groups, or both that you want to assign the policy to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the IAM policy to apply to the QuickSight users and groups specified in
-        /// this assignment.</para>
+        /// <para>The ARN for the IAMpolicy to apply to the Amazon QuickSight users and groups specified
+        /// in this assignment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

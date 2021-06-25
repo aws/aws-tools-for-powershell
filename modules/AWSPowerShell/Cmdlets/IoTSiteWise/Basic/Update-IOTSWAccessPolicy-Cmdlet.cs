@@ -28,8 +28,8 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Updates an existing access policy that specifies an identity's access to an AWS IoT
-    /// SiteWise Monitor portal or project resource.
+    /// Updates an existing access policy that specifies an identity's access to an IoT SiteWise
+    /// Monitor portal or project resource.
     /// </summary>
     [Cmdlet("Update", "IOTSWAccessPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter Group_Id
         /// <summary>
         /// <para>
-        /// <para>The AWS SSO ID of the group.</para>
+        /// <para>The Amazon Web Services SSO ID of the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter User_Id
         /// <summary>
         /// <para>
-        /// <para>The AWS SSO ID of the user.</para>
+        /// <para>The Amazon Web Services SSO ID of the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

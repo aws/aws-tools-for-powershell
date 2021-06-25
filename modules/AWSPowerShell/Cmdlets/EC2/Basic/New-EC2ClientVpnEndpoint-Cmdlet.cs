@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ClientConnectOptions_LambdaFunctionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,8 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ServerCertificateArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the server certificate. For more information, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS
-        /// Certificate Manager User Guide</a>.</para>
+        /// <para>The ARN of the server certificate. For more information, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate
+        /// Manager User Guide</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -198,8 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SplitTunnel
         /// <summary>
         /// <para>
-        /// <para>Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.</para><para>By default, split-tunnel on a VPN endpoint is disabled.</para><para>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel
-        /// AWS Client VPN Endpoint</a> in the <i>AWS Client VPN Administrator Guide</i>.</para>
+        /// <para>Indicates whether split-tunnel is enabled on the Client VPN endpoint.</para><para>By default, split-tunnel on a VPN endpoint is disabled.</para><para>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel
+        /// Client VPN endpoint</a> in the <i>Client VPN Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
         /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a>.</para>
+        /// to ensure idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

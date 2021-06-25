@@ -28,9 +28,10 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Shares a Systems Manager document publicly or privately. If you share a document privately,
-    /// you must specify the AWS user account IDs for those people who can use the document.
-    /// If you share a document publicly, you must specify <i>All</i> as the account ID.
+    /// Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately.
+    /// If you share a document privately, you must specify the Amazon Web Services user account
+    /// IDs for those people who can use the document. If you share a document publicly, you
+    /// must specify <i>All</i> as the account ID.
     /// </summary>
     [Cmdlet("Edit", "SSMDocumentPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AccountIdsToAdd
         /// <summary>
         /// <para>
-        /// <para>The AWS user accounts that should have access to the document. The account IDs can
-        /// either be a group of account IDs or <i>All</i>.</para>
+        /// <para>The Amazon Web Services user accounts that should have access to the document. The
+        /// account IDs can either be a group of account IDs or <i>All</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,10 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AccountIdsToRemove
         /// <summary>
         /// <para>
-        /// <para>The AWS user accounts that should no longer have access to the document. The AWS user
-        /// account can either be a group of account IDs or <i>All</i>. This action has a higher
-        /// priority than <i>AccountIdsToAdd</i>. If you specify an account ID to add and the
-        /// same ID to remove, the system removes access to the document.</para>
+        /// <para>The Amazon Web Services user accounts that should no longer have access to the document.
+        /// The Amazon Web Services user account can either be a group of account IDs or <i>All</i>.
+        /// This action has a higher priority than <i>AccountIdsToAdd</i>. If you specify an account
+        /// ID to add and the same ID to remove, the system removes access to the document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SharedDocumentVersion
         /// <summary>
         /// <para>
-        /// <para>(Optional) The version of the document to share. If it's not specified, the system
+        /// <para>(Optional) The version of the document to share. If it isn't specified, the system
         /// choose the <code>Default</code> version to share.</para>
         /// </para>
         /// </summary>

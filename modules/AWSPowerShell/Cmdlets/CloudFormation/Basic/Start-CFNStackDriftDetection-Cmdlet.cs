@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// Detects whether a stack's actual configuration differs, or has <i>drifted</i>, from
     /// it's expected configuration, as defined in the stack template and any values specified
     /// as template parameters. For each resource in the stack that supports drift detection,
-    /// AWS CloudFormation compares the actual configuration of the resource with its expected
+    /// CloudFormation compares the actual configuration of the resource with its expected
     /// template configuration. Only resource properties explicitly defined in the stack template
     /// are checked for drift. A stack is considered to have drifted if one or more of its
     /// resources differ from their expected template configurations. For more information,
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// operation has completed, use <a>DescribeStackResourceDrifts</a> to return drift information
     /// about the stack and its resources.
     /// </para><para>
-    /// When detecting drift on a stack, AWS CloudFormation does not detect drift on any nested
+    /// When detecting drift on a stack, CloudFormation does not detect drift on any nested
     /// stacks belonging to that stack. Perform <code>DetectStackDrift</code> directly on
     /// the nested stack itself.
     /// </para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name of the stack for which you want to detect drift. </para>
+        /// <para>The name of the stack for which you want to detect drift.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

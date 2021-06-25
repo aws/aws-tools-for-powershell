@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter TargetSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier given to the new manual snapshot.</para><para>Constraints:</para><ul><li><para>Cannot be null, empty, or blank.</para></li><li><para>Must contain from 1 to 255 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique for the AWS account that is making the request.</para></li></ul>
+        /// <para>The identifier given to the new manual snapshot.</para><para>Constraints:</para><ul><li><para>Cannot be null, empty, or blank.</para></li><li><para>Must contain from 1 to 255 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique for the Amazon Web Services account that is making the request.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

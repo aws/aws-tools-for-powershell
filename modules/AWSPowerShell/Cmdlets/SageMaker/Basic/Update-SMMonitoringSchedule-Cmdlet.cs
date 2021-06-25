@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MonitoringScheduleName
         /// <summary>
         /// <para>
-        /// <para>The name of the monitoring schedule. The name must be unique within an AWS Region
-        /// within an AWS account.</para>
+        /// <para>The name of the monitoring schedule. The name must be unique within an Amazon Web
+        /// Services Region within an Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

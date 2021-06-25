@@ -30,13 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Modifies the specified attribute of the specified AMI. You can specify only one attribute
     /// at a time. You can use the <code>Attribute</code> parameter to specify the attribute
-    /// or one of the following parameters: <code>Description</code>, <code>LaunchPermission</code>,
-    /// or <code>ProductCode</code>.
+    /// or one of the following parameters: <code>Description</code> or <code>LaunchPermission</code>.
     /// 
     ///  
     /// <para>
-    /// AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product
-    /// code cannot be made public.
+    /// Images with an Amazon Web Services Marketplace product code cannot be made public.
     /// </para><para>
     /// To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport
     /// on an instance and create an AMI from the instance.
@@ -55,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchPermission_Add
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID to add to the list of launch permissions for the AMI.</para>
+        /// <para>The Amazon Web Services account ID to add to the list of launch permissions for the
+        /// AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The name of the attribute to modify. The valid values are <code>description</code>,
-        /// <code>launchPermission</code>, and <code>productCodes</code>.</para>
+        /// <para>The name of the attribute to modify. The valid values are <code>description</code>
+        /// and <code>launchPermission</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ProductCode
         /// <summary>
         /// <para>
-        /// <para>The DevPay product codes. After you add a product code to an AMI, it can't be removed.</para>
+        /// <para>Not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchPermission_Remove
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID to remove from the list of launch permissions for the AMI.</para>
+        /// <para>The Amazon Web Services account ID to remove from the list of launch permissions for
+        /// the AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The AWS account IDs. This parameter can be used only when the <code>Attribute</code>
+        /// <para>The Amazon Web Services account IDs. This parameter can be used only when the <code>Attribute</code>
         /// parameter is <code>launchPermission</code>.</para>
         /// </para>
         /// </summary>
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The value of the attribute being modified. This parameter can be used only when the
-        /// <code>Attribute</code> parameter is <code>description</code> or <code>productCodes</code>.</para>
+        /// <code>Attribute</code> parameter is <code>description</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

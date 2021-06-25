@@ -93,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter AutoMLOverrideStrategy
         /// <summary>
         /// <para>
-        /// <para>Used to overide the default AutoML strategy, which is to optimize predictor accuracy.
+        /// <note><para> The <code>LatencyOptimized</code> AutoML override strategy is only available in private
+        /// beta. Contact AWS Support or your account manager to learn more about access privileges.
+        /// </para></note><para>Used to overide the default AutoML strategy, which is to optimize predictor accuracy.
         /// To apply an AutoML strategy that minimizes training time, use <code>LatencyOptimized</code>.</para><para>This parameter is only valid for predictors trained using AutoML.</para>
         /// </para>
         /// </summary>
@@ -268,6 +270,17 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EvaluationParameters_NumberOfBacktestWindows")]
         public System.Int32? EvaluationParameters_NumberOfBacktestWindow { get; set; }
+        #endregion
+        
+        #region Parameter OptimizationMetric
+        /// <summary>
+        /// <para>
+        /// <para>The accuracy metric used to optimize the predictor.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ForecastService.OptimizationMetric")]
+        public Amazon.ForecastService.OptimizationMetric OptimizationMetric { get; set; }
         #endregion
         
         #region Parameter PerformAutoML
@@ -491,6 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             {
                 context.InputDataConfig_SupplementaryFeature = new List<Amazon.ForecastService.Model.SupplementaryFeature>(this.InputDataConfig_SupplementaryFeature);
             }
+            context.OptimizationMetric = this.OptimizationMetric;
             context.PerformAutoML = this.PerformAutoML;
             context.PerformHPO = this.PerformHPO;
             context.PredictorName = this.PredictorName;
@@ -724,6 +738,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             {
                 request.InputDataConfig = null;
             }
+            if (cmdletContext.OptimizationMetric != null)
+            {
+                request.OptimizationMetric = cmdletContext.OptimizationMetric;
+            }
             if (cmdletContext.PerformAutoML != null)
             {
                 request.PerformAutoML = cmdletContext.PerformAutoML.Value;
@@ -821,6 +839,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             public List<Amazon.ForecastService.Model.IntegerParameterRange> ParameterRanges_IntegerParameterRange { get; set; }
             public System.String InputDataConfig_DatasetGroupArn { get; set; }
             public List<Amazon.ForecastService.Model.SupplementaryFeature> InputDataConfig_SupplementaryFeature { get; set; }
+            public Amazon.ForecastService.OptimizationMetric OptimizationMetric { get; set; }
             public System.Boolean? PerformAutoML { get; set; }
             public System.Boolean? PerformHPO { get; set; }
             public System.String PredictorName { get; set; }

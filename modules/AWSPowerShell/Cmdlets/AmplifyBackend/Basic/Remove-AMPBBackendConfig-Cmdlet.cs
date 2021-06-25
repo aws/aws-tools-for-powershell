@@ -28,7 +28,7 @@ using Amazon.AmplifyBackend.Model;
 namespace Amazon.PowerShell.Cmdlets.AMPB
 {
     /// <summary>
-    /// Removes the AWS resources that are required to access the Amplify Admin UI.
+    /// Removes the AWS resources required to access the Amplify Admin UI.
     /// </summary>
     [Cmdlet("Remove", "AMPBBackendConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

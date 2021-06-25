@@ -29,30 +29,30 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Gets a Boolean value that indicates whether <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
-    /// rotation of the key material</a> is enabled for the specified customer master key
-    /// (CMK).
+    /// rotation of the key material</a> is enabled for the specified KMS key.
     /// 
     ///  
     /// <para>
     /// You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks">asymmetric
-    /// CMKs</a>, CMKs with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported
-    /// key material</a>, or CMKs in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
+    /// KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported
+    /// key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
     /// key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-replica-key">multi-Region
-    /// keys</a>, set the property on the primary key. The key rotation status for these CMKs
-    /// is always <code>false</code>.
+    /// keys</a>, set the property on the primary key. The key rotation status for these KMS
+    /// keys is always <code>false</code>.
     /// </para><para>
-    /// The CMK that you use for this operation must be in a compatible key state. For details,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// The KMS key that you use for this operation must be in a compatible key state. For
+    /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
+    /// state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><ul><li><para>
-    /// Disabled: The key rotation status does not change when you disable a CMK. However,
-    /// while the CMK is disabled, AWS KMS does not rotate the backing key.
+    /// Disabled: The key rotation status does not change when you disable a KMS key. However,
+    /// while the KMS key is disabled, KMS does not rotate the key material.
     /// </para></li><li><para>
-    /// Pending deletion: While a CMK is pending deletion, its key rotation status is <code>false</code>
-    /// and AWS KMS does not rotate the backing key. If you cancel the deletion, the original
-    /// key rotation status is restored.
-    /// </para></li></ul><para><b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different
-    /// AWS account, specify the key ARN in the value of the <code>KeyId</code> parameter.
+    /// Pending deletion: While a KMS key is pending deletion, its key rotation status is
+    /// <code>false</code> and KMS does not rotate the key material. If you cancel the deletion,
+    /// the original key rotation status is restored.
+    /// </para></li></ul><para><b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different
+    /// Amazon Web Services account, specify the key ARN in the value of the <code>KeyId</code>
+    /// parameter.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetKeyRotationStatus</a>
     /// (key policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>DisableKeyRotation</a></para></li><li><para><a>EnableKeyRotation</a></para></li></ul>
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>Gets the rotation status for the specified customer master key (CMK).</para><para>Specify the key ID or key ARN of the CMK. To specify a CMK in a different AWS account,
-        /// you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// <para>Gets the rotation status for the specified KMS key.</para><para>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different
+        /// Amazon Web Services account, you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

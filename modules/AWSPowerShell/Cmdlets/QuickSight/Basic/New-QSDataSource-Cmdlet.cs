@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID.</para>
+        /// <para>The Amazon Web Services account ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AuroraPostgreSqlParameters_Database
         /// <summary>
         /// <para>
-        /// <para>Database.</para>
+        /// <para>The Amazon Aurora PostgreSQL database to connect to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,8 +256,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>An ID for the data source. This ID is unique per AWS Region for each AWS account.
-        /// </para>
+        /// <para>An ID for the data source. This ID is unique per Amazon Web Services Region; for each
+        /// Amazon Web Services account. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -284,12 +284,23 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AmazonElasticsearchParameters_Domain
         /// <summary>
         /// <para>
-        /// <para>The Amazon Elasticsearch Service domain.</para>
+        /// <para>The Elasticsearch domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_AmazonElasticsearchParameters_Domain")]
         public System.String AmazonElasticsearchParameters_Domain { get; set; }
+        #endregion
+        
+        #region Parameter AmazonOpenSearchParameters_Domain
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_AmazonOpenSearchParameters_Domain")]
+        public System.String AmazonOpenSearchParameters_Domain { get; set; }
         #endregion
         
         #region Parameter AuroraParameters_Host
@@ -306,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AuroraPostgreSqlParameters_Host
         /// <summary>
         /// <para>
-        /// <para>Host.</para>
+        /// <para>The Amazon Aurora PostgreSQL-Compatible host to connect to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -510,7 +521,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AuroraPostgreSqlParameters_Port
         /// <summary>
         /// <para>
-        /// <para>Port.</para>
+        /// <para>The port that Amazon Aurora PostgreSQL is listening on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -665,10 +676,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the data source. Currently, the supported types for this operation are:
-        /// <code>ATHENA, AURORA, AURORA_POSTGRESQL, AMAZON_ELASTICSEARCH, MARIADB, MYSQL, POSTGRESQL,
-        /// PRESTO, REDSHIFT, S3, SNOWFLAKE, SPARK, SQLSERVER, TERADATA</code>. Use <code>ListDataSources</code>
-        /// to return a list of all data sources.</para><para><code>AMAZON_ELASTICSEARCH</code> is for Amazon managed Elasticsearch Service.</para>
+        /// <para>The type of the data source. To return a list of all data sources, use <code>ListDataSources</code>.</para><para>Use <code>AMAZON_ELASTICSEARCH</code> for Amazon Elasticsearch Service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -808,6 +816,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             #endif
             context.AmazonElasticsearchParameters_Domain = this.AmazonElasticsearchParameters_Domain;
+            context.AmazonOpenSearchParameters_Domain = this.AmazonOpenSearchParameters_Domain;
             context.AthenaParameters_WorkGroup = this.AthenaParameters_WorkGroup;
             context.AuroraParameters_Database = this.AuroraParameters_Database;
             context.AuroraParameters_Host = this.AuroraParameters_Host;
@@ -993,6 +1002,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_AmazonElasticsearchParameters != null)
             {
                 request.DataSourceParameters.AmazonElasticsearchParameters = requestDataSourceParameters_dataSourceParameters_AmazonElasticsearchParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.AmazonOpenSearchParameters requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParameters = null;
+            
+             // populate AmazonOpenSearchParameters
+            var requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParameters = new Amazon.QuickSight.Model.AmazonOpenSearchParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParameters_amazonOpenSearchParameters_Domain = null;
+            if (cmdletContext.AmazonOpenSearchParameters_Domain != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParameters_amazonOpenSearchParameters_Domain = cmdletContext.AmazonOpenSearchParameters_Domain;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParameters_amazonOpenSearchParameters_Domain != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParameters.Domain = requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParameters_amazonOpenSearchParameters_Domain;
+                requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParameters != null)
+            {
+                request.DataSourceParameters.AmazonOpenSearchParameters = requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.AthenaParameters requestDataSourceParameters_dataSourceParameters_AthenaParameters = null;
@@ -1882,6 +1916,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String CredentialPair_Username { get; set; }
             public System.String DataSourceId { get; set; }
             public System.String AmazonElasticsearchParameters_Domain { get; set; }
+            public System.String AmazonOpenSearchParameters_Domain { get; set; }
             public System.String AthenaParameters_WorkGroup { get; set; }
             public System.String AuroraParameters_Database { get; set; }
             public System.String AuroraParameters_Host { get; set; }

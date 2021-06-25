@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.ES
     public partial class GetESDomainNameListCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
         
+        #region Parameter EngineType
+        /// <summary>
+        /// <para>
+        /// <para> Optional parameter to filter the output by domain engine type. Acceptable values
+        /// are 'Elasticsearch' and 'OpenSearch'. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Elasticsearch.EngineType")]
+        public Amazon.Elasticsearch.EngineType EngineType { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DomainNames'.
@@ -65,6 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 context.Select = CreateSelectDelegate<Amazon.Elasticsearch.Model.ListDomainNamesResponse, GetESDomainNameListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.EngineType = this.EngineType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -81,6 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
             // create request
             var request = new Amazon.Elasticsearch.Model.ListDomainNamesRequest();
             
+            if (cmdletContext.EngineType != null)
+            {
+                request.EngineType = cmdletContext.EngineType;
+            }
             
             CmdletOutput output;
             
@@ -142,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Elasticsearch.EngineType EngineType { get; set; }
             public System.Func<Amazon.Elasticsearch.Model.ListDomainNamesResponse, GetESDomainNameListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DomainNames;
         }

@@ -44,25 +44,24 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Use the <b>NewCustomKeyStoreName</b> parameter to change the friendly name of the
     /// custom key store to the value that you specify.
     /// </para><para></para></li><li><para>
-    /// Use the <b>KeyStorePassword</b> parameter tell AWS KMS the current password of the
-    /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser"><code>kmsuser</code> crypto user (CU)</a> in the associated AWS CloudHSM cluster.
-    /// You can use this parameter to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-password">fix
-    /// connection failures</a> that occur when AWS KMS cannot log into the associated cluster
+    /// Use the <b>KeyStorePassword</b> parameter tell KMS the current password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser"><code>kmsuser</code> crypto user (CU)</a> in the associated CloudHSM cluster. You
+    /// can use this parameter to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-password">fix
+    /// connection failures</a> that occur when KMS cannot log into the associated cluster
     /// because the <code>kmsuser</code> password has changed. This value does not change
-    /// the password in the AWS CloudHSM cluster.
+    /// the password in the CloudHSM cluster.
     /// </para><para></para></li><li><para>
     /// Use the <b>CloudHsmClusterId</b> parameter to associate the custom key store with
-    /// a different, but related, AWS CloudHSM cluster. You can use this parameter to repair
-    /// a custom key store if its AWS CloudHSM cluster becomes corrupted or is deleted, or
-    /// when you need to create or restore a cluster from a backup. 
+    /// a different, but related, CloudHSM cluster. You can use this parameter to repair a
+    /// custom key store if its CloudHSM cluster becomes corrupted or is deleted, or when
+    /// you need to create or restore a cluster from a backup. 
     /// </para></li></ul><para>
     /// If the operation succeeds, it returns a JSON object with no properties.
     /// </para><para>
     /// This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom
-    /// Key Store feature</a> feature in AWS KMS, which combines the convenience and extensive
-    /// integration of AWS KMS with the isolation and control of a single-tenant key store.
+    /// Key Store feature</a> feature in KMS, which combines the convenience and extensive
+    /// integration of KMS with the isolation and control of a single-tenant key store.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a custom key store
-    /// in a different AWS account. 
+    /// in a different Amazon Web Services account. 
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UpdateCustomKeyStore</a>
     /// (IAM policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>ConnectCustomKeyStore</a></para></li><li><para><a>CreateCustomKeyStore</a></para></li><li><para><a>DeleteCustomKeyStore</a></para></li><li><para><a>DescribeCustomKeyStores</a></para></li><li><para><a>DisconnectCustomKeyStore</a></para></li></ul>
@@ -80,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter CloudHsmClusterId
         /// <summary>
         /// <para>
-        /// <para>Associates the custom key store with a related AWS CloudHSM cluster. </para><para>Enter the cluster ID of the cluster that you used to create the custom key store or
+        /// <para>Associates the custom key store with a related CloudHSM cluster. </para><para>Enter the cluster ID of the cluster that you used to create the custom key store or
         /// a cluster that shares a backup history and has the same cluster certificate as the
         /// original cluster. You cannot use this parameter to associate a custom key store with
         /// an unrelated cluster. In addition, the replacement cluster must <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">fulfill
@@ -115,10 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyStorePassword
         /// <summary>
         /// <para>
-        /// <para>Enter the current password of the <code>kmsuser</code> crypto user (CU) in the AWS
-        /// CloudHSM cluster that is associated with the custom key store.</para><para>This parameter tells AWS KMS the current password of the <code>kmsuser</code> crypto
-        /// user (CU). It does not set or change the password of any users in the AWS CloudHSM
-        /// cluster.</para>
+        /// <para>Enter the current password of the <code>kmsuser</code> crypto user (CU) in the CloudHSM
+        /// cluster that is associated with the custom key store.</para><para>This parameter tells KMS the current password of the <code>kmsuser</code> crypto user
+        /// (CU). It does not set or change the password of any users in the CloudHSM cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Changes the friendly name of the custom key store to the value that you specify. The
-        /// custom key store name must be unique in the AWS account.</para>
+        /// custom key store name must be unique in the Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

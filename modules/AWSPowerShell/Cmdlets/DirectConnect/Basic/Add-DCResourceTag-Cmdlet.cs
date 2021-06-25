@@ -28,8 +28,8 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Adds the specified tags to the specified AWS Direct Connect resource. Each resource
-    /// can have a maximum of 50 tags.
+    /// Adds the specified tags to the specified Direct Connect resource. Each resource can
+    /// have a maximum of 50 tags.
     /// 
     ///  
     /// <para>

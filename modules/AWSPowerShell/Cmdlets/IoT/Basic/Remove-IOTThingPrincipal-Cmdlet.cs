@@ -34,7 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// 
     ///  <note><para>
     /// This call is asynchronous. It might take several seconds for the detachment to propagate.
-    /// </para></note>
+    /// </para></note><para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachThingPrincipal</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "IOTThingPrincipal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

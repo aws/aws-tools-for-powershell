@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Enables or disables your account's ability to send email. Set to <code>true</code>
-        /// to enable email sending, or set to <code>false</code> to disable email sending.</para><note><para>If AWS paused your account's ability to send email, you can't use this operation to
-        /// resume your account's ability to send email.</para></note>
+        /// to enable email sending, or set to <code>false</code> to disable email sending.</para><note><para>If Amazon Web Services paused your account's ability to send email, you can't use
+        /// this operation to resume your account's ability to send email.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

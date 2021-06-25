@@ -159,6 +159,19 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String[] VpcConfig_Subnet { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to be associated with the document classification job. A tag is a key-value pair
+        /// that adds metadata to a resource used by Amazon Comprehend. For example, a tag with
+        /// "Sales" as the key might be added to a resource to indicate its use by the sales department.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Comprehend.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter VolumeKmsKeyId
         /// <summary>
         /// <para>
@@ -262,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 WriteWarning("You are passing $null as a value for parameter OutputDataConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Comprehend.Model.Tag>(this.Tag);
+            }
             context.VolumeKmsKeyId = this.VolumeKmsKeyId;
             if (this.VpcConfig_SecurityGroupId != null)
             {
@@ -310,6 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (cmdletContext.OutputDataConfig != null)
             {
                 request.OutputDataConfig = cmdletContext.OutputDataConfig;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.VolumeKmsKeyId != null)
             {
@@ -411,6 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public Amazon.Comprehend.Model.InputDataConfig InputDataConfig { get; set; }
             public System.String JobName { get; set; }
             public Amazon.Comprehend.Model.OutputDataConfig OutputDataConfig { get; set; }
+            public List<Amazon.Comprehend.Model.Tag> Tag { get; set; }
             public System.String VolumeKmsKeyId { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_Subnet { get; set; }

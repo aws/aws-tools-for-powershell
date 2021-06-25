@@ -98,6 +98,20 @@ $RS_Completers = {
             break
         }
 
+        # Amazon.Redshift.DataShareStatusForConsumer
+        "Get-RSDataSharesForConsumer/Status"
+        {
+            $v = "ACTIVE","AVAILABLE"
+            break
+        }
+
+        # Amazon.Redshift.DataShareStatusForProducer
+        "Get-RSDataSharesForProducer/Status"
+        {
+            $v = "ACTIVE","AUTHORIZED","DEAUTHORIZED","PENDING_AUTHORIZATION","REJECTED"
+            break
+        }
+
         # Amazon.Redshift.PartnerIntegrationStatus
         "Update-RSPartnerStatus/Status"
         {
@@ -169,7 +183,7 @@ $RS_map = @{
     "LimitType"=@("New-RSUsageLimit")
     "Period"=@("New-RSUsageLimit")
     "SourceType"=@("Get-RSEvent")
-    "Status"=@("Update-RSPartnerStatus")
+    "Status"=@("Get-RSDataSharesForConsumer","Get-RSDataSharesForProducer","Update-RSPartnerStatus")
     "TargetActionType"=@("Get-RSScheduledAction")
 }
 
@@ -225,13 +239,16 @@ $RS_SelectCompleters = {
 $RS_SelectMap = @{
     "Select"=@("Switch-RSReservedNode",
                "Add-RSPartner",
+               "Add-RSDataShareConsumer",
                "Approve-RSClusterSecurityGroupIngress",
+               "Approve-RSDataShare",
                "Approve-RSEndpointAccess",
                "Approve-RSSnapshotAccess",
                "Remove-RSClusterSnapshotBatch",
                "Edit-RSClusterSnapshotBatch",
                "Stop-RSResize",
                "Copy-RSClusterSnapshot",
+               "New-RSAuthenticationProfile",
                "New-RSCluster",
                "New-RSClusterParameterGroup",
                "New-RSClusterSecurityGroup",
@@ -246,6 +263,8 @@ $RS_SelectMap = @{
                "New-RSSnapshotSchedule",
                "New-RSResourceTag",
                "New-RSUsageLimit",
+               "Revoke-RSDataShare",
+               "Remove-RSAuthenticationProfile",
                "Remove-RSCluster",
                "Remove-RSClusterParameterGroup",
                "Remove-RSClusterSecurityGroup",
@@ -262,6 +281,7 @@ $RS_SelectMap = @{
                "Remove-RSResourceTag",
                "Remove-RSUsageLimit",
                "Get-RSAccountAttribute",
+               "Get-RSAuthenticationProfile",
                "Get-RSClusterDbRevision",
                "Get-RSClusterParameterGroup",
                "Get-RSClusterParameter",
@@ -271,6 +291,9 @@ $RS_SelectMap = @{
                "Get-RSClusterSubnetGroup",
                "Get-RSClusterTrack",
                "Get-RSClusterVersion",
+               "Get-RSDataShare",
+               "Get-RSDataSharesForConsumer",
+               "Get-RSDataSharesForProducer",
                "Get-RSDefaultClusterParameter",
                "Get-RSEndpointAccess",
                "Get-RSEndpointAuthorization",
@@ -295,11 +318,13 @@ $RS_SelectMap = @{
                "Get-RSUsageLimit",
                "Disable-RSLogging",
                "Disable-RSSnapshotCopy",
+               "Remove-RSDataShareConsumer",
                "Enable-RSLogging",
                "Enable-RSSnapshotCopy",
                "Get-RSClusterCredential",
                "Get-RSReservedNodeExchangeOffering",
                "Edit-RSAquaConfiguration",
+               "Edit-RSAuthenticationProfile",
                "Edit-RSCluster",
                "Edit-RSClusterDbRevision",
                "Edit-RSClusterIamRole",
@@ -317,6 +342,7 @@ $RS_SelectMap = @{
                "Stop-RSCluster",
                "Request-RSReservedNodeOffering",
                "Restart-RSCluster",
+               "Deny-RSDataShare",
                "Reset-RSClusterParameterGroup",
                "Set-RSClusterSize",
                "Restore-RSFromClusterSnapshot",

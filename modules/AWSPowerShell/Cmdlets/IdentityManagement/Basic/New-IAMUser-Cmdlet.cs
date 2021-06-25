@@ -28,7 +28,7 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Creates a new IAM user for your AWS account.
+    /// Creates a new IAM user for your Amazon Web Services account.
     /// 
     ///  
     /// <para>

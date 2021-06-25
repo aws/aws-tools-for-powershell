@@ -32,17 +32,17 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// 
     ///  <ul><li><para>
     /// For public and private DNS namespaces, one of the following combinations of DNS records
-    /// in Amazon Route 53:
+    /// in Amazon Route 53:
     /// </para><ul><li><para><code>A</code></para></li><li><para><code>AAAA</code></para></li><li><para><code>A</code> and <code>AAAA</code></para></li><li><para><code>SRV</code></para></li><li><para><code>CNAME</code></para></li></ul></li><li><para>
     /// Optionally, a health check
     /// </para></li></ul><para>
     /// After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a>
-    /// request, and AWS Cloud Map uses the values in the configuration to create the specified
+    /// request, and Cloud Map uses the values in the configuration to create the specified
     /// entities.
     /// </para><para>
     /// For the current quota on the number of instances that you can register using the same
-    /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
-    /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
+    /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+    /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SDService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter DnsConfig
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains information about the Amazon Route 53 records that you
-        /// want AWS Cloud Map to create when you register an instance. </para>
+        /// <para>A complex type that contains information about the Amazon Route 53 records that you
+        /// want Cloud Map to create when you register an instance. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,10 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter HealthCheckConfig_FailureThreshold
         /// <summary>
         /// <para>
-        /// <para>The number of consecutive health checks that an endpoint must pass or fail for Route 53
-        /// to change the current status of the endpoint from unhealthy to healthy or the other
+        /// <para>The number of consecutive health checks that an endpoint must pass or fail for Route
+        /// 53 to change the current status of the endpoint from unhealthy to healthy or the other
         /// way around. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
-        /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer
+        /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer
         /// Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -117,11 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name that you want to assign to the service.</para><para>If you want AWS Cloud Map to create an <code>SRV</code> record when you register an
-        /// instance and you're using a system that requires a specific <code>SRV</code> format,
-        /// such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</para><ul><li><para>Start the name with an underscore (_), such as <code>_exampleservice</code>.</para></li><li><para>End the name with <i>._protocol</i>, such as <code>._tcp</code>.</para></li></ul><para>When you register an instance, AWS Cloud Map creates an <code>SRV</code> record and
-        /// assigns a name to the record by concatenating the service name and the namespace name
-        /// (for example,</para><para><code>_exampleservice._tcp.example.com</code>).</para><note><para>For services that are accessible by DNS queries, you can't create multiple services
+        /// <para>The name that you want to assign to the service.</para><para>If you want Cloud Map to create an <code>SRV</code> record when you register an instance
+        /// and you're using a system that requires a specific <code>SRV</code> format, such as
+        /// <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</para><ul><li><para>Start the name with an underscore (_), such as <code>_exampleservice</code>.</para></li><li><para>End the name with <i>._protocol</i>, such as <code>._tcp</code>.</para></li></ul><para>When you register an instance, Cloud Map creates an <code>SRV</code> record and assigns
+        /// a name to the record by concatenating the service name and the namespace name (for
+        /// example,</para><para><code>_exampleservice._tcp.example.com</code>).</para><note><para>For services that are accessible by DNS queries, you can't create multiple services
         /// with names that differ only by case (such as EXAMPLE and example). Otherwise, these
         /// services have the same DNS name and can't be distinguished. However, if you use a
         /// namespace that's only accessible by API calls, then you can create services that with
@@ -154,10 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter HealthCheckConfig_ResourcePath
         /// <summary>
         /// <para>
-        /// <para>The path that you want Route 53 to request when performing health checks. The path
+        /// <para>The path that you want Route 53 to request when performing health checks. The path
         /// can be any value that your endpoint returns an HTTP status code of a 2xx or 3xx format
         /// for when the endpoint is healthy. An example file is <code>/docs/route53-health-check.html</code>.
-        /// Route 53 automatically adds the DNS name for the service. If you don't specify a value
+        /// Route 53 automatically adds the DNS name for the service. If you don't specify a value
         /// for <code>ResourcePath</code>, the default value is <code>/</code>.</para><para>If you specify <code>TCP</code> for <code>Type</code>, you must <i>not</i> specify
         /// a value for <code>ResourcePath</code>.</para>
         /// </para>
@@ -182,14 +182,14 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter HealthCheckConfig_Type
         /// <summary>
         /// <para>
-        /// <para>The type of health check that you want to create, which indicates how Route 53 determines
-        /// whether an endpoint is healthy.</para><important><para>You can't change the value of <code>Type</code> after you create a health check.</para></important><para>You can create the following types of health checks:</para><ul><li><para><b>HTTP</b>: Route 53 tries to establish a TCP connection. If successful, Route 53
+        /// <para>The type of health check that you want to create, which indicates how Route 53 determines
+        /// whether an endpoint is healthy.</para><important><para>You can't change the value of <code>Type</code> after you create a health check.</para></important><para>You can create the following types of health checks:</para><ul><li><para><b>HTTP</b>: Route 53 tries to establish a TCP connection. If successful, Route 53
         /// submits an HTTP request and waits for an HTTP status code of 200 or greater and less
-        /// than 400.</para></li><li><para><b>HTTPS</b>: Route 53 tries to establish a TCP connection. If successful, Route 53
-        /// submits an HTTPS request and waits for an HTTP status code of 200 or greater and less
-        /// than 400.</para><important><para>If you specify HTTPS for the value of <code>Type</code>, the endpoint must support
-        /// TLS v1.0 or later.</para></important></li><li><para><b>TCP</b>: Route 53 tries to establish a TCP connection.</para><para>If you specify <code>TCP</code> for <code>Type</code>, don't specify a value for <code>ResourcePath</code>.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
-        /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer
+        /// than 400.</para></li><li><para><b>HTTPS</b>: Route 53 tries to establish a TCP connection. If successful, Route
+        /// 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and
+        /// less than 400.</para><important><para>If you specify HTTPS for the value of <code>Type</code>, the endpoint must support
+        /// TLS v1.0 or later.</para></important></li><li><para><b>TCP</b>: Route 53 tries to establish a TCP connection.</para><para>If you specify <code>TCP</code> for <code>Type</code>, don't specify a value for <code>ResourcePath</code>.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
+        /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer
         /// Guide</i>.</para>
         /// </para>
         /// </summary>

@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// period has expired. However, if another alarm triggers a scale-out activity during
         /// the cooldown period after a scale-in activity, Application Auto Scaling scales out
         /// the target immediately. In this case, the cooldown period for the scale-in activity
-        /// stops and doesn't complete.</para><para>Application Auto Scaling provides a default value of 300 for the following scalable
-        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK broker storage</para></li></ul>
+        /// stops and doesn't complete.</para><para>Application Auto Scaling provides a default value of 600 for Amazon ElastiCache replication
+        /// groups and a default value of 300 for the following scalable targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK broker storage</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The policy type. This parameter is required if you are creating a scaling policy.</para><para>The following policy types are supported: </para><para><code>TargetTrackingScaling</code>—Not supported for Amazon EMR</para><para><code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon
-        /// Keyspaces (for Apache Cassandra), or Amazon MSK.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
+        /// Keyspaces (for Apache Cassandra), Amazon MSK, or Amazon ElastiCache for Redis.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
         /// tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step
         /// scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</para>
         /// </para>
@@ -257,7 +257,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// that is not <code>$LATEST</code>. Example: <code>function:my-function:prod</code>
         /// or <code>function:my-function:1</code>.</para></li><li><para>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier
         /// is the table name. Example: <code>keyspace/mykeyspace/table/mytable</code>.</para></li><li><para>Amazon MSK cluster - The resource type and unique identifier are specified using the
-        /// cluster ARN. Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</para></li></ul>
+        /// cluster ARN. Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</para></li><li><para>Amazon ElastiCache replication group - The resource type is <code>replication-group</code>
+        /// and the unique identifier is the replication group name. Example: <code>replication-group/mycluster</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -278,10 +279,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is
         /// a target group attached to the Spot Fleet request or ECS service.</para><para>You create the resource label by appending the final portion of the load balancer
         /// ARN and the final portion of the target group ARN into a single value, separated by
-        /// a forward slash (/). The format is app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt;/targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt;,
-        /// where:</para><ul><li><para>app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt; is the final portion of the
+        /// a forward slash (/). The format of the resource label is:</para><para><code>app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff</code>.</para><para>Where:</para><ul><li><para>app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt; is the final portion of the
         /// load balancer ARN</para></li><li><para>targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt; is the final portion
-        /// of the target group ARN.</para></li></ul><para>This is an example: app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d.</para><para>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a>
+        /// of the target group ARN.</para></li></ul><para>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a>
         /// API operation. To find the ARN for the target group, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a>
         /// API operation.</para>
         /// </para>
@@ -295,9 +295,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The scalable dimension. This string consists of the service namespace, resource type,
-        /// and scaling property.</para><ul><li><para><code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</para></li><li><para><code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot
-        /// Fleet request.</para></li><li><para><code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of
-        /// an EMR Instance Group.</para></li><li><para><code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream
+        /// and scaling property.</para><ul><li><para><code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</para></li><li><para><code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of
+        /// an EMR Instance Group.</para></li><li><para><code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot
+        /// Fleet request.</para></li><li><para><code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream
         /// 2.0 fleet.</para></li><li><para><code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for
         /// a DynamoDB table.</para></li><li><para><code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for
         /// a DynamoDB table.</para></li><li><para><code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for
@@ -312,7 +312,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// for a Lambda function.</para></li><li><para><code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for
         /// an Amazon Keyspaces table.</para></li><li><para><code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity
         /// for an Amazon Keyspaces table.</para></li><li><para><code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB)
-        /// for brokers in an Amazon MSK cluster.</para></li></ul>
+        /// for brokers in an Amazon MSK cluster.</para></li><li><para><code>elasticache:replication-group:NodeGroups</code> - The number of node groups
+        /// for an Amazon ElastiCache replication group.</para></li><li><para><code>elasticache:replication-group:Replicas</code> - The number of replicas per
+        /// node group for an Amazon ElastiCache replication group.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -334,8 +336,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// to protect your application’s availability, so scale-in activities are blocked until
         /// the cooldown period has expired. However, if another alarm triggers a scale-out activity
         /// during the scale-in cooldown period, Application Auto Scaling scales out the target
-        /// immediately. In this case, the scale-in cooldown period stops and doesn't complete.</para><para>Application Auto Scaling provides a default value of 300 for the following scalable
-        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK broker storage</para></li></ul>
+        /// immediately. In this case, the scale-in cooldown period stops and doesn't complete.</para><para>Application Auto Scaling provides a default value of 600 for Amazon ElastiCache replication
+        /// groups and a default value of 300 for the following scalable targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK broker storage</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -352,8 +354,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// policy won't increase the desired capacity again unless either a larger scale out
         /// is triggered or the cooldown period ends. While the cooldown period is in effect,
         /// the capacity added by the initiating scale-out activity is calculated as part of the
-        /// desired capacity for the next scale-out activity.</para><para>Application Auto Scaling provides a default value of 300 for the following scalable
-        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK broker storage</para></li></ul>
+        /// desired capacity for the next scale-out activity.</para><para>Application Auto Scaling provides a default value of 600 for Amazon ElastiCache replication
+        /// groups and a default value of 300 for the following scalable targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK broker storage</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -363,8 +365,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ServiceNamespace
         /// <summary>
         /// <para>
-        /// <para>The namespace of the AWS service that provides the resource. For a resource provided
-        /// by your own application or service, use <code>custom-resource</code> instead.</para>
+        /// <para>The namespace of the Amazon Web Services service that provides the resource. For a
+        /// resource provided by your own application or service, use <code>custom-resource</code>
+        /// instead.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

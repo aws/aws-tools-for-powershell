@@ -56,10 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs) and
-        /// the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">AWS
-        /// Certificate Manager (ACM)</a>, provide the Amazon Resource Name (ARN) of the ACM certificate.
+        /// the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">Certificate
+        /// Manager (ACM)</a>, provide the Amazon Resource Name (ARN) of the ACM certificate.
         /// CloudFront only supports ACM certificates in the US East (N. Virginia) Region (<code>us-east-1</code>).</para><para>If you specify an ACM certificate ARN, you must also specify values for <code>MinimumProtocolVersion</code>
-        /// and <code>SSLSupportMethod</code>. </para>
+        /// and <code>SSLSupportMethod</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
-        /// <para>This field is <code>true</code> if any of the AWS accounts have public keys that CloudFront
+        /// <para>This field is <code>true</code> if any of the accounts have public keys that CloudFront
         /// can use to verify the signatures of signed URLs and signed cookies. If not, this field
         /// is <code>false</code>.</para>
         /// </para>
@@ -289,8 +289,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs) and
-        /// the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">AWS
-        /// Identity and Access Management (AWS IAM)</a>, provide the ID of the IAM certificate.</para><para>If you specify an IAM certificate ID, you must also specify values for <code>MinimumProtocolVersion</code>
+        /// the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Identity
+        /// and Access Management (IAM)</a>, provide the ID of the IAM certificate.</para><para>If you specify an IAM certificate ID, you must also specify values for <code>MinimumProtocolVersion</code>
         /// and <code>SSLSupportMethod</code>. </para>
         /// </para>
         /// </summary>
@@ -329,13 +329,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// IPv6. If you want to restrict access to some content by IP address and not restrict
         /// access to other content (or restrict access but not by IP address), you can create
         /// two distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html">Creating
-        /// a Signed URL Using a Custom Policy</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>If you're using an Amazon Route 53 alias resource record set to route traffic to your
-        /// CloudFront distribution, you need to create a second alias resource record set when
-        /// both of the following are true:</para><ul><li><para>You enable IPv6 for the distribution</para></li><li><para>You're using alternate domain names in the URLs for your objects</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html">Routing
+        /// a Signed URL Using a Custom Policy</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>If you're using an Route 53 Amazon Web Services Integration alias resource record
+        /// set to route traffic to your CloudFront distribution, you need to create a second
+        /// alias resource record set when both of the following are true:</para><ul><li><para>You enable IPv6 for the distribution</para></li><li><para>You're using alternate domain names in the URLs for your objects</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html">Routing
         /// Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name</a> in
-        /// the <i>Amazon Route 53 Developer Guide</i>.</para><para>If you created a CNAME resource record set, either with Amazon Route 53 or with another
-        /// DNS service, you don't need to make any changes. A CNAME record will route traffic
-        /// to your distribution regardless of the IP address format of the viewer request.</para>
+        /// the <i>Route 53 Amazon Web Services Integration Developer Guide</i>.</para><para>If you created a CNAME resource record set, either with Route 53 Amazon Web Services
+        /// Integration or with another DNS service, you don't need to make any changes. A CNAME
+        /// record will route traffic to your distribution regardless of the IP address format
+        /// of the viewer request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,7 +479,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Item
         /// <summary>
         /// <para>
-        /// <para>A list of AWS account identifiers.</para>
+        /// <para>A list of account identifiers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -543,7 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// Policy</a> and <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers">Supported
         /// Protocols and Ciphers Between Viewers and CloudFront</a> in the <i>Amazon CloudFront
         /// Developer Guide</i>.</para><note><para>On the CloudFront console, this setting is called <b>Security Policy</b>.</para></note><para>When you’re using SNI only (you set <code>SSLSupportMethod</code> to <code>sni-only</code>),
-        /// you must specify <code>TLSv1</code> or higher. </para><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>
+        /// you must specify <code>TLSv1</code> or higher.</para><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>
         /// (you set <code>CloudFrontDefaultCertificate</code> to <code>true</code>), CloudFront
         /// automatically sets the security policy to <code>TLSv1</code> regardless of the value
         /// that you set here.</para>
@@ -713,7 +714,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter LambdaFunctionAssociations_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of Lambda function associations for this cache behavior.</para>
+        /// <para>The number of Lambda@Edge function associations for this cache behavior.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -735,7 +736,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of AWS accounts in the list.</para>
+        /// <para>The number of accounts in the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -866,8 +867,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// those that don’t support SNI. This is not recommended, and results in additional monthly
         /// charges from CloudFront.</para></li><li><para><code>static-ip</code> - Do not specify this value unless your distribution has been
         /// enabled for this feature by the CloudFront team. If you have a use case that requires
-        /// static IP addresses for a distribution, contact CloudFront through the <a href="https://console.aws.amazon.com/support/home">AWS
-        /// Support Center</a>.</para></li></ul><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>,
+        /// static IP addresses for a distribution, contact CloudFront through the <a href="https://console.aws.amazon.com/support/home">Amazon
+        /// Web Services Support Center</a>.</para></li></ul><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>,
         /// don’t set a value for this field.</para>
         /// </para>
         /// </summary>
@@ -929,17 +930,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_WebACLId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier that specifies the AWS WAF web ACL, if any, to associate with
-        /// this distribution. To specify a web ACL created using the latest version of AWS WAF,
-        /// use the ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
-        /// To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</para><para>AWS WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests
+        /// <para>A unique identifier that specifies the WAF web ACL, if any, to associate with this
+        /// distribution. To specify a web ACL created using the latest version of WAF, use the
+        /// ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+        /// To specify a web ACL created using WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</para><para>WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests
         /// that are forwarded to CloudFront, and lets you control access to your content. Based
         /// on conditions that you specify, such as the IP addresses that requests originate from
         /// or the values of query strings, CloudFront responds to requests either with the requested
         /// content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront
         /// to return a custom error page when a request is blocked. For more information about
-        /// AWS WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
-        /// WAF Developer Guide</a>. </para>
+        /// WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">WAF
+        /// Developer Guide</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

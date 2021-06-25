@@ -28,8 +28,7 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Retrieves a paginated list of the components that a AWS IoT Greengrass core device
-    /// runs.
+    /// Retrieves a paginated list of the components that a Greengrass core device runs.
     /// </summary>
     [Cmdlet("Get", "GGV2InstalledComponentList")]
     [OutputType("Amazon.GreengrassV2.Model.InstalledComponent")]
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter CoreDeviceThingName
         /// <summary>
         /// <para>
-        /// <para>The name of the core device. This is also the name of the AWS IoT thing.</para>
+        /// <para>The name of the core device. This is also the name of the IoT thing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

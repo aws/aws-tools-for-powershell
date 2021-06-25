@@ -28,7 +28,7 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Returns the account configuration options associated with an AWS account.
+    /// Returns the account configuration options associated with an Amazon Web Services account.
     /// </summary>
     [Cmdlet("Get", "ACMAccountConfiguration")]
     [OutputType("Amazon.CertificateManager.Model.ExpiryEventsConfiguration")]

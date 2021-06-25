@@ -47,16 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// </para></important><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html">CreateService</a>.
     /// </para><para>
-    /// When AWS Cloud Map receives a DNS query for the specified DNS name, it returns the
-    /// applicable value:
+    /// When Cloud Map receives a DNS query for the specified DNS name, it returns the applicable
+    /// value:
     /// </para><ul><li><para><b>If the health check is healthy</b>: returns all the records
     /// </para></li><li><para><b>If the health check is unhealthy</b>: returns the applicable value for the last
     /// healthy instance
     /// </para></li><li><para><b>If you didn't specify a health check configuration</b>: returns all the records
     /// </para></li></ul><para>
     /// For the current quota on the number of instances that you can register using the same
-    /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
-    /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
+    /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+    /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SDInstanceRegistration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,16 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>A string map that contains the following information for the service that you specify
-        /// in <code>ServiceId</code>:</para><ul><li><para>The attributes that apply to the records that are defined in the service. </para></li><li><para>For each attribute, the applicable value.</para></li></ul><para>Supported attribute keys include the following:</para><dl><dt>AWS_ALIAS_DNS_NAME</dt><dd><para>If you want AWS Cloud Map to create an Amazon Route 53 alias record that routes traffic
+        /// in <code>ServiceId</code>:</para><ul><li><para>The attributes that apply to the records that are defined in the service. </para></li><li><para>For each attribute, the applicable value.</para></li></ul><para>Supported attribute keys include the following:</para><dl><dt>AWS_ALIAS_DNS_NAME</dt><dd><para>If you want Cloud Map to create an Amazon Route 53 alias record that routes traffic
         /// to an Elastic Load Balancing load balancer, specify the DNS name that's associated
         /// with the load balancer. For information about how to get the DNS name, see "DNSName"
         /// in the topic <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a>
-        /// in the <i>Route 53 API Reference</i>.</para><para>Note the following:</para><ul><li><para>The configuration for the service that's specified by <code>ServiceId</code> must
+        /// in the <i>Route 53 API Reference</i>.</para><para>Note the following:</para><ul><li><para>The configuration for the service that's specified by <code>ServiceId</code> must
         /// include settings for an <code>A</code> record, an <code>AAAA</code> record, or both.</para></li><li><para>In the service that's specified by <code>ServiceId</code>, the value of <code>RoutingPolicy</code>
         /// must be <code>WEIGHTED</code>.</para></li><li><para>If the service that's specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code>
-        /// settings, AWS Cloud Map will create the Route 53 health check, but it doesn't associate
+        /// settings, Cloud Map will create the Route 53 health check, but it doesn't associate
         /// the health check with the alias record.</para></li><li><para>Auto naming currently doesn't support creating alias records that route traffic to
-        /// AWS resources other than Elastic Load Balancing load balancers.</para></li><li><para>If you specify a value for <code>AWS_ALIAS_DNS_NAME</code>, don't specify values for
+        /// Amazon Web Services resources other than Elastic Load Balancing load balancers.</para></li><li><para>If you specify a value for <code>AWS_ALIAS_DNS_NAME</code>, don't specify values for
         /// any of the <code>AWS_INSTANCE</code> attributes.</para></li></ul></dd><dt>AWS_EC2_INSTANCE_ID</dt><dd><para><i>HTTP namespaces only.</i> The Amazon EC2 instance ID for the instance. If the
         /// <code>AWS_EC2_INSTANCE_ID</code> attribute is specified, then the only other attribute
         /// that can be specified is <code>AWS_INIT_HEALTH_STATUS</code>. When the <code>AWS_EC2_INSTANCE_ID</code>
@@ -91,19 +91,19 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// optionally use <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of
         /// the custom health check, <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't
         /// specify a value for <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.</para></dd><dt>AWS_INSTANCE_CNAME</dt><dd><para>If the service configuration includes a <code>CNAME</code> record, the domain name
-        /// that you want Route 53 to return in response to DNS queries (for example, <code>example.com</code>).</para><para>This value is required if the service specified by <code>ServiceId</code> includes
+        /// that you want Route 53 to return in response to DNS queries (for example, <code>example.com</code>).</para><para>This value is required if the service specified by <code>ServiceId</code> includes
         /// settings for an <code>CNAME</code> record.</para></dd><dt>AWS_INSTANCE_IPV4</dt><dd><para>If the service configuration includes an <code>A</code> record, the IPv4 address that
-        /// you want Route 53 to return in response to DNS queries (for example, <code>192.0.2.44</code>).</para><para>This value is required if the service specified by <code>ServiceId</code> includes
+        /// you want Route 53 to return in response to DNS queries (for example, <code>192.0.2.44</code>).</para><para>This value is required if the service specified by <code>ServiceId</code> includes
         /// settings for an <code>A</code> record. If the service includes settings for an <code>SRV</code>
         /// record, you must specify a value for <code>AWS_INSTANCE_IPV4</code>, <code>AWS_INSTANCE_IPV6</code>,
         /// or both.</para></dd><dt>AWS_INSTANCE_IPV6</dt><dd><para>If the service configuration includes an <code>AAAA</code> record, the IPv6 address
-        /// that you want Route 53 to return in response to DNS queries (for example, <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>).</para><para>This value is required if the service specified by <code>ServiceId</code> includes
+        /// that you want Route 53 to return in response to DNS queries (for example, <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>).</para><para>This value is required if the service specified by <code>ServiceId</code> includes
         /// settings for an <code>AAAA</code> record. If the service includes settings for an
         /// <code>SRV</code> record, you must specify a value for <code>AWS_INSTANCE_IPV4</code>,
-        /// <code>AWS_INSTANCE_IPV6</code>, or both.</para></dd><dt>AWS_INSTANCE_PORT</dt><dd><para>If the service includes an <code>SRV</code> record, the value that you want Route 53
-        /// to return for the port.</para><para>If the service includes <code>HealthCheckConfig</code>, the port on the endpoint that
-        /// you want Route 53 to send requests to. </para><para>This value is required if you specified settings for an <code>SRV</code> record or
-        /// a Route 53 health check when you created the service.</para></dd><dt>Custom attributes</dt><dd><para>You can add up to 30 custom attributes. For each key-value pair, the maximum length
+        /// <code>AWS_INSTANCE_IPV6</code>, or both.</para></dd><dt>AWS_INSTANCE_PORT</dt><dd><para>If the service includes an <code>SRV</code> record, the value that you want Route
+        /// 53 to return for the port.</para><para>If the service includes <code>HealthCheckConfig</code>, the port on the endpoint that
+        /// you want Route 53 to send requests to. </para><para>This value is required if you specified settings for an <code>SRV</code> record or
+        /// a Route 53 health check when you created the service.</para></dd><dt>Custom attributes</dt><dd><para>You can add up to 30 custom attributes. For each key-value pair, the maximum length
         /// of the attribute name is 255 characters, and the maximum length of the attribute value
         /// is 1,024 characters. The total size of all provided attributes (sum of all keys and
         /// values) must not exceed 5,000 characters.</para></dd></dl>
@@ -142,9 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <code>SRV</code> record, the value of <code>InstanceId</code> is automatically included
         /// as part of the value for the <code>SRV</code> record. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html#cloudmap-Type-DnsRecord-Type">DnsRecord
         /// &gt; Type</a>.</para></li><li><para>You can use this value to update an existing instance.</para></li><li><para>To register a new instance, you must specify a value that's unique among instances
-        /// that you register by using the same service. </para></li><li><para>If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS
-        /// Cloud Map updates the existing DNS records, if any. If there's also an existing health
-        /// check, AWS Cloud Map deletes the old health check and creates a new one. </para><note><para>The health check isn't deleted immediately, so it will still appear for a while if
+        /// that you register by using the same service. </para></li><li><para>If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Cloud
+        /// Map updates the existing DNS records, if any. If there's also an existing health check,
+        /// Cloud Map deletes the old health check and creates a new one. </para><note><para>The health check isn't deleted immediately, so it will still appear for a while if
         /// you submit a <code>ListHealthChecks</code> request, for example.</para></note></li></ul>
         /// </para>
         /// </summary>

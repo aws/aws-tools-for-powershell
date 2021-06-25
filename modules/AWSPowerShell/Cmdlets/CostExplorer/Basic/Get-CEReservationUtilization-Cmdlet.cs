@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SortBy_Key
         /// <summary>
         /// <para>
-        /// <para>The key by which to sort the data.</para>
+        /// <para>The key that's used to sort the data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SortBy_SortOrder
         /// <summary>
         /// <para>
-        /// <para>The order in which to sort the data.</para>
+        /// <para>The order that's used to sort the data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>The maximum number of objects that you returned for this request. If more objects
-        /// are available, in the response, AWS provides a NextPageToken value that you can use
-        /// in a subsequent call to get the next batch of objects.</para>
+        /// are available, in the response, Amazon Web Services provides a NextPageToken value
+        /// that you can use in a subsequent call to get the next batch of objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter NextPageToken
         /// <summary>
         /// <para>
-        /// <para>The token to retrieve the next set of results. AWS provides the token when the response
-        /// from a previous call has more results than the maximum page size.</para>
+        /// <para>The token to retrieve the next set of results. Amazon Web Services provides the token
+        /// when the response from a previous call has more results than the maximum page size.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.CostExplorer module, this parameter is only used if you are manually controlling output pagination of the service API call.

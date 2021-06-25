@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Starts a task that applies a set of mitigation actions to the specified target.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartAuditMitigationActionsTask</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "IOTAuditMitigationActionsTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>For an audit check, specifies which mitigation actions to apply. Those actions must
-        /// be defined in your AWS account.</para>
+        /// be defined in your Amazon Web Services accounts.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

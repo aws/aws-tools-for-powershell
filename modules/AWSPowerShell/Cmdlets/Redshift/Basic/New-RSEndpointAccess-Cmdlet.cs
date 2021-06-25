@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ResourceOwner
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the owner of the cluster. This is only required if the cluster
-        /// is in another AWS account.</para>
+        /// <para>The Amazon Web Services account ID of the owner of the cluster. This is only required
+        /// if the cluster is in another Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

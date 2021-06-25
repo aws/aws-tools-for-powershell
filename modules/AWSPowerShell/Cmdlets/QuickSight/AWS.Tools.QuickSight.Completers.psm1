@@ -126,7 +126,7 @@ $QS_Completers = {
         # Amazon.QuickSight.DataSourceType
         "New-QSDataSource/Type"
         {
-            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TIMESTREAM","TWITTER"
+            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TIMESTREAM","TWITTER"
             break
         }
 
@@ -188,6 +188,18 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.Status
+        {
+            ($_ -eq "New-QSDataSet/RowLevelPermissionDataSet_Status") -Or
+            ($_ -eq "Update-QSDataSet/RowLevelPermissionDataSet_Status") -Or
+            ($_ -eq "New-QSDataSet/RowLevelPermissionTagConfiguration_Status") -Or
+            ($_ -eq "Update-QSDataSet/RowLevelPermissionTagConfiguration_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QuickSight.ThemeType
         "Get-QSThemeList/Type"
         {
@@ -226,6 +238,8 @@ $QS_map = @{
     "Role"=@("Update-QSUser")
     "RowLevelPermissionDataSet_FormatVersion"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
+    "RowLevelPermissionDataSet_Status"=@("New-QSDataSet","Update-QSDataSet")
+    "RowLevelPermissionTagConfiguration_Status"=@("New-QSDataSet","Update-QSDataSet")
     "Type"=@("Get-QSThemeList","New-QSDataSource")
     "UserRole"=@("Register-QSUser")
 }
@@ -338,6 +352,8 @@ $QS_SelectMap = @{
                "Get-QSThemeAlias",
                "Get-QSThemePermission",
                "Get-QSUser",
+               "New-QSEmbedUrlForAnonymousUser",
+               "New-QSEmbedUrlForRegisteredUser",
                "Get-QSDashboardEmbedUrl",
                "Get-QSSessionEmbedUrl",
                "Get-QSAnalysisList",

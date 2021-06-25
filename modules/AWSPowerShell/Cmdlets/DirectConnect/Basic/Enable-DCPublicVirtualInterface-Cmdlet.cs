@@ -28,12 +28,12 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Provisions a public virtual interface to be owned by the specified AWS account.
+    /// Provisions a public virtual interface to be owned by the specified account.
     /// 
     ///  
     /// <para>
     /// The owner of a connection calls this function to provision a public virtual interface
-    /// to be owned by the specified AWS account.
+    /// to be owned by the specified account.
     /// </para><para>
     /// Virtual interfaces created using this function must be confirmed by the owner using
     /// <a>ConfirmPublicVirtualInterface</a>. Until this step has been completed, the virtual
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter OwnerAccount
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that owns the public virtual interface.</para>
+        /// <para>The ID of the account that owns the public virtual interface.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterfaceAllocation_RouteFilterPrefix
         /// <summary>
         /// <para>
-        /// <para>The routes to be advertised to the AWS network in this Region. Applies to public virtual
-        /// interfaces.</para>
+        /// <para>The routes to be advertised to the Amazon Web Services network in this Region. Applies
+        /// to public virtual interfaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

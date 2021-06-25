@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// 
     ///  
     /// <para>
-    /// For more information, see https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli
-    /// in the <i>AWS DataSync User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create
+    /// an Amazon S3 location</a> in the <i>DataSync User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DSYNLocationS3", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,10 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter AgentArn
         /// <summary>
         /// <para>
-        /// <para>If you are using DataSync on an AWS Outpost, specify the Amazon Resource Names (ARNs)
-        /// of the DataSync agents deployed on your Outpost. For more information about launching
-        /// a DataSync agent on an AWS Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy
-        /// your DataSync agent on AWS Outposts</a>.</para>
+        /// <para>If you are using DataSync on an Amazon Web Services Outpost, specify the Amazon Resource
+        /// Names (ARNs) of the DataSync agents deployed on your Outpost. For more information
+        /// about launching a DataSync agent on an Amazon Web Services Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy
+        /// your DataSync agent on Outposts</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter S3BucketArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon S3 bucket. If the bucket is on an AWS Outpost, this must be
-        /// an access point ARN.</para>
+        /// <para>The ARN of the Amazon S3 bucket. If the bucket is on an Amazon Web Services Outpost,
+        /// this must be an access point ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,8 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 storage class that you want to store your files in when this location
-        /// is used as a task destination. For buckets in AWS Regions, the storage class defaults
-        /// to Standard. For buckets on AWS Outposts, the storage class defaults to AWS S3 Outposts.</para><para>For more information about S3 storage classes, see <a href="http://aws.amazon.com/s3/storage-classes/">Amazon
+        /// is used as a task destination. For buckets in Amazon Web Services Regions, the storage
+        /// class defaults to Standard. For buckets on Outposts, the storage class defaults to
+        /// Amazon Web Services S3 Outposts.</para><para>For more information about S3 storage classes, see <a href="http://aws.amazon.com/s3/storage-classes/">Amazon
         /// S3 Storage Classes</a>. Some storage classes have behaviors that can affect your S3
         /// storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
         /// when working with S3 storage classes in DataSync</a>.</para>

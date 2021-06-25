@@ -28,9 +28,9 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Attaches an AWS Identity and Access Management (AWS IAM) policy for sharing the rule
-    /// group. You can use the policy to share the rule group using AWS Resource Access Manager
-    /// (AWS RAM).
+    /// Attaches an Identity and Access Management (Amazon Web Services IAM) policy for sharing
+    /// the rule group. You can use the policy to share the rule group using Resource Access
+    /// Manager (RAM).
     /// </summary>
     [Cmdlet("Edit", "R53RFirewallRuleGroupPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter FirewallRuleGroupPolicy
         /// <summary>
         /// <para>
-        /// <para>The AWS Identity and Access Management (AWS IAM) policy to attach to the rule group.</para>
+        /// <para>The Identity and Access Management (Amazon Web Services IAM) policy to attach to the
+        /// rule group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

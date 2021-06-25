@@ -28,7 +28,7 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Disassociate a custom domain name from an AWS App Runner service.
+    /// Disassociate a custom domain name from an App Runner service.
     /// 
     ///  
     /// <para>

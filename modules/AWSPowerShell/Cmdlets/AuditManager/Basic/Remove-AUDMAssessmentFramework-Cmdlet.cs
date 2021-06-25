@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Deletes a custom framework in AWS Audit Manager.
+    /// Deletes a custom framework in Audit Manager.
     /// </summary>
     [Cmdlet("Remove", "AUDMAssessmentFramework", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

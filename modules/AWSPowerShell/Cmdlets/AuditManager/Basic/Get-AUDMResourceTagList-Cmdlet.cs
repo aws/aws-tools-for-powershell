@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns a list of tags for the specified resource in AWS Audit Manager.
+    /// Returns a list of tags for the specified resource in Audit Manager.
     /// </summary>
     [Cmdlet("Get", "AUDMResourceTagList")]
     [OutputType("System.String")]

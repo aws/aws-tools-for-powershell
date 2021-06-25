@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// Updates termination protection for the specified stack. If a user attempts to delete
     /// a stack with termination protection enabled, the operation fails and the stack remains
     /// unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting
-    /// a Stack From Being Deleted</a> in the <i>AWS CloudFormation User Guide</i>.
+    /// a Stack From Being Deleted</a> in the <i>CloudFormation User Guide</i>.
     /// 
     ///  
     /// <para>
-    ///  For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
+    /// For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
     /// stacks</a>, termination protection is set on the root stack and cannot be changed
     /// directly on the nested stack.
     /// </para>

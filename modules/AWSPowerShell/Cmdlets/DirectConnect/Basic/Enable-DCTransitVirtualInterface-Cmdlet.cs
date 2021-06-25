@@ -28,13 +28,13 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Provisions a transit virtual interface to be owned by the specified AWS account. Use
-    /// this type of interface to connect a transit gateway to your Direct Connect gateway.
+    /// Provisions a transit virtual interface to be owned by the specified account. Use this
+    /// type of interface to connect a transit gateway to your Direct Connect gateway.
     /// 
     ///  
     /// <para>
     /// The owner of a connection provisions a transit virtual interface to be owned by the
-    /// specified AWS account.
+    /// specified account.
     /// </para><para>
     /// After you create a transit virtual interface, it must be confirmed by the owner using
     /// <a>ConfirmTransitVirtualInterface</a>. Until this step has been completed, the transit
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter OwnerAccount
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that owns the transit virtual interface.</para>
+        /// <para>The ID of the account that owns the transit virtual interface.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

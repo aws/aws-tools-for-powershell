@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
     /// Creates a Simple AD directory. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html">Simple
-    /// Active Directory</a> in the <i>AWS Directory Service Admin Guide</i>.
+    /// Active Directory</a> in the <i>Directory Service Admin Guide</i>.
     /// 
     ///  
     /// <para>
     /// Before you call <code>CreateDirectory</code>, ensure that all of the required permissions
     /// have been explicitly granted through a policy. For details about what permissions
-    /// are required to run the <code>CreateDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
-    /// Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.
+    /// are required to run the <code>CreateDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory
+    /// Service API Permissions: Actions, Resources, and Conditions Reference</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DSDirectory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <summary>
         /// <para>
         /// <para>The identifiers of the subnets for the directory servers. The two subnets must be
-        /// in different Availability Zones. AWS Directory Service creates a directory server
-        /// and a DNS server in each of these subnets.</para>
+        /// in different Availability Zones. Directory Service creates a directory server and
+        /// a DNS server in each of these subnets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,7 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Retrieves the current snapshot for the patch baseline the instance uses. This API
-    /// is primarily used by the AWS-RunPatchBaseline Systems Manager document.
+    /// is primarily used by the <code>AWS-RunPatchBaseline</code> Systems Manager document
+    /// (SSM document).
+    /// 
+    ///  <note><para>
+    /// If you run the command locally, such as with the Command Line Interface (CLI), the
+    /// system attempts to use your local Amazon Web Services credentials and the operation
+    /// fails. To avoid this, you can run the command in the Amazon Web Services Systems Manager
+    /// console. Use Run Command, a capability of Amazon Web Services Systems Manager, with
+    /// an SSM document that enables you to target an instance with a script or command. For
+    /// example, run the command using the <code>AWS-RunShellScript</code> document or the
+    /// <code>AWS-RunPowerShellScript</code> document.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "SSMDeployablePatchSnapshotForInstance")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse")]
@@ -45,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>A list of explicitly approved patches for the baseline.</para><para>For information about accepted formats for lists of approved patches and rejected
         /// patches, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-        /// package name formats for approved and rejected patch lists</a> in the <i>AWS Systems
-        /// Manager User Guide</i>.</para>
+        /// package name formats for approved and rejected patch lists</a> in the <i>Amazon Web
+        /// Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Indicates whether the list of approved patches includes non-security updates that
-        /// should be applied to the instances. The default value is 'false'. Applies to Linux
-        /// instances only.</para>
+        /// should be applied to the instances. The default value is <code>false</code>. Applies
+        /// to Linux instances only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>A list of explicitly rejected patches for the baseline.</para><para>For information about accepted formats for lists of approved patches and rejected
         /// patches, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-        /// package name formats for approved and rejected patch lists</a> in the <i>AWS Systems
-        /// Manager User Guide</i>.</para>
+        /// package name formats for approved and rejected patch lists</a> in the <i>Amazon Web
+        /// Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,9 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter BaselineOverride_RejectedPatchesAction
         /// <summary>
         /// <para>
-        /// <para>The action for Patch Manager to take on patches included in the RejectedPackages list.
-        /// A patch can be allowed only if it is a dependency of another package, or blocked entirely
-        /// along with packages that include it as a dependency.</para>
+        /// <para>The action for Patch Manager to take on patches included in the <code>RejectedPackages</code>
+        /// list. A patch can be allowed only if it is a dependency of another package, or blocked
+        /// entirely along with packages that include it as a dependency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SnapshotId
         /// <summary>
         /// <para>
-        /// <para>The user-defined snapshot ID.</para>
+        /// <para>The snapshot ID provided by the user when running <code>AWS-RunPatchBaseline</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

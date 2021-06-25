@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// action. The first time the PutReplicationConfiguration API is called, a service-linked
     /// IAM role is created in your account for the replication process. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html">Using
-    /// Service-Linked Roles for Amazon ECR</a> in the <i>Amazon Elastic Container Registry
+    /// service-linked roles for Amazon ECR</a> in the <i>Amazon Elastic Container Registry
     /// User Guide</i>.
     /// 
     ///  <note><para>
@@ -55,9 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter ReplicationConfiguration_Rule
         /// <summary>
         /// <para>
-        /// <para>An array of objects representing the replication rules for a replication configuration.
-        /// A replication configuration may contain only one replication rule but the rule may
-        /// contain one or more replication destinations.</para>
+        /// <para>An array of objects representing the replication destinations and repository filters
+        /// for a replication configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

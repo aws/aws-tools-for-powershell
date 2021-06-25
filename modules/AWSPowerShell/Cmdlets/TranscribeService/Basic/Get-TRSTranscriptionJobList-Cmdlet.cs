@@ -55,8 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of jobs to return in the response. If there are fewer results in
-        /// the list, this response contains only the actual results.</para>
+        /// <para>The maximum number of jobs to return in each page of results. If there are fewer results
+        /// than the value you specify, only the actual results are returned. If you do not specify
+        /// a value, the default of 5 is used.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the result of the previous request to <code>ListTranscriptionJobs</code> was truncated,
+        /// <para>If the result of the previous request to <code>ListTranscriptionJobs</code> is truncated,
         /// include the <code>NextToken</code> to fetch the next set of jobs.</para>
         /// </para>
         /// <para>
@@ -90,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>When specified, returns only transcription jobs with the specified status. Jobs are
         /// ordered by creation date, with the newest jobs returned first. If you don’t specify
-        /// a status, Amazon Transcribe returns all transcription jobs ordered by creation date.
-        /// </para>
+        /// a status, Amazon Transcribe returns all transcription jobs ordered by creation date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

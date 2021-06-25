@@ -30,7 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// Lists the Device Defender security profile violations discovered during the given
     /// time period. You can use filters to limit the results to those alerts issued for a
-    /// particular security profile, behavior, or thing (device).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// particular security profile, behavior, or thing (device).
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListViolationEvents</a>
+    /// action.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTViolationEventList")]
     [OutputType("Amazon.IoT.Model.ViolationEvent")]
@@ -114,6 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ThingName { get; set; }
+        #endregion
+        
+        #region Parameter VerificationState
+        /// <summary>
+        /// <para>
+        /// <para>The verification state of the violation (detect alarm).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.VerificationState")]
+        public Amazon.IoT.VerificationState VerificationState { get; set; }
         #endregion
         
         #region Parameter EndTime
@@ -244,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             #endif
             context.ThingName = this.ThingName;
+            context.VerificationState = this.VerificationState;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EndTime = this.EndTime;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
@@ -296,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.ThingName != null)
             {
                 request.ThingName = cmdletContext.ThingName;
+            }
+            if (cmdletContext.VerificationState != null)
+            {
+                request.VerificationState = cmdletContext.VerificationState;
             }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.EndTime != null)
@@ -395,6 +417,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.ThingName != null)
             {
                 request.ThingName = cmdletContext.ThingName;
+            }
+            if (cmdletContext.VerificationState != null)
+            {
+                request.VerificationState = cmdletContext.VerificationState;
             }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.EndTime != null)
@@ -543,6 +569,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String SecurityProfileName { get; set; }
             public System.DateTime? UtcStartTime { get; set; }
             public System.String ThingName { get; set; }
+            public Amazon.IoT.VerificationState VerificationState { get; set; }
             [System.ObsoleteAttribute]
             public System.DateTime? EndTime { get; set; }
             [System.ObsoleteAttribute]

@@ -164,6 +164,28 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.Boolean? Scram_Enabled { get; set; }
         #endregion
         
+        #region Parameter Tls_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you want to enable or disable TLS authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ClientAuthentication_Tls_Enabled")]
+        public System.Boolean? Tls_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter Unauthenticated_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you want to enable or disable unauthenticated traffic to your cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ClientAuthentication_Unauthenticated_Enabled")]
+        public System.Boolean? Unauthenticated_Enabled { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLogs_Enabled
         /// <summary>
         /// <para>
@@ -394,6 +416,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             {
                 context.Tls_CertificateAuthorityArnList = new List<System.String>(this.Tls_CertificateAuthorityArnList);
             }
+            context.Tls_Enabled = this.Tls_Enabled;
+            context.Unauthenticated_Enabled = this.Unauthenticated_Enabled;
             context.ClusterName = this.ClusterName;
             #if MODULAR
             if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
@@ -462,29 +486,29 @@ namespace Amazon.PowerShell.Cmdlets.MSK
              // populate ClientAuthentication
             var requestClientAuthenticationIsNull = true;
             request.ClientAuthentication = new Amazon.Kafka.Model.ClientAuthentication();
-            Amazon.Kafka.Model.Tls requestClientAuthentication_clientAuthentication_Tls = null;
+            Amazon.Kafka.Model.Unauthenticated requestClientAuthentication_clientAuthentication_Unauthenticated = null;
             
-             // populate Tls
-            var requestClientAuthentication_clientAuthentication_TlsIsNull = true;
-            requestClientAuthentication_clientAuthentication_Tls = new Amazon.Kafka.Model.Tls();
-            List<System.String> requestClientAuthentication_clientAuthentication_Tls_tls_CertificateAuthorityArnList = null;
-            if (cmdletContext.Tls_CertificateAuthorityArnList != null)
+             // populate Unauthenticated
+            var requestClientAuthentication_clientAuthentication_UnauthenticatedIsNull = true;
+            requestClientAuthentication_clientAuthentication_Unauthenticated = new Amazon.Kafka.Model.Unauthenticated();
+            System.Boolean? requestClientAuthentication_clientAuthentication_Unauthenticated_unauthenticated_Enabled = null;
+            if (cmdletContext.Unauthenticated_Enabled != null)
             {
-                requestClientAuthentication_clientAuthentication_Tls_tls_CertificateAuthorityArnList = cmdletContext.Tls_CertificateAuthorityArnList;
+                requestClientAuthentication_clientAuthentication_Unauthenticated_unauthenticated_Enabled = cmdletContext.Unauthenticated_Enabled.Value;
             }
-            if (requestClientAuthentication_clientAuthentication_Tls_tls_CertificateAuthorityArnList != null)
+            if (requestClientAuthentication_clientAuthentication_Unauthenticated_unauthenticated_Enabled != null)
             {
-                requestClientAuthentication_clientAuthentication_Tls.CertificateAuthorityArnList = requestClientAuthentication_clientAuthentication_Tls_tls_CertificateAuthorityArnList;
-                requestClientAuthentication_clientAuthentication_TlsIsNull = false;
+                requestClientAuthentication_clientAuthentication_Unauthenticated.Enabled = requestClientAuthentication_clientAuthentication_Unauthenticated_unauthenticated_Enabled.Value;
+                requestClientAuthentication_clientAuthentication_UnauthenticatedIsNull = false;
             }
-             // determine if requestClientAuthentication_clientAuthentication_Tls should be set to null
-            if (requestClientAuthentication_clientAuthentication_TlsIsNull)
+             // determine if requestClientAuthentication_clientAuthentication_Unauthenticated should be set to null
+            if (requestClientAuthentication_clientAuthentication_UnauthenticatedIsNull)
             {
-                requestClientAuthentication_clientAuthentication_Tls = null;
+                requestClientAuthentication_clientAuthentication_Unauthenticated = null;
             }
-            if (requestClientAuthentication_clientAuthentication_Tls != null)
+            if (requestClientAuthentication_clientAuthentication_Unauthenticated != null)
             {
-                request.ClientAuthentication.Tls = requestClientAuthentication_clientAuthentication_Tls;
+                request.ClientAuthentication.Unauthenticated = requestClientAuthentication_clientAuthentication_Unauthenticated;
                 requestClientAuthenticationIsNull = false;
             }
             Amazon.Kafka.Model.Sasl requestClientAuthentication_clientAuthentication_Sasl = null;
@@ -550,6 +574,41 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestClientAuthentication_clientAuthentication_Sasl != null)
             {
                 request.ClientAuthentication.Sasl = requestClientAuthentication_clientAuthentication_Sasl;
+                requestClientAuthenticationIsNull = false;
+            }
+            Amazon.Kafka.Model.Tls requestClientAuthentication_clientAuthentication_Tls = null;
+            
+             // populate Tls
+            var requestClientAuthentication_clientAuthentication_TlsIsNull = true;
+            requestClientAuthentication_clientAuthentication_Tls = new Amazon.Kafka.Model.Tls();
+            List<System.String> requestClientAuthentication_clientAuthentication_Tls_tls_CertificateAuthorityArnList = null;
+            if (cmdletContext.Tls_CertificateAuthorityArnList != null)
+            {
+                requestClientAuthentication_clientAuthentication_Tls_tls_CertificateAuthorityArnList = cmdletContext.Tls_CertificateAuthorityArnList;
+            }
+            if (requestClientAuthentication_clientAuthentication_Tls_tls_CertificateAuthorityArnList != null)
+            {
+                requestClientAuthentication_clientAuthentication_Tls.CertificateAuthorityArnList = requestClientAuthentication_clientAuthentication_Tls_tls_CertificateAuthorityArnList;
+                requestClientAuthentication_clientAuthentication_TlsIsNull = false;
+            }
+            System.Boolean? requestClientAuthentication_clientAuthentication_Tls_tls_Enabled = null;
+            if (cmdletContext.Tls_Enabled != null)
+            {
+                requestClientAuthentication_clientAuthentication_Tls_tls_Enabled = cmdletContext.Tls_Enabled.Value;
+            }
+            if (requestClientAuthentication_clientAuthentication_Tls_tls_Enabled != null)
+            {
+                requestClientAuthentication_clientAuthentication_Tls.Enabled = requestClientAuthentication_clientAuthentication_Tls_tls_Enabled.Value;
+                requestClientAuthentication_clientAuthentication_TlsIsNull = false;
+            }
+             // determine if requestClientAuthentication_clientAuthentication_Tls should be set to null
+            if (requestClientAuthentication_clientAuthentication_TlsIsNull)
+            {
+                requestClientAuthentication_clientAuthentication_Tls = null;
+            }
+            if (requestClientAuthentication_clientAuthentication_Tls != null)
+            {
+                request.ClientAuthentication.Tls = requestClientAuthentication_clientAuthentication_Tls;
                 requestClientAuthenticationIsNull = false;
             }
              // determine if request.ClientAuthentication should be set to null
@@ -953,6 +1012,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             public System.Boolean? Iam_Enabled { get; set; }
             public System.Boolean? Scram_Enabled { get; set; }
             public List<System.String> Tls_CertificateAuthorityArnList { get; set; }
+            public System.Boolean? Tls_Enabled { get; set; }
+            public System.Boolean? Unauthenticated_Enabled { get; set; }
             public System.String ClusterName { get; set; }
             public System.String ConfigurationInfo_Arn { get; set; }
             public System.Int64? ConfigurationInfo_Revision { get; set; }

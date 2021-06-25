@@ -28,7 +28,11 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// View a summary of OpsItems based on specified filters and aggregators.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// View a summary of operations metadata (OpsData) based on specified filters and aggregators.
+    /// OpsData can include information about Amazon Web Services Systems Manager OpsCenter
+    /// operational workitems (OpsItems) as well as information about any Amazon Web Services
+    /// resource or service configured to report OpsData to Amazon Web Services Systems Manager
+    /// Explorer.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMOpsSummary")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.OpsEntity")]
@@ -43,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Aggregator
         /// <summary>
         /// <para>
-        /// <para>Optional aggregators that return counts of OpsItems based on one or more expressions.</para>
+        /// <para>Optional aggregators that return counts of OpsData based on one or more expressions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Optional filters used to scope down the returned OpsItems. </para>
+        /// <para>Optional filters used to scope down the returned OpsData. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ResultAttribute
         /// <summary>
         /// <para>
-        /// <para>The OpsItem data type to return.</para>
+        /// <para>The OpsData data type to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

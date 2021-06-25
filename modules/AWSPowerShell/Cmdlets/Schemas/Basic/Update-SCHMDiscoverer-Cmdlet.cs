@@ -39,6 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     public partial class UpdateSCHMDiscovererCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {
         
+        #region Parameter CrossAccount
+        /// <summary>
+        /// <para>
+        /// <para>Support discovery of schemas in events sent to the bus from another account. (default:
+        /// true)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CrossAccount { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -127,6 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
                 context.Select = (response, cmdlet) => this.DiscovererId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CrossAccount = this.CrossAccount;
             context.Description = this.Description;
             context.DiscovererId = this.DiscovererId;
             #if MODULAR
@@ -151,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
             // create request
             var request = new Amazon.Schemas.Model.UpdateDiscovererRequest();
             
+            if (cmdletContext.CrossAccount != null)
+            {
+                request.CrossAccount = cmdletContext.CrossAccount.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -220,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? CrossAccount { get; set; }
             public System.String Description { get; set; }
             public System.String DiscovererId { get; set; }
             public System.Func<Amazon.Schemas.Model.UpdateDiscovererResponse, UpdateSCHMDiscovererCmdlet, object> Select { get; set; } =

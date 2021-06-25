@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Enables the standards specified by the provided <code>StandardsArn</code>. To obtain
-    /// the ARN for a standard, use the <code><a>DescribeStandards</a></code> operation.
+    /// the ARN for a standard, use the <code>DescribeStandards</code> operation.
     /// 
     ///  
     /// <para>
     /// For more information, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security
-    /// Standards</a> section of the <i>AWS Security Hub User Guide</i>.
+    /// Standards</a> section of the <i>Security Hub User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "SHUBStandardsBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

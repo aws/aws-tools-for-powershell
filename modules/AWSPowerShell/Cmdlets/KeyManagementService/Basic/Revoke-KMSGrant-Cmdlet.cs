@@ -30,17 +30,22 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <summary>
     /// Deletes the specified grant. You revoke a grant to terminate the permissions that
     /// the grant allows. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/managing-grants.html#grant-delete">Retiring
-    /// and revoking grants</a> in the <i><i>AWS Key Management Service Developer Guide</i></i>.
+    /// and revoking grants</a> in the <i><i>Key Management Service Developer Guide</i></i>.
     /// 
     ///  
     /// <para>
     /// When you create, retire, or revoke a grant, there might be a brief delay, usually
-    /// less than five minutes, until the grant is available throughout AWS KMS. This state
-    /// is known as <i>eventual consistency</i>. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency">Eventual
-    /// consistency</a> in the <i><i>AWS Key Management Service Developer Guide</i></i>.
-    /// 
-    /// </para><para><b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different
-    /// AWS account, specify the key ARN in the value of the <code>KeyId</code> parameter.
+    /// less than five minutes, until the grant is available throughout KMS. This state is
+    /// known as <i>eventual consistency</i>. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency">Eventual
+    /// consistency</a> in the <i><i>Key Management Service Developer Guide</i></i>. 
+    /// </para><para>
+    /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using
+    /// grants</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
+    /// of working with grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming
+    /// grants</a>. 
+    /// </para><para><b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different
+    /// Amazon Web Services account, specify the key ARN in the value of the <code>KeyId</code>
+    /// parameter.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:RevokeGrant</a>
     /// (key policy).
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>ListRetirableGrants</a></para></li><li><para><a>RetireGrant</a></para></li></ul>
@@ -76,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key (CMK) associated with the grant. To
-        /// get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para><para>Specify the key ID or key ARN of the CMK. To specify a CMK in a different AWS account,
-        /// you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// <para>A unique identifier for the KMS key associated with the grant. To get the key ID and
+        /// key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para><para>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different
+        /// Amazon Web Services account, you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

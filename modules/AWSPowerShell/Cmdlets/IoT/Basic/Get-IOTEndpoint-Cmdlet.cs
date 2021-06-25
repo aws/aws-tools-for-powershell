@@ -28,7 +28,13 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Returns a unique endpoint specific to the AWS account making the call.
+    /// Returns a unique endpoint specific to the Amazon Web Services account making the call.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEndpoint</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTEndpoint")]
     [OutputType("System.String")]
@@ -43,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter EndpointType
         /// <summary>
         /// <para>
-        /// <para>The endpoint type. Valid endpoint types include:</para><ul><li><para><code>iot:Data</code> - Returns a VeriSign signed data endpoint.</para></li></ul><ul><li><para><code>iot:Data-ATS</code> - Returns an ATS signed data endpoint.</para></li></ul><ul><li><para><code>iot:CredentialProvider</code> - Returns an AWS IoT credentials provider API
-        /// endpoint.</para></li></ul><ul><li><para><code>iot:Jobs</code> - Returns an AWS IoT device management Jobs API endpoint.</para></li></ul><para>We strongly recommend that customers use the newer <code>iot:Data-ATS</code> endpoint
+        /// <para>The endpoint type. Valid endpoint types include:</para><ul><li><para><code>iot:Data</code> - Returns a VeriSign signed data endpoint.</para></li></ul><ul><li><para><code>iot:Data-ATS</code> - Returns an ATS signed data endpoint.</para></li></ul><ul><li><para><code>iot:CredentialProvider</code> - Returns an IoT credentials provider API endpoint.</para></li></ul><ul><li><para><code>iot:Jobs</code> - Returns an IoT device management Jobs API endpoint.</para></li></ul><para>We strongly recommend that customers use the newer <code>iot:Data-ATS</code> endpoint
         /// type to avoid issues related to the widespread distrust of Symantec certificate authorities.</para>
         /// </para>
         /// </summary>

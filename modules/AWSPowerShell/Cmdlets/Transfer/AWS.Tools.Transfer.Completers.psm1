@@ -80,6 +80,13 @@ $TFR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Transfer.CustomStepStatus
+        "Send-TFRWorkflowStepState/Status"
+        {
+            $v = "FAILURE","SUCCESS"
+            break
+        }
+
         # Amazon.Transfer.Domain
         "New-TFRServer/Domain"
         {
@@ -137,6 +144,7 @@ $TFR_map = @{
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderType"=@("New-TFRServer")
     "ServerProtocol"=@("Test-TFRIdentityProvider")
+    "Status"=@("Send-TFRWorkflowStepState")
 }
 
 _awsArgumentCompleterRegistration $TFR_Completers $TFR_map
@@ -192,20 +200,27 @@ $TFR_SelectMap = @{
     "Select"=@("New-TFRAccess",
                "New-TFRServer",
                "New-TFRUser",
+               "New-TFRWorkflow",
                "Remove-TFRAccess",
                "Remove-TFRServer",
                "Remove-TFRSshPublicKey",
                "Remove-TFRUser",
+               "Remove-TFRWorkflow",
                "Get-TFRAccess",
+               "Get-TFRExecution",
                "Get-TFRSecurityPolicy",
                "Get-TFRServer",
                "Get-TFRUser",
+               "Get-TFRWorkflow",
                "Import-TFRSshPublicKey",
                "Get-TFRAccessList",
+               "Get-TFRExecutionList",
                "Get-TFRSecurityPolicyList",
                "Get-TFRServerList",
                "Get-TFRResourceTagList",
                "Get-TFRUserList",
+               "Get-TFRWorkflowList",
+               "Send-TFRWorkflowStepState",
                "Start-TFRServer",
                "Stop-TFRServer",
                "Add-TFRResourceTag",

@@ -31,7 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Lists the principals associated with the specified policy.
     /// 
     ///  
-    /// <para><b>Note:</b> This API is deprecated. Please use <a>ListTargetsForPolicy</a> instead.
+    /// <para><b>Note:</b> This action is deprecated. Please use <a>ListTargetsForPolicy</a> instead.
+    /// </para><para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyPrincipals</a>
+    /// action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "IOTPolicyPrincipalList")]

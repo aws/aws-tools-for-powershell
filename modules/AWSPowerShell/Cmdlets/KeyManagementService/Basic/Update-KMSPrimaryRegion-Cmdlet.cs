@@ -37,15 +37,16 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// key in <code>us-east-1</code> and a replica key in <code>eu-west-2</code>. If you
     /// run <code>UpdatePrimaryRegion</code> with a <code>PrimaryRegion</code> value of <code>eu-west-2</code>,
     /// the primary key is now the key in <code>eu-west-2</code>, and the key in <code>us-east-1</code>
-    /// becomes a replica key. For details, see 
+    /// becomes a replica key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-update">Updating
+    /// the primary Region</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
-    /// This operation supports <i>multi-Region keys</i>, an AWS KMS feature that lets you
-    /// create multiple interoperable CMKs in different AWS Regions. Because these CMKs have
-    /// the same key ID, key material, and other metadata, you can use them to encrypt data
-    /// in one AWS Region and decrypt it in a different AWS Region without making a cross-Region
-    /// call or exposing the plaintext data. For more information about multi-Region keys,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using
-    /// multi-Region keys</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create
+    /// multiple interoperable KMS keys in different Amazon Web Services Regions. Because
+    /// these KMS keys have the same key ID, key material, and other metadata, you can use
+    /// them interchangeably to encrypt data in one Amazon Web Services Region and decrypt
+    /// it in a different Amazon Web Services Region without re-encrypting the data or making
+    /// a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using
+    /// multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
     /// The <i>primary key</i> of a multi-Region key is the source for properties that are
     /// always shared by primary and replica keys, including the key material, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">key
@@ -54,11 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// usage</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-origin">key
     /// material origin</a>, and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
     /// key rotation</a>. It's the only key that can be replicated. You cannot <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html">delete
-    /// the primary key</a> until all replicas are deleted.
+    /// the primary key</a> until all replica keys are deleted.
     /// </para><para>
     /// The key ID and primary Region that you specify uniquely identify the replica key that
     /// will become the primary key. The primary Region must already have a replica key. This
-    /// operation does not create a CMK in the specified Region. To find the replica keys,
+    /// operation does not create a KMS key in the specified Region. To find the replica keys,
     /// use the <a>DescribeKey</a> operation on the primary key or any replica key. To create
     /// a replica key, use the <a>ReplicateKey</a> operation.
     /// </para><para>
@@ -74,17 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// you can use the keys in cryptographic operations, but you cannot replicate the new
     /// primary key or perform certain management operations, such as enabling or disabling
     /// these keys. For details about the <code>Updating</code> key state, see <a href="kms/latest/developerguide/key-state.html">Key
-    /// state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
     /// This operation does not return any output. To verify that primary key is changed,
     /// use the <a>DescribeKey</a> operation.
-    /// </para><para><b>Cross-account use</b>: No. You cannot use this operation in a different AWS account.
-    /// 
+    /// </para><para><b>Cross-account use</b>: No. You cannot use this operation in a different Amazon
+    /// Web Services account. 
     /// </para><para><b>Required permissions</b>: 
-    /// </para><ul><li><para><code>kms:UpdatePrimaryRegion</code> on the current primary CMK (in the primary CMK's
-    /// Region). Include this permission primary CMK's key policy.
-    /// </para></li><li><para><code>kms:UpdatePrimaryRegion</code> on the current replica CMK (in the replica CMK's
-    /// Region). Include this permission in the replica CMK's key policy.
+    /// </para><ul><li><para><code>kms:UpdatePrimaryRegion</code> on the current primary key (in the primary key's
+    /// Region). Include this permission primary key's key policy.
+    /// </para></li><li><para><code>kms:UpdatePrimaryRegion</code> on the current replica key (in the replica key's
+    /// Region). Include this permission in the replica key's key policy.
     /// </para></li></ul><para><b>Related operations</b></para><ul><li><para><a>CreateKey</a></para></li><li><para><a>ReplicateKey</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "KMSPrimaryRegion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -100,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>Identifies the current primary key. When the operation completes, this CMK will be
-        /// a replica key.</para><para>Specify the key ID or key ARN of a multi-Region primary key.</para><para>For example:</para><ul><li><para>Key ID: <code>mrk-1234abcd12ab34cd56ef1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// <para>Identifies the current primary key. When the operation completes, this KMS key will
+        /// be a replica key.</para><para>Specify the key ID or key ARN of a multi-Region primary key.</para><para>For example:</para><ul><li><para>Key ID: <code>mrk-1234abcd12ab34cd56ef1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,9 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter PrimaryRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS Region of the new primary key. Enter the Region ID, such as <code>us-east-1</code>
-        /// or <code>ap-southeast-2</code>. There must be an existing replica key in this Region.
-        /// </para><para>When the operation completes, the multi-Region key in this Region will be the primary
+        /// <para>The Amazon Web Services Region of the new primary key. Enter the Region ID, such as
+        /// <code>us-east-1</code> or <code>ap-southeast-2</code>. There must be an existing replica
+        /// key in this Region. </para><para>When the operation completes, the multi-Region key in this Region will be the primary
         /// key.</para>
         /// </para>
         /// </summary>

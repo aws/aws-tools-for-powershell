@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
     /// Enable or disable collection of reputation metrics for emails that you send using
-    /// a particular configuration set in a specific AWS Region.
+    /// a particular configuration set in a specific Amazon Web Services Region.
     /// </summary>
     [Cmdlet("Write", "SES2ConfigurationSetReputationOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set that you want to enable or disable reputation metric
-        /// tracking for.</para>
+        /// <para>The name of the configuration set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

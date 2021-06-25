@@ -28,9 +28,9 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Creates a conditional forwarder associated with your AWS directory. Conditional forwarders
-    /// are required in order to set up a trust relationship with another domain. The conditional
-    /// forwarder points to the trusted domain.
+    /// Creates a conditional forwarder associated with your Amazon Web Services directory.
+    /// Conditional forwarders are required in order to set up a trust relationship with another
+    /// domain. The conditional forwarder points to the trusted domain.
     /// </summary>
     [Cmdlet("New", "DSConditionalForwarder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The directory ID of the AWS directory for which you are creating the conditional forwarder.</para>
+        /// <para>The directory ID of the Amazon Web Services directory for which you are creating the
+        /// conditional forwarder.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

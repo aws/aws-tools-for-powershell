@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// Adds one or more tags to the specified resource. You use tags to add metadata to resources,
     /// which you can use to categorize these resources. For example, you can categorize resources
     /// by purpose, owner, environment, or team. Each tag consists of a key and a value, which
-    /// you define. You can add tags to the following AWS Storage Gateway resources:
+    /// you define. You can add tags to the following Storage Gateway resources:
     /// 
     ///  <ul><li><para>
     /// Storage gateways of all types
@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// Virtual tapes
     /// </para></li><li><para>
     /// NFS and SMB file shares
+    /// </para></li><li><para>
+    /// File System associations
     /// </para></li></ul><para>
     /// You can create a maximum of 50 tags for each resource. Virtual tapes and storage volumes
     /// that are recovered to a new gateway maintain their tags.

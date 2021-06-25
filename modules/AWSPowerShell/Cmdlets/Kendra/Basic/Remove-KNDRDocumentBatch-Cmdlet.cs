@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     ///  
     /// <para>
     /// The documents are deleted asynchronously. You can see the progress of the deletion
-    /// by using AWS CloudWatch. Any error messages related to the processing of the batch
-    /// are sent to you CloudWatch log.
+    /// by using Amazon Web Services CloudWatch. Any error messages related to the processing
+    /// of the batch are sent to you CloudWatch log.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "KNDRDocumentBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

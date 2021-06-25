@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The language code of the vocabulary entries. For a list of languages and their corresponding
-        /// language codes, see <a>what-is-transcribe</a>.</para>
+        /// language codes, see <a>transcribe-whatis</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,14 +69,26 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String[] Phrase { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Adds one or more tags, each in the form of a key:value pair, to a new Amazon Transcribe
+        /// vocabulary at the time you create this new vocabulary.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.TranscribeService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter VocabularyFileUri
         /// <summary>
         /// <para>
         /// <para>The S3 location of the text file that contains the definition of the custom vocabulary.
         /// The URI must be in the same region as the API endpoint that you are calling. The general
-        /// form is </para><para>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
-        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>For more information about custom vocabularies, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary">Custom
-        /// Vocabularies</a>.</para>
+        /// form is:</para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>For more information about custom vocabularies, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary">Custom
+        /// vocabularies</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of the vocabulary. The name must be unique within an AWS account. The name
-        /// is case sensitive. If you try to create a vocabulary with the same name as a previous
-        /// vocabulary you will receive a <code>ConflictException</code> error.</para>
+        /// <para>The name of the vocabulary. The name must be unique within an Amazon Web Services
+        /// account. The name is case sensitive. If you try to create a vocabulary with the same
+        /// name as a previous vocabulary you will receive a <code>ConflictException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -174,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             {
                 context.Phrase = new List<System.String>(this.Phrase);
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.TranscribeService.Model.Tag>(this.Tag);
+            }
             context.VocabularyFileUri = this.VocabularyFileUri;
             context.VocabularyName = this.VocabularyName;
             #if MODULAR
@@ -205,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.Phrase != null)
             {
                 request.Phrases = cmdletContext.Phrase;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.VocabularyFileUri != null)
             {
@@ -277,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         {
             public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
             public List<System.String> Phrase { get; set; }
+            public List<Amazon.TranscribeService.Model.Tag> Tag { get; set; }
             public System.String VocabularyFileUri { get; set; }
             public System.String VocabularyName { get; set; }
             public System.Func<Amazon.TranscribeService.Model.CreateVocabularyResponse, NewTRSVocabularyCmdlet, object> Select { get; set; } =

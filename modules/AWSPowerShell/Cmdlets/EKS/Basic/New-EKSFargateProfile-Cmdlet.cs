@@ -28,8 +28,8 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Creates an AWS Fargate profile for your Amazon EKS cluster. You must have at least
-    /// one Fargate profile in a cluster to be able to run pods on Fargate.
+    /// Creates an Fargate profile for your Amazon EKS cluster. You must have at least one
+    /// Fargate profile in a cluster to be able to run pods on Fargate.
     /// 
     ///  
     /// <para>
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// must wait for that Fargate profile to finish deleting before you can create any other
     /// profiles in that cluster.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html">AWS
-    /// Fargate Profile</a> in the <i>Amazon EKS User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html">Fargate
+    /// Profile</a> in the <i>Amazon EKS User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EKSFargateProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

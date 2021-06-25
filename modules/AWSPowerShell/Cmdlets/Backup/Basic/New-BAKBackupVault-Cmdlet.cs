@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// and a request ID.
     /// 
     ///  <note><para>
-    /// Sensitive data, such as passport numbers, should not be included the name of a backup
-    /// vault.
+    /// Do not include sensitive data, such as passport numbers, in the name of a backup vault.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "BAKBackupVault", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The name of a logical container where backups are stored. Backup vaults are identified
-        /// by names that are unique to the account used to create them and the AWS Region where
-        /// they are created. They consist of letters, numbers, and hyphens.</para>
+        /// by names that are unique to the account used to create them and the Amazon Web Services
+        /// Region where they are created. They consist of letters, numbers, and hyphens.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

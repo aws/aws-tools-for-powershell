@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Describes a job execution.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeJobExecution</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTJobExecution")]
     [OutputType("Amazon.IoT.Model.JobExecution")]

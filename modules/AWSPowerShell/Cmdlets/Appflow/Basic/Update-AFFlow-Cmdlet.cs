@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para> The name of the connector profile. This name must be unique for each connector profile
-        /// in the AWS account. </para>
+        /// in the Amazon Web Services account. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,13 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <para> The type of connector, such as Salesforce, Amplitude, and so on. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Appflow.ConnectorType")]
         public Amazon.Appflow.ConnectorType SourceFlowConfig_ConnectorType { get; set; }
         #endregion
@@ -137,6 +143,17 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public Amazon.Appflow.Model.DestinationFlowConfig[] DestinationFlowConfigList { get; set; }
         #endregion
         
+        #region Parameter Veeva_DocumentType
+        /// <summary>
+        /// <para>
+        /// <para>The document type specified in the Veeva document extract flow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_Veeva_DocumentType")]
+        public System.String Veeva_DocumentType { get; set; }
+        #endregion
+        
         #region Parameter Salesforce_EnableDynamicFieldUpdate
         /// <summary>
         /// <para>
@@ -179,6 +196,17 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public System.String FlowName { get; set; }
         #endregion
         
+        #region Parameter Veeva_IncludeAllVersion
+        /// <summary>
+        /// <para>
+        /// <para>Boolean value to include All Versions of files in Veeva document extract flow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_Veeva_IncludeAllVersions")]
+        public System.Boolean? Veeva_IncludeAllVersion { get; set; }
+        #endregion
+        
         #region Parameter Salesforce_IncludeDeletedRecord
         /// <summary>
         /// <para>
@@ -188,6 +216,28 @@ namespace Amazon.PowerShell.Cmdlets.AF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SourceFlowConfig_SourceConnectorProperties_Salesforce_IncludeDeletedRecords")]
         public System.Boolean? Salesforce_IncludeDeletedRecord { get; set; }
+        #endregion
+        
+        #region Parameter Veeva_IncludeRendition
+        /// <summary>
+        /// <para>
+        /// <para>Boolean value to include file renditions in Veeva document extract flow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_Veeva_IncludeRenditions")]
+        public System.Boolean? Veeva_IncludeRendition { get; set; }
+        #endregion
+        
+        #region Parameter Veeva_IncludeSourceFile
+        /// <summary>
+        /// <para>
+        /// <para>Boolean value to include source files in Veeva document extract flow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_Veeva_IncludeSourceFiles")]
+        public System.Boolean? Veeva_IncludeSourceFile { get; set; }
         #endregion
         
         #region Parameter Amplitude_Object
@@ -331,6 +381,17 @@ namespace Amazon.PowerShell.Cmdlets.AF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SourceFlowConfig_SourceConnectorProperties_Zendesk_Object")]
         public System.String Zendesk_Object { get; set; }
+        #endregion
+        
+        #region Parameter SAPOData_ObjectPath
+        /// <summary>
+        /// <para>
+        /// <para> The object path specified in the SAPOData flow source. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_SAPOData_ObjectPath")]
+        public System.String SAPOData_ObjectPath { get; set; }
         #endregion
         
         #region Parameter Scheduled_ScheduleEndTime
@@ -509,6 +570,12 @@ namespace Amazon.PowerShell.Cmdlets.AF
             #endif
             context.SourceFlowConfig_ConnectorProfileName = this.SourceFlowConfig_ConnectorProfileName;
             context.SourceFlowConfig_ConnectorType = this.SourceFlowConfig_ConnectorType;
+            #if MODULAR
+            if (this.SourceFlowConfig_ConnectorType == null && ParameterWasBound(nameof(this.SourceFlowConfig_ConnectorType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SourceFlowConfig_ConnectorType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.IncrementalPullConfig_DatetimeTypeFieldName = this.IncrementalPullConfig_DatetimeTypeFieldName;
             context.Amplitude_Object = this.Amplitude_Object;
             context.Datadog_Object = this.Datadog_Object;
@@ -521,10 +588,15 @@ namespace Amazon.PowerShell.Cmdlets.AF
             context.Salesforce_EnableDynamicFieldUpdate = this.Salesforce_EnableDynamicFieldUpdate;
             context.Salesforce_IncludeDeletedRecord = this.Salesforce_IncludeDeletedRecord;
             context.Salesforce_Object = this.Salesforce_Object;
+            context.SAPOData_ObjectPath = this.SAPOData_ObjectPath;
             context.ServiceNow_Object = this.ServiceNow_Object;
             context.Singular_Object = this.Singular_Object;
             context.Slack_Object = this.Slack_Object;
             context.Trendmicro_Object = this.Trendmicro_Object;
+            context.Veeva_DocumentType = this.Veeva_DocumentType;
+            context.Veeva_IncludeAllVersion = this.Veeva_IncludeAllVersion;
+            context.Veeva_IncludeRendition = this.Veeva_IncludeRendition;
+            context.Veeva_IncludeSourceFile = this.Veeva_IncludeSourceFile;
             context.Veeva_Object = this.Veeva_Object;
             context.Zendesk_Object = this.Zendesk_Object;
             if (this.Task != null)
@@ -783,6 +855,31 @@ namespace Amazon.PowerShell.Cmdlets.AF
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Marketo = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Marketo;
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
+            Amazon.Appflow.Model.SAPODataSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData = null;
+            
+             // populate SAPOData
+            var requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPODataIsNull = true;
+            requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData = new Amazon.Appflow.Model.SAPODataSourceProperties();
+            System.String requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sAPOData_ObjectPath = null;
+            if (cmdletContext.SAPOData_ObjectPath != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sAPOData_ObjectPath = cmdletContext.SAPOData_ObjectPath;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sAPOData_ObjectPath != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData.ObjectPath = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData_sAPOData_ObjectPath;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPODataIsNull = false;
+            }
+             // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData should be set to null
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPODataIsNull)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData = null;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.SAPOData = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
+            }
             Amazon.Appflow.Model.ServiceNowSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_ServiceNow = null;
             
              // populate ServiceNow
@@ -881,31 +978,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Trendmicro != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Trendmicro = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Trendmicro;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
-            }
-            Amazon.Appflow.Model.VeevaSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva = null;
-            
-             // populate Veeva
-            var requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_VeevaIsNull = true;
-            requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva = new Amazon.Appflow.Model.VeevaSourceProperties();
-            System.String requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_Object = null;
-            if (cmdletContext.Veeva_Object != null)
-            {
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_Object = cmdletContext.Veeva_Object;
-            }
-            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_Object != null)
-            {
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva.Object = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_Object;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_VeevaIsNull = false;
-            }
-             // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva should be set to null
-            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_VeevaIsNull)
-            {
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva = null;
-            }
-            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva != null)
-            {
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Veeva = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva;
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.ZendeskSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Zendesk = null;
@@ -1011,6 +1083,71 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Salesforce != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Salesforce = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Salesforce;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
+            }
+            Amazon.Appflow.Model.VeevaSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva = null;
+            
+             // populate Veeva
+            var requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_VeevaIsNull = true;
+            requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva = new Amazon.Appflow.Model.VeevaSourceProperties();
+            System.String requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_DocumentType = null;
+            if (cmdletContext.Veeva_DocumentType != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_DocumentType = cmdletContext.Veeva_DocumentType;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_DocumentType != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva.DocumentType = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_DocumentType;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_VeevaIsNull = false;
+            }
+            System.Boolean? requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_IncludeAllVersion = null;
+            if (cmdletContext.Veeva_IncludeAllVersion != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_IncludeAllVersion = cmdletContext.Veeva_IncludeAllVersion.Value;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_IncludeAllVersion != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva.IncludeAllVersions = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_IncludeAllVersion.Value;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_VeevaIsNull = false;
+            }
+            System.Boolean? requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_IncludeRendition = null;
+            if (cmdletContext.Veeva_IncludeRendition != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_IncludeRendition = cmdletContext.Veeva_IncludeRendition.Value;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_IncludeRendition != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva.IncludeRenditions = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_IncludeRendition.Value;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_VeevaIsNull = false;
+            }
+            System.Boolean? requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_IncludeSourceFile = null;
+            if (cmdletContext.Veeva_IncludeSourceFile != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_IncludeSourceFile = cmdletContext.Veeva_IncludeSourceFile.Value;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_IncludeSourceFile != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva.IncludeSourceFiles = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_IncludeSourceFile.Value;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_VeevaIsNull = false;
+            }
+            System.String requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_Object = null;
+            if (cmdletContext.Veeva_Object != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_Object = cmdletContext.Veeva_Object;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_Object != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva.Object = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva_veeva_Object;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_VeevaIsNull = false;
+            }
+             // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva should be set to null
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_VeevaIsNull)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva = null;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Veeva = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva;
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
              // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties should be set to null
@@ -1229,10 +1366,15 @@ namespace Amazon.PowerShell.Cmdlets.AF
             public System.Boolean? Salesforce_EnableDynamicFieldUpdate { get; set; }
             public System.Boolean? Salesforce_IncludeDeletedRecord { get; set; }
             public System.String Salesforce_Object { get; set; }
+            public System.String SAPOData_ObjectPath { get; set; }
             public System.String ServiceNow_Object { get; set; }
             public System.String Singular_Object { get; set; }
             public System.String Slack_Object { get; set; }
             public System.String Trendmicro_Object { get; set; }
+            public System.String Veeva_DocumentType { get; set; }
+            public System.Boolean? Veeva_IncludeAllVersion { get; set; }
+            public System.Boolean? Veeva_IncludeRendition { get; set; }
+            public System.Boolean? Veeva_IncludeSourceFile { get; set; }
             public System.String Veeva_Object { get; set; }
             public System.String Zendesk_Object { get; set; }
             public List<Amazon.Appflow.Model.Task> Task { get; set; }

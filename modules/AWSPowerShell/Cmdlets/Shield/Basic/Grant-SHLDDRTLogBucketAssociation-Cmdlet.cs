@@ -28,12 +28,14 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Authorizes the DDoS Response Team (DRT) to access the specified Amazon S3 bucket containing
-    /// your AWS WAF logs. You can associate up to 10 Amazon S3 buckets with your subscription.
+    /// Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket
+    /// containing log data such as Application Load Balancer access logs, CloudFront logs,
+    /// or logs from third party sources. You can associate up to 10 Amazon S3 buckets with
+    /// your subscription.
     /// 
     ///  
     /// <para>
-    /// To use the services of the DRT and make an <code>AssociateDRTLogBucket</code> request,
+    /// To use the services of the SRT and make an <code>AssociateDRTLogBucket</code> request,
     /// you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business
     /// Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise
     /// Support plan</a>.
@@ -52,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter LogBucket
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket that contains your AWS WAF logs.</para>
+        /// <para>The Amazon S3 bucket that contains the logs that you want to share.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

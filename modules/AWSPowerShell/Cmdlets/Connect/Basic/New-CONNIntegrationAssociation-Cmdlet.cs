@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Create an AppIntegration association with an Amazon Connect instance.
+    /// Creates an AWS resource association with an Amazon Connect instance.
     /// </summary>
     [Cmdlet("New", "CONNIntegrationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateIntegrationAssociationResponse")]
@@ -94,50 +94,33 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SourceApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of the external application.</para>
+        /// <para>The name of the external application. This field is only required for the EVENT integration
+        /// type.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SourceApplicationName { get; set; }
         #endregion
         
         #region Parameter SourceApplicationUrl
         /// <summary>
         /// <para>
-        /// <para>The URL for the external application.</para>
+        /// <para>The URL for the external application. This field is only required for the EVENT integration
+        /// type.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SourceApplicationUrl { get; set; }
         #endregion
         
         #region Parameter SourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the data source.</para>
+        /// <para>The type of the data source. This field is only required for the EVENT integration
+        /// type.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Connect.SourceType")]
         public Amazon.Connect.SourceType SourceType { get; set; }
         #endregion
@@ -236,26 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.SourceApplicationName = this.SourceApplicationName;
-            #if MODULAR
-            if (this.SourceApplicationName == null && ParameterWasBound(nameof(this.SourceApplicationName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SourceApplicationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SourceApplicationUrl = this.SourceApplicationUrl;
-            #if MODULAR
-            if (this.SourceApplicationUrl == null && ParameterWasBound(nameof(this.SourceApplicationUrl)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SourceApplicationUrl which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SourceType = this.SourceType;
-            #if MODULAR
-            if (this.SourceType == null && ParameterWasBound(nameof(this.SourceType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);

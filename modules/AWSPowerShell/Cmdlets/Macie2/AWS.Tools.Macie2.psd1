@@ -111,6 +111,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MAC2InvitationList', 
         'Get-MAC2InvitationsCount', 
         'Get-MAC2MacieSession', 
+        'Get-MAC2ManagedDataIdentifierList', 
         'Get-MAC2MasterAccount', 
         'Get-MAC2Member', 
         'Get-MAC2MemberList', 

@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// to read all the data. To ensure this, either configure the NFS export with <code>no_root_squash</code>,
         /// or ensure that the files you want DataSync to access have permissions that allow read
         /// access for all users. Doing either option enables the agent to read the files. For
-        /// the agent to access directories, you must additionally enable all execute access.</para><para>If you are copying data to or from your AWS Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS
-        /// Server on AWS Snowcone</a> for more information.</para><para>For information about NFS export configuration, see 18.7. The /etc/exports Configuration
+        /// the agent to access directories, you must additionally enable all execute access.</para><para>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS
+        /// Server on Snowcone</a> for more information.</para><para>For information about NFS export configuration, see 18.7. The /etc/exports Configuration
         /// File in the Red Hat Enterprise Linux documentation.</para>
         /// </para>
         /// </summary>

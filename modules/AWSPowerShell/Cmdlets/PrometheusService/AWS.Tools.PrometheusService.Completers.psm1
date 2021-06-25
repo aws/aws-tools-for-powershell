@@ -123,10 +123,22 @@ $PROM_SelectCompleters = {
 }
 
 $PROM_SelectMap = @{
-    "Select"=@("New-PROMWorkspace",
+    "Select"=@("New-PROMAlertManagerDefinition",
+               "New-PROMRuleGroupsNamespace",
+               "New-PROMWorkspace",
+               "Remove-PROMAlertManagerDefinition",
+               "Remove-PROMRuleGroupsNamespace",
                "Remove-PROMWorkspace",
+               "Get-PROMAlertManagerDefinition",
+               "Get-PROMRuleGroupsNamespace",
                "Get-PROMWorkspace",
+               "Get-PROMRuleGroupsNamespaceList",
+               "Get-PROMResourceTag",
                "Get-PROMWorkspaceList",
+               "Write-PROMAlertManagerDefinition",
+               "Write-PROMRuleGroupsNamespace",
+               "Add-PROMResourceTag",
+               "Remove-PROMResourceTag",
                "Update-PROMWorkspaceAlias")
 }
 

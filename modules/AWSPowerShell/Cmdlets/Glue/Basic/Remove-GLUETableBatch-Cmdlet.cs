@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// 
     ///  <note><para>
     /// After completing this operation, you no longer have access to the table versions and
-    /// partitions that belong to the deleted table. AWS Glue deletes these "orphaned" resources
+    /// partitions that belong to the deleted table. Glue deletes these "orphaned" resources
     /// asynchronously in a timely manner, at the discretion of the service.
     /// </para><para>
     /// To ensure the immediate deletion of all related resources, before calling <code>BatchDeleteTable</code>,
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Data Catalog where the table resides. If none is provided, the AWS account
-        /// ID is used by default.</para>
+        /// <para>The ID of the Data Catalog where the table resides. If none is provided, the Amazon
+        /// Web Services account ID is used by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

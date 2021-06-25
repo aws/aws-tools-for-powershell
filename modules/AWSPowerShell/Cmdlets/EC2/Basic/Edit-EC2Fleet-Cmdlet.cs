@@ -71,6 +71,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2FleetCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter Context
+        /// <summary>
+        /// <para>
+        /// <para>Reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Context { get; set; }
+        #endregion
+        
         #region Parameter TargetCapacitySpecification_DefaultTargetCapacityType
         /// <summary>
         /// <para>
@@ -214,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.FleetId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Context = this.Context;
             context.ExcessCapacityTerminationPolicy = this.ExcessCapacityTerminationPolicy;
             context.FleetId = this.FleetId;
             #if MODULAR
@@ -246,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.ModifyFleetRequest();
             
+            if (cmdletContext.Context != null)
+            {
+                request.Context = cmdletContext.Context;
+            }
             if (cmdletContext.ExcessCapacityTerminationPolicy != null)
             {
                 request.ExcessCapacityTerminationPolicy = cmdletContext.ExcessCapacityTerminationPolicy;
@@ -368,6 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Context { get; set; }
             public Amazon.EC2.FleetExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
             public System.String FleetId { get; set; }
             public List<Amazon.EC2.Model.FleetLaunchTemplateConfigRequest> LaunchTemplateConfig { get; set; }

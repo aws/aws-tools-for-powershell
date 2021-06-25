@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
     /// Associates a virtual interface with a specified link aggregation group (LAG) or connection.
-    /// Connectivity to AWS is temporarily interrupted as the virtual interface is being migrated.
-    /// If the target connection or LAG has an associated virtual interface with a conflicting
-    /// VLAN number or a conflicting IP address, the operation fails.
+    /// Connectivity to Amazon Web Services is temporarily interrupted as the virtual interface
+    /// is being migrated. If the target connection or LAG has an associated virtual interface
+    /// with a conflicting VLAN number or a conflicting IP address, the operation fails.
     /// 
     ///  
     /// <para>

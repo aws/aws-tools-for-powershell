@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Gets the fine grained logging options.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetV2LoggingOptions</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTV2LoggingOption")]
     [OutputType("Amazon.IoT.Model.GetV2LoggingOptionsResponse")]

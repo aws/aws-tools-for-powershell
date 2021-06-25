@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter SamplingRuleUpdate_ResourceARN
         /// <summary>
         /// <para>
-        /// <para>Matches the ARN of the AWS resource on which the service runs.</para>
+        /// <para>Matches the ARN of the Amazon Web Services resource on which the service runs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

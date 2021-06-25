@@ -28,7 +28,7 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Deregisters an AWS Batch job definition. Job definitions are permanently deleted after
+    /// Deregisters an Batch job definition. Job definitions are permanently deleted after
     /// 180 days.
     /// </summary>
     [Cmdlet("Unregister", "BATJobDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

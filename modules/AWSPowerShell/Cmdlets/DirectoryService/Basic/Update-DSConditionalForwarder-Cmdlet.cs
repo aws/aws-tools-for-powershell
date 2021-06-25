@@ -28,7 +28,8 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Updates a conditional forwarder that has been set up for your AWS directory.
+    /// Updates a conditional forwarder that has been set up for your Amazon Web Services
+    /// directory.
     /// </summary>
     [Cmdlet("Update", "DSConditionalForwarder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The directory ID of the AWS directory for which to update the conditional forwarder.</para>
+        /// <para>The directory ID of the Amazon Web Services directory for which to update the conditional
+        /// forwarder.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

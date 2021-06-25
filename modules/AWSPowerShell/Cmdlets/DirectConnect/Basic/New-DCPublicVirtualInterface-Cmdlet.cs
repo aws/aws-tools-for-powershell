@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
     /// Creates a public virtual interface. A virtual interface is the VLAN that transports
-    /// AWS Direct Connect traffic. A public virtual interface supports sending traffic to
-    /// public services of AWS such as Amazon S3.
+    /// Direct Connect traffic. A public virtual interface supports sending traffic to public
+    /// services of Amazon Web Services such as Amazon S3.
     /// 
     ///  
     /// <para>
@@ -126,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_RouteFilterPrefix
         /// <summary>
         /// <para>
-        /// <para>The routes to be advertised to the AWS network in this Region. Applies to public virtual
-        /// interfaces.</para>
+        /// <para>The routes to be advertised to the Amazon Web Services network in this Region. Applies
+        /// to public virtual interfaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

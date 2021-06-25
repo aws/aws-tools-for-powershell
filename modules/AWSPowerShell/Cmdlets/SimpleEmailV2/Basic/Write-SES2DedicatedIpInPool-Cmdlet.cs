@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// 
     ///  <note><para>
     /// The dedicated IP address that you specify must already exist, and must be associated
-    /// with your AWS account. 
+    /// with your Amazon Web Services account. 
     /// </para><para>
     /// The dedicated IP pool you specify must already exist. You can create a new pool by
     /// using the <code>CreateDedicatedIpPool</code> operation.
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>The IP address that you want to move to the dedicated IP pool. The value you specify
-        /// has to be a dedicated IP address that's associated with your AWS account.</para>
+        /// has to be a dedicated IP address that's associated with your Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

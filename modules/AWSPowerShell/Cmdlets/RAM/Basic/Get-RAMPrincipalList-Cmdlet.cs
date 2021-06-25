@@ -102,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// | <code>glue:Table</code> | <code>license-manager:LicenseConfiguration</code> I <code>network-firewall:FirewallPolicy</code>
         /// | <code>network-firewall:StatefulRuleGroup</code> | <code>network-firewall:StatelessRuleGroup</code>
         /// | <code>outposts:Outpost</code> | <code>resource-groups:Group</code> | <code>rds:Cluster</code>
-        /// | <code>route53resolver:ResolverQueryLogConfig</code> | <code>route53resolver:ResolverRule</code></para>
+        /// | <code>route53resolver:FirewallRuleGroup</code> |<code>route53resolver:ResolverQueryLogConfig</code>
+        /// | <code>route53resolver:ResolverRule</code> | <code>s3-outposts:Outpost</code> | <code>ssm-contacts:Contact</code>
+        /// | <code>ssm-incidents:ResponsePlan</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

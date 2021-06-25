@@ -28,8 +28,7 @@ using Amazon.ServiceDiscovery.Model;
 namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
-    /// Lists summary information about the namespaces that were created by the current AWS
-    /// account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists summary information about the namespaces that were created by the current account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SDNamespaceList")]
     [OutputType("Amazon.ServiceDiscovery.Model.NamespaceSummary")]
@@ -56,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of namespaces that you want AWS Cloud Map to return in the response
+        /// <para>The maximum number of namespaces that you want Cloud Map to return in the response
         /// to a <code>ListNamespaces</code> request. If you don't specify a value for <code>MaxResults</code>,
-        /// AWS Cloud Map returns up to 100 namespaces.</para>
+        /// Cloud Map returns up to 100 namespaces.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -76,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <para>
         /// <para>For the first <code>ListNamespaces</code> request, omit this value.</para><para>If the response contains <code>NextToken</code>, submit another <code>ListNamespaces</code>
         /// request to get the next group of results. Specify the value of <code>NextToken</code>
-        /// from the previous response in the next request.</para><note><para>AWS Cloud Map gets <code>MaxResults</code> namespaces and then filters them based
-        /// on the specified criteria. It's possible that no namespaces in the first <code>MaxResults</code>
+        /// from the previous response in the next request.</para><note><para>Cloud Map gets <code>MaxResults</code> namespaces and then filters them based on the
+        /// specified criteria. It's possible that no namespaces in the first <code>MaxResults</code>
         /// namespaces matched the specified criteria but that subsequent groups of <code>MaxResults</code>
         /// namespaces do contain namespaces that match the criteria.</para></note>
         /// </para>

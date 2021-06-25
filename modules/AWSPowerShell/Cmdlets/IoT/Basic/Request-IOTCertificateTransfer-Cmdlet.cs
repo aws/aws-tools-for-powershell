@@ -28,20 +28,23 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Transfers the specified certificate to the specified AWS account.
+    /// Transfers the specified certificate to the specified Amazon Web Services account.
     /// 
     ///  
     /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TransferCertificate</a>
+    /// action.
+    /// </para><para>
     /// You can cancel the transfer until it is acknowledged by the recipient.
     /// </para><para>
     /// No notification is sent to the transfer destination's account. It is up to the caller
     /// to notify the transfer target.
     /// </para><para>
     /// The certificate being transferred must not be in the ACTIVE state. You can use the
-    /// UpdateCertificate API to deactivate it.
+    /// <a>UpdateCertificate</a> action to deactivate it.
     /// </para><para>
-    /// The certificate must not have any policies attached to it. You can use the DetachPrincipalPolicy
-    /// API to detach them.
+    /// The certificate must not have any policies attached to it. You can use the <a>DetachPolicy</a>
+    /// action to detach them.
     /// </para>
     /// </summary>
     [Cmdlet("Request", "IOTCertificateTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -75,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TargetAwsAccount
         /// <summary>
         /// <para>
-        /// <para>The AWS account.</para>
+        /// <para>The Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

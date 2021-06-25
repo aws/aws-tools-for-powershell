@@ -28,8 +28,8 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Authorizes the DDoS Response Team (DRT) to use email and phone to notify contacts
-    /// about escalations to the DRT and to initiate proactive customer support.
+    /// Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts
+    /// about escalations to the SRT and to initiate proactive customer support.
     /// </summary>
     [Cmdlet("Enable", "SHLDProactiveEngagement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -28,8 +28,9 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// An SaaS partner can use this operation to display the AWS account ID that a particular
-    /// partner event source name is associated with. This operation is not used by AWS customers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// An SaaS partner can use this operation to display the Amazon Web Services account
+    /// ID that a particular partner event source name is associated with. This operation
+    /// is not used by Amazon Web Services customers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWEPartnerEventSourceAccountList")]
     [OutputType("Amazon.CloudWatchEvents.Model.PartnerEventSourceAccount")]

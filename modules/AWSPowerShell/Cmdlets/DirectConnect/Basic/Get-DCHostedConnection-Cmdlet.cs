@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// or link aggregation group (LAG).
     /// 
     ///  <note><para>
-    /// Intended for use by AWS Direct Connect Partners only.
+    /// Intended for use by Direct Connect Partners only.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "DCHostedConnection")]

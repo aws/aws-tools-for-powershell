@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class UpdateCOMPEndpointCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        #region Parameter DesiredDataAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Data access role ARN to use in case the new model is encrypted with a customer CMK.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DesiredDataAccessRoleArn { get; set; }
+        #endregion
+        
         #region Parameter DesiredInferenceUnit
         /// <summary>
         /// <para>
@@ -47,15 +57,19 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// Each inference unit represents of a throughput of 100 characters per second.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("DesiredInferenceUnits")]
         public System.Int32? DesiredInferenceUnit { get; set; }
+        #endregion
+        
+        #region Parameter DesiredModelArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the new model to use when updating an existing endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DesiredModelArn { get; set; }
         #endregion
         
         #region Parameter EndpointArn
@@ -135,13 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 context.Select = (response, cmdlet) => this.EndpointArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DesiredDataAccessRoleArn = this.DesiredDataAccessRoleArn;
             context.DesiredInferenceUnit = this.DesiredInferenceUnit;
-            #if MODULAR
-            if (this.DesiredInferenceUnit == null && ParameterWasBound(nameof(this.DesiredInferenceUnit)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DesiredInferenceUnit which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.DesiredModelArn = this.DesiredModelArn;
             context.EndpointArn = this.EndpointArn;
             #if MODULAR
             if (this.EndpointArn == null && ParameterWasBound(nameof(this.EndpointArn)))
@@ -165,9 +175,17 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             // create request
             var request = new Amazon.Comprehend.Model.UpdateEndpointRequest();
             
+            if (cmdletContext.DesiredDataAccessRoleArn != null)
+            {
+                request.DesiredDataAccessRoleArn = cmdletContext.DesiredDataAccessRoleArn;
+            }
             if (cmdletContext.DesiredInferenceUnit != null)
             {
                 request.DesiredInferenceUnits = cmdletContext.DesiredInferenceUnit.Value;
+            }
+            if (cmdletContext.DesiredModelArn != null)
+            {
+                request.DesiredModelArn = cmdletContext.DesiredModelArn;
             }
             if (cmdletContext.EndpointArn != null)
             {
@@ -234,7 +252,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DesiredDataAccessRoleArn { get; set; }
             public System.Int32? DesiredInferenceUnit { get; set; }
+            public System.String DesiredModelArn { get; set; }
             public System.String EndpointArn { get; set; }
             public System.Func<Amazon.Comprehend.Model.UpdateEndpointResponse, UpdateCOMPEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

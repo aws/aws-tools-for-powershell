@@ -28,7 +28,13 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Starts a Device Defender ML Detect mitigation actions task.
+    /// Starts a Device Defender ML Detect mitigation actions task. 
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartDetectMitigationActionsTask</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "IOTDetectMitigationActionsTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -73,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para> Each mitigation action task must have a unique client request token. If you try to
         /// create a new task with the same token as a task that already exists, an exception
-        /// occurs. If you omit this value, AWS SDKs will automatically generate a unique client
-        /// request. </para>
+        /// occurs. If you omit this value, Amazon Web Services SDKs will automatically generate
+        /// a unique client request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

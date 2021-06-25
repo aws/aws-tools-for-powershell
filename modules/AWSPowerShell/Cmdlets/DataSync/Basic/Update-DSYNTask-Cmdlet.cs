@@ -63,6 +63,19 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public Amazon.DataSync.Model.FilterRule[] Exclude { get; set; }
         #endregion
         
+        #region Parameter Include
+        /// <summary>
+        /// <para>
+        /// <para>A list of filter rules that determines which files to include when running a task.
+        /// The pattern should contain a single filter string that consists of the patterns to
+        /// include. The patterns are delimited by "|" (that is, a pipe). For example: <code>"/folder1|/folder2</code>"</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Includes")]
+        public Amazon.DataSync.Model.FilterRule[] Include { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -87,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Schedule_ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>A cron expression that specifies when AWS DataSync initiates a scheduled transfer
-        /// from a source to a destination location. </para>
+        /// <para>A cron expression that specifies when DataSync initiates a scheduled transfer from
+        /// a source to a destination location. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             {
                 context.Exclude = new List<Amazon.DataSync.Model.FilterRule>(this.Exclude);
             }
+            if (this.Include != null)
+            {
+                context.Include = new List<Amazon.DataSync.Model.FilterRule>(this.Include);
+            }
             context.Name = this.Name;
             context.Option = this.Option;
             context.Schedule_ScheduleExpression = this.Schedule_ScheduleExpression;
@@ -210,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             if (cmdletContext.Exclude != null)
             {
                 request.Excludes = cmdletContext.Exclude;
+            }
+            if (cmdletContext.Include != null)
+            {
+                request.Includes = cmdletContext.Include;
             }
             if (cmdletContext.Name != null)
             {
@@ -305,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         {
             public System.String CloudWatchLogGroupArn { get; set; }
             public List<Amazon.DataSync.Model.FilterRule> Exclude { get; set; }
+            public List<Amazon.DataSync.Model.FilterRule> Include { get; set; }
             public System.String Name { get; set; }
             public Amazon.DataSync.Model.Options Option { get; set; }
             public System.String Schedule_ScheduleExpression { get; set; }

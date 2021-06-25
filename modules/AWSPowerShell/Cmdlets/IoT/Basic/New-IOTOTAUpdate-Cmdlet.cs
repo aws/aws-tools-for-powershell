@@ -28,7 +28,13 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Creates an AWS IoT OTAUpdate on a target group of things or groups.
+    /// Creates an IoT OTA update on a target group of things or groups.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateOTAUpdate</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IOTOTAUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.CreateOTAUpdateResponse")]
@@ -207,8 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs and AWS Code
-        /// Signing resources to create an OTA update job.</para>
+        /// <para>The IAM role that grants Amazon Web Services IoT Core access to the Amazon S3, IoT
+        /// jobs and Amazon Web Services Code Signing resources to create an OTA update job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

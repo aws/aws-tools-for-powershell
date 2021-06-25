@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ParentImage
         /// <summary>
         /// <para>
-        /// <para>The parent image of the image recipe. The value of the string can be the ARN of the
-        /// parent image or an AMI ID. The format for the ARN follows this example: <code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/x.x.x</code>.
+        /// <para>The base image of the image recipe. The value of the string can be the ARN of the
+        /// base image or an AMI ID. The format for the ARN follows this example: <code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/x.x.x</code>.
         /// You can provide the specific version that you want to use, or you can use a wildcard
         /// in all of the fields. If you enter an AMI ID for the string value, you must have access
         /// to the AMI, and the AMI must be in the same Region in which you are using Image Builder.</para>
@@ -121,7 +121,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SemanticVersion
         /// <summary>
         /// <para>
-        /// <para>The semantic version of the image recipe.</para>
+        /// <para>The semantic version of the image recipe. This version follows the semantic version
+        /// syntax.</para><note><para>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
+        /// You can assign values for the first three, and can filter on all of them.</para><para><b>Assignment:</b> For the first three nodes you can assign any positive integer
+        /// value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node.
+        /// Image Builder automatically assigns the build number to the fourth node.</para><para><b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements
+        /// for the nodes that you can assign. For example, you might choose a software version
+        /// pattern, such as 1.0.0, or a date, such as 2021.01.01.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -146,10 +152,38 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter SystemsManagerAgent_UninstallAfterBuild
+        /// <summary>
+        /// <para>
+        /// <para>Controls whether the Systems Manager agent is removed from your final build image,
+        /// prior to creating the new AMI. If this is set to true, then the agent is removed from
+        /// the final image. If it's set to false, then the agent is left in, so that it is included
+        /// in the new AMI. The default value is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdditionalInstanceConfiguration_SystemsManagerAgent_UninstallAfterBuild")]
+        public System.Boolean? SystemsManagerAgent_UninstallAfterBuild { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalInstanceConfiguration_UserDataOverride
+        /// <summary>
+        /// <para>
+        /// <para>Use this property to provide commands or a command script to run when you launch your
+        /// build instance.</para><note><para>The userDataOverride property replaces any commands that Image Builder might have
+        /// added to ensure that Systems Manager is installed on your Linux build instance. If
+        /// you override the user data, make sure that you add commands to install Systems Manager,
+        /// if it is not pre-installed on your base image.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalInstanceConfiguration_UserDataOverride { get; set; }
+        #endregion
+        
         #region Parameter WorkingDirectory
         /// <summary>
         /// <para>
-        /// <para>The working directory to be used during build and test workflows.</para>
+        /// <para>The working directory used during build and test workflows.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,6 +261,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.SystemsManagerAgent_UninstallAfterBuild = this.SystemsManagerAgent_UninstallAfterBuild;
+            context.AdditionalInstanceConfiguration_UserDataOverride = this.AdditionalInstanceConfiguration_UserDataOverride;
             if (this.BlockDeviceMapping != null)
             {
                 context.BlockDeviceMapping = new List<Amazon.Imagebuilder.Model.InstanceBlockDeviceMapping>(this.BlockDeviceMapping);
@@ -289,6 +325,50 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             // create request
             var request = new Amazon.Imagebuilder.Model.CreateImageRecipeRequest();
             
+            
+             // populate AdditionalInstanceConfiguration
+            var requestAdditionalInstanceConfigurationIsNull = true;
+            request.AdditionalInstanceConfiguration = new Amazon.Imagebuilder.Model.AdditionalInstanceConfiguration();
+            System.String requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_UserDataOverride = null;
+            if (cmdletContext.AdditionalInstanceConfiguration_UserDataOverride != null)
+            {
+                requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_UserDataOverride = cmdletContext.AdditionalInstanceConfiguration_UserDataOverride;
+            }
+            if (requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_UserDataOverride != null)
+            {
+                request.AdditionalInstanceConfiguration.UserDataOverride = requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_UserDataOverride;
+                requestAdditionalInstanceConfigurationIsNull = false;
+            }
+            Amazon.Imagebuilder.Model.SystemsManagerAgent requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgent = null;
+            
+             // populate SystemsManagerAgent
+            var requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgentIsNull = true;
+            requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgent = new Amazon.Imagebuilder.Model.SystemsManagerAgent();
+            System.Boolean? requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgent_systemsManagerAgent_UninstallAfterBuild = null;
+            if (cmdletContext.SystemsManagerAgent_UninstallAfterBuild != null)
+            {
+                requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgent_systemsManagerAgent_UninstallAfterBuild = cmdletContext.SystemsManagerAgent_UninstallAfterBuild.Value;
+            }
+            if (requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgent_systemsManagerAgent_UninstallAfterBuild != null)
+            {
+                requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgent.UninstallAfterBuild = requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgent_systemsManagerAgent_UninstallAfterBuild.Value;
+                requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgentIsNull = false;
+            }
+             // determine if requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgent should be set to null
+            if (requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgentIsNull)
+            {
+                requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgent = null;
+            }
+            if (requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgent != null)
+            {
+                request.AdditionalInstanceConfiguration.SystemsManagerAgent = requestAdditionalInstanceConfiguration_additionalInstanceConfiguration_SystemsManagerAgent;
+                requestAdditionalInstanceConfigurationIsNull = false;
+            }
+             // determine if request.AdditionalInstanceConfiguration should be set to null
+            if (requestAdditionalInstanceConfigurationIsNull)
+            {
+                request.AdditionalInstanceConfiguration = null;
+            }
             if (cmdletContext.BlockDeviceMapping != null)
             {
                 request.BlockDeviceMappings = cmdletContext.BlockDeviceMapping;
@@ -386,6 +466,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? SystemsManagerAgent_UninstallAfterBuild { get; set; }
+            public System.String AdditionalInstanceConfiguration_UserDataOverride { get; set; }
             public List<Amazon.Imagebuilder.Model.InstanceBlockDeviceMapping> BlockDeviceMapping { get; set; }
             public System.String ClientToken { get; set; }
             public List<Amazon.Imagebuilder.Model.ComponentConfiguration> Component { get; set; }

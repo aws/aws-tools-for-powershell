@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
     /// An SaaS partner can use this operation to list all the partner event source names
-    /// that they have created. This operation is not used by AWS customers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// that they have created. This operation is not used by Amazon Web Services customers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EVBPartnerEventSourceList")]
     [OutputType("Amazon.EventBridge.Model.PartnerEventSource")]

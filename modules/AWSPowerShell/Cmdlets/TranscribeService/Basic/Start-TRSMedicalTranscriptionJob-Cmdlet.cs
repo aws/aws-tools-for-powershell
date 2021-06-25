@@ -68,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public Amazon.TranscribeService.MedicalContentIdentificationType ContentIdentificationType { get; set; }
         #endregion
         
+        #region Parameter KMSEncryptionContext
+        /// <summary>
+        /// <para>
+        /// <para>A map of plain text, non-secret key:value pairs, known as encryption context pairs,
+        /// that provide an added layer of security for your data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable KMSEncryptionContext { get; set; }
+        #endregion
+        
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
@@ -118,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The S3 object location of the input media file. The URI must be in the same region
-        /// as the API endpoint that you are calling. The general form is:</para><para>For example:</para><para>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// as the API endpoint that you are calling. The general form is:</para><para>For example:</para><para>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
         /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -155,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The name of the medical transcription job. You can't use the strings "<code>.</code>"
         /// or "<code>..</code>" by themselves as the job name. The name must also be unique within
-        /// an AWS account. If you try to create a medical transcription job with the same name
-        /// as a previous medical transcription job, you get a <code>ConflictException</code>
+        /// an Amazon Web Services account. If you try to create a medical transcription job with
+        /// the same name as a previous medical transcription job, you get a <code>ConflictException</code>
         /// error.</para>
         /// </para>
         /// </summary>
@@ -180,10 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// in the <code>TranscriptFileUri</code> field. The S3 bucket must have permissions that
         /// allow Amazon Transcribe Medical to put files in the bucket. For more information,
         /// see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions
-        /// Required for IAM User Roles</a>.</para><para>You can specify an AWS Key Management Service (KMS) key to encrypt the output of your
-        /// transcription using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don't
-        /// specify a KMS key, Amazon Transcribe Medical uses the default Amazon S3 key for server-side
-        /// encryption of transcripts that are placed in your S3 bucket.</para>
+        /// Required for IAM User Roles</a>.</para><para>You can specify an Amazon Web Services Key Management Service (KMS) key to encrypt
+        /// the output of your transcription using the <code>OutputEncryptionKMSKeyId</code> parameter.
+        /// If you don't specify a KMS key, Amazon Transcribe Medical uses the default Amazon
+        /// S3 key for server-side encryption of transcripts that are placed in your S3 bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -200,8 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputEncryptionKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to
-        /// encrypt the output of the transcription job. The user calling the <a>StartMedicalTranscriptionJob</a>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Key Management Service (KMS)
+        /// key used to encrypt the output of the transcription job. The user calling the <a>StartMedicalTranscriptionJob</a>
         /// operation must have permission to use the specified KMS key.</para><para>You use either of the following to identify a KMS key in the current account:</para><ul><li><para>KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>KMS Key Alias: "alias/ExampleAlias"</para></li></ul><para>You can use either of the following to identify a KMS key in the current account or
         /// another account:</para><ul><li><para>Amazon Resource Name (ARN) of a KMS key in the current account or another account:
         /// "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"</para></li></ul><para>If you don't specify an encryption key, the output of the medical transcription job
@@ -230,6 +241,17 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OutputKey { get; set; }
+        #endregion
+        
+        #region Parameter Media_RedactedMediaFileUri
+        /// <summary>
+        /// <para>
+        /// <para> The S3 object location for your redacted output media file. This is only supported
+        /// for call analytics jobs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Media_RedactedMediaFileUri { get; set; }
         #endregion
         
         #region Parameter Settings_ShowAlternative
@@ -279,12 +301,23 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public Amazon.TranscribeService.Specialty Specialty { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Add tags to an Amazon Transcribe medical transcription job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.TranscribeService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The type of speech in the input audio. <code>CONVERSATION</code> refers to conversations
         /// between two or more speakers, e.g., a conversations between doctors and patients.
-        /// <code>DICTATION</code> refers to single-speaker dictated speech, e.g., for clinical
+        /// <code>DICTATION</code> refers to single-speaker dictated speech, such as clinical
         /// notes.</para>
         /// </para>
         /// </summary>
@@ -371,6 +404,14 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ContentIdentificationType = this.ContentIdentificationType;
+            if (this.KMSEncryptionContext != null)
+            {
+                context.KMSEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.KMSEncryptionContext.Keys)
+                {
+                    context.KMSEncryptionContext.Add((String)hashKey, (String)(this.KMSEncryptionContext[hashKey]));
+                }
+            }
             context.LanguageCode = this.LanguageCode;
             #if MODULAR
             if (this.LanguageCode == null && ParameterWasBound(nameof(this.LanguageCode)))
@@ -379,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             }
             #endif
             context.Media_MediaFileUri = this.Media_MediaFileUri;
+            context.Media_RedactedMediaFileUri = this.Media_RedactedMediaFileUri;
             context.MediaFormat = this.MediaFormat;
             context.MediaSampleRateHertz = this.MediaSampleRateHertz;
             context.MedicalTranscriptionJobName = this.MedicalTranscriptionJobName;
@@ -410,6 +452,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 WriteWarning("You are passing $null as a value for parameter Specialty which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.TranscribeService.Model.Tag>(this.Tag);
+            }
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -437,6 +483,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             {
                 request.ContentIdentificationType = cmdletContext.ContentIdentificationType;
             }
+            if (cmdletContext.KMSEncryptionContext != null)
+            {
+                request.KMSEncryptionContext = cmdletContext.KMSEncryptionContext;
+            }
             if (cmdletContext.LanguageCode != null)
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
@@ -453,6 +503,16 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestMedia_media_MediaFileUri != null)
             {
                 request.Media.MediaFileUri = requestMedia_media_MediaFileUri;
+                requestMediaIsNull = false;
+            }
+            System.String requestMedia_media_RedactedMediaFileUri = null;
+            if (cmdletContext.Media_RedactedMediaFileUri != null)
+            {
+                requestMedia_media_RedactedMediaFileUri = cmdletContext.Media_RedactedMediaFileUri;
+            }
+            if (requestMedia_media_RedactedMediaFileUri != null)
+            {
+                request.Media.RedactedMediaFileUri = requestMedia_media_RedactedMediaFileUri;
                 requestMediaIsNull = false;
             }
              // determine if request.Media should be set to null
@@ -557,6 +617,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             {
                 request.Specialty = cmdletContext.Specialty;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
@@ -623,8 +687,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.TranscribeService.MedicalContentIdentificationType ContentIdentificationType { get; set; }
+            public Dictionary<System.String, System.String> KMSEncryptionContext { get; set; }
             public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
             public System.String Media_MediaFileUri { get; set; }
+            public System.String Media_RedactedMediaFileUri { get; set; }
             public Amazon.TranscribeService.MediaFormat MediaFormat { get; set; }
             public System.Int32? MediaSampleRateHertz { get; set; }
             public System.String MedicalTranscriptionJobName { get; set; }
@@ -638,6 +704,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.Boolean? Settings_ShowSpeakerLabel { get; set; }
             public System.String Settings_VocabularyName { get; set; }
             public Amazon.TranscribeService.Specialty Specialty { get; set; }
+            public List<Amazon.TranscribeService.Model.Tag> Tag { get; set; }
             public Amazon.TranscribeService.Type Type { get; set; }
             public System.Func<Amazon.TranscribeService.Model.StartMedicalTranscriptionJobResponse, StartTRSMedicalTranscriptionJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MedicalTranscriptionJob;

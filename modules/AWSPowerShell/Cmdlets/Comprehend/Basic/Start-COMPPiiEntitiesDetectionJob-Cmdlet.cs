@@ -179,6 +179,19 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String[] RedactionConfig_PiiEntityType { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to be associated with the PII entities detection job. A tag is a key-value pair
+        /// that adds metadata to a resource used by Amazon Comprehend. For example, a tag with
+        /// "Sales" as the key might be added to a resource to indicate its use by the sales department.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Comprehend.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -283,6 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             {
                 context.RedactionConfig_PiiEntityType = new List<System.String>(this.RedactionConfig_PiiEntityType);
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Comprehend.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -366,6 +383,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             {
                 request.RedactionConfig = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -437,6 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String RedactionConfig_MaskCharacter { get; set; }
             public Amazon.Comprehend.PiiEntitiesDetectionMaskMode RedactionConfig_MaskMode { get; set; }
             public List<System.String> RedactionConfig_PiiEntityType { get; set; }
+            public List<Amazon.Comprehend.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Comprehend.Model.StartPiiEntitiesDetectionJobResponse, StartCOMPPiiEntitiesDetectionJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

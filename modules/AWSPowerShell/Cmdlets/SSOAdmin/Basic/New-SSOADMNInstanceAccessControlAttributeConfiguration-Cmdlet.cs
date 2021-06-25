@@ -28,10 +28,10 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Enables the attributes-based access control (ABAC) feature for the specified AWS SSO
-    /// instance. You can also specify new attributes to add to your ABAC configuration during
-    /// the enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based
-    /// Access Control</a> in the <i>AWS SSO User Guide</i>.
+    /// Enables the attributes-based access control (ABAC) feature for the specified Amazon
+    /// Web Services SSO instance. You can also specify new attributes to add to your ABAC
+    /// configuration during the enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a>
+    /// in the <i>Amazon Web Services SSO User Guide</i>.
     /// </summary>
     [Cmdlet("New", "SSOADMNInstanceAccessControlAttributeConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter InstanceAccessControlAttributeConfiguration_AccessControlAttribute
         /// <summary>
         /// <para>
-        /// <para>Lists the attributes that are configured for ABAC in the specified AWS SSO instance.</para>
+        /// <para>Lists the attributes that are configured for ABAC in the specified Amazon Web Services
+        /// SSO instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

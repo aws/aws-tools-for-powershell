@@ -28,7 +28,8 @@ using Amazon.SimpleEmailV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Sends an email message. You can use the Amazon SES API v2 to send two types of messages:
+    /// Sends an email message. You can use the Amazon SES API v2 to send the following types
+    /// of messages:
     /// 
     ///  <ul><li><para><b>Simple</b> – A standard email message. When you create this type of message, you
     /// specify the sender, the recipient, and the message body, and Amazon SES assembles
@@ -121,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set that you want to use when sending the email.</para>
+        /// <para>The name of the configuration set to use when sending the email.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,8 +230,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter FromEmailAddress
         /// <summary>
         /// <para>
-        /// <para>The email address that you want to use as the "From" address for the email. The address
-        /// that you specify has to be verified. </para>
+        /// <para>The email address to use as the "From" address for the email. The address that you
+        /// specify has to be verified. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

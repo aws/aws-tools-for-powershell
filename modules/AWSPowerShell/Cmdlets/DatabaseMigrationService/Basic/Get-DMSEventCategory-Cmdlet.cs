@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// <summary>
     /// Lists categories for all event source types, or, if specified, for a specified source
     /// type. You can see a list of the event categories and source types in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
-    /// with Events and Notifications</a> in the <i>AWS Database Migration Service User Guide.</i>
+    /// with Events and Notifications</a> in the <i>Database Migration Service User Guide.</i>
     /// </summary>
     [Cmdlet("Get", "DMSEventCategory")]
     [OutputType("Amazon.DatabaseMigrationService.Model.EventCategoryGroup")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SourceType
         /// <summary>
         /// <para>
-        /// <para> The type of AWS DMS resource that generates events. </para><para>Valid values: replication-instance | replication-task</para>
+        /// <para> The type of DMS resource that generates events. </para><para>Valid values: replication-instance | replication-task</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>Filters the results by AWS Config rule names.</para>
+        /// <para>Filters the results by Config rule names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of AWS Config rules within a conformance pack are returned on each
+        /// <para>The maximum number of Config rules within a conformance pack are returned on each
         /// page.</para>
         /// </para>
         /// <para>

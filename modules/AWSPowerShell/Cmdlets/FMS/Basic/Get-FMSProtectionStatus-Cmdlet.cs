@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <para>
         /// <para>The end of the time period to query for the attacks. This is a <code>timestamp</code>
         /// type. The request syntax listing indicates a <code>number</code> type because the
-        /// default used by AWS Firewall Manager is Unix time in seconds. However, any valid <code>timestamp</code>
+        /// default used by Firewall Manager is Unix time in seconds. However, any valid <code>timestamp</code>
         /// format is allowed.</para>
         /// </para>
         /// </summary>
@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter MemberAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account that is in scope of the policy that you want to get the details for.</para>
+        /// <para>The Amazon Web Services account that is in scope of the policy that you want to get
+        /// the details for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <para>
         /// <para>The start of the time period to query for the attacks. This is a <code>timestamp</code>
         /// type. The request syntax listing indicates a <code>number</code> type because the
-        /// default used by AWS Firewall Manager is Unix time in seconds. However, any valid <code>timestamp</code>
+        /// default used by Firewall Manager is Unix time in seconds. However, any valid <code>timestamp</code>
         /// format is allowed.</para>
         /// </para>
         /// </summary>
@@ -96,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of objects that you want AWS Firewall Manager to return for this
+        /// <para>Specifies the number of objects that you want Firewall Manager to return for this
         /// request. If you have more objects than the number that you specify for <code>MaxResults</code>,
         /// the response includes a <code>NextToken</code> value that you can use to get another
         /// batch of objects.</para>
@@ -111,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <summary>
         /// <para>
         /// <para>If you specify a value for <code>MaxResults</code> and you have more objects than
-        /// the number that you specify for <code>MaxResults</code>, AWS Firewall Manager returns
+        /// the number that you specify for <code>MaxResults</code>, Firewall Manager returns
         /// a <code>NextToken</code> value in the response, which you can use to retrieve another
         /// group of objects. For the second and subsequent <code>GetProtectionStatus</code> requests,
         /// specify the value of <code>NextToken</code> from the previous response to get information

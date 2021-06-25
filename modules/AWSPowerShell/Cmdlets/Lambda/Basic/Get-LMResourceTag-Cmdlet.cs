@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The function's Amazon Resource Name (ARN).</para>
+        /// <para>The function's Amazon Resource Name (ARN). Note: Lambda does not support adding tags
+        /// to aliases or versions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

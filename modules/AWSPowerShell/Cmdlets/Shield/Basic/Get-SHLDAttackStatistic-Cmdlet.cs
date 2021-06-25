@@ -28,10 +28,10 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Provides information about the number and type of attacks AWS Shield has detected
-    /// in the last year for all resources that belong to your account, regardless of whether
-    /// you've defined Shield protections for them. This operation is available to Shield
-    /// customers as well as to Shield Advanced customers.
+    /// Provides information about the number and type of attacks Shield has detected in the
+    /// last year for all resources that belong to your account, regardless of whether you've
+    /// defined Shield protections for them. This operation is available to Shield customers
+    /// as well as to Shield Advanced customers.
     /// 
     ///  
     /// <para>

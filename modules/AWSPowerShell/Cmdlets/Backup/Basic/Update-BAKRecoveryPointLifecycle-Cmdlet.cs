@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     ///  
     /// <para>
     /// The lifecycle defines when a protected resource is transitioned to cold storage and
-    /// when it expires. AWS Backup transitions and expires backups automatically according
-    /// to the lifecycle that you define.
+    /// when it expires. Backup transitions and expires backups automatically according to
+    /// the lifecycle that you define.
     /// </para><para>
     /// Backups transitioned to cold storage must be stored in cold storage for a minimum
     /// of 90 days. Therefore, the “expire after days” setting must be 90 days greater than
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The name of a logical container where backups are stored. Backup vaults are identified
-        /// by names that are unique to the account used to create them and the AWS Region where
-        /// they are created. They consist of lowercase letters, numbers, and hyphens.</para>
+        /// by names that are unique to the account used to create them and the Amazon Web Services
+        /// Region where they are created. They consist of lowercase letters, numbers, and hyphens.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

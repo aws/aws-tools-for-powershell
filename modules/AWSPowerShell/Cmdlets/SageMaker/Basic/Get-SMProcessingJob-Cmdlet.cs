@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProcessingJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the processing job. The name must be unique within an AWS Region in the
-        /// AWS account.</para>
+        /// <para>The name of the processing job. The name must be unique within an Amazon Web Services
+        /// Region in the Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

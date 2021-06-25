@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID that creates the job.</para>
+        /// <para>The Amazon Web Services account ID that creates the job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,8 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with
-        /// server-side encryption using AWS KMS (SSE-KMS). Setting this header to <code>true</code>
-        /// causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</para><para>Specifying this header with an <i>object</i> action doesn’t affect <i>bucket-level</i>
+        /// server-side encryption using Amazon Web Services KMS (SSE-KMS). Setting this header
+        /// to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption
+        /// with SSE-KMS.</para><para>Specifying this header with an <i>object</i> action doesn’t affect <i>bucket-level</i>
         /// settings for S3 Bucket Key.</para>
         /// </para>
         /// </summary>
@@ -359,8 +360,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter LambdaInvoke_FunctionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the AWS Lambda function that the specified job
-        /// will invoke on every object in the manifest.</para>
+        /// <para>The Amazon Resource Name (ARN) for the Lambda function that the specified job will
+        /// invoke on every object in the manifest.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -616,8 +617,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role
-        /// that Batch Operations will use to run this job's action on every object in the manifest.</para>
+        /// <para>The Amazon Resource Name (ARN) for the Identity and Access Management (IAM) role that
+        /// Batch Operations will use to run this job's action on every object in the manifest.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

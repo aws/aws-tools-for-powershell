@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID whose access is to be revoked.</para>
+        /// <para>The Amazon Web Services account ID whose access is to be revoked.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

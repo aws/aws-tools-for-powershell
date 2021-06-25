@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Creates an assessment in AWS Audit Manager.
+    /// Creates an assessment in Audit Manager.
     /// </summary>
     [Cmdlet("New", "AUDMAssessment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.Model.Assessment")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Scope_AwsAccount
         /// <summary>
         /// <para>
-        /// <para> The AWS accounts included in the scope of the assessment. </para>
+        /// <para> The accounts included in the scope of the assessment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Scope_AwsService
         /// <summary>
         /// <para>
-        /// <para> The AWS services included in the scope of the assessment. </para>
+        /// <para> The Amazon Web Services services included in the scope of the assessment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

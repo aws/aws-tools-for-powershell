@@ -30,6 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// <summary>
     /// Maps a user or group to the Amazon EMR Studio specified by <code>StudioId</code>,
     /// and applies a session policy to refine Studio permissions for that user or group.
+    /// Use <code>CreateStudioSessionMapping</code> to assign users to a Studio when you use
+    /// Amazon Web Services SSO authentication. For instructions on how to assign users to
+    /// a Studio when you use IAM authentication, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-manage-users.html#emr-studio-assign-users-groups">Assign
+    /// a user or group to your EMR Studio</a>.
     /// </summary>
     [Cmdlet("New", "EMRStudioSessionMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -44,11 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter IdentityId
         /// <summary>
         /// <para>
-        /// <para>The globally unique identifier (GUID) of the user or group from the AWS SSO Identity
-        /// Store. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a>
+        /// <para>The globally unique identifier (GUID) of the user or group from the Amazon Web Services
+        /// SSO Identity Store. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a>
         /// and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a>
-        /// in the <i>AWS SSO Identity Store API Reference</i>. Either <code>IdentityName</code>
-        /// or <code>IdentityId</code> must be specified.</para>
+        /// in the <i>Amazon Web Services SSO Identity Store API Reference</i>. Either <code>IdentityName</code>
+        /// or <code>IdentityId</code> must be specified, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <para>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a>
         /// and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a>
-        /// in the <i>AWS SSO Identity Store API Reference</i>. Either <code>IdentityName</code>
-        /// or <code>IdentityId</code> must be specified.</para>
+        /// in the <i>Amazon Web Services SSO Identity Store API Reference</i>. Either <code>IdentityName</code>
+        /// or <code>IdentityId</code> must be specified, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,8 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the session policy that will be applied to the
-        /// user or group. Session policies refine Studio user permissions without the need to
-        /// use multiple IAM user roles.</para>
+        /// user or group. You should specify the ARN for the session policy that you want to
+        /// apply, not the ARN of your user role. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html">Create
+        /// an EMR Studio User Role with Session Policies</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

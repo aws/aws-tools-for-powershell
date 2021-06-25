@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>route53-recovery-cluster</C2jFilename>
+    <AssemblyName>Route53RecoveryCluster</AssemblyName>
+    <ServiceNounPrefix>RRC</ServiceNounPrefix>
+    <ServiceName>Route53 Recovery Cluster</ServiceName>
+    <ServiceClientInterface>IAmazonRoute53RecoveryCluster</ServiceClientInterface>
+    <ServiceClient>AmazonRoute53RecoveryClusterClient</ServiceClient>
+    <ServiceModuleGuid>0c2b313e-f0d9-4c99-a5b7-4cf4a2a70cbc</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetRoutingControlState" OutputProperty="*" Verb="Get" Noun="RoutingControlState" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRoutingControlState" Verb="Update" Noun="RoutingControlState" ShouldProcessTarget="RoutingControlArn" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRoutingControlStates" Verb="Update" Noun="RoutingControlStateBatch" ShouldProcessTarget="UpdateRoutingControlStateEntries" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

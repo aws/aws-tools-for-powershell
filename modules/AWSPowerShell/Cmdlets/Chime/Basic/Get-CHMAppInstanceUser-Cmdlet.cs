@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Returns the full details of an <code>AppInstanceUser</code> .
+    /// Returns the full details of an <code>AppInstanceUser</code>.
     /// </summary>
     [Cmdlet("Get", "CHMAppInstanceUser")]
     [OutputType("Amazon.Chime.Model.AppInstanceUser")]

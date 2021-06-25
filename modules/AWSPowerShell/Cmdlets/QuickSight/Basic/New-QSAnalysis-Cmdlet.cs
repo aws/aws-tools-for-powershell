@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account where you are creating an analysis.</para>
+        /// <para>The ID of the Amazon Web Services account where you are creating an analysis.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_DateTimeParameter
         /// <summary>
         /// <para>
-        /// <para>Date-time parameters.</para>
+        /// <para>The parameters that have a data type of date-time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_DecimalParameter
         /// <summary>
         /// <para>
-        /// <para>Decimal parameters.</para>
+        /// <para>The parameters that have a data type of decimal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_IntegerParameter
         /// <summary>
         /// <para>
-        /// <para>Integer parameters.</para>
+        /// <para>The parameters that have a data type of integer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A descriptive name for the analysis that you're creating. This name displays for the
-        /// analysis in the QuickSight console. </para>
+        /// analysis in the Amazon QuickSight console. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>A structure that describes the principals and the resource-level permissions on an
         /// analysis. You can use the <code>Permissions</code> structure to grant permissions
-        /// by providing a list of AWS Identity and Access Management (IAM) action information
-        /// for each principal listed by Amazon Resource Name (ARN). </para><para>To specify no permissions, omit <code>Permissions</code>.</para>
+        /// by providing a list of Identity and Access Management (IAM) action information for
+        /// each principal listed by Amazon Resource Name (ARN). </para><para>To specify no permissions, omit <code>Permissions</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_StringParameter
         /// <summary>
         /// <para>
-        /// <para>String parameters.</para>
+        /// <para>The parameters that have a data type of string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The ARN for the theme to apply to the analysis that you're creating. To see the theme
-        /// in the QuickSight console, make sure that you have access to it.</para>
+        /// in the Amazon QuickSight console, make sure that you have access to it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -90,6 +90,13 @@ $ES_Completers = {
             break
         }
 
+        # Amazon.Elasticsearch.EngineType
+        "Get-ESDomainNameList/EngineType"
+        {
+            $v = "Elasticsearch","OpenSearch"
+            break
+        }
+
         # Amazon.Elasticsearch.ESPartitionInstanceType
         {
             ($_ -eq "New-ESDomain/ElasticsearchClusterConfig_DedicatedMasterType") -Or
@@ -163,6 +170,7 @@ $ES_map = @{
     "ElasticsearchClusterConfig_DedicatedMasterType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_InstanceType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_WarmType"=@("New-ESDomain","Update-ESDomainConfig")
+    "EngineType"=@("Get-ESDomainNameList")
     "InstanceType"=@("Get-ESInstanceTypeLimit")
     "PackageType"=@("New-ESPackage")
 }

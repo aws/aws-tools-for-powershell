@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns evidence from AWS Audit Manager.
+    /// Returns evidence from Audit Manager.
     /// </summary>
     [Cmdlet("Get", "AUDMEvidence")]
     [OutputType("Amazon.AuditManager.Model.Evidence")]

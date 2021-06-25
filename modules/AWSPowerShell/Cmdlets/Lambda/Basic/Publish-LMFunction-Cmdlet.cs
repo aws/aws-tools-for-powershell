@@ -31,11 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment
     /// package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution
     /// role</a>. The deployment package is a .zip file archive or container image that contains
-    /// your function code. The execution role grants the function permission to use AWS services,
-    /// such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.
+    /// your function code. The execution role grants the function permission to use Amazon
+    /// Web Services services, such as Amazon CloudWatch Logs for log streaming and X-Ray
+    /// for request tracing.
     /// 
     ///  
     /// <para>
+    /// You set the package type to <code>Image</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
+    /// image</a>. For a container image, the code property must include the URI of a container
+    /// image in the Amazon ECR registry. You do not need to specify the handler and runtime
+    /// properties. 
+    /// </para><para>
+    /// You set the package type to <code>Zip</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip
+    /// file archive</a>. For a .zip file archive, the code property specifies the location
+    /// of the .zip file. You must also specify the handler and runtime properties. The code
+    /// in the deployment package must be compatible with the target instruction set architecture
+    /// of the function (<code>x86-64</code> or <code>arm64</code>). If you do not specify
+    /// the architecture, the default value is <code>x86-64</code>.
+    /// </para><para>
     /// When you create a function, Lambda provisions an instance of the function and its
     /// supporting resources. If your function connects to a VPC, this process can take a
     /// minute or so. During this time, you can't invoke or modify the function. The <code>State</code>,
@@ -64,12 +77,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// configuration includes set set of signing profiles, which define the trusted publishers
     /// for this function.
     /// </para><para>
-    /// If another account or an AWS service invokes your function, use <a>AddPermission</a>
+    /// If another account or an Amazon Web Services service invokes your function, use <a>AddPermission</a>
     /// to grant permission by creating a resource-based IAM policy. You can grant permissions
     /// at the function level, on a version, or on an alias.
     /// </para><para>
     /// To invoke your function directly, use <a>Invoke</a>. To invoke your function in response
-    /// to events in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>),
+    /// to events in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>),
     /// or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking
     /// Functions</a>.
     /// </para>
@@ -82,6 +95,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public partial class PublishLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter Architecture
+        /// <summary>
+        /// <para>
+        /// <para>The instruction set architecture that the function supports. Enter a string array
+        /// with one of the valid values. The default value is <code>x86_64</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Architectures")]
+        public System.String[] Architecture { get; set; }
+        #endregion
         
         #region Parameter CodeSigningConfigArn
         /// <summary>
@@ -163,7 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Code_ImageUri
         /// <summary>
         /// <para>
-        /// <para>URI of a container image in the Amazon ECR registry.</para>
+        /// <para>URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
+        /// image</a> in the Amazon ECR registry.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,9 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter KMSKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your
-        /// function's environment variables. If it's not provided, AWS Lambda uses a default
-        /// service key.</para>
+        /// <para>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to
+        /// encrypt your function's environment variables. If it's not provided, Lambda uses a
+        /// default service key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -240,9 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MemorySize
         /// <summary>
         /// <para>
-        /// <para>The amount of memory available to the function at runtime. Increasing the function's
-        /// memory also increases its CPU allocation. The default value is 128 MB. The value can
-        /// be any multiple of 1 MB.</para>
+        /// <para>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory
+        /// available to the function</a> at runtime. Increasing the function memory also increases
+        /// its CPU allocation. The default value is 128 MB. The value can be any multiple of
+        /// 1 MB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,8 +333,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Code_S3Bucket
         /// <summary>
         /// <para>
-        /// <para>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in
-        /// a different AWS account.</para>
+        /// <para>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket
+        /// can be in a different Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "FromS3Object", Mandatory = true)]
@@ -385,7 +412,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The amount of time that Lambda allows a function to run before stopping it. The default
-        /// is 3 seconds. The maximum allowed value is 900 seconds.</para>
+        /// is 3 seconds. The maximum allowed value is 900 seconds. For additional information,
+        /// see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda
+        /// execution environment</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -395,7 +424,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Environment_Variable
         /// <summary>
         /// <para>
-        /// <para>Environment variable key-value pairs.</para>
+        /// <para>Environment variable key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using
+        /// Lambda environment variables</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -416,8 +446,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Code_ZipFile
         /// <summary>
         /// <para>
-        /// <para>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients
-        /// handle the encoding for you.</para>
+        /// <para>The base64-encoded contents of the deployment package. Amazon Web Services SDK and
+        /// Amazon Web Services CLI clients handle the encoding for you.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -488,6 +518,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.Select = (response, cmdlet) => this.FunctionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Architecture != null)
+            {
+                context.Architecture = new List<System.String>(this.Architecture);
+            }
             context.Code_ImageUri = this.Code_ImageUri;
             context.Code_S3Bucket = this.Code_S3Bucket;
             context.Code_S3Key = this.Code_S3Key;
@@ -582,6 +616,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 // create request
                 var request = new Amazon.Lambda.Model.CreateFunctionRequest();
                 
+                if (cmdletContext.Architecture != null)
+                {
+                    request.Architectures = cmdletContext.Architecture;
+                }
                 
                  // populate Code
                 var requestCodeIsNull = true;
@@ -922,6 +960,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Architecture { get; set; }
             public System.String Code_ImageUri { get; set; }
             public System.String Code_S3Bucket { get; set; }
             public System.String Code_S3Key { get; set; }

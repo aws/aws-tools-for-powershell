@@ -28,8 +28,8 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Enables you to provide feedback to Amazon Kendra to improve the performance of the
-    /// service.
+    /// Enables you to provide feedback to Amazon Kendra to improve the performance of your
+    /// index.
     /// </summary>
     [Cmdlet("Send", "KNDRFeedback", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

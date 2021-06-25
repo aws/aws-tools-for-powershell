@@ -106,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceCount
         /// <summary>
         /// <para>
-        /// <para>The number of instances for which to reserve capacity.</para>
+        /// <para>The number of instances for which to reserve capacity. The number of instances can't
+        /// be increased or decreased by more than <code>1000</code> in a single request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -161,10 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProcessingOutputConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
-        /// the processing job output. <code>KmsKeyId</code> can be an ID of a KMS key, ARN of
-        /// a KMS key, alias of a KMS key, or alias of a KMS key. The <code>KmsKeyId</code> is
-        /// applied to all outputs.</para>
+        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+        /// Amazon SageMaker uses to encrypt the processing job output. <code>KmsKeyId</code>
+        /// can be an ID of a KMS key, ARN of a KMS key, alias of a KMS key, or alias of a KMS
+        /// key. The <code>KmsKeyId</code> is applied to all outputs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,8 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProcessingJobName
         /// <summary>
         /// <para>
-        /// <para> The name of the processing job. The name must be unique within an AWS Region in the
-        /// AWS account.</para>
+        /// <para> The name of the processing job. The name must be unique within an Amazon Web Services
+        /// Region in the Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -269,7 +269,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using
-        /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.</para>
+        /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,9 +303,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ClusterConfig_VolumeKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
-        /// data on the storage volume attached to the ML compute instance(s) that run the processing
-        /// job. </para><note><para>Certain Nitro-based instances include local storage, dependent on the instance type.
+        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+        /// Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute
+        /// instance(s) that run the processing job. </para><note><para>Certain Nitro-based instances include local storage, dependent on the instance type.
         /// Local storage volumes are encrypted using a hardware module on the instance. You can't
         /// request a <code>VolumeKmsKeyId</code> when using an instance type with local storage.</para><para>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance
         /// Store Volumes</a>.</para><para>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD

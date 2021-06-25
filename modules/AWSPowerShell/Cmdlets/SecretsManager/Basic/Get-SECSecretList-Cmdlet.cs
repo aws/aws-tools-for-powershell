@@ -28,8 +28,8 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Lists all of the secrets that are stored by Secrets Manager in the AWS account. To
-    /// list the versions currently stored for a specific secret, use <a>ListSecretVersionIds</a>.
+    /// Lists all of the secrets that are stored by Secrets Manager in the Amazon Web Services
+    /// account. To list the versions currently stored for a specific secret, use <a>ListSecretVersionIds</a>.
     /// The encrypted fields <code>SecretString</code> and <code>SecretBinary</code> are not
     /// included in the output. To get that information, call the <a>GetSecretValue</a> operation.
     /// 

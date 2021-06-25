@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID.</para>
+        /// <para>The Amazon Web Services account ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ColumnGroup
         /// <summary>
         /// <para>
-        /// <para>Groupings of columns that work together in certain QuickSight features. Currently,
+        /// <para>Groupings of columns that work together in certain Amazon QuickSight features. Currently,
         /// only geospatial hierarchy is supported.</para>
         /// </para>
         /// </summary>
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSetId
         /// <summary>
         /// <para>
-        /// <para>An ID for the dataset that you want to create. This ID is unique per AWS Region for
-        /// each AWS account.</para>
+        /// <para>An ID for the dataset that you want to create. This ID is unique per Amazon Web Services
+        /// Region; for each Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,6 +105,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DataSetId { get; set; }
+        #endregion
+        
+        #region Parameter DataSetUsageConfiguration_DisableUseAsDirectQuerySource
+        /// <summary>
+        /// <para>
+        /// <para>An option that controls whether a child dataset of a direct query can use this dataset
+        /// as a source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DataSetUsageConfiguration_DisableUseAsDirectQuerySource { get; set; }
+        #endregion
+        
+        #region Parameter DataSetUsageConfiguration_DisableUseAsImportedSource
+        /// <summary>
+        /// <para>
+        /// <para>An option that controls whether a child dataset that's stored in QuickSight can use
+        /// this dataset as a source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DataSetUsageConfiguration_DisableUseAsImportedSource { get; set; }
         #endregion
         
         #region Parameter FieldFolder
@@ -190,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RowLevelPermissionDataSet_PermissionPolicy
         /// <summary>
         /// <para>
-        /// <para>The type of permissions to use when interpretting the permissions for RLS. <code>DENY_ACCESS</code>
+        /// <para>The type of permissions to use when interpreting the permissions for RLS. <code>DENY_ACCESS</code>
         /// is included for backward compatibility only.</para>
         /// </para>
         /// </summary>
@@ -225,6 +247,42 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Collections.Hashtable PhysicalTableMap { get; set; }
+        #endregion
+        
+        #region Parameter RowLevelPermissionDataSet_Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of the row-level security permission dataset. If enabled, the status is
+        /// <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.Status")]
+        public Amazon.QuickSight.Status RowLevelPermissionDataSet_Status { get; set; }
+        #endregion
+        
+        #region Parameter RowLevelPermissionTagConfiguration_Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of row-level security tags. If enabled, the status is <code>ENABLED</code>.
+        /// If disabled, the status is <code>DISABLED</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.Status")]
+        public Amazon.QuickSight.Status RowLevelPermissionTagConfiguration_Status { get; set; }
+        #endregion
+        
+        #region Parameter RowLevelPermissionTagConfiguration_TagRule
+        /// <summary>
+        /// <para>
+        /// <para>A set of rules associated with row-level security, such as the tag names and columns
+        /// that they are assigned to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RowLevelPermissionTagConfiguration_TagRules")]
+        public Amazon.QuickSight.Model.RowLevelPermissionTagRule[] RowLevelPermissionTagConfiguration_TagRule { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -322,6 +380,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter DataSetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DataSetUsageConfiguration_DisableUseAsDirectQuerySource = this.DataSetUsageConfiguration_DisableUseAsDirectQuerySource;
+            context.DataSetUsageConfiguration_DisableUseAsImportedSource = this.DataSetUsageConfiguration_DisableUseAsImportedSource;
             if (this.FieldFolder != null)
             {
                 context.FieldFolder = new Dictionary<System.String, Amazon.QuickSight.Model.FieldFolder>(StringComparer.Ordinal);
@@ -374,6 +434,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.RowLevelPermissionDataSet_FormatVersion = this.RowLevelPermissionDataSet_FormatVersion;
             context.RowLevelPermissionDataSet_Namespace = this.RowLevelPermissionDataSet_Namespace;
             context.RowLevelPermissionDataSet_PermissionPolicy = this.RowLevelPermissionDataSet_PermissionPolicy;
+            context.RowLevelPermissionDataSet_Status = this.RowLevelPermissionDataSet_Status;
+            context.RowLevelPermissionTagConfiguration_Status = this.RowLevelPermissionTagConfiguration_Status;
+            if (this.RowLevelPermissionTagConfiguration_TagRule != null)
+            {
+                context.RowLevelPermissionTagConfiguration_TagRule = new List<Amazon.QuickSight.Model.RowLevelPermissionTagRule>(this.RowLevelPermissionTagConfiguration_TagRule);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.QuickSight.Model.Tag>(this.Tag);
@@ -409,6 +475,35 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.DataSetId != null)
             {
                 request.DataSetId = cmdletContext.DataSetId;
+            }
+            
+             // populate DataSetUsageConfiguration
+            var requestDataSetUsageConfigurationIsNull = true;
+            request.DataSetUsageConfiguration = new Amazon.QuickSight.Model.DataSetUsageConfiguration();
+            System.Boolean? requestDataSetUsageConfiguration_dataSetUsageConfiguration_DisableUseAsDirectQuerySource = null;
+            if (cmdletContext.DataSetUsageConfiguration_DisableUseAsDirectQuerySource != null)
+            {
+                requestDataSetUsageConfiguration_dataSetUsageConfiguration_DisableUseAsDirectQuerySource = cmdletContext.DataSetUsageConfiguration_DisableUseAsDirectQuerySource.Value;
+            }
+            if (requestDataSetUsageConfiguration_dataSetUsageConfiguration_DisableUseAsDirectQuerySource != null)
+            {
+                request.DataSetUsageConfiguration.DisableUseAsDirectQuerySource = requestDataSetUsageConfiguration_dataSetUsageConfiguration_DisableUseAsDirectQuerySource.Value;
+                requestDataSetUsageConfigurationIsNull = false;
+            }
+            System.Boolean? requestDataSetUsageConfiguration_dataSetUsageConfiguration_DisableUseAsImportedSource = null;
+            if (cmdletContext.DataSetUsageConfiguration_DisableUseAsImportedSource != null)
+            {
+                requestDataSetUsageConfiguration_dataSetUsageConfiguration_DisableUseAsImportedSource = cmdletContext.DataSetUsageConfiguration_DisableUseAsImportedSource.Value;
+            }
+            if (requestDataSetUsageConfiguration_dataSetUsageConfiguration_DisableUseAsImportedSource != null)
+            {
+                request.DataSetUsageConfiguration.DisableUseAsImportedSource = requestDataSetUsageConfiguration_dataSetUsageConfiguration_DisableUseAsImportedSource.Value;
+                requestDataSetUsageConfigurationIsNull = false;
+            }
+             // determine if request.DataSetUsageConfiguration should be set to null
+            if (requestDataSetUsageConfigurationIsNull)
+            {
+                request.DataSetUsageConfiguration = null;
             }
             if (cmdletContext.FieldFolder != null)
             {
@@ -478,10 +573,49 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.RowLevelPermissionDataSet.PermissionPolicy = requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_PermissionPolicy;
                 requestRowLevelPermissionDataSetIsNull = false;
             }
+            Amazon.QuickSight.Status requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_Status = null;
+            if (cmdletContext.RowLevelPermissionDataSet_Status != null)
+            {
+                requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_Status = cmdletContext.RowLevelPermissionDataSet_Status;
+            }
+            if (requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_Status != null)
+            {
+                request.RowLevelPermissionDataSet.Status = requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_Status;
+                requestRowLevelPermissionDataSetIsNull = false;
+            }
              // determine if request.RowLevelPermissionDataSet should be set to null
             if (requestRowLevelPermissionDataSetIsNull)
             {
                 request.RowLevelPermissionDataSet = null;
+            }
+            
+             // populate RowLevelPermissionTagConfiguration
+            var requestRowLevelPermissionTagConfigurationIsNull = true;
+            request.RowLevelPermissionTagConfiguration = new Amazon.QuickSight.Model.RowLevelPermissionTagConfiguration();
+            Amazon.QuickSight.Status requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_Status = null;
+            if (cmdletContext.RowLevelPermissionTagConfiguration_Status != null)
+            {
+                requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_Status = cmdletContext.RowLevelPermissionTagConfiguration_Status;
+            }
+            if (requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_Status != null)
+            {
+                request.RowLevelPermissionTagConfiguration.Status = requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_Status;
+                requestRowLevelPermissionTagConfigurationIsNull = false;
+            }
+            List<Amazon.QuickSight.Model.RowLevelPermissionTagRule> requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_TagRule = null;
+            if (cmdletContext.RowLevelPermissionTagConfiguration_TagRule != null)
+            {
+                requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_TagRule = cmdletContext.RowLevelPermissionTagConfiguration_TagRule;
+            }
+            if (requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_TagRule != null)
+            {
+                request.RowLevelPermissionTagConfiguration.TagRules = requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_TagRule;
+                requestRowLevelPermissionTagConfigurationIsNull = false;
+            }
+             // determine if request.RowLevelPermissionTagConfiguration should be set to null
+            if (requestRowLevelPermissionTagConfigurationIsNull)
+            {
+                request.RowLevelPermissionTagConfiguration = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -552,6 +686,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.ColumnGroup> ColumnGroup { get; set; }
             public List<Amazon.QuickSight.Model.ColumnLevelPermissionRule> ColumnLevelPermissionRule { get; set; }
             public System.String DataSetId { get; set; }
+            public System.Boolean? DataSetUsageConfiguration_DisableUseAsDirectQuerySource { get; set; }
+            public System.Boolean? DataSetUsageConfiguration_DisableUseAsImportedSource { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.FieldFolder> FieldFolder { get; set; }
             public Amazon.QuickSight.DataSetImportMode ImportMode { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.LogicalTable> LogicalTableMap { get; set; }
@@ -562,6 +698,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.RowLevelPermissionFormatVersion RowLevelPermissionDataSet_FormatVersion { get; set; }
             public System.String RowLevelPermissionDataSet_Namespace { get; set; }
             public Amazon.QuickSight.RowLevelPermissionPolicy RowLevelPermissionDataSet_PermissionPolicy { get; set; }
+            public Amazon.QuickSight.Status RowLevelPermissionDataSet_Status { get; set; }
+            public Amazon.QuickSight.Status RowLevelPermissionTagConfiguration_Status { get; set; }
+            public List<Amazon.QuickSight.Model.RowLevelPermissionTagRule> RowLevelPermissionTagConfiguration_TagRule { get; set; }
             public List<Amazon.QuickSight.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.QuickSight.Model.CreateDataSetResponse, NewQSDataSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

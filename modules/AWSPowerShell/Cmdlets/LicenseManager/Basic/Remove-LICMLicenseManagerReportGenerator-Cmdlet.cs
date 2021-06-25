@@ -28,13 +28,13 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Delete an existing report generator.
+    /// Deletes the specified report generator.
     /// 
     ///  
     /// <para>
-    /// This action deletes the report generator, which stops it from generating future reports
-    /// and cannot be reversed. However, the previous reports from this generator will remain
-    /// in your S3 bucket.
+    /// This action deletes the report generator, which stops it from generating future reports.
+    /// The action cannot be reversed. It has no effect on the previous reports from this
+    /// generator.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LICMLicenseManagerReportGenerator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseManagerReportGeneratorArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Number (ARN) of the report generator that will be deleted.</para>
+        /// <para>Amazon Resource Name (ARN) of the report generator to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

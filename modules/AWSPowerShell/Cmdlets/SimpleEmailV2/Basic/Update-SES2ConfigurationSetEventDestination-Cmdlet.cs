@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter PinpointDestination_ApplicationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Pinpoint project that you want to send
-        /// email events to.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Pinpoint project to send email events
+        /// to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set that contains the event destination that you want
-        /// to modify.</para>
+        /// <para>The name of the configuration set that contains the event destination to modify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -117,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EventDestinationName
         /// <summary>
         /// <para>
-        /// <para>The name of the event destination that you want to modify.</para>
+        /// <para>The name of the event destination.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -158,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter SnsDestination_TopicArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email
-        /// events to. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon
+        /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+        /// For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon
         /// SNS Developer Guide</a>.</para>
         /// </para>
         /// </summary>

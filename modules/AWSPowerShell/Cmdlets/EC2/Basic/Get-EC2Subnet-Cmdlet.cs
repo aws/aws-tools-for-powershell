@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your
-    /// VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2Subnet")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Availability Zone. You can also use <code>defaultForAz</code> as the filter name.</para></li><li><para><code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated
         /// with the subnet.</para></li><li><para><code>ipv6-cidr-block-association.association-id</code> - An association ID for an
         /// IPv6 CIDR block associated with the subnet.</para></li><li><para><code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block
-        /// associated with the subnet.</para></li><li><para><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</para></li><li><para><code>owner-id</code> - The ID of the AWS account that owns the subnet.</para></li><li><para><code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</para></li><li><para><code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</para></li><li><para><code>subnet-id</code> - The ID of the subnet.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// associated with the subnet.</para></li><li><para><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</para></li><li><para><code>owner-id</code> - The ID of the Amazon Web Services account that owns the subnet.</para></li><li><para><code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</para></li><li><para><code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</para></li><li><para><code>subnet-id</code> - The ID of the subnet.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name

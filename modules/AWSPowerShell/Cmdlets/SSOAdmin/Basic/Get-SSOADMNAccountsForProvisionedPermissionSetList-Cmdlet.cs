@@ -28,7 +28,7 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Lists all the AWS accounts where the specified permission set is provisioned.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all the Amazon Web Services accounts where the specified permission set is provisioned.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSOADMNAccountsForProvisionedPermissionSetList")]
     [OutputType("System.String")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <para>
         /// <para>The ARN of the SSO instance under which the operation will be executed. For more information
         /// about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-        /// Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
+        /// Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services
+        /// General Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter PermissionSetArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <a>PermissionSet</a> from which the associated AWS accounts will be
-        /// listed.</para>
+        /// <para>The ARN of the <a>PermissionSet</a> from which the associated Amazon Web Services
+        /// accounts will be listed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter ProvisioningStatus
         /// <summary>
         /// <para>
-        /// <para>The permission set provisioning status for an AWS account.</para>
+        /// <para>The permission set provisioning status for an Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,21 +28,22 @@ using Amazon.CodeGuruReviewer.Model;
 namespace Amazon.PowerShell.Cmdlets.CGR
 {
     /// <summary>
-    /// Use to associate an AWS CodeCommit repository or a repostory managed by AWS CodeStar
-    /// Connections with Amazon CodeGuru Reviewer. When you associate a repository, CodeGuru
-    /// Reviewer reviews source code changes in the repository's pull requests and provides
-    /// automatic recommendations. You can view recommendations using the CodeGuru Reviewer
-    /// console. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html">Recommendations
+    /// Use to associate an Amazon Web Services CodeCommit repository or a repostory managed
+    /// by Amazon Web Services CodeStar Connections with Amazon CodeGuru Reviewer. When you
+    /// associate a repository, CodeGuru Reviewer reviews source code changes in the repository's
+    /// pull requests and provides automatic recommendations. You can view recommendations
+    /// using the CodeGuru Reviewer console. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html">Recommendations
     /// in Amazon CodeGuru Reviewer</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i><para>
-    /// If you associate a CodeCommit or S3 repository, it must be in the same AWS Region
-    /// and AWS account where its CodeGuru Reviewer code reviews are configured.
+    /// If you associate a CodeCommit or S3 repository, it must be in the same Amazon Web
+    /// Services Region and Amazon Web Services account where its CodeGuru Reviewer code reviews
+    /// are configured.
     /// </para><para>
-    /// Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar Connections
-    /// to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html">Associate
+    /// Bitbucket and GitHub Enterprise Server repositories are managed by Amazon Web Services
+    /// CodeStar Connections to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html">Associate
     /// a repository</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i></para><note><para>
-    ///  You cannot use the CodeGuru Reviewer SDK or the AWS CLI to associate a GitHub repository
-    /// with Amazon CodeGuru Reviewer. To associate a GitHub repository, use the console.
-    /// For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html">Getting
+    ///  You cannot use the CodeGuru Reviewer SDK or the Amazon Web Services CLI to associate
+    /// a GitHub repository with Amazon CodeGuru Reviewer. To associate a GitHub repository,
+    /// use the console. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html">Getting
     /// started with CodeGuru Reviewer</a> in the <i>CodeGuru Reviewer User Guide.</i></para></note>
     /// </summary>
     [Cmdlet("Register", "CGRRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -81,10 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Bitbucket_ConnectionArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format
-        /// is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html"><code>Connection</code></a> in the <i>AWS CodeStar Connections API Reference</i>.
-        /// </para>
+        /// <para> The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection.
+        /// Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html"><code>Connection</code></a> in the <i>Amazon Web Services CodeStar Connections API
+        /// Reference</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,10 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter GitHubEnterpriseServer_ConnectionArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format
-        /// is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html"><code>Connection</code></a> in the <i>AWS CodeStar Connections API Reference</i>.
-        /// </para>
+        /// <para> The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection.
+        /// Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html"><code>Connection</code></a> in the <i>Amazon Web Services CodeStar Connections API
+        /// Reference</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter KMSKeyDetails_EncryptionOption
         /// <summary>
         /// <para>
-        /// <para>The encryption option for a repository association. It is either owned by AWS Key
-        /// Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed (<code>CUSTOMER_MANAGED_CMK</code>).</para>
+        /// <para>The encryption option for a repository association. It is either owned by Amazon Web
+        /// Services Key Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed
+        /// (<code>CUSTOMER_MANAGED_CMK</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter KMSKeyDetails_KMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS KMS key that is associated with a respository association.</para>
+        /// <para>The ID of the Amazon Web Services KMS key that is associated with a respository association.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter CodeCommit_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS CodeCommit repository. For more information, see <a href="https://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetRepository.html#CodeCommit-GetRepository-request-repositoryName">repositoryName</a>
-        /// in the <i>AWS CodeCommit API Reference</i>.</para>
+        /// <para>The name of the Amazon Web Services CodeCommit repository. For more information, see
+        /// <a href="https://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetRepository.html#CodeCommit-GetRepository-request-repositoryName">repositoryName</a>
+        /// in the <i>Amazon Web Services CodeCommit API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -178,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <para>
         /// <para> The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
         /// this is the username for the account that owns the repository. For an S3 repository,
-        /// this can be the username or AWS account ID. </para>
+        /// this can be the username or Amazon Web Services account ID. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <para>
         /// <para> The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
         /// this is the username for the account that owns the repository. For an S3 repository,
-        /// this can be the username or AWS account ID. </para>
+        /// this can be the username or Amazon Web Services account ID. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

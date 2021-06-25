@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the template you want to create.</para>
+        /// <para>The name of the template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

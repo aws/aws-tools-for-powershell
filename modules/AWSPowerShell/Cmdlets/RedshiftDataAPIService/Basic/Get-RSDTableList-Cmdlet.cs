@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     /// following combinations of request parameters: 
     /// 
     ///  <ul><li><para>
-    /// AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the
-    /// cluster identifier that matches the cluster in the secret. 
+    /// Secrets Manager - specify the Amazon Resource Name (ARN) of the secret, the database
+    /// name, and the cluster identifier that matches the cluster in the secret. 
     /// </para></li><li><para>
     /// Temporary credentials - specify the cluster identifier, the database name, and the
     /// database user name. Permission to call the <code>redshift:GetClusterCredentials</code>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         /// <summary>
         /// <para>
         /// <para>The cluster identifier. This parameter is required when authenticating using either
-        /// AWS Secrets Manager or temporary credentials. </para>
+        /// Secrets Manager or temporary credentials. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         /// <summary>
         /// <para>
         /// <para>The name or ARN of the secret that enables access to the database. This parameter
-        /// is required when authenticating using AWS Secrets Manager. </para>
+        /// is required when authenticating using Secrets Manager. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

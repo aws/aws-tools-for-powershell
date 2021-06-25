@@ -363,7 +363,8 @@ $CF_SelectCompleters = {
 }
 
 $CF_SelectMap = @{
-    "Select"=@("New-CFCachePolicy",
+    "Select"=@("Move-CFAlias",
+               "New-CFCachePolicy",
                "New-CFCloudFrontOriginAccessIdentity",
                "New-CFDistribution",
                "New-CFDistributionWithTag",
@@ -415,6 +416,7 @@ $CF_SelectMap = @{
                "Get-CFStreamingDistributionConfig",
                "Get-CFCachePolicyList",
                "Get-CFCloudFrontOriginAccessIdentityList",
+               "Get-CFConflictingAlias",
                "Get-CFDistributionList",
                "Get-CFDistributionsByCachePolicyId",
                "Get-CFDistributionsByKeyGroup",

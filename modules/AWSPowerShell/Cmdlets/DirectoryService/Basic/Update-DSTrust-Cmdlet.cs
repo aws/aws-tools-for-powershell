@@ -28,8 +28,8 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Updates the trust that has been set up between your AWS Managed Microsoft AD directory
-    /// and an on-premises Active Directory.
+    /// Updates the trust that has been set up between your Managed Microsoft AD directory
+    /// and an self-managed Active Directory.
     /// </summary>
     [Cmdlet("Update", "DSTrust", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectoryService.Model.UpdateTrustResponse")]

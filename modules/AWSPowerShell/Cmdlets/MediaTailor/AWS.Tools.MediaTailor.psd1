@@ -86,7 +86,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-EMTLogsForPlaybackConfiguration', 
         'Add-EMTResourceTag', 
+        'Get-EMTAlertList', 
         'Get-EMTChannel', 
         'Get-EMTChannelList', 
         'Get-EMTChannelPolicy', 

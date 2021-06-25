@@ -28,8 +28,12 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns detailed information about recovery points of the type specified by a resource
-    /// Amazon Resource Name (ARN).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns detailed information about all the recovery points of the type specified by
+    /// a resource Amazon Resource Name (ARN).
+    /// 
+    ///  <note><para>
+    /// For Amazon EFS and Amazon EC2, this action only lists recovery points created by Backup.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKRecoveryPointsByResourceList")]
     [OutputType("Amazon.Backup.Model.RecoveryPointByResource")]
@@ -62,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to be returned.</para>
+        /// <para>The maximum number of items to be returned.</para><note><para>Amazon RDS requires a value of at least 20.</para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

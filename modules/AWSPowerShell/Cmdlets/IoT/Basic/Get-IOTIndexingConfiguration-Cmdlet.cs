@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Gets the indexing configuration.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetIndexingConfiguration</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTIndexingConfiguration")]
     [OutputType("Amazon.IoT.Model.GetIndexingConfigurationResponse")]

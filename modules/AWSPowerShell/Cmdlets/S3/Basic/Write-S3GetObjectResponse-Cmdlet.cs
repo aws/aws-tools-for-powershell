@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Passes transformed objects to a <code>GetObject</code> operation when using Object
-    /// Lambda Access Points. For information about Object Lambda Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming
-    /// objects with Object Lambda Access Points</a> in the <i>Amazon S3 User Guide</i>.
+    /// Lambda access points. For information about Object Lambda access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming
+    /// objects with Object Lambda access points</a> in the <i>Amazon S3 User Guide</i>.
     /// 
     ///  
     /// <para>
@@ -38,16 +38,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// in addition to <code>RequestRoute</code>, <code>RequestToken</code>, <code>StatusCode</code>,
     /// <code>ErrorCode</code>, and <code>ErrorMessage</code>. The <code>GetObject</code>
     /// response metadata is supported so that the <code>WriteGetObjectResponse</code> caller,
-    /// typically an AWS Lambda function, can provide the same metadata when it internally
-    /// invokes <code>GetObject</code>. When <code>WriteGetObjectResponse</code> is called
-    /// by a customer-owned Lambda function, the metadata returned to the end user <code>GetObject</code>
-    /// call might differ from what Amazon S3 would normally return.
+    /// typically an Lambda function, can provide the same metadata when it internally invokes
+    /// <code>GetObject</code>. When <code>WriteGetObjectResponse</code> is called by a customer-owned
+    /// Lambda function, the metadata returned to the end user <code>GetObject</code> call
+    /// might differ from what Amazon S3 would normally return.
     /// </para><para>
-    /// AWS provides some prebuilt Lambda functions that you can use with S3 Object Lambda
-    /// to detect and redact personally identifiable information (PII) and decompress S3 objects.
-    /// These Lambda functions are available in the AWS Serverless Application Repository,
-    /// and can be selected through the AWS Management Console when you create your Object
-    /// Lambda Access Point.
+    /// You can include any number of metadata headers. When including a metadata header,
+    /// it should be prefaced with <code>x-amz-meta</code>. For example, <code>x-amz-meta-my-custom-header:
+    /// MyCustomValue</code>. The primary use case for this is to forward <code>GetObject</code>
+    /// metadata.
+    /// </para><para>
+    /// Amazon Web Services provides some prebuilt Lambda functions that you can use with
+    /// S3 Object Lambda to detect and redact personally identifiable information (PII) and
+    /// decompress S3 objects. These Lambda functions are available in the Amazon Web Services
+    /// Serverless Application Repository, and can be selected through the Amazon Web Services
+    /// Management Console when you create your Object Lambda access point.
     /// </para><para>
     /// Example 1: PII Access Control - This Lambda function uses Amazon Comprehend, a natural
     /// language processing (NLP) service using machine learning to find insights and relationships
@@ -66,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// bzip2, gzip, snappy, zlib, zstandard and ZIP. 
     /// </para><para>
     /// For information on how to view and use these functions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-examples.html">Using
-    /// AWS built Lambda functions</a> in the <i>Amazon S3 User Guide</i>.
+    /// Amazon Web Services built Lambda functions</a> in the <i>Amazon S3 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "S3GetObjectResponse", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -104,7 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketKeyEnabled
         /// <summary>
         /// <para>
-        /// Indicates whether the object stored in Amazon S3 uses a S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).
+        /// <para> Indicates whether the object stored in Amazon S3 uses an S3 bucket key for server-side
+        /// encryption with Amazon Web Services KMS (SSE-KMS).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -381,7 +387,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter SSEKMSKeyId
         /// <summary>
         /// <para>
-        /// If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for stored in Amazon S3 object.
+        /// <para> If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon
+        /// Web Services KMS) symmetric customer managed key that was used for stored in Amazon S3 object. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

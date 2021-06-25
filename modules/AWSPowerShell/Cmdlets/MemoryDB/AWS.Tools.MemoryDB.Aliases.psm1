@@ -1,0 +1,3 @@
+﻿# MemoryDB
+
+Export-ModuleMember -Alias *

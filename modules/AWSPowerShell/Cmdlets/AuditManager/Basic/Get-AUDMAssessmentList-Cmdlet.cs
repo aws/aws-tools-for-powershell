@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns a list of current and past assessments from AWS Audit Manager.
+    /// Returns a list of current and past assessments from Audit Manager.
     /// </summary>
     [Cmdlet("Get", "AUDMAssessmentList")]
     [OutputType("Amazon.AuditManager.Model.AssessmentMetadataItem")]

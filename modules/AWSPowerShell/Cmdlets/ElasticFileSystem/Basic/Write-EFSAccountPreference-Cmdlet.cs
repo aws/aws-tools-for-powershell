@@ -28,7 +28,12 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    
+    /// Use this operation to set the account preference in the current Amazon Web Services
+    /// Region to use either long 17 character (63 bit) or short 8 character (32 bit) IDs
+    /// for new EFS file systems and mount targets created. All existing resource IDs are
+    /// not affected by any changes you make. You can set the ID preference during the opt-in
+    /// period as EFS transitions to long resource IDs. For more information, see <a href="efs/latest/ug/manage-efs-resource-ids.html">Managing
+    /// Amazon EFS resource IDs</a>.
     /// </summary>
     [Cmdlet("Write", "EFSAccountPreference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticFileSystem.Model.ResourceIdPreference")]
@@ -43,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter ResourceIdType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies the EFS resource ID preference to set for the user's Amazon Web Services
+        /// account, in the current Amazon Web Services Region, either <code>LONG_ID</code> (17
+        /// characters), or <code>SHORT_ID</code> (8 characters).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -121,8 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>If the number of objects that are still available for retrieval exceeds the limit,
-        /// AWS returns a NextPageToken value in the response. To retrieve the next batch of objects,
-        /// provide the NextPageToken from the prior call in your next request.</para>
+        /// Amazon Web Services returns a NextPageToken value in the response. To retrieve the
+        /// next batch of objects, provide the NextPageToken from the prior call in your next
+        /// request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of resources that you want AWS Config to list in the response.</para>
+        /// <para>The type of resources that you want Config to list in the response.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of resource identifiers returned on each page. You cannot specify
-        /// a number greater than 100. If you specify 0, AWS Config uses the default.</para>
+        /// a number greater than 100. If you specify 0, Config uses the default.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -123,7 +123,7 @@ $MGN_Completers = {
             ($_ -eq "Update-MGNReplicationConfigurationTemplate/EbsEncryption")
         }
         {
-            $v = "CUSTOM","DEFAULT","NONE"
+            $v = "CUSTOM","DEFAULT"
             break
         }
 

@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates the Amazon QuickSight settings in your AWS account.
+    /// Updates the Amazon QuickSight settings in your Amazon Web Services account.
     /// </summary>
     [Cmdlet("Update", "QSAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateAccountSettingsResponse")]
@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the AWS account that contains the QuickSight settings that you want to
-        /// list.</para>
+        /// <para>The ID for the Amazon Web Services account that contains the Amazon QuickSight settings
+        /// that you want to list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,9 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DefaultNamespace
         /// <summary>
         /// <para>
-        /// <para>The default namespace for this AWS account. Currently, the default is <code>default</code>.
-        /// AWS Identity and Access Management (IAM) users that register for the first time with
-        /// QuickSight provide an email that becomes associated with the default namespace.</para>
+        /// <para>The default namespace for this Amazon Web Services account. Currently, the default
+        /// is <code>default</code>. Identity and Access Management (IAM) users that register
+        /// for the first time with Amazon QuickSight provide an email that becomes associated
+        /// with the default namespace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter NotificationEmail
         /// <summary>
         /// <para>
-        /// <para>The email address that you want QuickSight to send notifications to regarding your
-        /// AWS account or QuickSight subscription.</para>
+        /// <para>The email address that you want Amazon QuickSight to send notifications to regarding
+        /// your Amazon Web Services account or Amazon QuickSight subscription.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -70,8 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of vocabularies to return in the response. If there are fewer results
-        /// in the list, this response contains only the actual results.</para>
+        /// <para>The maximum number of vocabularies to return in each page of results. If there are
+        /// fewer results than the value you specify, only the actual results are returned. If
+        /// you do not specify a value, the default of 5 is used.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

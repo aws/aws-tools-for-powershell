@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
-        /// <para>This field is <code>true</code> if any of the AWS accounts have public keys that CloudFront
+        /// <para>This field is <code>true</code> if any of the accounts have public keys that CloudFront
         /// can use to verify the signatures of signed URLs and signed cookies. If not, this field
         /// is <code>false</code>.</para>
         /// </para>
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Item
         /// <summary>
         /// <para>
-        /// <para>A list of AWS account identifiers.</para>
+        /// <para>A list of account identifiers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of AWS accounts in the list.</para>
+        /// <para>The number of accounts in the list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

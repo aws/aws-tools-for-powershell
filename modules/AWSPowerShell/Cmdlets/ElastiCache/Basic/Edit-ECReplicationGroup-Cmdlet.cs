@@ -172,8 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter MultiAZEnabled
         /// <summary>
         /// <para>
-        /// <para>A list of tags to be added to this resource. A tag is a key-value pair. A tag key
-        /// must be accompanied by a tag value, although null is accepted.</para>
+        /// <para>A flag to indicate MultiAZ is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter RemoveUserGroup
         /// <summary>
         /// <para>
-        /// <para>Removes the user groups that can access this replication group.</para>
+        /// <para>Removes the user group associated with this replication group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -316,7 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter UserGroupIdsToAdd
         /// <summary>
         /// <para>
-        /// <para>The user group you are associating with the replication group.</para>
+        /// <para>The ID of the user group you are associating with the replication group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -326,8 +325,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter UserGroupIdsToRemove
         /// <summary>
         /// <para>
-        /// <para>The user group to remove, meaning the users in the group no longer can access the
-        /// replication group.</para>
+        /// <para>The ID of the user group to disassociate from the replication group, meaning the users
+        /// in the group no longer can access the replication group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,11 +28,11 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Retrieves the SMS sandbox status for the calling AWS account in the target AWS Region.
+    /// Retrieves the SMS sandbox status for the calling account in the target Region.
     /// 
     ///  
     /// <para>
-    /// When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS
+    /// When you start using Amazon SNS to send SMS messages, your account is in the <i>SMS
     /// sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS
     /// features without risking your reputation as an SMS sender. While your account is in
     /// the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send

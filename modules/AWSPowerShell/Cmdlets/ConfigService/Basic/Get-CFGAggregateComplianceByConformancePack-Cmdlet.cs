@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Returns a list of the conformance packs and their associated compliance status with
-    /// the count of compliant and noncompliant AWS Config rules within each conformance pack.
+    /// the count of compliant and noncompliant Config rules within each conformance pack.
     /// Also returns the total rule count which includes compliant rules, noncompliant rules,
     /// and rules that cannot be evaluated due to insufficient data.
     /// 
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_AccountId
         /// <summary>
         /// <para>
-        /// <para>The 12-digit AWS account ID of the source account.</para>
+        /// <para>The 12-digit Amazon Web Services account ID of the source account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_AwsRegion
         /// <summary>
         /// <para>
-        /// <para>The source AWS Region from where the data is aggregated.</para>
+        /// <para>The source Amazon Web Services Region from where the data is aggregated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of conformance packs compliance details returned on each page.
-        /// The default is maximum. If you specify 0, AWS Config uses the default. </para>
+        /// The default is maximum. If you specify 0, Config uses the default. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

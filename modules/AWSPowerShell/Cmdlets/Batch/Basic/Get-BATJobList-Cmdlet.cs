@@ -28,7 +28,7 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Returns a list of AWS Batch jobs.
+    /// Returns a list of Batch jobs.
     /// 
     ///  
     /// <para>
@@ -65,6 +65,39 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String ArrayJobId { get; set; }
         #endregion
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>The filter to apply to the query. Only one filter can be used at a time. When the
+        /// filter is used, <code>jobStatus</code> is ignored. The filter doesn't apply to child
+        /// jobs in an array or multi-node parallel (MNP) jobs. The results are sorted by the
+        /// <code>createdAt</code> field, with the most recent jobs being first.</para><dl><dt>JOB_NAME</dt><dd><para>The value of the filter is a case-insensitive match for the job name. If the value
+        /// ends with an asterisk (*), the filter will match any job name that begins with the
+        /// string before the '*'. This corresponds to the <code>jobName</code> value. For example,
+        /// <code>test1</code> matches both <code>Test1</code> and <code>test1</code>, and <code>test1*</code>
+        /// matches both <code>test1</code> and <code>Test10</code>. When the <code>JOB_NAME</code>
+        /// filter is used, the results are grouped by the job name and version.</para></dd><dt>JOB_DEFINITION</dt><dd><para>The value for the filter is the name or Amazon Resource Name (ARN) of the job definition.
+        /// This corresponds to the <code>jobDefinition</code> value. The value is case sensitive.
+        /// When the value for the filter is the job definition name, the results include all
+        /// the jobs that used any revision of that job definition name. If the value ends with
+        /// an asterisk (*), the filter will match any job definition name that begins with the
+        /// string before the '*'. For example, <code>jd1</code> matches only <code>jd1</code>,
+        /// and <code>jd1*</code> matches both <code>jd1</code> and <code>jd1A</code>. The version
+        /// of the job definition that's used doesn't affect the sort order. When the <code>JOB_DEFINITION</code>
+        /// filter is used and the ARN is used (which is in the form <code>arn:${Partition}:batch:${Region}:${Account}:job-definition/${JobDefinitionName}:${Revision}</code>),
+        /// the results include jobs that used the specified revision of the job definition. Asterisk
+        /// (*) is not supported when the ARN is used.</para></dd><dt>BEFORE_CREATED_AT</dt><dd><para>The value for the filter is the time that's before the job was created. This corresponds
+        /// to the <code>createdAt</code> value. The value is a string representation of the number
+        /// of seconds since 00:00:00 UTC (midnight) on January 1, 1970.</para></dd><dt>AFTER_CREATED_AT</dt><dd><para>The value for the filter is the time that's after the job was created. This corresponds
+        /// to the <code>createdAt</code> value. The value is a string representation of the number
+        /// of seconds since 00:00:00 UTC (midnight) on January 1, 1970.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.Batch.Model.KeyValuesPair[] Filter { get; set; }
+        #endregion
+        
         #region Parameter JobQueue
         /// <summary>
         /// <para>
@@ -78,8 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobStatus
         /// <summary>
         /// <para>
-        /// <para>The job status used to filter jobs in the specified queue. If you don't specify a
-        /// status, only <code>RUNNING</code> jobs are returned.</para>
+        /// <para>The job status used to filter jobs in the specified queue. If the <code>filters</code>
+        /// parameter is specified, the <code>jobStatus</code> parameter is ignored and jobs with
+        /// any status are returned. If you don't specify a status, only <code>RUNNING</code>
+        /// jobs are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,6 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ArrayJobId = this.ArrayJobId;
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.Batch.Model.KeyValuesPair>(this.Filter);
+            }
             context.JobQueue = this.JobQueue;
             context.JobStatus = this.JobStatus;
             context.MaxResult = this.MaxResult;
@@ -233,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (cmdletContext.ArrayJobId != null)
             {
                 request.ArrayJobId = cmdletContext.ArrayJobId;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.JobQueue != null)
             {
@@ -308,6 +351,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (cmdletContext.ArrayJobId != null)
             {
                 request.ArrayJobId = cmdletContext.ArrayJobId;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.JobQueue != null)
             {
@@ -434,6 +481,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ArrayJobId { get; set; }
+            public List<Amazon.Batch.Model.KeyValuesPair> Filter { get; set; }
             public System.String JobQueue { get; set; }
             public Amazon.Batch.JobStatus JobStatus { get; set; }
             public int? MaxResult { get; set; }

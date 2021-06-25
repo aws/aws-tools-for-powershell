@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Gets information about a Device Defender security profile.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeSecurityProfile</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTSecurityProfile")]
     [OutputType("Amazon.IoT.Model.DescribeSecurityProfileResponse")]

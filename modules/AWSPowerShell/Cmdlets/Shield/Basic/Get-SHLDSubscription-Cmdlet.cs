@@ -28,7 +28,7 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Provides details about the AWS Shield Advanced subscription for an account.
+    /// Provides details about the Shield Advanced subscription for an account.
     /// </summary>
     [Cmdlet("Get", "SHLDSubscription")]
     [OutputType("Amazon.Shield.Model.Subscription")]

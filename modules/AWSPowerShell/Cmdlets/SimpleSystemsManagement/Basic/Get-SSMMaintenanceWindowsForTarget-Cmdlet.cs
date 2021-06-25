@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of resource you want to retrieve information about. For example, "INSTANCE".</para>
+        /// <para>The type of resource you want to retrieve information about. For example, <code>INSTANCE</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The instance ID or key/value pair to retrieve information about.</para>
+        /// <para>The instance ID or key-value pair to retrieve information about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

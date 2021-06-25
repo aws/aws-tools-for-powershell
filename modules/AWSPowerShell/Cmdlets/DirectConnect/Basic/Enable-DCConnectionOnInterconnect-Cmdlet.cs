@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection
     /// on the specified interconnect.
     /// </para><note><para>
-    /// Intended for use by AWS Direct Connect Partners only.
+    /// Intended for use by Direct Connect Partners only.
     /// </para></note><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Enable", "DCConnectionOnInterconnect", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <summary>
         /// <para>
         /// <para>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
-        /// 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS
-        /// Direct Connect Partners who have met specific requirements are allowed to create a
-        /// 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.</para>
+        /// 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those Direct
+        /// Connect Partners who have met specific requirements are allowed to create a 1Gbps,
+        /// 2Gbps, 5Gbps or 10Gbps hosted connection.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter OwnerAccount
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account of the customer for whom the connection will be provisioned.</para>
+        /// <para>The ID of the account of the customer for whom the connection will be provisioned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

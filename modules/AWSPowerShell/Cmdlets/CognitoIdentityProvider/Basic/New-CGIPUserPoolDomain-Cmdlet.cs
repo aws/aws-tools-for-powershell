@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CustomDomainConfig_CertificateArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You
-        /// use this certificate for the subdomain of your custom domain.</para>
+        /// <para>The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use
+        /// this certificate for the subdomain of your custom domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

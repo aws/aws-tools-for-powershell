@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Generates a unique symmetric data key. This operation returns a data key that is encrypted
-    /// under a customer master key (CMK) that you specify. To request an asymmetric data
-    /// key pair, use the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a>
-    /// operations.
+    /// under a KMS key that you specify. To request an asymmetric data key pair, use the
+    /// <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a> operations.
     /// 
     ///  
     /// <para><code>GenerateDataKeyWithoutPlaintext</code> is identical to the <a>GenerateDataKey</a>
@@ -48,12 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// container, and then destroys the plaintext data key. In this system, the component
     /// that creates the containers never sees the plaintext data key.
     /// </para><para><code>GenerateDataKeyWithoutPlaintext</code> returns a unique data key for each request.
-    /// The bytes in the keys are not related to the caller or CMK that is used to encrypt
+    /// The bytes in the keys are not related to the caller or KMS key that is used to encrypt
     /// the private key.
     /// </para><para>
-    /// To generate a data key, you must specify the symmetric customer master key (CMK) that
-    /// is used to encrypt the data key. You cannot use an asymmetric CMK to generate a data
-    /// key. To get the type of your CMK, use the <a>DescribeKey</a> operation.
+    /// To generate a data key, you must specify the symmetric KMS key that is used to encrypt
+    /// the data key. You cannot use an asymmetric KMS key to generate a data key. To get
+    /// the type of your KMS key, use the <a>DescribeKey</a> operation.
     /// </para><para>
     /// If the operation succeeds, you will find the encrypted copy of the data key in the
     /// <code>CiphertextBlob</code> field.
@@ -63,14 +62,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// same encryption context (a case-sensitive exact match) when decrypting the encrypted
     /// data key. Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>.
     /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-    /// Context</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// Context</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
-    /// The CMK that you use for this operation must be in a compatible key state. For details,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.
-    /// </para><para><b>Cross-account use</b>: Yes. To perform this operation with a CMK in a different
-    /// AWS account, specify the key ARN or alias ARN in the value of the <code>KeyId</code>
-    /// parameter.
+    /// The KMS key that you use for this operation must be in a compatible key state. For
+    /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
+    /// state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.
+    /// </para><para><b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different
+    /// Amazon Web Services account, specify the key ARN or alias ARN in the value of the
+    /// <code>KeyId</code> parameter.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateDataKeyWithoutPlaintext</a>
     /// (key policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>Decrypt</a></para></li><li><para><a>Encrypt</a></para></li><li><para><a>GenerateDataKey</a></para></li><li><para><a>GenerateDataKeyPair</a></para></li><li><para><a>GenerateDataKeyPairWithoutPlaintext</a></para></li></ul>
@@ -90,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>Specifies the encryption context that will be used when encrypting the data key.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents
         /// additional authenticated data. When you use an encryption context to encrypt data,
         /// you must specify the same (an exact case-sensitive match) encryption context to decrypt
-        /// the data. An encryption context is optional when encrypting with a symmetric CMK,
+        /// the data. An encryption context is optional when encrypting with a symmetric KMS key,
         /// but it is highly recommended.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-        /// Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
+        /// Context</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>A list of grant tokens.</para><para>Use a grant token when your permission to call this operation comes from a new grant
-        /// that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
-        /// token</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
+        /// that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant
+        /// token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using
+        /// a grant token</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,9 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the symmetric customer master key (CMK) that encrypts the data key.</para><para>To specify a CMK, use its key ID, key ARN, alias name, or alias ARN. When using an
-        /// alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different
-        /// AWS account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.
+        /// <para>The identifier of the symmetric KMS key that encrypts the data key.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
+        /// an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different
+        /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>

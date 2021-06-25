@@ -28,15 +28,16 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates Amazon QuickSight customizations the current AWS Region. Currently, the only
-    /// customization you can use is a theme.
+    /// Updates Amazon QuickSight customizations the current Amazon Web Services Region;.
+    /// Currently, the only customization you can use is a theme.
     /// 
     ///  
     /// <para>
-    /// You can use customizations for your AWS account or, if you specify a namespace, for
-    /// a QuickSight namespace instead. Customizations that apply to a namespace override
-    /// customizations that apply to an AWS account. To find out which customizations apply,
-    /// use the <code>DescribeAccountCustomization</code> API operation. 
+    /// You can use customizations for your Amazon Web Services account or, if you specify
+    /// a namespace, for a Amazon QuickSight namespace instead. Customizations that apply
+    /// to a namespace override customizations that apply to an Amazon Web Services account.
+    /// To find out which customizations apply, use the <code>DescribeAccountCustomization</code>
+    /// API operation. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "QSAccountCustomization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the AWS account that you want to update QuickSight customizations for.</para>
+        /// <para>The ID for the Amazon Web Services account that you want to update Amazon QuickSight
+        /// customizations for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AccountCustomization_DefaultTheme
         /// <summary>
         /// <para>
-        /// <para>The default theme for this QuickSight subscription.</para>
+        /// <para>The default theme for this Amazon QuickSight subscription.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace that you want to update QuickSight customizations for.</para>
+        /// <para>The namespace that you want to update Amazon QuickSight customizations for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

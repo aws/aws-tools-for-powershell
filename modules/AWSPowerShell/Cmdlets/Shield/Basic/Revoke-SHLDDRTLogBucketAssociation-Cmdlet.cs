@@ -28,8 +28,8 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Removes the DDoS Response Team's (DRT) access to the specified Amazon S3 bucket containing
-    /// your AWS WAF logs.
+    /// Removes the Shield Response Team's (SRT) access to the specified Amazon S3 bucket
+    /// containing the logs that you shared previously.
     /// 
     ///  
     /// <para>
@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business Support
     /// plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise
     /// Support plan</a>. However, if you are not subscribed to one of these support plans,
-    /// but had been previously and had granted the DRT access to your account, you can submit
+    /// but had been previously and had granted the SRT access to your account, you can submit
     /// a <code>DisassociateDRTLogBucket</code> request to remove this access.
     /// </para>
     /// </summary>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter LogBucket
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket that contains your AWS WAF logs.</para>
+        /// <para>The Amazon S3 bucket that contains the logs that you want to share.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

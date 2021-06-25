@@ -48,6 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// in the instance metadata to confirm that the remapping is complete.
     /// </para><para>
     /// You must specify either the IP addresses or the IP address count in the request.
+    /// </para><para>
+    /// You can optionally use Prefix Delegation on the network interface. You must specify
+    /// either the IPv4 Prefix Delegation prefixes, or the IPv4 Prefix Delegation count. For
+    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
+    /// Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute
+    /// Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2PrivateIpAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -69,6 +75,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.Boolean? AllowReassignment { get; set; }
+        #endregion
+        
+        #region Parameter Ipv4PrefixCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the
+        /// network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code>
+        /// option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Ipv4PrefixCount { get; set; }
+        #endregion
+        
+        #region Parameter Ipv4Prefix
+        /// <summary>
+        /// <para>
+        /// <para>One or more IPv4 prefixes assigned to the network interface. You cannot use this option
+        /// if you use the <code>Ipv4PrefixCount</code> option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Ipv4Prefixes")]
+        public System.String[] Ipv4Prefix { get; set; }
         #endregion
         
         #region Parameter NetworkInterfaceId
@@ -175,6 +205,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AllowReassignment = this.AllowReassignment;
+            context.Ipv4PrefixCount = this.Ipv4PrefixCount;
+            if (this.Ipv4Prefix != null)
+            {
+                context.Ipv4Prefix = new List<System.String>(this.Ipv4Prefix);
+            }
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             #if MODULAR
             if (this.NetworkInterfaceId == null && ParameterWasBound(nameof(this.NetworkInterfaceId)))
@@ -206,6 +241,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AllowReassignment != null)
             {
                 request.AllowReassignment = cmdletContext.AllowReassignment.Value;
+            }
+            if (cmdletContext.Ipv4PrefixCount != null)
+            {
+                request.Ipv4PrefixCount = cmdletContext.Ipv4PrefixCount.Value;
+            }
+            if (cmdletContext.Ipv4Prefix != null)
+            {
+                request.Ipv4Prefixes = cmdletContext.Ipv4Prefix;
             }
             if (cmdletContext.NetworkInterfaceId != null)
             {
@@ -281,6 +324,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AllowReassignment { get; set; }
+            public System.Int32? Ipv4PrefixCount { get; set; }
+            public List<System.String> Ipv4Prefix { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public List<System.String> PrivateIpAddress { get; set; }
             public System.Int32? SecondaryPrivateIpAddressCount { get; set; }

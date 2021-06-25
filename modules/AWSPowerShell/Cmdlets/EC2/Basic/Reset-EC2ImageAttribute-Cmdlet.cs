@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Resets an attribute of an AMI to its default value.
-    /// 
-    ///  <note><para>
-    /// The productCodes attribute can't be reset.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Reset", "EC2ImageAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

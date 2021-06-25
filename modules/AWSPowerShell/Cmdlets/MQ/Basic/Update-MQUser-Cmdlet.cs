@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter BrokerId
         /// <summary>
         /// <para>
-        /// The unique ID that Amazon MQ generates for the
-        /// broker.
+        /// <para>The unique ID that Amazon MQ generates for the broker.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter ConsoleAccess
         /// <summary>
         /// <para>
-        /// Enables access to the the ActiveMQ Web Console
-        /// for the ActiveMQ user.
+        /// <para>Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// The list of groups (20 maximum) to which the ActiveMQ
-        /// user belongs. This value can contain only alphanumeric characters, dashes, periods,
-        /// underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+        /// <para>The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can
+        /// contain only alphanumeric characters, dashes, periods, underscores, and tildes (-
+        /// . _ ~). This value must be 2-100 characters long.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// The password of the user. This value must be
-        /// at least 12 characters long, must contain at least 4 unique characters, and must not
-        /// contain commas.
+        /// <para>The password of the user. This value must be at least 12 characters long, must contain
+        /// at least 4 unique characters, and must not contain commas, colons, or equal signs
+        /// (,:=).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// Required. The username of the ActiveMQ user.
-        /// This value can contain only alphanumeric characters, dashes, periods, underscores,
-        /// and tildes (- . _ ~). This value must be 2-100 characters long.
+        /// <para>The username of the ActiveMQ user. This value can contain only alphanumeric characters,
+        /// dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters
+        /// long.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

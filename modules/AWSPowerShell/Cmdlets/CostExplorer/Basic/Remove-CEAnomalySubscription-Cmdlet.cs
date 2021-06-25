@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SubscriptionArn
         /// <summary>
         /// <para>
-        /// <para> The unique identifier of the cost anomaly subscription that you want to delete. </para>
+        /// <para>The unique identifier of the cost anomaly subscription that you want to delete. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

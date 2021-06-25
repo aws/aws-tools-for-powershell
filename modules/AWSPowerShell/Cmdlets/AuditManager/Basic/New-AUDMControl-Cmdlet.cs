@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Creates a new custom control in AWS Audit Manager.
+    /// Creates a new custom control in Audit Manager.
     /// </summary>
     [Cmdlet("New", "AUDMControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.Model.Control")]

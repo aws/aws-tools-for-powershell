@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// It is strongly recommended that you use dynamic references to restrict sensitive configuration
     /// definitions, such as third-party credentials. For more details on dynamic references,
     /// see <a href="https://docs.aws.amazon.com/">Using dynamic references to specify template
-    /// values</a> in the <i>AWS CloudFormation User Guide</i>.
+    /// values</a> in the <i>CloudFormation User Guide</i>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Set", "CFNTypeConfiguration")]

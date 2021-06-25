@@ -58,6 +58,28 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.Model.Action[] Action { get; set; }
         #endregion
         
+        #region Parameter EventBatchingCondition_BatchSize
+        /// <summary>
+        /// <para>
+        /// <para>Number of events that must be received from Amazon EventBridge before EventBridge
+        /// event trigger fires.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EventBatchingCondition_BatchSize { get; set; }
+        #endregion
+        
+        #region Parameter EventBatchingCondition_BatchWindow
+        /// <summary>
+        /// <para>
+        /// <para>Window of time in seconds after which EventBridge event trigger fires. Window starts
+        /// when first event is received.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EventBatchingCondition_BatchWindow { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -122,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The tags to use with this trigger. You may use tags to limit access to the trigger.
-        /// For more information about tags in AWS Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS
-        /// Tags in AWS Glue</a> in the developer guide. </para>
+        /// For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon
+        /// Web Services Tags in Glue</a> in the developer guide. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,6 +252,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #endif
             context.Description = this.Description;
+            context.EventBatchingCondition_BatchSize = this.EventBatchingCondition_BatchSize;
+            context.EventBatchingCondition_BatchWindow = this.EventBatchingCondition_BatchWindow;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -279,6 +303,35 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate EventBatchingCondition
+            var requestEventBatchingConditionIsNull = true;
+            request.EventBatchingCondition = new Amazon.Glue.Model.EventBatchingCondition();
+            System.Int32? requestEventBatchingCondition_eventBatchingCondition_BatchSize = null;
+            if (cmdletContext.EventBatchingCondition_BatchSize != null)
+            {
+                requestEventBatchingCondition_eventBatchingCondition_BatchSize = cmdletContext.EventBatchingCondition_BatchSize.Value;
+            }
+            if (requestEventBatchingCondition_eventBatchingCondition_BatchSize != null)
+            {
+                request.EventBatchingCondition.BatchSize = requestEventBatchingCondition_eventBatchingCondition_BatchSize.Value;
+                requestEventBatchingConditionIsNull = false;
+            }
+            System.Int32? requestEventBatchingCondition_eventBatchingCondition_BatchWindow = null;
+            if (cmdletContext.EventBatchingCondition_BatchWindow != null)
+            {
+                requestEventBatchingCondition_eventBatchingCondition_BatchWindow = cmdletContext.EventBatchingCondition_BatchWindow.Value;
+            }
+            if (requestEventBatchingCondition_eventBatchingCondition_BatchWindow != null)
+            {
+                request.EventBatchingCondition.BatchWindow = requestEventBatchingCondition_eventBatchingCondition_BatchWindow.Value;
+                requestEventBatchingConditionIsNull = false;
+            }
+             // determine if request.EventBatchingCondition should be set to null
+            if (requestEventBatchingConditionIsNull)
+            {
+                request.EventBatchingCondition = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -371,6 +424,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public List<Amazon.Glue.Model.Action> Action { get; set; }
             public System.String Description { get; set; }
+            public System.Int32? EventBatchingCondition_BatchSize { get; set; }
+            public System.Int32? EventBatchingCondition_BatchWindow { get; set; }
             public System.String Name { get; set; }
             public Amazon.Glue.Model.Predicate Predicate { get; set; }
             public System.String Schedule { get; set; }

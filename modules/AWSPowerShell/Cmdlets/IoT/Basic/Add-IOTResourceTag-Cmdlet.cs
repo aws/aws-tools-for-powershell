@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// Adds to or modifies the tags of the given resource. Tags are metadata which can be
     /// used to manage a resource.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TagResource</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "IOTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

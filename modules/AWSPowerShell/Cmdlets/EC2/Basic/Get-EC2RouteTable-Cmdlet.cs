@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// route table. This command does not return the subnet ID for implicit associations.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-    /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2RouteTable")]
@@ -57,10 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// for the route table.</para></li><li><para><code>association.route-table-id</code> - The ID of the route table involved in the
         /// association.</para></li><li><para><code>association.subnet-id</code> - The ID of the subnet involved in the association.</para></li><li><para><code>association.main</code> - Indicates whether the route table is the main route
         /// table for the VPC (<code>true</code> | <code>false</code>). Route tables that do not
-        /// have an association ID are not returned in the response.</para></li><li><para><code>owner-id</code> - The ID of the AWS account that owns the route table.</para></li><li><para><code>route-table-id</code> - The ID of the route table.</para></li><li><para><code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a route
+        /// have an association ID are not returned in the response.</para></li><li><para><code>owner-id</code> - The ID of the Amazon Web Services account that owns the route
+        /// table.</para></li><li><para><code>route-table-id</code> - The ID of the route table.</para></li><li><para><code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a route
         /// in the table.</para></li><li><para><code>route.destination-ipv6-cidr-block</code> - The IPv6 CIDR range specified in
-        /// a route in the route table.</para></li><li><para><code>route.destination-prefix-list-id</code> - The ID (prefix) of the AWS service
-        /// specified in a route in the table.</para></li><li><para><code>route.egress-only-internet-gateway-id</code> - The ID of an egress-only Internet
+        /// a route in the route table.</para></li><li><para><code>route.destination-prefix-list-id</code> - The ID (prefix) of the Amazon Web
+        /// Service specified in a route in the table.</para></li><li><para><code>route.egress-only-internet-gateway-id</code> - The ID of an egress-only Internet
         /// gateway specified in a route in the route table.</para></li><li><para><code>route.gateway-id</code> - The ID of a gateway specified in a route in the table.</para></li><li><para><code>route.instance-id</code> - The ID of an instance specified in a route in the
         /// table.</para></li><li><para><code>route.nat-gateway-id</code> - The ID of a NAT gateway.</para></li><li><para><code>route.transit-gateway-id</code> - The ID of a transit gateway.</para></li><li><para><code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code>
         /// indicates that the route was automatically created when the route table was created;

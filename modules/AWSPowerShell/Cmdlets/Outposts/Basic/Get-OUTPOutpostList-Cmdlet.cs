@@ -28,7 +28,16 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// List the Outposts for your AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Create a list of the Outposts for your AWS account. Add filters to your request to
+    /// return a more specific list of results. Use filters to match an Outpost lifecycle
+    /// status, Availibility Zone (<code>us-east-1a</code>), and AZ ID (<code>use1-az1</code>).
+    /// 
+    /// 
+    ///  
+    /// <para>
+    /// If you specify multiple filters, the filters are joined with an <code>AND</code>,
+    /// and the request returns only results that match all of the specified filters.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OUTPOutpostList")]
     [OutputType("Amazon.Outposts.Model.Outpost")]
@@ -39,6 +48,42 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     )]
     public partial class GetOUTPOutpostListCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
+        
+        #region Parameter AvailabilityZoneFilter
+        /// <summary>
+        /// <para>
+        /// <para> A filter for the Availibility Zone (<code>us-east-1a</code>) of the Outpost. </para><para> Filter values are case sensitive. If you specify multiple values for a filter, the
+        /// values are joined with an <code>OR</code>, and the request returns all results that
+        /// match any of the specified values. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AvailabilityZoneFilter { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneIdFilter
+        /// <summary>
+        /// <para>
+        /// <para> A filter for the AZ IDs (<code>use1-az1</code>) of the Outpost. </para><para> Filter values are case sensitive. If you specify multiple values for a filter, the
+        /// values are joined with an <code>OR</code>, and the request returns all results that
+        /// match any of the specified values. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AvailabilityZoneIdFilter { get; set; }
+        #endregion
+        
+        #region Parameter LifeCycleStatusFilter
+        /// <summary>
+        /// <para>
+        /// <para> A filter for the lifecycle status of the Outpost. </para><para> Filter values are case sensitive. If you specify multiple values for a filter, the
+        /// values are joined with an <code>OR</code>, and the request returns all results that
+        /// match any of the specified values. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] LifeCycleStatusFilter { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -100,6 +145,18 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
                 context.Select = CreateSelectDelegate<Amazon.Outposts.Model.ListOutpostsResponse, GetOUTPOutpostListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AvailabilityZoneFilter != null)
+            {
+                context.AvailabilityZoneFilter = new List<System.String>(this.AvailabilityZoneFilter);
+            }
+            if (this.AvailabilityZoneIdFilter != null)
+            {
+                context.AvailabilityZoneIdFilter = new List<System.String>(this.AvailabilityZoneIdFilter);
+            }
+            if (this.LifeCycleStatusFilter != null)
+            {
+                context.LifeCycleStatusFilter = new List<System.String>(this.LifeCycleStatusFilter);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -120,6 +177,18 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             // create request and set iteration invariants
             var request = new Amazon.Outposts.Model.ListOutpostsRequest();
             
+            if (cmdletContext.AvailabilityZoneFilter != null)
+            {
+                request.AvailabilityZoneFilter = cmdletContext.AvailabilityZoneFilter;
+            }
+            if (cmdletContext.AvailabilityZoneIdFilter != null)
+            {
+                request.AvailabilityZoneIdFilter = cmdletContext.AvailabilityZoneIdFilter;
+            }
+            if (cmdletContext.LifeCycleStatusFilter != null)
+            {
+                request.LifeCycleStatusFilter = cmdletContext.LifeCycleStatusFilter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -209,6 +278,9 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AvailabilityZoneFilter { get; set; }
+            public List<System.String> AvailabilityZoneIdFilter { get; set; }
+            public List<System.String> LifeCycleStatusFilter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.Outposts.Model.ListOutpostsResponse, GetOUTPOutpostListCmdlet, object> Select { get; set; } =

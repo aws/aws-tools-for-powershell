@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter ActiveDirectoryConfiguration_DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The directory ID of the AWS Directory Service for Microsoft AD to access using this
-        /// studio component.</para>
+        /// <para>The directory ID of the Directory Service for Microsoft Active Directory to access
+        /// using this studio component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

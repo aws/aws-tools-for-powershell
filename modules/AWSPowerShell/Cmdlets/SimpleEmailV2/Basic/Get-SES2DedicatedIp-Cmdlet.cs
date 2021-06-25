@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>The IP address that you want to obtain more information about. The value you specify
-        /// has to be a dedicated IP address that's assocaited with your AWS account.</para>
+        /// has to be a dedicated IP address that's assocaited with your Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para> The name of the connector profile. The name is unique for each <code>ConnectorProfile</code>
-        /// in the AWS account, and is used to query the downstream connector. </para>
+        /// in the Amazon Web Services account, and is used to query the downstream connector.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -28,8 +28,8 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves information about all the Amazon Macie membership invitations that were
-    /// received by an account.
+    /// Retrieves information about the Amazon Macie membership invitations that were received
+    /// by an account.
     /// </summary>
     [Cmdlet("Get", "MAC2InvitationList")]
     [OutputType("Amazon.Macie2.Model.Invitation")]

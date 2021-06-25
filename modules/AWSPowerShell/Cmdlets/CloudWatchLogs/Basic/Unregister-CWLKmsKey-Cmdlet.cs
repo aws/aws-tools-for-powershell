@@ -28,15 +28,15 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Disassociates the associated AWS Key Management Service (AWS KMS) customer master
-    /// key (CMK) from the specified log group.
+    /// Disassociates the associated Key Management Service customer master key (CMK) from
+    /// the specified log group.
     /// 
     ///  
     /// <para>
-    /// After the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops
-    /// encrypting newly ingested data for the log group. All previously ingested data remains
-    /// encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted
-    /// data is requested.
+    /// After the KMS CMK is disassociated from the log group, CloudWatch Logs stops encrypting
+    /// newly ingested data for the log group. All previously ingested data remains encrypted,
+    /// and CloudWatch Logs requires permissions for the CMK whenever the encrypted data is
+    /// requested.
     /// </para><para>
     /// Note that it can take up to 5 minutes for this operation to take effect.
     /// </para>

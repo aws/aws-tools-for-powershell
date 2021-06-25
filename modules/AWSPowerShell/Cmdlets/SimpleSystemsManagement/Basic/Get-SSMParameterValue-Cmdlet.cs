@@ -28,8 +28,12 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Get details of a parameter. Don't confuse this API action with the <a>GetParameter</a>
-    /// API action.
+    /// Get information about one or more parameters by specifying multiple parameter names.
+    /// 
+    ///  <note><para>
+    /// To get information about a single parameter, you can use the <a>GetParameter</a> operation
+    /// instead.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "SSMParameterValue")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetParametersResponse")]
@@ -43,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Names of the parameters for which you want to query information.</para>
+        /// <para>Names of the parameters for which you want to query information.</para><para>To query by parameter label, use <code>"Name": "name:label"</code>. To query by parameter
+        /// version, use <code>"Name": "name:version"</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Return decrypted secure string value. Return decrypted values for secure string parameters.
-        /// This flag is ignored for String and StringList parameter types.</para>
+        /// This flag is ignored for <code>String</code> and <code>StringList</code> parameter
+        /// types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

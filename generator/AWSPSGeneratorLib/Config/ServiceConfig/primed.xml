@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>primed</C2jFilename>
+    <AssemblyName>Route53RecoveryReadiness</AssemblyName>
+    <ServiceNounPrefix>PD</ServiceNounPrefix>
+    <ServiceName>AWS Route53 Recovery Readiness</ServiceName>
+    <ServiceClientInterface>IAmazonRoute53RecoveryReadiness</ServiceClientInterface>
+    <ServiceClient>AmazonRoute53RecoveryReadinessClient</ServiceClient>
+    <ServiceModuleGuid>06511664-0E30-425E-B8BE-0D129EDE495C</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateCell" OutputProperty="*" Verb="New" Noun="Cell" ShouldProcessTarget="CellName" PipelineParameter="CellName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCrossAccountAuthorization" OutputProperty="CrossAccountAuthorization" Verb="New" Noun="CrossAccountAuthorization" ShouldProcessTarget="CrossAccountAuthorization" PipelineParameter="CrossAccountAuthorization" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReadinessCheck" OutputProperty="*" Verb="New" Noun="ReadinessCheck" ShouldProcessTarget="ReadinessCheckName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRecoveryGroup" OutputProperty="*" Verb="New" Noun="RecoveryGroup" ShouldProcessTarget="RecoveryGroupName" PipelineParameter="RecoveryGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceSet" OutputProperty="*" Verb="New" Noun="ResourceSet" ShouldProcessTarget="ResourceSetName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCell" Verb="Remove" Noun="Cell" ShouldProcessTarget="CellName" PipelineParameter="CellName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCrossAccountAuthorization" Verb="Remove" Noun="CrossAccountAuthorization" ShouldProcessTarget="CrossAccountAuthorization" PipelineParameter="CrossAccountAuthorization" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReadinessCheck" Verb="Remove" Noun="ReadinessCheck" ShouldProcessTarget="ReadinessCheckName" PipelineParameter="ReadinessCheckName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRecoveryGroup" Verb="Remove" Noun="RecoveryGroup" ShouldProcessTarget="RecoveryGroupName" PipelineParameter="RecoveryGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceSet" Verb="Remove" Noun="ResourceSet" ShouldProcessTarget="ResourceSetName" PipelineParameter="ResourceSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetArchitectureRecommendations" OutputProperty="*" Verb="Get" Noun="ArchitectureRecommendation" PipelineParameter="RecoveryGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCell" OutputProperty="*" Verb="Get" Noun="Cell" PipelineParameter="CellName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCellReadinessSummary" OutputProperty="*" Verb="Get" Noun="CellReadinessSummary" PipelineParameter="CellName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReadinessCheck" OutputProperty="*" Verb="Get" Noun="ReadinessCheck" PipelineParameter="ReadinessCheckName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReadinessCheckResourceStatus" OutputProperty="*" Verb="Get" Noun="ReadinessCheckResourceStatus" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReadinessCheckStatus" OutputProperty="*" Verb="Get" Noun="ReadinessCheckStatus" PipelineParameter="ReadinessCheckName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecoveryGroup" OutputProperty="*" Verb="Get" Noun="RecoveryGroup" PipelineParameter="RecoveryGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecoveryGroupReadinessSummary" OutputProperty="*" Verb="Get" Noun="RecoveryGroupReadinessSummary" PipelineParameter="RecoveryGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceSet" OutputProperty="*" Verb="Get" Noun="ResourceSet" PipelineParameter="ResourceSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCells" OutputProperty="Cells" Verb="Get" Noun="CellList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCrossAccountAuthorizations" OutputProperty="CrossAccountAuthorizations" Verb="Get" Noun="CrossAccountAuthorizationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReadinessChecks" OutputProperty="ReadinessChecks" Verb="Get" Noun="ReadinessCheckList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecoveryGroups" OutputProperty="RecoveryGroups" Verb="Get" Noun="RecoveryGroupList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceSets" OutputProperty="ResourceSets" Verb="Get" Noun="ResourceSetList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRules" OutputProperty="Rules" Verb="Get" Noun="RuleList" PipelineParameter="ResourceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResources" OutputProperty="Tags" Verb="Get" Noun="TagsForResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCell" OutputProperty="*" Verb="Update" Noun="Cell" ShouldProcessTarget="CellName" PipelineParameter="CellName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReadinessCheck" OutputProperty="*" Verb="Update" Noun="ReadinessCheck" ShouldProcessTarget="ReadinessCheckName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRecoveryGroup" OutputProperty="*" Verb="Update" Noun="RecoveryGroup" ShouldProcessTarget="RecoveryGroupName" PipelineParameter="RecoveryGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourceSet" OutputProperty="*" Verb="Update" Noun="ResourceSet" ShouldProcessTarget="ResourceSetName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

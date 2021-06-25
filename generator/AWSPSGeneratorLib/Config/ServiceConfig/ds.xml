@@ -107,6 +107,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClientAuthenticationSettings" OutputProperty="ClientAuthenticationSettingsInfo" Verb="Get" Noun="ClientAuthenticationSetting" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeConditionalForwarders" OutputProperty="ConditionalForwarders" Verb="Get" Noun="ConditionalForwarder" PipelineParameter="DirectoryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

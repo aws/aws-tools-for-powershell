@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     /// 
     ///  <note><para>
     /// Before you can delete a query logging configuration, you must first disassociate all
-    /// VPCs from the configuration. If you used AWS Resource Access Manager (AWS RAM) to
-    /// share a query logging configuration with other accounts, VPCs can be disassociated
-    /// from the configuration in the following ways:
+    /// VPCs from the configuration. If you used Resource Access Manager (RAM) to share a
+    /// query logging configuration with other accounts, VPCs can be disassociated from the
+    /// configuration in the following ways:
     /// </para><ul><li><para>
     /// The accounts that you shared the configuration with can disassociate VPCs from the
     /// configuration.

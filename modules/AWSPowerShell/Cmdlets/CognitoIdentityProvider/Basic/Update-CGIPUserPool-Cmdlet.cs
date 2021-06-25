@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Cognito users that must receive SMS messages might be unable to sign up, activate
     /// their accounts, or sign in.
     /// </para><para>
-    /// If you have never used SMS text messages with Amazon Cognito or any other AWS service,
-    /// Amazon SNS might place your account in SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
+    /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
+    /// Service, Amazon SNS might place your account in SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
     /// mode</a></i>, you’ll have limitations, such as sending messages to only verified
     /// phone numbers. After testing in the sandbox environment, you can move out of the SMS
     /// sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html">
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// set are applied to the email. Configuration sets can be used to apply the following
         /// types of rules to emails: </para><ul><li><para>Event publishing – Amazon SES can track the number of send, delivery, open, click,
         /// bounce, and complaint events for each email sent. Use event publishing to send information
-        /// about these events to other AWS services such as SNS and CloudWatch.</para></li><li><para>IP pool management – When leasing dedicated IP addresses with Amazon SES, you can
+        /// about these events to other Amazon Web Services services such as SNS and CloudWatch.</para></li><li><para>IP pool management – When leasing dedicated IP addresses with Amazon SES, you can
         /// create groups of IP addresses, called dedicated IP pools. You can then associate the
         /// dedicated IP pools with configuration sets.</para></li></ul>
         /// </para>
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_CustomMessage
         /// <summary>
         /// <para>
-        /// <para>A custom Message AWS Lambda trigger.</para>
+        /// <para>A custom Message Lambda trigger.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,13 +223,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// parameter.</para><para> If EmailSendingAccount is COGNITO_DEFAULT, the following parameters aren't allowed:</para><ul><li><para>EmailVerificationMessage</para></li><li><para>EmailVerificationSubject</para></li><li><para>InviteMessageTemplate.EmailMessage</para></li><li><para>InviteMessageTemplate.EmailSubject</para></li><li><para>VerificationMessageTemplate.EmailMessage</para></li><li><para>VerificationMessageTemplate.EmailMessageByLink</para></li><li><para>VerificationMessageTemplate.EmailSubject,</para></li><li><para>VerificationMessageTemplate.EmailSubjectByLink</para></li></ul><note><para>DEVELOPER EmailSendingAccount is required.</para></note></dd><dt>DEVELOPER</dt><dd><para>When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon
         /// Cognito calls Amazon SES on your behalf to send email from your verified email address.
         /// When you use this option, the email delivery limits are the same limits that apply
-        /// to your Amazon SES verified email address in your AWS account.</para><para>If you use this option, you must provide the ARN of an Amazon SES verified email address
+        /// to your Amazon SES verified email address in your account.</para><para>If you use this option, you must provide the ARN of an Amazon SES verified email address
         /// for the <code>SourceArn</code> parameter.</para><para>Before Amazon Cognito can email your users, it requires additional permissions to
         /// call Amazon SES on your behalf. When you update your user pool with this option, Amazon
         /// Cognito creates a <i>service-linked role</i>, which is a type of IAM role, in your
-        /// AWS account. This role contains the permissions that allow Amazon Cognito to access
-        /// Amazon SES and send email messages with your address. For more information about the
-        /// service-linked role that Amazon Cognito creates, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html">Using
+        /// account. This role contains the permissions that allow Amazon Cognito to access Amazon
+        /// SES and send email messages with your address. For more information about the service-linked
+        /// role that Amazon Cognito creates, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html">Using
         /// Service-Linked Roles for Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</para></dd></dl>
         /// </para>
         /// </summary>
@@ -303,7 +303,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <code>ExternalID</code>. If you use the Cognito Management Console to create a role
         /// for SMS MFA, Cognito will create a role with the required permissions and a trust
         /// policy that demonstrates use of the <code>ExternalId</code>.</para><para>For more information about the <code>ExternalId</code> of a role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html">How
-        /// to use an external ID when granting access to your AWS resources to a third party</a></para>
+        /// to use an external ID when granting access to your Amazon Web Services resources to
+        /// a third party</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -414,7 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_PostAuthentication
         /// <summary>
         /// <para>
-        /// <para>A post-authentication AWS Lambda trigger.</para>
+        /// <para>A post-authentication Lambda trigger.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -424,7 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_PostConfirmation
         /// <summary>
         /// <para>
-        /// <para>A post-confirmation AWS Lambda trigger.</para>
+        /// <para>A post-confirmation Lambda trigger.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -434,7 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_PreAuthentication
         /// <summary>
         /// <para>
-        /// <para>A pre-authentication AWS Lambda trigger.</para>
+        /// <para>A pre-authentication Lambda trigger.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -444,7 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_PreSignUp
         /// <summary>
         /// <para>
-        /// <para>A pre-registration AWS Lambda trigger.</para>
+        /// <para>A pre-registration Lambda trigger.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -575,8 +576,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.
-        /// This is the ARN of the IAM role in your AWS account which Cognito will use to send
-        /// SMS messages. SMS messages are subject to a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html">spending
+        /// This is the ARN of the IAM role in your account which Cognito will use to send SMS
+        /// messages. SMS messages are subject to a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html">spending
         /// limit</a>. </para>
         /// </para>
         /// </summary>

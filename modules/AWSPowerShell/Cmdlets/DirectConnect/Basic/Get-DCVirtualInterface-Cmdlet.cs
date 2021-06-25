@@ -28,14 +28,14 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Displays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer
-    /// than 15 minutes before you make the request are also returned. If you specify a connection
+    /// Displays all virtual interfaces for an account. Virtual interfaces deleted fewer than
+    /// 15 minutes before you make the request are also returned. If you specify a connection
     /// ID, only the virtual interfaces associated with the connection are returned. If you
     /// specify a virtual interface ID, then only a single virtual interface is returned.
     /// 
     ///  
     /// <para>
-    /// A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location
+    /// A virtual interface (VLAN) transmits the traffic between the Direct Connect location
     /// and the customer network.
     /// </para>
     /// </summary>

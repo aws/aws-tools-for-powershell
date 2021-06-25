@@ -37,14 +37,16 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// 
     ///  
     /// <para>
-    /// This required configuration information includes the ARN of an AWS Lambda function
-    /// and the time between scheduled rotations. The Lambda rotation function creates a new
-    /// version of the secret and creates or updates the credentials on the protected service
-    /// to match. After testing the new credentials, the function marks the new secret with
-    /// the staging label <code>AWSCURRENT</code> so that your clients all immediately begin
-    /// to use the new version. For more information about rotating secrets and how to configure
-    /// a Lambda function to rotate the secrets for your protected service, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating
-    /// Secrets in AWS Secrets Manager</a> in the <i>AWS Secrets Manager User Guide</i>.
+    /// This required configuration information includes the ARN of an Amazon Web Services
+    /// Lambda function and optionally, the time between scheduled rotations. The Lambda rotation
+    /// function creates a new version of the secret and creates or updates the credentials
+    /// on the protected service to match. After testing the new credentials, the function
+    /// marks the new secret with the staging label <code>AWSCURRENT</code> so that your clients
+    /// all immediately begin to use the new version. For more information about rotating
+    /// secrets and how to configure a Lambda function to rotate the secrets for your protected
+    /// service, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating
+    /// Secrets in Amazon Web Services Secrets Manager</a> in the <i>Amazon Web Services Secrets
+    /// Manager User Guide</i>.
     /// </para><para>
     /// Secrets Manager schedules the next rotation when the previous one completes. Secrets
     /// Manager schedules the date by adding the rotation interval (number of days) to the
@@ -107,12 +109,12 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>(Optional) Specifies a unique identifier for the new version of the secret that helps
-        /// ensure idempotency. </para><para>If you use the AWS CLI or one of the AWS SDK to call this operation, then you can
-        /// leave this parameter empty. The CLI or SDK generates a random UUID for you and includes
-        /// that in the request for this parameter. If you don't use the SDK and instead generate
-        /// a raw HTTP request to the Secrets Manager service endpoint, then you must generate
-        /// a <code>ClientRequestToken</code> yourself for new versions and include that value
-        /// in the request.</para><para>You only need to specify your own value if you implement your own retry logic and
+        /// ensure idempotency. </para><para>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDK to call
+        /// this operation, then you can leave this parameter empty. The CLI or SDK generates
+        /// a random UUID for you and includes that in the request for this parameter. If you
+        /// don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service
+        /// endpoint, then you must generate a <code>ClientRequestToken</code> yourself for new
+        /// versions and include that value in the request.</para><para>You only need to specify your own value if you implement your own retry logic and
         /// want to ensure that a given secret is not created twice. We recommend that you generate
         /// a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
         /// value to ensure uniqueness within the specified secret. </para><para>Secrets Manager uses this value to prevent the accidental creation of duplicate versions

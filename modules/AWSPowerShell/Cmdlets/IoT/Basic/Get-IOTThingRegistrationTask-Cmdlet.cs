@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Describes a bulk thing provisioning task.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingRegistrationTask</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTThingRegistrationTask")]
     [OutputType("Amazon.IoT.Model.DescribeThingRegistrationTaskResponse")]

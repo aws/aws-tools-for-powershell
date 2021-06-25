@@ -28,9 +28,9 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns status information for each of your AWS managed Config rules. The status includes
-    /// information such as the last time AWS Config invoked the rule, the last time AWS Config
-    /// failed to invoke the rule, and the related error for the last failure.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns status information for each of your Config managed rules. The status includes
+    /// information such as the last time Config invoked the rule, the last time Config failed
+    /// to invoke the rule, and the related error for the last failure.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGConfigRuleEvaluationStatus")]
     [OutputType("Amazon.ConfigService.Model.ConfigRuleEvaluationStatus")]
@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS managed Config rules for which you want status information. If
-        /// you do not specify any names, AWS Config returns status information for all AWS managed
-        /// Config rules that you use.</para>
+        /// <para>The name of the Config managed rules for which you want status information. If you
+        /// do not specify any names, Config returns status information for all Config managed
+        /// rules that you use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The number of rule evaluation results that you want returned.</para><para>This parameter is required if the rule limit for your account is more than the default
-        /// of 150 rules.</para><para>For information about requesting a rule limit increase, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config">AWS
-        /// Config Limits</a> in the <i>AWS General Reference Guide</i>.</para>
+        /// of 150 rules.</para><para>For information about requesting a rule limit increase, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config">Config
+        /// Limits</a> in the <i>Amazon Web Services General Reference Guide</i>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

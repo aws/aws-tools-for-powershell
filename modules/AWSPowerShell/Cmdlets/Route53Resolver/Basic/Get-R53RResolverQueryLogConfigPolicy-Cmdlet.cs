@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
     /// Gets information about a query logging policy. A query logging policy specifies the
-    /// Resolver query logging operations and resources that you want to allow another AWS
-    /// account to be able to use.
+    /// Resolver query logging operations and resources that you want to allow another Amazon
+    /// Web Services account to be able to use.
     /// </summary>
     [Cmdlet("Get", "R53RResolverQueryLogConfigPolicy")]
     [OutputType("System.String")]

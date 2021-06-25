@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Removes a tag from an AWS IoT SiteWise resource.
+    /// Removes a tag from an IoT SiteWise resource.
     /// </summary>
     [Cmdlet("Remove", "IOTSWResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

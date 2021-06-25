@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
     /// Resource shares that were created by attaching a policy to a resource are visible
-    /// only to the resource share owner, and the resource share cannot be modified in AWS
-    /// RAM.
+    /// only to the resource share owner, and the resource share cannot be modified in RAM.
     /// 
     ///  
     /// <para>
@@ -39,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     /// </para><ul><li><para>
     /// Visible to all principals that it is shared with.
     /// </para></li><li><para>
-    /// Modifiable in AWS RAM.
+    /// Modifiable in RAM.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Convert", "RAMPolicyBasedResourceShareToPromoted", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceShareArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource share to promote.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource share to promote.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

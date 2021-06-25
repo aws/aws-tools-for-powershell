@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// <summary>
     /// Applies a repository policy to the specified repository to control access permissions.
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html">Amazon
-    /// ECR Repository Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
+    /// ECR Repository policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
     /// </summary>
     [Cmdlet("Set", "ECRRepositoryPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.SetRepositoryPolicyResponse")]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <para>
         /// <para>The JSON repository policy text to apply to the repository. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html">Amazon
-        /// ECR Repository Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</para>
+        /// ECR repository policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry that contains the repository. If you
-        /// do not specify a registry, the default registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID associated with the registry that contains the
+        /// repository. If you do not specify a registry, the default registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

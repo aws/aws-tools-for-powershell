@@ -28,7 +28,8 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Retrieves information about IAM entity usage and IAM quotas in the AWS account.
+    /// Retrieves information about IAM entity usage and IAM quotas in the Amazon Web Services
+    /// account.
     /// 
     ///  
     /// <para>

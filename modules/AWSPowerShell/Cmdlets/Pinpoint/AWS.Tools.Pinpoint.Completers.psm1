@@ -121,7 +121,7 @@ $PIN_Completers = {
         # Amazon.Pinpoint.ChannelType
         "Update-PINEndpoint/EndpointRequest_ChannelType"
         {
-            $v = "ADM","APNS","APNS_SANDBOX","APNS_VOIP","APNS_VOIP_SANDBOX","BAIDU","CUSTOM","EMAIL","GCM","PUSH","SMS","VOICE"
+            $v = "ADM","APNS","APNS_SANDBOX","APNS_VOIP","APNS_VOIP_SANDBOX","BAIDU","CUSTOM","EMAIL","GCM","IN_APP","PUSH","SMS","VOICE"
             break
         }
 
@@ -186,7 +186,7 @@ $PIN_Completers = {
             ($_ -eq "Update-PINCampaign/WriteCampaignRequest_Schedule_Frequency")
         }
         {
-            $v = "DAILY","EVENT","HOURLY","MONTHLY","ONCE","WEEKLY"
+            $v = "DAILY","EVENT","HOURLY","IN_APP_EVENT","MONTHLY","ONCE","WEEKLY"
             break
         }
 
@@ -197,6 +197,18 @@ $PIN_Completers = {
         }
         {
             $v = "ALL","ANY","NONE"
+            break
+        }
+
+        # Amazon.Pinpoint.Layout
+        {
+            ($_ -eq "New-PINInAppTemplate/InAppTemplateRequest_Layout") -Or
+            ($_ -eq "Update-PINInAppTemplate/InAppTemplateRequest_Layout") -Or
+            ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_InAppMessage_Layout") -Or
+            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_MessageConfiguration_InAppMessage_Layout")
+        }
+        {
+            $v = "BOTTOM_BANNER","CAROUSEL","MIDDLE_BANNER","MOBILE_FEED","OVERLAYS","TOP_BANNER"
             break
         }
 
@@ -255,6 +267,7 @@ $PIN_Completers = {
 $PIN_map = @{
     "EndpointRequest_ChannelType"=@("Update-PINEndpoint")
     "ImportJobRequest_Format"=@("New-PINImportJob")
+    "InAppTemplateRequest_Layout"=@("New-PINInAppTemplate","Update-PINInAppTemplate")
     "JourneyStateRequest_State"=@("Update-PINJourneyState")
     "MessageRequest_MessageConfiguration_ADMMessage_Action"=@("Send-PINMessage")
     "MessageRequest_MessageConfiguration_APNSMessage_Action"=@("Send-PINMessage")
@@ -280,6 +293,7 @@ $PIN_map = @{
     "WriteCampaignRequest_MessageConfiguration_BaiduMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_MessageConfiguration_GCMMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
+    "WriteCampaignRequest_MessageConfiguration_InAppMessage_Layout"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_Schedule_EventFilter_Dimensions_EventType_DimensionType"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_Schedule_EventFilter_FilterType"=@("New-PINCampaign","Update-PINCampaign")
@@ -354,6 +368,7 @@ $PIN_SelectMap = @{
                "New-PINEmailTemplate",
                "New-PINExportJob",
                "New-PINImportJob",
+               "New-PINInAppTemplate",
                "New-PINJourney",
                "New-PINPushTemplate",
                "New-PINRecommenderConfiguration",
@@ -373,6 +388,7 @@ $PIN_SelectMap = @{
                "Remove-PINEndpoint",
                "Remove-PINEventStream",
                "Remove-PINGcmChannel",
+               "Remove-PINInAppTemplate",
                "Remove-PINJourney",
                "Remove-PINPushTemplate",
                "Remove-PINRecommenderConfiguration",
@@ -408,6 +424,8 @@ $PIN_SelectMap = @{
                "Get-PINGcmChannel",
                "Get-PINImportJob",
                "Get-PINImportJobList",
+               "Get-PINInAppMessage",
+               "Get-PINInAppTemplate",
                "Get-PINJourney",
                "Get-PINJourneyDateRangeKpi",
                "Get-PINJourneyExecutionActivityMetric",
@@ -451,6 +469,7 @@ $PIN_SelectMap = @{
                "Update-PINEndpoint",
                "Update-PINEndpointsBatch",
                "Update-PINGcmChannel",
+               "Update-PINInAppTemplate",
                "Update-PINJourney",
                "Update-PINJourneyState",
                "Update-PINPushTemplate",

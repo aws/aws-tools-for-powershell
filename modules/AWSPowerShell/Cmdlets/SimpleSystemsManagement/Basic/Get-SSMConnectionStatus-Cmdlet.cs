@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance.</para>
+        /// <para>The instance ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

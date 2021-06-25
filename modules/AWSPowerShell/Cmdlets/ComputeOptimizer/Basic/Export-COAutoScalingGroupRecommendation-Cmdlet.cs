@@ -33,11 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.CO
     ///  
     /// <para>
     /// Recommendations are exported in a comma-separated values (.csv) file, and its metadata
-    /// in a JavaScript Object Notation (.json) file, to an existing Amazon Simple Storage
-    /// Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
+    /// in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple
+    /// Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
     /// Recommendations</a> in the <i>Compute Optimizer User Guide</i>.
     /// </para><para>
-    /// You can have only one Auto Scaling group export job in progress per AWS Region.
+    /// You can have only one Auto Scaling group export job in progress per Amazon Web Services
+    /// Region.
     /// </para>
     /// </summary>
     [Cmdlet("Export", "COAutoScalingGroupRecommendation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the AWS accounts for which to export Auto Scaling group recommendations.</para><para>If your account is the management account of an organization, use this parameter to
+        /// <para>The IDs of the Amazon Web Services accounts for which to export Auto Scaling group
+        /// recommendations.</para><para>If your account is the management account of an organization, use this parameter to
         /// specify the member account for which you want to export recommendations.</para><para>This parameter cannot be specified together with the include member accounts parameter.
         /// The parameters are mutually exclusive.</para><para>Recommendations for member accounts are not included in the export if this parameter,
         /// or the include member accounts parameter, is omitted.</para><para>You can specify multiple account IDs per request.</para>
@@ -71,6 +73,23 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String S3DestinationConfig_Bucket { get; set; }
+        #endregion
+        
+        #region Parameter RecommendationPreferences_CpuVendorArchitecture
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the CPU vendor and architecture for Amazon EC2 instance and Auto Scaling
+        /// group recommendations.</para><para>For example, when you specify <code>AWS_ARM64</code> with:</para><ul><li><para>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a>
+        /// request, Compute Optimizer returns recommendations that consist of Graviton2 instance
+        /// types only.</para></li><li><para>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected
+        /// utilization metrics for Graviton2 instance type recommendations only.</para></li><li><para>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a>
+        /// request, Compute Optimizer exports recommendations that consist of Graviton2 instance
+        /// types only.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecommendationPreferences_CpuVendorArchitectures")]
+        public System.String[] RecommendationPreferences_CpuVendorArchitecture { get; set; }
         #endregion
         
         #region Parameter FieldsToExport
@@ -99,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An array of objects that describe a filter to export a more specific set of Auto Scaling
+        /// <para>An array of objects to specify a filter that exports a more specific set of Auto Scaling
         /// group recommendations.</para>
         /// </para>
         /// </summary>
@@ -115,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// of the organization if your account is the management account of an organization.</para><para>The member accounts must also be opted in to Compute Optimizer, and trusted access
         /// for Compute Optimizer must be enabled in the organization account. For more information,
         /// see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access">Compute
-        /// Optimizer and AWS Organizations trusted access</a> in the <i>AWS Compute Optimizer
-        /// User Guide</i>.</para><para>Recommendations for member accounts of the organization are not included in the export
+        /// Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute
+        /// Optimizer User Guide</i>.</para><para>Recommendations for member accounts of the organization are not included in the export
         /// file if this parameter is omitted.</para><para>This parameter cannot be specified together with the account IDs parameter. The parameters
         /// are mutually exclusive.</para><para>Recommendations for member accounts are not included in the export if this parameter,
         /// or the account IDs parameter, is omitted.</para>
@@ -192,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
                 context.Filter = new List<Amazon.ComputeOptimizer.Model.Filter>(this.Filter);
             }
             context.IncludeMemberAccount = this.IncludeMemberAccount;
+            if (this.RecommendationPreferences_CpuVendorArchitecture != null)
+            {
+                context.RecommendationPreferences_CpuVendorArchitecture = new List<System.String>(this.RecommendationPreferences_CpuVendorArchitecture);
+            }
             context.S3DestinationConfig_Bucket = this.S3DestinationConfig_Bucket;
             context.S3DestinationConfig_KeyPrefix = this.S3DestinationConfig_KeyPrefix;
             
@@ -229,6 +252,25 @@ namespace Amazon.PowerShell.Cmdlets.CO
             if (cmdletContext.IncludeMemberAccount != null)
             {
                 request.IncludeMemberAccounts = cmdletContext.IncludeMemberAccount.Value;
+            }
+            
+             // populate RecommendationPreferences
+            var requestRecommendationPreferencesIsNull = true;
+            request.RecommendationPreferences = new Amazon.ComputeOptimizer.Model.RecommendationPreferences();
+            List<System.String> requestRecommendationPreferences_recommendationPreferences_CpuVendorArchitecture = null;
+            if (cmdletContext.RecommendationPreferences_CpuVendorArchitecture != null)
+            {
+                requestRecommendationPreferences_recommendationPreferences_CpuVendorArchitecture = cmdletContext.RecommendationPreferences_CpuVendorArchitecture;
+            }
+            if (requestRecommendationPreferences_recommendationPreferences_CpuVendorArchitecture != null)
+            {
+                request.RecommendationPreferences.CpuVendorArchitectures = requestRecommendationPreferences_recommendationPreferences_CpuVendorArchitecture;
+                requestRecommendationPreferencesIsNull = false;
+            }
+             // determine if request.RecommendationPreferences should be set to null
+            if (requestRecommendationPreferencesIsNull)
+            {
+                request.RecommendationPreferences = null;
             }
             
              // populate S3DestinationConfig
@@ -325,6 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
             public Amazon.ComputeOptimizer.FileFormat FileFormat { get; set; }
             public List<Amazon.ComputeOptimizer.Model.Filter> Filter { get; set; }
             public System.Boolean? IncludeMemberAccount { get; set; }
+            public List<System.String> RecommendationPreferences_CpuVendorArchitecture { get; set; }
             public System.String S3DestinationConfig_Bucket { get; set; }
             public System.String S3DestinationConfig_KeyPrefix { get; set; }
             public System.Func<Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse, ExportCOAutoScalingGroupRecommendationCmdlet, object> Select { get; set; } =

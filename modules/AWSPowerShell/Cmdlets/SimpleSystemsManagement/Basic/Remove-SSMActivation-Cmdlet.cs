@@ -28,9 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Deletes an activation. You are not required to delete an activation. If you delete
+    /// Deletes an activation. You aren't required to delete an activation. If you delete
     /// an activation, you can no longer use it to register additional managed instances.
-    /// Deleting an activation does not de-register managed instances. You must manually de-register
+    /// Deleting an activation doesn't de-register managed instances. You must manually de-register
     /// managed instances.
     /// </summary>
     [Cmdlet("Remove", "SSMActivation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

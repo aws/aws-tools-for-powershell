@@ -57,6 +57,23 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         public System.String AcceptCode { get; set; }
         #endregion
         
+        #region Parameter AcceptCodeValidation
+        /// <summary>
+        /// <para>
+        /// <para>An optional field that Incident Manager uses to <code>ENFORCE</code><code>AcceptCode</code>
+        /// validation when acknowledging an page. Acknowledgement can occur by replying to a
+        /// page, or when entering the AcceptCode in the console. Enforcing AcceptCode validation
+        /// causes Incident Manager to verify that the code entered by the user matches the code
+        /// sent by Incident Manager with the page.</para><para>Incident Manager can also <code>IGNORE</code><code>AcceptCode</code> validation.
+        /// Ignoring <code>AcceptCode</code> validation causes Incident Manager to accept any
+        /// value entered for the <code>AcceptCode</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SSMContacts.AcceptCodeValidation")]
+        public Amazon.SSMContacts.AcceptCodeValidation AcceptCodeValidation { get; set; }
+        #endregion
+        
         #region Parameter AcceptType
         /// <summary>
         /// <para>
@@ -178,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
                 WriteWarning("You are passing $null as a value for parameter AcceptCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AcceptCodeValidation = this.AcceptCodeValidation;
             context.AcceptType = this.AcceptType;
             #if MODULAR
             if (this.AcceptType == null && ParameterWasBound(nameof(this.AcceptType)))
@@ -213,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             if (cmdletContext.AcceptCode != null)
             {
                 request.AcceptCode = cmdletContext.AcceptCode;
+            }
+            if (cmdletContext.AcceptCodeValidation != null)
+            {
+                request.AcceptCodeValidation = cmdletContext.AcceptCodeValidation;
             }
             if (cmdletContext.AcceptType != null)
             {
@@ -292,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AcceptCode { get; set; }
+            public Amazon.SSMContacts.AcceptCodeValidation AcceptCodeValidation { get; set; }
             public Amazon.SSMContacts.AcceptType AcceptType { get; set; }
             public System.String ContactChannelId { get; set; }
             public System.String Note { get; set; }

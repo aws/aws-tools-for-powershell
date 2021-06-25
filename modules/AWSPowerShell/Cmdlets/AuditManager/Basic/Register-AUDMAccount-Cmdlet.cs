@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Enables AWS Audit Manager for the specified AWS account.
+    /// Enables Audit Manager for the specified account.
     /// </summary>
     [Cmdlet("Register", "AUDMAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.AccountStatus")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter DelegatedAdminAccount
         /// <summary>
         /// <para>
-        /// <para> The delegated administrator account for AWS Audit Manager. </para>
+        /// <para> The delegated administrator account for Audit Manager. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter KmsKey
         /// <summary>
         /// <para>
-        /// <para> The AWS KMS key details. </para>
+        /// <para> The KMS key details. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

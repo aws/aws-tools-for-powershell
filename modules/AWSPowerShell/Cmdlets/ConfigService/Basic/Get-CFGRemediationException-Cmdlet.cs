@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// token, you receive a paginated response. 
     /// 
     ///  <note><para>
-    /// AWS Config generates a remediation exception when a problem occurs executing a remediation
+    /// Config generates a remediation exception when a problem occurs executing a remediation
     /// action to a specific resource. Remediation exceptions blocks auto-remediation until
     /// the exception is cleared.
     /// </para><para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS Config rule.</para>
+        /// <para>The name of the Config rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>An exception list of resource exception keys to be processed with the current request.
-        /// AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions
+        /// Config adds exception for each resource key. For example, Config adds 3 exceptions
         /// for 3 resource keys. </para>
         /// </para>
         /// </summary>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of RemediationExceptionResourceKey returned on each page. The default
-        /// is 25. If you specify 0, AWS Config uses the default.</para>
+        /// is 25. If you specify 0, Config uses the default.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

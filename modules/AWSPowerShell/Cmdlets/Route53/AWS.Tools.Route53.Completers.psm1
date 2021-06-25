@@ -100,7 +100,7 @@ $R53_Completers = {
         # Amazon.Route53.HealthCheckType
         "New-R53HealthCheck/HealthCheckConfig_Type"
         {
-            $v = "CALCULATED","CLOUDWATCH_METRIC","HTTP","HTTPS","HTTPS_STR_MATCH","HTTP_STR_MATCH","TCP"
+            $v = "CALCULATED","CLOUDWATCH_METRIC","HTTP","HTTPS","HTTPS_STR_MATCH","HTTP_STR_MATCH","RECOVERY_CONTROL","TCP"
             break
         }
 

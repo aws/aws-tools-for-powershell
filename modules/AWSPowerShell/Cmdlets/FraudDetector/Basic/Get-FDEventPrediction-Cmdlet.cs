@@ -141,7 +141,15 @@ namespace Amazon.PowerShell.Cmdlets.FD
         /// <summary>
         /// <para>
         /// <para>Names of the event type's variables you defined in Amazon Fraud Detector to represent
-        /// data elements and their corresponding values for the event you are sending for evaluation.</para>
+        /// data elements and their corresponding values for the event you are sending for evaluation.</para><important><ul><li><para>You must provide at least one eventVariable</para></li><li><para>If detectorVersion is associated with a modelVersion, you must provide at least one
+        /// associated eventVariable</para></li></ul></important><para>To ensure highest possible fraud prediction and to simplify your data preparation,
+        /// Amazon Fraud Detector will replace all missing variables or values as follows:</para><para><b>For Amazon Fraud Detector trained models:</b></para><para>If a null value is provided explicitly for a variable or if a variable is missing,
+        /// model will replace the null value or the missing variable (no variable name in the
+        /// eventVariables map) with calculated default mean/medians for numeric variables and
+        /// with special values for categorical variables.</para><para><b>For External models ( for example, imported SageMaker):</b></para><para>If a null value is provided explicitly for a variable, the model and rules will use
+        /// “null” as the value. If a variable is not provided (no variable name in the eventVariables
+        /// map), model and rules will use the default value that is provided for the variable.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

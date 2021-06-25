@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// <para>The ID of the catalog to migrate. Currently, this should be the AWS account ID.</para>
+        /// <para>The ID of the catalog to migrate. Currently, this should be the Amazon Web Services
+        /// account ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

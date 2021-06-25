@@ -47,10 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// that you want to host two models, A and B, and you assign traffic weight 2 for model
     /// A and 1 for model B. Amazon SageMaker distributes two-thirds of the traffic to Model
     /// A, and one-third to model B. 
-    /// </para><para>
-    /// For an example that calls this method when deploying a model to Amazon SageMaker hosting
-    /// services, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto">Deploy
-    /// the Model to Amazon SageMaker Hosting Services (AWS SDK for Python (Boto 3)).</a></para><note><para>
+    /// </para><note><para>
     /// When you call <a>CreateEndpoint</a>, a load call is made to DynamoDB to verify that
     /// your endpoint configuration exists. When you read data from a DynamoDB table supporting
     /// <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html"><code>Eventually Consistent Reads</code></a>, the response might not reflect the
@@ -132,6 +129,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String EndpointConfigName { get; set; }
         #endregion
         
+        #region Parameter NotificationConfig_ErrorTopic
+        /// <summary>
+        /// <para>
+        /// <para>Amazon SNS topic to post a notification to when inference fails. If no topic is provided,
+        /// no notification is sent on failure.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AsyncInferenceConfig_OutputConfig_NotificationConfig_ErrorTopic")]
+        public System.String NotificationConfig_ErrorTopic { get; set; }
+        #endregion
+        
         #region Parameter DataCaptureConfig_InitialSamplingPercentage
         /// <summary>
         /// <para>
@@ -153,6 +162,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] CaptureContentTypeHeader_JsonContentType { get; set; }
         #endregion
         
+        #region Parameter OutputConfig_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+        /// Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AsyncInferenceConfig_OutputConfig_KmsKeyId")]
+        public System.String OutputConfig_KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter DataCaptureConfig_KmsKeyId
         /// <summary>
         /// <para>
@@ -166,12 +187,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker
-        /// uses to encrypt data on the storage volume attached to the ML compute instance that
-        /// hosts the endpoint.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>The KMS key policy must grant permission to the IAM role that you specify in your
+        /// <para>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key
+        /// that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML
+        /// compute instance that hosts the endpoint.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>The KMS key policy must grant permission to the IAM role that you specify in your
         /// <code>CreateEndpoint</code>, <code>UpdateEndpoint</code> requests. For more information,
-        /// refer to the AWS Key Management Service section<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">
-        /// Using Key Policies in AWS KMS </a></para><note><para>Certain Nitro-based instances include local storage, dependent on the instance type.
+        /// refer to the Amazon Web Services Key Management Service section<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">
+        /// Using Key Policies in Amazon Web Services KMS </a></para><note><para>Certain Nitro-based instances include local storage, dependent on the instance type.
         /// Local storage volumes are encrypted using a hardware module on the instance. You can't
         /// request a <code>KmsKeyId</code> when using an instance type with local storage. If
         /// any of the models that you specify in the <code>ProductionVariants</code> parameter
@@ -184,6 +205,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter ClientConfig_MaxConcurrentInvocationsPerInstance
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of concurrent requests sent by the SageMaker client to the model
+        /// container. If no value is provided, Amazon SageMaker will choose an optimal value
+        /// for you.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AsyncInferenceConfig_ClientConfig_MaxConcurrentInvocationsPerInstance")]
+        public System.Int32? ClientConfig_MaxConcurrentInvocationsPerInstance { get; set; }
         #endregion
         
         #region Parameter ProductionVariant
@@ -205,13 +239,36 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.ProductionVariant[] ProductionVariant { get; set; }
         #endregion
         
+        #region Parameter OutputConfig_S3OutputPath
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 location to upload inference responses to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AsyncInferenceConfig_OutputConfig_S3OutputPath")]
+        public System.String OutputConfig_S3OutputPath { get; set; }
+        #endregion
+        
+        #region Parameter NotificationConfig_SuccessTopic
+        /// <summary>
+        /// <para>
+        /// <para>Amazon SNS topic to post a notification to when inference completes successfully.
+        /// If no topic is provided, no notification is sent on success.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AsyncInferenceConfig_OutputConfig_NotificationConfig_SuccessTopic")]
+        public System.String NotificationConfig_SuccessTopic { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
-        /// different ways, for example, by purpose, owner, or environment. For more information,
-        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS Resources</a>.</para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+        /// resources in different ways, for example, by purpose, owner, or environment. For more
+        /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services Resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,6 +337,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.EndpointConfigName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientConfig_MaxConcurrentInvocationsPerInstance = this.ClientConfig_MaxConcurrentInvocationsPerInstance;
+            context.OutputConfig_KmsKeyId = this.OutputConfig_KmsKeyId;
+            context.NotificationConfig_ErrorTopic = this.NotificationConfig_ErrorTopic;
+            context.NotificationConfig_SuccessTopic = this.NotificationConfig_SuccessTopic;
+            context.OutputConfig_S3OutputPath = this.OutputConfig_S3OutputPath;
             if (this.CaptureContentTypeHeader_CsvContentType != null)
             {
                 context.CaptureContentTypeHeader_CsvContentType = new List<System.String>(this.CaptureContentTypeHeader_CsvContentType);
@@ -334,6 +396,110 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateEndpointConfigRequest();
             
+            
+             // populate AsyncInferenceConfig
+            var requestAsyncInferenceConfigIsNull = true;
+            request.AsyncInferenceConfig = new Amazon.SageMaker.Model.AsyncInferenceConfig();
+            Amazon.SageMaker.Model.AsyncInferenceClientConfig requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfig = null;
+            
+             // populate ClientConfig
+            var requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfigIsNull = true;
+            requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfig = new Amazon.SageMaker.Model.AsyncInferenceClientConfig();
+            System.Int32? requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfig_clientConfig_MaxConcurrentInvocationsPerInstance = null;
+            if (cmdletContext.ClientConfig_MaxConcurrentInvocationsPerInstance != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfig_clientConfig_MaxConcurrentInvocationsPerInstance = cmdletContext.ClientConfig_MaxConcurrentInvocationsPerInstance.Value;
+            }
+            if (requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfig_clientConfig_MaxConcurrentInvocationsPerInstance != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfig.MaxConcurrentInvocationsPerInstance = requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfig_clientConfig_MaxConcurrentInvocationsPerInstance.Value;
+                requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfigIsNull = false;
+            }
+             // determine if requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfig should be set to null
+            if (requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfigIsNull)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfig = null;
+            }
+            if (requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfig != null)
+            {
+                request.AsyncInferenceConfig.ClientConfig = requestAsyncInferenceConfig_asyncInferenceConfig_ClientConfig;
+                requestAsyncInferenceConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.AsyncInferenceOutputConfig requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig = null;
+            
+             // populate OutputConfig
+            var requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfigIsNull = true;
+            requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig = new Amazon.SageMaker.Model.AsyncInferenceOutputConfig();
+            System.String requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_KmsKeyId = null;
+            if (cmdletContext.OutputConfig_KmsKeyId != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_KmsKeyId = cmdletContext.OutputConfig_KmsKeyId;
+            }
+            if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_KmsKeyId != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig.KmsKeyId = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_KmsKeyId;
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfigIsNull = false;
+            }
+            System.String requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3OutputPath = null;
+            if (cmdletContext.OutputConfig_S3OutputPath != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3OutputPath = cmdletContext.OutputConfig_S3OutputPath;
+            }
+            if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3OutputPath != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig.S3OutputPath = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3OutputPath;
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.AsyncInferenceNotificationConfig requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig = null;
+            
+             // populate NotificationConfig
+            var requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfigIsNull = true;
+            requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig = new Amazon.SageMaker.Model.AsyncInferenceNotificationConfig();
+            System.String requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_ErrorTopic = null;
+            if (cmdletContext.NotificationConfig_ErrorTopic != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_ErrorTopic = cmdletContext.NotificationConfig_ErrorTopic;
+            }
+            if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_ErrorTopic != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig.ErrorTopic = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_ErrorTopic;
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfigIsNull = false;
+            }
+            System.String requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_SuccessTopic = null;
+            if (cmdletContext.NotificationConfig_SuccessTopic != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_SuccessTopic = cmdletContext.NotificationConfig_SuccessTopic;
+            }
+            if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_SuccessTopic != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig.SuccessTopic = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_SuccessTopic;
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfigIsNull = false;
+            }
+             // determine if requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig should be set to null
+            if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfigIsNull)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig = null;
+            }
+            if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig.NotificationConfig = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig;
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfigIsNull = false;
+            }
+             // determine if requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig should be set to null
+            if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfigIsNull)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig = null;
+            }
+            if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig != null)
+            {
+                request.AsyncInferenceConfig.OutputConfig = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig;
+                requestAsyncInferenceConfigIsNull = false;
+            }
+             // determine if request.AsyncInferenceConfig should be set to null
+            if (requestAsyncInferenceConfigIsNull)
+            {
+                request.AsyncInferenceConfig = null;
+            }
             
              // populate DataCaptureConfig
             var requestDataCaptureConfigIsNull = true;
@@ -505,6 +671,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? ClientConfig_MaxConcurrentInvocationsPerInstance { get; set; }
+            public System.String OutputConfig_KmsKeyId { get; set; }
+            public System.String NotificationConfig_ErrorTopic { get; set; }
+            public System.String NotificationConfig_SuccessTopic { get; set; }
+            public System.String OutputConfig_S3OutputPath { get; set; }
             public List<System.String> CaptureContentTypeHeader_CsvContentType { get; set; }
             public List<System.String> CaptureContentTypeHeader_JsonContentType { get; set; }
             public List<Amazon.SageMaker.Model.CaptureOption> DataCaptureConfig_CaptureOption { get; set; }

@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set that you want to change the suppression list preferences
-        /// for.</para>
+        /// <para>The name of the configuration set to change the suppression list preferences for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

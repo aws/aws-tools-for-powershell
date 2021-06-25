@@ -282,9 +282,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that a training or compilation job can run.
-        /// If the job does not complete during this time, Amazon SageMaker ends the job.</para><para>When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
-        /// specifies the maximum time for all of the attempts in total, not each individual attempt.</para><para>The default value is 1 day. The maximum value is 28 days.</para>
+        /// <para>The maximum length of time, in seconds, that a training or compilation job can run.</para><para>For compilation jobs, if the job does not complete during this time, you will receive
+        /// a <code>TimeOut</code> error. We recommend starting with 900 seconds and increase
+        /// as necessary based on your model.</para><para>For all other jobs, if the job does not complete during this time, Amazon SageMaker
+        /// ends the job. When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
+        /// specifies the maximum time for all of the attempts in total, not each individual attempt.
+        /// The default value is 1 day. The maximum value is 28 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -479,10 +482,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
-        /// different ways, for example, by purpose, owner, or environment. For more information,
-        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS Resources</a>.</para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+        /// resources in different ways, for example, by purpose, owner, or environment. For more
+        /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services Resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -493,8 +496,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TrainingJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the training job. The name must be unique within an AWS Region in an AWS
-        /// account. </para>
+        /// <para>The name of the training job. The name must be unique within an Amazon Web Services
+        /// Region in an Amazon Web Services account. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

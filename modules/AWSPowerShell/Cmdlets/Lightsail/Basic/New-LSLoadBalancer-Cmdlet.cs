@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Creates a Lightsail load balancer. To learn more about deciding whether to load balance
-    /// your application, see <a href="https://lightsail.aws.amazon.com/ls/docs/how-to/article/configure-lightsail-instances-for-load-balancing">Configure
+    /// your application, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/configure-lightsail-instances-for-load-balancing">Configure
     /// your Lightsail instances for load balancing</a>. You can create up to 5 load balancers
     /// per AWS Region in your account.
     /// 
@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// operation.
     /// </para><para>
     /// The <code>create load balancer</code> operation supports tag-based access control
-    /// via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
-    /// Dev Guide</a>.
+    /// via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "LSLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

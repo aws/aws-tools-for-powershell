@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns the evidence folders from a specified assessment in AWS Audit Manager.
+    /// Returns the evidence folders from a specified assessment in Audit Manager.
     /// </summary>
     [Cmdlet("Get", "AUDMEvidenceFolderByAssessment")]
     [OutputType("Amazon.AuditManager.Model.AssessmentEvidenceFolder")]

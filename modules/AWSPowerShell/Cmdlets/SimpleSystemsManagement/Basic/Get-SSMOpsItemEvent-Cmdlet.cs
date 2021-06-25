@@ -28,8 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Returns a list of all OpsItem events in the current AWS account and Region. You can
-    /// limit the results to events associated with specific OpsItems by specifying a filter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of all OpsItem events in the current Amazon Web Services Region and
+    /// Amazon Web Services account. You can limit the results to events associated with specific
+    /// OpsItems by specifying a filter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMOpsItemEvent")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.OpsItemEventSummary")]

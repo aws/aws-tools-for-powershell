@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// You <i>can’t</i> reject an environment account connection that is connected to an
     /// environment.
     /// </para><para>
-    /// For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment
-    /// account connections</a> in the <i>AWS Proton Administration guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
+    /// account connections</a> in the <i>AWS Proton Administrator guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Deny", "PROEnvironmentAccountConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

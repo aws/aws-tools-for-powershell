@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Saves a new query or updates an existing saved query. The <code>QueryName</code> must
-    /// be unique for a single AWS account and a single AWS Region. You can create upto 300
-    /// queries in a single AWS account and a single AWS Region.
+    /// be unique for a single Amazon Web Services account and a single Amazon Web Services
+    /// Region. You can create upto 300 queries in a single Amazon Web Services account and
+    /// a single Amazon Web Services Region.
     /// </summary>
     [Cmdlet("Write", "CFGStoredQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

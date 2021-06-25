@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter ResourceConfig_ApiName
         /// <summary>
         /// <para>
-        /// <para>The API name used to interact with the data model, configured as a part of the Amplify
+        /// <para>The API name used to interact with the data model, configured as a part of your Amplify
         /// project.</para>
         /// </para>
         /// </summary>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter Settings_CognitoUserPoolId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Cognito user pool ID, if Amazon Cognito is used as an authentication setting
+        /// <para>The Amazon Cognito user pool ID, if Amazon Cognito was used as an authentication setting
         /// to access your data models.</para>
         /// </para>
         /// </summary>
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter Settings_Description
         /// <summary>
         /// <para>
-        /// <para>The API key description for API_KEY, if it is used as an authentication mechanism
+        /// <para>The API key description for API_KEY, if it was used as an authentication mechanism
         /// to access your data models.</para>
         /// </para>
         /// </summary>
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter Settings_ExpirationTime
         /// <summary>
         /// <para>
-        /// <para>The API key expiration time for API_KEY, if it is used as an authentication mechanism
+        /// <para>The API key expiration time for API_KEY, if it was used as an authentication mechanism
         /// to access your data models.</para>
         /// </para>
         /// </summary>
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter Settings_OpenIDClientId
         /// <summary>
         /// <para>
-        /// <para>The clientID for openID, if openID is used as an authentication setting to access
+        /// <para>The clientID for openID, if openID was used as an authentication setting to access
         /// your data models.</para>
         /// </para>
         /// </summary>
@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter Settings_OpenIDIssueURL
         /// <summary>
         /// <para>
-        /// <para>The openID issuer URL, if openID is used as an authentication setting to access your
+        /// <para>The openID issuer URL, if openID was used as an authentication setting to access your
         /// data models.</para>
         /// </para>
         /// </summary>
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter Settings_OpenIDProviderName
         /// <summary>
         /// <para>
-        /// <para>The openID provider name, if openID is used as an authentication mechanism to access
+        /// <para>The OpenID provider name, if OpenID was used as an authentication mechanism to access
         /// your data models.</para>
         /// </para>
         /// </summary>

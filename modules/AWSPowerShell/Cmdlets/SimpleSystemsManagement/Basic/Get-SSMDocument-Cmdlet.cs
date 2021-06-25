@@ -28,7 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Gets the contents of the specified Systems Manager document.
+    /// Gets the contents of the specified Amazon Web Services Systems Manager document (SSM
+    /// document).
     /// </summary>
     [Cmdlet("Get", "SSMDocument")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetDocumentResponse")]
@@ -64,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the Systems Manager document.</para>
+        /// <para>The name of the SSM document.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

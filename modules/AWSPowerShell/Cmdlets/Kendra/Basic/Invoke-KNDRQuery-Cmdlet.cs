@@ -73,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public Amazon.Kendra.Model.AttributeFilter AttributeFilter { get; set; }
         #endregion
         
+        #region Parameter UserContext_DataSourceGroup
+        /// <summary>
+        /// <para>
+        /// <para>The list of data source groups you want to filter search results based on groups'
+        /// access to documents in that data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UserContext_DataSourceGroups")]
+        public Amazon.Kendra.Model.DataSourceGroup[] UserContext_DataSourceGroup { get; set; }
+        #endregion
+        
         #region Parameter SortingConfiguration_DocumentAttributeKey
         /// <summary>
         /// <para>
@@ -112,6 +124,18 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Facets")]
         public Amazon.Kendra.Model.Facet[] Facet { get; set; }
+        #endregion
+        
+        #region Parameter UserContext_Group
+        /// <summary>
+        /// <para>
+        /// <para>The list of groups you want to filter search results based on the groups' access to
+        /// documents.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UserContext_Groups")]
+        public System.String[] UserContext_Group { get; set; }
         #endregion
         
         #region Parameter IndexId
@@ -200,11 +224,23 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter UserContext_Token
         /// <summary>
         /// <para>
-        /// <para>The user context token. It must be a JWT or a JSON token.</para>
+        /// <para>The user context token for filtering search results for a user. It must be a JWT or
+        /// a JSON token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String UserContext_Token { get; set; }
+        #endregion
+        
+        #region Parameter UserContext_UserId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the user you want to filter search results based on their access
+        /// to documents.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UserContext_UserId { get; set; }
         #endregion
         
         #region Parameter VisitorId
@@ -324,7 +360,16 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             context.SortingConfiguration_DocumentAttributeKey = this.SortingConfiguration_DocumentAttributeKey;
             context.SortingConfiguration_SortOrder = this.SortingConfiguration_SortOrder;
+            if (this.UserContext_DataSourceGroup != null)
+            {
+                context.UserContext_DataSourceGroup = new List<Amazon.Kendra.Model.DataSourceGroup>(this.UserContext_DataSourceGroup);
+            }
+            if (this.UserContext_Group != null)
+            {
+                context.UserContext_Group = new List<System.String>(this.UserContext_Group);
+            }
             context.UserContext_Token = this.UserContext_Token;
+            context.UserContext_UserId = this.UserContext_UserId;
             context.VisitorId = this.VisitorId;
             
             // allow further manipulation of loaded context prior to processing
@@ -411,6 +456,26 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
              // populate UserContext
             var requestUserContextIsNull = true;
             request.UserContext = new Amazon.Kendra.Model.UserContext();
+            List<Amazon.Kendra.Model.DataSourceGroup> requestUserContext_userContext_DataSourceGroup = null;
+            if (cmdletContext.UserContext_DataSourceGroup != null)
+            {
+                requestUserContext_userContext_DataSourceGroup = cmdletContext.UserContext_DataSourceGroup;
+            }
+            if (requestUserContext_userContext_DataSourceGroup != null)
+            {
+                request.UserContext.DataSourceGroups = requestUserContext_userContext_DataSourceGroup;
+                requestUserContextIsNull = false;
+            }
+            List<System.String> requestUserContext_userContext_Group = null;
+            if (cmdletContext.UserContext_Group != null)
+            {
+                requestUserContext_userContext_Group = cmdletContext.UserContext_Group;
+            }
+            if (requestUserContext_userContext_Group != null)
+            {
+                request.UserContext.Groups = requestUserContext_userContext_Group;
+                requestUserContextIsNull = false;
+            }
             System.String requestUserContext_userContext_Token = null;
             if (cmdletContext.UserContext_Token != null)
             {
@@ -419,6 +484,16 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (requestUserContext_userContext_Token != null)
             {
                 request.UserContext.Token = requestUserContext_userContext_Token;
+                requestUserContextIsNull = false;
+            }
+            System.String requestUserContext_userContext_UserId = null;
+            if (cmdletContext.UserContext_UserId != null)
+            {
+                requestUserContext_userContext_UserId = cmdletContext.UserContext_UserId;
+            }
+            if (requestUserContext_userContext_UserId != null)
+            {
+                request.UserContext.UserId = requestUserContext_userContext_UserId;
                 requestUserContextIsNull = false;
             }
              // determine if request.UserContext should be set to null
@@ -502,7 +577,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public List<System.String> RequestedDocumentAttribute { get; set; }
             public System.String SortingConfiguration_DocumentAttributeKey { get; set; }
             public Amazon.Kendra.SortOrder SortingConfiguration_SortOrder { get; set; }
+            public List<Amazon.Kendra.Model.DataSourceGroup> UserContext_DataSourceGroup { get; set; }
+            public List<System.String> UserContext_Group { get; set; }
             public System.String UserContext_Token { get; set; }
+            public System.String UserContext_UserId { get; set; }
             public System.String VisitorId { get; set; }
             public System.Func<Amazon.Kendra.Model.QueryResponse, InvokeKNDRQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

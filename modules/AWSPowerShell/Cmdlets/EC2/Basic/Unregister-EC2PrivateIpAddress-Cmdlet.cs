@@ -28,7 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Unassigns one or more secondary private IP addresses from a network interface.
+    /// Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes
+    /// from a network interface.
     /// </summary>
     [Cmdlet("Unregister", "EC2PrivateIpAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -39,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public partial class UnregisterEC2PrivateIpAddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Ipv4Prefix
+        /// <summary>
+        /// <para>
+        /// <para>The IPv4 prefixes to unassign from the network interface.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Ipv4Prefixes")]
+        public System.String[] Ipv4Prefix { get; set; }
+        #endregion
         
         #region Parameter NetworkInterfaceId
         /// <summary>
@@ -64,14 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// specify this option multiple times to unassign more than one IP address.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("PrivateIpAddresses")]
         public System.String[] PrivateIpAddress { get; set; }
         #endregion
@@ -136,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => context.PrivateIpAddress;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Ipv4Prefix != null)
+            {
+                context.Ipv4Prefix = new List<System.String>(this.Ipv4Prefix);
+            }
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             #if MODULAR
             if (this.NetworkInterfaceId == null && ParameterWasBound(nameof(this.NetworkInterfaceId)))
@@ -147,12 +156,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.PrivateIpAddress = new List<System.String>(this.PrivateIpAddress);
             }
-            #if MODULAR
-            if (this.PrivateIpAddress == null && ParameterWasBound(nameof(this.PrivateIpAddress)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PrivateIpAddress which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -169,6 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.UnassignPrivateIpAddressesRequest();
             
+            if (cmdletContext.Ipv4Prefix != null)
+            {
+                request.Ipv4Prefixes = cmdletContext.Ipv4Prefix;
+            }
             if (cmdletContext.NetworkInterfaceId != null)
             {
                 request.NetworkInterfaceId = cmdletContext.NetworkInterfaceId;
@@ -238,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Ipv4Prefix { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public List<System.String> PrivateIpAddress { get; set; }
             public System.Func<Amazon.EC2.Model.UnassignPrivateIpAddressesResponse, UnregisterEC2PrivateIpAddressCmdlet, object> Select { get; set; } =

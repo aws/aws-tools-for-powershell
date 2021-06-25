@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// You can't modify the task endpoints. The task must be stopped before you can modify
     /// it. 
     /// </para><para>
-    /// For more information about AWS DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working
-    /// with Migration Tasks</a> in the <i>AWS Database Migration Service User Guide</i>.
+    /// For more information about DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working
+    /// with Migration Tasks</a> in the <i>Database Migration Service User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "DMSReplicationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// slot should already be created and associated with the source endpoint. You can verify
         /// this by setting the <code>slotName</code> extra connection attribute to the name of
         /// this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra
-        /// Connection Attributes When Using PostgreSQL as a Source for AWS DMS</a>.</para></note>
+        /// Connection Attributes When Using PostgreSQL as a Source for DMS</a>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter TableMapping
         /// <summary>
         /// <para>
-        /// <para>When using the AWS CLI or boto3, provide the path of the JSON file that contains the
-        /// table mappings. Precede the path with <code>file://</code>. For example, <code>--table-mappings
+        /// <para>When using the CLI or boto3, provide the path of the JSON file that contains the table
+        /// mappings. Precede the path with <code>file://</code>. For example, <code>--table-mappings
         /// file://mappingfile.json</code>. When working with the DMS API, provide the JSON as
         /// the parameter value. </para>
         /// </para>
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Supplemental information that the task requires to migrate the data for certain source
         /// and target endpoints. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html">Specifying
-        /// Supplemental Data for Task Settings</a> in the <i>AWS Database Migration Service User
+        /// Supplemental Data for Task Settings</a> in the <i>Database Migration Service User
         /// Guide.</i></para>
         /// </para>
         /// </summary>

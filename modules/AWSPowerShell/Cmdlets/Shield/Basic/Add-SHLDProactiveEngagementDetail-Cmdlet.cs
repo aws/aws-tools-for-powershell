@@ -28,8 +28,8 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Initializes proactive engagement and sets the list of contacts for the DDoS Response
-    /// Team (DRT) to use. You must provide at least one phone number in the emergency contact
+    /// Initializes proactive engagement and sets the list of contacts for the Shield Response
+    /// Team (SRT) to use. You must provide at least one phone number in the emergency contact
     /// list. 
     /// 
     ///  
@@ -38,9 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// proactive engagement, use the calls <code>DisableProactiveEngagement</code> and <code>EnableProactiveEngagement</code>.
     /// 
     /// </para><note><para>
-    /// This call defines the list of email addresses and phone numbers that the DDoS Response
-    /// Team (DRT) can use to contact you for escalations to the DRT and to initiate proactive
-    /// customer support.
+    /// This call defines the list of email addresses and phone numbers that the SRT can use
+    /// to contact you for escalations to the SRT and to initiate proactive customer support.
     /// </para><para>
     /// The contacts that you provide in the request replace any contacts that were already
     /// defined. If you already have contacts defined and want to use them, retrieve the list
@@ -61,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter EmergencyContactList
         /// <summary>
         /// <para>
-        /// <para>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can
-        /// use to contact you for escalations to the DRT and to initiate proactive customer support.
+        /// <para>A list of email addresses and phone numbers that the Shield Response Team (SRT) can
+        /// use to contact you for escalations to the SRT and to initiate proactive customer support.
         /// </para><para>To enable proactive engagement, the contact list must include at least one phone number.</para><note><para>The contacts that you provide here replace any contacts that were already defined.
         /// If you already have contacts defined and want to use them, retrieve the list using
         /// <code>DescribeEmergencyContactSettings</code> and then provide it here. </para></note>

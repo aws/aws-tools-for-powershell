@@ -247,6 +247,7 @@ $AMPB_SelectMap = @{
                "Get-AMPBBackendAuth",
                "Get-AMPBBackendJob",
                "Get-AMPBToken",
+               "Import-AMPBBackendAuth",
                "Get-AMPBBackendJobList",
                "Remove-AMPBAllBackend",
                "Remove-AMPBBackendConfig",

@@ -31,10 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// Retrieves all the development endpoints in this AWS account.
     /// 
     ///  <note><para>
-    /// When you create a development endpoint in a virtual private cloud (VPC), AWS Glue
-    /// returns only a private IP address and the public IP address field is not populated.
-    /// When you create a non-VPC development endpoint, AWS Glue returns only a public IP
-    /// address.
+    /// When you create a development endpoint in a virtual private cloud (VPC), Glue returns
+    /// only a private IP address and the public IP address field is not populated. When you
+    /// create a non-VPC development endpoint, Glue returns only a public IP address.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GLUEDevEndpointList")]

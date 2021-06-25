@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Creates a domain configuration.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDomainConfiguration</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IOTDomainConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.CreateDomainConfigurationResponse")]
@@ -90,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ServerCertificateArn
         /// <summary>
         /// <para>
-        /// <para>The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake.
+        /// <para>The ARNs of the certificates that IoT passes to the device during the TLS handshake.
         /// Currently you can specify only one certificate ARN. This value is not required for
-        /// AWS-managed domains.</para>
+        /// Amazon Web Services-managed domains.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ServiceType
         /// <summary>
         /// <para>
-        /// <para>The type of service delivered by the endpoint.</para><note><para>AWS IoT Core currently supports only the <code>DATA</code> service type.</para></note>
+        /// <para>The type of service delivered by the endpoint.</para><note><para>Amazon Web Services IoT Core currently supports only the <code>DATA</code> service
+        /// type.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>The certificate used to validate the server certificate and prove domain name ownership.
         /// This certificate must be signed by a public certificate authority. This value is not
-        /// required for AWS-managed domains.</para>
+        /// required for Amazon Web Services-managed domains.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

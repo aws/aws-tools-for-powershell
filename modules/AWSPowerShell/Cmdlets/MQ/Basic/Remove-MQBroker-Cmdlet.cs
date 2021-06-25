@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter BrokerId
         /// <summary>
         /// <para>
-        /// The unique ID that Amazon MQ generates for the
-        /// broker.
+        /// <para>The unique ID that Amazon MQ generates for the broker.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

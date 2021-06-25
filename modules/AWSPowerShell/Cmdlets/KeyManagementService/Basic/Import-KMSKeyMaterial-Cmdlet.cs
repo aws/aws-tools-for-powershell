@@ -28,18 +28,17 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Imports key material into an existing symmetric AWS KMS customer master key (CMK)
-    /// that was created without key material. After you successfully import key material
-    /// into a CMK, you can <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport
-    /// the same key material</a> into that CMK, but you cannot import different key material.
+    /// Imports key material into an existing symmetric KMS KMS key that was created without
+    /// key material. After you successfully import key material into a KMS key, you can <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport
+    /// the same key material</a> into that KMS key, but you cannot import different key material.
     /// 
     /// 
     ///  
     /// <para>
-    /// You cannot perform this operation on an asymmetric CMK or on any CMK in a different
-    /// AWS account. For more information about creating CMKs with no key material and then
-    /// importing key material, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing
-    /// Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// You cannot perform this operation on an asymmetric KMS key or on any KMS key in a
+    /// different Amazon Web Services account. For more information about creating KMS keys
+    /// with no key material and then importing key material, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing
+    /// Key Material</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
     /// Before using this operation, call <a>GetParametersForImport</a>. Its response includes
     /// a public key and an import token. Use the public key to encrypt the key material.
@@ -47,12 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// When calling this operation, you must specify the following values:
     /// </para><ul><li><para>
-    /// The key ID or key ARN of a CMK with no key material. Its <code>Origin</code> must
+    /// The key ID or key ARN of a KMS key with no key material. Its <code>Origin</code> must
     /// be <code>EXTERNAL</code>.
     /// </para><para>
-    /// To create a CMK with no key material, call <a>CreateKey</a> and set the value of its
-    /// <code>Origin</code> parameter to <code>EXTERNAL</code>. To get the <code>Origin</code>
-    /// of a CMK, call <a>DescribeKey</a>.)
+    /// To create a KMS key with no key material, call <a>CreateKey</a> and set the value
+    /// of its <code>Origin</code> parameter to <code>EXTERNAL</code>. To get the <code>Origin</code>
+    /// of a KMS key, call <a>DescribeKey</a>.)
     /// </para></li><li><para>
     /// The encrypted key material. To get the public key to encrypt the key material, call
     /// <a>GetParametersForImport</a>.
@@ -60,26 +59,26 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// The import token that <a>GetParametersForImport</a> returned. You must use a public
     /// key and token from the same <code>GetParametersForImport</code> response.
     /// </para></li><li><para>
-    /// Whether the key material expires and if so, when. If you set an expiration date, AWS
-    /// KMS deletes the key material from the CMK on the specified date, and the CMK becomes
-    /// unusable. To use the CMK again, you must reimport the same key material. The only
+    /// Whether the key material expires and if so, when. If you set an expiration date, KMS
+    /// deletes the key material from the KMS key on the specified date, and the KMS key becomes
+    /// unusable. To use the KMS key again, you must reimport the same key material. The only
     /// way to change an expiration date is by reimporting the same key material and specifying
     /// a new expiration date. 
     /// </para></li></ul><para>
-    /// When this operation is successful, the key state of the CMK changes from <code>PendingImport</code>
-    /// to <code>Enabled</code>, and you can use the CMK.
+    /// When this operation is successful, the key state of the KMS key changes from <code>PendingImport</code>
+    /// to <code>Enabled</code>, and you can use the KMS key.
     /// </para><para>
     /// If this operation fails, use the exception to help determine the problem. If the error
     /// is related to the key material, the import token, or wrapping key, use <a>GetParametersForImport</a>
-    /// to get a new public key and import token for the CMK and repeat the import procedure.
+    /// to get a new public key and import token for the KMS key and repeat the import procedure.
     /// For help, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#importing-keys-overview">How
-    /// To Import Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// To Import Key Material</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
-    /// The CMK that you use for this operation must be in a compatible key state. For details,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.
-    /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different
-    /// AWS account.
+    /// The KMS key that you use for this operation must be in a compatible key state. For
+    /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
+    /// state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.
+    /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
+    /// different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ImportKeyMaterial</a>
     /// (key policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>DeleteImportedKeyMaterial</a></para></li><li><para><a>GetParametersForImport</a></para></li></ul>
@@ -151,10 +150,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the symmetric CMK that receives the imported key material. The CMK's
-        /// <code>Origin</code> must be <code>EXTERNAL</code>. This must be the same CMK specified
-        /// in the <code>KeyID</code> parameter of the corresponding <a>GetParametersForImport</a>
-        /// request.</para><para>Specify the key ID or key ARN of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// <para>The identifier of the symmetric KMS key that receives the imported key material. The
+        /// KMS key's <code>Origin</code> must be <code>EXTERNAL</code>. This must be the same
+        /// KMS key specified in the <code>KeyID</code> parameter of the corresponding <a>GetParametersForImport</a>
+        /// request.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -172,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The time at which the imported key material expires. When the key material expires,
-        /// AWS KMS deletes the key material and the CMK becomes unusable. You must omit this
+        /// KMS deletes the key material and the KMS key becomes unusable. You must omit this
         /// parameter when the <code>ExpirationModel</code> parameter is set to <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>.
         /// Otherwise it is required.</para>
         /// </para>

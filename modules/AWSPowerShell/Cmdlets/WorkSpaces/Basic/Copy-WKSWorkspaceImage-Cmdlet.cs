@@ -32,15 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// information about copying images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html">
     /// Copy a Custom WorkSpaces Image</a>.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
     /// In the China (Ningxia) Region, you can copy images only within the same Region.
     /// </para><para>
-    /// In the AWS GovCloud (US-West) Region, to copy images to and from other AWS Regions,
-    /// contact AWS Support.
-    /// </para></note><important><para>
+    /// In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact
+    /// Amazon Web Services Support.
+    /// </para><important><para>
     /// Before copying a shared image, be sure to verify that it has been shared from the
-    /// correct AWS account. To determine if an image has been shared and to see the AWS account
-    /// ID that owns an image, use the <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">DescribeWorkSpaceImages</a>
+    /// correct Amazon Web Services account. To determine if an image has been shared and
+    /// to see the ID of the Amazon Web Services account that owns an image, use the <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">DescribeWorkSpaceImages</a>
     /// and <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html">DescribeWorkspaceImagePermissions</a>
     /// API operations. 
     /// </para></important>

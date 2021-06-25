@@ -30,12 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Creates a managed prefix list. You can specify one or more entries for the prefix
     /// list. Each entry consists of a CIDR block and an optional description.
-    /// 
-    ///  
-    /// <para>
-    /// You must specify the maximum number of entries for the prefix list. The maximum number
-    /// of entries cannot be changed later.
-    /// </para>
     /// </summary>
     [Cmdlet("New", "EC2ManagedPrefixList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ManagedPrefixList")]

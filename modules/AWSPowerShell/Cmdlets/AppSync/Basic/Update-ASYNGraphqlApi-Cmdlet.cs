@@ -79,6 +79,33 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public Amazon.AppSync.AuthenticationType AuthenticationType { get; set; }
         #endregion
         
+        #region Parameter LambdaAuthorizerConfig_AuthorizerResultTtlInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The number of seconds a response should be cached for. The default is 5 minutes (300
+        /// seconds). The Lambda function can override this by returning a <code>ttlOverride</code>
+        /// key in its response. A value of 0 disables caching of responses.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LambdaAuthorizerConfig_AuthorizerResultTtlInSeconds")]
+        public System.Int32? LambdaAuthorizerConfig_AuthorizerResultTtlInSecond { get; set; }
+        #endregion
+        
+        #region Parameter LambdaAuthorizerConfig_AuthorizerUri
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Lambda function to be called for authorization. This may be a standard
+        /// Lambda ARN, a version ARN (<code>.../v3</code>) or alias ARN. </para><para><i>Note</i>: This Lambda function must have the following resource-based policy assigned
+        /// to it. When configuring Lambda authorizers in the Console, this is done for you. To
+        /// do so with the Amazon Web Services CLI, run the following:</para><para><code>aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:111122223333:function:my-function"
+        /// --statement-id "appsync" --principal appsync.amazonaws.com --action lambda:InvokeFunction</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LambdaAuthorizerConfig_AuthorizerUri { get; set; }
+        #endregion
+        
         #region Parameter OpenIDConnectConfig_AuthTTL
         /// <summary>
         /// <para>
@@ -94,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <para>
         /// <para>The client identifier of the Relying party at the OpenID identity provider. This identifier
         /// is typically obtained when the Relying party is registered with the OpenID identity
-        /// provider. You can specify a regular expression so the AWS AppSync can validate against
+        /// provider. You can specify a regular expression so the AppSync can validate against
         /// multiple client identifiers at a time.</para>
         /// </para>
         /// </summary>
@@ -105,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter LogConfig_CloudWatchLogsRoleArn
         /// <summary>
         /// <para>
-        /// <para>The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs
-        /// in your account. </para>
+        /// <para>The service role that AppSync will assume to publish to Amazon CloudWatch logs in
+        /// your account. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,6 +170,16 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int64? OpenIDConnectConfig_IatTTL { get; set; }
+        #endregion
+        
+        #region Parameter LambdaAuthorizerConfig_IdentityValidationExpression
+        /// <summary>
+        /// <para>
+        /// <para>A regular expression for validation of tokens before the Lambda function is called.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LambdaAuthorizerConfig_IdentityValidationExpression { get; set; }
         #endregion
         
         #region Parameter OpenIDConnectConfig_Issuer
@@ -266,6 +303,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             }
             #endif
             context.AuthenticationType = this.AuthenticationType;
+            context.LambdaAuthorizerConfig_AuthorizerResultTtlInSecond = this.LambdaAuthorizerConfig_AuthorizerResultTtlInSecond;
+            context.LambdaAuthorizerConfig_AuthorizerUri = this.LambdaAuthorizerConfig_AuthorizerUri;
+            context.LambdaAuthorizerConfig_IdentityValidationExpression = this.LambdaAuthorizerConfig_IdentityValidationExpression;
             context.LogConfig_CloudWatchLogsRoleArn = this.LogConfig_CloudWatchLogsRoleArn;
             context.LogConfig_ExcludeVerboseContent = this.LogConfig_ExcludeVerboseContent;
             context.LogConfig_FieldLogLevel = this.LogConfig_FieldLogLevel;
@@ -309,6 +349,45 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.AuthenticationType != null)
             {
                 request.AuthenticationType = cmdletContext.AuthenticationType;
+            }
+            
+             // populate LambdaAuthorizerConfig
+            var requestLambdaAuthorizerConfigIsNull = true;
+            request.LambdaAuthorizerConfig = new Amazon.AppSync.Model.LambdaAuthorizerConfig();
+            System.Int32? requestLambdaAuthorizerConfig_lambdaAuthorizerConfig_AuthorizerResultTtlInSecond = null;
+            if (cmdletContext.LambdaAuthorizerConfig_AuthorizerResultTtlInSecond != null)
+            {
+                requestLambdaAuthorizerConfig_lambdaAuthorizerConfig_AuthorizerResultTtlInSecond = cmdletContext.LambdaAuthorizerConfig_AuthorizerResultTtlInSecond.Value;
+            }
+            if (requestLambdaAuthorizerConfig_lambdaAuthorizerConfig_AuthorizerResultTtlInSecond != null)
+            {
+                request.LambdaAuthorizerConfig.AuthorizerResultTtlInSeconds = requestLambdaAuthorizerConfig_lambdaAuthorizerConfig_AuthorizerResultTtlInSecond.Value;
+                requestLambdaAuthorizerConfigIsNull = false;
+            }
+            System.String requestLambdaAuthorizerConfig_lambdaAuthorizerConfig_AuthorizerUri = null;
+            if (cmdletContext.LambdaAuthorizerConfig_AuthorizerUri != null)
+            {
+                requestLambdaAuthorizerConfig_lambdaAuthorizerConfig_AuthorizerUri = cmdletContext.LambdaAuthorizerConfig_AuthorizerUri;
+            }
+            if (requestLambdaAuthorizerConfig_lambdaAuthorizerConfig_AuthorizerUri != null)
+            {
+                request.LambdaAuthorizerConfig.AuthorizerUri = requestLambdaAuthorizerConfig_lambdaAuthorizerConfig_AuthorizerUri;
+                requestLambdaAuthorizerConfigIsNull = false;
+            }
+            System.String requestLambdaAuthorizerConfig_lambdaAuthorizerConfig_IdentityValidationExpression = null;
+            if (cmdletContext.LambdaAuthorizerConfig_IdentityValidationExpression != null)
+            {
+                requestLambdaAuthorizerConfig_lambdaAuthorizerConfig_IdentityValidationExpression = cmdletContext.LambdaAuthorizerConfig_IdentityValidationExpression;
+            }
+            if (requestLambdaAuthorizerConfig_lambdaAuthorizerConfig_IdentityValidationExpression != null)
+            {
+                request.LambdaAuthorizerConfig.IdentityValidationExpression = requestLambdaAuthorizerConfig_lambdaAuthorizerConfig_IdentityValidationExpression;
+                requestLambdaAuthorizerConfigIsNull = false;
+            }
+             // determine if request.LambdaAuthorizerConfig should be set to null
+            if (requestLambdaAuthorizerConfigIsNull)
+            {
+                request.LambdaAuthorizerConfig = null;
             }
             
              // populate LogConfig
@@ -474,6 +553,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public List<Amazon.AppSync.Model.AdditionalAuthenticationProvider> AdditionalAuthenticationProvider { get; set; }
             public System.String ApiId { get; set; }
             public Amazon.AppSync.AuthenticationType AuthenticationType { get; set; }
+            public System.Int32? LambdaAuthorizerConfig_AuthorizerResultTtlInSecond { get; set; }
+            public System.String LambdaAuthorizerConfig_AuthorizerUri { get; set; }
+            public System.String LambdaAuthorizerConfig_IdentityValidationExpression { get; set; }
             public System.String LogConfig_CloudWatchLogsRoleArn { get; set; }
             public System.Boolean? LogConfig_ExcludeVerboseContent { get; set; }
             public Amazon.AppSync.FieldLogLevel LogConfig_FieldLogLevel { get; set; }

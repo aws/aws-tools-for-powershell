@@ -198,6 +198,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateStudioLifecycleConfig" OutputProperty="StudioLifecycleConfigArn" Verb="New" Noun="StudioLifecycleConfig" ShouldProcessTarget="StudioLifecycleConfigName" PipelineParameter="StudioLifecycleConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTrainingJob" OutputProperty="TrainingJobArn" Verb="New" Noun="TrainingJob" ShouldProcessTarget="TrainingJobName" PipelineParameter="TrainingJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -347,6 +351,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProject" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStudioLifecycleConfig" Verb="Remove" Noun="StudioLifecycleConfig" ShouldProcessTarget="StudioLifecycleConfigName" PipelineParameter="StudioLifecycleConfigName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -527,6 +535,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStudioLifecycleConfig" OutputProperty="*" Verb="Get" Noun="StudioLifecycleConfig" PipelineParameter="StudioLifecycleConfigName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -762,6 +774,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListStudioLifecycleConfigs" OutputProperty="StudioLifecycleConfigs" Verb="Get" Noun="StudioLifecycleConfigList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSubscribedWorkteams" OutputProperty="SubscribedWorkteams" Verb="Get" Noun="SubscribedWorkteamList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -811,6 +827,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RenderUiTemplate" OutputProperty="*" Verb="Invoke" Noun="UiTemplateRendering" ShouldProcessTarget="RoleArn" PipelineParameter="UiTemplate_Content" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetryPipelineExecution" OutputProperty="PipelineExecutionArn" Verb="Restart" Noun="PipelineExecution" ShouldProcessTarget="PipelineExecutionArn" PipelineParameter="PipelineExecutionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

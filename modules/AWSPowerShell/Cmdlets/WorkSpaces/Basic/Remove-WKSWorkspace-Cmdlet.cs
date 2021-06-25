@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// 
     ///  <important><para>
     /// Terminating a WorkSpace is a permanent action and cannot be undone. The user's data
-    /// is destroyed. If you need to archive any user data, contact AWS Support before terminating
-    /// the WorkSpace.
+    /// is destroyed. If you need to archive any user data, contact Amazon Web Services Support
+    /// before terminating the WorkSpace.
     /// </para></important><para>
     /// You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.
     /// </para><para>
@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// Simple AD and AD Connector are made available to you free of charge to use with WorkSpaces.
     /// If there are no WorkSpaces being used with your Simple AD or AD Connector directory
     /// for 30 consecutive days, this directory will be automatically deregistered for use
-    /// with Amazon WorkSpaces, and you will be charged for this directory as per the <a href="http://aws.amazon.com/directoryservice/pricing/">AWS
-    /// Directory Services pricing terms</a>.
+    /// with Amazon WorkSpaces, and you will be charged for this directory as per the <a href="http://aws.amazon.com/directoryservice/pricing/">Directory
+    /// Service pricing terms</a>.
     /// </para><para>
     /// To delete empty directories, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html">
     /// Delete the Directory for Your WorkSpaces</a>. If you delete your Simple AD or AD Connector

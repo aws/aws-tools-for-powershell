@@ -28,8 +28,8 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Retrieves a paginated list of deployment jobs that AWS IoT Greengrass sends to AWS
-    /// IoT Greengrass core devices.
+    /// Retrieves a paginated list of deployment jobs that IoT Greengrass sends to Greengrass
+    /// core devices.
     /// </summary>
     [Cmdlet("Get", "GGV2EffectiveDeploymentList")]
     [OutputType("Amazon.GreengrassV2.Model.EffectiveDeployment")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter CoreDeviceThingName
         /// <summary>
         /// <para>
-        /// <para>The name of the core device. This is also the name of the AWS IoT thing.</para>
+        /// <para>The name of the core device. This is also the name of the IoT thing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

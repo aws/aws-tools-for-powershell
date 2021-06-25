@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Retrieves the current effective patches (the patch and the approval state) for the
-    /// specified patch baseline. Note that this API applies only to Windows patch baselines.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// specified patch baseline. Applies to patch baselines for Windows only.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMEffectivePatchesForPatchBaseline")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.EffectivePatch")]

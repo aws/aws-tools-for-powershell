@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment
-    /// account connections</a> in the <i>AWS Proton Administration guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
+    /// account connections</a> in the <i>AWS Proton Administrator guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "PROEnvironmentAccountConnectionList")]

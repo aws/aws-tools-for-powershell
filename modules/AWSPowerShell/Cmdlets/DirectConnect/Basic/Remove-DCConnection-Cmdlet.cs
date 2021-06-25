@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// 
     ///  
     /// <para>
-    /// Deleting a connection only stops the AWS Direct Connect port hour and data transfer
-    /// charges. If you are partnering with any third parties to connect with the AWS Direct
-    /// Connect location, you must cancel your service with them separately.
+    /// Deleting a connection only stops the Direct Connect port hour and data transfer charges.
+    /// If you are partnering with any third parties to connect with the Direct Connect location,
+    /// you must cancel your service with them separately.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "DCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -909,7 +909,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
                 }
                 
                 ProcessOutput(output);
-            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken) && (!_emitLimit.HasValue || _emitLimit.Value >= 10));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
             
             
             if (useParameterSelect)

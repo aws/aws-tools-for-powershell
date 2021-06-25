@@ -90,7 +90,8 @@ $DS_Completers = {
         # Amazon.DirectoryService.ClientAuthenticationType
         {
             ($_ -eq "Disable-DSClientAuthentication/Type") -Or
-            ($_ -eq "Enable-DSClientAuthentication/Type")
+            ($_ -eq "Enable-DSClientAuthentication/Type") -Or
+            ($_ -eq "Get-DSClientAuthenticationSetting/Type")
         }
         {
             $v = "SmartCard"
@@ -193,7 +194,7 @@ $DS_map = @{
     "Size"=@("Connect-DSDirectory","New-DSDirectory")
     "TrustDirection"=@("New-DSTrust")
     "TrustType"=@("New-DSTrust")
-    "Type"=@("Disable-DSClientAuthentication","Disable-DSLDAPS","Enable-DSClientAuthentication","Enable-DSLDAPS","Get-DSLDAPSSetting","Register-DSCertificate")
+    "Type"=@("Disable-DSClientAuthentication","Disable-DSLDAPS","Enable-DSClientAuthentication","Enable-DSLDAPS","Get-DSClientAuthenticationSetting","Get-DSLDAPSSetting","Register-DSCertificate")
     "UnshareTarget_Type"=@("Disable-DSDirectoryShare")
 }
 
@@ -269,6 +270,7 @@ $DS_SelectMap = @{
                "Unregister-DSCertificate",
                "Unregister-DSEventTopic",
                "Get-DSCertificate",
+               "Get-DSClientAuthenticationSetting",
                "Get-DSConditionalForwarder",
                "Get-DSDirectory",
                "Get-DSDomainControllerList",

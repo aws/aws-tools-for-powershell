@@ -266,6 +266,31 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public Amazon.Comprehend.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter InputDataConfig_TestS3Uri
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 URI for the input data. The Amazon S3 bucket must be in the same AWS
+        /// Region as the API endpoint that you are calling. The URI can point to a single input
+        /// file or it can provide the prefix for a collection of input files. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InputDataConfig_TestS3Uri { get; set; }
+        #endregion
+        
+        #region Parameter VersionName
+        /// <summary>
+        /// <para>
+        /// <para>The version name given to the newly created classifier. Version names can have a maximum
+        /// of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed.
+        /// The version name must be unique among all models with the same classifier name in
+        /// the account/AWS Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionName { get; set; }
+        #endregion
+        
         #region Parameter VolumeKmsKeyId
         /// <summary>
         /// <para>
@@ -361,6 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             context.InputDataConfig_DataFormat = this.InputDataConfig_DataFormat;
             context.InputDataConfig_LabelDelimiter = this.InputDataConfig_LabelDelimiter;
             context.InputDataConfig_S3Uri = this.InputDataConfig_S3Uri;
+            context.InputDataConfig_TestS3Uri = this.InputDataConfig_TestS3Uri;
             context.LanguageCode = this.LanguageCode;
             #if MODULAR
             if (this.LanguageCode == null && ParameterWasBound(nameof(this.LanguageCode)))
@@ -376,6 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             {
                 context.Tag = new List<Amazon.Comprehend.Model.Tag>(this.Tag);
             }
+            context.VersionName = this.VersionName;
             context.VolumeKmsKeyId = this.VolumeKmsKeyId;
             if (this.VpcConfig_SecurityGroupId != null)
             {
@@ -457,6 +484,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 request.InputDataConfig.S3Uri = requestInputDataConfig_inputDataConfig_S3Uri;
                 requestInputDataConfigIsNull = false;
             }
+            System.String requestInputDataConfig_inputDataConfig_TestS3Uri = null;
+            if (cmdletContext.InputDataConfig_TestS3Uri != null)
+            {
+                requestInputDataConfig_inputDataConfig_TestS3Uri = cmdletContext.InputDataConfig_TestS3Uri;
+            }
+            if (requestInputDataConfig_inputDataConfig_TestS3Uri != null)
+            {
+                request.InputDataConfig.TestS3Uri = requestInputDataConfig_inputDataConfig_TestS3Uri;
+                requestInputDataConfigIsNull = false;
+            }
              // determine if request.InputDataConfig should be set to null
             if (requestInputDataConfigIsNull)
             {
@@ -506,6 +543,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.VersionName != null)
+            {
+                request.VersionName = cmdletContext.VersionName;
             }
             if (cmdletContext.VolumeKmsKeyId != null)
             {
@@ -608,12 +649,14 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public Amazon.Comprehend.DocumentClassifierDataFormat InputDataConfig_DataFormat { get; set; }
             public System.String InputDataConfig_LabelDelimiter { get; set; }
             public System.String InputDataConfig_S3Uri { get; set; }
+            public System.String InputDataConfig_TestS3Uri { get; set; }
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
             public Amazon.Comprehend.DocumentClassifierMode Mode { get; set; }
             public System.String ModelKmsKeyId { get; set; }
             public System.String OutputDataConfig_KmsKeyId { get; set; }
             public System.String OutputDataConfig_S3Uri { get; set; }
             public List<Amazon.Comprehend.Model.Tag> Tag { get; set; }
+            public System.String VersionName { get; set; }
             public System.String VolumeKmsKeyId { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_Subnet { get; set; }

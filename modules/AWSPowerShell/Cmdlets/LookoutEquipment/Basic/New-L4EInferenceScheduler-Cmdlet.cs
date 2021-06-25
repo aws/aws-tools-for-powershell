@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter DataDelayOffsetInMinute
         /// <summary>
         /// <para>
-        /// <para> A period of time (in minutes) by which inference on the data is delayed after the
+        /// <para>A period of time (in minutes) by which inference on the data is delayed after the
         /// data starts. For instance, if you select an offset delay time of five minutes, inference
         /// will not begin on the data until the first data measurement after the five minute
         /// mark. For example, if five minutes is selected, the inference scheduler will wake
@@ -220,8 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter ServerSideKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt inference
-        /// scheduler data by Amazon Lookout for Equipment. </para>
+        /// <para>Provides the identifier of the KMS key used to encrypt inference scheduler data by
+        /// Amazon Lookout for Equipment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

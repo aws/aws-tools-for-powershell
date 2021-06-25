@@ -28,12 +28,15 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Lists the certificates registered in your AWS account.
+    /// Lists the certificates registered in your Amazon Web Services account.
     /// 
     ///  
     /// <para>
     /// The results are paginated with a default page size of 25. You can use the returned
     /// marker to retrieve additional results.
+    /// </para><para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificates</a>
+    /// action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTCertificateList")]

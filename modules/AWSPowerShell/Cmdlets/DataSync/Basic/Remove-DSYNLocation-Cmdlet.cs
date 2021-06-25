@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Deletes the configuration of a location used by AWS DataSync.
+    /// Deletes the configuration of a location used by DataSync.
     /// </summary>
     [Cmdlet("Remove", "DSYNLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

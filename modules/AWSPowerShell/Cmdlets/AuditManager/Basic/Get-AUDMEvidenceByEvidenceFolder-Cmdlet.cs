@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Returns all evidence from a specified evidence folder in AWS Audit Manager.
+    /// Returns all evidence from a specified evidence folder in Audit Manager.
     /// </summary>
     [Cmdlet("Get", "AUDMEvidenceByEvidenceFolder")]
     [OutputType("Amazon.AuditManager.Model.Evidence")]

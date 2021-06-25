@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter GitConfig_SecretArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the
-        /// credentials used to access the git repository. The secret must have a staging label
-        /// of <code>AWSCURRENT</code> and must be in the following format:</para><para><code>{"username": <i>UserName</i>, "password": <i>Password</i>}</code></para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
+        /// contains the credentials used to access the git repository. The secret must have a
+        /// staging label of <code>AWSCURRENT</code> and must be in the following format:</para><para><code>{"username": <i>UserName</i>, "password": <i>Password</i>}</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

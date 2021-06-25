@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Uploads an X.509 signing certificate and associates it with the specified IAM user.
-    /// Some AWS services require you to use certificates to validate requests that are signed
-    /// with a corresponding private key. When you upload the certificate, its default status
-    /// is <code>Active</code>.
+    /// Some Amazon Web Services services require you to use certificates to validate requests
+    /// that are signed with a corresponding private key. When you upload the certificate,
+    /// its default status is <code>Active</code>.
     /// 
     ///  
     /// <para>
@@ -39,15 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// server certificates in IAM</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// If the <code>UserName</code> is not specified, the IAM user name is determined implicitly
-    /// based on the AWS access key ID used to sign the request. This operation works for
-    /// access keys under the AWS account. Consequently, you can use this operation to manage
-    /// AWS account root user credentials even if the AWS account has no associated users.
+    /// based on the Amazon Web Services access key ID used to sign the request. This operation
+    /// works for access keys under the Amazon Web Services account. Consequently, you can
+    /// use this operation to manage Amazon Web Services account root user credentials even
+    /// if the Amazon Web Services account has no associated users.
     /// </para><note><para>
     /// Because the body of an X.509 certificate can be large, you should use POST rather
     /// than GET when calling <code>UploadSigningCertificate</code>. For information about
     /// setting up signatures and authorization through the API, see <a href="https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html">Signing
-    /// AWS API requests</a> in the <i>AWS General Reference</i>. For general information
-    /// about using the Query API with IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making
+    /// Amazon Web Services API requests</a> in the <i>Amazon Web Services General Reference</i>.
+    /// For general information about using the Query API with IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making
     /// query requests</a> in the <i>IAM User Guide</i>.
     /// </para></note>
     /// </summary>

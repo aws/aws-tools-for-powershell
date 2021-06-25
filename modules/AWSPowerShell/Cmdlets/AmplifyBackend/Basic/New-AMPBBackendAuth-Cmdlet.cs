@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter Facebook_ClientId
         /// <summary>
         /// <para>
-        /// <para>Describes the client_id that can be obtained from the third-party social federation
+        /// <para>Describes the client_id, which can be obtained from the third-party social federation
         /// provider.</para>
         /// </para>
         /// </summary>
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter Google_ClientId
         /// <summary>
         /// <para>
-        /// <para>Describes the client_id that can be obtained from the third-party social federation
+        /// <para>Describes the client_id, which can be obtained from the third-party social federation
         /// provider.</para>
         /// </para>
         /// </summary>
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter LoginWithAmazon_ClientId
         /// <summary>
         /// <para>
-        /// <para>Describes the client_id that can be obtained from the third-party social federation
+        /// <para>Describes the client_id, which can be obtained from the third-party social federation
         /// provider.</para>
         /// </para>
         /// </summary>
@@ -140,10 +140,21 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         public System.String LoginWithAmazon_ClientId { get; set; }
         #endregion
         
+        #region Parameter SignInWithApple_ClientId
+        /// <summary>
+        /// <para>
+        /// <para>Describes the client_id (also called Services ID) that comes from Apple.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_ClientId")]
+        public System.String SignInWithApple_ClientId { get; set; }
+        #endregion
+        
         #region Parameter Facebook_ClientSecret
         /// <summary>
         /// <para>
-        /// <para>Describes the client_secret that can be obtained from third-party social federation
+        /// <para>Describes the client_secret, which can be obtained from third-party social federation
         /// providers.</para>
         /// </para>
         /// </summary>
@@ -155,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter Google_ClientSecret
         /// <summary>
         /// <para>
-        /// <para>Describes the client_secret that can be obtained from third-party social federation
+        /// <para>Describes the client_secret, which can be obtained from third-party social federation
         /// providers.</para>
         /// </para>
         /// </summary>
@@ -167,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter LoginWithAmazon_ClientSecret
         /// <summary>
         /// <para>
-        /// <para>Describes the client_secret that can be obtained from third-party social federation
+        /// <para>Describes the client_secret, which can be obtained from third-party social federation
         /// providers.</para>
         /// </para>
         /// </summary>
@@ -179,8 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter ForgotPassword_DeliveryMethod
         /// <summary>
         /// <para>
-        /// <para>Describes which method to use (either SMS or email) to deliver messages to app users
-        /// that want to recover their password.</para>
+        /// <para>Describes which mode to use (either SMS or email) to deliver messages to app users
+        /// who want to recover their password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,12 +236,23 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter IdentityPoolConfigs_IdentityPoolName
         /// <summary>
         /// <para>
-        /// <para>Name of the identity pool used for authorization.</para>
+        /// <para>Name of the Amazon Cognito identity pool used for authorization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceConfig_IdentityPoolConfigs_IdentityPoolName")]
         public System.String IdentityPoolConfigs_IdentityPoolName { get; set; }
+        #endregion
+        
+        #region Parameter SignInWithApple_KeyId
+        /// <summary>
+        /// <para>
+        /// <para>Describes the key_id that comes from Apple.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_KeyId")]
+        public System.String SignInWithApple_KeyId { get; set; }
         #endregion
         
         #region Parameter Mfa_MFAMode
@@ -284,13 +306,24 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter OAuth_OAuthScope
         /// <summary>
         /// <para>
-        /// <para>List of OAuth-related flows that allow your app users to authenticate from your Amplify
-        /// app.</para>
+        /// <para>List of OAuth-related flows used to allow your app users to authenticate from your
+        /// Amplify app.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceConfig_UserPoolConfigs_OAuth_OAuthScopes")]
         public System.String[] OAuth_OAuthScope { get; set; }
+        #endregion
+        
+        #region Parameter SignInWithApple_PrivateKey
+        /// <summary>
+        /// <para>
+        /// <para>Describes the private_key that comes from Apple.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_PrivateKey")]
+        public System.String SignInWithApple_PrivateKey { get; set; }
         #endregion
         
         #region Parameter OAuth_RedirectSignInURIs
@@ -318,7 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter UserPoolConfigs_RequiredSignUpAttribute
         /// <summary>
         /// <para>
-        /// <para>The required attributes to sign up new users in the Amazon Cognito user pool.</para>
+        /// <para>The required attributes to sign up new users in the user pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -371,8 +404,8 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter UserPoolConfigs_SignInMethod
         /// <summary>
         /// <para>
-        /// <para>Describes the sign-in methods that your Amplify app users to log in using the Amazon
-        /// Cognito user pool that's configured as a part of your Amplify project.</para>
+        /// <para>Describes the sign-in methods that your Amplify app users use to log in using the
+        /// Amazon Cognito user pool, configured as a part of your Amplify project.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -407,6 +440,17 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceConfig_UserPoolConfigs_Mfa_Settings_SmsMessage")]
         public System.String Settings_SmsMessage { get; set; }
+        #endregion
+        
+        #region Parameter SignInWithApple_TeamId
+        /// <summary>
+        /// <para>
+        /// <para>Describes the team_id that comes from Apple.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_TeamId")]
+        public System.String SignInWithApple_TeamId { get; set; }
         #endregion
         
         #region Parameter IdentityPoolConfigs_UnauthenticatedLogin
@@ -560,6 +604,10 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             context.Google_ClientSecret = this.Google_ClientSecret;
             context.LoginWithAmazon_ClientId = this.LoginWithAmazon_ClientId;
             context.LoginWithAmazon_ClientSecret = this.LoginWithAmazon_ClientSecret;
+            context.SignInWithApple_ClientId = this.SignInWithApple_ClientId;
+            context.SignInWithApple_KeyId = this.SignInWithApple_KeyId;
+            context.SignInWithApple_PrivateKey = this.SignInWithApple_PrivateKey;
+            context.SignInWithApple_TeamId = this.SignInWithApple_TeamId;
             if (this.PasswordPolicy_AdditionalConstraint != null)
             {
                 context.PasswordPolicy_AdditionalConstraint = new List<System.String>(this.PasswordPolicy_AdditionalConstraint);
@@ -1059,6 +1107,61 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
                 requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings.LoginWithAmazon = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_LoginWithAmazon;
                 requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettingsIsNull = false;
             }
+            Amazon.AmplifyBackend.Model.BackendAuthAppleProviderConfig requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple = null;
+            
+             // populate SignInWithApple
+            var requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithAppleIsNull = true;
+            requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple = new Amazon.AmplifyBackend.Model.BackendAuthAppleProviderConfig();
+            System.String requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_ClientId = null;
+            if (cmdletContext.SignInWithApple_ClientId != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_ClientId = cmdletContext.SignInWithApple_ClientId;
+            }
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_ClientId != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple.ClientId = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_ClientId;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithAppleIsNull = false;
+            }
+            System.String requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_KeyId = null;
+            if (cmdletContext.SignInWithApple_KeyId != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_KeyId = cmdletContext.SignInWithApple_KeyId;
+            }
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_KeyId != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple.KeyId = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_KeyId;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithAppleIsNull = false;
+            }
+            System.String requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_PrivateKey = null;
+            if (cmdletContext.SignInWithApple_PrivateKey != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_PrivateKey = cmdletContext.SignInWithApple_PrivateKey;
+            }
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_PrivateKey != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple.PrivateKey = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_PrivateKey;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithAppleIsNull = false;
+            }
+            System.String requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_TeamId = null;
+            if (cmdletContext.SignInWithApple_TeamId != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_TeamId = cmdletContext.SignInWithApple_TeamId;
+            }
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_TeamId != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple.TeamId = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple_signInWithApple_TeamId;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithAppleIsNull = false;
+            }
+             // determine if requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple should be set to null
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithAppleIsNull)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple = null;
+            }
+            if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple != null)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings.SignInWithApple = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings_SignInWithApple;
+                requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettingsIsNull = false;
+            }
              // determine if requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettings should be set to null
             if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth_resourceConfig_UserPoolConfigs_OAuth_SocialProviderSettingsIsNull)
             {
@@ -1183,6 +1286,10 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             public System.String Google_ClientSecret { get; set; }
             public System.String LoginWithAmazon_ClientId { get; set; }
             public System.String LoginWithAmazon_ClientSecret { get; set; }
+            public System.String SignInWithApple_ClientId { get; set; }
+            public System.String SignInWithApple_KeyId { get; set; }
+            public System.String SignInWithApple_PrivateKey { get; set; }
+            public System.String SignInWithApple_TeamId { get; set; }
             public List<System.String> PasswordPolicy_AdditionalConstraint { get; set; }
             public System.Double? PasswordPolicy_MinimumLength { get; set; }
             public List<System.String> UserPoolConfigs_RequiredSignUpAttribute { get; set; }

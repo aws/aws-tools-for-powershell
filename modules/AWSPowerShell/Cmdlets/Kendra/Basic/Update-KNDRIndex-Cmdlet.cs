@@ -92,12 +92,13 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The amount of extra query capacity for an index and <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html">GetQuerySuggestions</a>
-        /// capacity.</para><para>A single extra capacity unit for an index provides 0.5 queries per second or approximately
-        /// 40,000 queries per day.</para><para><code>GetQuerySuggestions</code> capacity is 5 times the provisioned query capacity
-        /// for an index. For example, the base capacity for an index is 0.5 queries per second,
-        /// so GetQuerySuggestions capacity is 2.5 calls per second. If adding another 0.5 queries
-        /// per second to total 1 queries per second for an index, the <code>GetQuerySuggestions</code>
-        /// capacity is 5 calls per second.</para>
+        /// capacity.</para><para>A single extra capacity unit for an index provides 0.1 queries per second or approximately
+        /// 8,000 queries per day.</para><para><code>GetQuerySuggestions</code> capacity is five times the provisioned query capacity
+        /// for an index, or the base capacity of 2.5 calls per second, whichever is higher. For
+        /// example, the base capacity for an index is 0.1 queries per second, and <code>GetQuerySuggestions</code>
+        /// capacity has a base of 2.5 calls per second. If you add another 0.1 queries per second
+        /// to total 0.2 queries per second for an index, the <code>GetQuerySuggestions</code>
+        /// capacity is 2.5 calls per second (higher than five times 0.2 queries per second).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter CapacityUnits_StorageCapacityUnit
         /// <summary>
         /// <para>
-        /// <para>The amount of extra storage capacity for an index. A single capacity unit for an index
-        /// provides 150 GB of storage space or 500,000 documents, whichever is reached first.</para>
+        /// <para>The amount of extra storage capacity for an index. A single capacity unit provides
+        /// 30 GB of storage space or 100,000 documents, whichever is reached first.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

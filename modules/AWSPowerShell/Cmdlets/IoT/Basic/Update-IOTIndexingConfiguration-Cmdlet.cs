@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Updates the search configuration.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateIndexingConfiguration</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "IOTIndexingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -91,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Thing connectivity indexing mode. Valid values are: </para><ul><li><para>STATUS – Your thing index contains connectivity status. To enable thing connectivity
-        /// indexing, thingIndexMode must not be set to OFF.</para></li><li><para>OFF - Thing connectivity status indexing is disabled.</para></li></ul>
+        /// indexing, <i>thingIndexMode</i> must not be set to OFF.</para></li><li><para>OFF - Thing connectivity status indexing is disabled.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

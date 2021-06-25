@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Gets information about the specified certificate.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCertificate</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTCertificate")]
     [OutputType("Amazon.IoT.Model.CertificateDescription")]

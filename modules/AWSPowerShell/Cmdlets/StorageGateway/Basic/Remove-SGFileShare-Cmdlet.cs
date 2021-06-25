@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Deletes a file share from a file gateway. This operation is only supported for file
-    /// gateways.
+    /// Deletes a file share from an S3 File Gateway. This operation is only supported for
+    /// S3 File Gateways.
     /// </summary>
     [Cmdlet("Remove", "SGFileShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>If this value is set to <code>true</code>, the operation deletes a file share immediately
-        /// and aborts all data uploads to AWS. Otherwise, the file share is not deleted until
-        /// all data is uploaded to AWS. This process aborts the data upload process, and the
-        /// file share enters the <code>FORCE_DELETING</code> status.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// and aborts all data uploads to Amazon Web Services. Otherwise, the file share is not
+        /// deleted until all data is uploaded to Amazon Web Services. This process aborts the
+        /// data upload process, and the file share enters the <code>FORCE_DELETING</code> status.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -91,11 +91,39 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.String FirewallPolicyName { get; set; }
         #endregion
         
+        #region Parameter StatefulEngineOptions_RuleOrder
+        /// <summary>
+        /// <para>
+        /// <para>Indicates how to manage the order of stateful rule evaluation for the policy. By default,
+        /// Network Firewall leaves the rule evaluation order up to the Suricata rule processing
+        /// engine. If you set this to <code>STRICT_ORDER</code>, your rules are evaluated in
+        /// the exact order that you provide them in the policy. With strict ordering, the rule
+        /// groups are evaluated by order of priority, starting from the lowest number, and the
+        /// rules in each rule group are processed in the order that they're defined. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallPolicy_StatefulEngineOptions_RuleOrder")]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.RuleOrder")]
+        public Amazon.NetworkFirewall.RuleOrder StatefulEngineOptions_RuleOrder { get; set; }
+        #endregion
+        
+        #region Parameter FirewallPolicy_StatefulDefaultAction
+        /// <summary>
+        /// <para>
+        /// <para>The default actions to take on a packet that doesn't match any stateful rules.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallPolicy_StatefulDefaultActions")]
+        public System.String[] FirewallPolicy_StatefulDefaultAction { get; set; }
+        #endregion
+        
         #region Parameter FirewallPolicy_StatefulRuleGroupReference
         /// <summary>
         /// <para>
-        /// <para>References to the stateless rule groups that are used in the policy. These define
-        /// the inspection criteria in stateful rules. </para>
+        /// <para>References to the stateful rule groups that are used in the policy. These define the
+        /// inspection criteria in stateful rules. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,6 +280,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             context.DryRun = this.DryRun;
+            if (this.FirewallPolicy_StatefulDefaultAction != null)
+            {
+                context.FirewallPolicy_StatefulDefaultAction = new List<System.String>(this.FirewallPolicy_StatefulDefaultAction);
+            }
+            context.StatefulEngineOptions_RuleOrder = this.StatefulEngineOptions_RuleOrder;
             if (this.FirewallPolicy_StatefulRuleGroupReference != null)
             {
                 context.FirewallPolicy_StatefulRuleGroupReference = new List<Amazon.NetworkFirewall.Model.StatefulRuleGroupReference>(this.FirewallPolicy_StatefulRuleGroupReference);
@@ -323,6 +356,16 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
              // populate FirewallPolicy
             var requestFirewallPolicyIsNull = true;
             request.FirewallPolicy = new Amazon.NetworkFirewall.Model.FirewallPolicy();
+            List<System.String> requestFirewallPolicy_firewallPolicy_StatefulDefaultAction = null;
+            if (cmdletContext.FirewallPolicy_StatefulDefaultAction != null)
+            {
+                requestFirewallPolicy_firewallPolicy_StatefulDefaultAction = cmdletContext.FirewallPolicy_StatefulDefaultAction;
+            }
+            if (requestFirewallPolicy_firewallPolicy_StatefulDefaultAction != null)
+            {
+                request.FirewallPolicy.StatefulDefaultActions = requestFirewallPolicy_firewallPolicy_StatefulDefaultAction;
+                requestFirewallPolicyIsNull = false;
+            }
             List<Amazon.NetworkFirewall.Model.StatefulRuleGroupReference> requestFirewallPolicy_firewallPolicy_StatefulRuleGroupReference = null;
             if (cmdletContext.FirewallPolicy_StatefulRuleGroupReference != null)
             {
@@ -371,6 +414,31 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (requestFirewallPolicy_firewallPolicy_StatelessRuleGroupReference != null)
             {
                 request.FirewallPolicy.StatelessRuleGroupReferences = requestFirewallPolicy_firewallPolicy_StatelessRuleGroupReference;
+                requestFirewallPolicyIsNull = false;
+            }
+            Amazon.NetworkFirewall.Model.StatefulEngineOptions requestFirewallPolicy_firewallPolicy_StatefulEngineOptions = null;
+            
+             // populate StatefulEngineOptions
+            var requestFirewallPolicy_firewallPolicy_StatefulEngineOptionsIsNull = true;
+            requestFirewallPolicy_firewallPolicy_StatefulEngineOptions = new Amazon.NetworkFirewall.Model.StatefulEngineOptions();
+            Amazon.NetworkFirewall.RuleOrder requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_statefulEngineOptions_RuleOrder = null;
+            if (cmdletContext.StatefulEngineOptions_RuleOrder != null)
+            {
+                requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_statefulEngineOptions_RuleOrder = cmdletContext.StatefulEngineOptions_RuleOrder;
+            }
+            if (requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_statefulEngineOptions_RuleOrder != null)
+            {
+                requestFirewallPolicy_firewallPolicy_StatefulEngineOptions.RuleOrder = requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_statefulEngineOptions_RuleOrder;
+                requestFirewallPolicy_firewallPolicy_StatefulEngineOptionsIsNull = false;
+            }
+             // determine if requestFirewallPolicy_firewallPolicy_StatefulEngineOptions should be set to null
+            if (requestFirewallPolicy_firewallPolicy_StatefulEngineOptionsIsNull)
+            {
+                requestFirewallPolicy_firewallPolicy_StatefulEngineOptions = null;
+            }
+            if (requestFirewallPolicy_firewallPolicy_StatefulEngineOptions != null)
+            {
+                request.FirewallPolicy.StatefulEngineOptions = requestFirewallPolicy_firewallPolicy_StatefulEngineOptions;
                 requestFirewallPolicyIsNull = false;
             }
              // determine if request.FirewallPolicy should be set to null
@@ -449,6 +517,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             public System.String Description { get; set; }
             public System.Boolean? DryRun { get; set; }
+            public List<System.String> FirewallPolicy_StatefulDefaultAction { get; set; }
+            public Amazon.NetworkFirewall.RuleOrder StatefulEngineOptions_RuleOrder { get; set; }
             public List<Amazon.NetworkFirewall.Model.StatefulRuleGroupReference> FirewallPolicy_StatefulRuleGroupReference { get; set; }
             public List<Amazon.NetworkFirewall.Model.CustomAction> FirewallPolicy_StatelessCustomAction { get; set; }
             public List<System.String> FirewallPolicy_StatelessDefaultAction { get; set; }

@@ -80,6 +80,16 @@ $IOT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoT.AggregationTypeName
+        {
+            ($_ -eq "New-IOTFleetMetric/AggregationType_Name") -Or
+            ($_ -eq "Update-IOTFleetMetric/AggregationType_Name")
+        }
+        {
+            $v = "Cardinality","Percentiles","Statistics"
+            break
+        }
+
         # Amazon.IoT.AuditFrequency
         {
             ($_ -eq "New-IOTScheduledAudit/Frequency") -Or
@@ -237,6 +247,16 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.FleetMetricUnit
+        {
+            ($_ -eq "New-IOTFleetMetric/Unit") -Or
+            ($_ -eq "Update-IOTFleetMetric/Unit")
+        }
+        {
+            $v = "Bits","Bits/Second","Bytes","Bytes/Second","Count","Count/Second","Gigabits","Gigabits/Second","Gigabytes","Gigabytes/Second","Kilobits","Kilobits/Second","Kilobytes","Kilobytes/Second","Megabits","Megabits/Second","Megabytes","Megabytes/Second","Microseconds","Milliseconds","None","Percent","Seconds","Terabits","Terabits/Second","Terabytes","Terabytes/Second"
+            break
+        }
+
         # Amazon.IoT.JobExecutionStatus
         {
             ($_ -eq "Get-IOTJobExecutionsForJobList/Status") -Or
@@ -375,6 +395,17 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.VerificationState
+        {
+            ($_ -eq "Get-IOTActiveViolationList/VerificationState") -Or
+            ($_ -eq "Get-IOTViolationEventList/VerificationState") -Or
+            ($_ -eq "Write-IOTVerificationStateOnViolation/VerificationState")
+        }
+        {
+            $v = "BENIGN_POSITIVE","FALSE_POSITIVE","TRUE_POSITIVE","UNKNOWN"
+            break
+        }
+
 
     }
 
@@ -390,6 +421,7 @@ $IOT_map = @{
     "ActionParams_UpdateDeviceCertificateParams_Action"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
     "ActionStatus"=@("Get-IOTAuditMitigationActionsExecutionList")
     "ActionType"=@("Get-IOTMitigationActionList")
+    "AggregationType_Name"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
     "BehaviorCriteriaType"=@("Get-IOTActiveViolationList","Get-IOTViolationEventList")
     "DayOfWeek"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
     "DefaultLogLevel"=@("Set-IOTV2LoggingOption")
@@ -417,6 +449,8 @@ $IOT_map = @{
     "TopicRulePayload_ErrorAction_S3_CannedAcl"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "TopicRulePayload_ErrorAction_Sns_MessageFormat"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "Type"=@("New-IOTDimension")
+    "Unit"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
+    "VerificationState"=@("Get-IOTActiveViolationList","Get-IOTViolationEventList","Write-IOTVerificationStateOnViolation")
 }
 
 _awsArgumentCompleterRegistration $IOT_Completers $IOT_map
@@ -493,6 +527,7 @@ $IOT_SelectMap = @{
                "New-IOTDimension",
                "New-IOTDomainConfiguration",
                "New-IOTDynamicThingGroup",
+               "New-IOTFleetMetric",
                "New-IOTJob",
                "New-IOTJobTemplate",
                "New-IOTKeysAndCertificate",
@@ -522,6 +557,7 @@ $IOT_SelectMap = @{
                "Remove-IOTDimension",
                "Remove-IOTDomainConfiguration",
                "Remove-IOTDynamicThingGroup",
+               "Remove-IOTFleetMetric",
                "Remove-IOTJob",
                "Remove-IOTJobExecution",
                "Remove-IOTJobTemplate",
@@ -559,6 +595,7 @@ $IOT_SelectMap = @{
                "Get-IOTDomainConfiguration",
                "Get-IOTEndpoint",
                "Get-IOTEventConfiguration",
+               "Get-IOTFleetMetric",
                "Get-IOTIndex",
                "Get-IOTJob",
                "Get-IOTJobExecution",
@@ -581,6 +618,7 @@ $IOT_SelectMap = @{
                "Disable-IOTTopicRule",
                "Enable-IOTTopicRule",
                "Get-IOTBehaviorModelTrainingSummary",
+               "Get-IOTBucketsAggregation",
                "Get-IOTCardinality",
                "Get-IOTEffectivePolicy",
                "Get-IOTIndexingConfiguration",
@@ -612,6 +650,7 @@ $IOT_SelectMap = @{
                "Get-IOTDetectMitigationActionsTaskList",
                "Get-IOTDimensionList",
                "Get-IOTDomainConfigurationList",
+               "Get-IOTFleetMetricList",
                "Get-IOTIndexList",
                "Get-IOTJobExecutionsForJobList",
                "Get-IOTJobExecutionsForThingList",
@@ -648,6 +687,7 @@ $IOT_SelectMap = @{
                "Get-IOTTopicRuleList",
                "Get-IOTV2LoggingLevelList",
                "Get-IOTViolationEventList",
+               "Write-IOTVerificationStateOnViolation",
                "Register-IOTCACertificate",
                "Register-IOTCertificate",
                "Register-IOTCertificateWithoutCA",
@@ -683,6 +723,7 @@ $IOT_SelectMap = @{
                "Update-IOTDomainConfiguration",
                "Update-IOTDynamicThingGroup",
                "Update-IOTEventConfiguration",
+               "Update-IOTFleetMetric",
                "Update-IOTIndexingConfiguration",
                "Update-IOTJob",
                "Update-IOTMitigationAction",

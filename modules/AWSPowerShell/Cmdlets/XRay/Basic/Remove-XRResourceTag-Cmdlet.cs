@@ -28,8 +28,8 @@ using Amazon.XRay.Model;
 namespace Amazon.PowerShell.Cmdlets.XR
 {
     /// <summary>
-    /// Removes tags from an AWS X-Ray group or sampling rule. You cannot edit or delete system
-    /// tags (those with an <code>aws:</code> prefix).
+    /// Removes tags from an Amazon Web Services X-Ray group or sampling rule. You cannot
+    /// edit or delete system tags (those with an <code>aws:</code> prefix).
     /// </summary>
     [Cmdlet("Remove", "XRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

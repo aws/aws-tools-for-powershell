@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         #region Parameter S3Object_Bucket
         /// <summary>
         /// <para>
-        /// <para>The name of the S3 bucket.</para>
+        /// <para>The name of the S3 bucket. Note that the # character is not valid in the file name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

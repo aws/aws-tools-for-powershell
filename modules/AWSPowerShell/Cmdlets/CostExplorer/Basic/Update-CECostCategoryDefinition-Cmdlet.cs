@@ -105,6 +105,18 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public Amazon.CostExplorer.CostCategoryRuleVersion RuleVersion { get; set; }
         #endregion
         
+        #region Parameter SplitChargeRule
+        /// <summary>
+        /// <para>
+        /// <para> The split charge rules used to allocate your charges between your Cost Category values.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SplitChargeRules")]
+        public Amazon.CostExplorer.Model.CostCategorySplitChargeRule[] SplitChargeRule { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -191,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 WriteWarning("You are passing $null as a value for parameter RuleVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SplitChargeRule != null)
+            {
+                context.SplitChargeRule = new List<Amazon.CostExplorer.Model.CostCategorySplitChargeRule>(this.SplitChargeRule);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -222,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (cmdletContext.RuleVersion != null)
             {
                 request.RuleVersion = cmdletContext.RuleVersion;
+            }
+            if (cmdletContext.SplitChargeRule != null)
+            {
+                request.SplitChargeRules = cmdletContext.SplitChargeRule;
             }
             
             CmdletOutput output;
@@ -288,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
             public System.String DefaultValue { get; set; }
             public List<Amazon.CostExplorer.Model.CostCategoryRule> Rule { get; set; }
             public Amazon.CostExplorer.CostCategoryRuleVersion RuleVersion { get; set; }
+            public List<Amazon.CostExplorer.Model.CostCategorySplitChargeRule> SplitChargeRule { get; set; }
             public System.Func<Amazon.CostExplorer.Model.UpdateCostCategoryDefinitionResponse, UpdateCECostCategoryDefinitionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

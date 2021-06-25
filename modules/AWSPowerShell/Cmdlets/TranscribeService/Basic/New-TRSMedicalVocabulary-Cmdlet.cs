@@ -28,7 +28,7 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Creates a new custom vocabulary that you can use to change how Amazon Transcribe Medical
+    /// Creates a new custom vocabulary that you can use to modify how Amazon Transcribe Medical
     /// transcribes your audio file.
     /// </summary>
     [Cmdlet("New", "TRSMedicalVocabulary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,14 +60,27 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Adds one or more tags, each in the form of a key:value pair, to a new medical vocabulary
+        /// at the time you create this new vocabulary.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.TranscribeService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter VocabularyFileUri
         /// <summary>
         /// <para>
         /// <para>The location in Amazon S3 of the text file you use to define your custom vocabulary.
-        /// The URI must be in the same AWS Region as the resource that you're calling. Enter
-        /// information about your <code>VocabularyFileUri</code> in the following format:</para><para><code> https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
-        /// </code></para><para>The following is an example URI for a vocabulary file that is stored in Amazon S3:</para><para><code>https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt</code></para><para>For more information about Amazon S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
-        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>For more information about custom vocabularies, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med">Medical
+        /// The URI must be in the same Amazon Web Services Region as the resource that you're
+        /// calling. Enter information about your <code>VocabularyFileUri</code> in the following
+        /// format:</para><para><code> https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
+        /// </code></para><para>The following is an example URI for a vocabulary file that is stored in Amazon S3:</para><para><code>https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt</code></para><para>For more information about Amazon S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>For more information about custom vocabularies, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med">Medical
         /// Custom Vocabularies</a>.</para>
         /// </para>
         /// </summary>
@@ -86,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The name of the custom vocabulary. This case-sensitive name must be unique within
-        /// an AWS account. If you try to create a vocabulary with the same name as a previous
-        /// vocabulary, you get a <code>ConflictException</code> error.</para>
+        /// an Amazon Web Services account. If you try to create a vocabulary with the same name
+        /// as a previous vocabulary, you get a <code>ConflictException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -149,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 WriteWarning("You are passing $null as a value for parameter LanguageCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.TranscribeService.Model.Tag>(this.Tag);
+            }
             context.VocabularyFileUri = this.VocabularyFileUri;
             #if MODULAR
             if (this.VocabularyFileUri == null && ParameterWasBound(nameof(this.VocabularyFileUri)))
@@ -182,6 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.LanguageCode != null)
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.VocabularyFileUri != null)
             {
@@ -253,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
+            public List<Amazon.TranscribeService.Model.Tag> Tag { get; set; }
             public System.String VocabularyFileUri { get; set; }
             public System.String VocabularyName { get; set; }
             public System.Func<Amazon.TranscribeService.Model.CreateMedicalVocabularyResponse, NewTRSMedicalVocabularyCmdlet, object> Select { get; set; } =

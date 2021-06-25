@@ -28,11 +28,10 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Deletes a AWS IoT Greengrass core device, which is an AWS IoT thing. This operation
-    /// removes the core device from the list of core devices. This operation doesn't delete
-    /// the AWS IoT thing. For more information about how to delete the AWS IoT thing, see
-    /// <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteThing.html">DeleteThing</a>
-    /// in the <i>AWS IoT API Reference</i>.
+    /// Deletes a Greengrass core device, which is an IoT thing. This operation removes the
+    /// core device from the list of core devices. This operation doesn't delete the IoT thing.
+    /// For more information about how to delete the IoT thing, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteThing.html">DeleteThing</a>
+    /// in the <i>IoT API Reference</i>.
     /// </summary>
     [Cmdlet("Remove", "GGV2CoreDevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -47,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter CoreDeviceThingName
         /// <summary>
         /// <para>
-        /// <para>The name of the core device. This is also the name of the AWS IoT thing.</para>
+        /// <para>The name of the core device. This is also the name of the IoT thing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

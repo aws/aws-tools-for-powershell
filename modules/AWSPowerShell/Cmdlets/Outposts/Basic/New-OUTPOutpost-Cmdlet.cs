@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
     /// Creates an Outpost.
+    /// 
+    ///  
+    /// <para>
+    /// You can specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "OUTPOutpost", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Outposts.Model.Outpost")]

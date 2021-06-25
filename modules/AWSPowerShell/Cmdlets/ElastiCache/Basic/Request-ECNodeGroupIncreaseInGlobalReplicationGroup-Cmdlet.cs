@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter RegionalConfiguration
         /// <summary>
         /// <para>
-        /// <para>Describes the replication group IDs, the AWS regions where they are stored and the
-        /// shard configuration for each that comprise the Global datastore</para>
+        /// <para>Describes the replication group IDs, the Amazon regions where they are stored and
+        /// the shard configuration for each that comprise the Global datastore</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

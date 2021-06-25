@@ -97,6 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.String VendorName { get; set; }
         #endregion
         
+        #region Parameter VersionName
+        /// <summary>
+        /// <para>
+        /// <para>The version of the rule group. You can only use a version that is not scheduled for
+        /// expiration. If you don't provide this, WAF uses the vendor's default version. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -163,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 WriteWarning("You are passing $null as a value for parameter VendorName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VersionName = this.VersionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             if (cmdletContext.VendorName != null)
             {
                 request.VendorName = cmdletContext.VendorName;
+            }
+            if (cmdletContext.VersionName != null)
+            {
+                request.VersionName = cmdletContext.VersionName;
             }
             
             CmdletOutput output;
@@ -255,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             public System.String Name { get; set; }
             public Amazon.WAFV2.Scope Scope { get; set; }
             public System.String VendorName { get; set; }
+            public System.String VersionName { get; set; }
             public System.Func<Amazon.WAFV2.Model.DescribeManagedRuleGroupResponse, GetWAF2ManagedRuleGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

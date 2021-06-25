@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// From any supported tag type to another. The three supported tag types are ID target,
     /// Tag target, and resource group. For more information, see <a>Target</a>.
     /// </para></li></ul><note><para>
-    /// If a parameter is null, then the corresponding field is not modified.
+    /// If a parameter is null, then the corresponding field isn't modified.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SSMMaintenanceWindowTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter OwnerInformation
         /// <summary>
         /// <para>
-        /// <para>User-provided value that will be included in any CloudWatch events raised while running
-        /// tasks for these targets in this maintenance window.</para>
+        /// <para>User-provided value that will be included in any Amazon CloudWatch Events events raised
+        /// while running tasks for these targets in this maintenance window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Replace
         /// <summary>
         /// <para>
-        /// <para>If True, then all fields that are required by the RegisterTargetWithMaintenanceWindow
-        /// action are also required for this API request. Optional fields that are not specified
+        /// <para>If <code>True</code>, then all fields that are required by the <a>RegisterTargetWithMaintenanceWindow</a>
+        /// operation are also required for this API request. Optional fields that aren't specified
         /// are set to null.</para>
         /// </para>
         /// </summary>

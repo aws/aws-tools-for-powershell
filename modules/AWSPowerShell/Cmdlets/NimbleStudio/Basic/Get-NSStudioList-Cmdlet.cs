@@ -28,7 +28,8 @@ using Amazon.NimbleStudio.Model;
 namespace Amazon.PowerShell.Cmdlets.NS
 {
     /// <summary>
-    /// List studios in your AWS account in the requested AWS Region.
+    /// List studios in your Amazon Web Services account in the requested Amazon Web Services
+    /// Region.
     /// </summary>
     [Cmdlet("Get", "NSStudioList")]
     [OutputType("Amazon.NimbleStudio.Model.Studio")]

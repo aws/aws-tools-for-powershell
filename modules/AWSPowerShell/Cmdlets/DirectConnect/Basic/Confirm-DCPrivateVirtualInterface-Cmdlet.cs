@@ -28,7 +28,7 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Accepts ownership of a private virtual interface created by another AWS account.
+    /// Accepts ownership of a private virtual interface created by another account.
     /// 
     ///  
     /// <para>

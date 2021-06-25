@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
     /// Deletes specified tags from a resource.
+    /// 
+    ///  
+    /// <para>
+    /// To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:
+    /// </para><para><code>DELETE /tags/WorkloadArn?tagKeys=key1&amp;tagKeys=key2</code></para>
     /// </summary>
     [Cmdlet("Remove", "WATResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The keys of the tags to be removed.</para>
+        /// <para>A list of tag keys. Existing tags of the resource whose keys are members of this list
+        /// are removed from the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

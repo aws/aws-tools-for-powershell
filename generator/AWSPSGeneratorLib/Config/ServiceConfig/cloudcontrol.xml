@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cloudcontrol</C2jFilename>
+    <AssemblyName>CloudControlApi</AssemblyName>
+    <ServiceNounPrefix>CCA</ServiceNounPrefix>
+    <ServiceName>AWS Cloud Control API</ServiceName>
+    <ServiceClientInterface>IAmazonCloudControlApi</ServiceClientInterface>
+    <ServiceClient>AmazonCloudControlApiClient</ServiceClient>
+    <ServiceModuleGuid>4bf684d3-5a87-46cc-a8de-9f72eb5b9515</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CancelResourceRequest" OutputProperty="ProgressEvent" Verb="Stop" Noun="ResourceRequest" ShouldProcessTarget="RequestToken" PipelineParameter="RequestToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResource" OutputProperty="ProgressEvent" Verb="New" Noun="Resource" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResource" OutputProperty="ProgressEvent" Verb="Remove" Noun="Resource" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResource" OutputProperty="*" Verb="Get" Noun="Resource" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceRequestStatus" OutputProperty="ProgressEvent" Verb="Get" Noun="ResourceRequestStatus" PipelineParameter="RequestToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceRequests" OutputProperty="ResourceRequestStatusSummaries" Verb="Get" Noun="ResourceRequestList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResources" OutputProperty="*" Verb="Get" Noun="ResourceList" PipelineParameter="TypeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResource" OutputProperty="ProgressEvent" Verb="Update" Noun="Resource" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

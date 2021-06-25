@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The client certificate revocation list file. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate">Generate
-        /// a Client Certificate Revocation List</a> in the <i>AWS Client VPN Administrator Guide</i>.</para>
+        /// a Client Certificate Revocation List</a> in the <i>Client VPN Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

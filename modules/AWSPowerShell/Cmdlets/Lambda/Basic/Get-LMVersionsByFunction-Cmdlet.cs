@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>The maximum number of versions to return.</para>
+        /// <para>The maximum number of versions to return. Note that <code>ListVersionsByFunction</code>
+        /// returns a maximum of 50 items in each response, even if you set the number higher.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

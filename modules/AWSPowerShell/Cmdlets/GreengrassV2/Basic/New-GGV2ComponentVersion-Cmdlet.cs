@@ -28,10 +28,10 @@ using Amazon.GreengrassV2.Model;
 namespace Amazon.PowerShell.Cmdlets.GGV2
 {
     /// <summary>
-    /// Creates a component. Components are software that run on AWS IoT Greengrass core devices.
+    /// Creates a component. Components are software that run on Greengrass core devices.
     /// After you develop and test a component on your core device, you can use this operation
-    /// to upload your component to AWS IoT Greengrass. Then, you can deploy the component
-    /// to other core devices.
+    /// to upload your component to IoT Greengrass. Then, you can deploy the component to
+    /// other core devices.
     /// 
     ///  
     /// <para>
@@ -39,17 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// </para><ul><li><para><b>Create components from recipes</b></para><para>
     /// Create a component from a recipe, which is a file that defines the component's metadata,
     /// parameters, dependencies, lifecycle, artifacts, and platform capability. For more
-    /// information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html">AWS
-    /// IoT Greengrass component recipe reference</a> in the <i>AWS IoT Greengrass V2 Developer
-    /// Guide</i>.
+    /// information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html">IoT
+    /// Greengrass component recipe reference</a> in the <i>IoT Greengrass V2 Developer Guide</i>.
     /// </para><para>
     /// To create a component from a recipe, specify <code>inlineRecipe</code> when you call
     /// this operation.
     /// </para></li><li><para><b>Create components from Lambda functions</b></para><para>
-    /// Create a component from an AWS Lambda function that runs on AWS IoT Greengrass. This
-    /// creates a recipe and artifacts from the Lambda function's deployment package. You
-    /// can use this operation to migrate Lambda functions from AWS IoT Greengrass V1 to AWS
-    /// IoT Greengrass V2.
+    /// Create a component from an Lambda function that runs on IoT Greengrass. This creates
+    /// a recipe and artifacts from the Lambda function's deployment package. You can use
+    /// this operation to migrate Lambda functions from IoT Greengrass V1 to IoT Greengrass
+    /// V2.
     /// </para><para>
     /// This function only accepts Lambda functions that use the following runtimes:
     /// </para><ul><li><para>
@@ -143,7 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <para>
         /// <para>The list of event sources to which to subscribe to receive work messages. The Lambda
         /// function runs when it receives a message from an event source. You can subscribe this
-        /// function to local publish/subscribe messages and AWS IoT Core MQTT messages.</para>
+        /// function to local publish/subscribe messages and Amazon Web Services IoT Core MQTT
+        /// messages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>The isolation mode for the process that contains the Lambda function. The process
-        /// can run in an isolated runtime environment inside the AWS IoT Greengrass container,
-        /// or as a regular process outside any container.</para><para>Default: <code>GreengrassContainer</code></para>
+        /// can run in an isolated runtime environment inside the IoT Greengrass container, or
+        /// as a regular process outside any container.</para><para>Default: <code>GreengrassContainer</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>The maximum amount of time in seconds that a non-pinned Lambda function can idle before
-        /// the AWS IoT Greengrass Core software stops its process.</para>
+        /// the IoT Greengrass Core software stops its process.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -240,9 +240,9 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter ComponentLambdaParameters_MaxQueueSize
         /// <summary>
         /// <para>
-        /// <para>The maximum size of the message queue for the Lambda function component. The AWS IoT
-        /// Greengrass core stores messages in a FIFO (first-in-first-out) queue until it can
-        /// run the Lambda function to consume each message.</para>
+        /// <para>The maximum size of the message queue for the Lambda function component. The IoT Greengrass
+        /// core stores messages in a FIFO (first-in-first-out) queue until it can run the Lambda
+        /// function to consume each message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,10 +276,10 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter ComponentLambdaParameters_Pinned
         /// <summary>
         /// <para>
-        /// <para>Whether or not the Lambda function is pinned, or long-lived.</para><ul><li><para>A pinned Lambda function starts when AWS IoT Greengrass starts and keeps running in
-        /// its own container.</para></li><li><para>A non-pinned Lambda function starts only when it receives a work item and exists after
+        /// <para>Whether or not the Lambda function is pinned, or long-lived.</para><ul><li><para>A pinned Lambda function starts when IoT Greengrass starts and keeps running in its
+        /// own container.</para></li><li><para>A non-pinned Lambda function starts only when it receives a work item and exists after
         /// it idles for <code>maxIdleTimeInSeconds</code>. If the function has multiple work
-        /// items, the AWS IoT Greengrass Core software creates multiple instances of the function.</para></li></ul><para>Default: <code>true</code></para>
+        /// items, the IoT Greengrass Core software creates multiple instances of the function.</para></li></ul><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <para>
         /// <para>A list of key-value pairs that contain metadata for the resource. For more information,
         /// see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag
-        /// your resources</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</para>
+        /// your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -333,6 +333,21 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LambdaFunction_ComponentLambdaParameters_LinuxProcessParams_ContainerParams_Volumes")]
         public Amazon.GreengrassV2.Model.LambdaVolumeMount[] ContainerParams_Volume { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you can provide to ensure that the request
+        /// is idempotent. Idempotency means that the request is successfully processed only once,
+        /// even if you send the request multiple times. When a request succeeds, and you specify
+        /// the same client token for subsequent successful requests, the IoT Greengrass V2 service
+        /// returns the successful response that it caches from the previous request. IoT Greengrass
+        /// V2 caches successful responses for idempotent requests for up to 8 hours.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -376,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
                 context.Select = CreateSelectDelegate<Amazon.GreengrassV2.Model.CreateComponentVersionResponse, NewGGV2ComponentVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientToken = this.ClientToken;
             context.InlineRecipe = this.InlineRecipe;
             if (this.LambdaFunction_ComponentDependency != null)
             {
@@ -454,6 +470,10 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
                 // create request
                 var request = new Amazon.GreengrassV2.Model.CreateComponentVersionRequest();
                 
+                if (cmdletContext.ClientToken != null)
+                {
+                    request.ClientToken = cmdletContext.ClientToken;
+                }
                 if (cmdletContext.InlineRecipe != null)
                 {
                     _InlineRecipeStream = new System.IO.MemoryStream(cmdletContext.InlineRecipe);
@@ -786,6 +806,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public byte[] InlineRecipe { get; set; }
             public Dictionary<System.String, Amazon.GreengrassV2.Model.ComponentDependencyRequirement> LambdaFunction_ComponentDependency { get; set; }
             public Dictionary<System.String, System.String> ComponentLambdaParameters_EnvironmentVariable { get; set; }

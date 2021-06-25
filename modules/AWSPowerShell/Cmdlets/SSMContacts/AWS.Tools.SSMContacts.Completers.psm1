@@ -80,6 +80,13 @@ $SMC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SSMContacts.AcceptCodeValidation
+        "Confirm-SMCPage/AcceptCodeValidation"
+        {
+            $v = "ENFORCE","IGNORE"
+            break
+        }
+
         # Amazon.SSMContacts.AcceptType
         "Confirm-SMCPage/AcceptType"
         {
@@ -113,6 +120,7 @@ $SMC_Completers = {
 }
 
 $SMC_map = @{
+    "AcceptCodeValidation"=@("Confirm-SMCPage")
     "AcceptType"=@("Confirm-SMCPage")
     "Type"=@("Get-SMCContactList","New-SMCContact","New-SMCContactChannel")
 }

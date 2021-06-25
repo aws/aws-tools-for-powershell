@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter PayloadData
         /// <summary>
         /// <para>
-        /// <para>The message payload to send.</para>
+        /// <para>The binary to be sent to the end device, encoded in base64.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -57,6 +57,18 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter ObjectFilter_KeyName
+        /// <summary>
+        /// <para>
+        /// <para>A searchable identifier of a standard profile object. The predefined keys you can
+        /// use to search for _asset include: _assetId, _assetName, _serialNumber. The predefined
+        /// keys you can use to search for _case include: _caseId.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ObjectFilter_KeyName { get; set; }
+        #endregion
+        
         #region Parameter ObjectTypeName
         /// <summary>
         /// <para>
@@ -89,6 +101,17 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ProfileId { get; set; }
+        #endregion
+        
+        #region Parameter ObjectFilter_Value
+        /// <summary>
+        /// <para>
+        /// <para>A list of key values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ObjectFilter_Values")]
+        public System.String[] ObjectFilter_Value { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -166,6 +189,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.ObjectFilter_KeyName = this.ObjectFilter_KeyName;
+            if (this.ObjectFilter_Value != null)
+            {
+                context.ObjectFilter_Value = new List<System.String>(this.ObjectFilter_Value);
+            }
             context.ObjectTypeName = this.ObjectTypeName;
             #if MODULAR
             if (this.ObjectTypeName == null && ParameterWasBound(nameof(this.ObjectTypeName)))
@@ -207,6 +235,35 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            
+             // populate ObjectFilter
+            var requestObjectFilterIsNull = true;
+            request.ObjectFilter = new Amazon.CustomerProfiles.Model.ObjectFilter();
+            System.String requestObjectFilter_objectFilter_KeyName = null;
+            if (cmdletContext.ObjectFilter_KeyName != null)
+            {
+                requestObjectFilter_objectFilter_KeyName = cmdletContext.ObjectFilter_KeyName;
+            }
+            if (requestObjectFilter_objectFilter_KeyName != null)
+            {
+                request.ObjectFilter.KeyName = requestObjectFilter_objectFilter_KeyName;
+                requestObjectFilterIsNull = false;
+            }
+            List<System.String> requestObjectFilter_objectFilter_Value = null;
+            if (cmdletContext.ObjectFilter_Value != null)
+            {
+                requestObjectFilter_objectFilter_Value = cmdletContext.ObjectFilter_Value;
+            }
+            if (requestObjectFilter_objectFilter_Value != null)
+            {
+                request.ObjectFilter.Values = requestObjectFilter_objectFilter_Value;
+                requestObjectFilterIsNull = false;
+            }
+             // determine if request.ObjectFilter should be set to null
+            if (requestObjectFilterIsNull)
+            {
+                request.ObjectFilter = null;
             }
             if (cmdletContext.ObjectTypeName != null)
             {
@@ -280,6 +337,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String DomainName { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String ObjectFilter_KeyName { get; set; }
+            public List<System.String> ObjectFilter_Value { get; set; }
             public System.String ObjectTypeName { get; set; }
             public System.String ProfileId { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.ListProfileObjectsResponse, GetCPFProfileObjectListCmdlet, object> Select { get; set; } =

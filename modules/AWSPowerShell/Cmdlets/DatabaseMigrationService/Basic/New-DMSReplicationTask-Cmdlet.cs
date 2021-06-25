@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// slot should already be created and associated with the source endpoint. You can verify
         /// this by setting the <code>slotName</code> extra connection attribute to the name of
         /// this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra
-        /// Connection Attributes When Using PostgreSQL as a Source for AWS DMS</a>.</para></note>
+        /// Connection Attributes When Using PostgreSQL as a Source for DMS</a>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Overall settings for the task, in JSON format. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html">Specifying
-        /// Task Settings for AWS Database Migration Service Tasks</a> in the <i>AWS Database
-        /// Migration User Guide.</i></para>
+        /// Task Settings for Database Migration Service Tasks</a> in the <i>Database Migration
+        /// Service User Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive
         /// hyphens, and can only begin with a letter, such as <code>Example-App-ARN1</code>.
         /// For example, this value might result in the <code>EndpointArn</code> value <code>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</code>.
-        /// If you don't specify a <code>ResourceIdentifier</code> value, AWS DMS generates a
-        /// default identifier value for the end of <code>EndpointArn</code>.</para>
+        /// If you don't specify a <code>ResourceIdentifier</code> value, DMS generates a default
+        /// identifier value for the end of <code>EndpointArn</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,8 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The table mappings for the task, in JSON format. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html">Using
-        /// Table Mapping to Specify Task Settings</a> in the <i>AWS Database Migration Service
-        /// User Guide.</i></para>
+        /// Table Mapping to Specify Task Settings</a> in the <i>Database Migration Service User
+        /// Guide.</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Supplemental information that the task requires to migrate the data for certain source
         /// and target endpoints. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html">Specifying
-        /// Supplemental Data for Task Settings</a> in the <i>AWS Database Migration Service User
+        /// Supplemental Data for Task Settings</a> in the <i>Database Migration Service User
         /// Guide.</i></para>
         /// </para>
         /// </summary>

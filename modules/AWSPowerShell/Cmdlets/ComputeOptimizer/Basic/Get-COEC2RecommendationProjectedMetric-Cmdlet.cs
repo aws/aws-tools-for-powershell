@@ -48,10 +48,27 @@ namespace Amazon.PowerShell.Cmdlets.CO
     public partial class GetCOEC2RecommendationProjectedMetricCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {
         
+        #region Parameter RecommendationPreferences_CpuVendorArchitecture
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the CPU vendor and architecture for Amazon EC2 instance and Auto Scaling
+        /// group recommendations.</para><para>For example, when you specify <code>AWS_ARM64</code> with:</para><ul><li><para>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a>
+        /// request, Compute Optimizer returns recommendations that consist of Graviton2 instance
+        /// types only.</para></li><li><para>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected
+        /// utilization metrics for Graviton2 instance type recommendations only.</para></li><li><para>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a>
+        /// request, Compute Optimizer exports recommendations that consist of Graviton2 instance
+        /// types only.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecommendationPreferences_CpuVendorArchitectures")]
+        public System.String[] RecommendationPreferences_CpuVendorArchitecture { get; set; }
+        #endregion
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The time stamp of the last projected metrics data point to return.</para>
+        /// <para>The timestamp of the last projected metrics data point to return.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The time stamp of the first projected metrics data point to return.</para>
+        /// <para>The timestamp of the first projected metrics data point to return.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -197,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
                 WriteWarning("You are passing $null as a value for parameter Period which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.RecommendationPreferences_CpuVendorArchitecture != null)
+            {
+                context.RecommendationPreferences_CpuVendorArchitecture = new List<System.String>(this.RecommendationPreferences_CpuVendorArchitecture);
+            }
             context.StartTime = this.StartTime;
             #if MODULAR
             if (this.StartTime == null && ParameterWasBound(nameof(this.StartTime)))
@@ -238,6 +259,25 @@ namespace Amazon.PowerShell.Cmdlets.CO
             if (cmdletContext.Period != null)
             {
                 request.Period = cmdletContext.Period.Value;
+            }
+            
+             // populate RecommendationPreferences
+            var requestRecommendationPreferencesIsNull = true;
+            request.RecommendationPreferences = new Amazon.ComputeOptimizer.Model.RecommendationPreferences();
+            List<System.String> requestRecommendationPreferences_recommendationPreferences_CpuVendorArchitecture = null;
+            if (cmdletContext.RecommendationPreferences_CpuVendorArchitecture != null)
+            {
+                requestRecommendationPreferences_recommendationPreferences_CpuVendorArchitecture = cmdletContext.RecommendationPreferences_CpuVendorArchitecture;
+            }
+            if (requestRecommendationPreferences_recommendationPreferences_CpuVendorArchitecture != null)
+            {
+                request.RecommendationPreferences.CpuVendorArchitectures = requestRecommendationPreferences_recommendationPreferences_CpuVendorArchitecture;
+                requestRecommendationPreferencesIsNull = false;
+            }
+             // determine if request.RecommendationPreferences should be set to null
+            if (requestRecommendationPreferencesIsNull)
+            {
+                request.RecommendationPreferences = null;
             }
             if (cmdletContext.StartTime != null)
             {
@@ -311,6 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
             public System.DateTime? EndTime { get; set; }
             public System.String InstanceArn { get; set; }
             public System.Int32? Period { get; set; }
+            public List<System.String> RecommendationPreferences_CpuVendorArchitecture { get; set; }
             public System.DateTime? StartTime { get; set; }
             public Amazon.ComputeOptimizer.MetricStatistic Stat { get; set; }
             public System.Func<Amazon.ComputeOptimizer.Model.GetEC2RecommendationProjectedMetricsResponse, GetCOEC2RecommendationProjectedMetricCmdlet, object> Select { get; set; } =

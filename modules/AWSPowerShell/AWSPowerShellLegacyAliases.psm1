@@ -262,6 +262,11 @@ Set-Alias -Name Get-MLModels -Value Get-MLModelList
 Set-Alias -Name Get-MLTag -Value Get-MLResourceTag
 Set-Alias -Name Remove-MLTag -Value Remove-MLResourceTag
 
+# OpenSearchService
+Set-Alias -Name Add-ESTag -Value Add-OSResourceTag
+Set-Alias -Name Get-ESTag -Value Get-OSResourceTag
+Set-Alias -Name Remove-ESTag -Value Remove-OSResourceTag
+
 # OpsWorks
 Set-Alias -Name Get-OPSApps -Value Get-OPSApp
 Set-Alias -Name Get-OPSCommands -Value Get-OPSCommand

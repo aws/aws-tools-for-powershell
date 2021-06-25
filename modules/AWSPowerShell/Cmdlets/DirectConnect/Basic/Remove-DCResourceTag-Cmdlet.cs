@@ -28,7 +28,7 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Removes one or more tags from the specified AWS Direct Connect resource.
+    /// Removes one or more tags from the specified Direct Connect resource.
     /// </summary>
     [Cmdlet("Remove", "DCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

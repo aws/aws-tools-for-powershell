@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// are selected (sorted according to the creation time, from the most current to the
     /// oldest). Next, those with a status of <code>InProgress</code> are returned.
     /// </para><para>
-    /// You can quickly test the API using the following AWS CLI code.
+    /// You can quickly test the API using the following Amazon Web Services CLI code.
     /// </para><para><code>aws sagemaker list-training-jobs --max-results 100 --status-equals InProgress</code></para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMTrainingJobList")]

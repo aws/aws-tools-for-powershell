@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the specified Systems Manager document.
+    /// Describes the specified Amazon Web Services Systems Manager document (SSM document).
     /// </summary>
     [Cmdlet("Get", "SSMDocumentDescription")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the Systems Manager document.</para>
+        /// <para>The name of the SSM document.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>An optional field specifying the version of the artifact associated with the document.
         /// For example, "Release 12, Update 6". This value is unique across all versions of a
-        /// document, and cannot be changed.</para>
+        /// document, and can't be changed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

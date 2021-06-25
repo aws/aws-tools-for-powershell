@@ -28,9 +28,9 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Deletes the specified IAM user. Unlike the AWS Management Console, when you delete
-    /// a user programmatically, you must delete the items attached to the user manually,
-    /// or the deletion fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli">Deleting
+    /// Deletes the specified IAM user. Unlike the Amazon Web Services Management Console,
+    /// when you delete a user programmatically, you must delete the items attached to the
+    /// user manually, or the deletion fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli">Deleting
     /// an IAM user</a>. Before attempting to delete a user, remove the following items:
     /// 
     ///  <ul><li><para>

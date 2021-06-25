@@ -34,6 +34,27 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     /// to test your authentication method as soon as you create your server. By doing so,
     /// you can troubleshoot issues with the identity provider integration to ensure that
     /// your users can successfully use the service.
+    /// 
+    ///  
+    /// <para>
+    ///  The <code>ServerId</code> and <code>UserName</code> parameters are required. The
+    /// <code>ServerProtocol</code>, <code>SourceIp</code>, and <code>UserPassword</code>
+    /// are all optional. 
+    /// </para><note><para>
+    ///  You cannot use <code>TestIdentityProvider</code> if the <code>IdentityProviderType</code>
+    /// of your server is <code>SERVICE_MANAGED</code>. 
+    /// </para></note><ul><li><para>
+    ///  If you provide any incorrect values for any parameters, the <code>Response</code>
+    /// field is empty. 
+    /// </para></li><li><para>
+    ///  If you provide a server ID for a server that uses service-managed users, you get
+    /// an error: 
+    /// </para><para><code> An error occurred (InvalidRequestException) when calling the TestIdentityProvider
+    /// operation: s-<i>server-ID</i> not configured for external auth </code></para></li><li><para>
+    ///  If you enter a Server ID for the <code>--server-id</code> parameter that does not
+    /// identify an actual Transfer server, you receive the following error: 
+    /// </para><para><code>An error occurred (ResourceNotFoundException) when calling the TestIdentityProvider
+    /// operation: Unknown server</code></para></li></ul>
     /// </summary>
     [Cmdlet("Test", "TFRIdentityProvider")]
     [OutputType("Amazon.Transfer.Model.TestIdentityProviderResponse")]

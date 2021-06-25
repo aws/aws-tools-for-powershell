@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <para>
     /// The <code>delete relational database snapshot</code> operation supports tag-based
     /// access control via resource tags applied to the resource identified by relationalDatabaseName.
-    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
-    /// Dev Guide</a>.
+    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LSRelationalDatabaseSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

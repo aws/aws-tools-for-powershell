@@ -136,9 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SemanticVersion
         /// <summary>
         /// <para>
-        /// <para>The semantic version of the component. This version follows the semantic version syntax.
-        /// For example, major.minor.patch. This could be versioned like software (2.0.1) or like
-        /// a date (2019.12.01).</para>
+        /// <para>The semantic version of the component. This version follows the semantic version syntax.</para><note><para>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
+        /// You can assign values for the first three, and can filter on all of them.</para><para><b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards
+        /// (x) to specify the most recent versions or nodes when selecting the base image or
+        /// components for your recipe. When you use a wildcard in any node, all nodes to the
+        /// right of the first wildcard must also be wildcards.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -166,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the component denotes whether the component is used to build the image
+        /// <para>The type of the component denotes whether the component is used to build the image,
         /// or only to test it.</para>
         /// </para>
         /// </summary>
@@ -184,10 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Uri
         /// <summary>
         /// <para>
-        /// <para>The uri of the component. Must be an S3 URL and the requester must have permission
-        /// to access the S3 bucket. If you use S3, you can specify component content up to your
-        /// service quota. Either <code>data</code> or <code>uri</code> can be used to specify
-        /// the data within the component.</para>
+        /// <para>The uri of the component. Must be an Amazon S3 URL and the requester must have permission
+        /// to access the Amazon S3 bucket. If you use Amazon S3, you can specify component content
+        /// up to your service quota. Either <code>data</code> or <code>uri</code> can be used
+        /// to specify the data within the component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

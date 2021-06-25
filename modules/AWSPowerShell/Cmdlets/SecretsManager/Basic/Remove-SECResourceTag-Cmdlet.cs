@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// the key and its associated value are removed.</para><para>This parameter to the API requires a JSON text string argument. For information on
         /// how to format a JSON parameter for the various command line tool environments, see
         /// <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
-        /// JSON for Parameters</a> in the <i>AWS CLI User Guide</i>.</para>
+        /// JSON for Parameters</a> in the <i>CLI User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

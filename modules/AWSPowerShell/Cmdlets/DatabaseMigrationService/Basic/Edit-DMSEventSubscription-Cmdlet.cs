@@ -28,7 +28,7 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Modifies an existing AWS DMS event notification subscription.
+    /// Modifies an existing DMS event notification subscription.
     /// </summary>
     [Cmdlet("Edit", "DMSEventSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.EventSubscription")]
@@ -76,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SourceType
         /// <summary>
         /// <para>
-        /// <para> The type of AWS DMS resource that generates the events you want to subscribe to.
-        /// </para><para>Valid values: replication-instance | replication-task</para>
+        /// <para> The type of DMS resource that generates the events you want to subscribe to. </para><para>Valid values: replication-instance | replication-task</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SubscriptionName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS DMS event notification subscription to be modified.</para>
+        /// <para>The name of the DMS event notification subscription to be modified.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

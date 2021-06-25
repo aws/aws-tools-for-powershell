@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Returns the approximate count of unique values that match the query.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetCardinality</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTCardinality")]
     [OutputType("System.Int32")]
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter QueryString
         /// <summary>
         /// <para>
-        /// <para>The search query.</para>
+        /// <para>The search query string.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

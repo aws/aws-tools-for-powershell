@@ -38,9 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </para><para>
     /// A custom domain is used to host the Amazon Cognito hosted UI, which provides sign-up
     /// and sign-in pages for your application. When you set up a custom domain, you provide
-    /// a certificate that you manage with AWS Certificate Manager (ACM). When necessary,
-    /// you can use this operation to change the certificate that you applied to your custom
-    /// domain.
+    /// a certificate that you manage with Certificate Manager (ACM). When necessary, you
+    /// can use this operation to change the certificate that you applied to your custom domain.
     /// </para><para>
     /// Usually, this is unnecessary following routine certificate renewal with ACM. When
     /// you renew your existing certificate in ACM, the ARN for your certificate remains the
@@ -51,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// provide this ARN to Amazon Cognito.
     /// </para><para>
     /// When you add your new certificate in ACM, you must choose US East (N. Virginia) as
-    /// the AWS Region.
+    /// the Region.
     /// </para><para>
     /// After you submit your request, Amazon Cognito requires up to 1 hour to distribute
     /// your new certificate to your custom domain.
@@ -73,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CustomDomainConfig_CertificateArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You
-        /// use this certificate for the subdomain of your custom domain.</para>
+        /// <para>The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use
+        /// this certificate for the subdomain of your custom domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

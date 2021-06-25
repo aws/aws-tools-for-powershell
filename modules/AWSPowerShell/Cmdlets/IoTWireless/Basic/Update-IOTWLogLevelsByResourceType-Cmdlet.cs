@@ -28,9 +28,9 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Set default log level, or log levels by resource types, could be for wireless device
-    /// log options or wireless gateways log options. This is to control the log messages
-    /// that will be displayed in CloudWatch.
+    /// Set default log level, or log levels by resource types. This can be for wireless device
+    /// log options or wireless gateways log options and is used to control the log messages
+    /// that'll be displayed in CloudWatch.
     /// </summary>
     [Cmdlet("Update", "IOTWLogLevelsByResourceType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

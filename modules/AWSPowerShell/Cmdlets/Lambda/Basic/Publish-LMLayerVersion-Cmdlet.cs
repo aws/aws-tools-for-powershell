@@ -28,8 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-    /// Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code>
+    /// Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+    /// layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code>
     /// with the same layer name, a new version is created.
     /// 
     ///  
@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public partial class PublishLMLayerVersionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter CompatibleArchitecture
+        /// <summary>
+        /// <para>
+        /// <para>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction
+        /// set architectures</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CompatibleArchitectures")]
+        public System.String[] CompatibleArchitecture { get; set; }
+        #endregion
         
         #region Parameter CompatibleRuntime
         /// <summary>
@@ -129,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Content_ZipFile
         /// <summary>
         /// <para>
-        /// <para>The base64-encoded contents of the layer archive. AWS SDK and AWS CLI clients handle
-        /// the encoding for you.</para>
+        /// <para>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon
+        /// Web Services CLI clients handle the encoding for you.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -200,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.Select = (response, cmdlet) => this.LayerName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.CompatibleArchitecture != null)
+            {
+                context.CompatibleArchitecture = new List<System.String>(this.CompatibleArchitecture);
+            }
             if (this.CompatibleRuntime != null)
             {
                 context.CompatibleRuntime = new List<System.String>(this.CompatibleRuntime);
@@ -237,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 // create request
                 var request = new Amazon.Lambda.Model.PublishLayerVersionRequest();
                 
+                if (cmdletContext.CompatibleArchitecture != null)
+                {
+                    request.CompatibleArchitectures = cmdletContext.CompatibleArchitecture;
+                }
                 if (cmdletContext.CompatibleRuntime != null)
                 {
                     request.CompatibleRuntimes = cmdletContext.CompatibleRuntime;
@@ -372,6 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> CompatibleArchitecture { get; set; }
             public List<System.String> CompatibleRuntime { get; set; }
             public System.String Content_S3Bucket { get; set; }
             public System.String Content_S3Key { get; set; }

@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Removes a tag from a resource in AWS Audit Manager.
+    /// Removes a tag from a resource in Audit Manager.
     /// </summary>
     [Cmdlet("Remove", "AUDMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set.</para>
+        /// <para>The name of the configuration set. The name can contain up to 64 alphanumeric characters,
+        /// including letters, numbers, hyphens (-) and underscores (_) only.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter TrackingOptions_CustomRedirectDomain
         /// <summary>
         /// <para>
-        /// <para>The domain that you want to use for tracking open and click events.</para>
+        /// <para>The domain to use for tracking open and click events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter DeliveryOptions_SendingPoolName
         /// <summary>
         /// <para>
-        /// <para>The name of the dedicated IP pool that you want to associate with the configuration
-        /// set.</para>
+        /// <para>The name of the dedicated IP pool to associate with the configuration set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of objects that define the tags (keys and values) that you want to associate
-        /// with the configuration set.</para>
+        /// <para>An array of objects that define the tags (keys and values) to associate with the configuration
+        /// set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -67,6 +67,27 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         public System.String CurrentRevisionId { get; set; }
         #endregion
         
+        #region Parameter ImageDigest
+        /// <summary>
+        /// <para>
+        /// <para>A SHA256 identifier for the Docker image that you use for your robot application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageDigest { get; set; }
+        #endregion
+        
+        #region Parameter S3Etag
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 identifier for the zip file bundle that you use for your robot application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("S3Etags")]
+        public System.String[] S3Etag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -136,6 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             }
             #endif
             context.CurrentRevisionId = this.CurrentRevisionId;
+            context.ImageDigest = this.ImageDigest;
+            if (this.S3Etag != null)
+            {
+                context.S3Etag = new List<System.String>(this.S3Etag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -159,6 +185,14 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             if (cmdletContext.CurrentRevisionId != null)
             {
                 request.CurrentRevisionId = cmdletContext.CurrentRevisionId;
+            }
+            if (cmdletContext.ImageDigest != null)
+            {
+                request.ImageDigest = cmdletContext.ImageDigest;
+            }
+            if (cmdletContext.S3Etag != null)
+            {
+                request.S3Etags = cmdletContext.S3Etag;
             }
             
             CmdletOutput output;
@@ -223,6 +257,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         {
             public System.String Application { get; set; }
             public System.String CurrentRevisionId { get; set; }
+            public System.String ImageDigest { get; set; }
+            public List<System.String> S3Etag { get; set; }
             public System.Func<Amazon.RoboMaker.Model.CreateRobotApplicationVersionResponse, NewROBORobotApplicationVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -72,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter CertificateWallet
         /// <summary>
         /// <para>
-        /// <para>The location of an imported Oracle Wallet certificate for use with SSL.</para>
+        /// <para>The location of an imported Oracle Wallet certificate for use with SSL. Provide the
+        /// name of a <code>.sso</code> file using the <code>fileb://</code> prefix. You can't
+        /// provide the certificate inline. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

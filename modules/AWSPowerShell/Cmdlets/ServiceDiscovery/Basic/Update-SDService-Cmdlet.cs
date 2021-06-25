@@ -46,9 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// If you omit an existing <code>HealthCheckCustomConfig</code> configuration from an
     /// <code>UpdateService</code> request, the configuration isn't deleted from the service.
     /// </para></li></ul><para>
-    /// When you update settings for a service, AWS Cloud Map also updates the corresponding
-    /// settings in all the records and health checks that were created by using the specified
-    /// service.
+    /// When you update settings for a service, Cloud Map also updates the corresponding settings
+    /// in all the records and health checks that were created by using the specified service.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SDService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

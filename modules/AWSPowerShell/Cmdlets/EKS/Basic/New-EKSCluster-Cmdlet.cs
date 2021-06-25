@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <para>
     /// The Amazon EKS control plane consists of control plane instances that run the Kubernetes
     /// software, such as <code>etcd</code> and the API server. The control plane runs in
-    /// an account managed by AWS, and the Kubernetes API is exposed via the Amazon EKS API
-    /// server endpoint. Each Amazon EKS cluster control plane is single-tenant and unique
-    /// and runs on its own set of Amazon EC2 instances.
+    /// an account managed by Amazon Web Services, and the Kubernetes API is exposed via the
+    /// Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is single-tenant
+    /// and unique and runs on its own set of Amazon EC2 instances.
     /// </para><para>
     /// The cluster control plane is provisioned across multiple Availability Zones and fronted
     /// by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic
@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// instances to the nodes (for example, to support <code>kubectl exec</code>, <code>logs</code>,
     /// and <code>proxy</code> data flows).
     /// </para><para>
-    /// Amazon EKS nodes run in your AWS account and connect to your cluster's control plane
-    /// via the Kubernetes API server endpoint and a certificate file that is created for
-    /// your cluster.
+    /// Amazon EKS nodes run in your Amazon Web Services account and connect to your cluster's
+    /// control plane via the Kubernetes API server endpoint and a certificate file that is
+    /// created for your cluster.
     /// </para><para>
     /// Cluster creation typically takes several minutes. After you create an Amazon EKS cluster,
     /// you must configure your Kubernetes tooling to communicate with the API server and
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes
-        /// control plane to make calls to AWS API operations on your behalf. For more information,
-        /// see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon
+        /// control plane to make calls to Amazon Web Services API operations on your behalf.
+        /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon
         /// EKS Service IAM Role</a> in the <i><i>Amazon EKS User Guide</i></i>.</para>
         /// </para>
         /// </summary>

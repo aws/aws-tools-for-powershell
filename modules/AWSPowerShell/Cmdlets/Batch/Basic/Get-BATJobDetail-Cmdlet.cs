@@ -28,7 +28,7 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Describes a list of AWS Batch jobs.
+    /// Describes a list of Batch jobs.
     /// </summary>
     [Cmdlet("Get", "BATJobDetail")]
     [OutputType("Amazon.Batch.Model.JobDetail")]

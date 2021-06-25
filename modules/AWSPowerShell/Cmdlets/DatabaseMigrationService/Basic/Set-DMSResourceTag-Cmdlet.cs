@@ -28,10 +28,10 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Adds metadata tags to an AWS DMS resource, including replication instance, endpoint,
-    /// security group, and migration task. These tags can also be used with cost allocation
-    /// reporting to track cost associated with DMS resources, or used in a Condition statement
-    /// in an IAM policy for DMS. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html"><code>Tag</code></a> data type description.
+    /// Adds metadata tags to an DMS resource, including replication instance, endpoint, security
+    /// group, and migration task. These tags can also be used with cost allocation reporting
+    /// to track cost associated with DMS resources, or used in a Condition statement in an
+    /// IAM policy for DMS. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html"><code>Tag</code></a> data type description.
     /// </summary>
     [Cmdlet("Set", "DMSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Identifies the AWS DMS resource to which tags should be added. The value for this
-        /// parameter is an Amazon Resource Name (ARN).</para><para>For AWS DMS, you can tag a replication instance, an endpoint, or a replication task.</para>
+        /// <para>Identifies the DMS resource to which tags should be added. The value for this parameter
+        /// is an Amazon Resource Name (ARN).</para><para>For DMS, you can tag a replication instance, an endpoint, or a replication task.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

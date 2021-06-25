@@ -90,7 +90,7 @@ $KNDR_Completers = {
         # Amazon.Kendra.DataSourceType
         "New-KNDRDataSource/Type"
         {
-            $v = "CONFLUENCE","CUSTOM","DATABASE","GOOGLEDRIVE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT","WEBCRAWLER"
+            $v = "CONFLUENCE","CUSTOM","DATABASE","GOOGLEDRIVE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT","WEBCRAWLER","WORKDOCS"
             break
         }
 
@@ -220,11 +220,13 @@ $KNDR_SelectMap = @{
                "Remove-KNDRDataSource",
                "Remove-KNDRFaq",
                "Remove-KNDRIndex",
+               "Remove-KNDRPrincipalMapping",
                "Remove-KNDRQuerySuggestionsBlockList",
                "Remove-KNDRThesaurus",
                "Get-KNDRDataSource",
                "Get-KNDRFaq",
                "Get-KNDRIndex",
+               "Get-KNDRPrincipalMapping",
                "Get-KNDRQuerySuggestionsBlockList",
                "Get-KNDRQuerySuggestionsConfig",
                "Get-KNDRThesaurus",
@@ -232,10 +234,12 @@ $KNDR_SelectMap = @{
                "Get-KNDRDataSourceList",
                "Get-KNDRDataSourceSyncJobList",
                "Get-KNDRFaqList",
+               "Get-KNDRGroupsOlderThanOrderingIdList",
                "Get-KNDRIndexList",
                "Get-KNDRQuerySuggestionsBlockListList",
                "Get-KNDRResourceTag",
                "Get-KNDRThesauriList",
+               "Write-KNDRPrincipalMapping",
                "Invoke-KNDRQuery",
                "Start-KNDRDataSourceSyncJob",
                "Stop-KNDRDataSourceSyncJob",

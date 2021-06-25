@@ -36,6 +36,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// If you specify multiple instances and the request fails (for example, because of a
     /// single incorrect instance ID), none of the instances are terminated.
     /// </para><para>
+    /// If you terminate multiple instances across multiple Availability Zones, and one or
+    /// more of the specified instances are enabled for termination protection, the request
+    /// fails with the following results:
+    /// </para><ul><li><para>
+    /// The specified instances that are in the same Availability Zone as the protected instance
+    /// are not terminated.
+    /// </para></li><li><para>
+    /// The specified instances that are in different Availability Zones, where no other specified
+    /// instances are protected, are successfully terminated.
+    /// </para></li></ul><para>
+    /// For example, say you have the following instances:
+    /// </para><ul><li><para>
+    /// Instance A: <code>us-east-1a</code>; Not protected
+    /// </para></li><li><para>
+    /// Instance B: <code>us-east-1a</code>; Not protected
+    /// </para></li><li><para>
+    /// Instance C: <code>us-east-1b</code>; Protected
+    /// </para></li><li><para>
+    /// Instance D: <code>us-east-1b</code>; not protected
+    /// </para></li></ul><para>
+    /// If you attempt to terminate all of these instances in the same request, the request
+    /// reports failure with the following results:
+    /// </para><ul><li><para>
+    /// Instance A and Instance B are successfully terminated because none of the specified
+    /// instances in <code>us-east-1a</code> are enabled for termination protection.
+    /// </para></li><li><para>
+    /// Instance C and Instance D fail to terminate because at least one of the specified
+    /// instances in <code>us-east-1b</code> (Instance C) is enabled for termination protection.
+    /// </para></li></ul><para>
     /// Terminated instances remain visible after termination (for approximately one hour).
     /// </para><para>
     /// By default, Amazon EC2 deletes all EBS volumes that were attached when the instance

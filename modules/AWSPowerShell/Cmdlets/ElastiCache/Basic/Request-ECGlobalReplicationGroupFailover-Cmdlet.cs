@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter PrimaryRegion
         /// <summary>
         /// <para>
-        /// <para>The AWS region of the primary cluster of the Global datastore</para>
+        /// <para>The Amazon region of the primary cluster of the Global datastore</para>
         /// </para>
         /// </summary>
         #if !MODULAR

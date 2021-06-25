@@ -28,13 +28,13 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Modifies the number of days to retain snapshots in the destination AWS Region after
-    /// they are copied from the source AWS Region. By default, this operation only changes
-    /// the retention period of copied automated snapshots. The retention periods for both
-    /// new and existing copied automated snapshots are updated with the new retention period.
-    /// You can set the manual option to change only the retention periods of copied manual
-    /// snapshots. If you set this option, only newly copied manual snapshots have the new
-    /// retention period.
+    /// Modifies the number of days to retain snapshots in the destination Amazon Web Services
+    /// Region after they are copied from the source Amazon Web Services Region. By default,
+    /// this operation only changes the retention period of copied automated snapshots. The
+    /// retention periods for both new and existing copied automated snapshots are updated
+    /// with the new retention period. You can set the manual option to change only the retention
+    /// periods of copied manual snapshots. If you set this option, only newly copied manual
+    /// snapshots have the new retention period.
     /// </summary>
     [Cmdlet("Edit", "RSSnapshotCopyRetentionPeriod", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.Cluster")]
@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the cluster for which you want to change the retention period
-        /// for either automated or manual snapshots that are copied to a destination AWS Region.</para><para>Constraints: Must be the valid name of an existing cluster that has cross-region snapshot
+        /// for either automated or manual snapshots that are copied to a destination Amazon Web
+        /// Services Region.</para><para>Constraints: Must be the valid name of an existing cluster that has cross-region snapshot
         /// copy enabled.</para>
         /// </para>
         /// </summary>
@@ -79,12 +80,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter RetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain automated snapshots in the destination AWS Region after
-        /// they are copied from the source AWS Region.</para><para>By default, this only changes the retention period of copied automated snapshots.
+        /// <para>The number of days to retain automated snapshots in the destination Amazon Web Services
+        /// Region after they are copied from the source Amazon Web Services Region.</para><para>By default, this only changes the retention period of copied automated snapshots.
         /// </para><para>If you decrease the retention period for automated snapshots that are copied to a
-        /// destination AWS Region, Amazon Redshift deletes any existing automated snapshots that
-        /// were copied to the destination AWS Region and that fall outside of the new retention
-        /// period.</para><para>Constraints: Must be at least 1 and no more than 35 for automated snapshots. </para><para>If you specify the <code>manual</code> option, only newly copied manual snapshots
+        /// destination Amazon Web Services Region, Amazon Redshift deletes any existing automated
+        /// snapshots that were copied to the destination Amazon Web Services Region and that
+        /// fall outside of the new retention period.</para><para>Constraints: Must be at least 1 and no more than 35 for automated snapshots. </para><para>If you specify the <code>manual</code> option, only newly copied manual snapshots
         /// will have the new retention period. </para><para>If you specify the value of -1 newly copied manual snapshots are retained indefinitely.</para><para>Constraints: The number of days must be either -1 or an integer between 1 and 3,653
         /// for manual snapshots.</para>
         /// </para>

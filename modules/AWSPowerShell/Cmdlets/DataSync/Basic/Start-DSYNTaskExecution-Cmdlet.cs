@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// | TRANSFERRING | VERIFYING | SUCCESS/FAILURE. 
     /// </para><para>
     /// For detailed information, see the Task Execution section in the Components and Terminology
-    /// topic in the <i>AWS DataSync User Guide</i>.
+    /// topic in the <i>DataSync User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "DSYNTaskExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,6 +49,20 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     )]
     public partial class StartDSYNTaskExecutionCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
+        
+        #region Parameter Exclude
+        /// <summary>
+        /// <para>
+        /// <para>A list of filter rules that determines which files to exclude from a task. The list
+        /// should contain a single filter string that consists of the patterns to exclude. The
+        /// patterns are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Excludes")]
+        public Amazon.DataSync.Model.FilterRule[] Exclude { get; set; }
+        #endregion
         
         #region Parameter Include
         /// <summary>
@@ -152,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 context.Select = (response, cmdlet) => this.TaskArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Exclude != null)
+            {
+                context.Exclude = new List<Amazon.DataSync.Model.FilterRule>(this.Exclude);
+            }
             if (this.Include != null)
             {
                 context.Include = new List<Amazon.DataSync.Model.FilterRule>(this.Include);
@@ -180,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             // create request
             var request = new Amazon.DataSync.Model.StartTaskExecutionRequest();
             
+            if (cmdletContext.Exclude != null)
+            {
+                request.Excludes = cmdletContext.Exclude;
+            }
             if (cmdletContext.Include != null)
             {
                 request.Includes = cmdletContext.Include;
@@ -253,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.DataSync.Model.FilterRule> Exclude { get; set; }
             public List<Amazon.DataSync.Model.FilterRule> Include { get; set; }
             public Amazon.DataSync.Model.Options OverrideOption { get; set; }
             public System.String TaskArn { get; set; }

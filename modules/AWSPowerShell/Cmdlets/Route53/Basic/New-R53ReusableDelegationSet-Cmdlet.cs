@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Creates a delegation set (a group of four name servers) that can be reused by multiple
-    /// hosted zones that were created by the same AWS account. 
+    /// hosted zones that were created by the same Amazon Web Services account. 
     /// 
     ///  
     /// <para>

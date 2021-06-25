@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Updates the configuration settings for publishing findings to AWS Security Hub.
+    /// Updates the configuration settings for publishing findings to Security Hub.
     /// </summary>
     [Cmdlet("Write", "MAC2FindingsPublicationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter SecurityHubConfiguration_PublishClassificationFinding
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to publish sensitive data findings to AWS Security Hub. If you set
-        /// this value to true, Amazon Macie automatically publishes all sensitive data findings
-        /// that weren't suppressed by a findings filter. The default value is false.</para>
+        /// <para>Specifies whether to publish sensitive data findings to Security Hub. If you set this
+        /// value to true, Amazon Macie automatically publishes all sensitive data findings that
+        /// weren't suppressed by a findings filter. The default value is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter SecurityHubConfiguration_PublishPolicyFinding
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to publish policy findings to AWS Security Hub. If you set this
-        /// value to true, Amazon Macie automatically publishes all new and updated policy findings
+        /// <para>Specifies whether to publish policy findings to Security Hub. If you set this value
+        /// to true, Amazon Macie automatically publishes all new and updated policy findings
         /// that weren't suppressed by a findings filter. The default value is true.</para>
         /// </para>
         /// </summary>

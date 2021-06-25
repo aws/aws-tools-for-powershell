@@ -45,11 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.NS
     /// You may optionally specify a KMS key in the StudioEncryptionConfiguration.
     /// </para><para>
     /// In Nimble Studio, resource names, descriptions, initialization scripts, and other
-    /// data you provide are always encrypted at rest using an AWS KMS key. By default, this
-    /// key is owned by AWS and managed on your behalf. You may provide your own AWS KMS key
-    /// when calling CreateStudio to encrypt this data using a key you own and manage.
+    /// data you provide are always encrypted at rest using an KMS key. By default, this key
+    /// is owned by Amazon Web Services and managed on your behalf. You may provide your own
+    /// KMS key when calling CreateStudio to encrypt this data using a key you own and manage.
     /// </para><para>
-    /// When providing an AWS KMS key during studio creation, Nimble Studio creates KMS grants
+    /// When providing an KMS key during studio creation, Nimble Studio creates KMS grants
     /// in your account to provide your studio user and admin roles access to these KMS keys.
     /// </para><para>
     /// If you delete this grant, the studio will no longer be accessible to your portal users.

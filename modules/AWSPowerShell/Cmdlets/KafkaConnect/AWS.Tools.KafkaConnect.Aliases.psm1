@@ -1,0 +1,3 @@
+﻿# KafkaConnect
+
+Export-ModuleMember -Alias *

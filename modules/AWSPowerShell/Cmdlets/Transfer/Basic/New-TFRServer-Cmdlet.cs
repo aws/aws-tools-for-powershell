@@ -178,6 +178,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String LoggingRole { get; set; }
         #endregion
         
+        #region Parameter WorkflowDetails_OnUpload
+        /// <summary>
+        /// <para>
+        /// <para>A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Transfer.Model.WorkflowDetail[] WorkflowDetails_OnUpload { get; set; }
+        #endregion
+        
         #region Parameter Protocol
         /// <summary>
         /// <para>
@@ -348,6 +358,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 context.Tag = new List<Amazon.Transfer.Model.Tag>(this.Tag);
             }
+            if (this.WorkflowDetails_OnUpload != null)
+            {
+                context.WorkflowDetails_OnUpload = new List<Amazon.Transfer.Model.WorkflowDetail>(this.WorkflowDetails_OnUpload);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -499,6 +513,25 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 request.Tags = cmdletContext.Tag;
             }
             
+             // populate WorkflowDetails
+            var requestWorkflowDetailsIsNull = true;
+            request.WorkflowDetails = new Amazon.Transfer.Model.WorkflowDetails();
+            List<Amazon.Transfer.Model.WorkflowDetail> requestWorkflowDetails_workflowDetails_OnUpload = null;
+            if (cmdletContext.WorkflowDetails_OnUpload != null)
+            {
+                requestWorkflowDetails_workflowDetails_OnUpload = cmdletContext.WorkflowDetails_OnUpload;
+            }
+            if (requestWorkflowDetails_workflowDetails_OnUpload != null)
+            {
+                request.WorkflowDetails.OnUpload = requestWorkflowDetails_workflowDetails_OnUpload;
+                requestWorkflowDetailsIsNull = false;
+            }
+             // determine if request.WorkflowDetails should be set to null
+            if (requestWorkflowDetailsIsNull)
+            {
+                request.WorkflowDetails = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -576,6 +609,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public List<System.String> Protocol { get; set; }
             public System.String SecurityPolicyName { get; set; }
             public List<Amazon.Transfer.Model.Tag> Tag { get; set; }
+            public List<Amazon.Transfer.Model.WorkflowDetail> WorkflowDetails_OnUpload { get; set; }
             public System.Func<Amazon.Transfer.Model.CreateServerResponse, NewTFRServerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ServerId;
         }

@@ -45,9 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para></li><li><para>
     /// Tag keys and values are case sensitive.
     /// </para></li><li><para>
-    /// Do not use the <code>aws:</code> prefix in your tag names or values because AWS reserves
-    /// it for AWS use. You can't edit or delete tag names or values with this prefix. Tags
-    /// with this prefix do not count against your tags per secret limit.
+    /// Do not use the <code>aws:</code> prefix in your tag names or values because Amazon
+    /// Web Services reserves it for Amazon Web Services use. You can't edit or delete tag
+    /// names or values with this prefix. Tags with this prefix do not count against your
+    /// tags per secret limit.
     /// </para></li><li><para>
     /// If you use your tagging schema across multiple services and resources, remember other
     /// services might have restrictions on allowed characters. Generally allowed characters:
@@ -115,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// and a <code>Value</code>.</para><para>This parameter to the API requires a JSON text string argument. For information on
         /// how to format a JSON parameter for the various command line tool environments, see
         /// <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
-        /// JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. For the AWS CLI, you can
-        /// also use the syntax: <code>--Tags Key="Key1",Value="Value1" Key="Key2",Value="Value2"[,…]</code></para>
+        /// JSON for Parameters</a> in the <i>CLI User Guide</i>. For the CLI, you can also use
+        /// the syntax: <code>--Tags Key="Key1",Value="Value1" Key="Key2",Value="Value2"[,…]</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Retrieves the service last accessed data report for AWS Organizations that was previously
+    /// Retrieves the service last accessed data report for Organizations that was previously
     /// generated using the <code><a>GenerateOrganizationsAccessReport</a></code> operation.
     /// This operation retrieves the status of your report job and the report contents.
     /// 

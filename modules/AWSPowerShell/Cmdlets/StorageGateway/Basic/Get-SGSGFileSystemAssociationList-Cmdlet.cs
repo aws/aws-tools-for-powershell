@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Gets a list of <code>FileSystemAssociationSummary</code> objects. Each object contains
-    /// a summary of a file system association. This operation is only supported for Amazon
-    /// FSx file gateways.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// a summary of a file system association. This operation is only supported for FSx File
+    /// Gateways.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SGSGFileSystemAssociationList")]
     [OutputType("Amazon.StorageGateway.Model.FileSystemAssociationSummary")]

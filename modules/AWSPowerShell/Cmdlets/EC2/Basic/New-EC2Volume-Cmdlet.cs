@@ -33,18 +33,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// You can create a new empty volume or restore a volume from an EBS snapshot. Any AWS
-    /// Marketplace product codes from the snapshot are propagated to the volume.
+    /// You can create a new empty volume or restore a volume from an EBS snapshot. Any Amazon
+    /// Web Services Marketplace product codes from the snapshot are propagated to the volume.
     /// </para><para>
     /// You can create encrypted volumes. Encrypted volumes must be attached to instances
     /// that support Amazon EBS encryption. Volumes that are created from encrypted snapshots
     /// are also automatically encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
     /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
-    /// You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
+    /// You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag
     /// your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Create
     /// an Amazon EBS volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -97,10 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>,
         /// and <code>io2</code> volumes, this represents the number of IOPS that are provisioned
         /// for the volume. For <code>gp2</code> volumes, this represents the baseline performance
-        /// of the volume and the rate at which the volume accumulates I/O credits for bursting.</para><para>The following are the supported values for each volume type:</para><ul><li><para><code>gp3</code>: 3,000-16,000 IOPS</para></li><li><para><code>io1</code>: 100-64,000 IOPS</para></li><li><para><code>io2</code>: 100-64,000 IOPS</para></li></ul><para>For <code>io1</code> and <code>io2</code> volumes, we guarantee 64,000 IOPS only for
-        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances
-        /// built on the Nitro System</a>. Other instance families guarantee performance up to
-        /// 32,000 IOPS.</para><para>This parameter is required for <code>io1</code> and <code>io2</code> volumes. The
+        /// of the volume and the rate at which the volume accumulates I/O credits for bursting.</para><para>The following are the supported values for each volume type:</para><ul><li><para><code>gp3</code>: 3,000-16,000 IOPS</para></li><li><para><code>io1</code>: 100-64,000 IOPS</para></li><li><para><code>io2</code>: 100-64,000 IOPS</para></li></ul><para><code>io1</code> and <code>io2</code> volumes support up to 64,000 IOPS only on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances
+        /// built on the Nitro System</a>. Other instance families support performance up to 32,000
+        /// IOPS.</para><para>This parameter is required for <code>io1</code> and <code>io2</code> volumes. The
         /// default for <code>gp3</code> volumes is 3,000 IOPS. This parameter is not supported
         /// for <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code>
         /// volumes.</para>
@@ -113,11 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK)
-        /// to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed
-        /// CMK for EBS is used. If <code>KmsKeyId</code> is specified, the encrypted state must
-        /// be <code>true</code>.</para><para>You can specify the CMK using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias,
-        /// or ARN that is not valid, the action can appear to complete, but eventually fails.</para>
+        /// <para>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
+        /// If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code>
+        /// is specified, the encrypted state must be <code>true</code>.</para><para>You can specify the KMS key using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify
+        /// an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually
+        /// fails.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,6 +204,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.VolumeType VolumeType { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure
+        /// Idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Volume'.
@@ -273,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter AvailabilityZone which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClientToken = this.ClientToken;
             context.Encrypted = this.Encrypted;
             context.Iops = this.Iops;
             context.KmsKeyId = this.KmsKeyId;
@@ -305,6 +317,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.Encrypted != null)
             {
@@ -408,6 +424,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AvailabilityZone { get; set; }
+            public System.String ClientToken { get; set; }
             public System.Boolean? Encrypted { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String KmsKeyId { get; set; }

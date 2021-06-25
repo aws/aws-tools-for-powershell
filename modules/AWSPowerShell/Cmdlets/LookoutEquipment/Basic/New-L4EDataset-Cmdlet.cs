@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter ServerSideKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt dataset
-        /// data by Amazon Lookout for Equipment. </para>
+        /// <para>Provides the identifier of the KMS key used to encrypt dataset data by Amazon Lookout
+        /// for Equipment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

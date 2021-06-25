@@ -32,8 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// 
     ///  
     /// <para>
-    /// A registry policy is used to specify permissions for another AWS account and is used
-    /// when configuring cross-account replication. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html">Registry
+    /// A registry policy is used to specify permissions for another Amazon Web Services account
+    /// and is used when configuring cross-account replication. For more information, see
+    /// <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html">Registry
     /// permissions</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
     /// </para>
     /// </summary>

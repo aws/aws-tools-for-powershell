@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
     /// Retrieves an array of managed rule groups that are available for you to use. This
-    /// list includes all Amazon Web Services Managed Rules rule groups and the Marketplace
-    /// managed rule groups that you're subscribed to.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// list includes all Amazon Web Services Managed Rules rule groups and all of the Amazon
+    /// Web Services Marketplace managed rule groups that you're subscribed to.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WAF2AvailableManagedRuleGroupList")]
     [OutputType("Amazon.WAFV2.Model.ManagedRuleGroupSummary")]

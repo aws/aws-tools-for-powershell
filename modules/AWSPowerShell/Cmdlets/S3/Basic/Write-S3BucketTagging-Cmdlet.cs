@@ -32,12 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// 
     ///  
     /// <para>
-    /// Use tags to organize your AWS bill to reflect your own cost structure. To do this,
-    /// sign up to get your AWS account bill with tag key values included. Then, to see the
-    /// cost of combined resources, organize your billing information according to resources
-    /// with the same tag key values. For example, you can tag several resources with a specific
-    /// application name, and then organize your billing information to see the total cost
-    /// of that application across several services. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost
+    /// Use tags to organize your Amazon Web Services bill to reflect your own cost structure.
+    /// To do this, sign up to get your Amazon Web Services account bill with tag key values
+    /// included. Then, to see the cost of combined resources, organize your billing information
+    /// according to resources with the same tag key values. For example, you can tag several
+    /// resources with a specific application name, and then organize your billing information
+    /// to see the total cost of that application across several services. For more information,
+    /// see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost
     /// Allocation and Tagging</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html">Using
     /// Cost Allocation in Amazon S3 Bucket Tags</a>.
     /// </para><note><para>
@@ -55,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Error code: <code>InvalidTagError</code></para><ul><li><para>
     /// Description: The tag provided was not a valid tag. This error can occur if the tag
     /// did not pass input validation. For information about tag restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined
-    /// Tag Restrictions</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html">AWS-Generated
-    /// Cost Allocation Tag Restrictions</a>.
+    /// Tag Restrictions</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html">Amazon
+    /// Web Services-Generated Cost Allocation Tag Restrictions</a>.
     /// </para></li></ul></li><li><para>
     /// Error code: <code>MalformedXMLError</code></para><ul><li><para>
     /// Description: The XML provided does not match the schema.

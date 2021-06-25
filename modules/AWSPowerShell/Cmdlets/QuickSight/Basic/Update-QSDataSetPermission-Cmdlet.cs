@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID.</para>
+        /// <para>The Amazon Web Services account ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The ID for the dataset whose permissions you want to update. This ID is unique per
-        /// AWS Region for each AWS account.</para>
+        /// Amazon Web Services Region; for each Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

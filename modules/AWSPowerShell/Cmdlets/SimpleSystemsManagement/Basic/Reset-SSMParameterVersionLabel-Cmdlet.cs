@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The parameter name of which you want to delete one or more labels.</para>
+        /// <para>The name of the parameter from which you want to delete one or more labels.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The specific version of the parameter which you want to delete one or more labels
-        /// from. If it is not present, the call will fail.</para>
+        /// from. If it isn't present, the call will fail.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

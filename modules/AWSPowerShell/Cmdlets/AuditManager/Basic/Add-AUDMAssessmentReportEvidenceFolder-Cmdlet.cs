@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Associates an evidence folder to the specified assessment report in AWS Audit Manager.
+    /// Associates an evidence folder to the specified assessment report in Audit Manager.
     /// </summary>
     [Cmdlet("Add", "AUDMAssessmentReportEvidenceFolder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

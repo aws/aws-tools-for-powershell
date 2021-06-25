@@ -28,8 +28,8 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Modifies the list of AWS Identity and Access Management (IAM) roles that can be used
-    /// by the cluster to access other AWS services.
+    /// Modifies the list of Identity and Access Management (IAM) roles that can be used by
+    /// the cluster to access other Amazon Web Services services.
     /// 
     ///  
     /// <para>

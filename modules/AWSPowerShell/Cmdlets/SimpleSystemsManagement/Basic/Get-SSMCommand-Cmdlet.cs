@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Lists the commands requested by users of the AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the commands requested by users of the Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMCommand")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Command")]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>(Optional) Lists commands issued against this instance ID.</para><note><para>You can't specify an instance ID in the same command that you specify <code>Status</code>
-        /// = <code>Pending</code>. This is because the command has not reached the instance yet.</para></note>
+        /// = <code>Pending</code>. This is because the command hasn't reached the instance yet.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -32,12 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// 
     ///  
     /// <para>
-    /// AWS DMS requires that your account have certain roles with appropriate permissions
-    /// before you can create a replication instance. For information on the required roles,
-    /// see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole">Creating
-    /// the IAM Roles to Use With the AWS CLI and AWS DMS API</a>. For information on the
-    /// required permissions, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions">IAM
-    /// Permissions Needed to Use AWS DMS</a>.
+    /// DMS requires that your account have certain roles with appropriate permissions before
+    /// you can create a replication instance. For information on the required roles, see
+    /// <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole">Creating
+    /// the IAM Roles to Use With the CLI and DMS API</a>. For information on the required
+    /// permissions, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions">IAM
+    /// Permissions Needed to Use DMS</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DMSReplicationInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The Availability Zone where the replication instance will be created. The default
-        /// value is a random, system-chosen Availability Zone in the endpoint's AWS Region, for
-        /// example: <code>us-east-1d</code></para>
+        /// value is a random, system-chosen Availability Zone in the endpoint's Amazon Web Services
+        /// Region, for example: <code>us-east-1d</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,9 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>An AWS KMS key identifier that is used to encrypt the data on the replication instance.</para><para>If you don't specify a value for the <code>KmsKeyId</code> parameter, then AWS DMS
-        /// uses your default encryption key.</para><para>AWS KMS creates the default encryption key for your AWS account. Your AWS account
-        /// has a different default encryption key for each AWS Region.</para>
+        /// <para>An KMS key identifier that is used to encrypt the data on the replication instance.</para><para>If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses
+        /// your default encryption key.</para><para>KMS creates the default encryption key for your Amazon Web Services account. Your
+        /// Amazon Web Services account has a different default encryption key for each Amazon
+        /// Web Services Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC).</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>Default: A 30-minute window selected at random from an 8-hour block of time per AWS
-        /// Region, occurring on a random day of the week.</para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
+        /// Time (UTC).</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>Default: A 30-minute window selected at random from an 8-hour block of time per Amazon
+        /// Web Services Region, occurring on a random day of the week.</para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// replication instance class. For example to specify the instance class dms.c4.large,
         /// set this parameter to <code>"dms.c4.large"</code>.</para><para>For more information on the settings and capacities for the available replication
         /// instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth">
-        /// Selecting the right AWS DMS replication instance for your migration</a>. </para>
+        /// Selecting the right DMS replication instance for your migration</a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -215,8 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive
         /// hyphens, and can only begin with a letter, such as <code>Example-App-ARN1</code>.
         /// For example, this value might result in the <code>EndpointArn</code> value <code>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</code>.
-        /// If you don't specify a <code>ResourceIdentifier</code> value, AWS DMS generates a
-        /// default identifier value for the end of <code>EndpointArn</code>.</para>
+        /// If you don't specify a <code>ResourceIdentifier</code> value, DMS generates a default
+        /// identifier value for the end of <code>EndpointArn</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

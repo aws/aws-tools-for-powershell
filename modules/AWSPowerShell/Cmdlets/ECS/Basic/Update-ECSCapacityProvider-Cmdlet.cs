@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group
         /// must have instance protection from scale-in actions enabled as well. For more information,
         /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance
-        /// Protection</a> in the <i>AWS Auto Scaling User Guide</i>.</para><para>When managed termination protection is disabled, your Amazon EC2 instances are not
+        /// Protection</a> in the <i>Auto Scaling User Guide</i>.</para><para>When managed termination protection is disabled, your Amazon EC2 instances are not
         /// protected from termination when the Auto Scaling group scales in.</para>
         /// </para>
         /// </summary>

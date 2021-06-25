@@ -123,14 +123,20 @@ $AIS_SelectCompleters = {
 }
 
 $AIS_SelectMap = @{
-    "Select"=@("New-AISEventIntegration",
+    "Select"=@("New-AISDataIntegration",
+               "New-AISEventIntegration",
+               "Remove-AISDataIntegration",
                "Remove-AISEventIntegration",
+               "Get-AISDataIntegration",
                "Get-AISEventIntegration",
+               "Get-AISDataIntegrationAssociationList",
+               "Get-AISDataIntegrationList",
                "Get-AISEventIntegrationAssociationList",
                "Get-AISEventIntegrationList",
                "Get-AISResourceTag",
                "Add-AISResourceTag",
                "Remove-AISResourceTag",
+               "Update-AISDataIntegration",
                "Update-AISEventIntegration")
 }
 

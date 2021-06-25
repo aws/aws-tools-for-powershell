@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Updates an AWS IoT SiteWise Monitor project.
+    /// Updates an IoT SiteWise Monitor project.
     /// </summary>
     [Cmdlet("Update", "IOTSWProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

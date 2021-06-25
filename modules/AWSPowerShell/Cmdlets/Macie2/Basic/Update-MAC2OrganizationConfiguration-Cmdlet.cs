@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Updates the Amazon Macie configuration settings for an AWS organization.
+    /// Updates the Amazon Macie configuration settings for an Amazon Web Services organization.
     /// </summary>
     [Cmdlet("Update", "MAC2OrganizationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <summary>
         /// <para>
         /// <para>Specifies whether to enable Amazon Macie automatically for each account, when the
-        /// account is added to the AWS organization.</para>
+        /// account is added to the Amazon Web Services organization.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

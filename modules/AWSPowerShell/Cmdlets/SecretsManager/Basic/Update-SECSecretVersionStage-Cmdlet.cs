@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// label to be added is already attached to another version, then it is moved--removed
     /// from the other version first and then attached to this one. For more information about
     /// staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
-    /// Labels</a> in the <i>AWS Secrets Manager User Guide</i>. 
+    /// Labels</a> in the <i>Amazon Web Services Secrets Manager User Guide</i>. 
     /// 
     ///  
     /// <para>

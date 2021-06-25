@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
     /// Lists the associations that were created between Resolver rules and VPCs using the
-    /// current AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// current Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53RResolverRuleAssociationList")]
     [OutputType("Amazon.Route53Resolver.Model.ResolverRuleAssociation")]

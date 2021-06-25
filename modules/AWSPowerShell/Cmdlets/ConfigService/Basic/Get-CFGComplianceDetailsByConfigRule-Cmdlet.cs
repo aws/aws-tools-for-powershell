@@ -28,9 +28,9 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns the evaluation results for the specified AWS Config rule. The results indicate
-    /// which AWS resources were evaluated by the rule, when each resource was last evaluated,
-    /// and whether each resource complies with the rule.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the evaluation results for the specified Config rule. The results indicate
+    /// which Amazon Web Services resources were evaluated by the rule, when each resource
+    /// was last evaluated, and whether each resource complies with the rule.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGComplianceDetailsByConfigRule")]
     [OutputType("Amazon.ConfigService.Model.EvaluationResult")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS Config rule for which you want compliance information.</para>
+        /// <para>The name of the Config rule for which you want compliance information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,8 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of evaluation results returned on each page. The default is 10.
-        /// You cannot specify a number greater than 100. If you specify 0, AWS Config uses the
-        /// default.</para>
+        /// You cannot specify a number greater than 100. If you specify 0, Config uses the default.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

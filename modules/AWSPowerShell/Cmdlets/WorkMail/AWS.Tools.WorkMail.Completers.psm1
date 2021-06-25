@@ -90,7 +90,8 @@ $WM_Completers = {
         # Amazon.WorkMail.MobileDeviceAccessRuleEffect
         {
             ($_ -eq "New-WMMobileDeviceAccessRule/Effect") -Or
-            ($_ -eq "Update-WMMobileDeviceAccessRule/Effect")
+            ($_ -eq "Update-WMMobileDeviceAccessRule/Effect") -Or
+            ($_ -eq "Write-WMMobileDeviceAccessOverride/Effect")
         }
         {
             $v = "ALLOW","DENY"
@@ -113,7 +114,7 @@ $WM_Completers = {
 }
 
 $WM_map = @{
-    "Effect"=@("New-WMMobileDeviceAccessRule","Update-WMMobileDeviceAccessRule","Write-WMAccessControlRule")
+    "Effect"=@("New-WMMobileDeviceAccessRule","Update-WMMobileDeviceAccessRule","Write-WMAccessControlRule","Write-WMMobileDeviceAccessOverride")
     "Type"=@("New-WMResource")
 }
 
@@ -180,6 +181,7 @@ $WM_SelectMap = @{
                "Remove-WMAlias",
                "Remove-WMGroup",
                "Remove-WMMailboxPermission",
+               "Remove-WMMobileDeviceAccessOverride",
                "Remove-WMMobileDeviceAccessRule",
                "Remove-WMOrganization",
                "Remove-WMResource",
@@ -197,12 +199,14 @@ $WM_SelectMap = @{
                "Get-WMDefaultRetentionPolicy",
                "Get-WMMailboxDetail",
                "Get-WMMobileDeviceAccessEffect",
+               "Get-WMMobileDeviceAccessOverride",
                "Get-WMAccessControlRuleList",
                "Get-WMAliasList",
                "Get-WMMemberList",
                "Get-WMGroupList",
                "Get-WMMailboxExportJobList",
                "Get-WMMailboxPermissionList",
+               "Get-WMMobileDeviceAccessOverrideList",
                "Get-WMMobileDeviceAccessRuleList",
                "Get-WMOrganizationList",
                "Get-WMDelegateList",
@@ -211,6 +215,7 @@ $WM_SelectMap = @{
                "Get-WMUserList",
                "Write-WMAccessControlRule",
                "Write-WMMailboxPermission",
+               "Write-WMMobileDeviceAccessOverride",
                "Write-WMRetentionPolicy",
                "Register-WMToWorkMail",
                "Reset-WMPassword",

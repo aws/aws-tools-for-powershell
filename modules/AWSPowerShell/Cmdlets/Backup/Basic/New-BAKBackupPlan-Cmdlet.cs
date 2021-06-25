@@ -29,13 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
     /// Creates a backup plan using a backup plan name and backup rules. A backup plan is
-    /// a document that contains information that AWS Backup uses to schedule tasks that create
+    /// a document that contains information that Backup uses to schedule tasks that create
     /// recovery points for resources.
     /// 
     ///  
     /// <para>
-    /// If you call <code>CreateBackupPlan</code> with a plan that already exists, an <code>AlreadyExistsException</code>
-    /// is returned.
+    /// If you call <code>CreateBackupPlan</code> with a plan that already exists, you receive
+    /// an <code>AlreadyExistsException</code> exception.
     /// </para>
     /// </summary>
     [Cmdlet("New", "BAKBackupPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Specifies a list of <code>BackupOptions</code> for each resource type. These settings
-        /// are only available for Windows VSS backup jobs.</para>
+        /// are only available for Windows Volume Shadow Copy Service (VSS) backup jobs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

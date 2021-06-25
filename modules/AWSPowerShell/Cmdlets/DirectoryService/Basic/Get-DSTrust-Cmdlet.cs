@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The Directory ID of the AWS directory that is a part of the requested trust relationship.</para>
+        /// <para>The Directory ID of the Amazon Web Services directory that is a part of the requested
+        /// trust relationship.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -153,7 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify
         /// <code>IMAGE_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle
         /// of EBS-backed AMIs. Specify <code>EVENT_BASED_POLICY </code> to create an event-based
-        /// policy that performs specific actions when a defined event occurs in your AWS account.</para><para>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</para>
+        /// policy that performs specific actions when a defined event occurs in your Amazon Web
+        /// Services account.</para><para>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <summary>
         /// <para>
         /// <para>The location of the resources to backup. If the source resources are located in an
-        /// AWS Region, specify <code>CLOUD</code>. If the source resources are located on an
-        /// AWS Outpost in your account, specify <code>OUTPOST</code>. </para><para>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
+        /// Amazon Web Services Region, specify <code>CLOUD</code>. If the source resources are
+        /// located on an Outpost in your account, specify <code>OUTPOST</code>. </para><para>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
         /// of the specified type with matching target tags across all of the Outposts in your
         /// account.</para>
         /// </para>
@@ -207,9 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter Parameters_SnapshotOwner
         /// <summary>
         /// <para>
-        /// <para>The IDs of the AWS accounts that can trigger policy by sharing snapshots with your
-        /// account. The policy only runs if one of the specified AWS accounts shares a snapshot
-        /// with your account.</para>
+        /// <para>The IDs of the Amazon Web Services accounts that can trigger policy by sharing snapshots
+        /// with your account. The policy only runs if one of the specified Amazon Web Services
+        /// accounts shares a snapshot with your account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter EventSource_Type
         /// <summary>
         /// <para>
-        /// <para>The source of the event. Currently only managed AWS CloudWatch Events rules are supported.</para>
+        /// <para>The source of the event. Currently only managed CloudWatch Events rules are supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

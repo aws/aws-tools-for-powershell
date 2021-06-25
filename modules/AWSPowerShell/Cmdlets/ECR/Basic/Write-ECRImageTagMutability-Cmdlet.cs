@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// <summary>
     /// Updates the image tag mutability settings for the specified repository. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html">Image
-    /// Tag Mutability</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
+    /// tag mutability</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
     /// </summary>
     [Cmdlet("Write", "ECRImageTagMutability", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.PutImageTagMutabilityResponse")]
@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry that contains the repository in which
-        /// to update the image tag mutability settings. If you do not specify a registry, the
-        /// default registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID associated with the registry that contains the
+        /// repository in which to update the image tag mutability settings. If you do not specify
+        /// a registry, the default registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

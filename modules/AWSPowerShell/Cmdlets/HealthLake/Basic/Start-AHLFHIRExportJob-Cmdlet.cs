@@ -84,15 +84,27 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public System.String JobName { get; set; }
         #endregion
         
-        #region Parameter OutputDataConfig_S3Uri
+        #region Parameter S3Configuration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The S3Uri is the user specified S3 location to which data will be exported from a
-        /// FHIR Data Store.</para>
+        /// <para> The KMS key ID used to access the S3 bucket. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String OutputDataConfig_S3Uri { get; set; }
+        [Alias("OutputDataConfig_S3Configuration_KmsKeyId")]
+        public System.String S3Configuration_KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter S3Configuration_S3Uri
+        /// <summary>
+        /// <para>
+        /// <para> The S3Uri is the user specified S3 location of the FHIR data to be imported into
+        /// Amazon HealthLake. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutputDataConfig_S3Configuration_S3Uri")]
+        public System.String S3Configuration_S3Uri { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -182,7 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             }
             #endif
             context.JobName = this.JobName;
-            context.OutputDataConfig_S3Uri = this.OutputDataConfig_S3Uri;
+            context.S3Configuration_KmsKeyId = this.S3Configuration_KmsKeyId;
+            context.S3Configuration_S3Uri = this.S3Configuration_S3Uri;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -219,14 +232,39 @@ namespace Amazon.PowerShell.Cmdlets.AHL
              // populate OutputDataConfig
             var requestOutputDataConfigIsNull = true;
             request.OutputDataConfig = new Amazon.HealthLake.Model.OutputDataConfig();
-            System.String requestOutputDataConfig_outputDataConfig_S3Uri = null;
-            if (cmdletContext.OutputDataConfig_S3Uri != null)
+            Amazon.HealthLake.Model.S3Configuration requestOutputDataConfig_outputDataConfig_S3Configuration = null;
+            
+             // populate S3Configuration
+            var requestOutputDataConfig_outputDataConfig_S3ConfigurationIsNull = true;
+            requestOutputDataConfig_outputDataConfig_S3Configuration = new Amazon.HealthLake.Model.S3Configuration();
+            System.String requestOutputDataConfig_outputDataConfig_S3Configuration_s3Configuration_KmsKeyId = null;
+            if (cmdletContext.S3Configuration_KmsKeyId != null)
             {
-                requestOutputDataConfig_outputDataConfig_S3Uri = cmdletContext.OutputDataConfig_S3Uri;
+                requestOutputDataConfig_outputDataConfig_S3Configuration_s3Configuration_KmsKeyId = cmdletContext.S3Configuration_KmsKeyId;
             }
-            if (requestOutputDataConfig_outputDataConfig_S3Uri != null)
+            if (requestOutputDataConfig_outputDataConfig_S3Configuration_s3Configuration_KmsKeyId != null)
             {
-                request.OutputDataConfig.S3Uri = requestOutputDataConfig_outputDataConfig_S3Uri;
+                requestOutputDataConfig_outputDataConfig_S3Configuration.KmsKeyId = requestOutputDataConfig_outputDataConfig_S3Configuration_s3Configuration_KmsKeyId;
+                requestOutputDataConfig_outputDataConfig_S3ConfigurationIsNull = false;
+            }
+            System.String requestOutputDataConfig_outputDataConfig_S3Configuration_s3Configuration_S3Uri = null;
+            if (cmdletContext.S3Configuration_S3Uri != null)
+            {
+                requestOutputDataConfig_outputDataConfig_S3Configuration_s3Configuration_S3Uri = cmdletContext.S3Configuration_S3Uri;
+            }
+            if (requestOutputDataConfig_outputDataConfig_S3Configuration_s3Configuration_S3Uri != null)
+            {
+                requestOutputDataConfig_outputDataConfig_S3Configuration.S3Uri = requestOutputDataConfig_outputDataConfig_S3Configuration_s3Configuration_S3Uri;
+                requestOutputDataConfig_outputDataConfig_S3ConfigurationIsNull = false;
+            }
+             // determine if requestOutputDataConfig_outputDataConfig_S3Configuration should be set to null
+            if (requestOutputDataConfig_outputDataConfig_S3ConfigurationIsNull)
+            {
+                requestOutputDataConfig_outputDataConfig_S3Configuration = null;
+            }
+            if (requestOutputDataConfig_outputDataConfig_S3Configuration != null)
+            {
+                request.OutputDataConfig.S3Configuration = requestOutputDataConfig_outputDataConfig_S3Configuration;
                 requestOutputDataConfigIsNull = false;
             }
              // determine if request.OutputDataConfig should be set to null
@@ -299,7 +337,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             public System.String DataAccessRoleArn { get; set; }
             public System.String DatastoreId { get; set; }
             public System.String JobName { get; set; }
-            public System.String OutputDataConfig_S3Uri { get; set; }
+            public System.String S3Configuration_KmsKeyId { get; set; }
+            public System.String S3Configuration_S3Uri { get; set; }
             public System.Func<Amazon.HealthLake.Model.StartFHIRExportJobResponse, StartAHLFHIRExportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

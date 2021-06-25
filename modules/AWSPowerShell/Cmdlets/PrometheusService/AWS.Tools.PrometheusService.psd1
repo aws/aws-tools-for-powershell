@@ -86,11 +86,23 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-PROMResourceTag', 
+        'Get-PROMAlertManagerDefinition', 
+        'Get-PROMResourceTag', 
+        'Get-PROMRuleGroupsNamespace', 
+        'Get-PROMRuleGroupsNamespaceList', 
         'Get-PROMWorkspace', 
         'Get-PROMWorkspaceList', 
+        'New-PROMAlertManagerDefinition', 
+        'New-PROMRuleGroupsNamespace', 
         'New-PROMWorkspace', 
+        'Remove-PROMAlertManagerDefinition', 
+        'Remove-PROMResourceTag', 
+        'Remove-PROMRuleGroupsNamespace', 
         'Remove-PROMWorkspace', 
-        'Update-PROMWorkspaceAlias')
+        'Update-PROMWorkspaceAlias', 
+        'Write-PROMAlertManagerDefinition', 
+        'Write-PROMRuleGroupsNamespace')
 
     # Variables to export from this module
     VariablesToExport = '*'

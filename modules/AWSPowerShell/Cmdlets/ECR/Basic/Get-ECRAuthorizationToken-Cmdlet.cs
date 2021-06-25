@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// <para>
     /// The <code>authorizationToken</code> returned is a base64 encoded string that can be
     /// decoded and used in a <code>docker login</code> command to authenticate to a registry.
-    /// The AWS CLI offers an <code>get-login-password</code> command that simplifies the
-    /// login process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">Registry
-    /// Authentication</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
+    /// The CLI offers an <code>get-login-password</code> command that simplifies the login
+    /// process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">Registry
+    /// authentication</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "ECRAuthorizationToken")]
@@ -54,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>A list of AWS account IDs that are associated with the registries for which to get
-        /// AuthorizationData objects. If you do not specify a registry, the default registry
-        /// is assumed.</para>
+        /// <para>A list of Amazon Web Services account IDs that are associated with the registries
+        /// for which to get AuthorizationData objects. If you do not specify a registry, the
+        /// default registry is assumed.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

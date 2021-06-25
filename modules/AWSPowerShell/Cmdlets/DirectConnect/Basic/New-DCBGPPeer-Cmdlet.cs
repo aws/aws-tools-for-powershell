@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     ///  
     /// <para>
     /// You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order
-    /// to access AWS resources that also use that address family.
+    /// to access Amazon Web Services resources that also use that address family.
     /// </para><para>
     /// If logical redundancy is not supported by the connection, interconnect, or LAG, the
     /// BGP peer cannot be in the same address family as an existing BGP peer on the virtual

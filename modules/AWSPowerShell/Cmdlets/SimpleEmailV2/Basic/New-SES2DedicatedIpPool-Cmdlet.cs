@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
     /// Create a new pool of dedicated IP addresses. A pool can include one or more dedicated
-    /// IP addresses that are associated with your AWS account. You can associate a pool with
-    /// a configuration set. When you send an email that uses that configuration set, the
-    /// message is sent from one of the addresses in the associated pool.
+    /// IP addresses that are associated with your Amazon Web Services account. You can associate
+    /// a pool with a configuration set. When you send an email that uses that configuration
+    /// set, the message is sent from one of the addresses in the associated pool.
     /// </summary>
     [Cmdlet("New", "SES2DedicatedIpPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

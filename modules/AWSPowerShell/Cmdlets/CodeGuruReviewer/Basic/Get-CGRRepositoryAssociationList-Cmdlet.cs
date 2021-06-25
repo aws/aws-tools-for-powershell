@@ -55,10 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Owner
         /// <summary>
         /// <para>
-        /// <para>List of owners to use as a filter. For AWS CodeCommit, it is the name of the CodeCommit
-        /// account that was used to associate the repository. For other repository source providers,
-        /// such as Bitbucket and GitHub Enterprise Server, this is name of the account that was
-        /// used to associate the repository. </para>
+        /// <para>List of owners to use as a filter. For Amazon Web Services CodeCommit, it is the name
+        /// of the CodeCommit account that was used to associate the repository. For other repository
+        /// source providers, such as Bitbucket and GitHub Enterprise Server, this is name of
+        /// the account that was used to associate the repository. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

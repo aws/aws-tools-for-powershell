@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the Outposts bucket.</para>
+        /// <para>The Amazon Web Services account ID of the Outposts bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

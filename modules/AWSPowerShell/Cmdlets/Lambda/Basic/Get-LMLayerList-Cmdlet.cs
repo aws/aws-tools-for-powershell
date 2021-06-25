@@ -28,11 +28,12 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-    /// Lambda layers</a> and shows information about the latest version of each. Specify
-    /// a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
+    /// Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html">Lambda
+    /// layers</a> and shows information about the latest version of each. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
     /// identifier</a> to list only layers that indicate that they're compatible with that
-    /// runtime.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// runtime. Specify a compatible architecture to include only layers that are compatible
+    /// with that <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction
+    /// set architecture</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMLayerList")]
     [OutputType("Amazon.Lambda.Model.LayersListItem")]
@@ -43,6 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public partial class GetLMLayerListCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter CompatibleArchitecture
+        /// <summary>
+        /// <para>
+        /// <para>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction
+        /// set architecture</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.Architecture")]
+        public Amazon.Lambda.Architecture CompatibleArchitecture { get; set; }
+        #endregion
         
         #region Parameter CompatibleRuntime
         /// <summary>
@@ -141,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.Select = (response, cmdlet) => this.CompatibleRuntime;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CompatibleArchitecture = this.CompatibleArchitecture;
             context.CompatibleRuntime = this.CompatibleRuntime;
             context.Marker = this.Marker;
             context.MaxItem = this.MaxItem;
@@ -174,6 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             // create request and set iteration invariants
             var request = new Amazon.Lambda.Model.ListLayersRequest();
             
+            if (cmdletContext.CompatibleArchitecture != null)
+            {
+                request.CompatibleArchitecture = cmdletContext.CompatibleArchitecture;
+            }
             if (cmdletContext.CompatibleRuntime != null)
             {
                 request.CompatibleRuntime = cmdletContext.CompatibleRuntime;
@@ -237,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             
             // create request and set iteration invariants
             var request = new Amazon.Lambda.Model.ListLayersRequest();
+            if (cmdletContext.CompatibleArchitecture != null)
+            {
+                request.CompatibleArchitecture = cmdletContext.CompatibleArchitecture;
+            }
             if (cmdletContext.CompatibleRuntime != null)
             {
                 request.CompatibleRuntime = cmdletContext.CompatibleRuntime;
@@ -360,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Lambda.Architecture CompatibleArchitecture { get; set; }
             public Amazon.Lambda.Runtime CompatibleRuntime { get; set; }
             public System.String Marker { get; set; }
             public int? MaxItem { get; set; }

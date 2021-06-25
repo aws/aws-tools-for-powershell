@@ -28,7 +28,7 @@ using Amazon.AppRunner.Model;
 namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
-    /// Return a list of operations that occurred on an AWS App Runner service.
+    /// Return a list of operations that occurred on an App Runner service.
     /// 
     ///  
     /// <para>

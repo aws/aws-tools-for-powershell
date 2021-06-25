@@ -43,11 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// must be deleted. To delete the service-linked role, you must first remove those resources
     /// from the linked service and then submit the deletion request again. Resources are
     /// specific to the service that is linked to the role. For more information about removing
-    /// resources from a service, see the <a href="http://docs.aws.amazon.com/">AWS documentation</a>
-    /// for your service.
+    /// resources from a service, see the <a href="http://docs.aws.amazon.com/">Amazon Web
+    /// Services documentation</a> for your service.
     /// </para><para>
     /// For more information about service-linked roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Roles
-    /// terms and concepts: AWS service-linked role</a> in the <i>IAM User Guide</i>.
+    /// terms and concepts: Amazon Web Services service-linked role</a> in the <i>IAM User
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMServiceLinkedRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

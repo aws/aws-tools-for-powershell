@@ -28,8 +28,8 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Obtains information about which SNS topics receive status messages from the specified
-    /// directory.
+    /// Obtains information about which Amazon SNS topics receive status messages from the
+    /// specified directory.
     /// 
     ///  
     /// <para>
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The Directory ID for which to get the list of associated SNS topics. If this member
-        /// is null, associations for all Directory IDs are returned.</para>
+        /// <para>The Directory ID for which to get the list of associated Amazon SNS topics. If this
+        /// member is null, associations for all Directory IDs are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter TopicName
         /// <summary>
         /// <para>
-        /// <para>A list of SNS topic names for which to obtain the information. If this member is null,
-        /// all associations for the specified Directory ID are returned.</para><para>An empty list results in an <code>InvalidParameterException</code> being thrown.</para>
+        /// <para>A list of Amazon SNS topic names for which to obtain the information. If this member
+        /// is null, all associations for the specified Directory ID are returned.</para><para>An empty list results in an <code>InvalidParameterException</code> being thrown.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

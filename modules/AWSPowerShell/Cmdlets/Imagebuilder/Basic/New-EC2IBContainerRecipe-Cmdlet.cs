@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DockerfileTemplateUri
         /// <summary>
         /// <para>
-        /// <para>The S3 URI for the Dockerfile that will be used to build your container image.</para>
+        /// <para>The Amazon S3 URI for the Dockerfile that will be used to build your container image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageOsVersionOverride
         /// <summary>
         /// <para>
-        /// <para>Specifies the operating system version for the source image.</para>
+        /// <para>Specifies the operating system version for the base image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ParentImage
         /// <summary>
         /// <para>
-        /// <para>The source image for the container recipe.</para>
+        /// <para>The base image for the container recipe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter PlatformOverride
         /// <summary>
         /// <para>
-        /// <para>Specifies the operating system platform when you use a custom source image.</para>
+        /// <para>Specifies the operating system platform when you use a custom base image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,7 +215,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SemanticVersion
         /// <summary>
         /// <para>
-        /// <para>The semantic version of the container recipe (&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;).</para>
+        /// <para>The semantic version of the container recipe. This version follows the semantic version
+        /// syntax.</para><note><para>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
+        /// You can assign values for the first three, and can filter on all of them.</para><para><b>Assignment:</b> For the first three nodes you can assign any positive integer
+        /// value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node.
+        /// Image Builder automatically assigns the build number to the fourth node.</para><para><b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements
+        /// for the nodes that you can assign. For example, you might choose a software version
+        /// pattern, such as 1.0.0, or a date, such as 2021.01.01.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

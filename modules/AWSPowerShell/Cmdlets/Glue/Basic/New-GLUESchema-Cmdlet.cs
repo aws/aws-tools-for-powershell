@@ -87,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DataFormat
         /// <summary>
         /// <para>
-        /// <para>The data format of the schema definition. Currently only <code>AVRO</code> is supported.</para>
+        /// <para>The data format of the schema definition. Currently <code>AVRO</code> and <code>JSON</code>
+        /// are supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -165,8 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>AWS tags that contain a key value pair and may be searched by console, command line,
-        /// or API. If specified, follows the AWS tags-on-create pattern.</para>
+        /// <para>Amazon Web Services tags that contain a key value pair and may be searched by console,
+        /// command line, or API. If specified, follows the Amazon Web Services tags-on-create
+        /// pattern.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

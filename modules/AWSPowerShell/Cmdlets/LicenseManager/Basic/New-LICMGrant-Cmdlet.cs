@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
     /// Creates a grant for the specified license. A grant shares the use of license entitlements
-    /// with specific AWS accounts.
+    /// with specific Amazon Web Services accounts.
     /// </summary>
     [Cmdlet("New", "LICMGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LicenseManager.Model.CreateGrantResponse")]

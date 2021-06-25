@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Frequency
         /// <summary>
         /// <para>
-        /// <para> The update to the frequency value at which subscribers will receive notifications.
-        /// </para>
+        /// <para>The update to the frequency value that subscribers receive notifications. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter MonitorArnList
         /// <summary>
         /// <para>
-        /// <para> A list of cost anomaly monitor ARNs. </para>
+        /// <para>A list of cost anomaly monitor ARNs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Subscriber
         /// <summary>
         /// <para>
-        /// <para> The update to the subscriber list. </para>
+        /// <para>The update to the subscriber list. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SubscriptionArn
         /// <summary>
         /// <para>
-        /// <para> A cost anomaly subscription Amazon Resource Name (ARN). </para>
+        /// <para>A cost anomaly subscription Amazon Resource Name (ARN). </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SubscriptionName
         /// <summary>
         /// <para>
-        /// <para> The subscription's new name. </para>
+        /// <para>The new name of the subscription. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Threshold
         /// <summary>
         /// <para>
-        /// <para> The update to the threshold value for receiving notifications. </para>
+        /// <para>The update to the threshold value for receiving notifications. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

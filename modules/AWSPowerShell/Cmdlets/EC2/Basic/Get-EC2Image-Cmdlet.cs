@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// The images available to you include public images, private images that you own, and
-    /// private images owned by other AWS accounts for which you have explicit launch permissions.
+    /// private images owned by other Amazon Web Services accounts for which you have explicit
+    /// launch permissions.
     /// </para><para>
     /// Recently deregistered images appear in the returned results for a short interval and
     /// then return empty results. After all instances that reference a deregistered AMI are
@@ -55,8 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ExecutableUser
         /// <summary>
         /// <para>
-        /// <para>Scopes the images by users with explicit launch permissions. Specify an AWS account
-        /// ID, <code>self</code> (the sender of the request), or <code>all</code> (public AMIs).</para>
+        /// <para>Scopes the images by users with explicit launch permissions. Specify an Amazon Web
+        /// Services account ID, <code>self</code> (the sender of the request), or <code>all</code>
+        /// (public AMIs).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -71,18 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <code>arm64</code>).</para></li><li><para><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
         /// whether the Amazon EBS volume is deleted on instance termination.</para></li><li><para><code>block-device-mapping.device-name</code> - The device name specified in the
         /// block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</para></li><li><para><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the
-        /// EBS volume.</para></li><li><para><code>block-device-mapping.volume-size</code> - The volume size of the EBS volume,
-        /// in GiB.</para></li><li><para><code>block-device-mapping.volume-type</code> - The volume type of the EBS volume
-        /// (<code>gp2</code> | <code>io1</code> | <code>io2</code> | <code>st1 </code>| <code>sc1</code>
-        /// | <code>standard</code>).</para></li><li><para><code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the
-        /// EBS volume is encrypted.</para></li><li><para><code>description</code> - The description of the image (provided during image creation).</para></li><li><para><code>ena-support</code> - A Boolean that indicates whether enhanced networking with
+        /// Amazon EBS volume.</para></li><li><para><code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS
+        /// volume, in GiB.</para></li><li><para><code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS
+        /// volume (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code>
+        /// | <code>sc1 </code>| <code>st1</code> | <code>standard</code>).</para></li><li><para><code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the
+        /// Amazon EBS volume is encrypted.</para></li><li><para><code>description</code> - The description of the image (provided during image creation).</para></li><li><para><code>ena-support</code> - A Boolean that indicates whether enhanced networking with
         /// ENA is enabled.</para></li><li><para><code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</para></li><li><para><code>image-id</code> - The ID of the image.</para></li><li><para><code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code>
         /// | <code>ramdisk</code>).</para></li><li><para><code>is-public</code> - A Boolean that indicates whether the image is public.</para></li><li><para><code>kernel-id</code> - The kernel ID.</para></li><li><para><code>manifest-location</code> - The location of the image manifest.</para></li><li><para><code>name</code> - The name of the AMI (provided during image creation).</para></li><li><para><code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>).
-        /// The valid aliases are defined in an Amazon-maintained list. This is not the AWS account
-        /// alias that can be set using the IAM console. We recommend that you use the <b>Owner</b>
-        /// request parameter instead of this filter.</para></li><li><para><code>owner-id</code> - The AWS account ID of the owner. We recommend that you use
-        /// the <b>Owner</b> request parameter instead of this filter.</para></li><li><para><code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</para></li><li><para><code>product-code</code> - The product code.</para></li><li><para><code>product-code.type</code> - The type of the product code (<code>devpay</code>
-        /// | <code>marketplace</code>).</para></li><li><para><code>ramdisk-id</code> - The RAM disk ID.</para></li><li><para><code>root-device-name</code> - The device name of the root device volume (for example,
+        /// The valid aliases are defined in an Amazon-maintained list. This is not the Amazon
+        /// Web Services account alias that can be set using the IAM console. We recommend that
+        /// you use the <b>Owner</b> request parameter instead of this filter.</para></li><li><para><code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend
+        /// that you use the <b>Owner</b> request parameter instead of this filter.</para></li><li><para><code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</para></li><li><para><code>product-code</code> - The product code.</para></li><li><para><code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</para></li><li><para><code>ramdisk-id</code> - The RAM disk ID.</para></li><li><para><code>root-device-name</code> - The device name of the root device volume (for example,
         /// <code>/dev/sda1</code>).</para></li><li><para><code>root-device-type</code> - The type of the root device volume (<code>ebs</code>
         /// | <code>instance-store</code>).</para></li><li><para><code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
         /// | <code>failed</code>).</para></li><li><para><code>state-reason-code</code> - The reason code for the state change.</para></li><li><para><code>state-reason-message</code> - The message for the state change.</para></li><li><para><code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced
@@ -128,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Scopes the results to images with the specified owners. You can specify a combination
-        /// of AWS account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
+        /// of Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
         /// If you omit this parameter, the results include all images for which you have launch
         /// permissions, regardless of ownership.</para>
         /// </para>

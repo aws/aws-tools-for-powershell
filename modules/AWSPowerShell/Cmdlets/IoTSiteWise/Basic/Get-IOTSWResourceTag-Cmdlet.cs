@@ -28,7 +28,7 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Retrieves the list of tags for an AWS IoT SiteWise resource.
+    /// Retrieves the list of tags for an IoT SiteWise resource.
     /// </summary>
     [Cmdlet("Get", "IOTSWResourceTag")]
     [OutputType("System.String")]
