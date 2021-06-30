@@ -265,6 +265,7 @@
                 <Param Name="S3ObjectVersion" Alias="FunctionCode_S3ObjectVersion;VersionId" ParameterSetName="FromS3Object" />
                 <Param Name="ZipFile" Alias="ZipFileContent;ZipContent" ParameterSetName="FromMemoryStream" Mandatory="true" />
                 <Param Name="Publish" NewName="PublishVersion" AutoApplyAlias="false" />
+                <Param Name="ImageUri" ParameterSetName="FromImage" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
