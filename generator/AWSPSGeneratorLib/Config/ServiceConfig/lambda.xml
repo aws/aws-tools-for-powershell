@@ -48,9 +48,10 @@
                 <Param Name="Code_S3Key" Alias="S3Key;FunctionCode_S3Key;Key" ParameterSetName="FromS3Object" Mandatory="true" />
                 <Param Name="Code_S3ObjectVersion" Alias="S3ObjectVersion;FunctionCode_S3ObjectVersion;VersionId" ParameterSetName="FromS3Object" />
                 <Param Name="Code_ZipFile" Alias="ZipFileContent;ZipContent" ParameterSetName="FromMemoryStream" Mandatory="true" />
-                <Param Name="Handler" Mandatory="true" />
+                <Param Name="Handler" ParameterSetName="FromS3Object;FromMemoryStream;FromZipFile" Mandatory="true" />
                 <Param Name="Role" Mandatory="true" />
                 <Param Name="Publish" NewName="PublishVersion" AutoApplyAlias="false" />
+                <Param Name="Code_ImageUri" ParameterSetName="FromImage" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
