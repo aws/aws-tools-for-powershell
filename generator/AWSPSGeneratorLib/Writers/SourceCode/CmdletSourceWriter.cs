@@ -714,6 +714,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         public static void WriteParamAttribute(IndentedTextWriter writer, OperationAnalyzer methodAnalysis, SimplePropertyInfo property, Param paramCustomization)
         {
             var paramAttrib = new List<string>();
+            var parameterSetNames = new List<string>();
 
             int paramPos = methodAnalysis.GetParameterPositionData(property.AnalyzedName);
 
@@ -731,7 +732,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
             if (!string.IsNullOrWhiteSpace(paramCustomization?.ParameterSetName))
             {
-                paramAttrib.Add($"ParameterSetName = \"{paramCustomization.ParameterSetName}\"");
+                parameterSetNames = paramCustomization.ParameterSetName.Split(';').Where(p => !string.IsNullOrWhiteSpace(p)).ToList();
             }
 
             if (paramCustomization?.Mandatory ?? false && property.DefaultValue == null)
@@ -742,10 +743,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             if (property.IsRecursivelyRequired && !(paramCustomization?.Mandatory ?? false) && property.DefaultValue == null)
             {
                 writer.WriteLine("#if !MODULAR");
-                writer.WriteLine($"[System.Management.Automation.Parameter({string.Join(", ", paramAttrib)})]");
+                WriteParamAttributeWithParameterSetNames(writer, paramAttrib, parameterSetNames);
                 writer.WriteLine("#else");
                 paramAttrib.Add("Mandatory = true");
-                writer.WriteLine($"[System.Management.Automation.Parameter({string.Join(", ", paramAttrib)})]");
+                WriteParamAttributeWithParameterSetNames(writer, paramAttrib, parameterSetNames);
                 if (property.PropertyType == typeof(string))
                 {
                     writer.WriteLine("[System.Management.Automation.AllowEmptyString]");
@@ -760,13 +761,31 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             }
             else
             {
-                writer.WriteLine($"[System.Management.Automation.Parameter({string.Join(", ", paramAttrib)})]");
+                WriteParamAttributeWithParameterSetNames(writer, paramAttrib, parameterSetNames);
             }
 
             var deprecationMessage = paramCustomization?.ReplacementObsoleteMessage ?? property.DeprecationMessage;
 
             if (property.IsDeprecated)
                 writer.WriteLine($"[System.ObsoleteAttribute({EscapeString(deprecationMessage)})]");
+        }
+
+        private static void WriteParamAttributeWithParameterSetNames(IndentedTextWriter writer, List<string> paramAttrib, List<string> parameterSetNames)
+        {
+            if (parameterSetNames == null || parameterSetNames.Count == 0)
+            {
+                writer.WriteLine($"[System.Management.Automation.Parameter({string.Join(", ", paramAttrib)})]");
+            }
+            else
+            {
+                foreach (string parameterSetName in parameterSetNames)
+                {
+                    string parameterSetNameValue = $"ParameterSetName = \"{parameterSetName}\"";
+                    paramAttrib.Add(parameterSetNameValue);
+                    writer.WriteLine($"[System.Management.Automation.Parameter({string.Join(", ", paramAttrib)})]");
+                    paramAttrib.RemoveAt(paramAttrib.Count - 1);
+                }
+            }
         }
 
         private static string EscapeString(string originalString)
