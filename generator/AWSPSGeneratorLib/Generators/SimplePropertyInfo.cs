@@ -213,6 +213,11 @@ namespace AWSPowerShellGenerator.Generators
         /// </summary>
         public bool IsStreamType { get; private set; }
 
+        /// <summary>
+        /// True if the type of the parameter/property is Amazon.Runtime.Document
+        /// </summary>
+        public bool IsDocumentType { get; private set; }
+
         public string DefaultValue { get; internal set; }
 
         private static ConcurrentDictionary<Tuple<Type, string>, string> PowershellDocumentationCache = new ConcurrentDictionary<Tuple<Type, string>, string>();
@@ -405,6 +410,7 @@ namespace AWSPowerShellGenerator.Generators
             DocumentationSource = documentationSource;
             IsMemoryStreamType = typeof(System.IO.MemoryStream).IsAssignableFrom(PropertyType);
             IsStreamType = typeof(System.IO.Stream).IsAssignableFrom(PropertyType);
+            IsDocumentType = PropertyType.FullName == "Amazon.Runtime.Documents.Document";
 
             UseParameterValueOnlyIfBound = IsNullableValueType(propertyInfo.PropertyType);
 
@@ -442,6 +448,9 @@ namespace AWSPowerShellGenerator.Generators
 
         private static bool IsNullableValueType(Type type)
         {
+            if (type == typeof(PSObject) || type.FullName == "Amazon.Runtime.Documents.Document")
+                return false;
+
             if (!type.IsValueType)
                 return false;
 

@@ -20,6 +20,7 @@ DocDeployment/**
 Include/**
 Packages/**
 
+**/.idea/**
 **/.vs/
 **/project.lock.json
 **/*.project.lock.json

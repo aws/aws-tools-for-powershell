@@ -30,6 +30,7 @@
     <Type>System.IO.MemoryStream</Type>
     <Type>System.Collections.Generic.List`1</Type>
     <Type>System.Collections.Generic.Dictionary`2</Type>
+    <Type>Amazon.Runtime.Documents.Document</Type>
   </TypesNotToFlatten>
 
   <MetadataParameters>

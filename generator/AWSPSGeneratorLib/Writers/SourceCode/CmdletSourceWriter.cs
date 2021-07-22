@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management.Automation;
 using System.Reflection;
 using System.Security;
 using System.Text;
@@ -1622,6 +1623,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         }
                         writer.WriteLine($"{variableName} = {streamVariableName};");
                     }
+                    else if (property.IsDocumentType)
+                    {
+                        writer.WriteLine($"{variableName} = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.{property.CmdletParameterName});");
+                    }
                     else
                     {
                         writer.WriteLine($"{variableName} = cmdletContext.{property.CmdletParameterName}{(property.PropertyType.IsValueType ? ".Value" : "")};");
@@ -1884,6 +1889,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             if (property.IsStreamType)
             {
                 return "object";
+            }
+
+            if (property.IsDocumentType)
+            {
+                return typeof(PSObject).FullName;
             }
             return property.PropertyTypeName;
         }
