@@ -233,7 +233,7 @@
   
     <Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
         <PropertyGroup>
-            <SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -Command "$(InternalBuildTools)/BuildScripts/Set-SignToolSignature.ps1" -Filter "*.ps1","*.psm1","*.psd1","*.ps1xml"</SigningScriptArgs>
+            <SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -Command "$(InternalBuildTools)/BuildScripts/Set-SignServiceSignature.ps1" -Filter "*.ps1","*.psm1","*.psd1","*.ps1xml"</SigningScriptArgs>
         </PropertyGroup>
 
         <Message Text="Authenticode signing module and script artifacts for Desktop edition" />
@@ -243,8 +243,7 @@
         <Exec LogStandardErrorAsError="true" Command="$(powershell) $(SigningScriptArgs) -Path $(NetCoreDeploymentArtifacts)" />
 
         <Message Text="Authenticode signing module and script artifacts for modular edition" />
-        <!-- TODO add a -Recurse option to Set-SignToolSignature.ps1 -->
-        <Exec LogStandardErrorAsError="true" Command="$(powershell) -ExecutionPolicy Unrestricted -NoProfile -Command foreach ($dir in (Get-ChildItem $(ModularDeploymentArtifacts) -Directory)) { $(InternalBuildTools)/BuildScripts/Set-SignToolSignature.ps1 -Filter '*.ps1','*.psm1','*.psd1','*.ps1xml' -Path $dir.FullName }" />
+        <Exec LogStandardErrorAsError="true" Command="$(powershell) $(SigningScriptArgs) -Path $(ModularDeploymentArtifacts) -Recurse" />
     </Target>
 
     <Target Name="keyscan" DependsOnTargets="build-tools" Condition="$(RunKeyScan) And Exists('$(InternalBuildTools)/references.targets')">
