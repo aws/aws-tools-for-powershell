@@ -182,7 +182,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHostedZoneLimit" OutputProperty="Count" Verb="Get" Noun="HostedZoneLimit" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetHostedZoneLimit" OutputProperty="Limit.Value" Verb="Get" Noun="HostedZoneLimit" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
