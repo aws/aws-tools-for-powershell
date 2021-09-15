@@ -163,6 +163,11 @@
         </ItemGroup>
         <Copy SourceFiles="@(SDKAssemblies)" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 
+        <ItemGroup>
+            <CRTAssemblies Include="$(SDKAssembliesFolder)/net45/aws-crt*.dll" />
+        </ItemGroup>
+        <Copy SourceFiles="@(CRTAssemblies)" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+
         <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShell.psd1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShell.TypeExtensions.ps1xml" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSAliases.ps1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
@@ -186,6 +191,11 @@
             <NetCoreSDKAssemblies Include="$(SDKAssembliesFolder)/netstandard2.0/AWSSDK.*.dll" />
         </ItemGroup>
         <Copy SourceFiles="@(NetCoreSDKAssemblies)" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+
+        <ItemGroup>
+            <CRTAssemblies Include="$(SDKAssembliesFolder)/netstandard2.0/aws-crt*.dll" />
+        </ItemGroup>
+        <Copy SourceFiles="@(CRTAssemblies)" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 
         <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShell.NetCore.psd1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShell.TypeExtensions.ps1xml" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>

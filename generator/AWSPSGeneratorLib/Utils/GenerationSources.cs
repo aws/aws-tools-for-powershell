@@ -40,6 +40,7 @@ namespace AWSPowerShellGenerator.Utils
         private const string AWSPowerShellNetCoreGuid = "cb0b9b96-f3f2-4eff-b7f4-cbe0a9203683";
         private const string AWSPowerShellGuid = "21f083f2-4c41-4b5d-88ec-7d24c9e88769";
         private readonly string[] AwsToolsCommonSdkAssemblies = { "AWSSDK.Core", "AWSSDK.SecurityToken" };
+        private readonly string[] AdditionalCrtAssemblies = { "aws-crt", "aws-crt-auth", "aws-crt-http", "AWSSDK.Extensions.CrtIntegration" };
 
         //All paths are relative to the AwsPowerShellModuleFolder
         public static readonly string AWSPowerShellModularSolutionFilename = Path.Combine("..", "..", "solutions", "ModularAWSPowerShell.sln");
@@ -224,7 +225,7 @@ namespace AWSPowerShellGenerator.Utils
                     "Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.",
                 compatiblePowerShellVersion: 5,
                 compatiblePowerShellMinorVersion: 1,
-                assemblies: AwsToolsCommonSdkAssemblies,
+                assemblies: AwsToolsCommonSdkAssemblies.Concat(AdditionalCrtAssemblies),
                 nestedModulesFiles: new string[] { "AWS.Tools.Common.Completers.psm1",
                                                    "AWS.Tools.Common.Aliases.psm1" },
                 fileList: new string[] { "AWS.Tools.Common.dll-Help.xml" },
@@ -258,7 +259,7 @@ namespace AWSPowerShellGenerator.Utils
                 compatiblePowerShellVersion: 3,
                 compatibleFrameworkVersion: netStandard ? "4.7.2" : "4.5",
                 netStandard: netStandard,
-                assemblies: Assemblies.Keys,
+                assemblies: Assemblies.Keys.ToArray().Concat(AdditionalCrtAssemblies),
                 typesToProcessFiles: new string[] { "AWSPowerShell.TypeExtensions.ps1xml" },
                 formatsToProcessFiles: new string[] { $"AWSPowerShell{(netStandard ? ".NetCore" : "")}.Format.ps1xml" },
                 nestedModulesFiles: new string[] { "AWSPowerShellCompleters.psm1",
