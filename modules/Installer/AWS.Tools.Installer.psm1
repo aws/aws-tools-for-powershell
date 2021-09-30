@@ -11,6 +11,7 @@ Microsoft.PowerShell.Core\Set-StrictMode -Version 3
 
 $script:AWSToolsSignatureAmazonSubject = 'CN="Amazon.com, Inc.", O="Amazon.com, Inc.", L=Seattle, S=Washington, C=US'
 $script:AWSToolsSignatureAwsSubject = 'CN="Amazon Web Services, Inc.", OU=AWS, O="Amazon Web Services, Inc.", L=Seattle, S=Washington, C=US'
+$script:AWSToolsSignatureSDKSubject = 'CN="Amazon Web Services, Inc.", OU=SDKs and Tools, O="Amazon Web Services, Inc.", L=Seattle, S=Washington, C=US'
 $script:AWSToolsTempRepoName = 'AWSToolsTemp'
 $script:CurrentMinAWSToolsInstallerVersion = '0.0.0.0'
 $script:ExpectedModuleCompanyName = 'aws-dotnet-sdk-team'
@@ -101,7 +102,7 @@ function Get-AWSToolsModule {
         if ($installedAwsToolsModules -and ($PSVersionTable.PSVersion.Major -lt 6 -or $IsWindows)) {
             $installedAwsToolsModules = $installedAwsToolsModules | Where-Object {
                 [Signature]$signature = Microsoft.PowerShell.Security\Get-AuthenticodeSignature -FilePath $_.Path
-                ($signature.Status -eq 'Valid' -or $SkipIfInvalidSignature) -and ($signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAmazonSubject -or $signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAwsSubject)
+                ($signature.Status -eq 'Valid' -or $SkipIfInvalidSignature) -and ($signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAmazonSubject -or $signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAwsSubject -or $signature.SignerCertificate.Subject.StartsWith($script:AWSToolsSignatureSDKSubject))
             }
         }
 
@@ -344,7 +345,7 @@ function Get-AWSToolsModuleDependenciesAndValidate {
 
             if ($PSVersionTable.PSVersion.Major -lt 6 -or $IsWindows) {
                 [Signature]$manifestSignature = Microsoft.PowerShell.Security\Get-AuthenticodeSignature -FilePath $temporaryManifestFilePath
-                if ($manifestSignature.Status -eq 'Valid' -and ($manifestSignature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAmazonSubject -or $manifestSignature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAwsSubject)) {
+                if ($manifestSignature.Status -eq 'Valid' -and ($manifestSignature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAmazonSubject -or $manifestSignature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAwsSubject -or $manifestSignature.SignerCertificate.Subject.StartsWith($script:AWSToolsSignatureSDKSubject))) {
                     Write-Verbose "[$($MyInvocation.MyCommand)] Manifest signature correctly validated"
                 }
                 else {
